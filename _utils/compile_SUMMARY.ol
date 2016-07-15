@@ -11,10 +11,10 @@ main
   foreach ( topic -> menu.topics ) {
     toLowerCase@StringUtils( topic.label )( topic.address );
     replaceAll@StringUtils( topic.address { .regex = " ", .replacement = "_" } )( topic.address );
-    summary += "* [" + topic.label + "](" + documentation + topic.address + "/README.md)\n";
+    summary += "* [" + topic.label + "](" + ROOT + topic.address + "/README.md)\n";
     foreach ( child -> topic.children ) {
       replaceAll@StringUtils( child.url { .regex = "\\.html", .replacement = ".md" } )( child.url );
-      summary += "\t* [" + child.label + "](" + documentation + child.url + ")\n"
+      summary += "\t* [" + child.label + "](" + ROOT + child.url + ")\n"
     }
   };
   writeFile@File( { .content = summary, .filename = SUMMARY } )()
