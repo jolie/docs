@@ -182,7 +182,7 @@ RequestResponse invocation from the JavaService to the embedder and a
 RequestResponse invocation from the embedder to the JavaService. The
 Java code follows:
 
-<pre class="code">
+<pre><code class="language-java code">
 package Jolie.example;
 import Jolie.net.CommChannel;
 import Jolie.net.CommMessage;
@@ -213,7 +213,7 @@ public class ThirdJavaService extends JavaService {
 		return v;
 	} 
 }
-</pre>
+</code></pre>
 
 In this example, the JavaService exhibits a OneWay operation `start` where it
 prints out the received message and then invokes the embedder by means of the
@@ -253,7 +253,7 @@ must be managed into the JavaService. Now, let us suppose to modify the
 `embedder.ol` by throwing the fault `MyFault` as response into the body
 of the `initialize` operation as it follows:
 
-<pre class="code">
+<pre><code class="language-jolie code">
 initialize( request )( response-initialize ){ 
 	scope( myScope ) {
 		install( MyFault => println@Console( "Fault raised!" )() );
@@ -261,30 +261,30 @@ initialize( request )( response-initialize ){
 		throw( MyFault ) 
 	}
 }
-</pre>
+</code></pre>
 
 Clearly, we have also to enhance the interface in order to declare that
 operation `initialize` can raise a fault as shown below:
 
-<pre class="code">
+<pre><code class="language-jolie code">
 interface EmbedderInterface { 
 	RequestResponse: initialize throws MyFault
 }
-</pre>
+</code></pre>
 
 After enabling fault raising into `embedder.ol`, we simply modify the
 JavaService by checking if the response is a fault or not by exploiting
 method `isFault` of the class `CommMessage` as we do in the following
 Java code:
 
-<pre class="code">
+<pre><code class="language-java code">
 CommMessage response = sendMessage( request ).recvResponseFor( request ); 
 if ( response.isFault() ) { 
 	System.out.println( response.fault().faultName() ); 
 } else { 
 	System.out.println( response.value().strValue() ); 
 }
-</pre>
+</code></pre>
 
 ## JavaService dynamic embedding
 
@@ -297,7 +297,7 @@ the `runtime`. In the following example we present the Java code of a
 JavaService which simply returns the value of a counter which is
 increased each time it is invoked on its method `start`.
 
-<pre class="code">
+<pre><code class="language-java code">
 public class FourthJavaService extends JavaService { 
 	private int counter; 
 
@@ -307,7 +307,7 @@ public class FourthJavaService extends JavaService {
 		v.setValue( counter ); return v; 
 	}
 }
-</pre>
+</code></pre>
 
 Now we dynamically embed this JavaService in the following service where for
 each session opened on operation `run` the JavaService is dynamically embedded

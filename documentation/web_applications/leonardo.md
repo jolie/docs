@@ -23,7 +23,7 @@ Then, pointing the browser at URL http://localhost:8000/index we can see the web
 
 Leonardo comes with a `config.iol` file, where are stored some constants for basic configuration. The content of the default `config.iol` file is shown below:
 
-<pre class="code">
+<pre><code class="language-jolie code">
 constants {
   	// The location for reaching the Leonardo web server
   	Location_Leonardo = "socket://localhost:8000/",
@@ -40,7 +40,7 @@ constants {
   	// Add the content of HTTP messages to their debug messages
   	DebugHttpContent = false
 }
-</pre>
+</code></pre>
 
 As aforementioned, `RootContentDirectory` points to the `www` folder, which is the default container of static pages, but it can also be overridden by declaring the new path as the first parameter in Leonardo execution command, e.g.,
 
@@ -67,7 +67,7 @@ We start by creating the Jolie code that serves the requests from the web interf
 
 Let us open `leonardo.ol` and add the following interface:
 
-<pre class="code">
+<pre><code class="language-jolie code">
 type LengthRequest: void{
 	.item[ 1, * ]: string
 }
@@ -76,20 +76,20 @@ interface ExampleInterface {
 	RequestResponse:
 		length( LengthRequest )( int )
 }
-</pre>
+</code></pre>
 
 Then we edit the main HTTP input port, `HTTPInput`, and add `ExampleInterface` to the published interfaces:
 
-<pre class="code">
+<pre><code class="language-jolie code">
 inputPort HTTPInput {
 	// other deployment code
 	Intefaces: HTTPInterface, ExampleInterface
 }
-</pre>
+</code></pre>
 
 Finally, we write the operation `length` by adding the code below to the input choice inside the `main` procedure in Leonardo:
 
-<pre class="code">
+<pre><code class="language-jolie code">
 main
 {
 	// existing code in Leonardo
@@ -102,7 +102,7 @@ main
 	}
 	]{ nullProcess }
 }
-</pre>
+</code></pre>
 
 The code above iterates over all the received items and sums their lengths.
 
@@ -176,7 +176,7 @@ Jolie supports Google Web Toolkit too by means of the `jolie-gwt.jar` library st
 
 The module comes with support classes for invoking operations published by the service of Leonardo which is serving the GWT application. In our case, we can easily call the `length` operation with the following code:
 
-<pre class="code">
+<pre><code class="language-java code">
 Value request = new Value();
 request.getNewChild( "item" ).setValue( "Hello" );
 request.getNewChild( "item" ).setValue( "World!" );
@@ -190,7 +190,7 @@ JolieService.Util.getInstance().call(
 			Window.alert( response.strValue() );
 		}
 	});
-</pre>
+</code></pre>
 
 ---
 ## Using Cookie

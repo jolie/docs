@@ -19,7 +19,7 @@ generated within Jolie and are considered strings, `base64` values are mapped in
 
 This is an example of a primitive XML-RPC server:
 
-<pre class="code">
+<pre><code class="language-jolie code">
 execution { concurrent }
 
 type SumRequest:void {
@@ -55,13 +55,13 @@ main
   }]{ nullProcess }
 }
 
-</pre>
+</code></pre>
 
 ---
 
 ## XML-RPC Parameters
 
-<pre class="code">
+<pre><code class="language-jolie code">
 type XmlRpcConfiguration:void {
 
 	/*
@@ -124,4 +124,4 @@ type XmlRpcConfiguration:void {
 	.requestCompression?:string
 }
 
-</pre>
+</code></pre>

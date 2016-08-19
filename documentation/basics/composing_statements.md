@@ -20,13 +20,13 @@ statementA ; statementB
 
 A valid use of the sequence operator is as it follows:
 
-<pre class="code">
+<pre><code class="language-jolie code">
 main
 {
 	print@Console( "Hello, " )();
 	println@Console( "world!" )()
 }
-</pre>
+</code></pre>
 
 <div class="panel panel-primary">
  	<div class="panel-heading">
@@ -35,13 +35,13 @@ main
   <div class="panel-body">
     <p>Keep in mind that, in Jolie, <code>;</code> is NOT the "end of statement" marker.</p>
 		For the sake of clarity, let us consider an INVALID use of the sequence operator:
-		<pre class="code">
+		<pre><code class="language-jolie code">
 main
 {
 	print@Console( "Hello, " )();
 	println@Console( "world!" )(); // <- it is not a "end of statement" marker
 }
-</pre>
+</code></pre>
 	</div>
 </div>
 
@@ -58,26 +58,26 @@ statementA | statementB
 
 It is a good practice to explicitly group statements when mixing sequence and parallel operators. Statements can be grouped by enclosing them within an unlabelled [scope](fault_handling/basics.html) represented by a pair curly brackets `{}`, like in the following example:
 
-<pre class="code">
+<pre><code class="language-jolie code">
 { statementA ; statementB ; ... ; statementF } 
 | 
 { statementG ; statementH }
-</pre>
+</code></pre>
 
 The parallel operator has always priority on the sequence one, thus the following code snippets are equivalent:
 
-<pre class="code">
+<pre><code class="language-jolie code">
 A ; B | C ; D
-</pre>
-<pre class="code">
+</code></pre>
+<pre><code class="language-jolie code">
 {A ; B} | {C ; D}
-</pre>
+</code></pre>
 
 Parallel execution is especially useful when dealing with multiple services, in order to minimize waiting times by managing multiple communications at once.
 
 In this example we concurrently retrieve information from both a forecast and a traffic service:
 
-<pre class="code">
+<pre><code class="language-jolie code">
 main
 {
 	getTemperature@Forecast( city )( temperature ) |
@@ -85,7 +85,7 @@ main
 
 	println@Console( "Request served!" )()
 }
-</pre>
+</code></pre>
 
 <div class="download"><a href="documentation/basics/code/composing_statements_parallel.zip">Click here to download the comprehensive code of the example above.</a></div>
 
@@ -108,7 +108,7 @@ The syntax of an input choice is:
 
 Let us consider the example below in which only `buy` or `sell` operation can execute, while the other is discarded.
 
-<pre class="code">
+<pre><code class="language-jolie code">
 [ buy( stock )( response ) {
 	buy@Exchange( stock )( response )
 } ] { println@Console( "Buy order forwarded" )() }
@@ -116,7 +116,7 @@ Let us consider the example below in which only `buy` or `sell` operation can ex
 [ sell( stock )( response ) {
 	sell@Exchange( stock )( response ) 
 }] { println@Console( "Sell order forwarded" )() }
-</pre>
+</code></pre>
 
 ---
 
@@ -136,12 +136,12 @@ Conditions can be used as expressions and their evaluation always returns a bool
 
 Some valid conditions are:
 
-<pre class="code">
+<pre><code class="language-jolie code">
 x == "Hi"
 !x
 25 <= x
 x >= 10
-</pre>
+</code></pre>
 
 The statement `if ... else` is used to write deterministic choices:
 
@@ -157,7 +157,7 @@ Note that the `else` block is optional (denoted by its enclosure in square brack
 
 Like in many other languages, the `if ... else` statement can be nested and combined:
 
-<pre class="code">
+<pre><code class="language-jolie code">
 if ( !is_int( a ) ) {
 	println@Console( "a is not an integer" )()
 } else if ( a > 50 ) {
@@ -167,7 +167,7 @@ if ( !is_int( a ) ) {
 } else {
 	println@Console( "a is minor than 50" )()
 }
-</pre>
+</code></pre>
 
 ---
 
@@ -191,8 +191,8 @@ for ( init-code-block, condition, post-cycle-code-block ) {
 
 Example:
 
-<pre class="code">
+<pre><code class="language-jolie code">
 for ( i = 0, i < 50, i++ ) {
 	println@Console( i )()
 }
-</pre>
+</code></pre>

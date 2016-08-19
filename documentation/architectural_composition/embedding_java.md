@@ -14,7 +14,7 @@ Each public method of the Java Service is an input operation invokable by the em
 
 Let us write our own `MyConsole` Java service that offers a `println` request-response operation. `println` is a public method of `MyConsole` class that takes a string as request and prints it at console.
 
-<pre class="code">
+<pre><code class="language-java code">
 package example;
 import jolie.runtime.JavaService;
 
@@ -24,7 +24,7 @@ public class MyConsole extends JavaService {
 		System.out.println( s );
 	}
 }
-</pre>
+</code></pre>
 
 Once stored in the `example` folder, as defined by the package statement, our Java class must be compiled into a .jar library and added to the folder "javaServices" in Jolie's installation directory:
 
@@ -34,7 +34,7 @@ Once stored in the `example` folder, as defined by the package statement, our Ja
 
 Once our service is visible by Jolie's interpreter, we can embed it in a Jolie service:
 
-<pre class="code">
+<pre><code class="language-jolie code">
 interface MyConsoleInterface {
 	OneWay: println( string )
 }
@@ -51,7 +51,7 @@ main
 {
 	println@MyConsole("Hello World!")
 }
-</pre>
+</code></pre>
 
 The embedder construct, at Line 10, declares the type keyword as `Java` and defines the path name of the Java Service as `package_name.class_name`.
 
@@ -63,7 +63,7 @@ To practice on request-response operations between embedded and embedder, let us
 
 We use the previously written Java Service `MyConsole` to print the result and show how to embed multiple classes.
 
-<pre class="code">
+<pre><code class="language-java code">
 package example;
 
 import jolie.runtime.JavaService;
@@ -80,13 +80,13 @@ public class Twice extends JavaService {
 		return result;
 	}
 }
-</pre>
+</code></pre>
 
 Note that both input and output types of each method, although meant to be primitive types `int` and `double`, must be declared as their wrapping classes, respectively `Interger` and `Double`.
 
 Following, the Jolie service embeds both MyConsole and Twice classes:
 
-<pre class="code">
+<pre><code class="language-jolie code">
 interface MyConsoleInterface {
 	OneWay:	println( string )
 }
@@ -118,7 +118,7 @@ main
 	println@MyConsole("intExample twice: " + intExample );
 	println@MyConsole("doubleExample twice: " + doubleExample )
 }
-</pre>
+</code></pre>
 
 ---
 
@@ -126,7 +126,7 @@ main
 
 A Java Service can also call an operation of the embedder by means of the `sendMessage` method of Jolie standard library. In this example we use the `Value` and `ValueVector` objects to handle a custom-typed message from a request-response operation invoked on the embedder.
 
-<pre class="code">
+<pre><code class="language-jolie code">
 include "console.iol"
 
 type Split_req: void{
@@ -171,11 +171,11 @@ main
 		split@Splitter( split_req )( split_res )
 	}
 }
-</pre>
+</code></pre>
 
 The embedder acts as a bridge between two embedded Java Services, `MyJavaExample` which requests a `split` operation and, `Splitter` which implements it.
 
-<pre class="code">
+<pre><code class="language-java code">
 package example;
 
 import jolie.runtime.JavaService;
@@ -213,7 +213,7 @@ public class JavaExample extends JavaService {
 		}
 	}
 }
-</pre>
+</code></pre>
 
 After `start()` is called by the embedder, our Java Service creates a `Value` object according to the `Split_req` type definition. At Line 20 it creates a request message, defining the invoked operation (`split`), the resource (`/`), and the message (`s_req`). Finally, at Line 21, it sends the request and waits for receiving a response.
 

@@ -1,6 +1,9 @@
 # Book build output
 _book
 
+# modules
+node_modules
+
 # eBook build output
 *.epub
 *.mobi

@@ -20,7 +20,7 @@ Let us open the interface file and delete its first line, which is the comment `
 
 Once we stored the Jolie interface of the web service, we can invoke its operations by including its interface definition file in a Jolie program:
 
-<pre class="code">
+<pre><code class="language-jolie code">
 include "myWS_jolieDocument.iol"
 include "string_utils.iol"
 include "xml_utils.iol"
@@ -39,7 +39,7 @@ main
 	valueToPrettyString@StringUtils( v )( s );
 	println@Console( s )()
 }
-</pre>
+</code></pre>
 
 Since the web service returns a message formed by a single tag `<GetWeatherResult>`, which contains an XML document as a string, we have to exploit the `xml_utils.iol` library to transform the string into a Jolie value by means of the operation `xmlToValue`.
 
@@ -49,7 +49,7 @@ Jolie services can be exposed as web services as well.
 
 Let us consider the following Jolie service which returns the address of a person identified by his name and his surname:
 
-<pre class="code">
+<pre><code class="language-jolie code">
 include "console.iol"
 include "string_utils.iol"
 
@@ -115,7 +115,7 @@ main {
 	}
 }
 
-</pre>
+</code></pre>
 
 To expose the port `MyServiceSOAPPort` as a web service, we exploit the tool [jolie2wsdl](web_services/jolie2wsdl.html) that generates the corresponding WSDL document to be attached to the file:
 
@@ -123,7 +123,7 @@ To expose the port `MyServiceSOAPPort` as a web service, we exploit the tool [jo
 
 Once generated the WSDL file is to be attached within the declaration of the inputPort:
 
-<pre class="code">
+<pre><code class="language-jolie code">
 inputPort MyServiceSOAPPort {
 	Location: "socket://localhost:8001"
 	Protocol: soap {
@@ -132,4 +132,4 @@ inputPort MyServiceSOAPPort {
 	}
 	Interfaces: MyServiceInterface
 }
-</pre>
+</code></pre>

@@ -8,7 +8,7 @@ Protocol name in Jolie port definition: `http`.
 
 ## HTTP Parameters
 
-<pre class="code">
+<pre><code class="language-jolie code">
 type HttpConfiguration:void {
 	/* General */
 
@@ -427,4 +427,4 @@ type HttpConfiguration:void {
 	.host?:string
 }
 
-</pre>
+</code></pre>

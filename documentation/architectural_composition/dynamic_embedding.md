@@ -8,7 +8,7 @@ Let us consider a specification of a service that allows clients to start a time
 
 First, we implement the specification as an embeddeder with a `concurrent` behaviour, statically embedding a counter service. A new instance of the embedder is created each time a new client invokes the `startNewCounter` operation, but still the embedded service `CounterService` is instanced only once and it is shared among all embedder's instances.
 
-<pre class="code">
+<pre><code class="language-jolie code">
 /*
 	part of deployment omitted
 */
@@ -35,7 +35,7 @@ main
 		sleep@Time( 1000 )()
 	}
 }
-</pre>
+</code></pre>
 
 Such an implementation is wrong because it diverges from the given specification.
 
@@ -43,7 +43,7 @@ Such an implementation is wrong because it diverges from the given specification
 
 We can achieve the right implementation by dynamically embedding the service.
 
-<pre class="code">
+<pre><code class="language-jolie code">
 include "runtime.iol"
 
 /*
@@ -73,7 +73,7 @@ main
 		sleep@Time( 1000 )()
 	}
 }
-</pre>
+</code></pre>
 
 In the example above we include the `runtime.iol` library (part of Jolie's standard library ) used for realizing the dynamic embedding. At Lines 15-17 we dynamically embed the service `CounterService` which creates a new instance of the embedded service each time a new instance of the embedder is started.
 

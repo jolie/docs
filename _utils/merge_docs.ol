@@ -2,6 +2,22 @@ include "console.iol"
 include "file.iol"
 include "string_utils.iol"
 
+init
+{
+  with( extensions ){
+    .ol = .iol = "jolie";
+    .js = .json = "javascript";
+    .java = "java";
+    .xml = "xml"
+  }
+}
+
+define getLanguage
+{
+  split@StringUtils( SUBFILE { .regex = "\\." } )( splitRes );
+  lang = extensions.( splitRes.result[ #splitRes.result-1 ] )
+}
+
 define replaceCode
 {
   scope ( r ){
@@ -18,9 +34,12 @@ define replaceCode
       page.regex = "<div class=\\\"code\\\" src=\\\"" + subfile + "\\\"></div>";
       install( FileNotFound => 
         println@Console( "Could not find " + SUBFILE + " passing to next item" )()
-        );
+      );
       readFile@File( { .filename = SUBFILE } )( page.replacement );
-      page.replacement = "<pre class=\"code\">\n" + page.replacement + "\n</pre>";
+      getLanguage;
+      page.replacement =  "<pre><code class=\"language-" + lang + " code\">\n" +
+                          page.replacement +  
+                          "\n</code></pre>";
       // println@Console( page.replacement )();
       replaceAll@StringUtils( page )( page );
       undef( page.replacement ); undef( page.regex );

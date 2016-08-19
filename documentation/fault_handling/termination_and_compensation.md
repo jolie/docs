@@ -35,7 +35,7 @@ Termination is a mechanism used to recover from errors: it is automatically trig
 
 Termination is triggered when a sibling activity raises a fault. Let us consider the following example:
 
-<pre class="code">
+<pre><code class="language-jolie code">
 include "console.iol"
 
 main
@@ -50,7 +50,7 @@ main
 	|
 	throw( FaultName )
 }
-</pre>
+</code></pre>
 
 In the example above, the code at Lines 7 and 13 is executed concurrently. In `scope_name`, a recovery handler is initially installed and then the code at Line 10 is executed. Besides, the parallel activity may raise the fault at line 13. In that case a termination is triggered and the corresponding recovery code is executed.
 
@@ -58,7 +58,7 @@ In the example above, the code at Lines 7 and 13 is executed concurrently. In `s
 
 When termination is triggered on a scope, the latter recursively terminates its own child scopes. Once all child scopes terminated, the recovery handler is executed. Let us consider the following example:
 
-<pre class="code">
+<pre><code class="language-jolie code">
 include "console.iol"
 include "time.iol"
 
@@ -87,7 +87,7 @@ main
 	|
 	throw( FaultName )
 }
-</pre>
+</code></pre>
 
 If the fault is raised when the scope `son` is still executing (we use Jolie's standard library `time` for making the child process wait for 500 milliseconds), a termination is triggered for scope `grandFather`, which triggers the termination of scope `father`. Finally, scope `father` triggers the termination of the scope `son`, which executes its own recovery handler. Inside-out, `son`'s, `father`'s and `grandFather`'s recovery handlers are executed subsequently.
 
@@ -95,7 +95,7 @@ If the fault is raised when the scope `son` is still executing (we use Jolie's s
 
 Recovery handlers can be dynamically updated like fault handlers. Example:
 
-<pre class="code">
+<pre><code class="language-jolie code">
 include "console.iol"
 include "time.iol"
 
@@ -119,7 +119,7 @@ main
 	sleep@Time( 3 )();
 	throw( FaultName )
 }
-</pre>
+</code></pre>
 
 When `a_fault` is raised, the lastly installed recovery handler is executed.
 
@@ -131,7 +131,7 @@ Besides replacing a recovery handlers, it may be useful to add code to the curre
 
 Let us consider the following example:
 
-<pre class="code">
+<pre><code class="language-jolie code">
 include "console.iol"
 include "time.iol"
 
@@ -167,7 +167,7 @@ main
 	sleep@Time( 3 )();
 	throw( FaultName )
 }
-</pre>
+</code></pre>
 
 `cH` can be composed within another handler by means of the sequence and parallel operators. The resulting handler will be the composition of the previous one (represented by `cH`) and the new one.
 
@@ -181,7 +181,7 @@ Compensation is invoked by means of the `comp` statement, which can be used only
 
 Let us consider the following example showing how to perform a compensation:
 
-<pre class="code">
+<pre><code class="language-jolie code">
 include "console.iol"
 
 main
@@ -203,7 +203,7 @@ main
 	};
 	throw( FaultName )
 }
-</pre>
+</code></pre>
 
 When scope `example_scope` ends with success, its current recovery handler is promoted to the parent scope (`main`) in order to be available for compensation. At the end of the program, the `a_fault` is raised, triggering the execution of its fault handler, defined at Lines 5-8. At Line 7 the compensation of scope `example_scope` is executed, triggering the execution of the corresponding recovery handler (in this case, the one at Line 15, including the first at Line 11).
 
@@ -213,7 +213,7 @@ When scope `example_scope` ends with success, its current recovery handler is pr
 
 Handlers need to use and manipulate variable data often and a handler may need to refer to the status of a variable at the moment of its installation. Hence, Jolie provides the `^` operator which "freezes" a variable state within an installed handler. `^` is applied to a variable by prefixing it, as shown in the example below.
 
-<pre class="code">
+<pre><code class="language-jolie code">
 include "console.iol"
 
 main
@@ -236,6 +236,6 @@ main
 	|
 	throw( FaultName )
 }
-</pre>
+</code></pre>
 
 The install primitive contained in the `while` loop updates the scope recovery handler at each iteration. In the process the value of the variable `i` is frozen within the handler.

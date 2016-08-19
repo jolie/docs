@@ -1,1 +1,9 @@
-/* CSS for website */
+.line-numbers-rows > span {
+    pointer-events: none;
+    display: block;
+    counter-increment: linenumber;
+    font-size: 14px;
+    line-height: 1.5em;
+    margin-top: 1px;
+    margin-bottom: 3px;
+}

@@ -77,25 +77,25 @@ where `URI` is a [URI](http://en.wikipedia.org/wiki/Uniform_resource_identifier)
 
 Let us consider the following input port declaration:
 
-<pre class="code">
+<pre><code class="language-jolie code">
 inputPort SumInput {
 	Location: "socket://localhost:8000/"
 	Protocol: soap
 	Interfaces: SumInterface
 }
-</pre>
+</code></pre>
 
 `SumInput` is an inputPort, and it exposes the operations defined in `SumInterface` interface. Such operations can be invoked at the TCP/IP socket `localhost`, on port `8000`, and by encoding messages with the `soap` protocol.
 
 Finally, let us define the `SumServ` outputPort, which is used to invoke the services exposed by `SumInput`:
 
-<pre class="code">
+<pre><code class="language-jolie code">
 outputPort SumServ {
 	Location: "socket://localhost:8000/"
 	Protocol: soap
 	Interfaces: SumInterface
 }
-</pre>
+</code></pre>
 
 ---
 
@@ -129,12 +129,12 @@ The syntax presented above includes the types of the messages of each operation.
 
 Let us declare the interface `SumInterface`:
 
-<pre class="code">
+<pre><code class="language-jolie code">
 interface SumInterface {
 	RequestResponse:
 		sum( SumRequest )( int )
 }
-</pre>
+</code></pre>
 
 `SumInterface` defines a request-response operation `sum`. `SumInterface` is the same used in the declaration of `SumInput` and `SumServ`, shown at the end of ports subsection.
 
@@ -164,9 +164,9 @@ type T: basic_type
 
 An example of such kind of data types is:
 
-<pre class="code">
+<pre><code class="language-jolie code">
 type Name: string
-</pre>
+</code></pre>
 
 ### Subtree data types
 
@@ -216,17 +216,17 @@ type T: basic_type {
 
 Let us consider the previous example, in which the operation `sum` defines the types of its request and response messages, respectively, as a complex type `SumRequest` and a native type `int`. Hence the declaration of `SumRequest` follows:
 
-<pre class="code">
+<pre><code class="language-jolie code">
 type SumRequest: void {
 	.number [ 2, * ]: int
 }
-</pre>
+</code></pre>
 
 The declaration above reads: `SumRequest` is a void-typed node, containing a subtree of nodes among which at least two must be `number`s of native type `int`. 
 
 A type declaration can be used in other type declarations, like in the example below:
 
-<pre class="code">
+<pre><code class="language-jolie code">
 type mySubType: void {
 	.value: double
 	.comment: string
@@ -243,7 +243,7 @@ type myType: string {
 
 	.z?: void { ? }
 }
-</pre>
+</code></pre>
 
 As we can read, nodes `x` and `y` are similarly typed, both are typed as `void` and have two subnodes: `value`, typed as `double`, and `comment`, typed as `string`.
 
@@ -260,7 +260,7 @@ Referring to the previous example, `x` requires the definition of both nodes `va
 
 Let us write an complete example of communication ports in Jolie:
 
-<pre class="code">
+<pre><code class="language-jolie code">
 //sumInterface.ol
 
 type SumRequest: void {
@@ -270,11 +270,11 @@ type SumRequest: void {
 interface SumInterface {
 	RequestResponse: sum( SumRequest )( int )
 }
-</pre>
+</code></pre>
 
 `SumInterface` declaration.
 
-<pre class="code">
+<pre><code class="language-jolie code">
 include "sumInterface.ol"
 
 inputPort SumInput {
@@ -282,7 +282,7 @@ inputPort SumInput {
 	Protocol: soap
 	Interfaces: SumInterface
 }
-</pre>
+</code></pre>
 
 `SumInput` port declaration.
 
@@ -330,7 +330,7 @@ In Jolie, whenever a message is sent or received through a port, its type is che
 
 The `TypeMismatch` fault can be handled by exploiting the [fault handling](fault_handling/basics.html), as shown in the following example:
 
-<pre class="code">
+<pre><code class="language-jolie code">
 scope ( myScope ) 
 {
 	install( 
@@ -338,7 +338,7 @@ scope ( myScope )
 	);
 	// code
 }
-</pre>
+</code></pre>
 
 ### Type mismatching in one-way operations
 
@@ -402,7 +402,7 @@ Let us consider the following scenario for a comprehensive example on communicat
 
 `PercentInterface` defines the `percent` request-response operation. Both request and response messages are typed.
 
-<pre class="code">
+<pre><code class="language-jolie code">
 //percentInterface.iol
 
 type percent_request: void {
@@ -417,11 +417,11 @@ type percent_response: void {
 interface PercentInterface {
 	RequestResponse: percent( percent_request )( percent_response )
 }
-</pre>
+</code></pre>
 
 The client declares the `outputPort` to communicate with the server and invokes the `percent` operation.
 
-<pre class="code">
+<pre><code class="language-jolie code">
 //Client.ol
 
 include "console.iol"
@@ -453,11 +453,11 @@ main
 	percent@PercService( request )( response );
 	println@Console( "n"+"Percentage value: "+response.percent_value )()
 }
-</pre>
+</code></pre>
 
 The server declares the corresponding `inputPort` to exposes the `percent` service and implements its behaviour.
 
-<pre class="code">
+<pre><code class="language-jolie code">
 //Server.ol
 
 include "console.iol"
@@ -479,7 +479,7 @@ main
 		response.percent_value = double( request.part )/request.total
 	}
 }
-</pre>
+</code></pre>
 
 The programs can be downloaded from the link below:
 

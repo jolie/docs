@@ -14,7 +14,7 @@ The definition of a BTL2CAP location in Jolie is in the form `btl2cap://hostname
 - `UUID` is the universally unique identifier that identifies the bluetooth medium service. UUIDs are 128-bit unsigned integers guaranteed to be unique across all time and space. In BTL2CAP location specification the UUID is defined by a 32 characters hexadecimal digit string, e.g., `3B9FA89520078C303355AAA694238F07`.
 - `param1=val1` is a bluetooth-specific parameter assignation. For a comprehensive list of the parameters refer to the following list.
 
-<pre class="code">
+<pre><code class="language-jolie code">
 type BTL2CAPParameters:void {
 	/*
 	* Defines a "friendly" name that can be used to
@@ -74,4 +74,4 @@ type BTL2CAPParameters:void {
 	.transmitmtu?: string
 }
 
-</pre>
+</code></pre>

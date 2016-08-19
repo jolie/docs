@@ -4,7 +4,7 @@ Let us consider the *twice* service example given in [Behaviour and Deployment](
 
 First, we add the following input port to allow local communications:
 
-<pre class="code">
+<pre><code class="language-jolie code">
 include "twiceInterface.iol"
  
 inputPort LocalIn {
@@ -18,11 +18,11 @@ main
         result = number * 2
     }
 }
-</pre>
+</code></pre>
 
 Afterwards, we can write a modified version of the client program which embeds the twice service and calls it using an output port bound by embedding. We assume that the embedded service is stored in `twice_service.ol`.
 
-<pre class="code">
+<pre><code class="language-jolie code">
 include "twiceInterface.iol"
 include "console.iol"
 
@@ -41,6 +41,6 @@ main
 }
 
 
-</pre>
+</code></pre>
 
 When embedding a Jolie service, the path URL must point to a file containing a Jolie program (provided as source code or in binary form).

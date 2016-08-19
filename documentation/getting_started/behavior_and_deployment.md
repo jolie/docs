@@ -18,26 +18,26 @@ Our example is a client-server scenario in which:
 
 ### Server
 
-<pre class="code">
+<pre><code class="language-jolie code">
 main 
 {
 	twice( number )( response )	{
 		response = number * 2
 	}
 }
-</pre>
+</code></pre>
 
 The server's behaviour starts with an input on operation `twice`, storing the received message in variable `number`. Thereafter, it stores in variable `response` the value of `number` multiplied by 2. Finally, `response` value is sent back to the initial invoker of `twice`.
 
 ### Client
 
-<pre class="code">
+<pre><code class="language-jolie code">
 main 
 {
 	twice@TwiceService( 5 )( response );
 	println@Console( response )
 }
-</pre>
+</code></pre>
 
 Complementary to the server's behaviour, the client's behaviour consists in invoking the operation `twice` exposed by the server, passing the number 5 as the invocation value. After sending the request to the server, the operation will wait for a response, storing it in the variable `response`. Finally, the result is printed on screen (Line 4).
 For a thorough explanation of the usage of operations, see section [Communication Ports](basics/communication_ports.html).
@@ -56,17 +56,17 @@ Finally, a port must specify the interface that is accessible through it. For a 
 
 In our example the `TwiceInterface` interface declares the operation `twice` as a request-response operation. A request-response operation receives a request and sends back a response. Both input and output messages of `twice` are typed as `int` (denoting integers):
 
-<pre class="code">
+<pre><code class="language-jolie code">
 interface TwiceInterface { 
 	RequestResponse: twice( int )( int ) 
 }
-</pre>
+</code></pre>
 
 Finally below follow both server's and client's deployment code.
 
 ### Server
 
-<pre class="code">
+<pre><code class="language-jolie code">
 include "twiceInterface.iol"
 
 inputPort TwiceService {
@@ -74,11 +74,11 @@ inputPort TwiceService {
 	Protocol: sodep
 	Interfaces: TwiceInterface
 }
-</pre>
+</code></pre>
 
 ### Client
 
-<pre class="code">
+<pre><code class="language-jolie code">
 include "console.iol"
 include "twiceInterface.iol"
 
@@ -87,7 +87,7 @@ outputPort TwiceService {
 	Protocol: sodep
 	Interfaces: TwiceInterface
 }
-</pre>
+</code></pre>
 
 The two declarations are very similar: they share the same of location, protocol, and interface.
 
@@ -95,9 +95,9 @@ The two declarations are very similar: they share the same of location, protocol
 
 We can now give the complete programs for client and server by putting together their respective deployment and behaviour parts.
 
-## Server\'s code
+## Server's code
 
-<pre class="code">
+<pre><code class="language-jolie code">
 include "twiceInterface.iol"
 
 inputPort TwiceService {
@@ -112,11 +112,11 @@ main
 		result = number * 2
 	}
 }
-</pre>
+</code></pre>
 
-## Client\'s code
+## Client's code
 
-<pre class="code">
+<pre><code class="language-jolie code">
 include "console.iol"
 include "twiceInterface.iol"
 
@@ -131,7 +131,7 @@ main
 	twice@TwiceService( 5 )( response );
 	println@Console( response )()
 }
-</pre>
+</code></pre>
 
 The two programs can be downloaded from the link below:
 

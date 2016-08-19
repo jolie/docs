@@ -16,7 +16,7 @@ Managing sessions identifiers through `csets` is simple.
 
 Let us consider an example in which a server prints at console concurrent messages coming from different clients. Each time a client logs in, the server instantiates a unique `sid`, by means of the `new` function. To request any other operation (`print` or `logout`), each client must send its own `sid` in order to identify its session with the server.
 
-<pre class="code">
+<pre><code class="language-jolie code">
 //interface.iol
 
 type LoginRequest: void {
@@ -32,11 +32,11 @@ interface PrintInterface {
 	RequestResponse: login(LoginRequest)(OpMessage)
 	OneWay: print(OpMessage), logout(OpMessage)
 }
-</pre>
+</code></pre>
 
 The interface file contains the declaration of operations and data types. Since the `sid` subtype (`OpMessage.sid`) will be used as a variable of the correlation set, it is defined as a non-optional subtype (defaulted to `[1,1]`) and must be present in any message sent and received by all correlated operations. 
 
-<pre class="code">
+<pre><code class="language-jolie code">
 //server.ol
 
 cset {
@@ -51,7 +51,7 @@ main
 		// code 
 	}
 }
-</pre>
+</code></pre>
 
 At Lines 3-5 we declare the server's correlation set. `cset` is the scope containing correlation variable declarations. A correlation variable declaration links a list of aliases. A correlation alias is a path (using the same syntax for variable paths) starting with a message type name, indicating where the value for comparing the correlation variable can be retrieved within the message.
 
@@ -61,7 +61,7 @@ At Line 11, the `csets` prefix is used to assign a value to the correlation vari
 
 Jolie provides the primitive `new` which returns a *fresh* value to a correlation variable. `new` guarantees to return a value never returned by one of its previous calls.
 
-<pre class="code">
+<pre><code class="language-jolie code">
 //client.ol
 
 main
@@ -74,7 +74,7 @@ main
 	// else he wants to logout
 		logout@PrintService( opMessage )
 }
-</pre>
+</code></pre>
 
 Finally, at Line 6, the client assigns the `sid` value to its variable `opMessage.sid`. It will be used in any other message sent to the server to correlate client's messages to its session on the server.
 
@@ -92,7 +92,7 @@ Let us consider the following scenario: a chat server allows its users to log in
 
 Such a scenario can be modelled by means of four message type definitions (one for each operation), as shown in the snippet below:
 
-<pre class="code">
+<pre><code class="language-jolie code">
 // inteface.ol
 
 type LoginType: void {
@@ -129,7 +129,7 @@ cset {
 		 MessageType.sid
 		 LogType.sid
 }
-</pre>
+</code></pre>
 
 At Line 29 the correlation variable `sid` is linked to aliases `SubscriptionType.sid`, `MessageType.sid`, `LogType.sid`. Each time the server will receive a correlated-operation request, it will correlate any client to its corresponding session by checking the aliased value of `sid`.
 
@@ -139,7 +139,7 @@ At Line 29 the correlation variable `sid` is linked to aliases `SubscriptionType
 
 More than one correlation variable can be used in order to identify a session. Let us consider a correlation set composed by two correlation variables: `studentId` and `examId`.
 
-<pre class="code">
+<pre><code class="language-jolie code">
 //interface.iol
 
 include "types/Binding.iol"
@@ -204,8 +204,8 @@ interface ExamInterface{
 	RequestResponse:	
 		getExams( string )( Exams )
 }
-</pre>
-<pre class="code">
+</code></pre>
+<pre><code class="language-jolie code">
 // server.ol
 
 include "interface.iol"
@@ -256,7 +256,7 @@ main
 	}
 }
 
-</pre>
+</code></pre>
 
 In the example above, each time the operation `openExam` is invoked, a new session is instantiated and the exam is added in the list of the available exams of a student, identified by his studentId (Line 19). Then the process waits for the student to join and take part in the exam. After join, the exam starts and it is removed from available exams. Each message exchanged between the Exam service, the Professor and the Student contains both studentId and examId, used as correlation variables. 
 
@@ -277,7 +277,7 @@ We report an example of a chat service supporting the management of chat rooms. 
 
 When a client requests the creation of a chat room, the service checks that no other room with the same name exists. Then, it sends an *administration token* back to the invoker. Any client can publish messages in an open chat room. The initial creator can close the chat room at any point by using the administration token.
 
-<pre class="code">
+<pre><code class="language-jolie code">
 // chat.iol
 
 type CreateRoomRequest:void {
@@ -300,8 +300,8 @@ OneWay: publish(SendMessage),
 		close(CloseRoomMessage)
 RequestResponse: create(CreateRoomRequest)(string)	
 }
-</pre>
-<pre class="code">
+</code></pre>
+<pre><code class="language-jolie code">
 // server.iol
 include "chat.iol"
 include "console.iol"
@@ -339,7 +339,7 @@ main {
 		}
 	}
 }
-</pre>
+</code></pre>
 
 Two csets are defined, one for chat-management operations and the other for publishing messages.
 

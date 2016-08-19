@@ -45,7 +45,7 @@ scope( scope_name )
 
 A fault which is not caught within a scope, is automatically re-thrown to the parent scope. In the following example, a simple service asks the user to insert a number, if the number does not correspond to the `secret` one, a fault is raised.
 
-<pre class="code">
+<pre><code class="language-jolie code">
 include "ui/ui.iol"
 include "ui/swing_ui.iol"
 include "console.iol"
@@ -74,7 +74,7 @@ main
 		}
 	}
 }
-</pre>
+</code></pre>
 
 ### Install statement priority
 
@@ -82,12 +82,12 @@ An install statement may execute in parallel to other behaviours that may throw 
 
 As an example, consider the following code:
 
-<pre class="code">
+<pre><code class="language-jolie code">
 scope( s )
 {
 	throw( f ) | install( f => println@Console( "Fault caught!" )()	)
 }
-</pre>
+</code></pre>
 
 where, inside the scope `s`, we have a parallel composition of a `throw` statement for fault `f` and an installation of a handler for the same fault. The priority given to the install primitive guarantees that the handler will be installed before the fault signal for `f` reaches the scope construct and its handler is searched for.
 
@@ -108,7 +108,7 @@ interface IfaceName {
 
 Let us modify the previous example in order to introduce a request-response operation.
 
-<pre class="code">
+<pre><code class="language-jolie code">
 // interface.iol
 
 type NumberExceptionType: void{
@@ -119,11 +119,11 @@ type NumberExceptionType: void{
 interface GuessInterface {
 	RequestResponse: guess throws NumberException( NumberExceptionType )
 }
-</pre>
+</code></pre>
 
 The interface defines the operation `guess` able to throw a `NumberException`, whose message type is `NumberExceptionType`.
 
-<pre class="code">
+<pre><code class="language-jolie code">
 //server.ol
 include "interface.iol"
 include "console.iol"
@@ -163,7 +163,7 @@ main
 		}
 	}
 }
-</pre>
+</code></pre>
 
 The server implements the throw statement in the else branch of operation `guess` behaviour. If the number sent by the client is different than the `secret` one, the request-response operation will send a `NumberException`
 fault to the client along the fault data.
@@ -181,7 +181,7 @@ scope ( scope_name )
 
 Let us write a client that handles the raise of the fault and prints the data sent from it:
 
-<pre class="code">
+<pre><code class="language-jolie code">
 //client.ol
 include "console.iol"
 include "interface.iol"
@@ -200,7 +200,7 @@ main
 	guess@Guess( 12 )( response );
 	println@Console( response )()
 }
-</pre>
+</code></pre>
  
 As shown at Line 15, in order to correctly reference fault data within a fault handler, it is necessary to specify the scope path where the fault is contained.
 
@@ -212,7 +212,7 @@ With syntax `scope_name.default` we access the name of the fault caught by the s
 
 Used in combination with [dynamic lookup](#!documentation/basics/data_structures.html#dynamic-look-up), with syntax `scope_name( scope_name.default ).faultMessage`, we can access the message sent with the fault, for instance `msg` in the example below.
 
-<pre class="code">
+<pre><code class="language-jolie code">
 scope ( s ){
 	install( MyFault => 
 		println@Console( "Caught MyFault, message: " + s.MyFault.msg )() 
@@ -221,7 +221,7 @@ scope ( s ){
 	throw( MyFault, faultMsg )
 };
 println@Console( "Fault message from scope s: " + s.( s.default ).msg )()
-</pre>
+</code></pre>
 
 
 

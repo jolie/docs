@@ -14,13 +14,13 @@ constants {
 
 As an example let us consider the following code:
 
-<pre class="code">
+<pre><code class="language-jolie code">
 constants {
 	Server_location = "socket://localhost:8080",
 	ALARM_TIMEOUT = 2000,
 	standard_gravity = 9.8
 }
-</pre>
+</code></pre>
 
 Constants might also be assigned on the command line. Just call a program using `jolie -C server_location=\"socket://localhost:4003\" program.ol` to override `Server_location`. We can even remove its declaration from the `constants` list in case of a mandatory command line assignment.
 

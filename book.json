@@ -1,4 +1,5 @@
 {
-    "plugins": [],
-    "pluginsConfig": {}
+    "plugins": [ "prism_joliedoc", "-highlight" ],
+    "pluginsConfig": {
+    }
 }

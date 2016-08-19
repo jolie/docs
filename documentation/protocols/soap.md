@@ -14,7 +14,7 @@ To adhere to the WSDL specification, simple call signatures like `test( string )
 
 ## SOAP Parameters
 
-<pre class="code">
+<pre><code class="language-jolie code">
 type SoapConfiguration:void {
 
 	/* 
@@ -193,4 +193,4 @@ type SoapConfiguration:void {
 	.requestCompression?:string
 }
 
-</pre>
+</code></pre>

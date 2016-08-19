@@ -63,7 +63,7 @@ Let us see an example of Internal Services in action with a simplified implement
 
 With internal services its is very quick and easy to draft a prototype implementation of tree
 
-<pre class="code">
+<pre><code class="language-jolie code">
 include "console.iol"
 include "file.iol"
 
@@ -118,4 +118,4 @@ main
   tree@TreeInternalService( { .file = "/path/to/my/directory" } )( res );
   println@Console( res )()
 }
-</pre>
+</code></pre>

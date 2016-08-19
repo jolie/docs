@@ -18,17 +18,17 @@ Furthermore, Jolie supports the `any` basic type, which means a value that can b
 
 Let us consider the following example in which differently typed values are passed into the same variable: 
 
-<pre class="code">
+<pre><code class="language-jolie code">
 a = 5;
 a = "Hello"
 
-</pre>
+</code></pre>
 
 Jolie supports some basic arithmetic operators: add (`+`), subtract (`-`), multiply (`*`), divide (`/`) and modulo (`%`). Their behaviour is the same as in other classical programming languages. The language also supports pre-/post-increment (`++`) and pre-/post-decrement (`--`) operators.
 
 An example of the aforementioned operators follows:
 
-<pre class="code">
+<pre><code class="language-jolie code">
 a = 1;
 b = 4;
 
@@ -36,7 +36,7 @@ n = a + b/2; // n = 3
 n++; // n = 4
 n = ++a + (b++)/2 // n = 4
 
-</pre>
+</code></pre>
 
 Additional meanings: `+` is the string concatenator and matches the OR on `bool`s (`||`), `*` matches the AND on `bool`s (`&&`) and `undefined - var` matches the negation on `bool`s (`!`).
 
@@ -46,14 +46,14 @@ Additional meanings: `+` is the string concatenator and matches the OR on `bool`
 
 Variables can be cast to other types by using the corresponding casting functions: `bool()`, `int()`, `long()`, `double()`, and `string()`. Some examples follow:
 
-<pre class="code">
+<pre><code class="language-jolie code">
 s = "10";
 n = 5 + int( s ); // n = 15
 
 d = "1.3";
 n = double( d ); // n = 1.3
 n = int ( n ) // n = 1
-</pre>
+</code></pre>
 
 A variable type can be checked at runtime by means of the `instanceof` operator, whose syntax is:
 
@@ -63,12 +63,12 @@ expression instanceof (native_type | custom_type)
 
 `instanceof` operator can be used to check variable typing with both native types and custom ones (see type subsection in [Communication Ports](basics/communication_ports.html) section). Example:
 
-<pre class="code">
+<pre><code class="language-jolie code">
 s = "10";
 n = s instanceof string; // n = true
 n = s instanceof int; // n = false
 n = ( s = 10 ) instanceof int; // n = true
-</pre>
+</code></pre>
 
 ---
 
@@ -76,28 +76,28 @@ n = ( s = 10 ) instanceof int; // n = true
 
 Strings can be inserted enclosing them between double quotes. Character escaping works like in C and Java, using the `\` escape character:
 
-<pre class="code">
+<pre><code class="language-jolie code">
 s = "This is a stringn"
 
-</pre>
+</code></pre>
 
 Strings can be concatenated by using the plus operator:
 
-<pre class="code">
+<pre><code class="language-jolie code">
 s = "This is " + "a stringn"
 
-</pre>
+</code></pre>
 
 String formatting is preserved, so strings can contain tabs and new lines:
 
-<pre class="code">
+<pre><code class="language-jolie code">
 s = "
 JOLIE preserves formatting.
 	This line will be indented.
 					This line too.
 "
 
-</pre>
+</code></pre>
 
 ---
 
@@ -107,17 +107,17 @@ A variable is undefined until a value is assigned to it. In this state it is set
 
 For checking the definition of a variable the `is_defined` predicate should be used, e.g.:
 
-<pre class="code">
+<pre><code class="language-jolie code">
 a = 1;
 if ( is_defined( a ) ) {
 	println@Console( "a is defined" )()
 }
-</pre>
+</code></pre>
 
 Sometimes it is useful to undefine a variable, i.e. to remove its value and make it undefined again. 
 Undefining a variable is done by using the `undef` statement, as shown in the example below.
 
-<pre class="code">
+<pre><code class="language-jolie code">
 a = 1;
 undef( a );
 if ( is_defined( a ) ) {
@@ -125,7 +125,7 @@ if ( is_defined( a ) ) {
 } else {
 	println@Console( "a is undefined" )()
 }
-</pre>
+</code></pre>
 
 The operators do behave like this:
 
@@ -143,12 +143,12 @@ The operators do behave like this:
 
 Example:
 
-<pre class="code">
+<pre><code class="language-jolie code">
 a[ 0 ] = 0;
 a[ 1 ] = 5;
 a[ 2 ] = "Hello";
 a[ 3 ] = 2.5
-</pre>
+</code></pre>
 
 A key point for understanding and programming services in Jolie is that, 
 
@@ -156,22 +156,22 @@ A key point for understanding and programming services in Jolie is that,
 
 Jolie handles dynamic array creation and packing. This makes dealing with complex data easier, although Jolie hides this mechanism when the programmer does not need it. Whenever an array index is not specified, the implicit index for that variable is set by default to 0 (zero), like shown in the example below.
 
-<pre class="code">
+<pre><code class="language-jolie code">
 a = 1; // JOLIE interprets this as a[0] = 1
 println@Console( a[ 0 ] )() // Will print 1
-</pre>
+</code></pre>
 
 ### Array size operator `#`
 
 Since its dynamic-array orientation, one handy feature provided by Jolie is the array size operator `#`, which can be used as shown in the examples below.
 
-<pre class="code">
+<pre><code class="language-jolie code">
 a[ 0 ] = 0;
 a[ 1 ] = 1;
 a[ 2 ] = 2;
 a[ 3 ] = 3;
 println@Console( #a )() // Will print 4
-</pre>
+</code></pre>
 
 ### Nested arrays
 

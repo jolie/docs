@@ -37,7 +37,7 @@ Courier Sessions that use collections of output ports are called "smart aggregat
 
 Let us modify the example shown in Couriers subsection. In this new scenario we have two printer services Printer1 and Printer2, and the fax service Fax which are part of our trusted intranet.
 
-<pre class="code">
+<pre><code class="language-jolie code">
 // printer.iol
 type PrintRequest:void {
     .job:int
@@ -59,11 +59,11 @@ interface FaxInterface {
 OneWay:
     fax(FaxRequest)
 }
-</pre>
+</code></pre>
 
 We deploy a service that aggregates Printer1, Printer2, and Fax to accept requests from external networks (e.g., the Internet), but we want to authenticate the external users that use Printer1's and Printer2's service.
 
-<pre class="code">
+<pre><code class="language-jolie code">
 include "locations.iol"
 include "printer.iol"
 include "fax.iol"
@@ -157,7 +157,7 @@ main
 	}
 }
 
-</pre>
+</code></pre>
 
 Above, the aggregator exposes the inputPort `AggregatorInput` that aggregates the `Fax` service (as is) and `Printer1` and `Printer2` services. `Printer1`'s and `Printer2`'s operations types are extended by the `AuthInterfaceExtender`.
 

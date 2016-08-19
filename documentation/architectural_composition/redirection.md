@@ -35,7 +35,7 @@ where `sid_i => OP_id_i` associates a resource name `sid_i` to an output port id
 
 The example in Fig.1 is implemented by the code below:
 
-<pre class="code">
+<pre><code class="language-jolie code">
 outputPort ServiceA {
 	Location: "socket://www.a_location.com/"
 	Protocol: soap
@@ -62,23 +62,23 @@ inputPort MasterInput {
 		B => ServiceB,
 		C => ServiceC
 }
-</pre>
+</code></pre>
 
 Once set, calling a master service for one of its resources is done by declaring the resource name in the location used by the invoker, followed by the resource name separator `!/`, as shown at Line 2
 
-<pre class="code">
+<pre><code class="language-jolie code">
 outputPort A{
 	Location: "socket://masterservice.com/8000/!/A"
 	Protocol: sodep
 	Interfaces: A_interface
 }
-</pre>
+</code></pre>
 
 ## Dynamic Redirection
 
 Redirection can be changed dynamically by simply modifying the outputPort location via dynamic port binding.
 
-<pre class="code">
+<pre><code class="language-jolie code">
 include "console.iol"
 include "ui/ui.iol"
 include "ui/Swing_ui.iol"
@@ -128,4 +128,4 @@ main
 		}
 	}
 }
-</pre>
+</code></pre>

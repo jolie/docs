@@ -29,7 +29,7 @@ Reading the raw XML is not so easy, or at least requires some time.
 
 If we execute the command `wsdl2jolie http://www50.brinkster.com/vbfacileinpt/np.asmx?wsdl` our output will be 
 
-<pre class="code">
+<pre><code class="language-jolie code">
 Retrieving document at 'http://www50.brinkster.com/vbfacileinpt/np.asmx?wsdl'.
 type GetPrimeNumbersResponse:void {
 	.GetPrimeNumbersResult?:string
@@ -74,13 +74,13 @@ outputPort PrimeNumbersSoap {
 	}
 	Interfaces: PrimeNumbersSoap
 }
-</pre>
+</code></pre>
 
 which is the Jolie equivalent of the WSDL document. Those `.wsdl` and `.wsdl.port` parameters are improvement to the SOAP protocol: when the output port is used for the first time, Jolie will read the WSDL document for processing information about the correct configuration for interacting with the service instead of forcing the user to manually insert it.
 
 Once our interface is created, we can store it into a file, e.g., PrimeNumbers.iol, and use the output ports we discovered from Jolie code. As in the following:
 
-<pre class="code">
+<pre><code class="language-jolie code">
 include "PrimeNumbers.iol"
 include "console.iol"
 
@@ -90,7 +90,7 @@ main
 	GetPrimeNumbers@PrimeNumbersSoap( request )( response );
 	println@Console( response.GetPrimeNumbersResult )()
 }
-</pre>
+</code></pre>
 
 Our little program will output `1,3,5,7,11,13,17,19,23`. 
 

@@ -17,7 +17,7 @@ define procedureName
 
 For example, the code below is valid:
 
-<pre class="code">
+<pre><code class="language-jolie code">
 define sumProcedure
 {
 	sum = x + y	
@@ -29,4 +29,4 @@ main
 	y = 2;
 	sumProcedure	
 }
-</pre>
+</code></pre>

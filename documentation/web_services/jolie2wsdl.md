@@ -28,16 +28,16 @@ When programming a Jolie interface to be transformed into a WSDL document, its r
 
 Native types in operation declaration are not permitted. For example, the following declaration is forbidden:
 
-<pre class="code">
+<pre><code class="language-jolie code">
 interface MyInterface {
 	RequestResponse:
 		myOp( string )( int )
 }
-</pre>
+</code></pre>
 
 All complex types must have a void value in the root. Hence, the following declaration are not permitted:
 
-<pre class="code">
+<pre><code class="language-jolie code">
 type Type1: int {
 	.msg: string
 }
@@ -49,11 +49,11 @@ type Type2: string {
 interface MyInterface {
 	myOp( Type1 )( Type2 )
 }
-</pre>
+</code></pre>
 
 Thus, the right types and interface declaration for our example may be:
 
-<pre class="code">
+<pre><code class="language-jolie code">
 type Type1: void {
 	.msg: int
 }
@@ -66,4 +66,4 @@ interface MyInterface {
 	RequestResponse:
 		myOp( Type1 )( Type2 )
 }
-</pre>
+</code></pre>
