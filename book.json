@@ -1,5 +1,6 @@
 {
-    "plugins": [ "prism_joliedoc", "-highlight" ],
+    "plugins": [ "prism", "-highlight" ],
+    // "plugins": [ "prism_joliedoc", "-highlight" ],
     "pluginsConfig": {
     }
 }
