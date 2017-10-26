@@ -78,7 +78,7 @@ inputPort M {
 The code for aggregating services abstracts their actual deployment and remains the same either it is an embedded service (C) or an "external" one (A,B); this abstraction is achieved by setting the aggregation definition on output ports, which uncouples from it both the implementation and the location of the target service.
 
 <div class="doc_image">
-	<img src="documentation/architectural_composition/img/aggregation_1.png" />
+	<img src="img/aggregation_1.png" />
 	<p><b>Fig.1</b> The aggregator <code>M</code> exposes the union of all the interfaces of the services it aggregates (<code>A</code>, <code>B</code>, <code>C</code>). Service <code>C</code> executes inside the virtual machine of <code>M</code>, by embedding. Interfaces are represented with dotted rectangles</p>
 </div>
 

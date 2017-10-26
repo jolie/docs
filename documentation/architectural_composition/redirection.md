@@ -10,7 +10,7 @@ The main advantages of such an approach are:
 - the possibility to provide transparent communication protocol transformations between the invoker and the master and the master and the rest of the system;
 
 <div class="doc_image">
-	<img src="documentation/architectural_composition/img/redirection_1.jpg" />
+	<img src="img/redirection_1.jpg" />
 	<p><b>Fig.1</b> Service <code>M</code> redirect messages to services <code>A</code>, <code>B</code>, and <code>C</code> depending on the target destination of the message (<code>M/A</code>, <code>M/B</code>, or <code>M/C</code>)</p>
 </div>
 
