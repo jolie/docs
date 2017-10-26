@@ -6,7 +6,7 @@ Dynamic embedding makes possible to associate a unique embedded instance (sessio
 
 Let us consider a specification of a service that allows clients to start a timed-counter. The counter sends back to its invoker the value of an incremental count every second.
 
-First, we implement the specification as an embeddeder with a `concurrent` behaviour, statically embedding a counter service. A new instance of the embedder is created each time a new client invokes the `startNewCounter` operation, but still the embedded service `CounterService` is instanced only once and it is shared among all embedder's instances.
+First, we implement the specification as an embeddeder with a `concurrent` behaviour, statically embedding a counter service. A new instance of the embedder is created each time a new client invokes the `startNewCounter` operation, but still the embedded service `CounterService` is instanced only once and it is shared among all instances of the embedder.
 
 <pre><code class="language-jolie code">
 /*
@@ -79,4 +79,4 @@ In the example above we include the `runtime.iol` library (part of Jolie's stand
 
 The comprehensive code examples of both the static (wrong) and dynamic embedding can be downloaded here:
 
-<div class="download"><a href="documentation/architectural_composition/code/dynamic_embedding_code.zip">Dynamic Embedding Code Example</a></div>
+<div class="download"><a target="_blank" href="/documentation/architectural_composition/code/dynamic_embedding_code.zip">Dynamic Embedding Code Example</a></div>

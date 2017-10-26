@@ -8,7 +8,7 @@ Protocol name in Jolie port definition: `https`.
 
 ## HTTPS Parameters
 
-Since HTTPS is the HTTP protocol wrapped in an SSL encrypted message, HTTPS parameters are the same defined for [HTTP](protocols/http.html) and [SSL](protocols/ssl.html).
+Since HTTPS is the HTTP protocol wrapped in an SSL encrypted message, HTTPS parameters are the same defined for [HTTP](/documentation/protocols/http.html) and [SSL](/documentation/protocols/ssl.html).
 
 ---
 

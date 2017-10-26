@@ -1,6 +1,6 @@
 ## Databases in Jolie
 
-Jolie can be used with various relational/SQL databases, using the Database service from the standard library. The API is described [here](jsl/Database.html). The Database service uses JDBC, so you need the correct driver JAR placed in the `lib` subdirectory (the one of the program or the global one, e.g., `/usr/lib/jolie/lib/` in Linux).
+Jolie can be used with various relational/SQL databases, using the Database service from the standard library. The API is described [here](/documentation/jsl/Database.html). The Database service uses JDBC, so you need the correct driver JAR placed in the `lib` subdirectory (the one of the program or the global one, e.g., `/usr/lib/jolie/lib/` in Linux).
 
 Attention: if your JAR driver is called differently, you will have to rename it or create an apposite link, otherwise Jolie is not able to load it. The list of correct names for JAR drivers is given below.
 

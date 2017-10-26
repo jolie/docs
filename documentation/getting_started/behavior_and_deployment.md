@@ -135,6 +135,6 @@ main
 
 The two programs can be downloaded from the link below:
 
-<div class="download"><a href="code/behaviour_and_deployment_code.zip">Behaviour and Deployment Code Example</a></div>
+<a target="_blank" href="/documentation/getting_started/code/behaviour_and_deployment_code.zip">Behaviour and Deployment Code Example</a>
 
 We can now run the two programs in two separate shells. Note that it is important to start `server.ol` before `client.ol`, since the server must be ready to receive an invocation before the client tries to reach it.

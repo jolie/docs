@@ -10,7 +10,7 @@
 	</div>
 </div>
 
-Internal Services are embedded Jolie services defined directly within the embedder program, rather than in a separate file. They offer a convenient way of reusing code as in procedural programming, without breaking the principle that such code should be easily exported to an external microservice. In particular, an internal service can always be easily moved to a separate file to make it a standalone service, without requiring code changes in the behaviours of the other services that were interacting with it. This is in contrast with the [define](#!documentation/basics/define.html) keyword, which is intended only for short configuration macros or recursive workflows.
+Internal Services are embedded Jolie services defined directly within the embedder program, rather than in a separate file. They offer a convenient way of reusing code as in procedural programming, without breaking the principle that such code should be easily exported to an external microservice. In particular, an internal service can always be easily moved to a separate file to make it a standalone service, without requiring code changes in the behaviours of the other services that were interacting with it. This is in contrast with the [define](/documentation/basics/define.html) keyword, which is intended only for short configuration macros or recursive workflows.
 
 Beside the ease of refactoring (e.g., moving the service from internal to standalone), internal services offer another main advantage: fast prototyping. The programmer does not have to code a fully-fledged Jolie service in a separate file, embed it, and set the appropriate communication ports. Internal services are no more than syntactic sugar, but this automation saves a lot of boilerplate coding to the developer.
 
@@ -50,7 +50,7 @@ The internal service has access to all the output ports defined in the owner. Th
   <div class="panel-body">
     <p>Every internal service has <code>execution { concurrent }</code> set by default. </p>
     <p>
-    	This is convenient, although it contrasts with the usual execution for normal Jolie services, which is set to <a href="!documentation/basics/composing_statements.html#statement-execution-operators">single</a> by default.
+    	This is convenient, although it contrasts with the usual execution for normal Jolie services, which is set to <a href="/documentation/basics/composing_statements.html#statement-execution-operators">single</a> by default.
     </p>
 	</div>
 </div>

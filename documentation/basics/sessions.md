@@ -80,7 +80,7 @@ Finally, at Line 6, the client assigns the `sid` value to its variable `opMessag
 
 The files of the example above can be downloaded from the following link:
 
-<div class="download"><a href="documentation/basics/code/sessions_code.zip">Sessions Code Example</a></div>
+<a target="_blanck" href="/documentation/basics/code/sessions_code.zip">Sessions Code Example</a>
 
 ---
 

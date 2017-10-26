@@ -61,7 +61,7 @@ A variable type can be checked at runtime by means of the `instanceof` operator,
 expression instanceof (native_type | custom_type)
 </pre>
 
-`instanceof` operator can be used to check variable typing with both native types and custom ones (see type subsection in [Communication Ports](basics/communication_ports.html) section). Example:
+`instanceof` operator can be used to check variable typing with both native types and custom ones (see type subsection in [Communication Ports](/documentation/basics/communication_ports.html) section). Example:
 
 <pre><code class="language-jolie code">
 s = "10";
@@ -175,7 +175,7 @@ println@Console( #a )() // Will print 4
 
 ### Nested arrays
 
-Jolie\'s type system does not permit directly nested arrays as known in other programming languages. This limitation may be compensated by the introduction of children nodes (explained in [Data Structures](basics/data_structures.html)).
+Jolie\'s type system does not permit directly nested arrays as known in other programming languages. This limitation may be compensated by the introduction of children nodes (explained in [Data Structures](/documentation/basics/data_structures.html)).
 
 Example: The two-dimensional array `a` may not be defined nor accessed by `a[i][j]`, but `a[i].b[j]` is possible.
 

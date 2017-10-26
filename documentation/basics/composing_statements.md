@@ -56,7 +56,7 @@ statementA | statementB
 
 </pre>
 
-It is a good practice to explicitly group statements when mixing sequence and parallel operators. Statements can be grouped by enclosing them within an unlabelled [scope](fault_handling/basics.html) represented by a pair curly brackets `{}`, like in the following example:
+It is a good practice to explicitly group statements when mixing sequence and parallel operators. Statements can be grouped by enclosing them within an unlabelled [scope](/documentation/fault_handling/basics.html) represented by a pair curly brackets `{}`, like in the following example:
 
 <pre><code class="language-jolie code">
 { statementA ; statementB ; ... ; statementF } 
@@ -87,9 +87,9 @@ main
 }
 </code></pre>
 
-<div class="download"><a href="documentation/basics/code/composing_statements_parallel.zip">Click here to download the comprehensive code of the example above.</a></div>
+<a target="_blank" href="/documentation/basics/code/composing_statements_parallel.zip">Click here to download the comprehensive code of the example above.</a>
 
-Concurrent access to shared variables can be restricted through [synchronized](basics/processes.html) blocks.
+Concurrent access to shared variables can be restricted through [synchronized](/documentation/basics/processes.html) blocks.
 
 ---
 

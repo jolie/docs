@@ -8,7 +8,7 @@ The basic deployment primitives are input ports and output ports, which support 
 
 ## Ports
 
-Let us recall the concepts of *input ports* and *output ports* seen in the [Behaviour and Deployment](getting_started/behavior_and_deployment.html) section. There are two kinds of ports: *input ports*, which expose input operations to other services, and *output ports*, defining how to invoke the operations of other services.
+Let us recall the concepts of *input ports* and *output ports* seen in the [Behaviour and Deployment](/documentation/getting_started/behavior_and_deployment.html) section. There are two kinds of ports: *input ports*, which expose input operations to other services, and *output ports*, defining how to invoke the operations of other services.
 
 *Location*, *protocol* and *interface* are the three elements in the definition of ports. 
 Location and protocol define the concrete binding information between a Jolie program and other service, interfaces specify type information expected to be satisfied by the behaviour that uses the port. 
@@ -28,7 +28,7 @@ Jolie currently supports four media:
 
 An example of a valid location is: `"socket://www.mysite.com:80/"`, where `socket://` is the location medium and the following part represents its parameters.
 
-For a thorough description of the locations supported by Jolie and their parameters see [Locations](locations/introduction.html) section.
+For a thorough description of the locations supported by Jolie and their parameters see [Locations](/documentation/locations/introduction.html) section.
 
 ### Protocols
 
@@ -42,7 +42,7 @@ Protocols are referred by name. Examples of valid (supported) protocol names are
 - `sodep` (a binary protocol specifically developed for Jolie);
 - `xmlrpc`.
 
-For a thorough description of the protocols supported by Jolie and their parameters see [Protocols](protocols/introduction.html) section.
+For a thorough description of the protocols supported by Jolie and their parameters see [Protocols](/documentation/protocols/introduction.html) section.
 
 ### The syntax of input and output ports
 
@@ -144,7 +144,7 @@ The type declarations of both request and response messages are explained furthe
 
 ## Data types
 
-In Jolie, the messages exchanged through operations are data trees (see section [Handling Simple Data](basics/handling_simple_data.html)). A data type defines:
+In Jolie, the messages exchanged through operations are data trees (see section [Handling Simple Data](/documentation/basics/handling_simple_data.html)). A data type defines:
 
 - the structure of a data tree;
 - the type of the content of its node;
@@ -200,11 +200,11 @@ type T: basic_type {
 
 ### Custom-typed subtree data types with cardinality
 
-Given R as a range, which specifies the allowed number of occurrences of the subnode in a value, *R = { [min, max], \*, ?}*. Therefore, *R* can be an interval from `min` to `max` (both integers), `*` is a shortcut, meaning any number of occurrences (`[0, *]`), and `?` is a shortcut for `[0, 1]`.
+Given R as a range, which specifies the allowed number of occurrences of the subnode in a value, `R = { [min, max], \*, ?}`. Therefore, `R` can be an interval from `min` to `max` (both integers), `*` is a shortcut, meaning any number of occurrences (`[0, *]`), and `?` is a shortcut for `[0, 1]`.
 
 In Jolie, when no cardinality is defined, it is defaulted to the value `[1,1]`, meaning that one and only one occurrence of that subnode can be contained in the node. 
 
-Considering *Ti* in *{T1, ..., Tn}* custom-typed subtree data types and *R* range, the complete syntax for data types follows:
+Considering `Ti` in `{T1, ..., Tn}` custom-typed subtree data types and *R* range, the complete syntax for data types follows:
 
 <pre class="syntax">
 type T: basic_type {
@@ -328,7 +328,7 @@ operation_name@OutputPort_Name( request )( response )
 
 In Jolie, whenever a message is sent or received through a port, its type is checked against what specified in the port's interface. An invoker sending a message with a wrong type receives a `TypeMismatch` fault.
 
-The `TypeMismatch` fault can be handled by exploiting the [fault handling](fault_handling/basics.html), as shown in the following example:
+The `TypeMismatch` fault can be handled by exploiting the [fault handling](/documentation/fault_handling/basics.html), as shown in the following example:
 
 <pre><code class="language-jolie code">
 scope ( myScope ) 
@@ -483,7 +483,7 @@ main
 
 The programs can be downloaded from the link below:
 
-<div class="download"><a href="documentation/basics/code/communication_ports_code.zip">Communication Ports Code Example</a></div>
+<div class="download"><a href="/documentation/basics/code/communication_ports_code.zip">Communication Ports Code Example</a></div>
 
 Once extracted, the two programs may be run in two separate shells. Make sure to start `server.ol` before `client.ol`. 
 

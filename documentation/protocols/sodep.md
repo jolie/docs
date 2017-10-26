@@ -73,6 +73,7 @@ We represent the protocol encoding by using a BNF-like notation. Raw data types 
 - raw numbers annotated with `byte` are to be considered single bytes;
 - the special keyword epsilon means *nothing*.
 
+```
 SODEPMessage	::= long(message id) String(resource path) String(operation name) Fault Value
 
 String	 ::= int(string length) string(UTF-8 encoded)
@@ -84,3 +85,4 @@ Value	 ::= ValueContent int(how many ValueChildren) ValueChildren*
 ValueContent	::= 0(byte) | 1(byte) String | 2(byte) int | 3(byte) double | 4(byte) byte array | 5(byte) bool | 6(byte) long
 
 ValueChildren	::= String(child name) int(how many Value) Value* | epsilon
+```

@@ -96,7 +96,7 @@ Our little program will output `1,3,5,7,11,13,17,19,23`.
 
 The comprehensive code of this example can be downloaded from the link below:
 
-<div class="download"><a href="documentation/web_services/code/wsdl2jolie_code.zip">Web Services Code Example</a></div>
+<div class="download"><a target="_blank" href="/documentation/web_services/code/wsdl2jolie_code.zip">Web Services Code Example</a></div>
 
 Remarkably, wsdl2jolie has two benefits: it acts as a useful tool that creates the typed interface of a Web Service from Jolie and creates a more human-readable form of a WSDL document (i.e., its Jolie form).
 
@@ -117,13 +117,36 @@ wdsl2jolie creates a document which contains:
 In the following table we show the mapping between WSDL elements and Jolie elements:
 
 
-WSDL 				Jolie 				
-----------------	--------------------
-`<types>`		 	`type`
-`<messages>`	 	`type`
-`<portType>`	 	`interface`
-`<binding>`		 	`outputPort:Protocol`
-`<service:port>` 	`outputPort`
+<table>
+	<thead>
+		<tr>
+			<th>WSDL</th>
+			<th>Jolie</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td><code>&lt;types&gt;</code></td>
+			<td><code class="language-jolie code">type</code></td>
+		</tr>
+		<tr>
+			<td><code>&lt;messages&gt;</code></td>
+			<td><code class="language-jolie code">type</code></td>
+		</tr>
+		<tr>
+			<td><code>&lt;portType&gt;</code></td>
+			<td><code class="language-jolie code">interface</code></td>
+		</tr>
+		<tr>
+			<td><code>&lt;binding&gt;</code></td>
+			<td><code class="language-jolie code">outputPort:Protocol</code></td>
+		</tr>
+		<tr>
+			<td><code>&lt;service:port&gt;</code></td>
+			<td><code class="language-jolie code">outputPort</code></td>
+		</tr>
+	</tbody>
+</table>
 
 
 ---

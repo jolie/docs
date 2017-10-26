@@ -14,7 +14,7 @@ execution { single | concurrent | sequential }
 
 A crucial aspect of behaviour instances is that each instance has its own private state, determining variable scoping. This lifts programmers from worrying about race conditions in most cases.
 
-For instance, let us recall the server program given at the end of [Communication Ports](basics/communication_ports.html) section. We can simply add the deployment instruction `execution{ concurrent }` to the server's deployment to make it supporting multiple clients at the same time. Access to variables would be safe since each behaviour instance would have its private state.
+For instance, let us recall the server program given at the end of [Communication Ports](/documentation/basics/communication_ports.html) section. We can simply add the deployment instruction `execution{ concurrent }` to the server's deployment to make it supporting multiple clients at the same time. Access to variables would be safe since each behaviour instance would have its private state.
 
 <pre><code class="language-jolie code">
 //Server.ol
@@ -144,6 +144,6 @@ main
 
 The programs can be downloaded from the link below:
 
-<div class="download"><a href="documentation/basics/code/processes_code.zip">Processes Code Example</a></div>
+<a target="_blank" href="/documentation/basics/code/processes_code.zip">Processes Code Example</a>
 
 Once extracted, the two programs may be run in two separate shells. Make sure to start `register.ol` before `client.ol`. Try to start more than one `client.ol` at once and see the results.

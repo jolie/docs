@@ -17,7 +17,7 @@ interface extender extender_id {
 }
 </pre>
 
-The `interface extender` associates an identifier (`extender_id`) to a collection of operations, where `OneWayDefinition` and `RequestResponseDefinition` are respectively the one-way operations definition and request-response operations definition seen in [Communication Ports](basics/communication_ports.html) and Fault handing [Basics](fault_handling/basics.html) subsections.
+The `interface extender` associates an identifier (`extender_id`) to a collection of operations, where `OneWayDefinition` and `RequestResponseDefinition` are respectively the one-way operations definition and request-response operations definition seen in [Communication Ports](/documentation/basics/communication_ports.html) and Fault handing [Basics](/documentation/fault_handling/basics.html) subsections.
 
 <pre class="syntax">
 inputPort AggregatorPort {

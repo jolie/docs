@@ -23,7 +23,7 @@ Let us suppose that *C* finishes its execution. As a result, its compensation ha
 Fault handlers can execute compensations by invoking the compensation handlers loaded within the corresponding scope, e.g., in the previous scenario the fault handler of A invokes the compensation handler of C.
 
 <div class="doc_image">
-	<img src="documentation/fault_handling/imgs/termination_and_compensation.jpg" />
+	<img src="/documentation/fault_handling/img/termination_and_compensation.jpg" />
 	<p><b>Fig.1</b> Code <em>P</em> is executed in parallel with scopes <em>B</em> and <em>C</em> within scope <em>A</em>. <em>C</em> is supposed to be successfully ended, whereas <em>B</em> is terminated during its execution by the fault <em>f</em> raised by <em>P</em>. The fault handler of <em>A</em> can execute the compensation handler loaded by <em>C</em>.</p>
 </div>
 

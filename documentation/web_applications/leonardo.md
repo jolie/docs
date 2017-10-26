@@ -1,6 +1,6 @@
 ## Leonardo: the Jolie web server
 
-Leonardo is a web server developed in pure Jolie [@M14].
+Leonardo is a web server developed in pure Jolie.
 
 It is very flexible and can scale from service simple static HTML content to supporting powerful dynamic web 
 applications.
@@ -15,7 +15,7 @@ After having downloaded and unpacked the archive, we can launch Leonardo from th
 
 By default Leonardo looks for static content to serve in the `leonardo/www` subdirectory. For example, we can store an `index.html` file in `www` subdirectory containing a simple HTML page.
 
-Then, pointing the browser at URL http://localhost:8000/index we can see the web page we created. In the same way other files (of any format) and subdirectories can be stored inside the `www` directory: Leonardo makes them available to web browsers as expected.
+Then, pointing the browser at URL `http://localhost:8000/index` we can see the web page we created. In the same way other files (of any format) and subdirectories can be stored inside the `www` directory: Leonardo makes them available to web browsers as expected.
 
 ---
 
@@ -57,7 +57,7 @@ Leonardo supports dynamic web application through the Jolie HTTP protocol. There
 
 In the following examples we show how to interface a web application with some Jolie code through Leonardo. Specifically, we expose an operation - `length` - which accepts a list of strings, computes their total length and, finally, returns the computed value. 
 
-We do this by editing the code inside Leonardo, while in real-world projects, it is recommended to separated the application logic and the web server one: this can be achieved with ease by creating a separate service and [aggregate](architectural_composition/aggregation.html) it from Leonardo's HTTP input port.
+We do this by editing the code inside Leonardo, while in real-world projects, it is recommended to separated the application logic and the web server one: this can be achieved with ease by creating a separate service and [aggregate](/documentation/architectural_composition/aggregation.html) it from the HTTP input port of Leonardo.
 
 ---
 
@@ -142,9 +142,9 @@ Jolie fully supports asynchronous JavaScript and XML (AJAX) calls via XMLHttpReq
 
 For the sake of brevity, we are not showing the boilerplate for building the HTML interface here, but it can be downloaded entirely from the link below:
 
-<div class="download"><a href="documentation/web_applications/code/leonardo_code.zip">Leonardo and JQuery example</a></div>
+<div class="download"><a target="_blank" href="/documentation/web_applications/code/leonardo_code.zip">Leonardo and JQuery example</a></div>
 
-Once downloaded and unpacked, we can launch leonardo and navigate to address `http://localhost:8000/`. Inside the `www` directory there are a `index.html` with a form containing three text fields - text1, text2, and text3. Submitting the request, by pressing the submit button, the event is intercepted by the JavaScript code shown below:
+Once downloaded and unpacked, we can launch Leonardo and navigate to address `http://localhost:8000/`. Inside the `www` directory there are a `index.html` with a form containing three text fields - text1, text2, and text3. Submitting the request, by pressing the submit button, the event is intercepted by the JavaScript code shown below:
 
 <pre class="code">
 $( document ).ready( function() {
@@ -199,20 +199,17 @@ Jolie HTTP protocol is able to handle cookies both when processing outbound and 
 
 ### Inbound Cookies Handling
 
-In a classic client/server application where `Leornardo.ol` is acting as WebServer the programmer is able to define specific binding between inbound cookie and Jolie’s operations message subNodeName. To do so is sufficient to define in the input Port configuration parameters `.osc.operationName.cookies.cookieName = "subNodeName"`.
+In a classic client/server application where `Leornardo.ol` is acting as WebServer the programmer is able to define specific binding between inbound cookies and message subnodes. To do so it is sufficient to define in the input Port configuration parameters `.osc.operationName.cookies.cookieName = "subNodeName"`.
 A working example has been provided to exemplify the handling inbound cookies
 
-<div class="download"><a href="documentation/web_applications/code/cookie_server_code.zip">Leonardo and inbound cookie handling</a></div>
-
+<div class="download"><a target="_blank" href="/documentation/web_applications/code/cookie_server_code.zip">Leonardo and inbound cookie handling</a></div>
 
 In this specific example you will find the code for both the client side (HTML/JQuery) and server side (Jolie) able to handle two separated cookies.
 In order to understand the example specific attention should be paid to the following files:
 
-* /doc/TestingInstruction.txt
-* /doc/ExampleAbstract.txt
-* /www/js/CookiesHandler.js
-* /leornardo.ol
+- `/doc/TestingInstruction.txt`
+- `/doc/ExampleAbstract.txt`
+- `/www/js/CookiesHandler.js`
+- `/leornardo.ol`
 
-It is not necessary to define precisely the cookie binding for each operation exposed by the HTTP input port, one can use the global cookies configuration expressed in the following form  `.cookies.cookieName = "subNodeName"`, Particular attention must be paid on the presence  subNodeName in the type of all operation exposed by the port otherwise  an  TypeMismatch will occur.
-
-## References
+It is not necessary to define precisely the cookie binding for each operation exposed by the HTTP input port, one can use the global cookies configuration expressed in the following form  `.cookies.cookieName = "subNodeName"`, Particular attention must be paid on the presence  subNodeName in the type of all operation exposed by the port otherwise a TypeMismatch will occur.

@@ -1,13 +1,10 @@
 ## JavaServices
 
-<div class="panel panel-primary">
-	<div class="panel-heading">
- 	<p class="panel-title">Attention</p>
-	</div>
-	<div class="panel-body">
+# Attention
  	This documentation page is a stub. Its contents can be partial and/or out of date.
-	</div>
-</div>
+
+---
+
 What follows is a brief tutorial that comprises how to develop JavaService classes in an IDE and use them within Jolie programs.
 The tutorial also presents some features of Java integration in Jolie, i.e., manipulating Jolie values in Java, calling operations from a Java service, and the dynamic embedding of JavaServices.
 
@@ -60,14 +57,14 @@ Finally we can build the Java file into a `.jar` file.
 
 To execute the JavaService we have to embed it into a Jolie service which
 invokes it as a common embedded service as described in
-[Embedding](architectural_composition/embedding.html). The Jolie embedder service
+[Embedding](/documentation/architectural_composition/embedding.html). The Jolie embedder service
 can call all the public methods of the JavaService like operations of Jolie
 services.
 
 In particular, this example has one public method called *write* which can be
 easily invoked by the following embedder:
 
-[Download code](#code_JavaServices_1.zip)
+Download code
 
 Note that the embedded construct takes as a type the keyword Java
 instead of Jolie because we are embedding a JavaService. As parameter
@@ -144,7 +141,7 @@ exploiting the static methods `createRequest`. In this case, the message has
 been initialized with the following parameters:
 
 -   `writeBack`: the name of the operation of the embedder to call;
--   `/`: the service path (see [Redirection](architectural_composition/redirection.html));
+-   `/`: the service path (see [Redirection](/documentation/architectural_composition/redirection.html));
 -   `v` : a Value object that contains the data structure to send.
 
 In this case, the message to send contains a string: `"Hello world from the
@@ -161,7 +158,7 @@ from the embedded service. The embedder exhibits a OneWay operation called
 of the operation `write` and waits for a message on the operation
 `writeBack`.
 
-[Download code](#code_JavaServices_2.zip)
+Download code
 
 ## Annotations
 
@@ -245,7 +242,7 @@ as it follows:
 
 <kbd>Jolie embedder.ol -l Example3.jar</kbd>
 
-[Download code](#code_JavaServices_3.zip)
+Download code
 
 ### Managing fault responses
 In Jolie a RequestResponse message can return a fault message which
@@ -290,7 +287,7 @@ if ( response.isFault() ) {
 
 So far, we have discussed the possibility to statically embed a
 JavaService. In this case the JavaService is shared among all the
-sessions created by the embedder. It could be particulary suitable to
+sessions created by the embedder. It could be particularly suitable to
 embed a different JavaService for each embedder session. Such a task can
 be fulfilled by exploiting dynamic embedding functionality supplied by
 the `runtime`. In the following example we present the Java code of a
@@ -347,4 +344,4 @@ In this case the JavaService is shared among all the sessions and each
 new invocation will increase its inner counter. In the following you can
 download the code and try yourself.
 
-[Download code](#code_JavaServices_4.zip)
+Download code
