@@ -1,5 +1,4 @@
-## Jolie Programming Guides
+## Tips and Tricks
 
-Some introductory text on the sections of this part.
+This section is a collection of some practical tips for Jolie development.
 
-## Best Practices

@@ -1,3 +1,4 @@
-## Getting Started With Jolie
+## Getting Started
 
-Some introductory text on the sections of this part.
+
+

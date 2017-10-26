@@ -1,3 +1,4 @@
-## Writing Web Applications in Jolie
+## Web Applications
 
-Some introductory text on the sections of this part.
+
+

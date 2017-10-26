@@ -1,10 +1,20 @@
 ## Debug a Jolie program via Netbeans debugger
 
-Run -> Set Main Project -> jolie
+Sometimes it is useful to debug the execution of a Jolie program from Netbeans. The following is an example of how to do that on Linux, assuming that:
 
-Run -> Set Project Configuration -> Customize
+* Jolie is installed in `/opt/jolie ` ;
+* the path to the Jolie program to run is `main.ol `;
+* the path to the directory of the Jolie program to run is `/path/to/your/jolie_service/ `.
 
-- Main Class: `jolie.Jolie`
-- Arguments: `-l /opt/jolie/lib:/opt/jolie/javaServices/*:/opt/jolie/extensions/* -i /opt/jolie/include /path/to/your/jolie_services/service.ol`
-- Working Directory: `/path/to/your/jolie_services/`
+
+
+Run -&gt; Set Main Project -&gt; jolie
+
+Run -&gt; Set Project Configuration -&gt; Customize
+
+* Main Class: `jolie.Jolie`
+* Arguments: `-l /opt/jolie/lib:/opt/jolie/javaServices/*:/opt/jolie/extensions/* -i /opt/jolie/include main.ol`
+* Working Directory: `/path/to/your/jolie_service/`
+
+
 

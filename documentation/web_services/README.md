@@ -1,3 +1,4 @@
-## Writing and Interacting with Web Services in Jolie
+## Web Services
 
-Some introductory text on the sections of this part.
+
+
