@@ -1,3 +1,4 @@
-## Jolie Supported Locations
+## Locations
 
-Some introductory text on the sections of this part.
+
+

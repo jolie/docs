@@ -1,3 +1,4 @@
-## Jolie supported Protocols
+## Protocols
 
-Some introductory text on the sections of this part.
+
+
