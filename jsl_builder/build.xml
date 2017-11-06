@@ -1,0 +1,37 @@
+<project>
+    <path id="classpath">
+      <fileset dir="lib" 
+        includes="  asm-4.1.jar
+                    asm-analysis-4.1.jar
+                    asm-tree-4.1.jar
+                    asm-util-4.1.jar
+                    commons-lang3-3.6.jar
+                    jodd-3.6.4.jar
+                    jsoup-1.10.3.jar
+                    parboiled-core-1.1.6.jar
+                    parboiled-java-1.1.6.jar
+                    pegdown-1.4.2.jar
+                    remark-1.1.0.jar"/>
+      <fileset dir="/usr/local/lib/jolie/" includes="jolie.jar"/>
+    </path>
+
+    <target name="clean">
+        <delete dir="build"/>
+    </target>
+
+    <target name="clean_jar">
+        <delete file="lib/org.MarkdownService.jar"/>
+    </target>
+
+    <target name="build">
+        <mkdir dir="build/classes"/>
+        <javac classpathref="classpath" srcdir="src" destdir="build/classes"/>
+    </target>
+
+    <target name="jar" depends="build" >
+        <antcall target="clean_jar" />
+        <jar destfile="lib/org.MarkdownService.jar" basedir="build/classes"></jar>
+        <antcall target="clean" />
+    </target>
+
+</project>
