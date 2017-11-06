@@ -74,17 +74,16 @@ define convertToMarkdown
 	list@File( listRequest)( listResult );
 	for( i = 0, i < #listResult.result, i++ ) {
 		readFile@File( { .filename = execRequest.workingDirectory + sep + listResult.result[i] } )( content );
-		replaceAll@StringUtils( content { .regex = "div class=\"code\" lang=\"jolie\"", .replacement = "pre" } )( content );
-		replaceAll@StringUtils( content { .regex = "}</div>", .replacement = "}</pre>" } )( content );
+		replaceAll@StringUtils( content { .regex = "<style>.+</style>", .replacement = "" } )( content );
 		
-		htmlToMarkdown@MarkdownService( content )( content );
+		// htmlToMarkdown@MarkdownService( content )( content );
 		replaceAll@StringUtils( listResult.result[i] { .regex = "\\.html", .replacement = "" } )( listResult.result[i] );
 		writeFile@File( { 
 			.filename = execRequest.workingDirectory + sep + listResult.result[i] + ".md",
 			.content = content
 		})()
-	};
-	removeHtmlFiles
+	}
+	;removeHtmlFiles
 }
 
 define generateDocumentation {
