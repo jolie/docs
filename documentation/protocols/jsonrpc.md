@@ -8,8 +8,7 @@ Protocol name in Jolie port definition: `jsonrpc`.
 
 ## JSON-RPC Parameters
 
-<pre><code class="language-jolie code">
-type JsonRpcConfiguration:void {
+<pre><code class="language-jolie code">type JsonRpcConfiguration:void {
 	/*
 	* Defines whether the underlying connection should be kept open.
 	*
@@ -52,5 +51,4 @@ type JsonRpcConfiguration:void {
 	 */
 	.requestCompression?:string
 }
-
 </code></pre>

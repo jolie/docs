@@ -8,8 +8,7 @@ Let us consider a specification of a service that allows clients to start a time
 
 First, we implement the specification as an embeddeder with a `concurrent` behaviour, statically embedding a counter service. A new instance of the embedder is created each time a new client invokes the `startNewCounter` operation, but still the embedded service `CounterService` is instanced only once and it is shared among all instances of the embedder.
 
-<pre><code class="language-jolie code">
-/*
+<pre><code class="language-jolie code">/*
 	part of deployment omitted
 */
 
@@ -43,8 +42,7 @@ Such an implementation is wrong because it diverges from the given specification
 
 We can achieve the right implementation by dynamically embedding the service.
 
-<pre><code class="language-jolie code">
-include "runtime.iol"
+<pre><code class="language-jolie code">include "runtime.iol"
 
 /*
 	part of deployment omitted

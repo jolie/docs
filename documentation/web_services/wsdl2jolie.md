@@ -29,8 +29,7 @@ Reading the raw XML is not so easy, or at least requires some time.
 
 If we execute the command `wsdl2jolie http://www50.brinkster.com/vbfacileinpt/np.asmx?wsdl` our output will be 
 
-<pre><code class="language-jolie code">
-Retrieving document at 'http://www50.brinkster.com/vbfacileinpt/np.asmx?wsdl'.
+<pre><code class="language-jolie code">Retrieving document at 'http://www50.brinkster.com/vbfacileinpt/np.asmx?wsdl'.
 type GetPrimeNumbersResponse:void {
 	.GetPrimeNumbersResult?:string
 }
@@ -80,8 +79,7 @@ which is the Jolie equivalent of the WSDL document. Those `.wsdl` and `.wsdl.por
 
 Once our interface is created, we can store it into a file, e.g., PrimeNumbers.iol, and use the output ports we discovered from Jolie code. As in the following:
 
-<pre><code class="language-jolie code">
-include "PrimeNumbers.iol"
+<pre><code class="language-jolie code">include "PrimeNumbers.iol"
 include "console.iol"
 
 main
@@ -126,24 +124,34 @@ In the following table we show the mapping between WSDL elements and Jolie eleme
 	</thead>
 	<tbody>
 		<tr>
-			<td><code>&lt;types&gt;</code></td>
-			<td><code class="language-jolie code">type</code></td>
+			<td><code>&lt;types&gt;
+</code></td>
+			<td><code class="language-jolie code">type
+</code></td>
 		</tr>
 		<tr>
-			<td><code>&lt;messages&gt;</code></td>
-			<td><code class="language-jolie code">type</code></td>
+			<td><code>&lt;messages&gt;
+</code></td>
+			<td><code class="language-jolie code">type
+</code></td>
 		</tr>
 		<tr>
-			<td><code>&lt;portType&gt;</code></td>
-			<td><code class="language-jolie code">interface</code></td>
+			<td><code>&lt;portType&gt;
+</code></td>
+			<td><code class="language-jolie code">interface
+</code></td>
 		</tr>
 		<tr>
-			<td><code>&lt;binding&gt;</code></td>
-			<td><code class="language-jolie code">outputPort:Protocol</code></td>
+			<td><code>&lt;binding&gt;
+</code></td>
+			<td><code class="language-jolie code">outputPort:Protocol
+</code></td>
 		</tr>
 		<tr>
-			<td><code>&lt;service:port&gt;</code></td>
-			<td><code class="language-jolie code">outputPort</code></td>
+			<td><code>&lt;service:port&gt;
+</code></td>
+			<td><code class="language-jolie code">outputPort
+</code></td>
 		</tr>
 	</tbody>
 </table>

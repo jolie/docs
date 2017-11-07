@@ -14,8 +14,7 @@ To adhere to the WSDL specification, simple call signatures like `test( string )
 
 ## SOAP Parameters
 
-<pre><code class="language-jolie code">
-type SoapConfiguration:void {
+<pre><code class="language-jolie code">type SoapConfiguration:void {
 
 	/* 
 	* Defines the XML Schema files containing
@@ -192,5 +191,4 @@ type SoapConfiguration:void {
 	 */
 	.requestCompression?:string
 }
-
 </code></pre>

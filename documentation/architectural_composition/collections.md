@@ -8,8 +8,7 @@ A collection is a set of output ports that share the same interface.
 
 Collections extend the Courier Sessions syntax by allowing a set of output ports that share the same interface to be extended by the same `interface_extender`,
 
-<pre class="syntax">
-inputPort AggregatorPort {
+<pre class="syntax">inputPort AggregatorPort {
     // Location definition
     // Protocol definition
     Aggregates: 
@@ -21,8 +20,7 @@ inputPort AggregatorPort {
 
 then, in the courier definition, the forward statement specifies the corresponding output port to forward the message to.
 
-<pre class="syntax">
-courier AggregatorPort {
+<pre class="syntax">courier AggregatorPort {
 	interface interface_id( request )[( response )] {
 		// some code, if necessary
 		// and eventually
@@ -37,8 +35,7 @@ Courier Sessions that use collections of output ports are called "smart aggregat
 
 Let us modify the example shown in Couriers subsection. In this new scenario we have two printer services Printer1 and Printer2, and the fax service Fax which are part of our trusted intranet.
 
-<pre><code class="language-jolie code">
-// printer.iol
+<pre><code class="language-jolie code">// printer.iol
 type PrintRequest:void {
     .job:int
     .content:string
@@ -63,8 +60,7 @@ OneWay:
 
 We deploy a service that aggregates Printer1, Printer2, and Fax to accept requests from external networks (e.g., the Internet), but we want to authenticate the external users that use Printer1's and Printer2's service.
 
-<pre><code class="language-jolie code">
-include "locations.iol"
+<pre><code class="language-jolie code">include "locations.iol"
 include "printer.iol"
 include "fax.iol"
 include "console.iol"
@@ -156,7 +152,6 @@ main
 		log@Logger( "Sending key for username " + username )
 	}
 }
-
 </code></pre>
 
 Above, the aggregator exposes the inputPort `AggregatorInput` that aggregates the `Fax` service (as is) and `Printer1` and `Printer2` services. `Printer1`'s and `Printer2`'s operations types are extended by the `AuthInterfaceExtender`.

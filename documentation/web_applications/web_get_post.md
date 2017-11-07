@@ -8,8 +8,7 @@ Let us focus on dealing with GET and POST request from web applications using th
 
 To receive and handle a GET requests. Let us consider a Jolie program that supports the sum of two numbers, `x` and `y`, by means of an operation called `sum`.
 
-<pre><code class="language-jolie code">
-execution { concurrent }
+<pre><code class="language-jolie code">execution { concurrent }
 
 type SumRequest:void {
 	.x:int
@@ -42,8 +41,7 @@ Jolie transparently supports the reception of GET requests ad the automatic pars
 
 The `sum` service can be invoked from another Jolie program using a HTTP GET request. We can do this with the following client code:
 
-<pre><code class="language-jolie code">
-include "console.iol"
+<pre><code class="language-jolie code">include "console.iol"
 
 type SumRequest:void {
 	.x:int
@@ -67,7 +65,6 @@ main
 	sum@SumService( request )( response );
 	println@Console( response )()
 }
-
 </code></pre>
 
 We use the `method` parameter of HTTP protocol to set our request method to GET.
@@ -78,8 +75,7 @@ We use the `method` parameter of HTTP protocol to set our request method to GET.
 
 Handling POST requests is similar to handling GET ones. Let us reuse the code given before for the `sum` service submitting a POST request: Jolie HTTP protocol implementation automatically detects a POST call and convert it to a standard message. Since POST calls are usually sent by browsers through HTML forms, we provide one by a simple extension of our `sum` service:
 
-<pre><code class="language-jolie code">
-execution { concurrent }
+<pre><code class="language-jolie code">execution { concurrent }
 
 type SumRequest:void {
   .x:int
@@ -109,9 +105,11 @@ main
       <html>
         <body>
           <form action='sum' method='POST'>
-            <code>x</code>: <input type='text' value='3' name='x' />
+            <code>x
+</code>: <input type='text' value='3' name='x' />
             <br/>
-            <code>y</code>: <input type='text' value='2' name='y' />
+            <code>y
+</code>: <input type='text' value='2' name='y' />
             <br/>
             <input type='submit'/>
           </form>
@@ -129,8 +127,7 @@ This time we use the `format = "html"` HTTP parameter to support the dispatch of
 
 The difference between sending GET and POST requests stands in setting the `method` parameter. Let us modify the previous code used to shown how to send GET requests:
 
-<pre><code class="language-jolie code">
-include "console.iol"
+<pre><code class="language-jolie code">include "console.iol"
 
 type SumRequest:void {
 	.x:int
@@ -154,5 +151,4 @@ main
 	sum@SumService( request )( response );
 	println@Console( response )()
 }
-
 </code></pre>

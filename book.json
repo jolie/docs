@@ -1,4 +1,13 @@
 {
-    "plugins": [ "prism", "-highlight" ],
-    "pluginsConfig": {}
+    "plugins": [ "prism", "-highlight", "ga" ],
+    "pluginsConfig": {
+      "prism": {
+        "css": [
+          "prismjs/themes/prism-tomorrow.css"
+        ]
+      },
+      "ga": {
+        "token": "UA-38067618-2"
+      }
+    }
 }

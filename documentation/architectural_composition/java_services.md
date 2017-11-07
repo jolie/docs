@@ -179,8 +179,7 @@ RequestResponse invocation from the JavaService to the embedder and a
 RequestResponse invocation from the embedder to the JavaService. The
 Java code follows:
 
-<pre><code class="language-java code">
-package Jolie.example;
+<pre><code class="language-java code">package Jolie.example;
 import Jolie.net.CommChannel;
 import Jolie.net.CommMessage;
 import Jolie.runtime.JavaService;
@@ -250,8 +249,7 @@ must be managed into the JavaService. Now, let us suppose to modify the
 `embedder.ol` by throwing the fault `MyFault` as response into the body
 of the `initialize` operation as it follows:
 
-<pre><code class="language-jolie code">
-initialize( request )( response-initialize ){ 
+<pre><code class="language-jolie code">initialize( request )( response-initialize ){ 
 	scope( myScope ) {
 		install( MyFault => println@Console( "Fault raised!" )() );
 		response-initialize = "This is the initialization"; 
@@ -263,8 +261,7 @@ initialize( request )( response-initialize ){
 Clearly, we have also to enhance the interface in order to declare that
 operation `initialize` can raise a fault as shown below:
 
-<pre><code class="language-jolie code">
-interface EmbedderInterface { 
+<pre><code class="language-jolie code">interface EmbedderInterface { 
 	RequestResponse: initialize throws MyFault
 }
 </code></pre>
@@ -274,8 +271,7 @@ JavaService by checking if the response is a fault or not by exploiting
 method `isFault` of the class `CommMessage` as we do in the following
 Java code:
 
-<pre><code class="language-java code">
-CommMessage response = sendMessage( request ).recvResponseFor( request ); 
+<pre><code class="language-java code">CommMessage response = sendMessage( request ).recvResponseFor( request ); 
 if ( response.isFault() ) { 
 	System.out.println( response.fault().faultName() ); 
 } else { 
@@ -294,8 +290,7 @@ the `runtime`. In the following example we present the Java code of a
 JavaService which simply returns the value of a counter which is
 increased each time it is invoked on its method `start`.
 
-<pre><code class="language-java code">
-public class FourthJavaService extends JavaService { 
+<pre><code class="language-java code">public class FourthJavaService extends JavaService { 
 	private int counter; 
 
 	public Value start( Value request ) { 

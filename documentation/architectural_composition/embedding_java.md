@@ -14,8 +14,7 @@ Each public method of the Java Service is an input operation invokable by the em
 
 Let us write our own `MyConsole` Java service that offers a `println` request-response operation. `println` is a public method of `MyConsole` class that takes a string as request and prints it at console.
 
-<pre><code class="language-java code">
-package example;
+<pre><code class="language-java code">package example;
 import jolie.runtime.JavaService;
 
 public class MyConsole extends JavaService {
@@ -34,8 +33,7 @@ Once stored in the `example` folder, as defined by the package statement, our Ja
 
 Once our service is visible by Jolie's interpreter, we can embed it in a Jolie service:
 
-<pre><code class="language-jolie code">
-interface MyConsoleInterface {
+<pre><code class="language-jolie code">interface MyConsoleInterface {
 	OneWay: println( string )
 }
 
@@ -63,8 +61,7 @@ To practice on request-response operations between embedded and embedder, let us
 
 We use the previously written Java Service `MyConsole` to print the result and show how to embed multiple classes.
 
-<pre><code class="language-java code">
-package example;
+<pre><code class="language-java code">package example;
 
 import jolie.runtime.JavaService;
 
@@ -86,8 +83,7 @@ Note that both input and output types of each method, although meant to be primi
 
 Following, the Jolie service embeds both MyConsole and Twice classes:
 
-<pre><code class="language-jolie code">
-interface MyConsoleInterface {
+<pre><code class="language-jolie code">interface MyConsoleInterface {
 	OneWay:	println( string )
 }
 
@@ -126,8 +122,7 @@ main
 
 A Java Service can also call an operation of the embedder by means of the `sendMessage` method of Jolie standard library. In this example we use the `Value` and `ValueVector` objects to handle a custom-typed message from a request-response operation invoked on the embedder.
 
-<pre><code class="language-jolie code">
-include "console.iol"
+<pre><code class="language-jolie code">include "console.iol"
 
 type Split_req: void{
 	.string: string
@@ -175,8 +170,7 @@ main
 
 The embedder acts as a bridge between two embedded Java Services, `MyJavaExample` which requests a `split` operation and, `Splitter` which implements it.
 
-<pre><code class="language-java code">
-package example;
+<pre><code class="language-java code">package example;
 
 import jolie.runtime.JavaService;
 import jolie.net.CommMessage;

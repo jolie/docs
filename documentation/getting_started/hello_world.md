@@ -2,8 +2,7 @@
 
 A Jolie program defines a service. A service achieves complex tasks by composing other services. An example of a very simple service is the following:
 
-<pre><code class="language-jolie code">
-include "console.iol"
+<pre><code class="language-jolie code">include "console.iol"
 
 main 
 {

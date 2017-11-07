@@ -1,7 +1,8 @@
 <html>
 <head></head><body>
 <h1>JolieDoc for Port SwingUI</h1>
-<h2>From file <code>swing_ui.iol</code></h2>
+<h2>From file <code>swing_ui.iol
+</code></h2>
 <table>
 <tr>
 <th>Port Name</th>

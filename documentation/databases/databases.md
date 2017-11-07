@@ -7,48 +7,70 @@ Attention: if your JAR driver is called differently, you will have to rename it 
 <table border>
     <tr>
 	<th>Database</th>
-	<th>Driver name (<code>driver</code>)</th>
+	<th>Driver name (<code>driver
+</code>)</th>
 	<th>JAR filename</th>
     </tr>
     <tr>
 	<td>PostgreSQL</td>
-	<td><code>postgresql</code></td>
-	<td><code>jdbc-postgresql.jar</code></td>
+	<td><code>postgresql
+</code></td>
+	<td><code>jdbc-postgresql.jar
+</code></td>
     </tr>
     <tr>
 	<td>MySQL</td>
-	<td><code>mysql</code></td>
-	<td><code>jdbc-mysql.jar</code></td>
+	<td><code>mysql
+</code></td>
+	<td><code>jdbc-mysql.jar
+</code></td>
     </tr>
     <tr>
 	<td>Apache Derby</td>
-	<td><code>derby_embedded</code> or <code>derby</code></td>
-	<td><code>derby.jar</code> or <code>derbyclient.jar</code></td>
+	<td><code>derby_embedded
+</code> or <code>derby
+</code></td>
+	<td><code>derby.jar
+</code> or <code>derbyclient.jar
+</code></td>
     </tr>
     <tr>
 	<td>SQLite</td>
-	<td><code>sqlite</code></td>
-	<td><code>jdbc-sqlite.jar</code></td>
+	<td><code>sqlite
+</code></td>
+	<td><code>jdbc-sqlite.jar
+</code></td>
     </tr>
     <tr>
 	<td>SQLServer</td>
-	<td><code>sqlserver</code></td>
-	<td><code>sqljdbc4.jar</code></td>
+	<td><code>sqlserver
+</code></td>
+	<td><code>sqljdbc4.jar
+</code></td>
     </tr>
     <tr>
 	<td>HSQLDB</td>
-	<td><code>hsqldb_hsql</code>, <code>hsqldb_hsqls</code>, <code>hsqldb_http</code> or <code>hsqldb_https</code></td>
-	<td><code>hsqldb.jar</code></td>
+	<td><code>hsqldb_hsql
+</code>, <code>hsqldb_hsqls
+</code>, <code>hsqldb_http
+</code> or <code>hsqldb_https
+</code></td>
+	<td><code>hsqldb.jar
+</code></td>
     </tr>
     <tr>
 	<td>IBM DB 2</td>
-	<td><code>db2</code></td>
-	<td><code>db2jcc.jar</code></td>
+	<td><code>db2
+</code></td>
+	<td><code>db2jcc.jar
+</code></td>
     </tr>
     <tr>
 	<td>IBM AS 400</td>
-	<td><code>as400</code></td>
-	<td><code>jt400.jar</code></td>
+	<td><code>as400
+</code></td>
+	<td><code>jt400.jar
+</code></td>
     </tr>
 </table>
 
@@ -58,8 +80,7 @@ The Database service officially supports only the listed DB systems, which were 
 
 By default, the Database service included by `database.iol` works for connecting to a single database. If you need to use multiple databases from the same Jolie service, you can run additional instance by creating another output port and embedding the Database Java service again, as in the following:
 
-<pre><code class="language-jolie code">
-outputPort Database2 {
+<pre><code class="language-jolie code">outputPort Database2 {
 Interfaces: DatabaseInterface
 }
 
@@ -67,8 +88,6 @@ embedded {
 Java:
         "joliex.db.DatabaseService" in Database2
 }
-
-
 </code></pre>
 
 ---
@@ -77,8 +96,7 @@ Java:
 
 This is a modification of the WeatherService client mentioned in section [Web Services/web_services] (web_services/web_services.html). It fetches meteorologic data of a particular location (constants `City` and `Country`) and stores it in HSQLDB. If the DB has not been set up yet, the code takes care of the initialisation. The idea is to run the program in batch (eg. by a cronjob) to collect data, which could be interesting in Internet of Things (IoT) scenarios.
 
-<pre><code class="language-jolie code">
-include "weatherService.iol"
+<pre><code class="language-jolie code">include "weatherService.iol"
 include "string_utils.iol"
 include "xml_utils.iol"
 include "database.iol"
@@ -156,15 +174,13 @@ main
     // shutdown DB
     update@Database( "SHUTDOWN" )( ret )
 }
-
 </code></pre>
 
 ### Second example: TodoList
 
 The next example provides a very easy CRUD (create, retrieve, update, delete) webservice for a TODO list. The example is shown with HSQLDB but theoretically each DB could have been used. The HTTP's server output format is set to JSON, the input can be approached by both GET or POST requests.
 
-<pre><code class="language-jolie code">
-include "console.iol"
+<pre><code class="language-jolie code">include "console.iol"
 include "database.iol"
 include "string_utils.iol"
 
@@ -248,7 +264,6 @@ main
 		)(response.status)
 	} ]
 }
-
 </code></pre>
 
 Client requests using curl:

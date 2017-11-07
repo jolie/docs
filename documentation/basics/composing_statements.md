@@ -20,8 +20,7 @@ statementA ; statementB
 
 A valid use of the sequence operator is as it follows:
 
-<pre><code class="language-jolie code">
-main
+<pre><code class="language-jolie code">main
 {
 	print@Console( "Hello, " )();
 	println@Console( "world!" )()
@@ -33,10 +32,10 @@ main
   	<p class="panel-title">Attention</p>
   </div>
   <div class="panel-body">
-    <p>Keep in mind that, in Jolie, <code>;</code> is NOT the "end of statement" marker.</p>
+    <p>Keep in mind that, in Jolie, <code>;
+</code> is NOT the "end of statement" marker.</p>
 		For the sake of clarity, let us consider an INVALID use of the sequence operator:
-		<pre><code class="language-jolie code">
-main
+		<pre><code class="language-jolie code">main
 {
 	print@Console( "Hello, " )();
 	println@Console( "world!" )(); // <- it is not a "end of statement" marker
@@ -58,27 +57,23 @@ statementA | statementB
 
 It is a good practice to explicitly group statements when mixing sequence and parallel operators. Statements can be grouped by enclosing them within an unlabelled [scope](/documentation/fault_handling/basics.html) represented by a pair curly brackets `{}`, like in the following example:
 
-<pre><code class="language-jolie code">
-{ statementA ; statementB ; ... ; statementF } 
+<pre><code class="language-jolie code">{ statementA ; statementB ; ... ; statementF } 
 | 
 { statementG ; statementH }
 </code></pre>
 
 The parallel operator has always priority on the sequence one, thus the following code snippets are equivalent:
 
-<pre><code class="language-jolie code">
-A ; B | C ; D
+<pre><code class="language-jolie code">A ; B | C ; D
 </code></pre>
-<pre><code class="language-jolie code">
-{A ; B} | {C ; D}
+<pre><code class="language-jolie code">{A ; B} | {C ; D}
 </code></pre>
 
 Parallel execution is especially useful when dealing with multiple services, in order to minimize waiting times by managing multiple communications at once.
 
 In this example we concurrently retrieve information from both a forecast and a traffic service:
 
-<pre><code class="language-jolie code">
-main
+<pre><code class="language-jolie code">main
 {
 	getTemperature@Forecast( city )( temperature ) |
 	getData@Traffic( city )( traffic );
@@ -108,8 +103,7 @@ The syntax of an input choice is:
 
 Let us consider the example below in which only `buy` or `sell` operation can execute, while the other is discarded.
 
-<pre><code class="language-jolie code">
-[ buy( stock )( response ) {
+<pre><code class="language-jolie code">[ buy( stock )( response ) {
 	buy@Exchange( stock )( response )
 } ] { println@Console( "Buy order forwarded" )() }
 
@@ -136,8 +130,7 @@ Conditions can be used as expressions and their evaluation always returns a bool
 
 Some valid conditions are:
 
-<pre><code class="language-jolie code">
-x == "Hi"
+<pre><code class="language-jolie code">x == "Hi"
 !x
 25 <= x
 x >= 10
@@ -157,8 +150,7 @@ Note that the `else` block is optional (denoted by its enclosure in square brack
 
 Like in many other languages, the `if ... else` statement can be nested and combined:
 
-<pre><code class="language-jolie code">
-if ( !is_int( a ) ) {
+<pre><code class="language-jolie code">if ( !is_int( a ) ) {
 	println@Console( "a is not an integer" )()
 } else if ( a > 50 ) {
 	println@Console( "a is major than 50" )()
@@ -191,8 +183,7 @@ for ( init-code-block, condition, post-cycle-code-block ) {
 
 Example:
 
-<pre><code class="language-jolie code">
-for ( i = 0, i < 50, i++ ) {
+<pre><code class="language-jolie code">for ( i = 0, i < 50, i++ ) {
 	println@Console( i )()
 }
 </code></pre>

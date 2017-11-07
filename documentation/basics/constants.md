@@ -14,8 +14,7 @@ constants {
 
 As an example let us consider the following code:
 
-<pre><code class="language-jolie code">
-constants {
+<pre><code class="language-jolie code">constants {
 	Server_location = "socket://localhost:8080",
 	ALARM_TIMEOUT = 2000,
 	standard_gravity = 9.8
@@ -30,8 +29,11 @@ Constants might also be assigned on the command line. Just call a program using 
   	<p class="panel-title">Attention</p>
   </div>
   <div class="panel-body">
-    <p>Under Windows <code>=</code> is a parameter delimiter.</p>
+    <p>Under Windows <code>=
+</code> is a parameter delimiter.</p>
 
-    <p>To correctly use the command line option <code>-C</code> make sure to enclose the assignment of the constant between single or double quotes like <code>jolie -C "server_location=\"socket://localhost:4003\"" program.ol</code>.</p>
+    <p>To correctly use the command line option <code>-C
+</code> make sure to enclose the assignment of the constant between single or double quotes like <code>jolie -C "server_location=\"socket://localhost:4003\"" program.ol
+</code>.</p>
 	</div>
 </div>

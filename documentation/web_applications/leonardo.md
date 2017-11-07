@@ -23,8 +23,7 @@ Then, pointing the browser at URL `http://localhost:8000/index` we can see the w
 
 Leonardo comes with a `config.iol` file, where are stored some constants for basic configuration. The content of the default `config.iol` file is shown below:
 
-<pre><code class="language-jolie code">
-constants {
+<pre><code class="language-jolie code">constants {
   	// The location for reaching the Leonardo web server
   	Location_Leonardo = "socket://localhost:8000/",
 
@@ -67,8 +66,7 @@ We start by creating the Jolie code that serves the requests from the web interf
 
 Let us open `leonardo.ol` and add the following interface:
 
-<pre><code class="language-jolie code">
-type LengthRequest: void{
+<pre><code class="language-jolie code">type LengthRequest: void{
 	.item[ 1, * ]: string
 }
 
@@ -80,8 +78,7 @@ interface ExampleInterface {
 
 Then we edit the main HTTP input port, `HTTPInput`, and add `ExampleInterface` to the published interfaces:
 
-<pre><code class="language-jolie code">
-inputPort HTTPInput {
+<pre><code class="language-jolie code">inputPort HTTPInput {
 	// other deployment code
 	Intefaces: HTTPInterface, ExampleInterface
 }
@@ -89,8 +86,7 @@ inputPort HTTPInput {
 
 Finally, we write the operation `length` by adding the code below to the input choice inside the `main` procedure in Leonardo:
 
-<pre><code class="language-jolie code">
-main
+<pre><code class="language-jolie code">main
 {
 	// existing code in Leonardo
 	[ length( request )( response ){
@@ -176,8 +172,7 @@ Jolie supports Google Web Toolkit too by means of the `jolie-gwt.jar` library st
 
 The module comes with support classes for invoking operations published by the service of Leonardo which is serving the GWT application. In our case, we can easily call the `length` operation with the following code:
 
-<pre><code class="language-java code">
-Value request = new Value();
+<pre><code class="language-java code">Value request = new Value();
 request.getNewChild( "item" ).setValue( "Hello" );
 request.getNewChild( "item" ).setValue( "World!" );
 JolieService.Util.getInstance().call( 

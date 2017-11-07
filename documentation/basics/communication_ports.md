@@ -77,8 +77,7 @@ where `URI` is a [URI](http://en.wikipedia.org/wiki/Uniform_resource_identifier)
 
 Let us consider the following input port declaration:
 
-<pre><code class="language-jolie code">
-inputPort SumInput {
+<pre><code class="language-jolie code">inputPort SumInput {
 	Location: "socket://localhost:8000/"
 	Protocol: soap
 	Interfaces: SumInterface
@@ -89,8 +88,7 @@ inputPort SumInput {
 
 Finally, let us define the `SumServ` outputPort, which is used to invoke the services exposed by `SumInput`:
 
-<pre><code class="language-jolie code">
-outputPort SumServ {
+<pre><code class="language-jolie code">outputPort SumServ {
 	Location: "socket://localhost:8000/"
 	Protocol: soap
 	Interfaces: SumInterface
@@ -129,8 +127,7 @@ The syntax presented above includes the types of the messages of each operation.
 
 Let us declare the interface `SumInterface`:
 
-<pre><code class="language-jolie code">
-interface SumInterface {
+<pre><code class="language-jolie code">interface SumInterface {
 	RequestResponse:
 		sum( SumRequest )( int )
 }
@@ -164,8 +161,7 @@ type T: basic_type
 
 An example of such kind of data types is:
 
-<pre><code class="language-jolie code">
-type Name: string
+<pre><code class="language-jolie code">type Name: string
 </code></pre>
 
 ### Subtree data types
@@ -216,8 +212,7 @@ type T: basic_type {
 
 Let us consider the previous example, in which the operation `sum` defines the types of its request and response messages, respectively, as a complex type `SumRequest` and a native type `int`. Hence the declaration of `SumRequest` follows:
 
-<pre><code class="language-jolie code">
-type SumRequest: void {
+<pre><code class="language-jolie code">type SumRequest: void {
 	.number [ 2, * ]: int
 }
 </code></pre>
@@ -226,8 +221,7 @@ The declaration above reads: `SumRequest` is a void-typed node, containing a sub
 
 A type declaration can be used in other type declarations, like in the example below:
 
-<pre><code class="language-jolie code">
-type mySubType: void {
+<pre><code class="language-jolie code">type mySubType: void {
 	.value: double
 	.comment: string
 }
@@ -260,8 +254,7 @@ Referring to the previous example, `x` requires the definition of both nodes `va
 
 Let us write an complete example of communication ports in Jolie:
 
-<pre><code class="language-jolie code">
-//sumInterface.ol
+<pre><code class="language-jolie code">//sumInterface.ol
 
 type SumRequest: void {
 	.number [ 2, * ]: int
@@ -274,8 +267,7 @@ interface SumInterface {
 
 `SumInterface` declaration.
 
-<pre><code class="language-jolie code">
-include "sumInterface.ol"
+<pre><code class="language-jolie code">include "sumInterface.ol"
 
 inputPort SumInput {
 	Location: "socket://localhost:8000/"
@@ -330,8 +322,7 @@ In Jolie, whenever a message is sent or received through a port, its type is che
 
 The `TypeMismatch` fault can be handled by exploiting the [fault handling](/documentation/fault_handling/basics.html), as shown in the following example:
 
-<pre><code class="language-jolie code">
-scope ( myScope ) 
+<pre><code class="language-jolie code">scope ( myScope ) 
 {
 	install( 
 		TypeMismatch => println@Console( myScope.TypeMismatch )()
@@ -367,12 +358,14 @@ op_name ( request_type )( response_type ) throws fault_name ( fault_type )
 		<td>
 			<ul>
 				<li>The message is not sent;</li>
-				<li>a <code>TypeMismatch</code> exception is raised.</li>
+				<li>a <code>TypeMismatch
+</code> exception is raised.</li>
 			</ul>
 		</td>
 		<td>
 			<ul>
-				<li>a <code>TypeMismatch</code> exception is raised.</li>
+				<li>a <code>TypeMismatch
+</code> exception is raised.</li>
 			</ul>
 		</td>
 	</tr>
@@ -382,13 +375,16 @@ op_name ( request_type )( response_type ) throws fault_name ( fault_type )
 			<ul>
 				<li>The message is discarded;</li>
 				<li>a warning message is sent to console;</li>
-				<li>a <code>TypeMismatch</code> fault message is sent to the sender</li>
+				<li>a <code>TypeMismatch
+</code> fault message is sent to the sender</li>
 			</ul>
 		</td>
 		<td>
 			<ul>
-				<li>a <code>TypeMismatch</code> exception is raised.</li>
-				<li>a <code>TypeMismatch</code> fault is sent to the sender.</li>
+				<li>a <code>TypeMismatch
+</code> exception is raised.</li>
+				<li>a <code>TypeMismatch
+</code> fault is sent to the sender.</li>
 			</ul>
 		</td>
 	</tr>
@@ -402,8 +398,7 @@ Let us consider the following scenario for a comprehensive example on communicat
 
 `PercentInterface` defines the `percent` request-response operation. Both request and response messages are typed.
 
-<pre><code class="language-jolie code">
-//percentInterface.iol
+<pre><code class="language-jolie code">//percentInterface.iol
 
 type percent_request: void {
 	.part: int
@@ -421,8 +416,7 @@ interface PercentInterface {
 
 The client declares the `outputPort` to communicate with the server and invokes the `percent` operation.
 
-<pre><code class="language-jolie code">
-//Client.ol
+<pre><code class="language-jolie code">//Client.ol
 
 include "console.iol"
 include "percentInterface.iol"
@@ -457,8 +451,7 @@ main
 
 The server declares the corresponding `inputPort` to exposes the `percent` service and implements its behaviour.
 
-<pre><code class="language-jolie code">
-//Server.ol
+<pre><code class="language-jolie code">//Server.ol
 
 include "console.iol"
 include "percentInterface.iol"

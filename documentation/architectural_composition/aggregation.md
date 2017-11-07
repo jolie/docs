@@ -29,8 +29,7 @@ Remarkably, aggregation handles the request-response pattern seamlessly: when fo
 
 Aggregation can be used for system integration, e.g., bridging services that use different communication technologies or protocols. The deployment snippet below creates a service that forwards incoming SODEP calls on TCP port 8000 to the output port `MyOP`, converting the received message to SOAP.
 
-<pre><code class="language-jolie code">
-outputPort MyOP {
+<pre><code class="language-jolie code">outputPort MyOP {
 	Location: "socket://someurl.ex:80"
 	Protocol: soap
 	Interfaces: MyInterface
@@ -47,8 +46,7 @@ inputPort MyInput {
 
 We give an example where three services - `A`, `B`, and `C` - are aggregated by a service `M`, which also embeds `C`.
 
-<pre><code class="language-jolie code">
-outputPort A {
+<pre><code class="language-jolie code">outputPort A {
 	Location: "socket://someurlA.com:80/"
 	Protocol: soap
 	Interfaces: InterfaceA

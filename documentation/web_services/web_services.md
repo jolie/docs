@@ -22,8 +22,7 @@ Let us open the interface file and delete its first line, which is the comment `
 
 Once we stored the Jolie interface of the web service, we can invoke its operations by including its interface definition file in a Jolie program:
 
-<pre><code class="language-jolie code">
-include "myWS_jolieDocument.iol"
+<pre><code class="language-jolie code">include "myWS_jolieDocument.iol"
 include "string_utils.iol"
 include "xml_utils.iol"
 include "console.iol"
@@ -51,8 +50,7 @@ Jolie services can be exposed as web services as well.
 
 Let us consider the following Jolie service which returns the address of a person identified by his name and his surname:
 
-<pre><code class="language-jolie code">
-include "console.iol"
+<pre><code class="language-jolie code">include "console.iol"
 include "string_utils.iol"
 
 execution{ concurrent }
@@ -116,7 +114,6 @@ main {
 		}
 	}
 }
-
 </code></pre>
 
 To expose the port `MyServiceSOAPPort` as a web service, we exploit the tool [jolie2wsdl](/documentation/web_services/jolie2wsdl.html) that generates the corresponding WSDL document to be attached to the file:
@@ -125,8 +122,7 @@ To expose the port `MyServiceSOAPPort` as a web service, we exploit the tool [jo
 
 Once generated the WSDL file is to be attached within the declaration of the inputPort:
 
-<pre><code class="language-jolie code">
-inputPort MyServiceSOAPPort {
+<pre><code class="language-jolie code">inputPort MyServiceSOAPPort {
 	Location: "socket://localhost:8001"
 	Protocol: soap {
 		.wsdl = "./MyWsdlDocument.wsdl";

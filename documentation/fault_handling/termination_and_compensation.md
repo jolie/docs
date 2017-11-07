@@ -35,8 +35,7 @@ Termination is a mechanism used to recover from errors: it is automatically trig
 
 Termination is triggered when a sibling activity raises a fault. Let us consider the following example:
 
-<pre><code class="language-jolie code">
-include "console.iol"
+<pre><code class="language-jolie code">include "console.iol"
 
 main
 {
@@ -58,8 +57,7 @@ In the example above, the code at Lines 7 and 13 is executed concurrently. In `s
 
 When termination is triggered on a scope, the latter recursively terminates its own child scopes. Once all child scopes terminated, the recovery handler is executed. Let us consider the following example:
 
-<pre><code class="language-jolie code">
-include "console.iol"
+<pre><code class="language-jolie code">include "console.iol"
 include "time.iol"
 
 main
@@ -95,8 +93,7 @@ If the fault is raised when the scope `son` is still executing (we use Jolie's s
 
 Recovery handlers can be dynamically updated like fault handlers. Example:
 
-<pre><code class="language-jolie code">
-include "console.iol"
+<pre><code class="language-jolie code">include "console.iol"
 include "time.iol"
 
 main
@@ -131,8 +128,7 @@ Besides replacing a recovery handlers, it may be useful to add code to the curre
 
 Let us consider the following example:
 
-<pre><code class="language-jolie code">
-include "console.iol"
+<pre><code class="language-jolie code">include "console.iol"
 include "time.iol"
 
 main
@@ -181,8 +177,7 @@ Compensation is invoked by means of the `comp` statement, which can be used only
 
 Let us consider the following example showing how to perform a compensation:
 
-<pre><code class="language-jolie code">
-include "console.iol"
+<pre><code class="language-jolie code">include "console.iol"
 
 main
 {
@@ -213,8 +208,7 @@ When scope `example_scope` ends with success, its current recovery handler is pr
 
 Handlers need to use and manipulate variable data often and a handler may need to refer to the status of a variable at the moment of its installation. Hence, Jolie provides the `^` operator which "freezes" a variable state within an installed handler. `^` is applied to a variable by prefixing it, as shown in the example below.
 
-<pre><code class="language-jolie code">
-include "console.iol"
+<pre><code class="language-jolie code">include "console.iol"
 
 main
 {

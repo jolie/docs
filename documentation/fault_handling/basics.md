@@ -45,8 +45,7 @@ scope( scope_name )
 
 A fault which is not caught within a scope, is automatically re-thrown to the parent scope. In the following example, a simple service asks the user to insert a number, if the number does not correspond to the `secret` one, a fault is raised.
 
-<pre><code class="language-jolie code">
-include "ui/ui.iol"
+<pre><code class="language-jolie code">include "ui/ui.iol"
 include "ui/swing_ui.iol"
 include "console.iol"
 
@@ -82,8 +81,7 @@ An install statement may execute in parallel to other behaviours that may throw 
 
 As an example, consider the following code:
 
-<pre><code class="language-jolie code">
-scope( s )
+<pre><code class="language-jolie code">scope( s )
 {
 	throw( f ) | install( f => println@Console( "Fault caught!" )()	)
 }
@@ -108,8 +106,7 @@ interface IfaceName {
 
 Let us modify the previous example in order to introduce a request-response operation.
 
-<pre><code class="language-jolie code">
-// interface.iol
+<pre><code class="language-jolie code">// interface.iol
 
 type NumberExceptionType: void{
 	.number: int
@@ -123,8 +120,7 @@ interface GuessInterface {
 
 The interface defines the operation `guess` able to throw a `NumberException`, whose message type is `NumberExceptionType`.
 
-<pre><code class="language-jolie code">
-//server.ol
+<pre><code class="language-jolie code">//server.ol
 include "interface.iol"
 include "console.iol"
 
@@ -181,8 +177,7 @@ scope ( scope_name )
 
 Let us write a client that handles the raise of the fault and prints the data sent from it:
 
-<pre><code class="language-jolie code">
-//client.ol
+<pre><code class="language-jolie code">//client.ol
 include "console.iol"
 include "interface.iol"
 
@@ -212,8 +207,7 @@ With syntax `scope_name.default` we access the name of the fault caught by the s
 
 Used in combination with [dynamic lookup](/documentation/basics/data_structures.html#dynamic-look-up), with syntax `scope_name( scope_name.default ).faultMessage`, we can access the message sent with the fault, for instance `msg` in the example below.
 
-<pre><code class="language-jolie code">
-scope ( s ){
+<pre><code class="language-jolie code">scope ( s ){
 	install( MyFault => 
 		println@Console( "Caught MyFault, message: " + s.MyFault.msg )() 
 	);

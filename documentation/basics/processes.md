@@ -16,8 +16,7 @@ A crucial aspect of behaviour instances is that each instance has its own privat
 
 For instance, let us recall the server program given at the end of [Communication Ports](/documentation/basics/communication_ports.html) section. We can simply add the deployment instruction `execution{ concurrent }` to the server's deployment to make it supporting multiple clients at the same time. Access to variables would be safe since each behaviour instance would have its private state.
 
-<pre><code class="language-jolie code">
-//Server.ol
+<pre><code class="language-jolie code">//Server.ol
 
 include "console.iol"
 include "percentInterface.iol"
@@ -40,7 +39,6 @@ main
 		response.percent_value = double( request.part )/request.total
 	}
 }
-
 </code></pre>
 
 ---
@@ -55,8 +53,7 @@ Jolie also supports special procedures for initialising a service before it make
 
 Jolie also provides *global variables* to support sharing of data among different behaviour instances. These can be accessed using the `global` prefix:
 
-<pre><code class="language-jolie code">
-global.myGlobalVariable = 3 // Global variable
+<pre><code class="language-jolie code">global.myGlobalVariable = 3 // Global variable
 myLocalVariable = 1 // Local to this behaviour instance
 </code></pre>
 
@@ -84,8 +81,7 @@ The register service has a concurrent execution and exposes the `register` reque
 
 *regInterface.ol*
 
-<pre><code class="language-jolie code">
-type register: void {
+<pre><code class="language-jolie code">type register: void {
 	.message: string
 }
 
@@ -96,8 +92,7 @@ interface RegInterface {
 
 *server.ol*
 
-<pre><code class="language-jolie code">
-include "regInterface.iol"
+<pre><code class="language-jolie code">include "regInterface.iol"
 
 inputPort Register {
 	Location: "socket://localhost:2000"
@@ -125,8 +120,7 @@ main
 
 *client.ol*
 
-<pre><code class="language-jolie code">
-include "regInterface.iol"
+<pre><code class="language-jolie code">include "regInterface.iol"
 include "console.iol"
 
 outputPort Register {

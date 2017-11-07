@@ -22,8 +22,7 @@ The parameters of the protocol are specified in the input/output [port](/documen
 
 Let us recall the examples given in [HTTP GET/POST Requests](/documentation/web_applications/web_get_post.html) where we set the parameters `method` and `format`, of protocol `http`, to define what kind of messages the port shall send or receive.
 
-<pre><code class="language-jolie code">
-// HTTP GET input port
+<pre><code class="language-jolie code">// HTTP GET input port
 inputPort MyInput {
     //Location: ...
     Protocol: http
@@ -64,8 +63,7 @@ Protocol's parameters can be set dynamically using the alias `->` operator.
 
 To exemplify how to dynamically set the parameters of a protocol, we refer to the [Leonardo](/documentation/web_applications/leonardo.html)'s inputPort definition:
 
-<pre><code class="language-jolie code">
-inputPort HTTPInput {
+<pre><code class="language-jolie code">inputPort HTTPInput {
 	Protocol: http {
 		.keepAlive = 0; // Do not keep connections open
 		.debug = DebugHttp; 

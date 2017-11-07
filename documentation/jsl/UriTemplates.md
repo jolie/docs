@@ -1,7 +1,8 @@
 <html>
 <head></head><body>
 <h1>JolieDoc for Port UriTemplates</h1>
-<h2>From file <code>uri_templates.iol</code></h2>
+<h2>From file <code>uri_templates.iol
+</code></h2>
 <table>
 <tr>
 <th>Port Name</th>

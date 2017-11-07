@@ -11,7 +11,14 @@ The main advantages of such an approach are:
 
 <div class="doc_image">
 	<img src="img/redirection_1.jpg" />
-	<p><b>Fig.1</b> Service <code>M</code> redirect messages to services <code>A</code>, <code>B</code>, and <code>C</code> depending on the target destination of the message (<code>M/A</code>, <code>M/B</code>, or <code>M/C</code>)</p>
+	<p><b>Fig.1</b> Service <code>M
+</code> redirect messages to services <code>A
+</code>, <code>B
+</code>, and <code>C
+</code> depending on the target destination of the message (<code>M/A
+</code>, <code>M/B
+</code>, or <code>M/C
+</code>)</p>
 </div>
 
 For a better understanding of the second advantage, consider Fig.1. Let us suppose that resource A uses a protocol p\_A and a client C, using a different protocol p\_C, needs to interact with A. By invoking the master service M, C can simply interact with A through M (M/A) using p\_C, leaving to M the task to translate the message in protocol p\_A, before forwarding it to A.
@@ -35,8 +42,7 @@ where `sid_i => OP_id_i` associates a resource name `sid_i` to an output port id
 
 The example in Fig.1 is implemented by the code below:
 
-<pre><code class="language-jolie code">
-outputPort ServiceA {
+<pre><code class="language-jolie code">outputPort ServiceA {
 	Location: "socket://www.a_location.com/"
 	Protocol: soap
 	Interfaces: A_interface
@@ -66,8 +72,7 @@ inputPort MasterInput {
 
 Once set, calling a master service for one of its resources is done by declaring the resource name in the location used by the invoker, followed by the resource name separator `!/`, as shown at Line 2
 
-<pre><code class="language-jolie code">
-outputPort A{
+<pre><code class="language-jolie code">outputPort A{
 	Location: "socket://masterservice.com/8000/!/A"
 	Protocol: sodep
 	Interfaces: A_interface
@@ -78,8 +83,7 @@ outputPort A{
 
 Redirection can be changed dynamically by simply modifying the outputPort location via dynamic port binding.
 
-<pre><code class="language-jolie code">
-include "console.iol"
+<pre><code class="language-jolie code">include "console.iol"
 include "ui/ui.iol"
 include "ui/Swing_ui.iol"
 

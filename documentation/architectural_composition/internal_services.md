@@ -48,7 +48,8 @@ The internal service has access to all the output ports defined in the owner. Th
   	<p class="panel-title">Attention</hp>
   </div>
   <div class="panel-body">
-    <p>Every internal service has <code>execution { concurrent }</code> set by default. </p>
+    <p>Every internal service has <code>execution { concurrent }
+</code> set by default. </p>
     <p>
     	This is convenient, although it contrasts with the usual execution for normal Jolie services, which is set to <a href="/documentation/basics/composing_statements.html#statement-execution-operators">single</a> by default.
     </p>
@@ -63,8 +64,7 @@ Let us see an example of Internal Services in action with a simplified implement
 
 With internal services its is very quick and easy to draft a prototype implementation of tree
 
-<pre><code class="language-jolie code">
-include "console.iol"
+<pre><code class="language-jolie code">include "console.iol"
 include "file.iol"
 
 type TreeType: void{

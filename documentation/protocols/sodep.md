@@ -8,8 +8,7 @@ Protocol name in port definition: `sodep`.
 
 ## SODEP Parameters
 
-<pre><code class="language-jolie code">
-type SodepConfiguration:void {
+<pre><code class="language-jolie code">type SodepConfiguration:void {
 	/*
 	 * Defines the character set to use for (de-)coding strings.
 	 *
@@ -26,7 +25,6 @@ type SodepConfiguration:void {
 	 */
 	.keepAlive?:bool
 }
-
 </code></pre>
 
 ---

@@ -48,8 +48,7 @@ courier AggregatorPort {
 
 For a better understanding of how aggregation and interface extension work, let us consider a scenario where a fax service F is part of a trusted intranet, accepting requests coming from any intranet's user.
 
-<pre><code class="language-jolie code">
-// fax.iol
+<pre><code class="language-jolie code">// fax.iol
 type FaxRequest:void {
 	.destination:string
 	.content:string
@@ -65,8 +64,7 @@ We can deploy a service that aggregates F in order to keep it unchanged and acce
 
 In this scenario the "simple" message-forwarding capability of the aggregation is not sufficient. The requests coming from external users cannot be directly forwarded to the aggregated services, as they require some sort of elaboration, which is achieved by extending the operations of the aggregated services in the aggregator.
 
-<pre><code class="language-jolie code">
-include "fax.iol"
+<pre><code class="language-jolie code">include "fax.iol"
 include "console.iol"
  
 execution { concurrent }
@@ -116,7 +114,6 @@ main
         }
     }
 }
-
 </code></pre>
 
 In the example above, the aggregator exposes the inputPort `AggregatorInput` that aggregates the `Fax` service whose operations types are extended by the `AuthInterfaceExtender`.

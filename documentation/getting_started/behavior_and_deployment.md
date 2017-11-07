@@ -18,8 +18,7 @@ Our example is a client-server scenario in which:
 
 ### Server
 
-<pre><code class="language-jolie code">
-main 
+<pre><code class="language-jolie code">main 
 {
 	twice( number )( response )	{
 		response = number * 2
@@ -31,8 +30,7 @@ The server's behaviour starts with an input on operation `twice`, storing the re
 
 ### Client
 
-<pre><code class="language-jolie code">
-main 
+<pre><code class="language-jolie code">main 
 {
 	twice@TwiceService( 5 )( response );
 	println@Console( response )
@@ -56,8 +54,7 @@ Finally, a port must specify the interface that is accessible through it. For a 
 
 In our example the `TwiceInterface` interface declares the operation `twice` as a request-response operation. A request-response operation receives a request and sends back a response. Both input and output messages of `twice` are typed as `int` (denoting integers):
 
-<pre><code class="language-jolie code">
-interface TwiceInterface { 
+<pre><code class="language-jolie code">interface TwiceInterface { 
 	RequestResponse: twice( int )( int ) 
 }
 </code></pre>
@@ -66,8 +63,7 @@ Finally below follow both server's and client's deployment code.
 
 ### Server
 
-<pre><code class="language-jolie code">
-include "twiceInterface.iol"
+<pre><code class="language-jolie code">include "twiceInterface.iol"
 
 inputPort TwiceService {
 	Location: "socket://localhost:8000"
@@ -78,8 +74,7 @@ inputPort TwiceService {
 
 ### Client
 
-<pre><code class="language-jolie code">
-include "console.iol"
+<pre><code class="language-jolie code">include "console.iol"
 include "twiceInterface.iol"
 
 outputPort TwiceService {
@@ -97,8 +92,7 @@ We can now give the complete programs for client and server by putting together 
 
 ## Server's code
 
-<pre><code class="language-jolie code">
-include "twiceInterface.iol"
+<pre><code class="language-jolie code">include "twiceInterface.iol"
 
 inputPort TwiceService {
 	Location: "socket://localhost:8000"
@@ -116,8 +110,7 @@ main
 
 ## Client's code
 
-<pre><code class="language-jolie code">
-include "console.iol"
+<pre><code class="language-jolie code">include "console.iol"
 include "twiceInterface.iol"
 
 outputPort TwiceService {
