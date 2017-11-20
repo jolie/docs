@@ -83,8 +83,8 @@ type SumRequest:void {
 }
 
 interface SumInterface {
-  RequestResponse: 
-    sum(SumRequest)(int), 
+  RequestResponse:
+    sum(SumRequest)(int),
     form(void)(string)
 }
 
