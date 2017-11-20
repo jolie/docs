@@ -1,5 +1,6 @@
 # Summary
 
+* [Introduction](README.md)
 * Getting started
   * [Hello, World!](documentation/getting_started/hello_world.md)
   * [Behaviour and Deployment](documentation/getting_started/behavior_and_deployment.md)
@@ -36,6 +37,7 @@
 * Web Applications
   * [Leonardo: the Jolie Web Server](documentation/web_applications/leonardo.md)
   * [HTTP GET/POST Requests](documentation/web_applications/web_get_post.md)
+  * [REST APIs, Publication and Integration](documentation/web_applications/rest-apis-publication-and-integration.md)
 * Protocols
   * [Introduction](documentation/protocols/introduction.md)
   * [HTTP](documentation/protocols/http.md)
@@ -88,3 +90,4 @@
   * [XMPP](/documentation/jsl/XMPP.md)
   * [XmlUtils](/documentation/jsl/XmlUtils.md)
   * [ZipUtils](/documentation/jsl/ZipUtils.md)
+
