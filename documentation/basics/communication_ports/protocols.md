@@ -4,11 +4,11 @@ A protocol defines how data to be sent or received should be, respectively, enco
 
 Protocols are referred by name. Examples of valid (supported) protocol names are:
 
-- `http`;
-- `https`;
-- `soap`;
-- `sodep` (a binary protocol specifically developed for Jolie);
-- `xmlrpc`.
+- `http`
+- `https`
+- `soap`
+- `sodep` (a binary protocol specifically developed for Jolie)
+- `xmlrpc`
 
 For a thorough description of the protocols supported by Jolie and their parameters see [Protocols](/documentation/protocols/introduction.html) section.
 
