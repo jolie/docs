@@ -19,7 +19,7 @@ main
 		);
 		
 		showInputDialog@SwingUI( "Insert a number" )( number );
-		if ( number == secret ) {
+		if ( number == number_to_guess ) {
 			println@Console("OK!")()
 		} else {
 			throw( fault_number )
