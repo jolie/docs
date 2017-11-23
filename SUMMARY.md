@@ -14,7 +14,7 @@
   * [Processes](documentation/basics/processes.md)
   * [Dynamic Binding](documentation/basics/dynamic_binding.md)
   * [Sessions](documentation/basics/sessions.md)
-* [Fault Handling](fault-handling.md)
+* Fault Handling
   * [Basics](documentation/fault_handling/basics.md)
   * [Termination and Compensation](documentation/fault_handling/termination_and_compensation.md)
 * Architectural Composition
