@@ -17,9 +17,9 @@ Beside the ease of refactoring (e.g., moving the service from internal to standa
 The syntax for internal services is
 
 <pre class="syntax">
-interface MyInterface {
-	OneWay: op1(T1)
-	RequestResponse: op2(T2)(T3)
+interface SrvIface {
+	OneWay: op1(Type1)
+	RequestResponse: op2(Type2)(Type3)
 }
 
 service SrvName {

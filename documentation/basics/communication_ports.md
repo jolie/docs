@@ -249,6 +249,24 @@ Let us focus on the cardinality. To be valid, the node `myType` must declare:
 Referring to the previous example, `x` requires the definition of both nodes `value` and `comment`, while `y` requires only the definition the node `comment`, since none or an infinite number of nodes `myType.y.value` can be defined. The subnode `z` can be present or not, and can contain any kind of subnode (`{ ? }`).
 
 ---
+## Literal definition of type nodes.
+<div class="panel panel-primary">
+ 	<div class="panel-heading">
+  	<p class="panel-title">Attention</hp>
+  </div>
+  <div class="panel-body">
+    <p>Internal services are available from Jolie release 1.6.2.
+    </p>
+	</div>
+</div>
+In specific occasions you may be required to define node names that contains reserved Jolie token such as `@` or others you need to use encapsulate your node name between inverted comma `."nodeName"`
+<pre><code class="language-jolie code">
+type TestType: void {
+    ."@node": string
+}
+</code></pre>
+
+How to access to the tree structure formed by root."literalNodeName" can be found in [data_structures](/documentation/basic/data_structures.html)
 
 ## Creating a communication port
 
@@ -279,24 +297,7 @@ inputPort SumInput {
 `SumInput` port declaration.
 
 ---
-## Literal definition of type nodes.
-<div class="panel panel-primary">
- 	<div class="panel-heading">
-  	<p class="panel-title">Attention</hp>
-  </div>
-  <div class="panel-body">
-    <p>Internal services are available from Jolie release 1.6.2.
-    </p>
-	</div>
-</div>
-In specific occasions you may be required to define node names that contains reserved Jolie token such as `@` or others you need to use encapsulate your node name between inverted comma `."nodeName"`
-<pre><code class="language-jolie code">
-type TestType: void {
-    ."@node": string
-}
-</code></pre>
 
-How to access to the tree structure formed by root."literalNodeName" can be found in [documentation/basic/data_structures.md]
 ## Using communications ports
 
 Once defined, ports can be used for input and output communications. Below we present the syntax of one-way and request-response operations used in the behaviour part for sending (output) and receiving (input) messages.
