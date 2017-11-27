@@ -10,12 +10,12 @@ The basic deployment primitives are input ports and output ports, which support 
 
 Let us recall the concepts of *input ports* and *output ports* seen in the [Behaviour and Deployment](/documentation/getting_started/behavior_and_deployment.html) section. There are two kinds of ports: *input ports*, which expose input operations to other services, and *output ports*, defining how to invoke the operations of other services.
 
-*Location*, *protocol* and *interface* are the three elements in the definition of ports. 
-Location and protocol define the concrete binding information between a Jolie program and other service, interfaces specify type information expected to be satisfied by the behaviour that uses the port. 
+*Location*, *protocol* and *interface* are the three elements in the definition of ports.
+Location and protocol define the concrete binding information between a Jolie program and other service, interfaces specify type information expected to be satisfied by the behaviour that uses the port.
 
 ### Locations
 
-A location expresses the communication medium, along with its configuration parameters, a service uses for exposing its interface (input port) or invoking another service (output port). 
+A location expresses the communication medium, along with its configuration parameters, a service uses for exposing its interface (input port) or invoking another service (output port).
 
 A location must indicate the communication medium the port has to use and its related parameters in this form: `medium[:parameters]`, where *medium* is a medium identifier and the optional *parameters* is a medium-specific string.
 
@@ -32,7 +32,7 @@ For a thorough description of the locations supported by Jolie and their paramet
 
 ### Protocols
 
-A protocol defines how data to be sent or received should be, respectively, encoded or decoded, following an isomorphism. 
+A protocol defines how data to be sent or received should be, respectively, encoded or decoded, following an isomorphism.
 
 Protocols are referred by name. Examples of valid (supported) protocol names are:
 
@@ -54,8 +54,8 @@ The syntax for input and output ports is, respectively:
 inputPort id {
 	Location: URI
 	Protocol: p
-	Interfaces: iface_1, 
-				..., 
+	Interfaces: iface_1,
+				...,
 				iface_n
 }
 </pre>
@@ -65,8 +65,8 @@ inputPort id {
 outputPort id {
 	Location: URI
 	Protocol: p
-	Interfaces: iface_1, 
-				..., 
+	Interfaces: iface_1,
+				...,
 				iface_n
 }
 </pre>
@@ -110,9 +110,9 @@ The basic declaration of an interface lists all the names of the its operations,
 
 <pre class="syntax">
 interface identifier {
-	OneWay: 
-		ow_name1( t1 ), 
-		ow_name2( t2 ), 
+	OneWay:
+		ow_name1( t1 ),
+		ow_name2( t2 ),
 		//...,
 		ow_nameN( tN )
 	RequestResponse:
@@ -182,7 +182,7 @@ type T: basic_type {
 }
 </pre>
 
-<div class="attention"><p>Subnodes are always prefixed by the `.` symbol.</p></div> 
+<div class="attention"><p>Subnodes are always prefixed by the `.` symbol.</p></div>
 
 Furthermore, given *Ti* in *{T1, ..., Tn}* subtree data types, subnode types can have basic or custom types:
 
@@ -198,7 +198,7 @@ type T: basic_type {
 
 Given R as a range, which specifies the allowed number of occurrences of the subnode in a value, `R = { [min, max], \*, ?}`. Therefore, `R` can be an interval from `min` to `max` (both integers), `*` is a shortcut, meaning any number of occurrences (`[0, *]`), and `?` is a shortcut for `[0, 1]`.
 
-In Jolie, when no cardinality is defined, it is defaulted to the value `[1,1]`, meaning that one and only one occurrence of that subnode can be contained in the node. 
+In Jolie, when no cardinality is defined, it is defaulted to the value `[1,1]`, meaning that one and only one occurrence of that subnode can be contained in the node.
 
 Considering `Ti` in `{T1, ..., Tn}` custom-typed subtree data types and *R* range, the complete syntax for data types follows:
 
@@ -217,7 +217,7 @@ Let us consider the previous example, in which the operation `sum` defines the t
 }
 </code></pre>
 
-The declaration above reads: `SumRequest` is a void-typed node, containing a subtree of nodes among which at least two must be `number`s of native type `int`. 
+The declaration above reads: `SumRequest` is a void-typed node, containing a subtree of nodes among which at least two must be `number`s of native type `int`.
 
 A type declaration can be used in other type declarations, like in the example below:
 
@@ -227,7 +227,7 @@ A type declaration can be used in other type declarations, like in the example b
 }
 
 type myType: string {
-	
+
 	.x[ 1, * ]: mySubType
 
 	.y[ 1, 3 ]: void {
@@ -279,7 +279,24 @@ inputPort SumInput {
 `SumInput` port declaration.
 
 ---
+## Literal definition of type nodes.
+<div class="panel panel-primary">
+ 	<div class="panel-heading">
+  	<p class="panel-title">Attention</hp>
+  </div>
+  <div class="panel-body">
+    <p>Internal services are available from Jolie release 1.6.2.
+    </p>
+	</div>
+</div>
+In specific occasions you may be required to define node names that contains reserved Jolie token such as `@` or others you need to use encapsulate your node name between inverted comma `."nodeName"`
+<pre><code class="language-jolie code">
+type TestType: void {
+    ."@node": string
+}
+</code></pre>
 
+How to access to the tree structure formed by root."literalNodeName" can be found in [documentation/basic/data_structures.md]
 ## Using communications ports
 
 Once defined, ports can be used for input and output communications. Below we present the syntax of one-way and request-response operations used in the behaviour part for sending (output) and receiving (input) messages.
@@ -298,7 +315,7 @@ On the other hand, request-response operations receive a message, do some proces
 operation_name( request )( response ){
 	// code block
 }
-</pre> 
+</pre>
 
 ### Output operations
 
@@ -322,9 +339,9 @@ In Jolie, whenever a message is sent or received through a port, its type is che
 
 The `TypeMismatch` fault can be handled by exploiting the [fault handling](/documentation/fault_handling/basics.html), as shown in the following example:
 
-<pre><code class="language-jolie code">scope ( myScope ) 
+<pre><code class="language-jolie code">scope ( myScope )
 {
-	install( 
+	install(
 		TypeMismatch => println@Console( myScope.TypeMismatch )()
 	);
 	// code
@@ -478,6 +495,6 @@ The programs can be downloaded from the link below:
 
 <div class="download"><a href="/documentation/basics/code/communication_ports_code.zip">Communication Ports Code Example</a></div>
 
-Once extracted, the two programs may be run in two separate shells. Make sure to start `server.ol` before `client.ol`. 
+Once extracted, the two programs may be run in two separate shells. Make sure to start `server.ol` before `client.ol`.
 
 Note the presence of two definitions, respectively at Lines 12-15 and Lines 17-18 in client's source code. Both of these procedures set the values of `request.total` and `request.part` in the request message. By switching the comment from Line 27 to 28 and viceversa the invocation of `percent` operation is successful or returns a `TypeMismatch` error.

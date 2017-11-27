@@ -5,7 +5,7 @@
   	<p class="panel-title">Attention</hp>
   </div>
   <div class="panel-body">
-    <p>Internal services are <strong>due to release</strong>. They will be available since the next release of Jolie.
+    <p>Internal services are available from Jolie release 1.6.2.
     </p>
 	</div>
 </div>
