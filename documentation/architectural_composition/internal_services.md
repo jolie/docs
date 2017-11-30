@@ -17,26 +17,26 @@ Beside the ease of refactoring (e.g., moving the service from internal to standa
 The syntax for internal services is
 
 <pre class="syntax">
-interface SrvIface {
-	OneWay: op1(Type1)
-	RequestResponse: op2(Type2)(Type3)
+interface ServerInterface {
+	OneWay: op1( T1 )
+	RequestResponse: op2( T2 )( T3 )
 }
 
-service SrvName {
-	Interfaces: SrvIface
+service ServerName {
+	Interfaces: ServerInterface
 
 	init { ... }
 
 	main {
-    [ op1(x) ] { ... }
-    [ op2(x)(y) { ... } ]
+    		[ op1(x) ] { ... }
+    		[ op2(x)(y) { ... } ]
 	}
 }
 </pre>
 
 The `service` construct specifies:
 
-- a name `SrvName` for the service. The name will act as an output port for the owner of the internal service to call it;
+- a name `ServerName` for the service. The name will act as an output port for the owner of the internal service to call it;
 - the `Interfaces` of the service (it is possible to declare interfaces fetched in included files, just as regular services).
 - an optional `init`ialisation procedure, as for regular services;
 - a `main` procedure, as for regular services;
