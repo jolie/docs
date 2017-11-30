@@ -252,7 +252,7 @@ Referring to the previous example, `x` requires the definition of both nodes `va
 ## Literal definition of type nodes.
 <div class="panel panel-primary">
  	<div class="panel-heading">
-  	<p class="panel-title">Attention</hp>
+  	<p class="panel-title">Attention</p>
   </div>
   <div class="panel-body">
     <p>Internal services are available from Jolie release 1.6.2.
