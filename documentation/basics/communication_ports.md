@@ -248,25 +248,26 @@ Let us focus on the cardinality. To be valid, the node `myType` must declare:
 
 Referring to the previous example, `x` requires the definition of both nodes `value` and `comment`, while `y` requires only the definition the node `comment`, since none or an infinite number of nodes `myType.y.value` can be defined. The subnode `z` can be present or not, and can contain any kind of subnode (`{ ? }`).
 
----
-## Literal definition of type nodes.
+## Defining type nodes with reserved characters
+
 <div class="panel panel-primary">
  	<div class="panel-heading">
   	<p class="panel-title">Attention</p>
   </div>
   <div class="panel-body">
-    <p>Internal services are available from Jolie release 1.6.2.
+    <p>This feature is available from Jolie 1.6.2.
     </p>
 	</div>
 </div>
-In specific occasions you may be required to define node names that contains reserved Jolie token such as `@` or others you need to use encapsulate your node name between inverted comma `."nodeName"`
+Sometimes you may need to define node names that contain special characters, such as `@`. In these cases, you need to put your node name between double quotes, as in the following example.
+
 <pre><code class="language-jolie code">
 type TestType: void {
     ."@node": string
 }
 </code></pre>
 
-How to access to the tree structure formed by root."literalNodeName" can be found in [data_structures](/documentation/basic/data_structures.html)
+You can access these nodes with special characters by using dynamic look-up, for example `x.("@node")`. This is explained more in detail in [data_structures](/documentation/basic/data_structures.html).
 
 ## Creating a communication port
 
