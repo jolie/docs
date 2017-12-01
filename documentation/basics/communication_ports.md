@@ -259,6 +259,7 @@ Referring to the previous example, `x` requires the definition of both nodes `va
     </p>
 	</div>
 </div>
+
 Sometimes you may need to define node names that contain special characters, such as `@`. In these cases, you need to put your node name between double quotes, as in the following example.
 
 <pre><code class="language-jolie code">
@@ -267,7 +268,7 @@ type TestType: void {
 }
 </code></pre>
 
-You can access these nodes with special characters by using dynamic look-up, for example `x.("@node")`. This is explained more in detail in [data_structures](/documentation/basic/data_structures.html).
+You can access these nodes with special characters by using dynamic look-up, for example `x.("@node")`. This is explained more in detail in [data structures](/documentation/basic/data_structures.html).
 
 ---
 
