@@ -191,13 +191,12 @@ Example:
 ### Iterating over arrays
 
 <div class="panel panel-primary">
- 	<div class="panel-heading">
-  	<p class="panel-title">Attention</p>
-  </div>
-  <div class="panel-body">
-    <p>Arrays and the `#` operator are explained in detail in <a href="/documentation/basic/data_structures.html">data structures</a>.
-    </p>
-	</div>
+<div class="panel-heading">
+<p class="panel-title">Attention</p>
+</div>
+<div class="panel-body markdown=1">
+Arrays and the <code>#</code> operator are explained in detail in the <a href="/documentation/basics/data_structures.html">Data Structures</a> section.
+</div>
 </div>
 
 Another form of `for` loops is the following, which iterates over all elements of an array `a`.
