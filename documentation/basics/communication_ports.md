@@ -248,7 +248,7 @@ Let us focus on the cardinality. To be valid, the node `myType` must declare:
 
 Referring to the previous example, `x` requires the definition of both nodes `value` and `comment`, while `y` requires only the definition the node `comment`, since none or an infinite number of nodes `myType.y.value` can be defined. The subnode `z` can be present or not, and can contain any kind of subnode (`{ ? }`).
 
-## Defining type nodes with reserved characters
+### Defining type nodes with reserved characters
 
 <div class="panel panel-primary">
  	<div class="panel-heading">
@@ -268,6 +268,8 @@ type TestType: void {
 </code></pre>
 
 You can access these nodes with special characters by using dynamic look-up, for example `x.("@node")`. This is explained more in detail in [data_structures](/documentation/basic/data_structures.html).
+
+---
 
 ## Creating a communication port
 
