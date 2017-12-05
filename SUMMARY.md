@@ -10,7 +10,7 @@
   * [Define](documentation/basics/define.md)
   * [Data Structures](documentation/basics/data_structures.md)
   * [Constants](documentation/basics/constants.md)
-  * [Communication Ports]
+  * Communication Ports
     * [Introduction](documentation/basics/communication_ports.md)
     * [Ports](documentation/basics/communication_ports/ports.md)
     * [Locations](documentation/basics/communication_ports/locations.md)
