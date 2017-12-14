@@ -1,9 +1,9 @@
 ## Communication Ports
 
-Communication ports constitute the deployment part of a Jolie program. 
-They define the communication links used by services to exchange data.
+Communication ports define how communications with other microservices are supported. 
+There are two kinds of [ports](communication_ports/ports.md). 
+Input ports deal with exposing input operations to other microservices. 
+Output ports define how to invoke the operations of other microservices. 
+Ports allow Jolie programmers to combine communication media ([sockets](locations/socket.md), [localsockets](locations/localsockets.md), [bluetooth](locations/bluetooth.md)) and data formats ([http](protocols/http.md), [https](protocols/https.md), [soap](protocols/soap.md)), which is the concrete binding information between the communicating microservices. 
 
-The basic deployment primitives are input ports and output ports, which support input and output communications with other services. 
-[Ports](communication_ports/ports.md) are based on [interfaces](communication_ports/interfaces.md) and [data types](communication_ports/data_types.md).
-
-The deployment part of a Jolie program is a list of *deployment instructions* among which we can have *input* and *output* *ports*, *interfaces*, and *data type* definitions.
+In addition to the concrete binding, Jolie ports include [interfaces](communication_ports/interfaces.md) to express [data type](communication_ports/data_types.md) information for each operation supported by a given port.
