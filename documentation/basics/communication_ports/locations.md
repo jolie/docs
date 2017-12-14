@@ -15,4 +15,3 @@ An example of a valid location is: `"socket://www.mysite.com:80/"`, where `socke
 
 For a thorough description of the locations supported by Jolie and their parameters see [Locations](/documentation/locations/introduction.html) section.
 
----

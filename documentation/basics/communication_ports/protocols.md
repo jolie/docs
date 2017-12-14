@@ -62,5 +62,3 @@ Finally, let us define the `SumServ` outputPort, which is used to invoke the ser
     Interfaces: SumInterface
 }
 </code></pre>
-
----

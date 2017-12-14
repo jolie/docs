@@ -61,5 +61,3 @@ Analogously, also sending request-response operations indicate the port used to 
 <pre class="syntax">
 operation_name@OutputPort_Name( request )( response )
 </pre>
-
----

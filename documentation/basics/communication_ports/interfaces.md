@@ -38,4 +38,3 @@ Let us declare the interface `SumInterface`:
 
 The type declarations of both request and response messages are explained further in the data types subsection below.
 
----
