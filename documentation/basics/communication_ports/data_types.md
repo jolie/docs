@@ -1,110 +1,156 @@
 ## Data types
 
-In Jolie, the messages exchanged through operations are data trees (see section [Handling Simple Data](/documentation/basics/handling_simple_data.html)). A data type defines:
+In Jolie, the messages exchanged through operations are data trees (see section [Handling Simple Data](/documentation/basics/handling_simple_data.html)). 
+
+A data type defines:
 
 - the structure of a data tree;
 - the type of the content of its node;
 - the allowed number of occurrences of each node.
 
-Let us consider an iterative explanation of data types syntax:
+### Basic Data Types
 
-### Basic data types
-
-The simplest kind of data types is the basic-typed one, whose syntax is:
+The basic data types are the simplest kind of data type in Jolie. 
+Their syntax is:
 
 <pre class="syntax">
-basic_type: {string, int, long, double, bool, raw, void, any}
-
-type T: basic_type
+T ::= { void, bool, int, long, double, string, raw, any }
 </pre>
 
-An example of such kind of data types is:
+An example of usage of such kind of data types in interface definition is:
 
-<pre><code class="language-jolie code">type Name: string
+<pre><code class="language-jolie code">
+interface MyInterface {
+    RequestResponse: myOperation( int )( string )
+}
 </code></pre>
 
-### Subtree data types
+### Custom Data Types
 
-A type *T* can (optionally) have a list of named subnode types or the `undefined` keyword, which makes the type accepting any subtree (undefined is a shorcut for `any: { ? }`).
+Jolie supports the definition of custom data types, which are a composition of the basic ones.
+The simplest custom type is just an alias of a basic type `type CustomType: T`.
+
+#### Nested data types 
+
+Complex custom types can be obtained by defining nested subnodes of the root, the operator to define nesting of nodes is the `.` symbol. The syntax to define nested data types is:
 
 <pre class="syntax">
-type T: basic_type {
-    .subnode_1: basic_type
+type CustomType: T {
+    .aSubNode: T {
+        .aSubSubNode: T {
+            ...
+        }
+    }
     ...
-    .subnode_n: basic_type
-}
-
-OR
-
-type T: basic_type {
-    undefined
+    .anotherSubNode: T { ... }
 }
 </pre>
 
-<div class="attention"><p>Subnodes are always prefixed by the `.` symbol.</p></div> 
+Let us see some example of nested data types.
 
-Furthermore, given *Ti* in *{T1, ..., Tn}* subtree data types, subnode types can have basic or custom types:
-
-<pre class="syntax">
-type T: basic_type {
-    .subnode_1: (basic_type OR Ti)
-    ...
-    .subnode_n: (basic_type OR Ti)
+<pre><code class="language-jolie code">
+type Coordinates: void {
+  .lat: double
+  .lng: double
 }
-</pre>
+</code></pre>
 
-### Custom-typed subtree data types with cardinality
+The custom type `Coordinates` is a possible representation of a nested data type to handle coordinates. The root cannot contain any value, while the two nested subnodes are both `double`.
 
-Given R as a range, which specifies the allowed number of occurrences of the subnode in a value, `R = { [min, max], \*, ?}`. Therefore, `R` can be an interval from `min` to `max` (both integers), `*` is a shortcut, meaning any number of occurrences (`[0, *]`), and `?` is a shortcut for `[0, 1]`.
+<pre><code class="language-jolie code">
+type ShoppingList: void {
+  .fruits: int {
+    .bananas: int
+    .apples: int
+  }
+  .notes: string
+}
+</code></pre>
+
+The custom type `ShoppingList` represents a list of items to be bought. In the example the subnode `fruits` contains the sum of all the fruits that should be bought, while its subnodes corresponds to which kind of fruits to buy and their quantity.
+
+#### Subnodes with cardinality
+
+Given `R` as a range, which specifies the allowed number of occurrences of the subnode in a value, `R` could be: 
+1. `[min, max]` - an interval from `min` to `max` (both integers);
+2. `*` - meaning any number of occurrences, a shortcut for `[0, *]`;
+3. `?` - meaning non or one occurrence, a shortcut for `[0, 1]`.
 
 In Jolie, when no cardinality is defined, it is defaulted to the value `[1,1]`, meaning that one and only one occurrence of that subnode can be contained in the node. 
 
-Considering `Ti` in `{T1, ..., Tn}` custom-typed subtree data types and *R* range, the complete syntax for data types follows:
+The complete syntax for nested data types with cardinality follows:
 
 <pre class="syntax">
-type T: basic_type {
-    .subnode_1[R]: (basic_type OR Ti)
+type CustomType: T {
+    .aSubNode[R]: T {
+        .aSubSubNode[R]: T {
+            ...
+        }
+    }
     ...
-    .subnode_n[R]: (basic_type OR Ti)
+    .anotherSubNode[R]: T { ... }
 }
 </pre>
 
-Let us consider the previous example, in which the operation `sum` defines the types of its request and response messages, respectively, as a complex type `SumRequest` and a native type `int`. Hence the declaration of `SumRequest` follows:
+Lets consider the examples below to illustrate the 3 different cardinality options in Jolie.
 
-<pre><code class="language-jolie code">type SumRequest: void {
-    .number [ 2, * ]: int
+<pre><code class="language-jolie code">
+type CustomType: T {
+  .aSubNode[1,5]: T
 }
 </code></pre>
 
-The declaration above reads: `SumRequest` is a void-typed node, containing a subtree of nodes among which at least two must be `number`s of native type `int`. 
+In this case cardinalities are defined by occurrences where minimal occurrence of `aSubNode` of type `T` is one and maximum occurrences of the same node are five.
 
-A type declaration can be used in other type declarations, like in the example below:
-
-<pre><code class="language-jolie code">type mySubType: void {
-    .value: double
-    .comment: string
+<pre><code class="language-jolie code">
+type CustomType: T {
+  .aSubNode[0,1]: T
+  .anotherSubNode?: T
 }
+</code></pre>
 
-type myType: string {
-    
-    .x[ 1, * ]: mySubType
+The example above shows that `?` is a shortcut for `[0,1]` and hence the cardinality of `aSubNode` and `anotherSubNode` are the same.
 
-    .y[ 1, 3 ]: void {
-        .value*: double
-        .comment: string
+<pre><code class="language-jolie code">
+type CustomType: T {
+  .aSubNode[0,*]: T
+  .anotherSubNode*: T
+}
+</code></pre>
+
+The above example shows that `*` is a shortcut for `[0,*]` and hence the cardinality of `aSubNode` and `anotherSubNode` are the same.
+
+Keeping in mind the concept of nested types with cardinality, lets introduce the `undefined` data type, that is, a data type accepting any possible sub-tree. The syntax for `undefined` is shown below.
+
+<pre class="syntax">
+type CustomType: any {
+    .anySubNode*: any {
+        .anySubSubNode*: any {
+            ...
+        }
     }
-
-    .z?: void { ? }
+    ...
+    .anyOtherSubNode*: any { ... }
 }
+</pre>
+
+In the Jolie language it is possible to use the shortcut as follows: 
+
+<pre><code class="language-jolie code">
+type CustomType: undefined
 </code></pre>
 
-As we can read, nodes `x` and `y` are similarly typed, both are typed as `void` and have two subnodes: `value`, typed as `double`, and `comment`, typed as `string`.
+#### Data types choice (sum types)
 
-Let us focus on the cardinality. To be valid, the node `myType` must declare:
+Given `Ti` in `{T1, ..., Tn}` nested nodes data types can have any type belonging to `T` (data types in `T` are mutually exclusive).
+Lets show one possible example of such property.
 
-- at least one nodes `x` of type `mySubType`;
-- a range between one and three of `y`.
+<pre><code class="language-jolie code">
+type CustomType: void | bool | int | long | double | string | raw | any 
+</code></pre>
 
-Referring to the previous example, `x` requires the definition of both nodes `value` and `comment`, while `y` requires only the definition the node `comment`, since none or an infinite number of nodes `myType.y.value` can be defined. The subnode `z` can be present or not, and can contain any kind of subnode (`{ ? }`).
+The same stands between nested data types.
 
----
+<pre><code class="language-jolie code">
+type CustomType: any | any { .subNode: T } | any { .subNode[2,3]: T }
+</code></pre>
