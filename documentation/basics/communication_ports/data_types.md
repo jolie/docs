@@ -120,30 +120,71 @@ type CustomType: T {
 
 The above example shows that `*` is a shortcut for `[0,*]` and hence the cardinality of `aSubNode` and `anotherSubNode` are the same.
 
-Keeping in mind the concept of nested types with cardinality, lets introduce the `undefined` data type, that is, a data type accepting any possible sub-tree. The syntax for `undefined` is shown below.
+Jolie provides the term any { ? } to capture the type of a tree with any type for the root and an undefined set of subnodes. Jolie also provides a shortcut to any { ? }  which is the undefined type. Hence the two writings below are equal
 
-<pre class="syntax">
-type CustomType: any {
-    .anySubNode*: any {
-        .anySubSubNode*: any {
-            ...
-        }
-    }
-    ...
-    .anyOtherSubNode*: any { ... }
+<pre class="language-jolie code">
+type CustomType: any { ? }
+</pre>
+
+<pre class="language-jolie code">
+type CustomType: undefined
+</pre>
+
+Let us see a comprehensive example of a custom type with cardinality.
+
+<pre class="language-jolie code">
+type mySubType: void {
+ .value: double
+ .comment: string
+}
+
+type myType: string {
+
+ .x[ 1, * ]: mySubType
+
+ .y[ 1, 3 ]: void {
+  .value*: double
+  .comment: string
+ }
+
+ .z?: void { ? }
 }
 </pre>
 
-In the Jolie language it is possible to use the shortcut as follows: 
+As we can read, nodes `x` and `y` are similarly typed, both are typed as `void` and have two subnodes: `value`, typed as `double`, and `comment`, typed as `string`.
+
+Let us focus on the cardinality. To be valid, the node `myType` must declare:
+- at least one nodes `x` of type `mySubType`;
+- a range between one and three of `y`.
+
+Referring to the previous example, `x` requires the definition of both nodes `value` and `comment`, while `y` requires only the definition the node `comment`, since none or an infinite number of nodes `myType.y.value` can be defined. The subnode `z` can be present or not, and can contain any kind of subnode (`{ ? }`).
+
+#### Defining type nodes with reserved characters
+
+<div class="panel panel-primary">
+  <div class="panel-heading">
+   <p class="panel-title">Attention</p>
+  </div>
+  <div class="panel-body">
+    <p>This feature is available from Jolie 1.6.2.
+    </p>
+ </div>
+</div>
+
+Sometimes you may need to define node names that contain special characters, such as @. In these cases, you need to put your node name between double quotes, as in the following example.
 
 <pre><code class="language-jolie code">
-type CustomType: undefined
+type TestType: void {
+    ."@node": string
+}
 </code></pre>
+
+You can access these nodes with special characters by using dynamic look-up, for example x.("@node"). This is explained more in detail in [data structures](/documentation/basic/data_structures.html).
 
 #### Data types choice (sum types)
 
 Given `Ti` in `{T1, ..., Tn}` nested nodes data types can have any type belonging to `T` (data types in `T` are mutually exclusive).
-Lets show one possible example of such property.
+Let us show one possible example of such property.
 
 <pre><code class="language-jolie code">
 type CustomType: void | bool | int | long | double | string | raw | any 
