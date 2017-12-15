@@ -2,7 +2,7 @@
 
 The behaviour of a Jolie application is defined by conditions, loops, and statement execution rules.
 
-Whilst conditions and loops implement the standard conditional and iteration constructs, execution rules defines the priority among code blocks. 
+Whilst conditions and loops implement the standard conditional and iteration constructs, execution rules defines the priority among code blocks.
 
 ---
 
@@ -57,8 +57,8 @@ statementA | statementB
 
 It is a good practice to explicitly group statements when mixing sequence and parallel operators. Statements can be grouped by enclosing them within an unlabelled [scope](/documentation/fault_handling/basics.html) represented by a pair curly brackets `{}`, like in the following example:
 
-<pre><code class="language-jolie code">{ statementA ; statementB ; ... ; statementF } 
-| 
+<pre><code class="language-jolie code">{ statementA ; statementB ; ... ; statementF }
+|
 { statementG ; statementH }
 </code></pre>
 
@@ -108,7 +108,7 @@ Let us consider the example below in which only `buy` or `sell` operation can ex
 } ] { println@Console( "Buy order forwarded" )() }
 
 [ sell( stock )( response ) {
-	sell@Exchange( stock )( response ) 
+	sell@Exchange( stock )( response )
 }] { println@Console( "Sell order forwarded" )() }
 </code></pre>
 
@@ -170,20 +170,45 @@ The `while` statement executes a code block as long as its condition is true.
 <pre class="syntax">
 while( condition ) {
 	...
-} 
+}
 </pre>
 
 Like the `while` statement, `for` executes a code block as long as its condition is true, but it explicitly defines its initialization code and the post-cycle code block, which is executed after each iteration.
 
 <pre class="syntax">
-for ( init-code-block, condition, post-cycle-code-block ) {
+for( init-code-block, condition, post-cycle-code-block ) {
 	...
 }
 </pre>
 
 Example:
 
-<pre><code class="language-jolie code">for ( i = 0, i < 50, i++ ) {
+<pre><code class="language-jolie code">for( i = 0, i < 50, i++ ) {
 	println@Console( i )()
+}
+</code></pre>
+
+### Iterating over arrays
+
+<div class="panel panel-primary">
+<div class="panel-heading">
+<p class="panel-title">Attention</p>
+</div>
+<div class="panel-body markdown=1">
+Arrays and the <code>#</code> operator are explained in detail in the <a href="/documentation/basics/data_structures.html">Data Structures</a> section.
+</div>
+</div>
+
+Another form of `for` loops is the following, which iterates over all elements of an array `a`.
+
+<pre><code class="language-jolie code">for( element in a ) {
+	println@Console( element )()
+}
+</code></pre>
+
+This is equivalent to the following code, but it is much less error-prone, so it is recommended to use the code above instead of the one below.
+
+<pre><code class="language-jolie code">for( i = 0, i < #a, i++ ) {
+	println@Console( a[i] )()
 }
 </code></pre>

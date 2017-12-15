@@ -5,7 +5,7 @@
   	<p class="panel-title">Attention</hp>
   </div>
   <div class="panel-body">
-    <p>Internal services are <strong>due to release</strong>. They will be available since the next release of Jolie.
+    <p>Internal services are available from Jolie release 1.6.2.
     </p>
 	</div>
 </div>
@@ -17,26 +17,26 @@ Beside the ease of refactoring (e.g., moving the service from internal to standa
 The syntax for internal services is
 
 <pre class="syntax">
-interface MyInterface {
-	OneWay: op1(T1)
-	RequestResponse: op2(T2)(T3)
+interface ServerInterface {
+	OneWay: op1( T1 )
+	RequestResponse: op2( T2 )( T3 )
 }
 
-service SrvName {
-	Interfaces: SrvIface
+service ServerName {
+	Interfaces: ServerInterface
 
 	init { ... }
 
 	main {
-    [ op1(x) ] { ... }
-    [ op2(x)(y) { ... } ]
+    		[ op1(x) ] { ... }
+    		[ op2(x)(y) { ... } ]
 	}
 }
 </pre>
 
 The `service` construct specifies:
 
-- a name `SrvName` for the service. The name will act as an output port for the owner of the internal service to call it;
+- a name `ServerName` for the service. The name will act as an output port for the owner of the internal service to call it;
 - the `Interfaces` of the service (it is possible to declare interfaces fetched in included files, just as regular services).
 - an optional `init`ialisation procedure, as for regular services;
 - a `main` procedure, as for regular services;
@@ -65,7 +65,7 @@ Let us see an example of Internal Services in action with a simplified implement
 With internal services its is very quick and easy to draft a prototype implementation of tree
 
 <pre><code class="language-jolie code">include "console.iol"
-include "file.iol"
+include &quot;file.iol&quot;
 
 type TreeType: void{
   .file: string
@@ -78,44 +78,44 @@ interface TreeInterface {
 
 service TreeInternalService
 {
-	Interfaces: TreeInterface
-	main
-	{
-	  tree( req )( res ){
-	  	exists@File( req.file )( reqExists );
-	  	if ( reqExists ){
-	  		if( !is_defined( req.tab ) ){
-	  			res += req.file
-	  		} else {
-		  		res += req.tab + "├-- " + req.file
-		  	};
-	  		isDirectory@File( req.file )( isDir );
-		  	if ( isDir ){
-		  		getFileSeparator@File()( sep );
-		  		lReq.order.byname = true;
-		  		lReq.directory = req.file;
-		  		list@File( lReq )( lRes );
-		  		for (i=0, i<#lRes.result, i++) {
-		  		  bReq.file = req.file + sep + lRes.result[ i ];
-		  		  if( is_defined( req.tab ) ) {
-		  		  	bReq.tab = req.tab + "|   "
-		  		  } else {
-		  		  	bReq.tab = "    "
-		  		  };
-		  		  tree@TreeInternalService( bReq )( bRes );
-		  		  res += "n" + bRes
-		  		}
-	  		}
-		  } else {
-		  	res = req.file + " does not exist"
-		  }
-	  }
-	}
+  Interfaces: TreeInterface
+  main
+  {
+    tree( req )( res ){
+      exists@File( req.file )( reqExists );
+      if ( reqExists ){
+        if( !is_defined( req.tab ) ){
+          res += req.file
+        } else {
+          res += req.tab + &quot;├-- &quot; + req.file
+        };
+        isDirectory@File( req.file )( isDir );
+        if ( isDir ){
+          getFileSeparator@File()( sep );
+          lReq.order.byname = true;
+          lReq.directory = req.file;
+          list@File( lReq )( lRes );
+          for (i=0, i&lt;#lRes.result, i++) {
+            bReq.file = req.file + sep + lRes.result[ i ];
+            if( is_defined( req.tab ) ) {
+              bReq.tab = req.tab + &quot;|   &quot;
+            } else {
+              bReq.tab = &quot;    &quot;
+            };
+            tree@TreeInternalService( bReq )( bRes );
+            res += &quot;n&quot; + bRes
+          }
+        }
+      } else {
+        res = req.file + &quot; does not exist&quot;
+      }
+    }
+  }
 }
 
 main
 {
-  tree@TreeInternalService( { .file = "/path/to/my/directory" } )( res );
+  tree@TreeInternalService( { .file = &quot;/path/to/my/directory&quot; } )( res );
   println@Console( res )()
 }
 </code></pre>
