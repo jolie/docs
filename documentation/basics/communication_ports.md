@@ -49,28 +49,28 @@ For a thorough description of the protocols supported by Jolie and their paramet
 The syntax for input and output ports is, respectively:
 
 <div style="overflow:auto;">
-	<div style="float:left; width:49%;">
-		<pre class="syntax">
+    <div style="float:left; width:49%;">
+        <pre class="syntax">
 inputPort id {
-	Location: URI
-	Protocol: p
-	Interfaces: iface_1,
-				...,
-				iface_n
+    Location: URI
+    Protocol: p
+    Interfaces: iface_1,
+                ...,
+                iface_n
 }
 </pre>
-	</div>
-	<div style="float:left; width:49%;">
-		<pre class="syntax">
+    </div>
+    <div style="float:left; width:49%;">
+        <pre class="syntax">
 outputPort id {
-	Location: URI
-	Protocol: p
-	Interfaces: iface_1,
-				...,
-				iface_n
+    Location: URI
+    Protocol: p
+    Interfaces: iface_1,
+                ...,
+                iface_n
 }
 </pre>
-	</div>
+    </div>
 </div>
 
 where `URI` is a [URI](http://en.wikipedia.org/wiki/Uniform_resource_identifier) (Uniform Resource Identifier), defining the location of the port; `id`, `p` and `iface_i` are the identifiers representing, respectively, the name of the port, the data protocol to use, and the interfaces accessible through the port.
@@ -78,9 +78,9 @@ where `URI` is a [URI](http://en.wikipedia.org/wiki/Uniform_resource_identifier)
 Let us consider the following input port declaration:
 
 <pre><code class="language-jolie code">inputPort SumInput {
-	Location: "socket://localhost:8000/"
-	Protocol: soap
-	Interfaces: SumInterface
+    Location: "socket://localhost:8000/"
+    Protocol: soap
+    Interfaces: SumInterface
 }
 </code></pre>
 
@@ -89,9 +89,9 @@ Let us consider the following input port declaration:
 Finally, let us define the `SumServ` outputPort, which is used to invoke the services exposed by `SumInput`:
 
 <pre><code class="language-jolie code">outputPort SumServ {
-	Location: "socket://localhost:8000/"
-	Protocol: soap
-	Interfaces: SumInterface
+    Location: "socket://localhost:8000/"
+    Protocol: soap
+    Interfaces: SumInterface
 }
 </code></pre>
 
@@ -110,16 +110,16 @@ The basic declaration of an interface lists all the names of the its operations,
 
 <pre class="syntax">
 interface identifier {
-	OneWay:
-		ow_name1( t1 ),
-		ow_name2( t2 ),
-		//...,
-		ow_nameN( tN )
-	RequestResponse:
-		rr_name1( tk1 )( tk2 ),
-		rr_name2( tk3 )( tk4 ),
-		//...
-		rr_nameN( tkN )( tkN+1 )
+    OneWay:
+        ow_name1( t1 ),
+        ow_name2( t2 ),
+        //...,
+        ow_nameN( tN )
+    RequestResponse:
+        rr_name1( tk1 )( tk2 ),
+        rr_name2( tk3 )( tk4 ),
+        //...
+        rr_nameN( tkN )( tkN+1 )
 }
 </pre>
 
@@ -128,8 +128,8 @@ The syntax presented above includes the types of the messages of each operation.
 Let us declare the interface `SumInterface`:
 
 <pre><code class="language-jolie code">interface SumInterface {
-	RequestResponse:
-		sum( SumRequest )( int )
+    RequestResponse:
+        sum( SumRequest )( int )
 }
 </code></pre>
 
@@ -170,15 +170,15 @@ A type *T* can (optionally) have a list of named subnode types or the `undefined
 
 <pre class="syntax">
 type T: basic_type {
-	.subnode_1: basic_type
-	...
-	.subnode_n: basic_type
+    .subnode_1: basic_type
+    ...
+    .subnode_n: basic_type
 }
 
 OR
 
 type T: basic_type {
-	undefined
+    undefined
 }
 </pre>
 
@@ -188,9 +188,9 @@ Furthermore, given *Ti* in *{T1, ..., Tn}* subtree data types, subnode types can
 
 <pre class="syntax">
 type T: basic_type {
-	.subnode_1: (basic_type OR Ti)
-	...
-	.subnode_n: (basic_type OR Ti)
+    .subnode_1: (basic_type OR Ti)
+    ...
+    .subnode_n: (basic_type OR Ti)
 }
 </pre>
 
@@ -204,16 +204,16 @@ Considering `Ti` in `{T1, ..., Tn}` custom-typed subtree data types and *R* rang
 
 <pre class="syntax">
 type T: basic_type {
-	.subnode_1[R]: (basic_type OR Ti)
-	...
-	.subnode_n[R]: (basic_type OR Ti)
+    .subnode_1[R]: (basic_type OR Ti)
+    ...
+    .subnode_n[R]: (basic_type OR Ti)
 }
 </pre>
 
 Let us consider the previous example, in which the operation `sum` defines the types of its request and response messages, respectively, as a complex type `SumRequest` and a native type `int`. Hence the declaration of `SumRequest` follows:
 
 <pre><code class="language-jolie code">type SumRequest: void {
-	.number [ 2, * ]: int
+    .number [ 2, * ]: int
 }
 </code></pre>
 
@@ -222,20 +222,20 @@ The declaration above reads: `SumRequest` is a void-typed node, containing a sub
 A type declaration can be used in other type declarations, like in the example below:
 
 <pre><code class="language-jolie code">type mySubType: void {
-	.value: double
-	.comment: string
+    .value: double
+    .comment: string
 }
 
 type myType: string {
 
-	.x[ 1, * ]: mySubType
+    .x[ 1, * ]: mySubType
 
-	.y[ 1, 3 ]: void {
-		.value*: double
-		.comment: string
-	}
+    .y[ 1, 3 ]: void {
+        .value*: double
+        .comment: string
+    }
 
-	.z?: void { ? }
+    .z?: void { ? }
 }
 </code></pre>
 
@@ -251,13 +251,13 @@ Referring to the previous example, `x` requires the definition of both nodes `va
 ### Defining type nodes with reserved characters
 
 <div class="panel panel-primary">
- 	<div class="panel-heading">
-  	<p class="panel-title">Attention</p>
+    <div class="panel-heading">
+    <p class="panel-title">Attention</p>
   </div>
   <div class="panel-body">
     <p>This feature is available from Jolie 1.6.2.
     </p>
-	</div>
+    </div>
 </div>
 
 Sometimes you may need to define node names that contain special characters, such as `@`. In these cases, you need to put your node name between double quotes, as in the following example.
@@ -279,11 +279,11 @@ Let us write an complete example of communication ports in Jolie:
 <pre><code class="language-jolie code">//sumInterface.ol
 
 type SumRequest: void {
-	.number [ 2, * ]: int
+    .number [ 2, * ]: int
 }
 
 interface SumInterface {
-	RequestResponse: sum( SumRequest )( int )
+    RequestResponse: sum( SumRequest )( int )
 }
 </code></pre>
 
@@ -292,9 +292,9 @@ interface SumInterface {
 <pre><code class="language-jolie code">include "sumInterface.ol"
 
 inputPort SumInput {
-	Location: "socket://localhost:8000/"
-	Protocol: soap
-	Interfaces: SumInterface
+    Location: "socket://localhost:8000/"
+    Protocol: soap
+    Interfaces: SumInterface
 }
 </code></pre>
 
@@ -318,7 +318,7 @@ On the other hand, request-response operations receive a message, do some proces
 
 <pre class="syntax">
 operation_name( request )( response ){
-	// code block
+    // code block
 }
 </pre>
 
@@ -346,10 +346,10 @@ The `TypeMismatch` fault can be handled by exploiting the [fault handling](/docu
 
 <pre><code class="language-jolie code">scope ( myScope )
 {
-	install(
-		TypeMismatch => println@Console( myScope.TypeMismatch )()
-	);
-	// code
+    install(
+        TypeMismatch => println@Console( myScope.TypeMismatch )()
+    );
+    // code
 }
 </code></pre>
 
@@ -370,46 +370,46 @@ op_name ( request_type )( response_type ) throws fault_name ( fault_type )
 `TypeMismatch` fault in request-response operations leads to four different scenarios, summed in the table below:
 
 <table class="table table-bordered table-striped">
-	<tr>
-		<th></th>
-		<th>Fault raised in REQUEST messages</th>
-		<th>Fault raised in RESPONSE messages</th>
-	</tr>
-	<tr>
-		<td><strong>SENDER side</strong></td>
-		<td>
-			<ul>
-				<li>The message is not sent;</li>
-				<li>a <code>TypeMismatch
+    <tr>
+        <th></th>
+        <th>Fault raised in REQUEST messages</th>
+        <th>Fault raised in RESPONSE messages</th>
+    </tr>
+    <tr>
+        <td><strong>SENDER side</strong></td>
+        <td>
+            <ul>
+                <li>The message is not sent;</li>
+                <li>a <code>TypeMismatch
 </code> exception is raised.</li>
-			</ul>
-		</td>
-		<td>
-			<ul>
-				<li>a <code>TypeMismatch
+            </ul>
+        </td>
+        <td>
+            <ul>
+                <li>a <code>TypeMismatch
 </code> exception is raised.</li>
-			</ul>
-		</td>
-	</tr>
-	<tr>
-		<td><strong>RECEIVER side</strong></td>
-		<td>
-			<ul>
-				<li>The message is discarded;</li>
-				<li>a warning message is sent to console;</li>
-				<li>a <code>TypeMismatch
+            </ul>
+        </td>
+    </tr>
+    <tr>
+        <td><strong>RECEIVER side</strong></td>
+        <td>
+            <ul>
+                <li>The message is discarded;</li>
+                <li>a warning message is sent to console;</li>
+                <li>a <code>TypeMismatch
 </code> fault message is sent to the sender</li>
-			</ul>
-		</td>
-		<td>
-			<ul>
-				<li>a <code>TypeMismatch
+            </ul>
+        </td>
+        <td>
+            <ul>
+                <li>a <code>TypeMismatch
 </code> exception is raised.</li>
-				<li>a <code>TypeMismatch
+                <li>a <code>TypeMismatch
 </code> fault is sent to the sender.</li>
-			</ul>
-		</td>
-	</tr>
+            </ul>
+        </td>
+    </tr>
 </table>
 
 ---
@@ -423,16 +423,16 @@ Let us consider the following scenario for a comprehensive example on communicat
 <pre><code class="language-jolie code">//percentInterface.iol
 
 type percent_request: void {
-	.part: int
-	.total: int
+    .part: int
+    .total: int
 }
 
 type percent_response: void {
-	.percent_value: double
+    .percent_value: double
 }
 
 interface PercentInterface {
-	RequestResponse: percent( percent_request )( percent_response )
+    RequestResponse: percent( percent_request )( percent_response )
 }
 </code></pre>
 
@@ -444,30 +444,30 @@ include "console.iol"
 include "percentInterface.iol"
 
 outputPort PercService {
-	Location: "socket://localhost:2000"
-	Protocol: sodep
-	Interfaces: PercentInterface
+    Location: "socket://localhost:2000"
+    Protocol: sodep
+    Interfaces: PercentInterface
 }
 
 define valid_request {
-	request.total = 10;
-	request.part = 3
+    request.total = 10;
+    request.part = 3
 }
 
 define typeMismatch_request {
-	request.total = 10.0;
-	request.part = 3
+    request.total = 10.0;
+    request.part = 3
 }
 
 main
 {
-	install( TypeMismatch =>
-				println@Console( "TypeMismatch: " + main.TypeMismatch )()
-		);
-	//valid_request;
-	typeMismatch_request;
-	percent@PercService( request )( response );
-	println@Console( "n"+"Percentage value: "+response.percent_value )()
+    install( TypeMismatch =>
+                println@Console( "TypeMismatch: " + main.TypeMismatch )()
+        );
+    //valid_request;
+    typeMismatch_request;
+    percent@PercService( request )( response );
+    println@Console( "n"+"Percentage value: "+response.percent_value )()
 }
 </code></pre>
 
@@ -479,20 +479,20 @@ include "console.iol"
 include "percentInterface.iol"
 
 inputPort PercService {
-	Location: "socket://localhost:2000"
-	Protocol: sodep
-	Interfaces: PercentInterface
+    Location: "socket://localhost:2000"
+    Protocol: sodep
+    Interfaces: PercentInterface
 }
 
 main
 {
-	install( TypeMismatch =>
-				println@Console( "TypeMismatch: " + main.TypeMismatch )()
-	);
+    install( TypeMismatch =>
+                println@Console( "TypeMismatch: " + main.TypeMismatch )()
+    );
 
-	percent( request )( response ){
-		response.percent_value = double( request.part )/request.total
-	}
+    percent( request )( response ){
+        response.percent_value = double( request.part )/request.total
+    }
 }
 </code></pre>
 
