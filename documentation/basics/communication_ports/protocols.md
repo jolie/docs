@@ -12,37 +12,6 @@ Protocols are referred by name. Examples of valid (supported) protocol names are
 
 For a thorough description of the protocols supported by Jolie and their parameters see [Protocols](/documentation/protocols/introduction.html) section.
 
-### The syntax of input and output ports
-
-The syntax for input and output ports is, respectively:
-
-<div style="overflow:auto;">
-    <div style="float:left; width:49%;">
-        <pre class="syntax">
-inputPort id {
-    Location: URI
-    Protocol: p
-    Interfaces: iface_1, 
-                ..., 
-                iface_n
-}
-</pre>
-    </div>
-    <div style="float:left; width:49%;">
-        <pre class="syntax">
-outputPort id {
-    Location: URI
-    Protocol: p
-    Interfaces: iface_1, 
-                ..., 
-                iface_n
-}
-</pre>
-    </div>
-</div>
-
-where `URI` is a [URI](http://en.wikipedia.org/wiki/Uniform_resource_identifier) (Uniform Resource Identifier), defining the location of the port; `id`, `p` and `iface_i` are the identifiers representing, respectively, the name of the port, the data protocol to use, and the interfaces accessible through the port.
-
 Let us consider the following input port declaration:
 
 <pre><code class="language-jolie code">inputPort SumInput {
