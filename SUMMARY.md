@@ -11,7 +11,7 @@
   * [Data Structures](documentation/basics/data_structures.md)
   * [Constants](documentation/basics/constants.md)
   * Communication Ports
-    * [Introduction](documentation/basics/communication_ports.md)
+    * [Introduction](documentation/basics/communication_ports/introduction.md)
     * [Ports](documentation/basics/communication_ports/ports.md)
     * [Locations](documentation/basics/communication_ports/locations.md)
     * [Protocols](documentation/basics/communication_ports/protocols.md)
