@@ -79,9 +79,9 @@ main
 {
   ROOT = "../";
   DOCS = ROOT + "_old_docs";
-  NEWDOCS = ROOT + "/documentation";
+  NEWDOCS = ROOT + "/_new_docs";
   list@File( { .directory = DOCS, .dirsOnly = true } )( list );
-  foreach ( FOLDER -> list.result ) {
+  for ( FOLDER in list.result ) {
     SUB = DOCS + "/" + FOLDER;
     list@File( { .directory = DOCS + "/" + FOLDER, .regex = "(?!README).*.md" } )( files );
     if( #files.result > 0 ){
@@ -96,7 +96,7 @@ main
       copyDir@File( { .from = IMG_FOLDER, .to = NEWDOCS + "/" + FOLDER + "/img" } )()
     };
     
-    foreach ( PAGE -> files.result ) {
+    for ( PAGE in files.result ) {
       println@Console( "reading: "  + SUB + "/" + PAGE )();
       
       readFile@File( { .filename = SUB + "/" + PAGE } )( page );
