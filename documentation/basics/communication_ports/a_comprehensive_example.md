@@ -68,12 +68,16 @@ inputPort PercService {
     Interfaces: PercentInterface
 }
 
-main
-{
+execution{ concurrent }
+
+init {
     install( TypeMismatch =>
                 println@Console( "TypeMismatch: " + main.TypeMismatch )()
-    );
+    )
+}
 
+main
+{
     percent( request )( response ){
         response.percent_value = double( request.part )/request.total
     }
