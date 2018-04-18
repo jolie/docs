@@ -29,12 +29,15 @@ inputPort PercService {
 
 execution{ concurrent }
 
-main
+init
 {
 	install( TypeMismatch =>
-				println@Console( "TypeMismatch: " + main.TypeMismatch )()
-	);
+		println@Console( "TypeMismatch: " + main.TypeMismatch )()
+	)
+}
 
+main
+{
 	percent( request )( response ){
 		response.percent_value = double( request.part )/request.total
 	}
@@ -59,14 +62,14 @@ myLocalVariable = 1 // Local to this behaviour instance
 
 ---
 
-## Synchronisation 
+## Synchronisation
 
 Concurrent access to global variables can be restricted through `synchronized` blocks, similarly to Java:
 
 <pre class="syntax">
 synchronized( id ){
 	//code
-} 
+}
 </pre>
 
 The synchronisation block allows only one process at a time to enter any `synchronized` block sharing the same `id`.
@@ -75,7 +78,7 @@ The synchronisation block allows only one process at a time to enter any `synchr
 
 ## A comprehensive example
 
-Let us consider a comprehensive example using the concepts explained in this section. 
+Let us consider a comprehensive example using the concepts explained in this section.
 
 The register service has a concurrent execution and exposes the `register` request-response operation. `register` increments a global variable, which counts the number of registered users, and sends back a response to the client.
 
@@ -102,13 +105,13 @@ inputPort Register {
 
 execution { concurrent }
 
-init 
-{	
+init
+{
 	global.registered_users=0;
 	response.message = "Successful registration.nYou are the user number "
 }
 
-main 
+main
 {
 	register()( response ){
 		synchronized( syncToken ) {
@@ -129,7 +132,7 @@ outputPort Register {
 	Interfaces: RegService
 }
 
-main 
+main
 {
 	register@Register()( response );
 	println@Console( response.message )()
