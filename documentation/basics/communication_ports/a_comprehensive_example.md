@@ -70,14 +70,12 @@ inputPort PercService {
 
 execution{ concurrent }
 
-init {
-    install( TypeMismatch =>
-                println@Console( "TypeMismatch: " + main.TypeMismatch )()
-    )
-}
-
 main
 {
+    install( TypeMismatch =>
+        println@Console( "TypeMismatch: " + main.TypeMismatch )()
+    );
+
     percent( request )( response ){
         response.percent_value = double( request.part )/request.total
     }
@@ -88,6 +86,6 @@ The programs can be downloaded from the link below:
 
 <div class="download"><a href="/documentation/basics/code/communication_ports_code.zip">Communication Ports Code Example</a></div>
 
-Once extracted, the two programs may be run in two separate shells. Make sure to start `server.ol` before `client.ol`. 
+Once extracted, the two programs may be run in two separate shells. Make sure to start `server.ol` before `client.ol`.
 
 Note the presence of two definitions, respectively at Lines 12-15 and Lines 17-18 in client's source code. Both of these procedures set the values of `request.total` and `request.part` in the request message. By switching the comment from Line 27 to 28 and viceversa the invocation of `percent` operation is successful or returns a `TypeMismatch` error.
