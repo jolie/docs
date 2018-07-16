@@ -66,6 +66,7 @@
   * [LocalSocket](documentation/locations/localsocket.md)
 * Databases
   * [Databases](documentation/databases/databases.md)
+* Tutorials
 * Standard Library API
   * [Bluetooth](/documentation/jsl/Bluetooth.md)
   * [Console](/documentation/jsl/Console.md)
@@ -99,4 +100,6 @@
   * [XMPP](/documentation/jsl/XMPP.md)
   * [XmlUtils](/documentation/jsl/XmlUtils.md)
   * [ZipUtils](/documentation/jsl/ZipUtils.md)
+
+
 
