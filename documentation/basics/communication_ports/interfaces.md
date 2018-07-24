@@ -38,35 +38,3 @@ interface SumInterface {
 `SumInterface` defines a `RequestResponse` operation `sum`. `SumInterface` is the same used in the declaration of `SumInput` and `SumServ`, shown at the end of [ports](ports.md).
 
 The type declarations of both `request` and `response` messages are explained further in the [data types](data_types.md) section.
-
-## Interface as design tool
-
-In Jolie the concept of interface is strongly coupled to the use of communication ports. Yet it can be used as a designing tool in order to define microservices application's domain. 
-
-For instance let's think to start modelling a mathematical service. 
-The example below show a possible implementation of the `MathInterface`.
-
-<pre><code class="language-jolie code">
-interface MathInterface {
-    RequestResponse:
-   sum(SumRequest)(SumResponse),
-     cosine(cosineRequest)(cosineResponse)
-}
-</code></pre>
-
-In *Jolie* it is possible to define the same operation in several `interfaces`, as a result we can separate the arithmetic operations from the trigonometric one as shown in our new version of the above example. 
-
-<pre><code class="language-jolie code">
-interface ArithmeticInterface {
-    RequestResponse: 
-        sum(SumRequest)(SumResponse), 
-        cosine(cosineRequest)(cosineResponse)
-}
-
-interface TrigonometricInterface {
-    RequestResponse: 
-        cosine(cosineRequest)(cosineResponse)
-}
-</code></pre>
-
-From a practical point of view a microservice can implement both interfaces and expose them on the identical port, re-thinking the interfaces as domain delimiters.
