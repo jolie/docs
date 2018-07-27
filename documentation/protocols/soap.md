@@ -16,23 +16,15 @@ To adhere to the WSDL specification, simple call signatures like `test( string )
 
 <pre><code class="language-jolie code">type SoapConfiguration:void {
 
-	/* 
+	/*
 	* Defines the XML Schema files containing
 	* the XML types to be used in SOAP messages
 	*
 	* Default: none
 	*/
-	.schema?:void {
-		/* 
-		* Defines the URL of an XML Schema file
-		*
-		* Default: none
-		* Supported values: any valid XML Schema URL
-		*/
-		.schema_url[1, *]:string
-	}	
+	.schema*:string
 
-	/* 
+	/*
 	* If true, converts XML node attributes to subnodes
 	* in the relative Jolie tree under the "@Attributes"
 	* node.
@@ -63,14 +55,14 @@ To adhere to the WSDL specification, simple call signatures like `test( string )
 		.port?:string
 	}
 
-	/* 
+	/*
 	* Use WS-Addressing
 	*
 	* Default: false
 	*/
 	.wsAddressing?:bool
 
-	/* 
+	/*
 	* Defines the SOAP style to use for message encoding
 	*
 	* Default: "rpc"
@@ -81,7 +73,7 @@ To adhere to the WSDL specification, simple call signatures like `test( string )
 		* Checked only if style is "document", it
 		* defines whether the message is to be wrapped or not
 		* in a node with the name of the operation.
-		* 
+		*
 		* Default: false
 		*/
 		.wrapped?:bool
@@ -155,7 +147,7 @@ To adhere to the WSDL specification, simple call signatures like `test( string )
 	.keepAlive?:bool
 
 	/*
-	* Defines whether debug messages shall be 
+	* Defines whether debug messages shall be
 	* activated
 	*
 	* Default: false
