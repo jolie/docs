@@ -16,8 +16,6 @@ Please, find below some additional information on both how to update existing pa
 
 ### File structure
 
-In the GitHub repository, the folder [documentation](https://github.com/jolie/docs/tree/master/documentation) contains all the documentation pages, stored as `.md` files.
-
 The location of the files follows the structure reported by the [GitBook](https://jolielang.gitbook.io/docs), so e.g., the page [Compositing Statements](https://jolielang.gitbook.io/docs/basics/composing_statements) is under path [`/basics/composing_statements.md`](https://github.com/jolie/docs/blob/master/basics/composing_statements.md).
 
 ### Updating existing pages
