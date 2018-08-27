@@ -1,6 +1,6 @@
 # Define
 
-In the [Hello World](https://github.com/jolielang/docs/tree/de0bcc5b82206ed6be6cb78fa10f6068bbe5881c/documentation/getting_started/hello_world.html) section we have introduced the role of the `main` procedure, which is the entry point for execution.
+In the [Hello World](../getting-started/hello_world.md#hello-world) section we have introduced the role of the `main` procedure, which is the entry point for execution.
 
 The `main` procedure may be preceded or succeeded by the definition of auxiliary procedures that can be invoked from any other code block, and can access any data associated with the specific instance they belong to. Unlike in other major languages, procedures in Jolie do not posses a local variable scope.
 

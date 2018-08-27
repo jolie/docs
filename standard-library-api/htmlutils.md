@@ -3,7 +3,7 @@
 ## From file `html_utils.iol`
 
 | Port Name | Location | Protocol |
-| --- | --- |
+| :--- | :--- | :--- |
 | HTMLUtils |  |  |
 
 ## List of the available interfaces
@@ -13,7 +13,7 @@
 ## Interface HTMLUtilsInterface {#HTMLUtilsInterface}
 
 | Heading | Input type | Output type | Faults |
-| --- | --- | --- |
+| :--- | :--- | :--- | :--- |
 | [escapeHTML](htmlutils.md#escapeHTML) | string  | string  |  |
 | [unescapeHTML](htmlutils.md#unescapeHTML) | string  | string  |  |
 

@@ -3,7 +3,7 @@
 ## From file `bluetooth.iol`
 
 | Port Name | Location | Protocol |
-| --- | --- |
+| :--- | :--- | :--- |
 | Bluetooth |  |  |
 
 ## List of the available interfaces
@@ -13,7 +13,7 @@
 ## Interface BluetoothInterface {#BluetoothInterface}
 
 | Heading | Input type | Output type | Faults |
-| --- | --- | --- |
+| :--- | :--- | :--- | :--- |
 | [inquire](bluetooth.md#inquire) | void  | [BluetoothInquiryResponse](bluetooth.md#BluetoothInquiryResponse)  |  |
 | [setDiscoverable](bluetooth.md#setDiscoverable) | int  | int  |  |
 

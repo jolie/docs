@@ -3,7 +3,7 @@
 ## From file `database.iol`
 
 | Port Name | Location | Protocol |
-| --- | --- |
+| :--- | :--- | :--- |
 | Database |  |  |
 
 ## List of the available interfaces
@@ -13,7 +13,7 @@
 ## Interface DatabaseInterface {#DatabaseInterface}
 
 | Heading | Input type | Output type | Faults |
-| --- | --- | --- | --- | --- | --- | --- |
+| :--- | :--- | :--- | :--- |
 | [checkConnection](database.md#checkConnection) | void  | void  |  ConnectionError,   |
 | [close](database.md#close) | void  | void  |  |
 | [connect](database.md#connect) | [ConnectionInfo](database.md#ConnectionInfo)  | void  |  InvalidDriver,   ConnectionError,   DriverClassNotFound,   |

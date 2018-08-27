@@ -3,7 +3,7 @@
 ## From file `xml_utils.iol`
 
 | Port Name | Location | Protocol |
-| --- | --- |
+| :--- | :--- | :--- |
 | XmlUtils |  |  |
 
 ## List of the available interfaces
@@ -13,7 +13,7 @@
 ## Interface XmlUtilsInterface {#XmlUtilsInterface}
 
 | Heading | Input type | Output type | Faults |
-| --- | --- | --- | --- |
+| :--- | :--- | :--- | :--- |
 | [transform](xmlutils.md#transform) | [XMLTransformationRequest](xmlutils.md#XMLTransformationRequest)  | string  |  TransformerException\( [JavaExceptionType](xmlutils.md#JavaExceptionType) \)    |
 | [valueToXml](xmlutils.md#valueToXml) | [ValueToXmlRequest](xmlutils.md#ValueToXmlRequest)  | string  |  IOException\( [IOExceptionType](xmlutils.md#IOExceptionType) \)    |
 | [xmlToValue](xmlutils.md#xmlToValue) | [XMLToValueRequest](xmlutils.md#XMLToValueRequest)  | undefined  |  IOException\( [IOExceptionType](xmlutils.md#IOExceptionType) \)    |

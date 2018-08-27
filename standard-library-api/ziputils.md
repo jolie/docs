@@ -3,7 +3,7 @@
 ## From file `zip_utils.iol`
 
 | Port Name | Location | Protocol |
-| --- | --- |
+| :--- | :--- | :--- |
 | ZipUtils |  |  |
 
 ## List of the available interfaces
@@ -13,7 +13,7 @@
 ## Interface ZipUtilsInterface {#ZipUtilsInterface}
 
 | Heading | Input type | Output type | Faults |
-| --- | --- | --- | --- | --- |
+| :--- | :--- | :--- | :--- |
 | [IOException](ziputils.md#IOException) | undefined  | undefined  |  |
 | [readEntry](ziputils.md#readEntry) | [ReadEntryRequest](ziputils.md#ReadEntryRequest)  | any  |  IOException\( [IOExceptionType](ziputils.md#IOExceptionType) \)    |
 | [unzip](ziputils.md#unzip) | [UnzipRequest](ziputils.md#UnzipRequest)  | [UnzipResponse](ziputils.md#UnzipResponse)  |  FileNotFound,   |

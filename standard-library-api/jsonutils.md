@@ -3,7 +3,7 @@
 ## From file `json_utils.iol`
 
 | Port Name | Location | Protocol |
-| --- | --- |
+| :--- | :--- | :--- |
 | JsonUtils |  |  |
 
 ## List of the available interfaces
@@ -13,7 +13,7 @@
 ## Interface JsonUtilsInterface {#JsonUtilsInterface}
 
 | Heading | Input type | Output type | Faults |
-| --- | --- | --- |
+| :--- | :--- | :--- | :--- |
 | [getJsonString](jsonutils.md#getJsonString) | GetJsonStringRequest  | GetJsonStringResponse  |  JSONCreationError,   |
 | [getJsonValue](jsonutils.md#getJsonValue) | [GetJsonValueRequest](jsonutils.md#GetJsonValueRequest)  | GetJsonValueResponse  |  JSONCreationError,   |
 

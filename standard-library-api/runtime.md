@@ -3,7 +3,7 @@
 ## From file `runtime.iol`
 
 | Port Name | Location | Protocol |
-| --- | --- |
+| :--- | :--- | :--- |
 | Runtime |  |  |
 
 ## List of the available interfaces
@@ -13,7 +13,7 @@
 ## Interface RuntimeInterface {#RuntimeInterface}
 
 | Heading | Input type | Output type | Faults |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| :--- | :--- | :--- | :--- |
 | [callExit](runtime.md#callExit) | any  | void  |  |
 | [dumpState](runtime.md#dumpState) | void  | string  |  |
 | [getIncludePaths](runtime.md#getIncludePaths) | void  | [GetIncludePathResponse](runtime.md#GetIncludePathResponse)  |  |

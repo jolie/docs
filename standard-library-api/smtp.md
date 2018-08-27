@@ -3,7 +3,7 @@
 ## From file `smtp.iol`
 
 | Port Name | Location | Protocol |
-| --- | --- |
+| :--- | :--- | :--- |
 | SMTP |  |  |
 
 ## List of the available interfaces
@@ -13,7 +13,7 @@
 ## Interface SMTPInterface {#SMTPInterface}
 
 | Heading | Input type | Output type | Faults |
-| --- | --- |
+| :--- | :--- | :--- | :--- |
 | [sendMail](smtp.md#sendMail) | [SendMailRequest](smtp.md#SendMailRequest)  | void  |  SMTPFault,   |
 
 ## Operation list

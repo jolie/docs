@@ -3,7 +3,7 @@
 ## From file `standard_monitor.iol`
 
 | Port Name | Location | Protocol |
-| --- | --- |
+| :--- | :--- | :--- |
 | MonitorInput | local | null |
 
 ## List of the available interfaces
@@ -13,7 +13,7 @@
 ## Interface StandardMonitorInputInterface {#StandardMonitorInputInterface}
 
 | Heading | Input type | Output type | Faults |
-| --- | --- |
+| :--- | :--- | :--- | :--- |
 | [monitorAlert](monitorinput.md#monitorAlert) | [void](monitorinput.md#void)  |   |   |
 
 ## Operation list

@@ -3,7 +3,7 @@
 ## From file `queue_utils.iol`
 
 | Port Name | Location | Protocol |
-| --- | --- |
+| :--- | :--- | :--- |
 | QueueUtils |  |  |
 
 ## List of the available interfaces
@@ -13,7 +13,7 @@
 ## Interface QueueUtilsInterface {#QueueUtilsInterface}
 
 | Heading | Input type | Output type | Faults |
-| --- | --- | --- | --- | --- | --- | --- |
+| :--- | :--- | :--- | :--- |
 | [delete\_queue](queueutils.md#delete_queue) | string  | bool  |  |
 | [new\_queue](queueutils.md#new_queue) | string  | bool  |  |
 | [peek](queueutils.md#peek) | string  | undefined  |  |

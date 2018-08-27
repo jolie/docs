@@ -3,7 +3,7 @@
 ## From file `converter.iol`
 
 | Port Name | Location | Protocol |
-| --- | --- |
+| :--- | :--- | :--- |
 | Converter |  |  |
 
 ## List of the available interfaces
@@ -13,7 +13,7 @@
 ## Interface ConverterInterface {#ConverterInterface}
 
 | Heading | Input type | Output type | Faults |
-| --- | --- | --- | --- | --- |
+| :--- | :--- | :--- | :--- |
 | [base64ToRaw](converter.md#base64ToRaw) | string  | raw  |  IOException\( [IOExceptionType](converter.md#IOExceptionType) \)    |
 | [rawToBase64](converter.md#rawToBase64) | raw  | string  |  |
 | [rawToString](converter.md#rawToString) | [RawToStringRequest](converter.md#RawToStringRequest)  | string  |  IOException\( [IOExceptionType](converter.md#IOExceptionType) \)    |

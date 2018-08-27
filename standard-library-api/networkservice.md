@@ -3,7 +3,7 @@
 ## From file `network_service.iol`
 
 | Port Name | Location | Protocol |
-| --- | --- |
+| :--- | :--- | :--- |
 | NetworkService |  |  |
 
 ## List of the available interfaces
@@ -13,7 +13,7 @@
 ## Interface NetworkServiceInterface {#NetworkServiceInterface}
 
 | Heading | Input type | Output type | Faults |
-| --- | --- | --- |
+| :--- | :--- | :--- | :--- |
 | [getIPAddresses](networkservice.md#getIPAddresses) | [GetIPAddressesRequest](networkservice.md#GetIPAddressesRequest)  | [GetIPAddressesResponse](networkservice.md#GetIPAddressesResponse)  |  InterfaceNotFound,   |
 | [getNetworkInterfaceNames](networkservice.md#getNetworkInterfaceNames) | GetNetworkInterfaceNamesRequest  | [GetNetworkInterfaceNamesResponse](networkservice.md#GetNetworkInterfaceNamesResponse)  |  |
 

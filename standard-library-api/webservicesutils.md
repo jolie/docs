@@ -3,7 +3,7 @@
 ## From file `web_services_utils.iol`
 
 | Port Name | Location | Protocol |
-| --- | --- |
+| :--- | :--- | :--- |
 | WebServicesUtils |  |  |
 
 ## List of the available interfaces
@@ -13,7 +13,7 @@
 ## Interface WebServicesUtilsInterface {#WebServicesUtilsInterface}
 
 | Heading | Input type | Output type | Faults |
-| --- | --- |
+| :--- | :--- | :--- | :--- |
 | [wsdlToJolie](webservicesutils.md#wsdlToJolie) | string  | string  |  IOException\( [IOExceptionType](webservicesutils.md#IOExceptionType) \)    |
 
 ## Operation list

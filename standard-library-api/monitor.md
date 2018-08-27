@@ -3,7 +3,7 @@
 ## From file `standard_monitor.iol`
 
 | Port Name | Location | Protocol |
-| --- | --- |
+| :--- | :--- | :--- |
 | Monitor |  |  |
 
 ## List of the available interfaces
@@ -14,13 +14,13 @@
 ## Interface MonitorInterface {#MonitorInterface}
 
 | Heading | Input type | Output type | Faults |
-| --- | --- |
+| :--- | :--- | :--- | :--- |
 | [pushEvent](monitor.md#pushEvent) | [undefined](monitor.md#undefined)  |   |   |
 
 ## Interface StandardMonitorInterface {#StandardMonitorInterface}
 
 | Heading | Input type | Output type | Faults |
-| --- | --- | --- |
+| :--- | :--- | :--- | :--- |
 | [flush](monitor.md#flush) | void  | [FlushResponse](monitor.md#FlushResponse)  |  |
 | [setMonitor](monitor.md#setMonitor) | [SetStandardMonitorRequest](monitor.md#SetStandardMonitorRequest)  | void  |  |
 

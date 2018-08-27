@@ -3,7 +3,7 @@
 ## From file `file.iol`
 
 | Port Name | Location | Protocol |
-| --- | --- |
+| :--- | :--- | :--- |
 | File |  |  |
 
 ## List of the available interfaces
@@ -16,7 +16,7 @@
 to: the target directory to copy into
 
 | Heading | Input type | Output type | Faults |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| :--- | :--- | :--- | :--- |
 | [convertFromBase64ToBinaryValue](file.md#convertFromBase64ToBinaryValue) | string  | raw  |  IOException\( [IOExceptionType](file.md#IOExceptionType) \)    |
 | [convertFromBinaryToBase64Value](file.md#convertFromBinaryToBase64Value) | raw  | string  |  |
 | [copyDir](file.md#copyDir) | [CopyDirRequest](file.md#CopyDirRequest)  | bool  |  FileNotFound,   IOException,   |

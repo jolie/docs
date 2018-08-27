@@ -3,7 +3,7 @@
 ## From file `metajolie.iol`
 
 | Port Name | Location | Protocol |
-| --- | --- |
+| :--- | :--- | :--- |
 | MetaJolie |  |  |
 
 ## List of the available interfaces
@@ -15,7 +15,7 @@
  WARNING: the API of this service is experimental. Use it at your own risk.
 
 | Heading | Input type | Output type | Faults |
-| --- | --- | --- | --- | --- | --- |
+| :--- | :--- | :--- | :--- |
 | [checkNativeType](metajolie.md#checkNativeType) | [CheckNativeTypeRequest](metajolie.md#CheckNativeTypeRequest)  | [CheckNativeTypeResponse](metajolie.md#CheckNativeTypeResponse)  |  |
 | [getInputPortMetaData](metajolie.md#getInputPortMetaData) | [GetInputPortMetaDataRequest](metajolie.md#GetInputPortMetaDataRequest)  | [GetInputPortMetaDataResponse](metajolie.md#GetInputPortMetaDataResponse)  |  ParserException\( [ParserExceptionType](metajolie.md#ParserExceptionType) \)    InputPortMetaDataFault,   SemanticException\( [SemanticExceptionType](metajolie.md#SemanticExceptionType) \)    |
 | [getMetaData](metajolie.md#getMetaData) | [GetMetaDataRequest](metajolie.md#GetMetaDataRequest)  | [GetMetaDataResponse](metajolie.md#GetMetaDataResponse)  |  ParserException\( [ParserExceptionType](metajolie.md#ParserExceptionType) \)    SemanticException\( [SemanticExceptionType](metajolie.md#SemanticExceptionType) \)    |

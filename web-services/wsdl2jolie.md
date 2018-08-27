@@ -113,7 +113,7 @@ wdsl2jolie creates a document which contains:
 In the following table we show the mapping between WSDL elements and Jolie elements:
 
 | WSDL | Jolie |
-| --- | --- | --- | --- | --- | --- |
+| :--- | :--- |
 | `<types>` | `type` |
 | `<messages>` | `type` |
 | `<portType>` | `interface` |

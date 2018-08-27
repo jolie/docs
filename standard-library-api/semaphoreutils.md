@@ -3,7 +3,7 @@
 ## From file `semaphore_utils.iol`
 
 | Port Name | Location | Protocol |
-| --- | --- |
+| :--- | :--- | :--- |
 | SemaphoreUtils |  |  |
 
 ## List of the available interfaces
@@ -13,7 +13,7 @@
 ## Interface SemaphoreUtilsInterface {#SemaphoreUtilsInterface}
 
 | Heading | Input type | Output type | Faults |
-| --- | --- | --- |
+| :--- | :--- | :--- | :--- |
 | [acquire](semaphoreutils.md#acquire) | [SemaphoreRequest](semaphoreutils.md#SemaphoreRequest)  | bool  |  |
 | [release](semaphoreutils.md#release) | [SemaphoreRequest](semaphoreutils.md#SemaphoreRequest)  | bool  |  |
 

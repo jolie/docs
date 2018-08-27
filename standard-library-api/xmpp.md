@@ -3,7 +3,7 @@
 ## From file `xmpp.iol`
 
 | Port Name | Location | Protocol |
-| --- | --- |
+| :--- | :--- | :--- |
 | XMPP |  |  |
 
 ## List of the available interfaces
@@ -13,7 +13,7 @@
 ## Interface XMPPInterface {#XMPPInterface}
 
 | Heading | Input type | Output type | Faults |
-| --- | --- | --- |
+| :--- | :--- | :--- | :--- |
 | [connect](xmpp.md#connect) | [ConnectionRequest](xmpp.md#ConnectionRequest)  | void  |  XMPPException,   |
 | [sendMessage](xmpp.md#sendMessage) | [SendMessageRequest](xmpp.md#SendMessageRequest)  | void  |  XMPPException,   |
 

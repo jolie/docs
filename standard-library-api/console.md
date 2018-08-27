@@ -3,7 +3,7 @@
 ## From file `console.iol`
 
 | Port Name | Location | Protocol |
-| --- | --- |
+| :--- | :--- | :--- |
 | Console |  |  |
 
 ## List of the available interfaces
@@ -13,7 +13,7 @@
 ## Interface ConsoleInterface {#ConsoleInterface}
 
 | Heading | Input type | Output type | Faults |
-| --- | --- | --- | --- | --- | --- | --- |
+| :--- | :--- | :--- | :--- |
 | [enableTimestamp](console.md#enableTimestamp) | [EnableTimestampRequest](console.md#EnableTimestampRequest)  | void  |  |
 | [print](console.md#print) | undefined  | void  |  |
 | [println](console.md#println) | undefined  | void  |  |

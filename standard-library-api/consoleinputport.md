@@ -3,7 +3,7 @@
 ## From file `console.iol`
 
 | Port Name | Location | Protocol |
-| --- | --- |
+| :--- | :--- | :--- |
 | ConsoleInputPort | local | null |
 
 ## List of the available interfaces
@@ -13,7 +13,7 @@
 ## Interface ConsoleInputInterface {#ConsoleInputInterface}
 
 | Heading | Input type | Output type | Faults |
-| --- | --- |
+| :--- | :--- | :--- | :--- |
 | [in](consoleinputport.md#in) | [InRequest](consoleinputport.md#InRequest)  |   |   |
 
 ## Operation list

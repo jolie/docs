@@ -32,7 +32,7 @@ op_name ( request_type )( response_type ) throws fault_name ( fault_type )
 `TypeMismatch` fault in request-response operations leads to four different scenarios, summed in the table below:
 
 |  | Fault raised in REQUEST messages | Fault raised in RESPONSE messages |
-| --- | --- | --- |
+| :--- | :--- | :--- |
 | **SENDER side** | The message is not sent;a `TypeMismatch` exception is raised. | a `TypeMismatch` exception is raised. |
 | **RECEIVER side** | The message is discarded;a warning message is sent to console;a `TypeMismatch` fault message is sent to the sender | a `TypeMismatch` exception is raised.a `TypeMismatch` fault is sent to the sender. |
 

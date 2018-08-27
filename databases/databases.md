@@ -5,7 +5,7 @@ Jolie can be used with various relational/SQL databases, using the Database serv
 Attention: if your JAR driver is called differently, you will have to rename it or create an apposite link, otherwise Jolie is not able to load it. The list of correct names for JAR drivers is given below.
 
 | Database | Driver name \(`driver` \) | JAR filename |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| :--- | :--- | :--- |
 | PostgreSQL | `postgresql` | `jdbc-postgresql.jar` |
 | MySQL | `mysql` | `jdbc-mysql.jar` |
 | Apache Derby | `derby_embedded` or `derby` | `derby.jar` or `derbyclient.jar` |

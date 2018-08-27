@@ -3,7 +3,7 @@
 ## From file `message_digest.iol`
 
 | Port Name | Location | Protocol |
-| --- | --- |
+| :--- | :--- | :--- |
 | MessageDigest |  |  |
 
 ## List of the available interfaces
@@ -13,7 +13,7 @@
 ## Interface MessageDigestInterface {#MessageDigestInterface}
 
 | Heading | Input type | Output type | Faults |
-| --- | --- |
+| :--- | :--- | :--- | :--- |
 | [md5](messagedigest.md#md5) | [MD5Request](messagedigest.md#MD5Request)  | string  |  UnsupportedOperation\( [JavaExceptionType](messagedigest.md#JavaExceptionType) \)    |
 
 ## Operation list

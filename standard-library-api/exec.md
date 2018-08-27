@@ -3,7 +3,7 @@
 ## From file `exec.iol`
 
 | Port Name | Location | Protocol |
-| --- | --- |
+| :--- | :--- | :--- |
 | Exec |  |  |
 
 ## List of the available interfaces
@@ -13,7 +13,7 @@
 ## Interface ExecInterface {#ExecInterface}
 
 | Heading | Input type | Output type | Faults |
-| --- | --- |
+| :--- | :--- | :--- | :--- |
 | [exec](exec.md#exec) | [CommandExecutionRequest](exec.md#CommandExecutionRequest)  | [CommandExecutionResult](exec.md#CommandExecutionResult)  |  |
 
 ## Operation list

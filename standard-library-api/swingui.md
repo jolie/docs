@@ -3,7 +3,7 @@
 ## From file `swing_ui.iol`
 
 | Port Name | Location | Protocol |
-| --- | --- |
+| :--- | :--- | :--- |
 | SwingUI |  |  |
 
 ## List of the available interfaces
@@ -13,7 +13,7 @@
 ## Interface UserInterface {#UserInterface}
 
 | Heading | Input type | Output type | Faults |
-| --- | --- | --- | --- |
+| :--- | :--- | :--- | :--- |
 | [showInputDialog](swingui.md#showInputDialog) | string  | string  |  |
 | [showMessageDialog](swingui.md#showMessageDialog) | string  | void  |  |
 | [showYesNoQuestionDialog](swingui.md#showYesNoQuestionDialog) | string  | int  |  |

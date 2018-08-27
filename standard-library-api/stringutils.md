@@ -3,7 +3,7 @@
 ## From file `string_utils.iol`
 
 | Port Name | Location | Protocol |
-| --- | --- |
+| :--- | :--- | :--- |
 | StringUtils |  |  |
 
 ## List of the available interfaces
@@ -15,7 +15,7 @@
  An interface for supporting string manipulation operations.
 
 | Heading | Input type | Output type | Faults |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| :--- | :--- | :--- | :--- |
 | [contains](stringutils.md#contains) | [ContainsRequest](stringutils.md#ContainsRequest)  | bool  |  |
 | [endsWith](stringutils.md#endsWith) | [EndsWithRequest](stringutils.md#EndsWithRequest)  | bool  |  |
 | [find](stringutils.md#find) | [MatchRequest](stringutils.md#MatchRequest)  | [MatchResult](stringutils.md#MatchResult)  |  |

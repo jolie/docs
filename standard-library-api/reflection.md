@@ -3,7 +3,7 @@
 ## From file `reflection.iol`
 
 | Port Name | Location | Protocol |
-| --- | --- |
+| :--- | :--- | :--- |
 | Reflection |  |  |
 
 ## List of the available interfaces
@@ -15,7 +15,7 @@
  WARNING: the API of this service is experimental. Use it at your own risk.
 
 | Heading | Input type | Output type | Faults |
-| --- | --- |
+| :--- | :--- | :--- | :--- |
 | [invoke](reflection.md#invoke) | [InvokeRequest](reflection.md#InvokeRequest)  | undefined  |  OperationNotFound\( [string](reflection.md#string) \)    InvocationFault\( [InvocationFaultType](reflection.md#InvocationFaultType) \)    |
 
 ## Operation list

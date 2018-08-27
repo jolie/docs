@@ -3,7 +3,7 @@
 ## From file `time.iol`
 
 | Port Name | Location | Protocol |
-| --- | --- |
+| :--- | :--- | :--- |
 | Time |  |  |
 
 ## List of the available interfaces
@@ -13,7 +13,7 @@
 ## Interface TimeInterface {#TimeInterface}
 
 | Heading | Input type | Output type | Faults |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| :--- | :--- | :--- | :--- |
 | [cancelTimeout](time.md#cancelTimeout) | long  | bool  |  |
 | [getCurrentDateTime](time.md#getCurrentDateTime) | [CurrentDateTimeRequestType](time.md#CurrentDateTimeRequestType)  | string  |  |
 | [getCurrentDateValues](time.md#getCurrentDateValues) | void  | [DateValuesType](time.md#DateValuesType)  |  |

@@ -3,7 +3,7 @@
 ## From file `math.iol`
 
 | Port Name | Location | Protocol |
-| --- | --- |
+| :--- | :--- | :--- |
 | Math |  |  |
 
 ## List of the available interfaces
@@ -13,7 +13,7 @@
 ## Interface MathInterface {#MathInterface}
 
 | Heading | Input type | Output type | Faults |
-| --- | --- | --- | --- | --- | --- | --- |
+| :--- | :--- | :--- | :--- |
 | [abs](math.md#abs) | int  | int  |  |
 | [pi](math.md#pi) | void  | double  |  |
 | [pow](math.md#pow) | [PowRequest](math.md#PowRequest)  | double  |  |

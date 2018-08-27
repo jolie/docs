@@ -3,7 +3,7 @@
 ## From file `scheduler.iol`
 
 | Port Name | Location | Protocol |
-| --- | --- |
+| :--- | :--- | :--- |
 | SchedulerPort |  |  |
 
 ## List of the available interfaces
@@ -15,7 +15,7 @@
  Configure the schedule in chron style string
 
 | Heading | Input type | Output type | Faults |
-| --- | --- | --- |
+| :--- | :--- | :--- | :--- |
 | [setDailySchedule](schedulerport.md#setDailySchedule) | [DailyScheduleReq](schedulerport.md#DailyScheduleReq)  |   |   |
 | [setSchedule](schedulerport.md#setSchedule) | [ScheduleReq](schedulerport.md#ScheduleReq)  |   |   |
 

@@ -3,7 +3,7 @@
 ## From file `metaparser.iol`
 
 | Port Name | Location | Protocol |
-| --- | --- |
+| :--- | :--- | :--- |
 | Parser |  |  |
 
 ## List of the available interfaces
@@ -13,7 +13,7 @@
 ## Interface ParserInterface {#ParserInterface}
 
 | Heading | Input type | Output type | Faults |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| :--- | :--- | :--- | :--- |
 | [getCardinality](parser.md#getCardinality) | [Cardinality](parser.md#Cardinality)  | string  |  |
 | [getInterface](parser.md#getInterface) | [Interface](parser.md#Interface)  | string  |  |
 | [getNativeType](parser.md#getNativeType) | [NativeType](parser.md#NativeType)  | string  |  |
