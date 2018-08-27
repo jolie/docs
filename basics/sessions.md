@@ -80,7 +80,7 @@ Finally, at Line 6, the client assigns the `sid` value to its variable `opMessag
 
 The files of the example above can be downloaded from the following link:
 
-[Sessions Code Example](https://github.com/jolielang/docs/tree/de0bcc5b82206ed6be6cb78fa10f6068bbe5881c/documentation/basics/code/sessions_code.zip)
+[Sessions Code Example](/docs/basics/code/sessions_code.zip)
 
 ## Correlation variables and aliases
 

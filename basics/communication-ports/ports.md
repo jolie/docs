@@ -1,6 +1,6 @@
 # Ports
 
-Let us recall the concepts of _input ports_ and _output ports_ seen in the [Behaviour and Deployment](https://github.com/jolielang/docs/tree/de0bcc5b82206ed6be6cb78fa10f6068bbe5881c/documentation/getting_started/behavior_and_deployment.html) section.
+Let us recall the concepts of _input ports_ and _output ports_ seen in the [Behaviour and Deployment](/docs/getting_started/behavior_and_deployment) section.
 
 There are two kinds of ports: _input ports_, which expose input operations to other services, and _output ports_, defining how to invoke the operations of other services.
 

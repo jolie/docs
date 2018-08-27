@@ -42,7 +42,7 @@ main
 }
 ```
 
-Complementary to the server's behaviour, the client's behaviour consists in invoking the operation `twice` exposed by the server, passing the number 5 as the invocation value. After sending the request to the server, the operation will wait for a response, storing it in the variable `response`. Finally, the result is printed on screen \(Line 4\). For a thorough explanation of the usage of operations, see section [Communication Ports](https://github.com/jolielang/docs/tree/de0bcc5b82206ed6be6cb78fa10f6068bbe5881c/documentation/basics/communication_ports.html).
+Complementary to the server's behaviour, the client's behaviour consists in invoking the operation `twice` exposed by the server, passing the number 5 as the invocation value. After sending the request to the server, the operation will wait for a response, storing it in the variable `response`. Finally, the result is printed on screen \(Line 4\). For a thorough explanation of the usage of operations, see section [Communication Ports](/docs/basics/communication_ports).
 
 ## Deployment
 
@@ -54,7 +54,7 @@ A location, e.g. a TCP/IP address, expresses the communication medium that a ser
 
 A protocol defines how data to be sent or received should be encoded \(output\) or decoded \(input\).
 
-Finally, a port must specify the interface that is accessible through it. For a thorough explanation of interfaces, see section [Communication Ports](https://github.com/jolielang/docs/tree/de0bcc5b82206ed6be6cb78fa10f6068bbe5881c/documentation/basics/communication_ports.html).
+Finally, a port must specify the interface that is accessible through it. For a thorough explanation of interfaces, see section [Communication Ports](/docs/basics/communication_ports).
 
 In our example the `TwiceInterface` interface declares the operation `twice` as a request-response operation. A request-response operation receives a request and sends back a response. Both input and output messages of `twice` are typed as `int` \(denoting integers\):
 
@@ -137,7 +137,7 @@ main
 
 The two programs can be downloaded from the link below:
 
-[Behaviour and Deployment Code Example](https://github.com/jolielang/docs/tree/de0bcc5b82206ed6be6cb78fa10f6068bbe5881c/documentation/getting_started/code/behaviour_and_deployment_code.zip)
+[Behaviour and Deployment Code Example](/docs/getting_started/code/behaviour_and_deployment_code.zip)
 
 We can now run the two programs in two separate shells. Note that it is important to start `server.ol` before `client.ol`, since the server must be ready to receive an invocation before the client tries to reach it.
 

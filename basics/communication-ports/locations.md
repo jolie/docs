@@ -13,5 +13,5 @@ Jolie currently supports four media:
 
 An example of a valid location is: `"socket://www.mysite.com:80/"`, where `socket://` is the location medium and the following part represents its parameters.
 
-For a thorough description of the locations supported by Jolie and their parameters see [Locations](https://github.com/jolielang/docs/tree/de0bcc5b82206ed6be6cb78fa10f6068bbe5881c/documentation/locations/introduction.html) section.
+For a thorough description of the locations supported by Jolie and their parameters see [Locations](/docs/locations/introduction) section.
 

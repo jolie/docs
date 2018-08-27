@@ -8,7 +8,7 @@ Protocol name in port definition: `soap`.
 
 ## SOAP Transport
 
-To adhere to the WSDL specification, simple call signatures like `test( string )( int )` should be omitted. Input and output values should be passed by apposite compound structures with a `void` root value, as shown [here](https://github.com/jolie/docs/tree/dcc1d425ab193702b68763204f3e281aed3435a2/documentation/web_services/web_services.html).
+To adhere to the WSDL specification, simple call signatures like `test( string )( int )` should be omitted. Input and output values should be passed by apposite compound structures with a `void` root value, as shown [here](/docs/web_services/web_services).
 
 ## SOAP Parameters
 

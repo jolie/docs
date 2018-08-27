@@ -84,7 +84,7 @@ main
 
 The programs can be downloaded from the link below:
 
-[Communication Ports Code Example](https://github.com/jolielang/docs/tree/de0bcc5b82206ed6be6cb78fa10f6068bbe5881c/documentation/basics/code/communication_ports_code.zip)
+[Communication Ports Code Example](/docs/basics/code/communication_ports_code.zip)
 
 Once extracted, the two programs may be run in two separate shells. Make sure to start `server.ol` before `client.ol`.
 

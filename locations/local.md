@@ -4,7 +4,7 @@ An embedded service in Jolie can communicate with its embedder exploiting the `l
 
 The `local` medium has no parameters and needs no protocol when used into a port definition.
 
-An example using this medium can be found in part "Handling structured messages and embedder's operations invocation" of [Embedding Java Services](https://github.com/jolielang/docs/tree/de0bcc5b82206ed6be6cb78fa10f6068bbe5881c/documentation/architectural_composition/embedding_java.html) subsection.
+An example using this medium can be found in part "Handling structured messages and embedder's operations invocation" of [Embedding Java Services](/docs/architectural_composition/embedding_java) subsection.
 
 The `local` medium can be used for service internal self communications, as shown in the example below:
 

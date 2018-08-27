@@ -6,7 +6,7 @@ Attention
 
 Internal services are available from Jolie release 1.6.2.
 
-Internal Services are embedded Jolie services defined directly within the embedder program, rather than in a separate file. They offer a convenient way of reusing code as in procedural programming, without breaking the principle that such code should be easily exported to an external microservice. In particular, an internal service can always be easily moved to a separate file to make it a standalone service, without requiring code changes in the behaviours of the other services that were interacting with it. This is in contrast with the [define](https://github.com/jolielang/docs/tree/de0bcc5b82206ed6be6cb78fa10f6068bbe5881c/documentation/basics/define.html) keyword, which is intended only for short configuration macros or recursive workflows.
+Internal Services are embedded Jolie services defined directly within the embedder program, rather than in a separate file. They offer a convenient way of reusing code as in procedural programming, without breaking the principle that such code should be easily exported to an external microservice. In particular, an internal service can always be easily moved to a separate file to make it a standalone service, without requiring code changes in the behaviours of the other services that were interacting with it. This is in contrast with the [define](/docs/basics/define) keyword, which is intended only for short configuration macros or recursive workflows.
 
 Beside the ease of refactoring \(e.g., moving the service from internal to standalone\), internal services offer another main advantage: fast prototyping. The programmer does not have to code a fully-fledged Jolie service in a separate file, embed it, and set the appropriate communication ports. Internal services are no more than syntactic sugar, but this automation saves a lot of boilerplate coding to the developer.
 
@@ -44,7 +44,7 @@ Attention
 
 Every internal service has `execution { concurrent }` set by default.
 
- This is convenient, although it contrasts with the usual execution for normal Jolie services, which is set to [single](https://github.com/jolielang/docs/tree/de0bcc5b82206ed6be6cb78fa10f6068bbe5881c/documentation/basics/composing_statements.html#statement-execution-operators) by default.
+This is convenient, although it contrasts with the usual execution for normal Jolie services, which is set to [single](/docs/basics/composing_statements#statement-execution-operators) 
 
 Semantically, internal services are just syntactic sugar for embedded Jolie service, i.e., what happens at runtime is that the owner of the internal services loads them as embedded services, with the consequent access through the `Runtime` standard service and all the usual features.
 

@@ -1,6 +1,6 @@
 # Data Types
 
-In Jolie, the messages exchanged through operations are data trees \(see section [Handling Simple Data](https://github.com/jolielang/docs/tree/de0bcc5b82206ed6be6cb78fa10f6068bbe5881c/documentation/basics/handling_simple_data.html)\).
+In Jolie, the messages exchanged through operations are data trees \(see section [Handling Simple Data](/docs/basics/handling_simple_data).
 
 A data type defines:
 
@@ -182,7 +182,7 @@ type TestType: void {
 }
 ```
 
-You can access these nodes with special characters by using dynamic look-up, for example x.\("@node"\). This is explained more in detail in [data structures](https://github.com/jolielang/docs/tree/de0bcc5b82206ed6be6cb78fa10f6068bbe5881c/documentation/basic/data_structures.html).
+You can access these nodes with special characters by using dynamic look-up, for example x.\("@node"\). This is explained more in detail in [data structures](/docs/basic/data_structures).
 
 ### Data types choice \(sum types\)
 

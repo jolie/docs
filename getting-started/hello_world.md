@@ -24,7 +24,7 @@ We can already see some characteristics of a Jolie program:
 * the entry point of a Jolie program is the `main` code block;
 * we can send a message to a service with a native primitive \(Line 4\).
 
-The last point differs from classical programming languages and is peculiar to Jolie: the `println@Console( "Hello, world!" )()` line is a [solicit-response](https://github.com/jolielang/docs/tree/de0bcc5b82206ed6be6cb78fa10f6068bbe5881c/documentation/basics/communication_ports.html) statement, which is a communication primitive.
+The last point differs from classical programming languages and is peculiar to Jolie: the `println@Console( "Hello, world!" )()` line is a [solicit-response](/docs/basics/communication_ports) statement, which is a communication primitive.
 
 ## Running a Jolie service
 

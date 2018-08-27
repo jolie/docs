@@ -50,7 +50,7 @@ statementA | statementB
 
 ```
 
-It is a good practice to explicitly group statements when mixing sequence and parallel operators. Statements can be grouped by enclosing them within an unlabelled [scope](https://github.com/jolielang/docs/tree/de0bcc5b82206ed6be6cb78fa10f6068bbe5881c/documentation/fault_handling/basics.html) represented by a pair curly brackets `{}`, like in the following example:
+It is a good practice to explicitly group statements when mixing sequence and parallel operators. Statements can be grouped by enclosing them within an unlabelled [scope](/docs/fault_handling/basics) represented by a pair curly brackets `{}`, like in the following example:
 
 ```text
 { statementA ; statementB ; ... ; statementF }
@@ -82,9 +82,9 @@ main
 }
 ```
 
-[Click here to download the comprehensive code of the example above.](https://github.com/jolielang/docs/tree/de0bcc5b82206ed6be6cb78fa10f6068bbe5881c/documentation/basics/code/composing_statements_parallel.zip)
+[Click here to download the comprehensive code of the example above.](/docs/basics/code/composing_statements_parallel.zip)
 
-Concurrent access to shared variables can be restricted through [synchronized](https://github.com/jolielang/docs/tree/de0bcc5b82206ed6be6cb78fa10f6068bbe5881c/documentation/basics/processes.html) blocks.
+Concurrent access to shared variables can be restricted through [synchronized](/docs/basics/processes) blocks.
 
 ## Input choice
 
@@ -208,7 +208,7 @@ for( i = 0, i
 
 ### Iterating over arrays
 
-Attention Arrays and the `#` operator are explained in detail in the [Data Structures](https://github.com/jolielang/docs/tree/de0bcc5b82206ed6be6cb78fa10f6068bbe5881c/documentation/basics/data_structures.html) section.
+Attention Arrays and the `#` operator are explained in detail in the [Data Structures](/docs/basics/data_structures) section.
 
 Another form of `for` loops is the following, which iterates over all elements of an array `a`.
 

@@ -2,7 +2,7 @@
 
 ## SSL wrapping protocol
 
-SSL \(Secure Sockets Layer\) is not a communication protocol on its own and it is used as a wrapping for SSL-based secure protocols, like [SODEPS](https://github.com/jolielang/docs/tree/de0bcc5b82206ed6be6cb78fa10f6068bbe5881c/documentation/protocols/sodeps.html) and [HTTPS](https://github.com/jolielang/docs/tree/de0bcc5b82206ed6be6cb78fa10f6068bbe5881c/documentation/protocols/https.html).
+SSL \(Secure Sockets Layer\) is not a communication protocol on its own and it is used as a wrapping for SSL-based secure protocols, like [SODEPS](/docs/protocols/https).
 
 ## SSL Use
 
