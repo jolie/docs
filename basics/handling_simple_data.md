@@ -56,11 +56,10 @@ n = int ( n ) // n = 1
 A variable type can be checked at runtime by means of the `instanceof` operator, whose syntax is:
 
 ```text
-
 expression instanceof (native_type | custom_type)
 ```
 
-`instanceof` operator can be used to check variable typing with both native types and custom ones \(see type subsection in [Communication Ports](/docs/basics/communication_ports) section\). Example:
+`instanceof` operator can be used to check variable typing with both native types and custom ones \(see type subsection in [Communication Ports](https://github.com/jolie/docs/tree/24acbcbc99f476d137eac12e1f9766e2f30e3fff/docs/basics/communication_ports/README.md) section\). Example:
 
 ```text
 s = "10";
@@ -164,7 +163,7 @@ println@Console( #a )() // Will print 4
 
 ### Nested arrays
 
-Jolie\'s type system does not permit directly nested arrays as known in other programming languages. This limitation may be compensated by the introduction of children nodes \(explained in [Data Structures](/docs/basics/data_structures)\).
+Jolie\'s type system does not permit directly nested arrays as known in other programming languages. This limitation may be compensated by the introduction of children nodes \(explained in [Data Structures](https://github.com/jolie/docs/tree/24acbcbc99f476d137eac12e1f9766e2f30e3fff/docs/basics/data_structures/README.md)\).
 
 Example: The two-dimensional array `a` may not be defined nor accessed by `a[i][j]`, but `a[i].b[j]` is possible.
 

@@ -2,16 +2,14 @@
 
 ## Jolie2wsdl
 
-Jolie2wsdl is the counterpart of [wsdl2jolie](/docs/web_services/wsdl2jolie) tool. It supports the creation of a WSDL document starting from a Jolie Interface.
+Jolie2wsdl is the counterpart of [wsdl2jolie](https://github.com/jolie/docs/tree/24acbcbc99f476d137eac12e1f9766e2f30e3fff/docs/web_services/wsdl2jolie/README.md) tool. It supports the creation of a WSDL document starting from a Jolie Interface.
 
 ## The syntax
 
 The syntax of jolie2wsdl follows:
 
 ```text
-
 jolie2wsdl [ -i include_file_path ] --namespace [target_name_space] --portName [name_of_the_port] --portAddr [address_string] --o [output_filename]  filename.ol
-
 ```
 
 where:

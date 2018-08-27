@@ -2,7 +2,7 @@
 
 In Jolie, whenever a message is sent or received through a port, its type is checked against what specified in the port's interface. An invoker sending a message with a wrong type receives a `TypeMismatch` fault.
 
-The `TypeMismatch` fault can be handled by exploiting the [fault handling](/docs/fault_handling/basics), as shown in the following example:
+The `TypeMismatch` fault can be handled by exploiting the [fault handling](https://github.com/jolie/docs/tree/24acbcbc99f476d137eac12e1f9766e2f30e3fff/docs/fault_handling/basics/README.md), as shown in the following example:
 
 ```text
 scope ( myScope ) 
@@ -25,7 +25,6 @@ In case a `TypeMismatch` is raised by the receiver, no fault is sent back to the
 Message type declaration can be used for both request and response messages in a request-response operation. Moreover, it is possible to declare types for the fault messages by means of the following syntax:
 
 ```text
-
 op_name ( request_type )( response_type ) throws fault_name ( fault_type )
 ```
 

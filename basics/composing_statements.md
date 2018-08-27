@@ -15,7 +15,6 @@ Jolie offers three kinds of operators to compose statements in sequence, paralle
 The sequence operator `;` denotes that the left operand of the statement is executed _before_ the one on the right. The sequence operator syntax is:
 
 ```text
-
 statementA ; statementB
 ```
 
@@ -37,7 +36,7 @@ Keep in mind that, in Jolie, `;` is NOT the "end of statement" marker. For the s
 main
 {
     print@Console( "Hello, " )();
-    println@Console( "world!" )(); // 
+    println@Console( "world!" )(); //
 ```
 
 ## Parallel
@@ -45,12 +44,10 @@ main
 The parallel operator `|` states that both left and right operands are executed _concurrently_. The syntax of the parallel operator is:
 
 ```text
-
 statementA | statementB
-
 ```
 
-It is a good practice to explicitly group statements when mixing sequence and parallel operators. Statements can be grouped by enclosing them within an unlabelled [scope](/docs/fault_handling/basics) represented by a pair curly brackets `{}`, like in the following example:
+It is a good practice to explicitly group statements when mixing sequence and parallel operators. Statements can be grouped by enclosing them within an unlabelled [scope](https://github.com/jolie/docs/tree/24acbcbc99f476d137eac12e1f9766e2f30e3fff/docs/fault_handling/basics/README.md) represented by a pair curly brackets `{}`, like in the following example:
 
 ```text
 { statementA ; statementB ; ... ; statementF }
@@ -82,9 +79,9 @@ main
 }
 ```
 
-[Click here to download the comprehensive code of the example above.](/docs/basics/code/composing_statements_parallel.zip)
+[Click here to download the comprehensive code of the example above.](https://github.com/jolie/docs/tree/24acbcbc99f476d137eac12e1f9766e2f30e3fff/docs/basics/code/composing_statements_parallel.zip)
 
-Concurrent access to shared variables can be restricted through [synchronized](/docs/basics/processes) blocks.
+Concurrent access to shared variables can be restricted through [synchronized](https://github.com/jolie/docs/tree/24acbcbc99f476d137eac12e1f9766e2f30e3fff/docs/basics/processes/README.md) blocks.
 
 ## Input choice
 
@@ -93,11 +90,9 @@ The input choice implements **input-guarded choice**. Namely, it supports the re
 The syntax of an input choice is:
 
 ```text
-
 [ IS_1 ] { branch_code_1 }
 [ IS_i ] { branch_code_i }
 [ IS_n ] { branch_code_n }
-
 ```
 
 Let us consider the example below in which only `buy` or `sell` operation can execute, while the other is discarded.
@@ -114,9 +109,9 @@ Let us consider the example below in which only `buy` or `sell` operation can ex
 
 ## The provide-until statement
 
-The `provide` `until` statement eases defining workflows where a microservice _provides_ access to a set of resources _until_ some event happened. 
+The `provide` `until` statement eases defining workflows where a microservice _provides_ access to a set of resources _until_ some event happened.
 
-The syntax is 
+The syntax is
 
 ```text
 provide
@@ -156,7 +151,6 @@ x == "Hi"
 The statement `if ... else` is used to write deterministic choices:
 
 ```text
-
 if ( condition ) {
     ...
 } [else {
@@ -185,7 +179,6 @@ if ( !is_int( a ) ) {
 The `while` statement executes a code block as long as its condition is true.
 
 ```text
-
 while( condition ) {
     ...
 }
@@ -194,7 +187,6 @@ while( condition ) {
 Like the `while` statement, `for` executes a code block as long as its condition is true, but it explicitly defines its initialization code and the post-cycle code block, which is executed after each iteration.
 
 ```text
-
 for( init-code-block, condition, post-cycle-code-block ) {
     ...
 }
@@ -203,12 +195,12 @@ for( init-code-block, condition, post-cycle-code-block ) {
 Example:
 
 ```text
-for( i = 0, i 
+for( i = 0, i
 ```
 
 ### Iterating over arrays
 
-Attention Arrays and the `#` operator are explained in detail in the [Data Structures](/docs/basics/data_structures) section.
+Attention Arrays and the `#` operator are explained in detail in the [Data Structures](https://github.com/jolie/docs/tree/24acbcbc99f476d137eac12e1f9766e2f30e3fff/docs/basics/data_structures/README.md) section.
 
 Another form of `for` loops is the following, which iterates over all elements of an array `a`.
 

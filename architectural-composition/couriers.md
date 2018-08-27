@@ -13,17 +13,15 @@ In order to execute a code block according to the service invoked, the aggregate
 `interface extender` is the keyword used in Jolie for extending operations by overloading their types. The overloaded types contain additional fields exploited within the courier session to perform checks and, before forwarding, they are automatically removed from the message. The `interface extender` syntax follows.
 
 ```text
-
 interface extender extender_id {
     OneWay: * | OneWayDefinition
     RequestResponse: * | RequestResponseDefinition
 }
 ```
 
-The `interface extender` associates an identifier \(`extender_id`\) to a collection of operations, where `OneWayDefinition` and `RequestResponseDefinition` are respectively the one-way operations definition and request-response operations definition seen in [Communication Ports](/docs/fault_handling/basics) subsections.
+The `interface extender` associates an identifier \(`extender_id`\) to a collection of operations, where `OneWayDefinition` and `RequestResponseDefinition` are respectively the one-way operations definition and request-response operations definition seen in [Communication Ports](https://github.com/jolie/docs/tree/24acbcbc99f476d137eac12e1f9766e2f30e3fff/docs/fault_handling/basics/README.md) subsections.
 
 ```text
-
 inputPort AggregatorPort {
     // Location definition
     // Protocol definition
@@ -39,7 +37,6 @@ Then, in the aggregator's deployment, `extender_id` declares to extend the list 
 Finally, the courier session block is defined in order to forward messages to the operations of the aggregated services:
 
 ```text
-
 courier AggregatorPort {
     interface interface_id( request )[( response )]{
         // some code, if necessary

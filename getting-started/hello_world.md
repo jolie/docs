@@ -24,12 +24,13 @@ We can already see some characteristics of a Jolie program:
 * the entry point of a Jolie program is the `main` code block;
 * we can send a message to a service with a native primitive \(Line 4\).
 
-The last point differs from classical programming languages and is peculiar to Jolie: the `println@Console( "Hello, world!" )()` line is a [solicit-response](/docs/basics/communication_ports) statement, which is a communication primitive.
+The last point differs from classical programming languages and is peculiar to Jolie: the `println@Console( "Hello, world!" )()` line is a [solicit-response](../basics/communication-ports/) statement, which is a communication primitive.
 
 ## Running a Jolie service
 
 Jolie programs are saved in files named with the `.ol` extension. For example, we can save the code of the service above in a file called `myFirstJolieService.ol`. Then, we can run it by executing the following command:
 
-```jolie myFirstJolieService.ol```
+`jolie myFirstJolieService.ol`
 
 which will print the string `Hello, world!`.
+

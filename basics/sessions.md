@@ -80,7 +80,7 @@ Finally, at Line 6, the client assigns the `sid` value to its variable `opMessag
 
 The files of the example above can be downloaded from the following link:
 
-[Sessions Code Example](/docs/basics/code/sessions_code.zip)
+[Sessions Code Example](https://github.com/jolie/docs/tree/24acbcbc99f476d137eac12e1f9766e2f30e3fff/docs/basics/code/sessions_code.zip)
 
 ## Correlation variables and aliases
 
@@ -233,7 +233,7 @@ main
     ]{ nullProcess }
 
     [ openExam( exam ) ] {
-        Professor << exam.professor; global.exams.( exam.studentId ).( exam.examId ) << exam; join( joinRequest ); undef( global.exam.( exam.studentId ).( exam.examId ); Student << joinRequest.student; requestQuestion@Professor( exam ); receiveQuestion@Professor( )( question ); ask@Student( question )( answer ); forwardAnswer@Professor( answer ); [ ok( score ) ] { ok@Student() } [ wrong( score ) ] { wrong@Student() } } } 
+        Professor << exam.professor; global.exams.( exam.studentId ).( exam.examId ) << exam; join( joinRequest ); undef( global.exam.( exam.studentId ).( exam.examId ); Student << joinRequest.student; requestQuestion@Professor( exam ); receiveQuestion@Professor( )( question ); ask@Student( question )( answer ); forwardAnswer@Professor( answer ); [ ok( score ) ] { ok@Student() } [ wrong( score ) ] { wrong@Student() } } }
 ```
 
 In the example above, each time the operation `openExam` is invoked, a new session is instantiated and the exam is added in the list of the available exams of a student, identified by his studentId \(Line 19\). Then the process waits for the student to join and take part in the exam. After join, the exam starts and it is removed from available exams. Each message exchanged between the Exam service, the Professor and the Student contains both studentId and examId, used as correlation variables.
@@ -327,7 +327,6 @@ The first instruction is an input on operation `create`. We call this input inst
 Correlation sets are declared in the deployment part of a program using the following syntax:
 
 ```text
-
 cset {
     correlationVariable_1: alias_11 alias_12, ...
     correlationVariable_2: alias_21 alias_22, ... 
@@ -367,6 +366,4 @@ main {
     }
 }
 ```
-
-
 

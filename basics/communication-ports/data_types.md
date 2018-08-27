@@ -1,6 +1,6 @@
 # Data Types
 
-In Jolie, the messages exchanged through operations are data trees \(see section [Handling Simple Data](/docs/basics/handling_simple_data).
+In Jolie, the messages exchanged through operations are data trees \(see section [Handling Simple Data](https://github.com/jolie/docs/tree/24acbcbc99f476d137eac12e1f9766e2f30e3fff/docs/basics/handling_simple_data/README.md).
 
 A data type defines:
 
@@ -13,14 +13,12 @@ A data type defines:
 The basic data types are the simplest kind of data type in Jolie. Their syntax is:
 
 ```text
-
 T ::= { void, bool, int, long, double, string, raw, any }
 ```
 
 An example of usage of such kind of data types in interface definition is:
 
 ```text
-
 interface MyInterface {
     RequestResponse: myOperation( int )( string )
 }
@@ -35,7 +33,6 @@ Jolie supports the definition of custom data types, which are a composition of t
 Complex custom types can be obtained by defining nested subnodes of the root, the operator to define nesting of nodes is the `.` symbol. The syntax to define nested data types is:
 
 ```text
-
 type CustomType: T {
     .aSubNode: T {
         .aSubSubNode: T {
@@ -50,7 +47,6 @@ type CustomType: T {
 Let us see some example of nested data types.
 
 ```text
-
 type Coordinates: void {
   .lat: double
   .lng: double
@@ -60,7 +56,6 @@ type Coordinates: void {
 The custom type `Coordinates` is a possible representation of a nested data type to handle coordinates. The root cannot contain any value, while the two nested subnodes are both `double`.
 
 ```text
-
 type ShoppingList: void {
   .fruits: int {
     .bananas: int
@@ -81,7 +76,6 @@ In Jolie, when no cardinality is defined, it is defaulted to the value `[1,1]`, 
 The complete syntax for nested data types with cardinality follows:
 
 ```text
-
 type CustomType: T {
     .aSubNode[R]: T {
         .aSubSubNode[R]: T {
@@ -96,7 +90,6 @@ type CustomType: T {
 Lets consider the examples below to illustrate the 3 different cardinality options in Jolie.
 
 ```text
-
 type CustomType: T {
   .aSubNode[1,5]: T
 }
@@ -105,7 +98,6 @@ type CustomType: T {
 In this case cardinalities are defined by occurrences where minimal occurrence of `aSubNode` of type `T` is one and maximum occurrences of the same node are five.
 
 ```text
-
 type CustomType: T {
   .aSubNode[0,1]: T
   .anotherSubNode?: T
@@ -115,7 +107,6 @@ type CustomType: T {
 The example above shows that `?` is a shortcut for `[0,1]` and hence the cardinality of `aSubNode` and `anotherSubNode` are the same.
 
 ```text
-
 type CustomType: T {
   .aSubNode[0,*]: T
   .anotherSubNode*: T
@@ -127,19 +118,16 @@ The above example shows that `*` is a shortcut for `[0,*]` and hence the cardina
 Jolie provides the term any { ? } to capture the type of a tree with any type for the root and an undefined set of subnodes. Jolie also provides a shortcut to any { ? } which is the undefined type. Hence the two writings below are equal
 
 ```text
-
 type CustomType: any { ? }
 ```
 
 ```text
-
 type CustomType: undefined
 ```
 
 Let us see a comprehensive example of a custom type with cardinality.
 
 ```text
-
 type mySubType: void {
  .value: double
  .comment: string
@@ -176,27 +164,24 @@ This feature is available from Jolie 1.6.2.
 Sometimes you may need to define node names that contain special characters, such as @. In these cases, you need to put your node name between double quotes, as in the following example.
 
 ```text
-
 type TestType: void {
     ."@node": string
 }
 ```
 
-You can access these nodes with special characters by using dynamic look-up, for example x.\("@node"\). This is explained more in detail in [data structures](/docs/basic/data_structures).
+You can access these nodes with special characters by using dynamic look-up, for example x.\("@node"\). This is explained more in detail in [data structures](https://github.com/jolie/docs/tree/24acbcbc99f476d137eac12e1f9766e2f30e3fff/docs/basic/data_structures/README.md).
 
 ### Data types choice \(sum types\)
 
 Given `Ti` in `{T1, ..., Tn}` nested nodes data types can have any type belonging to `T` \(data types in `T` are mutually exclusive\). Let us show one possible example of such property.
 
 ```text
-
-type CustomType: void | bool | int | long | double | string | raw | any 
+type CustomType: void | bool | int | long | double | string | raw | any
 ```
 
 The same stands between nested data types.
 
 ```text
-
 type CustomType: any | any { .subNode: T } | any { .subNode[2,3]: T }
 ```
 

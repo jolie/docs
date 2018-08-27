@@ -16,7 +16,7 @@ In the \`sequential\` and \`concurrent\` cases, the behavioural definition insid
 
 A crucial aspect of behaviour instances is that each instance has its own private state, determining variable scoping. This lifts programmers from worrying about race conditions in most cases.
 
-For instance, let us recall the server program given at the end of [Communication Ports](/docs/basics/communication_ports) section. We can simply add the deployment instruction `execution{ concurrent }` to the server's deployment to make it supporting multiple clients at the same time. Access to variables would be safe since each behaviour instance would have its private state.
+For instance, let us recall the server program given at the end of [Communication Ports](https://github.com/jolie/docs/tree/24acbcbc99f476d137eac12e1f9766e2f30e3fff/docs/basics/communication_ports/README.md) section. We can simply add the deployment instruction `execution{ concurrent }` to the server's deployment to make it supporting multiple clients at the same time. Access to variables would be safe since each behaviour instance would have its private state.
 
 ```text
 //Server.ol
@@ -64,10 +64,9 @@ myLocalVariable = 1 // Local to this behaviour instance
 Concurrent access to global variables can be restricted through `synchronized` blocks, similarly to Java:
 
 ```text
-
 synchronized( id ){
     //code
-} 
+}
 ```
 
 The synchronisation block allows only one process at a time to enter any `synchronized` block sharing the same `id`.
@@ -140,9 +139,7 @@ main
 
 The programs can be downloaded from the link below:
 
-[Processes Code Example](/docs/basics/code/processes_code.zip)
+[Processes Code Example](https://github.com/jolie/docs/tree/24acbcbc99f476d137eac12e1f9766e2f30e3fff/docs/basics/code/processes_code.zip)
 
 Once extracted, the two programs may be run in two separate shells. Make sure to start `register.ol` before `client.ol`. Try to start more than one `client.ol` at once and see the results.
-
-
 

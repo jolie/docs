@@ -15,7 +15,6 @@ Jolie provides the statement `throw` to raise faults.
 Scope and throw syntax follows.
 
 ```text
-
 scope( scope_name )
 {
 
@@ -30,7 +29,6 @@ scope( scope_name )
 The `install` statement provides the installation of dynamic fault handlers, where `install` joins a fault to a process and its handler is executed when the scope catches the fault.
 
 ```text
-
 scope( scope_name )
 {
     install ( 
@@ -98,7 +96,6 @@ where, inside the scope `s`, we have a parallel composition of a `throw` stateme
 Uncaught fault signals in a request-response body are automatically sent to the invoker. Hence, invokers are always notified of unhandled faults. We update the syntax given for request-response operation types to declare the faults that could be sent back to invokers along with their data type.
 
 ```text
-
 interface IfaceName {
  RequestResponse:
     Op1( ReqType1 )( ResType1 ) throws ErrX( MsgTypeX ) ... ErrY( MsgTypeY ) 
@@ -171,7 +168,6 @@ The server implements the throw statement in the else branch of operation `guess
 The syntax for joining data into a fault is a simple extension of the `throw` syntax given previously.
 
 ```text
-
 scope ( scope_name )
 {
     install ( FaultName => /* fault handling code */ );
@@ -211,7 +207,7 @@ It is possible to check if scopes caught faults and also to access the contents 
 
 With syntax `scope_name.default` we access the name of the fault caught by the scope.
 
-Used in combination with [dynamic lookup](/docs/basics/data_structures.html#dynamic-look-up), with syntax `scope_name( scope_name.default ).faultMessage`, we can access the message sent with the fault, for instance `msg` in the example below.
+Used in combination with [dynamic lookup](https://github.com/jolie/docs/tree/24acbcbc99f476d137eac12e1f9766e2f30e3fff/docs/basics/data_structures.html#dynamic-look-up), with syntax `scope_name( scope_name.default ).faultMessage`, we can access the message sent with the fault, for instance `msg` in the example below.
 
 ```text
 scope ( s ){

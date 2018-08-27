@@ -1,6 +1,6 @@
 # Ports
 
-Let us recall the concepts of _input ports_ and _output ports_ seen in the [Behaviour and Deployment](/docs/getting_started/behavior_and_deployment) section.
+Let us recall the concepts of _input ports_ and _output ports_ seen in the [Behaviour and Deployment](https://github.com/jolie/docs/tree/24acbcbc99f476d137eac12e1f9766e2f30e3fff/docs/getting_started/behavior_and_deployment/README.md) section.
 
 There are two kinds of ports: _input ports_, which expose input operations to other services, and _output ports_, defining how to invoke the operations of other services.
 
@@ -13,7 +13,6 @@ Location and protocol define the concrete binding information between a Jolie pr
 The syntax for input and output ports is, respectively:
 
 ```text
-
 inputPort id {
     Location: URI
     Protocol: p
@@ -24,7 +23,6 @@ inputPort id {
 ```
 
 ```text
-
 outputPort id {
     Location: URI
     Protocol: p

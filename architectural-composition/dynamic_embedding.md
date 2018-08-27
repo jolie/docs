@@ -79,5 +79,5 @@ In the example above we include the `runtime.iol` library \(part of Jolie's stan
 
 The comprehensive code examples of both the static \(wrong\) and dynamic embedding can be downloaded here:
 
-[Dynamic Embedding Code Example](/docs/architectural_composition/code/dynamic_embedding_code.zip)
+[Dynamic Embedding Code Example](https://github.com/jolie/docs/tree/24acbcbc99f476d137eac12e1f9766e2f30e3fff/docs/architectural_composition/code/dynamic_embedding_code.zip)
 

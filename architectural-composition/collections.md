@@ -2,7 +2,7 @@
 
 ## Collections
 
-[Courier Sessions](/docs/architectural_composition/couriers) can be used in combination with _collections_ of output ports in order to forward them according to a specific rule.
+[Courier Sessions](https://github.com/jolie/docs/tree/24acbcbc99f476d137eac12e1f9766e2f30e3fff/docs/architectural_composition/couriers/README.md) can be used in combination with _collections_ of output ports in order to forward them according to a specific rule.
 
 A collection is a set of output ports that share the same interface.
 
@@ -164,5 +164,5 @@ Above, the aggregator exposes the inputPort `AggregatorInput` that aggregates th
 
 The comprehensive files of the example above can be downloaded from the following link:
 
-[Aggregation and interface extender Code Example](/docs/architectural_composition/code/aggregation_code.zip)
+[Aggregation and interface extender Code Example](https://github.com/jolie/docs/tree/24acbcbc99f476d137eac12e1f9766e2f30e3fff/docs/architectural_composition/code/aggregation_code.zip)
 

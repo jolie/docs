@@ -57,7 +57,7 @@ The embedder construct, at Line 10, declares the type keyword as `Java` and defi
 
 ## Using a request-response operation in Java services
 
-To practice on request-response operations between embedded and embedder, let us rewrite the _twice_ service used in the section [Embedding a Jolie Service](/docs/architectural_composition/embedding_jolie).
+To practice on request-response operations between embedded and embedder, let us rewrite the _twice_ service used in the section [Embedding a Jolie Service](https://github.com/jolie/docs/tree/24acbcbc99f476d137eac12e1f9766e2f30e3fff/docs/architectural_composition/embedding_jolie/README.md).
 
 We use the previously written Java Service `MyConsole` to print the result and show how to embed multiple classes.
 
@@ -199,7 +199,7 @@ public class JavaExample extends JavaService {
 
             Value s_array = response.value();
             ValueVector s_children = s_array.getChildren("s_chunk");
-            for( int i = 0; i 
+            for( int i = 0; i
 ```
 
 After `start()` is called by the embedder, our Java Service creates a `Value` object according to the `Split_req` type definition. At Line 20 it creates a request message, defining the invoked operation \(`split`\), the resource \(`/`\), and the message \(`s_req`\). Finally, at Line 21, it sends the request and waits for receiving a response.
@@ -208,5 +208,5 @@ After receiving the response, the service prints at console the subnodes of the 
 
 The comprehensive code of this example can be downloaded here:
 
-[Embedding Java Code Example](/docs/architectural_composition/code/embedding_java_code.zip)
+[Embedding Java Code Example](https://github.com/jolie/docs/tree/24acbcbc99f476d137eac12e1f9766e2f30e3fff/docs/architectural_composition/code/embedding_java_code.zip)
 
