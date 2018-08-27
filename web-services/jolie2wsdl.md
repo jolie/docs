@@ -2,7 +2,7 @@
 
 ## Jolie2wsdl
 
-Jolie2wsdl is the counterpart of [wsdl2jolie](https://github.com/jolie/docs/tree/24acbcbc99f476d137eac12e1f9766e2f30e3fff/docs/web_services/wsdl2jolie/README.md) tool. It supports the creation of a WSDL document starting from a Jolie Interface.
+Jolie2wsdl is the counterpart of [wsdl2jolie](../web_services/wsdl2jolie/) tool. It supports the creation of a WSDL document starting from a Jolie Interface.
 
 ## The syntax
 

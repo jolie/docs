@@ -2,7 +2,7 @@
 
 Embedding a JavaScript Service enables to use both the JavaScript language and Java methods by importing their classes.
 
-Let us rewrite the [_twice_ service example](https://github.com/jolie/docs/tree/24acbcbc99f476d137eac12e1f9766e2f30e3fff/docs/architectural_composition/embedding_jolie/README.md) as a JavaScript embedded service.
+Let us rewrite the [_twice_ service example](../architectural_composition/embedding_jolie/) as a JavaScript embedded service.
 
 ```text
 importClass( java.lang.System );

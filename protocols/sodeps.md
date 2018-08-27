@@ -8,5 +8,5 @@ Protocol name in Jolie port definition: `sodeps`.
 
 ## SODEPS Parameters
 
-Since SODEPS is the SODEP protocol wrapped in an SSL encrypted message, SODEPS parameters are the same defined for [SODEP](https://github.com/jolie/docs/tree/24acbcbc99f476d137eac12e1f9766e2f30e3fff/docs/protocols/ssl/README.md).
+Since SODEPS is the SODEP protocol wrapped in an SSL encrypted message, SODEPS parameters are the same defined for [SODEP](../protocols/ssl/).
 
