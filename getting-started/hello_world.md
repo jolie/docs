@@ -30,7 +30,6 @@ The last point differs from classical programming languages and is peculiar to J
 
 Jolie programs are saved in files named with the `.ol` extension. For example, we can save the code of the service above in a file called `myFirstJolieService.ol`. Then, we can run it by executing the following command:
 
-jolie myFirstJolieService.ol
+```jolie myFirstJolieService.ol```
 
 which will print the string `Hello, world!`.
-
