@@ -47,7 +47,7 @@ The parallel operator `|` states that both left and right operands are executed 
 statementA | statementB
 ```
 
-It is a good practice to explicitly group statements when mixing sequence and parallel operators. Statements can be grouped by enclosing them within an unlabelled [scope](../fault_handling/basics/) represented by a pair curly brackets `{}`, like in the following example:
+It is a good practice to explicitly group statements when mixing sequence and parallel operators. Statements can be grouped by enclosing them within an unlabelled [scope](https://github.com/jolie/docs/tree/84c930e5e019035d1ee74b0ec1a9a31f2f8dddbb/fault_handling/basics/README.md) represented by a pair curly brackets `{}`, like in the following example:
 
 ```text
 { statementA ; statementB ; ... ; statementF }
@@ -79,9 +79,9 @@ main
 }
 ```
 
-[Click here to download the comprehensive code of the example above.](../basics/code/composing_statements_parallel.zip)
+[Click here to download the comprehensive code of the example above.](https://github.com/jolie/docs/tree/84c930e5e019035d1ee74b0ec1a9a31f2f8dddbb/basics/code/composing_statements_parallel.zip)
 
-Concurrent access to shared variables can be restricted through [synchronized](../basics/processes/) blocks.
+Concurrent access to shared variables can be restricted through [synchronized](https://github.com/jolie/docs/tree/84c930e5e019035d1ee74b0ec1a9a31f2f8dddbb/basics/processes/README.md) blocks.
 
 ## Input choice
 
@@ -200,7 +200,7 @@ for( i = 0, i
 
 ### Iterating over arrays
 
-Attention Arrays and the `#` operator are explained in detail in the [Data Structures](../basics/data_structures/) section.
+Attention Arrays and the `#` operator are explained in detail in the [Data Structures](https://github.com/jolie/docs/tree/84c930e5e019035d1ee74b0ec1a9a31f2f8dddbb/basics/data_structures/README.md) section.
 
 Another form of `for` loops is the following, which iterates over all elements of an array `a`.
 

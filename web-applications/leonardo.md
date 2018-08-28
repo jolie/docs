@@ -52,7 +52,7 @@ Leonardo supports dynamic web application through the Jolie HTTP protocol. There
 
 In the following examples we show how to interface a web application with some Jolie code through Leonardo. Specifically, we expose an operation - `length` - which accepts a list of strings, computes their total length and, finally, returns the computed value.
 
-We do this by editing the code inside Leonardo, while in real-world projects, it is recommended to separated the application logic and the web server one: this can be achieved with ease by creating a separate service and [aggregate](../architectural_composition/aggregation/) it from the HTTP input port of Leonardo.
+We do this by editing the code inside Leonardo, while in real-world projects, it is recommended to separated the application logic and the web server one: this can be achieved with ease by creating a separate service and [aggregate](https://github.com/jolie/docs/tree/84c930e5e019035d1ee74b0ec1a9a31f2f8dddbb/architectural_composition/aggregation/README.md) it from the HTTP input port of Leonardo.
 
 ## Creating our web application: the application logic
 
@@ -123,7 +123,7 @@ Jolie fully supports asynchronous JavaScript and XML \(AJAX\) calls via XMLHttpR
 
 For the sake of brevity, we are not showing the boilerplate for building the HTML interface here, but it can be downloaded entirely from the link below:
 
-[Leonardo and JQuery example](../web_applications/code/leonardo_code.zip)
+[Leonardo and JQuery example](https://github.com/jolie/docs/tree/84c930e5e019035d1ee74b0ec1a9a31f2f8dddbb/web_applications/code/leonardo_code.zip)
 
 Once downloaded and unpacked, we can launch Leonardo and navigate to address `http://localhost:8000/`. Inside the `www` directory there are a `index.html` with a form containing three text fields - text1, text2, and text3. Submitting the request, by pressing the submit button, the event is intercepted by the JavaScript code shown below:
 
@@ -178,7 +178,7 @@ Jolie HTTP protocol is able to handle cookies both when processing outbound and 
 
 In a classic client/server application where `Leornardo.ol` is acting as WebServer the programmer is able to define specific binding between inbound cookies and message subnodes. To do so it is sufficient to define in the input Port configuration parameters `.osc.operationName.cookies.cookieName = "subNodeName"`. A working example has been provided to exemplify the handling inbound cookies
 
-[Leonardo and inbound cookie handling](../web_applications/code/cookie_server_code.zip)
+[Leonardo and inbound cookie handling](https://github.com/jolie/docs/tree/84c930e5e019035d1ee74b0ec1a9a31f2f8dddbb/web_applications/code/cookie_server_code.zip)
 
 In this specific example you will find the code for both the client side \(HTML/JQuery\) and server side \(Jolie\) able to handle two separated cookies. In order to understand the example specific attention should be paid to the following files:
 

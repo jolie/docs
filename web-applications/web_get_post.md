@@ -2,7 +2,7 @@
 
 ## HTTP GET/POST Requests
 
-Let us focus on dealing with GET and POST request from web applications using the HTTP protocol directly \(without [Leonardo](../web_applications/leonardo/)\).
+Let us focus on dealing with GET and POST request from web applications using the HTTP protocol directly \(without [Leonardo](https://github.com/jolie/docs/tree/84c930e5e019035d1ee74b0ec1a9a31f2f8dddbb/web_applications/leonardo/README.md)\).
 
 ## Receiving GET requests
 
