@@ -207,7 +207,7 @@ It is possible to check if scopes caught faults and also to access the contents 
 
 With syntax `scope_name.default` we access the name of the fault caught by the scope.
 
-Used in combination with [dynamic lookup](https://jolielang.gitbook.io/docs/basics/data_structures.html#dynamic-look-up), with syntax `scope_name( scope_name.default ).faultMessage`, we can access the message sent with the fault, for instance `msg` in the example below.
+Used in combination with [dynamic lookup](https://jolielang.gitbook.io/docs/basics/data_structures#dynamic-look-up), with syntax `scope_name( scope_name.default ).faultMessage`, we can access the message sent with the fault, for instance `msg` in the example below.
 
 ```text
 scope ( s ){
