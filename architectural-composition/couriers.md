@@ -19,7 +19,7 @@ interface extender extender_id {
 }
 ```
 
-The `interface extender` associates an identifier \(`extender_id`\) to a collection of operations, where `OneWayDefinition` and `RequestResponseDefinition` are respectively the one-way operations definition and request-response operations definition seen in [Communication Ports](https://jolielang.gitbook.io/docs/fault_handling/basics.md) subsections.
+The `interface extender` associates an identifier \(`extender_id`\) to a collection of operations, where `OneWayDefinition` and `RequestResponseDefinition` are respectively the one-way operations definition and request-response operations definition seen in [Communication Ports](https://jolielang.gitbook.io/docs/fault-handling/basics) subsections.
 
 ```text
 inputPort AggregatorPort {

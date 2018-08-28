@@ -47,7 +47,7 @@ The parallel operator `|` states that both left and right operands are executed 
 statementA | statementB
 ```
 
-It is a good practice to explicitly group statements when mixing sequence and parallel operators. Statements can be grouped by enclosing them within an unlabelled [scope](https://jolielang.gitbook.io/docs/fault_handling/basics) represented by a pair curly brackets `{}`, like in the following example:
+It is a good practice to explicitly group statements when mixing sequence and parallel operators. Statements can be grouped by enclosing them within an unlabelled [scope](https://jolielang.gitbook.io/docs/fault-handling/basics) represented by a pair curly brackets `{}`, like in the following example:
 
 ```text
 { statementA ; statementB ; ... ; statementF }
