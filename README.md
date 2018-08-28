@@ -18,6 +18,10 @@ Please, find below some additional information on both how to update existing pa
 
 The location of the files follows the structure reported by the [GitBook](https://jolielang.gitbook.io/docs), so e.g., the page [Compositing Statements](https://jolielang.gitbook.io/docs/basics/composing_statements) is under path [`/basics/composing_statements.md`](https://github.com/jolie/docs/blob/master/basics/composing_statements.md).
 
+### Linking pages
+
+It's advised to link pages using absolute links of the kind `https://jolielang.gitbook.io/docs/your/page#and_anchor`
+
 ### Updating existing pages
 
 To modify an existing page, it is sufficient to modify the related `.md` file.

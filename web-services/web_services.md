@@ -4,9 +4,7 @@
 
 ## Invoking web services
 
-<div style="background-color:rgb(255, 243, 205);border-bottom-color:rgb(255, 238, 186);border-radius:4px;border-style:solid;box-sizing:border-box;color:rgb(133, 100, 4);margin-bottom:16px;margin-top:16px;padding-bottom:12px;padding-left:20px;padding-right:20px;padding-top:12px;">
-Unfortunately the "Global Weather Service" used in this page is no longer available. Except that, all examples in this page are working and up-to-date
-</div>
+ Unfortunately the "Global Weather Service" used in this page is no longer available. Except that, all examples in this page are working and up-to-date
 
 Jolie can be used to invoke web services.
 
@@ -14,8 +12,7 @@ Let us exemplify it by invoking the Global Weather Service, provided by [www.web
 
 ## Request the service interface from the WSDL
 
-To invoke a web service's operation, we need to create a compatible Jolie interface. To do that we exploit the tool [wsdl2jolie](
-https://jolielang.gitbook.io/docs/web-services/wsdl2jolie), which is part of the Jolie trunk installation.
+To invoke a web service's operation, we need to create a compatible Jolie interface. To do that we exploit the tool [wsdl2jolie](https://jolielang.gitbook.io/docs/web-services/wsdl2jolie), which is part of the Jolie trunk installation.
 
 We run the command:
 
