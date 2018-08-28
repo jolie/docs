@@ -164,5 +164,5 @@ Above, the aggregator exposes the inputPort `AggregatorInput` that aggregates th
 
 The comprehensive files of the example above can be downloaded from the following link:
 
-[Aggregation and interface extender Code Example](https://github.com/jolie/docs/blob/master/files/architectural_composition/code/aggregation_code.zip)
+[Aggregation and interface extender Code Example](https://github.com/jolie/docs/blob/master/files/architectural-composition/code/aggregation_code.zip)
 

@@ -1,6 +1,6 @@
 # Embedding Jolie Services
 
-Let us consider the _twice_ service example given in [Behaviour and Deployment](https://jolielang.gitbook.io/docs/getting_started/behavior_and_deployment) sub-section.
+Let us consider the _twice_ service example given in [Behaviour and Deployment](https://jolielang.gitbook.io/docs/getting-started/behavior_and_deployment) sub-section.
 
 First, we add the following input port to allow local communications:
 

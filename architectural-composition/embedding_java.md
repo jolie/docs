@@ -208,5 +208,5 @@ After receiving the response, the service prints at console the subnodes of the 
 
 The comprehensive code of this example can be downloaded here:
 
-[Embedding Java Code Example](https://github.com/jolie/docs/blob/master/files/architectural_composition/code/embedding_java_code.zip)
+[Embedding Java Code Example](https://github.com/jolie/docs/blob/master/files/architectural-composition/code/embedding_java_code.zip)
 

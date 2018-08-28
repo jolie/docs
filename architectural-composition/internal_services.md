@@ -43,7 +43,7 @@ Attention
 
 Every internal service has `execution { concurrent }` set by default.
 
-This is convenient, although it contrasts with the usual execution for normal Jolie services, which is set to [single](https://jolielang.gitbook.io/docs/basics/composing_statements.md#statement-execution-operators)
+This is convenient, although it contrasts with the usual execution for normal Jolie services, which is set to [single](https://jolielang.gitbook.io/docs/basics/composing_statements#statement-execution-operators)
 
 Semantically, internal services are just syntactic sugar for embedded Jolie service, i.e., what happens at runtime is that the owner of the internal services loads them as embedded services, with the consequent access through the `Runtime` standard service and all the usual features.
 

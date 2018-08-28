@@ -169,7 +169,7 @@ type TestType: void {
 }
 ```
 
-You can access these nodes with special characters by using dynamic look-up, for example x.\("@node"\). This is explained more in detail in [data structures](https://jolielang.gitbook.io/docs/basics/basic/data_structures).
+You can access these nodes with special characters by using dynamic look-up, for example x.\("@node"\). This is explained more in detail in [data structures](https://jolielang.gitbook.io/docs/basic/data_structures).
 
 ### Data types choice \(sum types\)
 
