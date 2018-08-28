@@ -2,15 +2,15 @@
 
 _ATTENTION: This page is under construction_
 
-This page comprises some of the main configuration parameters for the [HTTP protocol](https://jolielang.gitbook.io/docs/protocols/http.md) useful to create, structure, and interact with REST APIs. For a more comprehensive reference on HTTP protocol, its configuration parameters, and its best practices, please refer to [Process-aware web programming with Jolie](https://arxiv.org/pdf/1410.3712).
+This page comprises some of the main configuration parameters for the [HTTP protocol](https://jolielang.gitbook.io/docs/protocols/http) useful to create, structure, and interact with REST APIs. For a more comprehensive reference on HTTP protocol, its configuration parameters, and its best practices, please refer to [Process-aware web programming with Jolie](https://arxiv.org/pdf/1410.3712).
 
 ## HTTP Methods
 
-_section under construction, please for the moment refer to page_ [_HTTP GET/POST Requests_](https://jolielang.gitbook.io/docs/web_applications/web_get_post.md) _for examples on how to use basic GET/POST HTTP methods_
+_section under construction, please for the moment refer to page_ [_HTTP GET/POST Requests_](https://jolielang.gitbook.io/docs/web_applications/web_get_post) _for examples on how to use basic GET/POST HTTP methods_
 
 ## From REST Resources to Jolie Operations
 
-Many REST API providers give access to their resorces via a complex url structure. Assuming that we want to evoke the operatione sum that is accessable at the following address `http://localhost:8000/operation/v1/sum` we know that the operation sum it is expressed by the Jolie interface and the path will be expressed at port level by setting an `alias` in the following way
+Many REST API providers give access to their resources via a complex URL structure. Assuming that we want to evoke the operation sum that is accessible at the following address `http://localhost:8000/operation/v1/sum` we know that the operation sum it is expressed by the Jolie interface and the path will be expressed at port level by setting an `alias` in the following way
 
 ```text
 type SumRequest:void {
@@ -77,5 +77,5 @@ _In this section we explain how to use the_ `default` _parameter to capture any 
 
 ## Integrating HTTP Cookies with Jolie Sessions
 
-_In this section we show how to integrate HTTP cookie-based sessions with Jolie_ [_correlation-based sessions_](https://jolielang.gitbook.io/docs/basics/sessions.md)_._
+_In this section we show how to integrate HTTP cookie-based sessions with Jolie_ [_correlation-based sessions_](https://jolielang.gitbook.io/docs/basics/sessions)_._
 

@@ -411,7 +411,7 @@ public class FirstJavaService extends JavaService
 The class `CommMessage` \(package `Jolie.net`\) represents a Jolie communication message which is sent to the embedder by means of the JavaService method `sendMessage`. The method indeed requires a message which is created by exploiting the static methods `createRequest`. In this case, the message has been initialized with the following parameters:
 
 * `reply`: the name of the operation of the embedder to call;
-* `/`: the service path \(see [Redirection](https://jolielang.gitbook.io/docs/architectural_composition/architectural_composition/redirection.md)\);
+* `/`: the service path \(see [Redirection](https://jolielang.gitbook.io/docs/architectural_composition/redirection)\);
 * `response` : a Value object that contains the data structure to
 
   send.

@@ -1,6 +1,6 @@
 # Ports
 
-Let us recall the concepts of _input ports_ and _output ports_ seen in the [Behaviour and Deployment](https://jolielang.gitbook.io/docs/basics/getting_started/behavior_and_deployment.md) section.
+Let us recall the concepts of _input ports_ and _output ports_ seen in the [Behaviour and Deployment](https://jolielang.gitbook.io/docs/basics/getting_started/behavior_and_deployment) section.
 
 There are two kinds of ports: _input ports_, which expose input operations to other services, and _output ports_, defining how to invoke the operations of other services.
 
@@ -33,4 +33,3 @@ outputPort id {
 ```
 
 where `URI` is a [URI](http://en.wikipedia.org/wiki/Uniform_resource_identifier) \(Uniform Resource Identifier\), defining the location of the port; `id`, `p` and `iface_i` are the identifiers representing, respectively, the name of the port, the data protocol to use, and the interfaces accessible through the port.
-

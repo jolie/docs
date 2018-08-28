@@ -345,7 +345,7 @@ Whenever a service receives a message through an input port \(and the message is
 
 ## Sessions and the provide-until statement
 
-The [provide-until](https://jolielang.gitbook.io/docs/~/drafts/-LIfdMpkqP0WoH9DyXM_/primary/basics/composing_statements#the-provide-until-statement) statement is particularly useful to handle in-session behaviours.
+The [provide-until](https://jolielang.gitbook.io/docs/basics/composing_statements#the-provide-until-statement) statement is particularly useful to handle in-session behaviours.
 
 As an example, consider the code in section [Multiple correlation sets](sessions.md#multiple-correlation-sets). Instead of using a `while` with some book-keeping variables, we can simply define that, after the `create` operation , operation `publish` is always available until `close` is called.
 
