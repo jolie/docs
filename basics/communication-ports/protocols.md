@@ -10,7 +10,7 @@ Protocols are referred by name. Examples of valid \(supported\) protocol names a
 * `sodep` \(a binary protocol specifically developed for Jolie\)
 * `xmlrpc`
 
-For a thorough description of the protocols supported by Jolie and their parameters see [Protocols](https://github.com/jolie/docs/tree/84c930e5e019035d1ee74b0ec1a9a31f2f8dddbb/basics/protocols/introduction/README.md) section.
+For a thorough description of the protocols supported by Jolie and their parameters see [Protocols](https://jolielang.gitbook.io/docs/basics/protocols/introduction.md) section.
 
 Let us consider the following input port declaration:
 

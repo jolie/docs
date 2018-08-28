@@ -12,7 +12,8 @@ Jolie natively supports a large set of protocols:
 * XML/RPC;
 * SOAP;
 * SODEP;
-* SODEPS.
+* SODEPS;
+* RMI.
 
 Each protocol has its own parameters that can be set in order to adapt to the requirements of the communications.
 
@@ -20,9 +21,9 @@ In this section we explain what parameters can be set for each protocol.
 
 ## Setting \(static\) parameters
 
-The parameters of the protocol are specified in the input/output [port](https://github.com/jolie/docs/tree/84c930e5e019035d1ee74b0ec1a9a31f2f8dddbb/basics/communication_ports/README.md) definition. Unless required, if a parameter is not defined it is set to its default value according to its protocol specification.
+The parameters of the protocol are specified in the input/output [port](https://jolielang.gitbook.io/docs/basics/communication_ports.md) definition. Unless required, if a parameter is not defined it is set to its default value according to its protocol specification.
 
-Let us recall the examples given in [HTTP GET/POST Requests](https://github.com/jolie/docs/tree/84c930e5e019035d1ee74b0ec1a9a31f2f8dddbb/web_applications/web_get_post/README.md) where we set the parameters `method` and `format`, of protocol `http`, to define what kind of messages the port shall send or receive.
+Let us recall the examples given in [HTTP GET/POST Requests](https://jolielang.gitbook.io/docs/web_applications/web_get_post.md) where we set the parameters `method` and `format`, of protocol `http`, to define what kind of messages the port shall send or receive.
 
 ```text
 // HTTP GET input port
@@ -62,7 +63,7 @@ Besides defining a parameter as a static value, which remains the same during th
 
 Protocol's parameters can be set dynamically using the alias `->` operator.
 
-To exemplify how to dynamically set the parameters of a protocol, we refer to the [Leonardo](https://github.com/jolie/docs/tree/84c930e5e019035d1ee74b0ec1a9a31f2f8dddbb/web_applications/leonardo/README.md)'s inputPort definition:
+To exemplify how to dynamically set the parameters of a protocol, we refer to the [Leonardo](https://jolielang.gitbook.io/docs/web_applications/leonardo.md)'s inputPort definition:
 
 ```text
 inputPort HTTPInput {
@@ -83,5 +84,5 @@ inputPort HTTPInput {
 
 As shown, except `keepAlive`, `debug.showContent`, and `default` parameters that are statically set, all other parameters are aliased to a variable whose value can be changed at runtime, during the execution of Leonardo.
 
-Besides aliasing protocol's parameter, we can access and modify them using the standard Jolie construct for [dynamic port binding](https://github.com/jolie/docs/tree/84c930e5e019035d1ee74b0ec1a9a31f2f8dddbb/basics/dynamic_binding/README.md).
+Besides aliasing protocol's parameter, we can access and modify them using the standard Jolie construct for [dynamic port binding](https://jolielang.gitbook.io/docs/basics/dynamic_binding.md).
 

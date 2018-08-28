@@ -79,46 +79,46 @@ type AuthenticationData:void {
 }
 
 interface extender AuthInterfaceExtender {
-RequestResponse:
-    *(AuthenticationData)(void)
-OneWay:
-    *(AuthenticationData)
+    RequestResponse:
+        *(AuthenticationData)(void)
+    OneWay:
+        *(AuthenticationData)
 }
 
 interface AggregatorInterface {
-RequestResponse:
-    get_key(string)(string)
+    RequestResponse:
+        get_key(string)(string)
 }
 
 outputPort Printer1 {
-Location: Location_Printer1
-Protocol: sodep
-Interfaces: PrinterInterface
+    Location: Location_Printer1
+    Protocol: sodep
+    Interfaces: PrinterInterface
 }
 
 outputPort Printer2 {
-Location: Location_Printer2
-Protocol: sodep
-Interfaces: PrinterInterface
+    Location: Location_Printer2
+    Protocol: sodep
+    Interfaces: PrinterInterface
 }
 
 outputPort Logger {
-Location: Location_Logger
-Protocol: sodep
-Interfaces: LoggerInterface
+    Location: Location_Logger
+    Protocol: sodep
+    Interfaces: LoggerInterface
 }
 
 outputPort Fax {
-Location: Location_Fax
-Protocol: sodep
+    Location: Location_Fax
+    Protocol: sodep
 Interfaces: FaxInterface
 }
 
 inputPort AggregatorInput {
-Location: Location_Aggregator
-Protocol: sodep
-Interfaces: AggregatorInterface
-Aggregates: { Printer1, Printer2 } with AuthInterfaceExtender, Fax
+    Location: Location_Aggregator
+    Protocol: sodep
+    Interfaces: AggregatorInterface
+    Aggregates: { Printer1, Printer2 } with AuthInterfaceExtender, Fax
 }
 
 courier AggregatorInput {
@@ -164,5 +164,5 @@ Above, the aggregator exposes the inputPort `AggregatorInput` that aggregates th
 
 The comprehensive files of the example above can be downloaded from the following link:
 
-[Aggregation and interface extender Code Example](https://github.com/jolie/docs/tree/84c930e5e019035d1ee74b0ec1a9a31f2f8dddbb/architectural_composition/code/aggregation_code.zip)
+[Aggregation and interface extender Code Example](https://github.com/jolie/docs/blob/master/files/architectural_composition/code/aggregation_code.zip)
 

@@ -95,7 +95,7 @@ Our little program will output `1,3,5,7,11,13,17,19,23`.
 
 The comprehensive code of this example can be downloaded from the link below:
 
-[Web Services Code Example](https://github.com/jolie/docs/tree/84c930e5e019035d1ee74b0ec1a9a31f2f8dddbb/web_services/code/wsdl2jolie_code.zip)
+[Web Services Code Example](https://github.com/jolie/docs/blob/master/files/web_services/code/wsdl2jolie_code.zip)
 
 Remarkably, wsdl2jolie has two benefits: it acts as a useful tool that creates the typed interface of a Web Service from Jolie and creates a more human-readable form of a WSDL document \(i.e., its Jolie form\).
 

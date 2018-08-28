@@ -7,4 +7,3 @@ Protocol name in Jolie port definition: `rmi`.
 ---
 
 ## RMI Parameters
-
