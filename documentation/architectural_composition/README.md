@@ -1,4 +1,0 @@
-## Jolie Architectural Composition
-
-
-
