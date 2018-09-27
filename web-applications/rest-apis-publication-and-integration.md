@@ -6,7 +6,7 @@ This page comprises some of the main configuration parameters for the [HTTP prot
 
 ## HTTP Methods
 
-_section under construction, please for the moment refer to page_ [_HTTP GET/POST Requests_](https://jolielang.gitbook.io/docs/web_applications/web_get_post) _for examples on how to use basic GET/POST HTTP methods_
+_section under construction, please for the moment refer to page_ [_HTTP GET/POST Requests_](web_get_post.md) _for examples on how to use basic GET/POST HTTP methods_
 
 ## From REST Resources to Jolie Operations
 
