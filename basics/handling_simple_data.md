@@ -73,13 +73,13 @@ n = ( s = 10 ) instanceof int; // n = true
 Strings can be inserted enclosing them between double quotes. Character escaping works like in C and Java, using the `\` escape character:
 
 ```text
-s = "This is a stringn"
+s = "This is a string\n"
 ```
 
 Strings can be concatenated by using the plus operator:
 
 ```text
-s = "This is " + "a stringn"
+s = "This is " + "a string\n"
 ```
 
 String formatting is preserved, so strings can contain tabs and new lines:
