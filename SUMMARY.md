@@ -4,7 +4,7 @@
 * [Getting started](getting-started/README.md)
   * [Hello, World!](getting-started/hello_world.md)
   * [Running a Jolie service with arguments](getting-started/running_a_jolie_service_with_arguments.md)
-  * [Behaviour and Deployment](getting-started/behavior_and_deployment.md)
+  * [Creating a Service and a Client](getting-started/creating_service_and_client.md)
 * [Basics](basics/README.md)
   * [Handling Simple Data](basics/handling_simple_data.md)
   * [Composing Statements](basics/composing_statements.md)
