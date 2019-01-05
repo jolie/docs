@@ -1,11 +1,12 @@
 # Creating a Service and a Client
 
 Now we want to create a service which is able to double a number, and we want also to create a client which uses that service.
-![](../.gitbook/assets/create_service_and_client.png)
+
+![](../.gitbook/assets/creating_service_and_client.png)
 
 ## Service's code
 
-```text
+```jolie
 inputPort TwiceService {
     Location: "socket://localhost:8000"
     Protocol: sodep
@@ -24,7 +25,7 @@ The server's behaviour starts with an input on operation `twice`, storing the re
 
 ## Client's code
 
-```text
+```jolie
 include "console.iol"
 
 outputPort TwiceService {
@@ -52,7 +53,7 @@ In order to enable a communication between a service and a client we need to spe
 
 ### Service inputPort
 
-```text
+```jolie
 inputPort TwiceService {
     Location: "socket://localhost:8000"
     Protocol: sodep
@@ -62,7 +63,7 @@ inputPort TwiceService {
 
 ### Client outputPort
 
-```text
+```jolie
 outputPort TwiceService {
     Location: "socket://localhost:8000"
     Protocol: sodep

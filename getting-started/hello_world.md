@@ -4,10 +4,10 @@
 
 A Jolie program defines a service. A service achieves complex tasks by composing other services. An example of a very simple service is the following:
 
-```text
+```jolie
 include "console.iol"
 
-main 
+main
 {
     println@Console( "Hello, world!" )()
 }
@@ -33,4 +33,3 @@ Jolie programs are saved in files named with the `.ol` extension. For example, w
 `jolie myFirstJolieService.ol`
 
 which will print the string `Hello, world!`.
-
