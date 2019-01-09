@@ -1,7 +1,7 @@
-#Adding Interfaces
-In the previous lesson we shown that it is possible to specify the list of the available operations within a port definition. Such a definition is quite coarse because it does not allow to specify the types of the exchanged messages.
+# Adding Interfaces
+In [Creating a Service and a Client](creating-a-service-and-a-client) we have seen that it is possible to specify the list of the available operations within a port definition. Such a definition is quite coarse since it does not specify the types of the exchanged messages (more precisely, by omitting information on types, we implicitly set the type of the operation to the `undefined` type).
 
-Using **interfaces** it is possible to specify the message types of each exchanged message. In the following we define the interface for the service _twice_.
+Using **interfaces** it is possible to specify the type of each exchanged message. In the following we define the interface for the service _twice_.
 
 ```jolie
 interface TwiceInterface {
@@ -9,11 +9,12 @@ interface TwiceInterface {
 }
 ```
 
-The primitive *interface* allows for the definition of an interface (in the example _TwiceInterface_).
-In the example the interface contains only an operation called _twice_ which receives an integer and return an integer.
+The primitive `interface` let us define an interface (in the example _TwiceInterface_).
+In the example, the interface contains only an operation called _twice_, which receives an integer and returns an integer.
 
-The interface can now be attached to a port by exploiting the keyword *Interfaces*.
-The declarations of the ports on our example now becomes like it follows:
+The interface can now be attached to a port by exploiting the keyword `Interfaces`.
+Let us save the interface written above (`TwiceInterface`) into a file called `twiceInterface.iol` (usually, `.iol` files indicate Jolie files that provide information to be included in other Jolie programs, like interfaces and ports).
+The declarations of the ports in our example now becomes the following:
 
 ## Service's code
 
@@ -54,5 +55,4 @@ main
 }
 ```
 
-where *twiceInterface.iol* is the name of the file where there is the definition of the interface.
 A more detailed explanation about interfaces can be found at the section [Interfaces](../basics/communication-ports/interfaces.md).
