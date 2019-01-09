@@ -1,10 +1,6 @@
-# Book build output
-_book
-
-# modules
-node_modules
-
-# eBook build output
-*.epub
-*.mobi
-*.pdf
+include/*
+lib/*
+joliedoc/*
+build_jsl/*
+node_modules/*
+_book/*
