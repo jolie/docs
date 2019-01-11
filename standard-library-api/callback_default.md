@@ -58,7 +58,7 @@ Invocation template:
 
 <h4 id="SchedulerCallBackRequest">Request type</h4>
 
-Type: 
+Type: SchedulerCallBackRequest
 
 Type documentation: no documentation provided 
 <pre>type SchedulerCallBackRequest: void {

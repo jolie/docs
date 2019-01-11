@@ -93,7 +93,7 @@ Invocation template:
 
 <h4>Request type</h4>
 
-Type: int
+Type: string
 
 Type documentation: no documentation provided 
 
@@ -120,7 +120,7 @@ Invocation template:
 
 <h4>Request type</h4>
 
-Type: undefined
+Type: string
 
 Type documentation: no documentation provided 
 
@@ -147,7 +147,7 @@ Invocation template:
 
 <h4>Request type</h4>
 
-Type: bool
+Type: string
 
 Type documentation: no documentation provided 
 
@@ -174,7 +174,7 @@ Invocation template:
 
 <h4>Request type</h4>
 
-Type: bool
+Type: string
 
 Type documentation: no documentation provided 
 
@@ -201,7 +201,7 @@ Invocation template:
 
 <h4 id="QueueRequest">Request type</h4>
 
-Type: bool
+Type: QueueRequest
 
 Type documentation: no documentation provided 
 <pre>type QueueRequest: void {
@@ -231,7 +231,7 @@ Invocation template:
 
 <h4>Request type</h4>
 
-Type: undefined
+Type: string
 
 Type documentation: no documentation provided 
 

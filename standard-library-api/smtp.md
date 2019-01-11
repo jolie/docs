@@ -59,7 +59,7 @@ Invocation template:
 
 <h4 id="SendMailRequest">Request type</h4>
 
-Type: void
+Type: SendMailRequest
 
 Type documentation: no documentation provided 
 <pre>type SendMailRequest: void {

@@ -72,7 +72,7 @@ Invocation template:
 
 <h4>Request type</h4>
 
-Type: void
+Type: string
 
 Type documentation: no documentation provided 
 
@@ -99,7 +99,7 @@ Invocation template:
 
 <h4>Request type</h4>
 
-Type: int
+Type: string
 
 Type documentation: no documentation provided 
 

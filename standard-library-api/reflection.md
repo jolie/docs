@@ -69,7 +69,7 @@ Invocation template:
 
 <h4 id="InvokeRequest">Request type</h4>
 
-Type: undefined
+Type: InvokeRequest
 
 Type documentation: no documentation provided 
 <pre>type InvokeRequest: void {

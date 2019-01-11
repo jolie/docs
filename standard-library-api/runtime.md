@@ -182,7 +182,7 @@ Invocation template:
 
 <h4>Request type</h4>
 
-Type: void
+Type: string
 
 Type documentation: no documentation provided 
 
@@ -217,7 +217,7 @@ Invocation template:
 
 <h4>Request type</h4>
 
-Type: void
+Type: string
 
 Type documentation: no documentation provided 
 
@@ -244,7 +244,7 @@ Invocation template:
 
 <h4 id="SetRedirectionRequest">Request type</h4>
 
-Type: void
+Type: SetRedirectionRequest
 
 Type documentation: no documentation provided 
 <pre>type SetRedirectionRequest: void {
@@ -287,7 +287,7 @@ Invocation template:
 
 <h4>Request type</h4>
 
-Type: GetOutputPortsResponse
+Type: void
 
 Type documentation: no documentation provided 
 
@@ -320,7 +320,7 @@ Invocation template:
 
 <h4 id="LoadEmbeddedServiceRequest">Request type</h4>
 
-Type: any
+Type: LoadEmbeddedServiceRequest
 
 Type documentation: no documentation provided 
 <pre>type LoadEmbeddedServiceRequest: void {
@@ -362,7 +362,7 @@ Invocation template:
 
 <h4 id="GetOutputPortRequest">Request type</h4>
 
-Type: GetOutputPortResponse
+Type: GetOutputPortRequest
 
 Type documentation: no documentation provided 
 <pre>type GetOutputPortRequest: void {
@@ -403,7 +403,7 @@ Invocation template:
 
 <h4>Request type</h4>
 
-Type: string
+Type: void
 
 Type documentation: no documentation provided 
 
@@ -430,7 +430,7 @@ Invocation template:
 
 <h4>Request type</h4>
 
-Type: any
+Type: void
 
 Type documentation: no documentation provided 
 
@@ -457,7 +457,7 @@ Invocation template:
 
 <h4 id="GetRedirectionRequest">Request type</h4>
 
-Type: any
+Type: GetRedirectionRequest
 
 Type documentation: no documentation provided 
 <pre>type GetRedirectionRequest: void {
@@ -487,7 +487,7 @@ Invocation template:
 
 <h4 id="SetOutputPortRequest">Request type</h4>
 
-Type: void
+Type: SetOutputPortRequest
 
 Type documentation: no documentation provided 
 <pre>type SetOutputPortRequest: void {
@@ -518,7 +518,7 @@ Invocation template:
 
 <h4 id="HaltRequest">Request type</h4>
 
-Type: void
+Type: HaltRequest
 
 Type documentation: no documentation provided 
 <pre>type HaltRequest: void {
@@ -547,7 +547,7 @@ Invocation template:
 
 <h4>Request type</h4>
 
-Type: void
+Type: any
 
 Type documentation: no documentation provided 
 
@@ -578,7 +578,7 @@ Invocation template:
 
 <h4>Request type</h4>
 
-Type: Stats
+Type: void
 
 Type documentation: no documentation provided 
 
@@ -617,7 +617,7 @@ Invocation template:
 
 <h4 id="GetRedirectionRequest">Request type</h4>
 
-Type: void
+Type: GetRedirectionRequest
 
 Type documentation: no documentation provided 
 <pre>type GetRedirectionRequest: void {
@@ -655,7 +655,7 @@ Invocation template:
 
 <h4 id="SetMonitorRequest">Request type</h4>
 
-Type: void
+Type: SetMonitorRequest
 
 Type documentation: no documentation provided 
 <pre>type SetMonitorRequest: void {
@@ -685,7 +685,7 @@ Invocation template:
 
 <h4>Request type</h4>
 
-Type: string
+Type: void
 
 Type documentation: no documentation provided 
 
@@ -712,7 +712,7 @@ Invocation template:
 
 <h4>Request type</h4>
 
-Type: GetIncludePathResponse
+Type: void
 
 Type documentation: no documentation provided 
 
@@ -743,7 +743,7 @@ Invocation template:
 
 <h4>Request type</h4>
 
-Type: MaybeString
+Type: string
 
 Type documentation: no documentation provided 
 

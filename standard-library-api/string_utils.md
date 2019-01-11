@@ -202,7 +202,7 @@ Invocation template:
 
 <h4 id="PadRequest">Request type</h4>
 
-Type: string
+Type: PadRequest
 
 Type documentation: no documentation provided 
 <pre>type PadRequest: string {
@@ -232,7 +232,7 @@ Invocation template:
 
 <h4>Request type</h4>
 
-Type: string
+Type: undefined
 
 Type documentation: no documentation provided 
 
@@ -286,7 +286,7 @@ Invocation template:
 
 <h4>Request type</h4>
 
-Type: int
+Type: string
 
 Type documentation: no documentation provided 
 
@@ -313,7 +313,7 @@ Invocation template:
 
 <h4 id="MatchRequest">Request type</h4>
 
-Type: MatchResult
+Type: MatchRequest
 
 Type documentation: no documentation provided 
 <pre>type MatchRequest: string {
@@ -344,7 +344,7 @@ Invocation template:
 
 <h4 id="ReplaceRequest">Request type</h4>
 
-Type: string
+Type: ReplaceRequest
 
 Type documentation: no documentation provided 
 <pre>type ReplaceRequest: string {
@@ -405,7 +405,7 @@ Invocation template:
 
 <h4 id="ReplaceRequest">Request type</h4>
 
-Type: string
+Type: ReplaceRequest
 
 Type documentation: no documentation provided 
 <pre>type ReplaceRequest: string {
@@ -435,7 +435,7 @@ Invocation template:
 
 <h4 id="SubStringRequest">Request type</h4>
 
-Type: string
+Type: SubStringRequest
 
 Type documentation: no documentation provided 
 <pre>type SubStringRequest: string {
@@ -469,7 +469,7 @@ Invocation template:
 
 <h4>Request type</h4>
 
-Type: string
+Type: void
 
 Type documentation: no documentation provided 
 
@@ -496,7 +496,7 @@ Invocation template:
 
 <h4 id="PadRequest">Request type</h4>
 
-Type: string
+Type: PadRequest
 
 Type documentation: no documentation provided 
 <pre>type PadRequest: string {
@@ -530,7 +530,7 @@ Invocation template:
 
 <h4 id="ContainsRequest">Request type</h4>
 
-Type: bool
+Type: ContainsRequest
 
 Type documentation: no documentation provided 
 <pre>type ContainsRequest: string {
@@ -559,7 +559,7 @@ Invocation template:
 
 <h4 id="SplitRequest">Request type</h4>
 
-Type: SplitResult
+Type: SplitRequest
 
 Type documentation: no documentation provided 
 <pre>type SplitRequest: string {
@@ -591,7 +591,7 @@ Invocation template:
 
 <h4 id="SplitByLengthRequest">Request type</h4>
 
-Type: SplitResult
+Type: SplitByLengthRequest
 
 Type documentation: no documentation provided 
 <pre>type SplitByLengthRequest: string {
@@ -649,7 +649,7 @@ Invocation template:
 
 <h4 id="MatchRequest">Request type</h4>
 
-Type: MatchResult
+Type: MatchRequest
 
 Type documentation: no documentation provided 
 <pre>type MatchRequest: string {
@@ -684,7 +684,7 @@ Invocation template:
 
 <h4 id="EndsWithRequest">Request type</h4>
 
-Type: bool
+Type: EndsWithRequest
 
 Type documentation: no documentation provided 
 <pre>type EndsWithRequest: string {
@@ -740,7 +740,7 @@ Invocation template:
 
 <h4 id="JoinRequest">Request type</h4>
 
-Type: string
+Type: JoinRequest
 
 Type documentation: no documentation provided 
 <pre>type JoinRequest: void {
@@ -770,7 +770,7 @@ Invocation template:
 
 <h4 id="IndexOfRequest">Request type</h4>
 
-Type: IndexOfResponse
+Type: IndexOfRequest
 
 Type documentation: no documentation provided 
 <pre>type IndexOfRequest: string {
@@ -803,7 +803,7 @@ Invocation template:
 
 <h4 id="StartsWithRequest">Request type</h4>
 
-Type: bool
+Type: StartsWithRequest
 
 Type documentation: no documentation provided 
 <pre>type StartsWithRequest: string {

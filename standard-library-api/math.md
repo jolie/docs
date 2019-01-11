@@ -95,7 +95,7 @@ Invocation template:
 
 <h4>Request type</h4>
 
-Type: double
+Type: void
 
 Type documentation: no documentation provided 
 
@@ -151,7 +151,7 @@ Invocation template:
 
 <h4 id="RoundRequestType">Request type</h4>
 
-Type: double
+Type: RoundRequestType
 
 Type documentation: no documentation provided 
 <pre>type RoundRequestType: double {
@@ -182,7 +182,7 @@ Invocation template:
 
 <h4>Request type</h4>
 
-Type: double
+Type: void
 
 Type documentation: no documentation provided 
 
@@ -211,7 +211,7 @@ Invocation template:
 
 <h4 id="PowRequest">Request type</h4>
 
-Type: double
+Type: PowRequest
 
 Type documentation: no documentation provided 
 <pre>type PowRequest: void {
@@ -243,7 +243,7 @@ Invocation template:
 
 <h4 id="SummationRequest">Request type</h4>
 
-Type: int
+Type: SummationRequest
 
 Type documentation: no documentation provided 
 <pre>type SummationRequest: void {

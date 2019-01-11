@@ -82,7 +82,7 @@ Invocation template:
 
 <h4 id="StringToRawRequest">Request type</h4>
 
-Type: raw
+Type: StringToRawRequest
 
 Type documentation: no documentation provided 
 <pre>type StringToRawRequest: string {
@@ -119,7 +119,7 @@ Invocation template:
 
 <h4>Request type</h4>
 
-Type: raw
+Type: string
 
 Type documentation: no documentation provided 
 
@@ -154,7 +154,7 @@ Invocation template:
 
 <h4>Request type</h4>
 
-Type: string
+Type: raw
 
 Type documentation: no documentation provided 
 
@@ -181,7 +181,7 @@ Invocation template:
 
 <h4 id="RawToStringRequest">Request type</h4>
 
-Type: string
+Type: RawToStringRequest
 
 Type documentation: no documentation provided 
 <pre>type RawToStringRequest: raw {

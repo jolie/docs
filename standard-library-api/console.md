@@ -64,7 +64,7 @@ Invocation template:
 
 <h4 id="InRequest">Request type</h4>
 
-Type: 
+Type: InRequest
 
 Type documentation: no documentation provided 
 <pre>type InRequest: string {
@@ -149,7 +149,7 @@ Invocation template:
 
 <h4>Request type</h4>
 
-Type: void
+Type: undefined
 
 Type documentation: no documentation provided 
 
@@ -176,7 +176,7 @@ Invocation template:
 
 <h4>Request type</h4>
 
-Type: void
+Type: undefined
 
 Type documentation: no documentation provided 
 
@@ -208,7 +208,7 @@ Invocation template:
 
 <h4 id="RegisterForInputRequest">Request type</h4>
 
-Type: void
+Type: RegisterForInputRequest
 
 Type documentation: no documentation provided 
 <pre>type RegisterForInputRequest: void {
@@ -241,7 +241,7 @@ Invocation template:
 
 <h4 id="UnsubscribeSessionListener">Request type</h4>
 
-Type: void
+Type: UnsubscribeSessionListener
 
 Type documentation: no documentation provided 
 <pre>type UnsubscribeSessionListener: void {
@@ -275,7 +275,7 @@ Invocation template:
 
 <h4 id="SubscribeSessionListener">Request type</h4>
 
-Type: void
+Type: SubscribeSessionListener
 
 Type documentation: no documentation provided 
 <pre>type SubscribeSessionListener: void {
@@ -309,7 +309,7 @@ Invocation template:
 
 <h4 id="EnableTimestampRequest">Request type</h4>
 
-Type: void
+Type: EnableTimestampRequest
 
 Type documentation: no documentation provided 
 <pre>type EnableTimestampRequest: bool {

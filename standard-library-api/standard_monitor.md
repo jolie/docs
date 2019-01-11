@@ -64,7 +64,7 @@ Invocation template:
 
 <h4>Request type</h4>
 
-Type: 
+Type: void
 
 Type documentation: no documentation provided 
 
@@ -112,7 +112,7 @@ Invocation template:
 
 <h4>Request type</h4>
 
-Type: 
+Type: undefined
 
 Type documentation: no documentation provided 
 
@@ -166,7 +166,7 @@ Invocation template:
 
 <h4>Request type</h4>
 
-Type: FlushResponse
+Type: void
 
 Type documentation: no documentation provided 
 
@@ -195,7 +195,7 @@ Invocation template:
 
 <h4 id="SetStandardMonitorRequest">Request type</h4>
 
-Type: void
+Type: SetStandardMonitorRequest
 
 Type documentation: no documentation provided 
 <pre>type SetStandardMonitorRequest: void {

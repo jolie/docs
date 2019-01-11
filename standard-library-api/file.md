@@ -208,7 +208,7 @@ Invocation template:
 
 <h4>Request type</h4>
 
-Type: raw
+Type: string
 
 Type documentation: no documentation provided 
 
@@ -280,7 +280,7 @@ Invocation template:
 
 <h4>Request type</h4>
 
-Type: string
+Type: raw
 
 Type documentation: no documentation provided 
 
@@ -393,7 +393,7 @@ Invocation template:
 
 <h4 id="ListRequest">Request type</h4>
 
-Type: ListResponse
+Type: ListRequest
 
 Type documentation: no documentation provided 
 <pre>type ListRequest: void {
@@ -442,7 +442,7 @@ Invocation template:
 
 <h4 id="CopyDirRequest">Request type</h4>
 
-Type: bool
+Type: CopyDirRequest
 
 Type documentation: no documentation provided 
 <pre>type CopyDirRequest: void {
@@ -488,7 +488,7 @@ Invocation template:
 
 <h4 id="DeleteRequest">Request type</h4>
 
-Type: bool
+Type: DeleteRequest
 
 Type documentation: no documentation provided 
 <pre>type DeleteRequest: string {
@@ -536,7 +536,7 @@ Invocation template:
 
 <h4>Request type</h4>
 
-Type: int
+Type: any
 
 Type documentation: no documentation provided 
 
@@ -563,7 +563,7 @@ Invocation template:
 
 <h4>Request type</h4>
 
-Type: string
+Type: void
 
 Type documentation: no documentation provided 
 
@@ -590,7 +590,7 @@ Invocation template:
 
 <h4 id="RenameRequest">Request type</h4>
 
-Type: void
+Type: RenameRequest
 
 Type documentation: no documentation provided 
 <pre>type RenameRequest: void {
@@ -646,7 +646,7 @@ Invocation template:
 
 <h4 id="ReadFileRequest">Request type</h4>
 
-Type: undefined
+Type: ReadFileRequest
 
 Type documentation: no documentation provided 
 <pre>type ReadFileRequest: void {
@@ -699,7 +699,7 @@ Invocation template:
 
 <h4>Request type</h4>
 
-Type: bool
+Type: string
 
 Type documentation: no documentation provided 
 
@@ -726,7 +726,7 @@ Invocation template:
 
 <h4>Request type</h4>
 
-Type: void
+Type: string
 
 Type documentation: no documentation provided 
 
@@ -765,7 +765,7 @@ Invocation template:
 
 <h4>Request type</h4>
 
-Type: bool
+Type: string
 
 Type documentation: no documentation provided 
 
@@ -800,7 +800,7 @@ Invocation template:
 
 <h4>Request type</h4>
 
-Type: string
+Type: void
 
 Type documentation: no documentation provided 
 
@@ -856,7 +856,7 @@ Invocation template:
 
 <h4 id="WriteFileRequest">Request type</h4>
 
-Type: void
+Type: WriteFileRequest
 
 Type documentation: no documentation provided 
 <pre>type WriteFileRequest: void {
@@ -915,7 +915,7 @@ Invocation template:
 
 <h4>Request type</h4>
 
-Type: bool
+Type: string
 
 Type documentation: no documentation provided 
 
@@ -946,7 +946,7 @@ Invocation template:
 
 <h4>Request type</h4>
 
-Type: bool
+Type: string
 
 Type documentation: no documentation provided 
 

@@ -82,7 +82,7 @@ Invocation template:
 
 <h4 id="ZipRequest">Request type</h4>
 
-Type: raw
+Type: ZipRequest
 
 Type documentation: no documentation provided 
 <pre>type ZipRequest: undefined</pre>
@@ -144,7 +144,7 @@ Invocation template:
 
 <h4 id="UnzipRequest">Request type</h4>
 
-Type: UnzipResponse
+Type: UnzipRequest
 
 Type documentation: no documentation provided 
 <pre>type UnzipRequest: void {
@@ -184,7 +184,7 @@ Invocation template:
 
 <h4 id="ReadEntryRequest">Request type</h4>
 
-Type: any
+Type: ReadEntryRequest
 
 Type documentation: no documentation provided 
 <pre>type ReadEntryRequest: void {

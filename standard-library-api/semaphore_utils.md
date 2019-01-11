@@ -72,7 +72,7 @@ Invocation template:
 
 <h4 id="SemaphoreRequest">Request type</h4>
 
-Type: bool
+Type: SemaphoreRequest
 
 Type documentation: no documentation provided 
 <pre>type SemaphoreRequest: void {
@@ -110,7 +110,7 @@ Invocation template:
 
 <h4 id="SemaphoreRequest">Request type</h4>
 
-Type: bool
+Type: SemaphoreRequest
 
 Type documentation: no documentation provided 
 <pre>type SemaphoreRequest: void {

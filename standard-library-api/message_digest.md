@@ -59,7 +59,7 @@ Invocation template:
 
 <h4 id="MD5Request">Request type</h4>
 
-Type: string
+Type: MD5Request
 
 Type documentation: no documentation provided 
 <pre>type MD5Request: string {

@@ -58,7 +58,7 @@ Invocation template:
 
 <h4 id="CommandExecutionRequest">Request type</h4>
 
-Type: CommandExecutionResult
+Type: CommandExecutionRequest
 
 Type documentation: no documentation provided 
 <pre>type CommandExecutionRequest: string {

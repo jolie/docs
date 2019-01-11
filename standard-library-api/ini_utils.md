@@ -58,7 +58,7 @@ Invocation template:
 
 <h4 id="parseIniFileRequest">Request type</h4>
 
-Type: IniData
+Type: parseIniFileRequest
 
 Type documentation: no documentation provided 
 <pre>type parseIniFileRequest: string {

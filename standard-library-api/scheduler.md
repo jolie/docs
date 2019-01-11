@@ -73,7 +73,7 @@ Invocation template:
 
 <h4 id="SetCronJobRequest">Request type</h4>
 
-Type: void
+Type: SetCronJobRequest
 
 Type documentation: no documentation provided 
 <pre>type SetCronJobRequest: void {
@@ -120,7 +120,7 @@ Invocation template:
 
 <h4 id="DeleteCronJobRequest">Request type</h4>
 
-Type: void
+Type: DeleteCronJobRequest
 
 Type documentation: no documentation provided 
 <pre>type DeleteCronJobRequest: void {
@@ -150,7 +150,7 @@ Invocation template:
 
 <h4 id="SetCallBackOperationRequest">Request type</h4>
 
-Type: 
+Type: SetCallBackOperationRequest
 
 Type documentation: no documentation provided 
 <pre>type SetCallBackOperationRequest: void {

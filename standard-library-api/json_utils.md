@@ -73,7 +73,7 @@ Invocation template:
 
 <h4 id="GetJsonStringRequest">Request type</h4>
 
-Type: GetJsonStringResponse
+Type: GetJsonStringRequest
 
 Type documentation: no documentation provided 
 <pre>type GetJsonStringRequest: undefined</pre>
@@ -114,7 +114,7 @@ Invocation template:
 
 <h4 id="GetJsonValueRequest">Request type</h4>
 
-Type: GetJsonValueResponse
+Type: GetJsonValueRequest
 
 Type documentation: no documentation provided 
 <pre>type GetJsonValueRequest: any {

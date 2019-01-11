@@ -178,7 +178,7 @@ Invocation template:
 
 <h4 id="ScheduleTimeOutRequest">Request type</h4>
 
-Type: long
+Type: ScheduleTimeOutRequest
 
 Type documentation: no documentation provided 
 <pre>type ScheduleTimeOutRequest: int {
@@ -223,7 +223,7 @@ Invocation template:
 
 <h4 id="DateValuesRequestType">Request type</h4>
 
-Type: DateValuesType
+Type: DateValuesRequestType
 
 Type documentation: no documentation provided 
 <pre>type DateValuesRequestType: string {
@@ -268,7 +268,7 @@ Invocation template:
 
 <h4 id="GetDateTimeRequest">Request type</h4>
 
-Type: GetDateTimeResponse
+Type: GetDateTimeRequest
 
 Type documentation: no documentation provided 
 <pre>type GetDateTimeRequest: long {
@@ -308,7 +308,7 @@ Invocation template:
 
 <h4>Request type</h4>
 
-Type: long
+Type: void
 
 Type documentation: no documentation provided 
 
@@ -335,7 +335,7 @@ Invocation template:
 
 <h4 id="DiffDateRequestType">Request type</h4>
 
-Type: int
+Type: DiffDateRequestType
 
 Type documentation: no documentation provided 
 <pre>type DiffDateRequestType: void {
@@ -366,7 +366,7 @@ Invocation template:
 
 <h4 id="GetTimeDiffRequest">Request type</h4>
 
-Type: int
+Type: GetTimeDiffRequest
 
 Type documentation: no documentation provided 
 <pre>type GetTimeDiffRequest: void {
@@ -396,7 +396,7 @@ Invocation template:
 
 <h4 id="GetTimestampFromStringRequest">Request type</h4>
 
-Type: long
+Type: GetTimestampFromStringRequest
 
 Type documentation: no documentation provided 
 <pre>type GetTimestampFromStringRequest: string {
@@ -438,7 +438,7 @@ Invocation template:
 
 <h4>Request type</h4>
 
-Type: bool
+Type: long
 
 Type documentation: no documentation provided 
 
@@ -465,7 +465,7 @@ Invocation template:
 
 <h4>Request type</h4>
 
-Type: 
+Type: undefined
 
 Type documentation: no documentation provided 
 
@@ -484,7 +484,7 @@ Invocation template:
 
 <h4 id="CurrentDateTimeRequestType">Request type</h4>
 
-Type: string
+Type: CurrentDateTimeRequestType
 
 Type documentation: no documentation provided 
 <pre>type CurrentDateTimeRequestType: void {
@@ -546,7 +546,7 @@ Invocation template:
 
 <h4 id="SetNextTimeOutRequest">Request type</h4>
 
-Type: 
+Type: SetNextTimeOutRequest
 
 Type documentation: no documentation provided 
 <pre>type SetNextTimeOutRequest: int {
@@ -568,7 +568,7 @@ Invocation template:
 
 <h4>Request type</h4>
 
-Type: TimeValuesType
+Type: int
 
 Type documentation: no documentation provided 
 
@@ -599,7 +599,7 @@ Invocation template:
 
 <h4 id="GetTimestampFromStringRequest">Request type</h4>
 
-Type: DateTimeType
+Type: GetTimestampFromStringRequest
 
 Type documentation: no documentation provided 
 <pre>type GetTimestampFromStringRequest: string {
@@ -644,7 +644,7 @@ Invocation template:
 
 <h4>Request type</h4>
 
-Type: 
+Type: undefined
 
 Type documentation: no documentation provided 
 
@@ -667,7 +667,7 @@ Invocation template:
 
 <h4>Request type</h4>
 
-Type: DateValuesType
+Type: void
 
 Type documentation: no documentation provided 
 
@@ -698,7 +698,7 @@ Invocation template:
 
 <h4>Request type</h4>
 
-Type: TimeValuesType
+Type: string
 
 Type documentation: no documentation provided 
 

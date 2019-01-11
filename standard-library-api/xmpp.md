@@ -67,7 +67,7 @@ Invocation template:
 
 <h4 id="SendMessageRequest">Request type</h4>
 
-Type: void
+Type: SendMessageRequest
 
 Type documentation: no documentation provided 
 <pre>type SendMessageRequest: string {
@@ -104,7 +104,7 @@ Invocation template:
 
 <h4 id="ConnectionRequest">Request type</h4>
 
-Type: void
+Type: ConnectionRequest
 
 Type documentation: no documentation provided 
 <pre>type ConnectionRequest: void {

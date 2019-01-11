@@ -69,7 +69,7 @@ Invocation template:
 
 <h4 id="ExpandRequest">Request type</h4>
 
-Type: string
+Type: ExpandRequest
 
 Type documentation: no documentation provided 
 <pre>type ExpandRequest: void {
@@ -99,7 +99,7 @@ Invocation template:
 
 <h4 id="UriMatchRequest">Request type</h4>
 
-Type: MatchResponse
+Type: UriMatchRequest
 
 Type documentation: no documentation provided 
 <pre>type UriMatchRequest: void {

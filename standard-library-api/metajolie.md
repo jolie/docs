@@ -96,7 +96,7 @@ Invocation template:
 
 <h4 id="GetInputPortMetaDataRequest">Request type</h4>
 
-Type: GetInputPortMetaDataResponse
+Type: GetInputPortMetaDataRequest
 
 Type documentation: no documentation provided 
 <pre>type GetInputPortMetaDataRequest: void {
@@ -162,7 +162,7 @@ Invocation template:
 
 <h4 id="ParseRoleRequest">Request type</h4>
 
-Type: Role
+Type: ParseRoleRequest
 
 Type documentation: no documentation provided 
 <pre>type ParseRoleRequest: void {
@@ -197,7 +197,7 @@ Invocation template:
 
 <h4 id="GetMetaDataRequest">Request type</h4>
 
-Type: GetMetaDataResponse
+Type: GetMetaDataRequest
 
 Type documentation: no documentation provided 
 <pre>type GetMetaDataRequest: void {
@@ -264,7 +264,7 @@ Invocation template:
 
 <h4 id="MessageTypeCastRequest">Request type</h4>
 
-Type: MessageTypeCastResponse
+Type: MessageTypeCastRequest
 
 Type documentation: no documentation provided 
 <pre>type MessageTypeCastRequest: void {
@@ -307,7 +307,7 @@ Invocation template:
 
 <h4 id="CheckNativeTypeRequest">Request type</h4>
 
-Type: CheckNativeTypeResponse
+Type: CheckNativeTypeRequest
 
 Type documentation: no documentation provided 
 <pre>type CheckNativeTypeRequest: void {

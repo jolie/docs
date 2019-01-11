@@ -121,7 +121,7 @@ Invocation template:
 
 <h4 id="Participant">Request type</h4>
 
-Type: string
+Type: Participant
 
 Type documentation: no documentation provided 
 <pre>type Participant: void {
@@ -153,7 +153,7 @@ Invocation template:
 
 <h4 id="NativeType">Request type</h4>
 
-Type: string
+Type: NativeType
 
 Type documentation: no documentation provided 
 <pre>type NativeType: void {
@@ -193,7 +193,7 @@ Invocation template:
 
 <h4 id="Interface">Request type</h4>
 
-Type: string
+Type: Interface
 
 Type documentation: no documentation provided 
 <pre>type Interface: void {
@@ -224,7 +224,7 @@ Invocation template:
 
 <h4 id="Type">Request type</h4>
 
-Type: string
+Type: Type
 
 Type documentation: no documentation provided 
 <pre>type Type: void {
@@ -255,7 +255,7 @@ Invocation template:
 
 <h4 id="Participant">Request type</h4>
 
-Type: string
+Type: Participant
 
 Type documentation: no documentation provided 
 <pre>type Participant: void {
@@ -287,7 +287,7 @@ Invocation template:
 
 <h4 id="Type">Request type</h4>
 
-Type: string
+Type: Type
 
 Type documentation: no documentation provided 
 <pre>type Type: void {
@@ -318,7 +318,7 @@ Invocation template:
 
 <h4 id="Participant">Request type</h4>
 
-Type: string
+Type: Participant
 
 Type documentation: no documentation provided 
 <pre>type Participant: void {
@@ -350,7 +350,7 @@ Invocation template:
 
 <h4 id="SubType">Request type</h4>
 
-Type: string
+Type: SubType
 
 Type documentation: no documentation provided 
 <pre>type SubType: void {
@@ -382,7 +382,7 @@ Invocation template:
 
 <h4 id="Participant">Request type</h4>
 
-Type: string
+Type: Participant
 
 Type documentation: no documentation provided 
 <pre>type Participant: void {
@@ -414,7 +414,7 @@ Invocation template:
 
 <h4 id="Cardinality">Request type</h4>
 
-Type: string
+Type: Cardinality
 
 Type documentation: no documentation provided 
 <pre>type Cardinality: void {

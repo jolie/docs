@@ -180,7 +180,7 @@ Invocation template:
 
 <h4 id="QueryRequest">Request type</h4>
 
-Type: QueryResult
+Type: QueryRequest
 
 Type documentation: no documentation provided 
 <pre>type QueryRequest: undefined</pre>
@@ -229,7 +229,7 @@ Invocation template:
 
 <h4 id="DatabaseTransactionRequest">Request type</h4>
 
-Type: DatabaseTransactionResult
+Type: DatabaseTransactionRequest
 
 Type documentation: no documentation provided 
 <pre>type DatabaseTransactionRequest: void {
@@ -289,7 +289,7 @@ Invocation template:
 
 <h4 id="UpdateRequest">Request type</h4>
 
-Type: int
+Type: UpdateRequest
 
 Type documentation: no documentation provided 
 <pre>type UpdateRequest: undefined</pre>
@@ -379,7 +379,7 @@ Invocation template:
 
 <h4 id="ConnectionInfo">Request type</h4>
 
-Type: void
+Type: ConnectionInfo
 
 Type documentation: no documentation provided 
 <pre>type ConnectionInfo: void {

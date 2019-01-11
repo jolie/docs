@@ -65,7 +65,7 @@ Invocation template:
 
 <h4>Request type</h4>
 
-Type: BluetoothInquiryResponse
+Type: void
 
 Type documentation: no documentation provided 
 

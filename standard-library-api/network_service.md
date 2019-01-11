@@ -66,7 +66,7 @@ Invocation template:
 
 <h4 id="GetNetworkInterfaceNamesRequest">Request type</h4>
 
-Type: GetNetworkInterfaceNamesResponse
+Type: GetNetworkInterfaceNamesRequest
 
 Type documentation: no documentation provided 
 <pre>type GetNetworkInterfaceNamesRequest: void</pre>
@@ -97,7 +97,7 @@ Invocation template:
 
 <h4 id="GetIPAddressesRequest">Request type</h4>
 
-Type: GetIPAddressesResponse
+Type: GetIPAddressesRequest
 
 Type documentation: no documentation provided 
 <pre>type GetIPAddressesRequest: void {
