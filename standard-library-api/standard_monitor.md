@@ -55,13 +55,12 @@ Inclusion code: <code>include "monitors/standard_monitor.iol"</code>
 ### Operation Description
 
 
-<a id="monitorAlert"></a>
 #### monitorAlert
 
 
 Invocation template: <code>monitorAlert( request )</code>
 
-**Request type**
+<h4>Request type</h4>
 
 Type documentation: no documentation provided 
 
@@ -101,13 +100,12 @@ Type documentation: no documentation provided
 ### Operation Description
 
 
-<a id="pushEvent"></a>
 #### pushEvent
 
 
 Invocation template: <code>pushEvent@Monitor( request )</code>
 
-**Request type**
+<h4>Request type</h4>
 
 Type documentation: no documentation provided 
 
@@ -153,20 +151,18 @@ Type documentation: no documentation provided
 ### Operation Description
 
 
-<a id="flush"></a>
 #### flush
 
 
 Invocation template: <code>flush@Monitor( request )( response )</code>
 
-**Request type**
+<h4>Request type</h4>
 
 Type documentation: no documentation provided 
 
 
 
-**Response type**
-<a id="FlushResponse"></a>
+<h4 id="FlushResponse">Response type</h4>
 Type documentation: no documentation provided 
 <pre>type FlushResponse: void {
 	.events*: MonitorEvent
@@ -177,14 +173,13 @@ Type documentation: no documentation provided
 
 ---
 
-<a id="setMonitor"></a>
 #### setMonitor
 
 
 Invocation template: <code>setMonitor@Monitor( request )( response )</code>
 
-**Request type**
-<a id="SetStandardMonitorRequest"></a>
+<h4 id="SetStandardMonitorRequest">Request type</h4>
+
 Type documentation: no documentation provided 
 <pre>type SetStandardMonitorRequest: void {
 	.queueMax?: int
@@ -193,8 +188,7 @@ Type documentation: no documentation provided
 }</pre>
 
 
-**Response type**
-
+<h4>Response type</h4>
 Type documentation: no documentation provided 
 
 

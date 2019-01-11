@@ -56,20 +56,18 @@ Inclusion code: <code>include "bluetooth.iol"</code>
 ### Operation Description
 
 
-<a id="inquire"></a>
 #### inquire
 
 
 Invocation template: <code>inquire@Bluetooth( request )( response )</code>
 
-**Request type**
+<h4>Request type</h4>
 
 Type documentation: no documentation provided 
 
 
 
-**Response type**
-<a id="BluetoothInquiryResponse"></a>
+<h4 id="BluetoothInquiryResponse">Response type</h4>
 Type documentation: no documentation provided 
 <pre>type BluetoothInquiryResponse: void {
 	.service*: void {
@@ -86,7 +84,6 @@ Type documentation: no documentation provided
 
 ---
 
-<a id="setDiscoverable"></a>
 #### setDiscoverable
 Operation documentation: 
 	  Sets the current Bluetooth device as discoverable or not discoverable
@@ -95,14 +92,13 @@ Operation documentation:
 
 Invocation template: <code>setDiscoverable@Bluetooth( request )( response )</code>
 
-**Request type**
+<h4>Request type</h4>
 
 Type documentation: no documentation provided 
 
 
 
-**Response type**
-
+<h4>Response type</h4>
 Type documentation: no documentation provided 
 
 

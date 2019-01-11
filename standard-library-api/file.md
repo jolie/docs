@@ -197,20 +197,18 @@ to: the target directory to copy into
 ### Operation Description
 
 
-<a id="convertFromBase64ToBinaryValue"></a>
 #### convertFromBase64ToBinaryValue
 Operation documentation:  deprecated, please use base64ToRaw@Converter()() from converter.iol 
 
 Invocation template: <code>convertFromBase64ToBinaryValue@File( request )( response )</code>
 
-**Request type**
+<h4>Request type</h4>
 
 Type documentation: no documentation provided 
 
 
 
-**Response type**
-
+<h4>Response type</h4>
 Type documentation: no documentation provided 
 
 
@@ -225,20 +223,18 @@ Fault-handling install template: <code>install ( IOException => /* error-handlin
 
 ---
 
-<a id="getMimeType"></a>
 #### getMimeType
 
 
 Invocation template: <code>getMimeType@File( request )( response )</code>
 
-**Request type**
+<h4>Request type</h4>
 
 Type documentation: no documentation provided 
 
 
 
-**Response type**
-
+<h4>Response type</h4>
 Type documentation: no documentation provided 
 
 
@@ -253,20 +249,18 @@ Fault-handling install template: <code>install ( FileNotFound => /* error-handli
 
 ---
 
-<a id="convertFromBinaryToBase64Value"></a>
 #### convertFromBinaryToBase64Value
 Operation documentation:  deprecated, please use rawToBase64@Converter()() from converter.iol 
 
 Invocation template: <code>convertFromBinaryToBase64Value@File( request )( response )</code>
 
-**Request type**
+<h4>Request type</h4>
 
 Type documentation: no documentation provided 
 
 
 
-**Response type**
-
+<h4>Response type</h4>
 Type documentation: no documentation provided 
 
 
@@ -275,7 +269,6 @@ Type documentation: no documentation provided
 
 ---
 
-<a id="toAbsolutePath"></a>
 #### toAbsolutePath
 Operation documentation: 
 	  Constructs an absolute path to the target file or directory.
@@ -285,14 +278,13 @@ Operation documentation:
 
 Invocation template: <code>toAbsolutePath@File( request )( response )</code>
 
-**Request type**
+<h4>Request type</h4>
 
 Type documentation: no documentation provided 
 
 
 
-**Response type**
-
+<h4>Response type</h4>
 Type documentation: no documentation provided 
 
 
@@ -309,7 +301,6 @@ Fault-handling install template: <code>install ( InvalidPathException => /* erro
 
 ---
 
-<a id="getParentPath"></a>
 #### getParentPath
 Operation documentation: 
 	  Constructs the path to the parent directory.
@@ -319,14 +310,13 @@ Operation documentation:
 
 Invocation template: <code>getParentPath@File( request )( response )</code>
 
-**Request type**
+<h4>Request type</h4>
 
 Type documentation: no documentation provided 
 
 
 
-**Response type**
-
+<h4>Response type</h4>
 Type documentation: no documentation provided 
 
 
@@ -343,14 +333,13 @@ Fault-handling install template: <code>install ( InvalidPathException => /* erro
 
 ---
 
-<a id="list"></a>
 #### list
 
 
 Invocation template: <code>list@File( request )( response )</code>
 
-**Request type**
-<a id="ListRequest"></a>
+<h4 id="ListRequest">Request type</h4>
+
 Type documentation: no documentation provided 
 <pre>type ListRequest: void {
 	.regex?: string
@@ -363,8 +352,7 @@ Type documentation: no documentation provided
 }</pre>
 
 
-**Response type**
-<a id="ListResponse"></a>
+<h4 id="ListResponse">Response type</h4>
 Type documentation: no documentation provided 
 <pre>type ListResponse: void {
 	.result*: string {
@@ -383,7 +371,6 @@ Type documentation: no documentation provided
 
 ---
 
-<a id="copyDir"></a>
 #### copyDir
 Operation documentation: 
 	  it copies a source directory into a destination one
@@ -391,8 +378,8 @@ Operation documentation:
 
 Invocation template: <code>copyDir@File( request )( response )</code>
 
-**Request type**
-<a id="CopyDirRequest"></a>
+<h4 id="CopyDirRequest">Request type</h4>
+
 Type documentation: no documentation provided 
 <pre>type CopyDirRequest: void {
 	.from: string
@@ -400,8 +387,7 @@ Type documentation: no documentation provided
 }</pre>
 
 
-**Response type**
-
+<h4>Response type</h4>
 Type documentation: no documentation provided 
 
 
@@ -422,22 +408,20 @@ Fault-handling install template: <code>install ( IOException => /* error-handlin
 
 ---
 
-<a id="delete"></a>
 #### delete
 
 
 Invocation template: <code>delete@File( request )( response )</code>
 
-**Request type**
-<a id="DeleteRequest"></a>
+<h4 id="DeleteRequest">Request type</h4>
+
 Type documentation: no documentation provided 
 <pre>type DeleteRequest: string {
 	.isRegex?: int
 }</pre>
 
 
-**Response type**
-
+<h4>Response type</h4>
 Type documentation: no documentation provided 
 
 
@@ -452,7 +436,6 @@ Fault-handling install template: <code>install ( IOException => /* error-handlin
 
 ---
 
-<a id="getSize"></a>
 #### getSize
 Operation documentation: 
 	  The size of any basic type variable.
@@ -467,14 +450,13 @@ Operation documentation:
 
 Invocation template: <code>getSize@File( request )( response )</code>
 
-**Request type**
+<h4>Request type</h4>
 
 Type documentation: no documentation provided 
 
 
 
-**Response type**
-
+<h4>Response type</h4>
 Type documentation: no documentation provided 
 
 
@@ -483,20 +465,18 @@ Type documentation: no documentation provided
 
 ---
 
-<a id="getFileSeparator"></a>
 #### getFileSeparator
 
 
 Invocation template: <code>getFileSeparator@File( request )( response )</code>
 
-**Request type**
+<h4>Request type</h4>
 
 Type documentation: no documentation provided 
 
 
 
-**Response type**
-
+<h4>Response type</h4>
 Type documentation: no documentation provided 
 
 
@@ -505,14 +485,13 @@ Type documentation: no documentation provided
 
 ---
 
-<a id="rename"></a>
 #### rename
 
 
 Invocation template: <code>rename@File( request )( response )</code>
 
-**Request type**
-<a id="RenameRequest"></a>
+<h4 id="RenameRequest">Request type</h4>
+
 Type documentation: no documentation provided 
 <pre>type RenameRequest: void {
 	.filename: string
@@ -520,8 +499,7 @@ Type documentation: no documentation provided
 }</pre>
 
 
-**Response type**
-
+<h4>Response type</h4>
 Type documentation: no documentation provided 
 
 
@@ -536,7 +514,6 @@ Fault-handling install template: <code>install ( IOException => /* error-handlin
 
 ---
 
-<a id="readFile"></a>
 #### readFile
 Operation documentation: 
 	  Reads some file's content into a Jolie structure
@@ -558,8 +535,8 @@ Operation documentation:
 
 Invocation template: <code>readFile@File( request )( response )</code>
 
-**Request type**
-<a id="ReadFileRequest"></a>
+<h4 id="ReadFileRequest">Request type</h4>
+
 Type documentation: no documentation provided 
 <pre>type ReadFileRequest: void {
 	.filename: string
@@ -570,8 +547,7 @@ Type documentation: no documentation provided
 }</pre>
 
 
-**Response type**
-
+<h4>Response type</h4>
 Type documentation: no documentation provided 
 
 
@@ -592,7 +568,6 @@ Fault-handling install template: <code>install ( IOException => /* error-handlin
 
 ---
 
-<a id="exists"></a>
 #### exists
 Operation documentation: 
 	 it tests if the specified file or directory exists or not.
@@ -600,14 +575,13 @@ Operation documentation:
 
 Invocation template: <code>exists@File( request )( response )</code>
 
-**Request type**
+<h4>Request type</h4>
 
 Type documentation: no documentation provided 
 
 
 
-**Response type**
-
+<h4>Response type</h4>
 Type documentation: no documentation provided 
 
 
@@ -616,20 +590,18 @@ Type documentation: no documentation provided
 
 ---
 
-<a id="setMimeTypeFile"></a>
 #### setMimeTypeFile
 
 
 Invocation template: <code>setMimeTypeFile@File( request )( response )</code>
 
-**Request type**
+<h4>Request type</h4>
 
 Type documentation: no documentation provided 
 
 
 
-**Response type**
-
+<h4>Response type</h4>
 Type documentation: no documentation provided 
 
 
@@ -644,7 +616,6 @@ Fault-handling install template: <code>install ( IOException => /* error-handlin
 
 ---
 
-<a id="deleteDir"></a>
 #### deleteDir
 Operation documentation: 
 	   it deletes a directory recursively removing all its contents
@@ -652,14 +623,13 @@ Operation documentation:
 
 Invocation template: <code>deleteDir@File( request )( response )</code>
 
-**Request type**
+<h4>Request type</h4>
 
 Type documentation: no documentation provided 
 
 
 
-**Response type**
-
+<h4>Response type</h4>
 Type documentation: no documentation provided 
 
 
@@ -674,20 +644,18 @@ Fault-handling install template: <code>install ( IOException => /* error-handlin
 
 ---
 
-<a id="getServiceDirectory"></a>
 #### getServiceDirectory
 
 
 Invocation template: <code>getServiceDirectory@File( request )( response )</code>
 
-**Request type**
+<h4>Request type</h4>
 
 Type documentation: no documentation provided 
 
 
 
-**Response type**
-
+<h4>Response type</h4>
 Type documentation: no documentation provided 
 
 
@@ -702,7 +670,6 @@ Fault-handling install template: <code>install ( IOException => /* error-handlin
 
 ---
 
-<a id="writeFile"></a>
 #### writeFile
 Operation documentation: 
 	  Writes a Jolie structure out to an external file
@@ -727,8 +694,8 @@ Operation documentation:
 
 Invocation template: <code>writeFile@File( request )( response )</code>
 
-**Request type**
-<a id="WriteFileRequest"></a>
+<h4 id="WriteFileRequest">Request type</h4>
+
 Type documentation: no documentation provided 
 <pre>type WriteFileRequest: void {
 	.filename: string
@@ -743,8 +710,7 @@ Type documentation: no documentation provided
 }</pre>
 
 
-**Response type**
-
+<h4>Response type</h4>
 Type documentation: no documentation provided 
 
 
@@ -765,7 +731,6 @@ Fault-handling install template: <code>install ( IOException => /* error-handlin
 
 ---
 
-<a id="mkdir"></a>
 #### mkdir
 Operation documentation: 
 	
@@ -775,14 +740,13 @@ Operation documentation:
 
 Invocation template: <code>mkdir@File( request )( response )</code>
 
-**Request type**
+<h4>Request type</h4>
 
 Type documentation: no documentation provided 
 
 
 
-**Response type**
-
+<h4>Response type</h4>
 Type documentation: no documentation provided 
 
 
@@ -791,7 +755,6 @@ Type documentation: no documentation provided
 
 ---
 
-<a id="isDirectory"></a>
 #### isDirectory
 Operation documentation: 
 	  it returns if a filename is a directory or not. False if the file does not exist.
@@ -799,14 +762,13 @@ Operation documentation:
 
 Invocation template: <code>isDirectory@File( request )( response )</code>
 
-**Request type**
+<h4>Request type</h4>
 
 Type documentation: no documentation provided 
 
 
 
-**Response type**
-
+<h4>Response type</h4>
 Type documentation: no documentation provided 
 
 

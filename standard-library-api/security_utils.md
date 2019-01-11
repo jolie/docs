@@ -56,22 +56,20 @@ Inclusion code: <code>include "security_utils.iol"</code>
 ### Operation Description
 
 
-<a id="secureRandom"></a>
 #### secureRandom
 
 
 Invocation template: <code>secureRandom@SecurityUtils( request )( response )</code>
 
-**Request type**
-<a id="SecureRandomRequest"></a>
+<h4 id="SecureRandomRequest">Request type</h4>
+
 Type documentation: no documentation provided 
 <pre>type SecureRandomRequest: void {
 	.size: int
 }</pre>
 
 
-**Response type**
-
+<h4>Response type</h4>
 Type documentation: no documentation provided 
 
 
@@ -80,20 +78,18 @@ Type documentation: no documentation provided
 
 ---
 
-<a id="createSecureToken"></a>
 #### createSecureToken
 
 
 Invocation template: <code>createSecureToken@SecurityUtils( request )( response )</code>
 
-**Request type**
+<h4>Request type</h4>
 
 Type documentation: no documentation provided 
 
 
 
-**Response type**
-
+<h4>Response type</h4>
 Type documentation: no documentation provided 
 
 

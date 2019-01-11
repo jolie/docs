@@ -73,22 +73,20 @@ Inclusion code: <code>include "converter.iol"</code>
 ### Operation Description
 
 
-<a id="stringToRaw"></a>
 #### stringToRaw
 
 
 Invocation template: <code>stringToRaw@Converter( request )( response )</code>
 
-**Request type**
-<a id="StringToRawRequest"></a>
+<h4 id="StringToRawRequest">Request type</h4>
+
 Type documentation: no documentation provided 
 <pre>type StringToRawRequest: string {
 	.charset?: string
 }</pre>
 
 
-**Response type**
-
+<h4>Response type</h4>
 Type documentation: no documentation provided 
 
 
@@ -103,20 +101,18 @@ Fault-handling install template: <code>install ( IOException => /* error-handlin
 
 ---
 
-<a id="base64ToRaw"></a>
 #### base64ToRaw
 
 
 Invocation template: <code>base64ToRaw@Converter( request )( response )</code>
 
-**Request type**
+<h4>Request type</h4>
 
 Type documentation: no documentation provided 
 
 
 
-**Response type**
-
+<h4>Response type</h4>
 Type documentation: no documentation provided 
 
 
@@ -131,20 +127,18 @@ Fault-handling install template: <code>install ( IOException => /* error-handlin
 
 ---
 
-<a id="rawToBase64"></a>
 #### rawToBase64
 
 
 Invocation template: <code>rawToBase64@Converter( request )( response )</code>
 
-**Request type**
+<h4>Request type</h4>
 
 Type documentation: no documentation provided 
 
 
 
-**Response type**
-
+<h4>Response type</h4>
 Type documentation: no documentation provided 
 
 
@@ -153,22 +147,20 @@ Type documentation: no documentation provided
 
 ---
 
-<a id="rawToString"></a>
 #### rawToString
 
 
 Invocation template: <code>rawToString@Converter( request )( response )</code>
 
-**Request type**
-<a id="RawToStringRequest"></a>
+<h4 id="RawToStringRequest">Request type</h4>
+
 Type documentation: no documentation provided 
 <pre>type RawToStringRequest: raw {
 	.charset?: string
 }</pre>
 
 
-**Response type**
-
+<h4>Response type</h4>
 Type documentation: no documentation provided 
 
 

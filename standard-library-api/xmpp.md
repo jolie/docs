@@ -58,22 +58,20 @@ Inclusion code: <code>include "xmpp.iol"</code>
 ### Operation Description
 
 
-<a id="sendMessage"></a>
 #### sendMessage
 
 
 Invocation template: <code>sendMessage@XMPP( request )( response )</code>
 
-**Request type**
-<a id="SendMessageRequest"></a>
+<h4 id="SendMessageRequest">Request type</h4>
+
 Type documentation: no documentation provided 
 <pre>type SendMessageRequest: string {
 	.to: string
 }</pre>
 
 
-**Response type**
-
+<h4>Response type</h4>
 Type documentation: no documentation provided 
 
 
@@ -88,14 +86,13 @@ Fault-handling install template: <code>install ( XMPPException => /* error-handl
 
 ---
 
-<a id="connect"></a>
 #### connect
 
 
 Invocation template: <code>connect@XMPP( request )( response )</code>
 
-**Request type**
-<a id="ConnectionRequest"></a>
+<h4 id="ConnectionRequest">Request type</h4>
+
 Type documentation: no documentation provided 
 <pre>type ConnectionRequest: void {
 	.password: string
@@ -107,8 +104,7 @@ Type documentation: no documentation provided
 }</pre>
 
 
-**Response type**
-
+<h4>Response type</h4>
 Type documentation: no documentation provided 
 
 

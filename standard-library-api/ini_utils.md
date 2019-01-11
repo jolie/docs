@@ -49,22 +49,20 @@ Inclusion code: <code>include "ini_utils.iol"</code>
 ### Operation Description
 
 
-<a id="parseIniFile"></a>
 #### parseIniFile
 
 
 Invocation template: <code>parseIniFile@IniUtils( request )( response )</code>
 
-**Request type**
-<a id="parseIniFileRequest"></a>
+<h4 id="parseIniFileRequest">Request type</h4>
+
 Type documentation: no documentation provided 
 <pre>type parseIniFileRequest: string {
 	.charset?: string
 }</pre>
 
 
-**Response type**
-<a id="IniData"></a>
+<h4 id="IniData">Response type</h4>
 Type documentation: no documentation provided 
 <pre>type IniData: undefined</pre>
 

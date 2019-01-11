@@ -50,20 +50,18 @@ Inclusion code: <code>include "web_services_utils.iol"</code>
 ### Operation Description
 
 
-<a id="wsdlToJolie"></a>
 #### wsdlToJolie
 
 
 Invocation template: <code>wsdlToJolie@WebServicesUtils( request )( response )</code>
 
-**Request type**
+<h4>Request type</h4>
 
 Type documentation: no documentation provided 
 
 
 
-**Response type**
-
+<h4>Response type</h4>
 Type documentation: no documentation provided 
 
 

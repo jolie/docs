@@ -64,14 +64,13 @@ Inclusion code: <code>include "scheduler.iol"</code>
 ### Operation Description
 
 
-<a id="setCronJob"></a>
 #### setCronJob
 
 
 Invocation template: <code>setCronJob@Scheduler( request )( response )</code>
 
-**Request type**
-<a id="SetCronJobRequest"></a>
+<h4 id="SetCronJobRequest">Request type</h4>
+
 Type documentation: no documentation provided 
 <pre>type SetCronJobRequest: void {
 	.jobName: string
@@ -88,8 +87,7 @@ Type documentation: no documentation provided
 }</pre>
 
 
-**Response type**
-
+<h4>Response type</h4>
 Type documentation: no documentation provided 
 
 
@@ -104,14 +102,13 @@ Fault-handling install template: <code>install ( JobAlreadyExists => /* error-ha
 
 ---
 
-<a id="deleteCronJob"></a>
 #### deleteCronJob
 
 
 Invocation template: <code>deleteCronJob@Scheduler( request )( response )</code>
 
-**Request type**
-<a id="DeleteCronJobRequest"></a>
+<h4 id="DeleteCronJobRequest">Request type</h4>
+
 Type documentation: no documentation provided 
 <pre>type DeleteCronJobRequest: void {
 	.jobName: string
@@ -119,8 +116,7 @@ Type documentation: no documentation provided
 }</pre>
 
 
-**Response type**
-
+<h4>Response type</h4>
 Type documentation: no documentation provided 
 
 
@@ -129,14 +125,13 @@ Type documentation: no documentation provided
 
 ---
 
-<a id="setCallbackOperation"></a>
 #### setCallbackOperation
 
 
 Invocation template: <code>setCallbackOperation@Scheduler( request )</code>
 
-**Request type**
-<a id="SetCallBackOperationRequest"></a>
+<h4 id="SetCallBackOperationRequest">Request type</h4>
+
 Type documentation: no documentation provided 
 <pre>type SetCallBackOperationRequest: void {
 	.operationName: string

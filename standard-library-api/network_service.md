@@ -57,20 +57,18 @@ Inclusion code: <code>include "network_service.iol"</code>
 ### Operation Description
 
 
-<a id="getNetworkInterfaceNames"></a>
 #### getNetworkInterfaceNames
 
 
 Invocation template: <code>getNetworkInterfaceNames@NetworkService( request )( response )</code>
 
-**Request type**
-<a id="GetNetworkInterfaceNamesRequest"></a>
+<h4 id="GetNetworkInterfaceNamesRequest">Request type</h4>
+
 Type documentation: no documentation provided 
 <pre>type GetNetworkInterfaceNamesRequest: void</pre>
 
 
-**Response type**
-<a id="GetNetworkInterfaceNamesResponse"></a>
+<h4 id="GetNetworkInterfaceNamesResponse">Response type</h4>
 Type documentation: no documentation provided 
 <pre>type GetNetworkInterfaceNamesResponse: void {
 	.interfaceName*: string {
@@ -83,22 +81,20 @@ Type documentation: no documentation provided
 
 ---
 
-<a id="getIPAddresses"></a>
 #### getIPAddresses
 
 
 Invocation template: <code>getIPAddresses@NetworkService( request )( response )</code>
 
-**Request type**
-<a id="GetIPAddressesRequest"></a>
+<h4 id="GetIPAddressesRequest">Request type</h4>
+
 Type documentation: no documentation provided 
 <pre>type GetIPAddressesRequest: void {
 	.interfaceName: string
 }</pre>
 
 
-**Response type**
-<a id="GetIPAddressesResponse"></a>
+<h4 id="GetIPAddressesResponse">Response type</h4>
 Type documentation: no documentation provided 
 <pre>type GetIPAddressesResponse: void {
 	.ip4?: string

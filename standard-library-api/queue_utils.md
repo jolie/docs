@@ -84,20 +84,18 @@ Inclusion code: <code>include "queue_utils.iol"</code>
 ### Operation Description
 
 
-<a id="size"></a>
 #### size
 
 
 Invocation template: <code>size@QueueUtils( request )( response )</code>
 
-**Request type**
+<h4>Request type</h4>
 
 Type documentation: no documentation provided 
 
 
 
-**Response type**
-
+<h4>Response type</h4>
 Type documentation: no documentation provided 
 
 
@@ -106,20 +104,18 @@ Type documentation: no documentation provided
 
 ---
 
-<a id="poll"></a>
 #### poll
 
 
 Invocation template: <code>poll@QueueUtils( request )( response )</code>
 
-**Request type**
+<h4>Request type</h4>
 
 Type documentation: no documentation provided 
 
 
 
-**Response type**
-
+<h4>Response type</h4>
 Type documentation: no documentation provided 
 
 
@@ -128,20 +124,18 @@ Type documentation: no documentation provided
 
 ---
 
-<a id="new_queue"></a>
 #### new_queue
 
 
 Invocation template: <code>new_queue@QueueUtils( request )( response )</code>
 
-**Request type**
+<h4>Request type</h4>
 
 Type documentation: no documentation provided 
 
 
 
-**Response type**
-
+<h4>Response type</h4>
 Type documentation: no documentation provided 
 
 
@@ -150,20 +144,18 @@ Type documentation: no documentation provided
 
 ---
 
-<a id="delete_queue"></a>
 #### delete_queue
 
 
 Invocation template: <code>delete_queue@QueueUtils( request )( response )</code>
 
-**Request type**
+<h4>Request type</h4>
 
 Type documentation: no documentation provided 
 
 
 
-**Response type**
-
+<h4>Response type</h4>
 Type documentation: no documentation provided 
 
 
@@ -172,14 +164,13 @@ Type documentation: no documentation provided
 
 ---
 
-<a id="push"></a>
 #### push
 
 
 Invocation template: <code>push@QueueUtils( request )( response )</code>
 
-**Request type**
-<a id="QueueRequest"></a>
+<h4 id="QueueRequest">Request type</h4>
+
 Type documentation: no documentation provided 
 <pre>type QueueRequest: void {
 	.queue_name: string
@@ -187,8 +178,7 @@ Type documentation: no documentation provided
 }</pre>
 
 
-**Response type**
-
+<h4>Response type</h4>
 Type documentation: no documentation provided 
 
 
@@ -197,20 +187,18 @@ Type documentation: no documentation provided
 
 ---
 
-<a id="peek"></a>
 #### peek
 
 
 Invocation template: <code>peek@QueueUtils( request )( response )</code>
 
-**Request type**
+<h4>Request type</h4>
 
 Type documentation: no documentation provided 
 
 
 
-**Response type**
-
+<h4>Response type</h4>
 Type documentation: no documentation provided 
 
 

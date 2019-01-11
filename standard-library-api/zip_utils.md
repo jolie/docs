@@ -73,20 +73,18 @@ Inclusion code: <code>include "zip_utils.iol"</code>
 ### Operation Description
 
 
-<a id="zip"></a>
 #### zip
 
 
 Invocation template: <code>zip@ZipUtils( request )( response )</code>
 
-**Request type**
-<a id="ZipRequest"></a>
+<h4 id="ZipRequest">Request type</h4>
+
 Type documentation: no documentation provided 
 <pre>type ZipRequest: undefined</pre>
 
 
-**Response type**
-
+<h4>Response type</h4>
 Type documentation: no documentation provided 
 
 
@@ -101,20 +99,18 @@ Fault-handling install template: <code>install ( IOException => /* error-handlin
 
 ---
 
-<a id="IOException"></a>
 #### IOException
 
 
 Invocation template: <code>IOException@ZipUtils( request )( response )</code>
 
-**Request type**
+<h4>Request type</h4>
 
 Type documentation: no documentation provided 
 
 
 
-**Response type**
-
+<h4>Response type</h4>
 Type documentation: no documentation provided 
 
 
@@ -123,14 +119,13 @@ Type documentation: no documentation provided
 
 ---
 
-<a id="unzip"></a>
 #### unzip
 
 
 Invocation template: <code>unzip@ZipUtils( request )( response )</code>
 
-**Request type**
-<a id="UnzipRequest"></a>
+<h4 id="UnzipRequest">Request type</h4>
+
 Type documentation: no documentation provided 
 <pre>type UnzipRequest: void {
 	.filename: string
@@ -138,8 +133,7 @@ Type documentation: no documentation provided
 }</pre>
 
 
-**Response type**
-<a id="UnzipResponse"></a>
+<h4 id="UnzipResponse">Response type</h4>
 Type documentation: no documentation provided 
 <pre>type UnzipResponse: void {
 	.entry*: string
@@ -156,14 +150,13 @@ Fault-handling install template: <code>install ( FileNotFound => /* error-handli
 
 ---
 
-<a id="readEntry"></a>
 #### readEntry
 
 
 Invocation template: <code>readEntry@ZipUtils( request )( response )</code>
 
-**Request type**
-<a id="ReadEntryRequest"></a>
+<h4 id="ReadEntryRequest">Request type</h4>
+
 Type documentation: no documentation provided 
 <pre>type ReadEntryRequest: void {
 	.entry: string
@@ -171,8 +164,7 @@ Type documentation: no documentation provided
 }</pre>
 
 
-**Response type**
-
+<h4>Response type</h4>
 Type documentation: no documentation provided 
 
 

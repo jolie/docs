@@ -50,14 +50,13 @@ Inclusion code: <code>include "smtp.iol"</code>
 ### Operation Description
 
 
-<a id="sendMail"></a>
 #### sendMail
 
 
 Invocation template: <code>sendMail@SMTP( request )( response )</code>
 
-**Request type**
-<a id="SendMailRequest"></a>
+<h4 id="SendMailRequest">Request type</h4>
+
 Type documentation: no documentation provided 
 <pre>type SendMailRequest: void {
 	.cc*: string
@@ -76,8 +75,7 @@ Type documentation: no documentation provided
 }</pre>
 
 
-**Response type**
-
+<h4>Response type</h4>
 Type documentation: no documentation provided 
 
 

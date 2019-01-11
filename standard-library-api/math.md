@@ -84,20 +84,18 @@ Inclusion code: <code>include "math.iol"</code>
 ### Operation Description
 
 
-<a id="random"></a>
 #### random
 Operation documentation:  Returns a random number d such that 0.0 <= d < 1.0. 
 
 Invocation template: <code>random@Math( request )( response )</code>
 
-**Request type**
+<h4>Request type</h4>
 
 Type documentation: no documentation provided 
 
 
 
-**Response type**
-
+<h4>Response type</h4>
 Type documentation: no documentation provided 
 
 
@@ -106,20 +104,18 @@ Type documentation: no documentation provided
 
 ---
 
-<a id="abs"></a>
 #### abs
 Operation documentation:  Returns the absolute value of the input integer. 
 
 Invocation template: <code>abs@Math( request )( response )</code>
 
-**Request type**
+<h4>Request type</h4>
 
 Type documentation: no documentation provided 
 
 
 
-**Response type**
-
+<h4>Response type</h4>
 Type documentation: no documentation provided 
 
 
@@ -128,22 +124,20 @@ Type documentation: no documentation provided
 
 ---
 
-<a id="round"></a>
 #### round
 
 
 Invocation template: <code>round@Math( request )( response )</code>
 
-**Request type**
-<a id="RoundRequestType"></a>
+<h4 id="RoundRequestType">Request type</h4>
+
 Type documentation: no documentation provided 
 <pre>type RoundRequestType: double {
 	.decimals?: int
 }</pre>
 
 
-**Response type**
-
+<h4>Response type</h4>
 Type documentation: no documentation provided 
 
 
@@ -152,20 +146,18 @@ Type documentation: no documentation provided
 
 ---
 
-<a id="pi"></a>
 #### pi
 Operation documentation:  Returns the PI constant 
 
 Invocation template: <code>pi@Math( request )( response )</code>
 
-**Request type**
+<h4>Request type</h4>
 
 Type documentation: no documentation provided 
 
 
 
-**Response type**
-
+<h4>Response type</h4>
 Type documentation: no documentation provided 
 
 
@@ -174,14 +166,13 @@ Type documentation: no documentation provided
 
 ---
 
-<a id="pow"></a>
 #### pow
 Operation documentation:  Returns the result of .base to the power of .exponent (see request data type). 
 
 Invocation template: <code>pow@Math( request )( response )</code>
 
-**Request type**
-<a id="PowRequest"></a>
+<h4 id="PowRequest">Request type</h4>
+
 Type documentation: no documentation provided 
 <pre>type PowRequest: void {
 	.base: double
@@ -189,8 +180,7 @@ Type documentation: no documentation provided
 }</pre>
 
 
-**Response type**
-
+<h4>Response type</h4>
 Type documentation: no documentation provided 
 
 
@@ -199,14 +189,13 @@ Type documentation: no documentation provided
 
 ---
 
-<a id="summation"></a>
 #### summation
 Operation documentation:  Returns the summation of values from .from to .to (see request data type). For example, .from=2 and .to=5 would produce a return value of 2+3+4+5=14. 
 
 Invocation template: <code>summation@Math( request )( response )</code>
 
-**Request type**
-<a id="SummationRequest"></a>
+<h4 id="SummationRequest">Request type</h4>
+
 Type documentation: no documentation provided 
 <pre>type SummationRequest: void {
 	.from: int
@@ -214,8 +203,7 @@ Type documentation: no documentation provided
 }</pre>
 
 
-**Response type**
-
+<h4>Response type</h4>
 Type documentation: no documentation provided 
 
 

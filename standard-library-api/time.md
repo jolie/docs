@@ -165,7 +165,6 @@ Inclusion code: <code>include "time.iol"</code>
 ### Operation Description
 
 
-<a id="scheduleTimeout"></a>
 #### scheduleTimeout
 Operation documentation: 
 		 Schedules a timeout, which can be cancelled using #cancelTimeout from the returned string. Default .timeunit value is MILLISECONDS, .operation default is "timeout".
@@ -173,8 +172,8 @@ Operation documentation:
 
 Invocation template: <code>scheduleTimeout@Time( request )( response )</code>
 
-**Request type**
-<a id="ScheduleTimeOutRequest"></a>
+<h4 id="ScheduleTimeOutRequest">Request type</h4>
+
 Type documentation: no documentation provided 
 <pre>type ScheduleTimeOutRequest: int {
 	.message?: undefined
@@ -183,8 +182,7 @@ Type documentation: no documentation provided
 }</pre>
 
 
-**Response type**
-
+<h4>Response type</h4>
 Type documentation: no documentation provided 
 
 
@@ -199,7 +197,6 @@ Fault-handling install template: <code>install ( InvalidTimeUnit => /* error-han
 
 ---
 
-<a id="getDateValues"></a>
 #### getDateValues
 Operation documentation: 
 		 Converts an input string into a date expressed by means of
@@ -209,16 +206,15 @@ Operation documentation:
 
 Invocation template: <code>getDateValues@Time( request )( response )</code>
 
-**Request type**
-<a id="DateValuesRequestType"></a>
+<h4 id="DateValuesRequestType">Request type</h4>
+
 Type documentation: no documentation provided 
 <pre>type DateValuesRequestType: string {
 	.format?: string
 }</pre>
 
 
-**Response type**
-<a id="DateValuesType"></a>
+<h4 id="DateValuesType">Response type</h4>
 Type documentation: no documentation provided 
 <pre>type DateValuesType: void {
 	.month: int
@@ -237,7 +233,6 @@ Fault-handling install template: <code>install ( InvalidDate => /* error-handlin
 
 ---
 
-<a id="getDateTime"></a>
 #### getDateTime
 Operation documentation: 
 		 It returns a date time in a string format starting from a timestamp
@@ -245,16 +240,15 @@ Operation documentation:
 
 Invocation template: <code>getDateTime@Time( request )( response )</code>
 
-**Request type**
-<a id="GetDateTimeRequest"></a>
+<h4 id="GetDateTimeRequest">Request type</h4>
+
 Type documentation: no documentation provided 
 <pre>type GetDateTimeRequest: long {
 	.format?: string
 }</pre>
 
 
-**Response type**
-<a id="GetDateTimeResponse"></a>
+<h4 id="GetDateTimeResponse">Response type</h4>
 Type documentation: no documentation provided 
 <pre>type GetDateTimeResponse: string {
 	.month: int
@@ -270,7 +264,6 @@ Type documentation: no documentation provided
 
 ---
 
-<a id="getCurrentTimeMillis"></a>
 #### getCurrentTimeMillis
 Operation documentation: 
 		 Warning: this is temporary and subject to future change as soon as long is supported by Jolie.
@@ -278,14 +271,13 @@ Operation documentation:
 
 Invocation template: <code>getCurrentTimeMillis@Time( request )( response )</code>
 
-**Request type**
+<h4>Request type</h4>
 
 Type documentation: no documentation provided 
 
 
 
-**Response type**
-
+<h4>Response type</h4>
 Type documentation: no documentation provided 
 
 
@@ -294,14 +286,13 @@ Type documentation: no documentation provided
 
 ---
 
-<a id="getDateDiff"></a>
 #### getDateDiff
 
 
 Invocation template: <code>getDateDiff@Time( request )( response )</code>
 
-**Request type**
-<a id="DiffDateRequestType"></a>
+<h4 id="DiffDateRequestType">Request type</h4>
+
 Type documentation: no documentation provided 
 <pre>type DiffDateRequestType: void {
 	.format?: string
@@ -310,8 +301,7 @@ Type documentation: no documentation provided
 }</pre>
 
 
-**Response type**
-
+<h4>Response type</h4>
 Type documentation: no documentation provided 
 
 
@@ -320,14 +310,13 @@ Type documentation: no documentation provided
 
 ---
 
-<a id="getTimeDiff"></a>
 #### getTimeDiff
 
 
 Invocation template: <code>getTimeDiff@Time( request )( response )</code>
 
-**Request type**
-<a id="GetTimeDiffRequest"></a>
+<h4 id="GetTimeDiffRequest">Request type</h4>
+
 Type documentation: no documentation provided 
 <pre>type GetTimeDiffRequest: void {
 	.time1: string
@@ -335,8 +324,7 @@ Type documentation: no documentation provided
 }</pre>
 
 
-**Response type**
-
+<h4>Response type</h4>
 Type documentation: no documentation provided 
 
 
@@ -345,14 +333,13 @@ Type documentation: no documentation provided
 
 ---
 
-<a id="getTimestampFromString"></a>
 #### getTimestampFromString
 
 
 Invocation template: <code>getTimestampFromString@Time( request )( response )</code>
 
-**Request type**
-<a id="GetTimestampFromStringRequest"></a>
+<h4 id="GetTimestampFromStringRequest">Request type</h4>
+
 Type documentation: no documentation provided 
 <pre>type GetTimestampFromStringRequest: string {
 	.format?: string
@@ -360,8 +347,7 @@ Type documentation: no documentation provided
 }</pre>
 
 
-**Response type**
-
+<h4>Response type</h4>
 Type documentation: no documentation provided 
 
 
@@ -376,7 +362,6 @@ Fault-handling install template: <code>install ( InvalidTimestamp => /* error-ha
 
 ---
 
-<a id="cancelTimeout"></a>
 #### cancelTimeout
 Operation documentation: 
 		 Cancels a timeout from a long-value created from #scheduleTimeout
@@ -384,14 +369,13 @@ Operation documentation:
 
 Invocation template: <code>cancelTimeout@Time( request )( response )</code>
 
-**Request type**
+<h4>Request type</h4>
 
 Type documentation: no documentation provided 
 
 
 
-**Response type**
-
+<h4>Response type</h4>
 Type documentation: no documentation provided 
 
 
@@ -400,13 +384,12 @@ Type documentation: no documentation provided
 
 ---
 
-<a id="setNextTimeoutByTime"></a>
 #### setNextTimeoutByTime
 
 
 Invocation template: <code>setNextTimeoutByTime@Time( request )</code>
 
-**Request type**
+<h4>Request type</h4>
 
 Type documentation: no documentation provided 
 
@@ -417,22 +400,20 @@ Type documentation: no documentation provided
 
 ---
 
-<a id="getCurrentDateTime"></a>
 #### getCurrentDateTime
 
 
 Invocation template: <code>getCurrentDateTime@Time( request )( response )</code>
 
-**Request type**
-<a id="CurrentDateTimeRequestType"></a>
+<h4 id="CurrentDateTimeRequestType">Request type</h4>
+
 Type documentation: no documentation provided 
 <pre>type CurrentDateTimeRequestType: void {
 	.format?: string
 }</pre>
 
 
-**Response type**
-
+<h4>Response type</h4>
 Type documentation: no documentation provided 
 
 
@@ -441,20 +422,18 @@ Type documentation: no documentation provided
 
 ---
 
-<a id="sleep"></a>
 #### sleep
 
 
 Invocation template: <code>sleep@Time( request )( response )</code>
 
-**Request type**
+<h4>Request type</h4>
 
 Type documentation: no documentation provided 
 
 
 
-**Response type**
-
+<h4>Response type</h4>
 Type documentation: no documentation provided 
 
 
@@ -463,7 +442,6 @@ Type documentation: no documentation provided
 
 ---
 
-<a id="setNextTimeout"></a>
 #### setNextTimeout
 Operation documentation: 
 		  it sets a timeout whose duration is in milliseconds and it is represented by the root value of the message
@@ -473,8 +451,8 @@ Operation documentation:
 
 Invocation template: <code>setNextTimeout@Time( request )</code>
 
-**Request type**
-<a id="SetNextTimeOutRequest"></a>
+<h4 id="SetNextTimeOutRequest">Request type</h4>
+
 Type documentation: no documentation provided 
 <pre>type SetNextTimeOutRequest: int {
 	.message?: undefined
@@ -487,20 +465,18 @@ Type documentation: no documentation provided
 
 ---
 
-<a id="getTimeFromMilliSeconds"></a>
 #### getTimeFromMilliSeconds
 
 
 Invocation template: <code>getTimeFromMilliSeconds@Time( request )( response )</code>
 
-**Request type**
+<h4>Request type</h4>
 
 Type documentation: no documentation provided 
 
 
 
-**Response type**
-<a id="TimeValuesType"></a>
+<h4 id="TimeValuesType">Response type</h4>
 Type documentation: no documentation provided 
 <pre>type TimeValuesType: void {
 	.hour: int
@@ -513,14 +489,13 @@ Type documentation: no documentation provided
 
 ---
 
-<a id="getDateTimeValues"></a>
 #### getDateTimeValues
 
 
 Invocation template: <code>getDateTimeValues@Time( request )( response )</code>
 
-**Request type**
-<a id="GetTimestampFromStringRequest"></a>
+<h4 id="GetTimestampFromStringRequest">Request type</h4>
+
 Type documentation: no documentation provided 
 <pre>type GetTimestampFromStringRequest: string {
 	.format?: string
@@ -528,8 +503,7 @@ Type documentation: no documentation provided
 }</pre>
 
 
-**Response type**
-<a id="DateTimeType"></a>
+<h4 id="DateTimeType">Response type</h4>
 Type documentation: no documentation provided 
 <pre>type DateTimeType: void {
 	.month: int
@@ -551,13 +525,12 @@ Fault-handling install template: <code>install ( InvalidDate => /* error-handlin
 
 ---
 
-<a id="setNextTimeoutByDateTime"></a>
 #### setNextTimeoutByDateTime
 
 
 Invocation template: <code>setNextTimeoutByDateTime@Time( request )</code>
 
-**Request type**
+<h4>Request type</h4>
 
 Type documentation: no documentation provided 
 
@@ -568,7 +541,6 @@ Type documentation: no documentation provided
 
 ---
 
-<a id="getCurrentDateValues"></a>
 #### getCurrentDateValues
 Operation documentation: 
 		 Returns the current date split in three fields: day, month and year
@@ -576,14 +548,13 @@ Operation documentation:
 
 Invocation template: <code>getCurrentDateValues@Time( request )( response )</code>
 
-**Request type**
+<h4>Request type</h4>
 
 Type documentation: no documentation provided 
 
 
 
-**Response type**
-<a id="DateValuesType"></a>
+<h4 id="DateValuesType">Response type</h4>
 Type documentation: no documentation provided 
 <pre>type DateValuesType: void {
 	.month: int
@@ -596,20 +567,18 @@ Type documentation: no documentation provided
 
 ---
 
-<a id="getTimeValues"></a>
 #### getTimeValues
 
 
 Invocation template: <code>getTimeValues@Time( request )( response )</code>
 
-**Request type**
+<h4>Request type</h4>
 
 Type documentation: no documentation provided 
 
 
 
-**Response type**
-<a id="TimeValuesType"></a>
+<h4 id="TimeValuesType">Response type</h4>
 Type documentation: no documentation provided 
 <pre>type TimeValuesType: void {
 	.hour: int

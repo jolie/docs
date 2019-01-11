@@ -67,7 +67,6 @@ Inclusion code: <code>include "xml_utils.iol"</code>
 ### Operation Description
 
 
-<a id="xmlToValue"></a>
 #### xmlToValue
 Operation documentation: 
 		  Transforms the base value in XML format (data types string, raw) into a Jolie value
@@ -77,8 +76,8 @@ Operation documentation:
 
 Invocation template: <code>xmlToValue@XmlUtils( request )( response )</code>
 
-**Request type**
-<a id="XMLToValueRequest"></a>
+<h4 id="XMLToValueRequest">Request type</h4>
+
 Type documentation: no documentation provided 
 <pre>type XMLToValueRequest: any {
 	.options?: void {
@@ -93,8 +92,7 @@ Type documentation: no documentation provided
 }</pre>
 
 
-**Response type**
-
+<h4>Response type</h4>
 Type documentation: no documentation provided 
 
 
@@ -109,14 +107,13 @@ Fault-handling install template: <code>install ( IOException => /* error-handlin
 
 ---
 
-<a id="transform"></a>
 #### transform
 
 
 Invocation template: <code>transform@XmlUtils( request )( response )</code>
 
-**Request type**
-<a id="XMLTransformationRequest"></a>
+<h4 id="XMLTransformationRequest">Request type</h4>
+
 Type documentation: no documentation provided 
 <pre>type XMLTransformationRequest: void {
 	.source: string
@@ -124,8 +121,7 @@ Type documentation: no documentation provided
 }</pre>
 
 
-**Response type**
-
+<h4>Response type</h4>
 Type documentation: no documentation provided 
 
 
@@ -142,7 +138,6 @@ Fault-handling install template: <code>install ( TransformerException => /* erro
 
 ---
 
-<a id="valueToXml"></a>
 #### valueToXml
 Operation documentation: 
 		  Transforms the value contained within the root node into an xml string.
@@ -152,8 +147,8 @@ Operation documentation:
 
 Invocation template: <code>valueToXml@XmlUtils( request )( response )</code>
 
-**Request type**
-<h4 id="ValueToXmlRequest"></h4> 
+<h4 id="ValueToXmlRequest">Request type</h4>
+
 Type documentation: no documentation provided 
 <pre>type ValueToXmlRequest: void {
 	.omitXmlDeclaration?: bool
@@ -170,8 +165,7 @@ Type documentation: no documentation provided
 }</pre>
 
 
-**Response type**
-
+<h4>Response type</h4>
 Type documentation: no documentation provided 
 
 

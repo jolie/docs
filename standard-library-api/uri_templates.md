@@ -60,14 +60,13 @@ WARNING: the API of this service is experimental. Use it at your own risk.
 ### Operation Description
 
 
-<a id="expand"></a>
 #### expand
 
 
 Invocation template: <code>expand@UriTemplates( request )( response )</code>
 
-**Request type**
-<a id="ExpandRequest"></a>
+<h4 id="ExpandRequest">Request type</h4>
+
 Type documentation: no documentation provided 
 <pre>type ExpandRequest: void {
 	.template: string
@@ -75,8 +74,7 @@ Type documentation: no documentation provided
 }</pre>
 
 
-**Response type**
-
+<h4>Response type</h4>
 Type documentation: no documentation provided 
 
 
@@ -85,14 +83,13 @@ Type documentation: no documentation provided
 
 ---
 
-<a id="match"></a>
 #### match
 
 
 Invocation template: <code>match@UriTemplates( request )( response )</code>
 
-**Request type**
-<a id="UriMatchRequest"></a>
+<h4 id="UriMatchRequest">Request type</h4>
+
 Type documentation: no documentation provided 
 <pre>type UriMatchRequest: void {
 	.template: string
@@ -100,8 +97,7 @@ Type documentation: no documentation provided
 }</pre>
 
 
-**Response type**
-<a id="MatchResponse"></a>
+<h4 id="MatchResponse">Response type</h4>
 Type documentation: no documentation provided 
 <pre>type MatchResponse: undefined</pre>
 

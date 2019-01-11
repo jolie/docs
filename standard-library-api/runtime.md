@@ -173,20 +173,18 @@ Inclusion code: <code>include "runtime.iol"</code>
 ### Operation Description
 
 
-<a id="loadLibrary"></a>
 #### loadLibrary
 
 
 Invocation template: <code>loadLibrary@Runtime( request )( response )</code>
 
-**Request type**
+<h4>Request type</h4>
 
 Type documentation: no documentation provided 
 
 
 
-**Response type**
-
+<h4>Response type</h4>
 Type documentation: no documentation provided 
 
 
@@ -201,20 +199,18 @@ Fault-handling install template: <code>install ( IOException => /* error-handlin
 
 ---
 
-<a id="removeOutputPort"></a>
 #### removeOutputPort
 
 
 Invocation template: <code>removeOutputPort@Runtime( request )( response )</code>
 
-**Request type**
+<h4>Request type</h4>
 
 Type documentation: no documentation provided 
 
 
 
-**Response type**
-
+<h4>Response type</h4>
 Type documentation: no documentation provided 
 
 
@@ -223,14 +219,13 @@ Type documentation: no documentation provided
 
 ---
 
-<a id="setRedirection"></a>
 #### setRedirection
 
 
 Invocation template: <code>setRedirection@Runtime( request )( response )</code>
 
-**Request type**
-<a id="SetRedirectionRequest"></a>
+<h4 id="SetRedirectionRequest">Request type</h4>
+
 Type documentation: no documentation provided 
 <pre>type SetRedirectionRequest: void {
 	.inputPortName: string
@@ -239,8 +234,7 @@ Type documentation: no documentation provided
 }</pre>
 
 
-**Response type**
-
+<h4>Response type</h4>
 Type documentation: no documentation provided 
 
 
@@ -255,7 +249,6 @@ Fault-handling install template: <code>install ( RuntimeException => /* error-ha
 
 ---
 
-<a id="getOutputPorts"></a>
 #### getOutputPorts
 Operation documentation: 
 		it returns the list of definitions of all the available outputPorts of the service
@@ -263,14 +256,13 @@ Operation documentation:
 
 Invocation template: <code>getOutputPorts@Runtime( request )( response )</code>
 
-**Request type**
+<h4>Request type</h4>
 
 Type documentation: no documentation provided 
 
 
 
-**Response type**
-<a id="GetOutputPortsResponse"></a>
+<h4 id="GetOutputPortsResponse">Response type</h4>
 Type documentation: no documentation provided 
 <pre>type GetOutputPortsResponse: void {
 	.port*: void {
@@ -285,14 +277,13 @@ Type documentation: no documentation provided
 
 ---
 
-<a id="loadEmbeddedService"></a>
 #### loadEmbeddedService
 
 
 Invocation template: <code>loadEmbeddedService@Runtime( request )( response )</code>
 
-**Request type**
-<a id="LoadEmbeddedServiceRequest"></a>
+<h4 id="LoadEmbeddedServiceRequest">Request type</h4>
+
 Type documentation: no documentation provided 
 <pre>type LoadEmbeddedServiceRequest: void {
 	.filepath: string
@@ -300,8 +291,7 @@ Type documentation: no documentation provided
 }</pre>
 
 
-**Response type**
-
+<h4>Response type</h4>
 Type documentation: no documentation provided 
 
 
@@ -316,7 +306,6 @@ Fault-handling install template: <code>install ( RuntimeException => /* error-ha
 
 ---
 
-<a id="getOutputPort"></a>
 #### getOutputPort
 Operation documentation: 
 		it returns a port definition if it exists, OuputPortDoesNotExist fault otherwise
@@ -324,16 +313,15 @@ Operation documentation:
 
 Invocation template: <code>getOutputPort@Runtime( request )( response )</code>
 
-**Request type**
-<a id="GetOutputPortRequest"></a>
+<h4 id="GetOutputPortRequest">Request type</h4>
+
 Type documentation: no documentation provided 
 <pre>type GetOutputPortRequest: void {
 	.name: string
 }</pre>
 
 
-**Response type**
-<a id="GetOutputPortResponse"></a>
+<h4 id="GetOutputPortResponse">Response type</h4>
 Type documentation: no documentation provided 
 <pre>type GetOutputPortResponse: void {
 	.protocol: string
@@ -352,20 +340,18 @@ Fault-handling install template: <code>install ( OutputPortDoesNotExist => /* er
 
 ---
 
-<a id="dumpState"></a>
 #### dumpState
 
 
 Invocation template: <code>dumpState@Runtime( request )( response )</code>
 
-**Request type**
+<h4>Request type</h4>
 
 Type documentation: no documentation provided 
 
 
 
-**Response type**
-
+<h4>Response type</h4>
 Type documentation: no documentation provided 
 
 
@@ -374,20 +360,18 @@ Type documentation: no documentation provided
 
 ---
 
-<a id="getLocalLocation"></a>
 #### getLocalLocation
 
 
 Invocation template: <code>getLocalLocation@Runtime( request )( response )</code>
 
-**Request type**
+<h4>Request type</h4>
 
 Type documentation: no documentation provided 
 
 
 
-**Response type**
-
+<h4>Response type</h4>
 Type documentation: no documentation provided 
 
 
@@ -396,14 +380,13 @@ Type documentation: no documentation provided
 
 ---
 
-<a id="getRedirection"></a>
 #### getRedirection
 
 
 Invocation template: <code>getRedirection@Runtime( request )( response )</code>
 
-**Request type**
-<a id="GetRedirectionRequest"></a>
+<h4 id="GetRedirectionRequest">Request type</h4>
+
 Type documentation: no documentation provided 
 <pre>type GetRedirectionRequest: void {
 	.inputPortName: string
@@ -411,8 +394,7 @@ Type documentation: no documentation provided
 }</pre>
 
 
-**Response type**
-
+<h4>Response type</h4>
 Type documentation: no documentation provided 
 
 
@@ -421,14 +403,13 @@ Type documentation: no documentation provided
 
 ---
 
-<a id="setOutputPort"></a>
 #### setOutputPort
 
 
 Invocation template: <code>setOutputPort@Runtime( request )( response )</code>
 
-**Request type**
-<a id="SetOutputPortRequest"></a>
+<h4 id="SetOutputPortRequest">Request type</h4>
+
 Type documentation: no documentation provided 
 <pre>type SetOutputPortRequest: void {
 	.protocol?: undefined
@@ -437,8 +418,7 @@ Type documentation: no documentation provided
 }</pre>
 
 
-**Response type**
-
+<h4>Response type</h4>
 Type documentation: no documentation provided 
 
 
@@ -447,22 +427,20 @@ Type documentation: no documentation provided
 
 ---
 
-<a id="halt"></a>
 #### halt
 
 
 Invocation template: <code>halt@Runtime( request )( response )</code>
 
-**Request type**
-<a id="HaltRequest"></a>
+<h4 id="HaltRequest">Request type</h4>
+
 Type documentation: no documentation provided 
 <pre>type HaltRequest: void {
 	.status?: int
 }</pre>
 
 
-**Response type**
-
+<h4>Response type</h4>
 Type documentation: no documentation provided 
 
 
@@ -471,20 +449,18 @@ Type documentation: no documentation provided
 
 ---
 
-<a id="callExit"></a>
 #### callExit
 
 
 Invocation template: <code>callExit@Runtime( request )( response )</code>
 
-**Request type**
+<h4>Request type</h4>
 
 Type documentation: no documentation provided 
 
 
 
-**Response type**
-
+<h4>Response type</h4>
 Type documentation: no documentation provided 
 
 
@@ -493,7 +469,6 @@ Type documentation: no documentation provided
 
 ---
 
-<a id="stats"></a>
 #### stats
 Operation documentation: 
 	  Get information about the runtime state of the Jolie interpreter.
@@ -501,14 +476,13 @@ Operation documentation:
 
 Invocation template: <code>stats@Runtime( request )( response )</code>
 
-**Request type**
+<h4>Request type</h4>
 
 Type documentation: no documentation provided 
 
 
 
-**Response type**
-<a id="Stats"></a>
+<h4 id="Stats">Response type</h4>
 Type documentation: no documentation provided 
 <pre>type Stats: void {
 	.os: void {
@@ -529,14 +503,13 @@ Type documentation: no documentation provided
 
 ---
 
-<a id="removeRedirection"></a>
 #### removeRedirection
 
 
 Invocation template: <code>removeRedirection@Runtime( request )( response )</code>
 
-**Request type**
-<a id="GetRedirectionRequest"></a>
+<h4 id="GetRedirectionRequest">Request type</h4>
+
 Type documentation: no documentation provided 
 <pre>type GetRedirectionRequest: void {
 	.inputPortName: string
@@ -544,8 +517,7 @@ Type documentation: no documentation provided
 }</pre>
 
 
-**Response type**
-
+<h4>Response type</h4>
 Type documentation: no documentation provided 
 
 
@@ -560,14 +532,13 @@ Fault-handling install template: <code>install ( RuntimeException => /* error-ha
 
 ---
 
-<a id="setMonitor"></a>
 #### setMonitor
 
 
 Invocation template: <code>setMonitor@Runtime( request )( response )</code>
 
-**Request type**
-<a id="SetMonitorRequest"></a>
+<h4 id="SetMonitorRequest">Request type</h4>
+
 Type documentation: no documentation provided 
 <pre>type SetMonitorRequest: void {
 	.protocol?: undefined
@@ -575,8 +546,7 @@ Type documentation: no documentation provided
 }</pre>
 
 
-**Response type**
-
+<h4>Response type</h4>
 Type documentation: no documentation provided 
 
 
@@ -585,20 +555,18 @@ Type documentation: no documentation provided
 
 ---
 
-<a id="getProcessId"></a>
 #### getProcessId
 
 
 Invocation template: <code>getProcessId@Runtime( request )( response )</code>
 
-**Request type**
+<h4>Request type</h4>
 
 Type documentation: no documentation provided 
 
 
 
-**Response type**
-
+<h4>Response type</h4>
 Type documentation: no documentation provided 
 
 
@@ -607,20 +575,18 @@ Type documentation: no documentation provided
 
 ---
 
-<a id="getIncludePaths"></a>
 #### getIncludePaths
 
 
 Invocation template: <code>getIncludePaths@Runtime( request )( response )</code>
 
-**Request type**
+<h4>Request type</h4>
 
 Type documentation: no documentation provided 
 
 
 
-**Response type**
-<a id="GetIncludePathResponse"></a>
+<h4 id="GetIncludePathResponse">Response type</h4>
 Type documentation: no documentation provided 
 <pre>type GetIncludePathResponse: void {
 	.path*: string
@@ -631,20 +597,18 @@ Type documentation: no documentation provided
 
 ---
 
-<a id="getenv"></a>
 #### getenv
 Operation documentation:  Get the value of an environment variable 
 
 Invocation template: <code>getenv@Runtime( request )( response )</code>
 
-**Request type**
+<h4>Request type</h4>
 
 Type documentation: no documentation provided 
 
 
 
-**Response type**
-<a id="MaybeString"></a>
+<h4 id="MaybeString">Response type</h4>
 Type documentation: no documentation provided 
 <pre>type MaybeString: type MaybeString: void|type MaybeString: string</pre>
 

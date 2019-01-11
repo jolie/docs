@@ -94,7 +94,6 @@ Inclusion code: <code>include "database.iol"</code>
 ### Operation Description
 
 
-<a id="checkConnection"></a>
 #### checkConnection
 Operation documentation: 
 	  Checks the connection with the database. Throws ConnectionError if the connection is not functioning properly.
@@ -102,14 +101,13 @@ Operation documentation:
 
 Invocation template: <code>checkConnection@Database( request )( response )</code>
 
-**Request type**
+<h4>Request type</h4>
 
 Type documentation: no documentation provided 
 
 
 
-**Response type**
-
+<h4>Response type</h4>
 Type documentation: no documentation provided 
 
 
@@ -124,7 +122,6 @@ Fault-handling install template: <code>install ( ConnectionError => /* error-han
 
 ---
 
-<a id="query"></a>
 #### query
 Operation documentation: 
 	  Queries the database and returns a result set
@@ -166,14 +163,13 @@ Operation documentation:
 
 Invocation template: <code>query@Database( request )( response )</code>
 
-**Request type**
-<a id="QueryRequest"></a>
+<h4 id="QueryRequest">Request type</h4>
+
 Type documentation: no documentation provided 
 <pre>type QueryRequest: undefined</pre>
 
 
-**Response type**
-<a id="QueryResult"></a>
+<h4 id="QueryResult">Response type</h4>
 Type documentation: no documentation provided 
 <pre>type QueryResult: void {
 	.row*: undefined
@@ -196,7 +192,6 @@ Fault-handling install template: <code>install ( ConnectionError => /* error-han
 
 ---
 
-<a id="executeTransaction"></a>
 #### executeTransaction
 Operation documentation: 
 	  Executes more than one database command in a single transaction
@@ -204,16 +199,15 @@ Operation documentation:
 
 Invocation template: <code>executeTransaction@Database( request )( response )</code>
 
-**Request type**
-<a id="DatabaseTransactionRequest"></a>
+<h4 id="DatabaseTransactionRequest">Request type</h4>
+
 Type documentation: no documentation provided 
 <pre>type DatabaseTransactionRequest: void {
 	.statement[1,2147483647]: undefined
 }</pre>
 
 
-**Response type**
-<a id="DatabaseTransactionResult"></a>
+<h4 id="DatabaseTransactionResult">Response type</h4>
 Type documentation: no documentation provided 
 <pre>type DatabaseTransactionResult: void {
 	.result*: TransactionQueryResult
@@ -236,7 +230,6 @@ Fault-handling install template: <code>install ( ConnectionError => /* error-han
 
 ---
 
-<a id="update"></a>
 #### update
 Operation documentation: 
 	  Updates the database and returns a single status code
@@ -253,14 +246,13 @@ Operation documentation:
 
 Invocation template: <code>update@Database( request )( response )</code>
 
-**Request type**
-<a id="UpdateRequest"></a>
+<h4 id="UpdateRequest">Request type</h4>
+
 Type documentation: no documentation provided 
 <pre>type UpdateRequest: undefined</pre>
 
 
-**Response type**
-
+<h4>Response type</h4>
 Type documentation: no documentation provided 
 
 
@@ -281,7 +273,6 @@ Fault-handling install template: <code>install ( ConnectionError => /* error-han
 
 ---
 
-<a id="close"></a>
 #### close
 Operation documentation: 
 	  Explicitly closes a database connection
@@ -291,14 +282,13 @@ Operation documentation:
 
 Invocation template: <code>close@Database( request )( response )</code>
 
-**Request type**
+<h4>Request type</h4>
 
 Type documentation: no documentation provided 
 
 
 
-**Response type**
-
+<h4>Response type</h4>
 Type documentation: no documentation provided 
 
 
@@ -307,7 +297,6 @@ Type documentation: no documentation provided
 
 ---
 
-<a id="connect"></a>
 #### connect
 Operation documentation: 
 	  Connects to a database and eventually closes a previous connection
@@ -325,8 +314,8 @@ Operation documentation:
 
 Invocation template: <code>connect@Database( request )( response )</code>
 
-**Request type**
-<a id="ConnectionInfo"></a>
+<h4 id="ConnectionInfo">Request type</h4>
+
 Type documentation: no documentation provided 
 <pre>type ConnectionInfo: void {
 	.database: string
@@ -342,8 +331,7 @@ Type documentation: no documentation provided
 }</pre>
 
 
-**Response type**
-
+<h4>Response type</h4>
 Type documentation: no documentation provided 
 
 

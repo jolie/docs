@@ -58,7 +58,6 @@ Inclusion code: <code>include "json_utils.iol"</code>
 ### Operation Description
 
 
-<a id="getJsonString"></a>
 #### getJsonString
 Operation documentation: 
 	  Returns the value converted into a JSON string
@@ -68,14 +67,13 @@ Operation documentation:
 
 Invocation template: <code>getJsonString@JsonUtils( request )( response )</code>
 
-**Request type**
-<a id="GetJsonStringRequest"></a>
+<h4 id="GetJsonStringRequest">Request type</h4>
+
 Type documentation: no documentation provided 
 <pre>type GetJsonStringRequest: undefined</pre>
 
 
-**Response type**
-<a id="GetJsonStringResponse"></a>
+<h4 id="GetJsonStringResponse">Response type</h4>
 Type documentation: no documentation provided 
 <pre>type GetJsonStringResponse: string</pre>
 
@@ -90,7 +88,6 @@ Fault-handling install template: <code>install ( JSONCreationError => /* error-h
 
 ---
 
-<a id="getJsonValue"></a>
 #### getJsonValue
 Operation documentation: 
 	  Returns the JSON string converted into a value
@@ -100,8 +97,8 @@ Operation documentation:
 
 Invocation template: <code>getJsonValue@JsonUtils( request )( response )</code>
 
-**Request type**
-<a id="GetJsonValueRequest"></a>
+<h4 id="GetJsonValueRequest">Request type</h4>
+
 Type documentation: no documentation provided 
 <pre>type GetJsonValueRequest: any {
 	.strictEncoding?: bool
@@ -109,8 +106,7 @@ Type documentation: no documentation provided
 }</pre>
 
 
-**Response type**
-<a id="GetJsonValueResponse"></a>
+<h4 id="GetJsonValueResponse">Response type</h4>
 Type documentation: no documentation provided 
 <pre>type GetJsonValueResponse: undefined</pre>
 

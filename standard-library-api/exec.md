@@ -49,14 +49,13 @@ Inclusion code: <code>include "exec.iol"</code>
 ### Operation Description
 
 
-<a id="exec"></a>
 #### exec
 
 
 Invocation template: <code>exec@Exec( request )( response )</code>
 
-**Request type**
-<a id="CommandExecutionRequest"></a>
+<h4 id="CommandExecutionRequest">Request type</h4>
+
 Type documentation: no documentation provided 
 <pre>type CommandExecutionRequest: string {
 	.args*: string
@@ -66,8 +65,7 @@ Type documentation: no documentation provided
 }</pre>
 
 
-**Response type**
-<a id="CommandExecutionResult"></a>
+<h4 id="CommandExecutionResult">Response type</h4>
 Type documentation: no documentation provided 
 <pre>type CommandExecutionResult: any {
 	.exitCode?: int

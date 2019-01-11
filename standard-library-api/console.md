@@ -55,14 +55,13 @@ Inclusion code: <code>include "console.iol"</code>
 ### Operation Description
 
 
-<a id="in"></a>
 #### in
 
 
 Invocation template: <code>in( request )</code>
 
-**Request type**
-<a id="InRequest"></a>
+<h4 id="InRequest">Request type</h4>
+
 Type documentation: no documentation provided 
 <pre>type InRequest: string {
 	.token?: string
@@ -138,20 +137,18 @@ Type documentation: no documentation provided
 ### Operation Description
 
 
-<a id="print"></a>
 #### print
 
 
 Invocation template: <code>print@Console( request )( response )</code>
 
-**Request type**
+<h4>Request type</h4>
 
 Type documentation: no documentation provided 
 
 
 
-**Response type**
-
+<h4>Response type</h4>
 Type documentation: no documentation provided 
 
 
@@ -160,20 +157,18 @@ Type documentation: no documentation provided
 
 ---
 
-<a id="println"></a>
 #### println
 
 
 Invocation template: <code>println@Console( request )( response )</code>
 
-**Request type**
+<h4>Request type</h4>
 
 Type documentation: no documentation provided 
 
 
 
-**Response type**
-
+<h4>Response type</h4>
 Type documentation: no documentation provided 
 
 
@@ -182,7 +177,6 @@ Type documentation: no documentation provided
 
 ---
 
-<a id="registerForInput"></a>
 #### registerForInput
 Operation documentation: 
 	  it enables the console for input listening
@@ -191,16 +185,15 @@ Operation documentation:
 
 Invocation template: <code>registerForInput@Console( request )( response )</code>
 
-**Request type**
-<a id="RegisterForInputRequest"></a>
+<h4 id="RegisterForInputRequest">Request type</h4>
+
 Type documentation: no documentation provided 
 <pre>type RegisterForInputRequest: void {
 	.enableSessionListener?: bool
 }</pre>
 
 
-**Response type**
-
+<h4>Response type</h4>
 Type documentation: no documentation provided 
 
 
@@ -209,7 +202,6 @@ Type documentation: no documentation provided
 
 ---
 
-<a id="unsubscribeSessionListener"></a>
 #### unsubscribeSessionListener
 Operation documentation: 
 	 it disables a session to receive inputs from the console, previously registered with subscribeSessionListener operation
@@ -217,16 +209,15 @@ Operation documentation:
 
 Invocation template: <code>unsubscribeSessionListener@Console( request )( response )</code>
 
-**Request type**
-<a id="UnsubscribeSessionListener"></a>
+<h4 id="UnsubscribeSessionListener">Request type</h4>
+
 Type documentation: no documentation provided 
 <pre>type UnsubscribeSessionListener: void {
 	.token: string
 }</pre>
 
 
-**Response type**
-
+<h4>Response type</h4>
 Type documentation: no documentation provided 
 
 
@@ -235,7 +226,6 @@ Type documentation: no documentation provided
 
 ---
 
-<a id="subscribeSessionListener"></a>
 #### subscribeSessionListener
 Operation documentation: 
 	 it receives a token string which identifies a service session.
@@ -244,16 +234,15 @@ Operation documentation:
 
 Invocation template: <code>subscribeSessionListener@Console( request )( response )</code>
 
-**Request type**
-<a id="SubscribeSessionListener"></a>
+<h4 id="SubscribeSessionListener">Request type</h4>
+
 Type documentation: no documentation provided 
 <pre>type SubscribeSessionListener: void {
 	.token: string
 }</pre>
 
 
-**Response type**
-
+<h4>Response type</h4>
 Type documentation: no documentation provided 
 
 
@@ -262,7 +251,6 @@ Type documentation: no documentation provided
 
 ---
 
-<a id="enableTimestamp"></a>
 #### enableTimestamp
 Operation documentation: 
 		It enables timestamp inline printing for each console output operation call: print, println
@@ -271,16 +259,15 @@ Operation documentation:
 
 Invocation template: <code>enableTimestamp@Console( request )( response )</code>
 
-**Request type**
-<a id="EnableTimestampRequest"></a>
+<h4 id="EnableTimestampRequest">Request type</h4>
+
 Type documentation: no documentation provided 
 <pre>type EnableTimestampRequest: bool {
 	.format?: string
 }</pre>
 
 
-**Response type**
-
+<h4>Response type</h4>
 Type documentation: no documentation provided 
 
 

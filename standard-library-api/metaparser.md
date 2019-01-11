@@ -112,14 +112,13 @@ Inclusion code: <code>include "metaparser.iol"</code>
 ### Operation Description
 
 
-<a id="getSurface"></a>
 #### getSurface
 
 
 Invocation template: <code>getSurface@Parser( request )( response )</code>
 
-**Request type**
-<a id="Participant"></a>
+<h4 id="Participant">Request type</h4>
+
 Type documentation: no documentation provided 
 <pre>type Participant: void {
 	.protocol: string
@@ -129,8 +128,7 @@ Type documentation: no documentation provided
 }</pre>
 
 
-**Response type**
-
+<h4>Response type</h4>
 Type documentation: no documentation provided 
 
 
@@ -139,14 +137,13 @@ Type documentation: no documentation provided
 
 ---
 
-<a id="getNativeType"></a>
 #### getNativeType
 
 
 Invocation template: <code>getNativeType@Parser( request )( response )</code>
 
-**Request type**
-<a id="NativeType"></a>
+<h4 id="NativeType">Request type</h4>
+
 Type documentation: no documentation provided 
 <pre>type NativeType: void {
 	.string_type?: bool
@@ -164,8 +161,7 @@ Type documentation: no documentation provided
 }</pre>
 
 
-**Response type**
-
+<h4>Response type</h4>
 Type documentation: no documentation provided 
 
 
@@ -174,14 +170,13 @@ Type documentation: no documentation provided
 
 ---
 
-<a id="getInterface"></a>
 #### getInterface
 
 
 Invocation template: <code>getInterface@Parser( request )( response )</code>
 
-**Request type**
-<a id="Interface"></a>
+<h4 id="Interface">Request type</h4>
+
 Type documentation: no documentation provided 
 <pre>type Interface: void {
 	.types*: Type
@@ -190,8 +185,7 @@ Type documentation: no documentation provided
 }</pre>
 
 
-**Response type**
-
+<h4>Response type</h4>
 Type documentation: no documentation provided 
 
 
@@ -200,14 +194,13 @@ Type documentation: no documentation provided
 
 ---
 
-<a id="getTypeInLine"></a>
 #### getTypeInLine
 
 
 Invocation template: <code>getTypeInLine@Parser( request )( response )</code>
 
-**Request type**
-<a id="Type"></a>
+<h4 id="Type">Request type</h4>
+
 Type documentation: no documentation provided 
 <pre>type Type: void {
 	.root_type: NativeType
@@ -216,8 +209,7 @@ Type documentation: no documentation provided
 }</pre>
 
 
-**Response type**
-
+<h4>Response type</h4>
 Type documentation: no documentation provided 
 
 
@@ -226,14 +218,13 @@ Type documentation: no documentation provided
 
 ---
 
-<a id="getSurfaceWithoutOutputPort"></a>
 #### getSurfaceWithoutOutputPort
 
 
 Invocation template: <code>getSurfaceWithoutOutputPort@Parser( request )( response )</code>
 
-**Request type**
-<a id="Participant"></a>
+<h4 id="Participant">Request type</h4>
+
 Type documentation: no documentation provided 
 <pre>type Participant: void {
 	.protocol: string
@@ -243,8 +234,7 @@ Type documentation: no documentation provided
 }</pre>
 
 
-**Response type**
-
+<h4>Response type</h4>
 Type documentation: no documentation provided 
 
 
@@ -253,14 +243,13 @@ Type documentation: no documentation provided
 
 ---
 
-<a id="getType"></a>
 #### getType
 
 
 Invocation template: <code>getType@Parser( request )( response )</code>
 
-**Request type**
-<a id="Type"></a>
+<h4 id="Type">Request type</h4>
+
 Type documentation: no documentation provided 
 <pre>type Type: void {
 	.root_type: NativeType
@@ -269,8 +258,7 @@ Type documentation: no documentation provided
 }</pre>
 
 
-**Response type**
-
+<h4>Response type</h4>
 Type documentation: no documentation provided 
 
 
@@ -279,14 +267,13 @@ Type documentation: no documentation provided
 
 ---
 
-<a id="getParticipantOutput"></a>
 #### getParticipantOutput
 
 
 Invocation template: <code>getParticipantOutput@Parser( request )( response )</code>
 
-**Request type**
-<a id="Participant"></a>
+<h4 id="Participant">Request type</h4>
+
 Type documentation: no documentation provided 
 <pre>type Participant: void {
 	.protocol: string
@@ -296,8 +283,7 @@ Type documentation: no documentation provided
 }</pre>
 
 
-**Response type**
-
+<h4>Response type</h4>
 Type documentation: no documentation provided 
 
 
@@ -306,14 +292,13 @@ Type documentation: no documentation provided
 
 ---
 
-<a id="getSubType"></a>
 #### getSubType
 
 
 Invocation template: <code>getSubType@Parser( request )( response )</code>
 
-**Request type**
-<a id="SubType"></a>
+<h4 id="SubType">Request type</h4>
+
 Type documentation: no documentation provided 
 <pre>type SubType: void {
 	.type_inline?: Type
@@ -323,8 +308,7 @@ Type documentation: no documentation provided
 }</pre>
 
 
-**Response type**
-
+<h4>Response type</h4>
 Type documentation: no documentation provided 
 
 
@@ -333,14 +317,13 @@ Type documentation: no documentation provided
 
 ---
 
-<a id="getParticipantInput"></a>
 #### getParticipantInput
 
 
 Invocation template: <code>getParticipantInput@Parser( request )( response )</code>
 
-**Request type**
-<a id="Participant"></a>
+<h4 id="Participant">Request type</h4>
+
 Type documentation: no documentation provided 
 <pre>type Participant: void {
 	.protocol: string
@@ -350,8 +333,7 @@ Type documentation: no documentation provided
 }</pre>
 
 
-**Response type**
-
+<h4>Response type</h4>
 Type documentation: no documentation provided 
 
 
@@ -360,14 +342,13 @@ Type documentation: no documentation provided
 
 ---
 
-<a id="getCardinality"></a>
 #### getCardinality
 
 
 Invocation template: <code>getCardinality@Parser( request )( response )</code>
 
-**Request type**
-<a id="Cardinality"></a>
+<h4 id="Cardinality">Request type</h4>
+
 Type documentation: no documentation provided 
 <pre>type Cardinality: void {
 	.min: int
@@ -376,8 +357,7 @@ Type documentation: no documentation provided
 }</pre>
 
 
-**Response type**
-
+<h4>Response type</h4>
 Type documentation: no documentation provided 
 
 

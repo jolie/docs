@@ -56,7 +56,6 @@ Inclusion code: <code>include "semaphore_utils.iol"</code>
 ### Operation Description
 
 
-<a id="release"></a>
 #### release
 Operation documentation: 
 	 Releases permits to a semaphore.
@@ -67,8 +66,8 @@ Operation documentation:
 
 Invocation template: <code>release@SemaphoreUtils( request )( response )</code>
 
-**Request type**
-<a id="SemaphoreRequest"></a>
+<h4 id="SemaphoreRequest">Request type</h4>
+
 Type documentation: no documentation provided 
 <pre>type SemaphoreRequest: void {
 	.permits?: int
@@ -76,8 +75,7 @@ Type documentation: no documentation provided
 }</pre>
 
 
-**Response type**
-
+<h4>Response type</h4>
 Type documentation: no documentation provided 
 
 
@@ -86,7 +84,6 @@ Type documentation: no documentation provided
 
 ---
 
-<a id="acquire"></a>
 #### acquire
 Operation documentation: 
 	  Acquires permits from a semaphore.
@@ -98,8 +95,8 @@ Operation documentation:
 
 Invocation template: <code>acquire@SemaphoreUtils( request )( response )</code>
 
-**Request type**
-<a id="SemaphoreRequest"></a>
+<h4 id="SemaphoreRequest">Request type</h4>
+
 Type documentation: no documentation provided 
 <pre>type SemaphoreRequest: void {
 	.permits?: int
@@ -107,8 +104,7 @@ Type documentation: no documentation provided
 }</pre>
 
 
-**Response type**
-
+<h4>Response type</h4>
 Type documentation: no documentation provided 
 
 

@@ -55,7 +55,6 @@ WARNING: the API of this service is experimental. Use it at your own risk.
 ### Operation Description
 
 
-<a id="invoke"></a>
 #### invoke
 Operation documentation: 
 	Invokes the specified .operation at .outputPort.
@@ -64,8 +63,8 @@ Operation documentation:
 
 Invocation template: <code>invoke@Reflection( request )( response )</code>
 
-**Request type**
-<a id="InvokeRequest"></a>
+<h4 id="InvokeRequest">Request type</h4>
+
 Type documentation: no documentation provided 
 <pre>type InvokeRequest: void {
 	.outputPort: string
@@ -75,8 +74,7 @@ Type documentation: no documentation provided
 }</pre>
 
 
-**Response type**
-
+<h4>Response type</h4>
 Type documentation: no documentation provided 
 
 

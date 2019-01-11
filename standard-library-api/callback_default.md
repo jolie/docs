@@ -49,14 +49,13 @@ Inclusion code: <code>include "scheduler/callback_default.iol"</code>
 ### Operation Description
 
 
-<a id="schedulerCallback"></a>
 #### schedulerCallback
 
 
 Invocation template: <code>schedulerCallback( request )</code>
 
-**Request type**
-<a id="SchedulerCallBackRequest"></a>
+<h4 id="SchedulerCallBackRequest">Request type</h4>
+
 Type documentation: no documentation provided 
 <pre>type SchedulerCallBackRequest: void {
 	.jobName: string

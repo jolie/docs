@@ -193,14 +193,13 @@ Interface documentation:
 ### Operation Description
 
 
-<a id="leftPad"></a>
 #### leftPad
 
 
 Invocation template: <code>leftPad@StringUtils( request )( response )</code>
 
-**Request type**
-<a id="PadRequest"></a>
+<h4 id="PadRequest">Request type</h4>
+
 Type documentation: no documentation provided 
 <pre>type PadRequest: string {
 	.length: int
@@ -208,8 +207,7 @@ Type documentation: no documentation provided
 }</pre>
 
 
-**Response type**
-
+<h4>Response type</h4>
 Type documentation: no documentation provided 
 
 
@@ -218,20 +216,18 @@ Type documentation: no documentation provided
 
 ---
 
-<a id="valueToPrettyString"></a>
 #### valueToPrettyString
 
 
 Invocation template: <code>valueToPrettyString@StringUtils( request )( response )</code>
 
-**Request type**
+<h4>Request type</h4>
 
 Type documentation: no documentation provided 
 
 
 
-**Response type**
-
+<h4>Response type</h4>
 Type documentation: no documentation provided 
 
 
@@ -240,20 +236,18 @@ Type documentation: no documentation provided
 
 ---
 
-<a id="toLowerCase"></a>
 #### toLowerCase
 
 
 Invocation template: <code>toLowerCase@StringUtils( request )( response )</code>
 
-**Request type**
+<h4>Request type</h4>
 
 Type documentation: no documentation provided 
 
 
 
-**Response type**
-
+<h4>Response type</h4>
 Type documentation: no documentation provided 
 
 
@@ -262,20 +256,18 @@ Type documentation: no documentation provided
 
 ---
 
-<a id="length"></a>
 #### length
 
 
 Invocation template: <code>length@StringUtils( request )( response )</code>
 
-**Request type**
+<h4>Request type</h4>
 
 Type documentation: no documentation provided 
 
 
 
-**Response type**
-
+<h4>Response type</h4>
 Type documentation: no documentation provided 
 
 
@@ -284,22 +276,20 @@ Type documentation: no documentation provided
 
 ---
 
-<a id="match"></a>
 #### match
 
 
 Invocation template: <code>match@StringUtils( request )( response )</code>
 
-**Request type**
-<a id="MatchRequest"></a>
+<h4 id="MatchRequest">Request type</h4>
+
 Type documentation: no documentation provided 
 <pre>type MatchRequest: string {
 	.regex: string
 }</pre>
 
 
-**Response type**
-<a id="MatchResult"></a>
+<h4 id="MatchResult">Response type</h4>
 Type documentation: no documentation provided 
 <pre>type MatchResult: int {
 	.group*: string
@@ -310,14 +300,13 @@ Type documentation: no documentation provided
 
 ---
 
-<a id="replaceFirst"></a>
 #### replaceFirst
 
 
 Invocation template: <code>replaceFirst@StringUtils( request )( response )</code>
 
-**Request type**
-<a id="ReplaceRequest"></a>
+<h4 id="ReplaceRequest">Request type</h4>
+
 Type documentation: no documentation provided 
 <pre>type ReplaceRequest: string {
 	.regex: string
@@ -325,8 +314,7 @@ Type documentation: no documentation provided
 }</pre>
 
 
-**Response type**
-
+<h4>Response type</h4>
 Type documentation: no documentation provided 
 
 
@@ -335,22 +323,20 @@ Type documentation: no documentation provided
 
 ---
 
-<a id="sort"></a>
 #### sort
 
 
 Invocation template: <code>sort@StringUtils( request )( response )</code>
 
-**Request type**
-<a id="StringItemList"></a>
+<h4 id="StringItemList">Request type</h4>
+
 Type documentation: no documentation provided 
 <pre>type StringItemList: void {
 	.item*: string
 }</pre>
 
 
-**Response type**
-<a id="StringItemList"></a>
+<h4 id="StringItemList">Response type</h4>
 Type documentation: no documentation provided 
 <pre>type StringItemList: void {
 	.item*: string
@@ -361,14 +347,13 @@ Type documentation: no documentation provided
 
 ---
 
-<a id="replaceAll"></a>
 #### replaceAll
 
 
 Invocation template: <code>replaceAll@StringUtils( request )( response )</code>
 
-**Request type**
-<a id="ReplaceRequest"></a>
+<h4 id="ReplaceRequest">Request type</h4>
+
 Type documentation: no documentation provided 
 <pre>type ReplaceRequest: string {
 	.regex: string
@@ -376,8 +361,7 @@ Type documentation: no documentation provided
 }</pre>
 
 
-**Response type**
-
+<h4>Response type</h4>
 Type documentation: no documentation provided 
 
 
@@ -386,14 +370,13 @@ Type documentation: no documentation provided
 
 ---
 
-<a id="substring"></a>
 #### substring
 
 
 Invocation template: <code>substring@StringUtils( request )( response )</code>
 
-**Request type**
-<a id="SubStringRequest"></a>
+<h4 id="SubStringRequest">Request type</h4>
+
 Type documentation: no documentation provided 
 <pre>type SubStringRequest: string {
 	.end: int
@@ -401,8 +384,7 @@ Type documentation: no documentation provided
 }</pre>
 
 
-**Response type**
-
+<h4>Response type</h4>
 Type documentation: no documentation provided 
 
 
@@ -411,7 +393,6 @@ Type documentation: no documentation provided
 
 ---
 
-<a id="getRandomUUID"></a>
 #### getRandomUUID
 Operation documentation: 
 	 it returns a random UUID
@@ -419,14 +400,13 @@ Operation documentation:
 
 Invocation template: <code>getRandomUUID@StringUtils( request )( response )</code>
 
-**Request type**
+<h4>Request type</h4>
 
 Type documentation: no documentation provided 
 
 
 
-**Response type**
-
+<h4>Response type</h4>
 Type documentation: no documentation provided 
 
 
@@ -435,14 +415,13 @@ Type documentation: no documentation provided
 
 ---
 
-<a id="rightPad"></a>
 #### rightPad
 
 
 Invocation template: <code>rightPad@StringUtils( request )( response )</code>
 
-**Request type**
-<a id="PadRequest"></a>
+<h4 id="PadRequest">Request type</h4>
+
 Type documentation: no documentation provided 
 <pre>type PadRequest: string {
 	.length: int
@@ -450,8 +429,7 @@ Type documentation: no documentation provided
 }</pre>
 
 
-**Response type**
-
+<h4>Response type</h4>
 Type documentation: no documentation provided 
 
 
@@ -460,7 +438,6 @@ Type documentation: no documentation provided
 
 ---
 
-<a id="contains"></a>
 #### contains
 Operation documentation: 
 	  Returns true if the string contains .substring
@@ -468,16 +445,15 @@ Operation documentation:
 
 Invocation template: <code>contains@StringUtils( request )( response )</code>
 
-**Request type**
-<a id="ContainsRequest"></a>
+<h4 id="ContainsRequest">Request type</h4>
+
 Type documentation: no documentation provided 
 <pre>type ContainsRequest: string {
 	.substring: string
 }</pre>
 
 
-**Response type**
-
+<h4>Response type</h4>
 Type documentation: no documentation provided 
 
 
@@ -486,14 +462,13 @@ Type documentation: no documentation provided
 
 ---
 
-<a id="split"></a>
 #### split
 
 
 Invocation template: <code>split@StringUtils( request )( response )</code>
 
-**Request type**
-<a id="SplitRequest"></a>
+<h4 id="SplitRequest">Request type</h4>
+
 Type documentation: no documentation provided 
 <pre>type SplitRequest: string {
 	.regex: string
@@ -501,8 +476,7 @@ Type documentation: no documentation provided
 }</pre>
 
 
-**Response type**
-<a id="SplitResult"></a>
+<h4 id="SplitResult">Response type</h4>
 Type documentation: no documentation provided 
 <pre>type SplitResult: void {
 	.result*: string
@@ -513,22 +487,20 @@ Type documentation: no documentation provided
 
 ---
 
-<a id="splitByLength"></a>
 #### splitByLength
 
 
 Invocation template: <code>splitByLength@StringUtils( request )( response )</code>
 
-**Request type**
-<a id="SplitByLengthRequest"></a>
+<h4 id="SplitByLengthRequest">Request type</h4>
+
 Type documentation: no documentation provided 
 <pre>type SplitByLengthRequest: string {
 	.length: int
 }</pre>
 
 
-**Response type**
-<a id="SplitResult"></a>
+<h4 id="SplitResult">Response type</h4>
 Type documentation: no documentation provided 
 <pre>type SplitResult: void {
 	.result*: string
@@ -539,20 +511,18 @@ Type documentation: no documentation provided
 
 ---
 
-<a id="trim"></a>
 #### trim
 
 
 Invocation template: <code>trim@StringUtils( request )( response )</code>
 
-**Request type**
+<h4>Request type</h4>
 
 Type documentation: no documentation provided 
 
 
 
-**Response type**
-
+<h4>Response type</h4>
 Type documentation: no documentation provided 
 
 
@@ -561,22 +531,20 @@ Type documentation: no documentation provided
 
 ---
 
-<a id="find"></a>
 #### find
 
 
 Invocation template: <code>find@StringUtils( request )( response )</code>
 
-**Request type**
-<a id="MatchRequest"></a>
+<h4 id="MatchRequest">Request type</h4>
+
 Type documentation: no documentation provided 
 <pre>type MatchRequest: string {
 	.regex: string
 }</pre>
 
 
-**Response type**
-<a id="MatchResult"></a>
+<h4 id="MatchResult">Response type</h4>
 Type documentation: no documentation provided 
 <pre>type MatchResult: int {
 	.group*: string
@@ -587,7 +555,6 @@ Type documentation: no documentation provided
 
 ---
 
-<a id="endsWith"></a>
 #### endsWith
 Operation documentation: 
 	  checks if a string ends with a given suffix
@@ -595,16 +562,15 @@ Operation documentation:
 
 Invocation template: <code>endsWith@StringUtils( request )( response )</code>
 
-**Request type**
-<a id="EndsWithRequest"></a>
+<h4 id="EndsWithRequest">Request type</h4>
+
 Type documentation: no documentation provided 
 <pre>type EndsWithRequest: string {
 	.suffix: string
 }</pre>
 
 
-**Response type**
-
+<h4>Response type</h4>
 Type documentation: no documentation provided 
 
 
@@ -613,20 +579,18 @@ Type documentation: no documentation provided
 
 ---
 
-<a id="toUpperCase"></a>
 #### toUpperCase
 
 
 Invocation template: <code>toUpperCase@StringUtils( request )( response )</code>
 
-**Request type**
+<h4>Request type</h4>
 
 Type documentation: no documentation provided 
 
 
 
-**Response type**
-
+<h4>Response type</h4>
 Type documentation: no documentation provided 
 
 
@@ -635,14 +599,13 @@ Type documentation: no documentation provided
 
 ---
 
-<a id="join"></a>
 #### join
 
 
 Invocation template: <code>join@StringUtils( request )( response )</code>
 
-**Request type**
-<a id="JoinRequest"></a>
+<h4 id="JoinRequest">Request type</h4>
+
 Type documentation: no documentation provided 
 <pre>type JoinRequest: void {
 	.piece*: string
@@ -650,8 +613,7 @@ Type documentation: no documentation provided
 }</pre>
 
 
-**Response type**
-
+<h4>Response type</h4>
 Type documentation: no documentation provided 
 
 
@@ -660,22 +622,20 @@ Type documentation: no documentation provided
 
 ---
 
-<a id="indexOf"></a>
 #### indexOf
 
 
 Invocation template: <code>indexOf@StringUtils( request )( response )</code>
 
-**Request type**
-<a id="IndexOfRequest"></a>
+<h4 id="IndexOfRequest">Request type</h4>
+
 Type documentation: no documentation provided 
 <pre>type IndexOfRequest: string {
 	.word: string
 }</pre>
 
 
-**Response type**
-<a id="IndexOfResponse"></a>
+<h4 id="IndexOfResponse">Response type</h4>
 Type documentation: no documentation provided 
 <pre>type IndexOfResponse: int</pre>
 
@@ -684,7 +644,6 @@ Type documentation: no documentation provided
 
 ---
 
-<a id="startsWith"></a>
 #### startsWith
 Operation documentation: 
 	 checks if the passed string starts with a given prefix
@@ -692,16 +651,15 @@ Operation documentation:
 
 Invocation template: <code>startsWith@StringUtils( request )( response )</code>
 
-**Request type**
-<a id="StartsWithRequest"></a>
+<h4 id="StartsWithRequest">Request type</h4>
+
 Type documentation: no documentation provided 
 <pre>type StartsWithRequest: string {
 	.prefix: string
 }</pre>
 
 
-**Response type**
-
+<h4>Response type</h4>
 Type documentation: no documentation provided 
 
 

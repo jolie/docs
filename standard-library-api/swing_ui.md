@@ -63,20 +63,18 @@ Inclusion code: <code>include "ui/swing_ui.iol"</code>
 ### Operation Description
 
 
-<a id="showMessageDialog"></a>
 #### showMessageDialog
 
 
 Invocation template: <code>showMessageDialog@SwingUI( request )( response )</code>
 
-**Request type**
+<h4>Request type</h4>
 
 Type documentation: no documentation provided 
 
 
 
-**Response type**
-
+<h4>Response type</h4>
 Type documentation: no documentation provided 
 
 
@@ -85,20 +83,18 @@ Type documentation: no documentation provided
 
 ---
 
-<a id="showYesNoQuestionDialog"></a>
 #### showYesNoQuestionDialog
 
 
 Invocation template: <code>showYesNoQuestionDialog@SwingUI( request )( response )</code>
 
-**Request type**
+<h4>Request type</h4>
 
 Type documentation: no documentation provided 
 
 
 
-**Response type**
-
+<h4>Response type</h4>
 Type documentation: no documentation provided 
 
 
@@ -107,20 +103,18 @@ Type documentation: no documentation provided
 
 ---
 
-<a id="showInputDialog"></a>
 #### showInputDialog
 
 
 Invocation template: <code>showInputDialog@SwingUI( request )( response )</code>
 
-**Request type**
+<h4>Request type</h4>
 
 Type documentation: no documentation provided 
 
 
 
-**Response type**
-
+<h4>Response type</h4>
 Type documentation: no documentation provided 
 
 

@@ -50,22 +50,20 @@ Inclusion code: <code>include "message_digest.iol"</code>
 ### Operation Description
 
 
-<a id="md5"></a>
 #### md5
 
 
 Invocation template: <code>md5@MessageDigest( request )( response )</code>
 
-**Request type**
-<a id="MD5Request"></a>
+<h4 id="MD5Request">Request type</h4>
+
 Type documentation: no documentation provided 
 <pre>type MD5Request: string {
 	.radix?: int
 }</pre>
 
 
-**Response type**
-
+<h4>Response type</h4>
 Type documentation: no documentation provided 
 
 

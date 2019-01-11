@@ -87,14 +87,13 @@ WARNING: the API of this service is experimental. Use it at your own risk.
 ### Operation Description
 
 
-<a id="getInputPortMetaData"></a>
 #### getInputPortMetaData
 
 
 Invocation template: <code>getInputPortMetaData@MetaJolie( request )( response )</code>
 
-**Request type**
-<a id="GetInputPortMetaDataRequest"></a>
+<h4 id="GetInputPortMetaDataRequest">Request type</h4>
+
 Type documentation: no documentation provided 
 <pre>type GetInputPortMetaDataRequest: void {
 	.filename: string
@@ -102,8 +101,7 @@ Type documentation: no documentation provided
 }</pre>
 
 
-**Response type**
-<a id="GetInputPortMetaDataResponse"></a>
+<h4 id="GetInputPortMetaDataResponse">Response type</h4>
 Type documentation: no documentation provided 
 <pre>type GetInputPortMetaDataResponse: void {
 	.input*: Participant
@@ -142,14 +140,13 @@ Fault-handling install template: <code>install ( SemanticException => /* error-h
 
 ---
 
-<a id="parseRoles"></a>
 #### parseRoles
 
 
 Invocation template: <code>parseRoles@MetaJolie( request )( response )</code>
 
-**Request type**
-<a id="ParseRoleRequest"></a>
+<h4 id="ParseRoleRequest">Request type</h4>
+
 Type documentation: no documentation provided 
 <pre>type ParseRoleRequest: void {
 	.filename: string
@@ -157,8 +154,7 @@ Type documentation: no documentation provided
 }</pre>
 
 
-**Response type**
-<a id="Role"></a>
+<h4 id="Role">Response type</h4>
 Type documentation: no documentation provided 
 <pre>type Role: void {
 	.output?: Participant
@@ -172,14 +168,13 @@ Type documentation: no documentation provided
 
 ---
 
-<a id="getMetaData"></a>
 #### getMetaData
 
 
 Invocation template: <code>getMetaData@MetaJolie( request )( response )</code>
 
-**Request type**
-<a id="GetMetaDataRequest"></a>
+<h4 id="GetMetaDataRequest">Request type</h4>
+
 Type documentation: no documentation provided 
 <pre>type GetMetaDataRequest: void {
 	.filename: string
@@ -187,8 +182,7 @@ Type documentation: no documentation provided
 }</pre>
 
 
-**Response type**
-<a id="GetMetaDataResponse"></a>
+<h4 id="GetMetaDataResponse">Response type</h4>
 Type documentation: no documentation provided 
 <pre>type GetMetaDataResponse: void {
 	.output*: Participant
@@ -230,14 +224,13 @@ Fault-handling install template: <code>install ( SemanticException => /* error-h
 
 ---
 
-<a id="messageTypeCast"></a>
 #### messageTypeCast
 
 
 Invocation template: <code>messageTypeCast@MetaJolie( request )( response )</code>
 
-**Request type**
-<a id="MessageTypeCastRequest"></a>
+<h4 id="MessageTypeCastRequest">Request type</h4>
+
 Type documentation: no documentation provided 
 <pre>type MessageTypeCastRequest: void {
 	.types: void {
@@ -248,8 +241,7 @@ Type documentation: no documentation provided
 }</pre>
 
 
-**Response type**
-<a id="MessageTypeCastResponse"></a>
+<h4 id="MessageTypeCastResponse">Response type</h4>
 Type documentation: no documentation provided 
 <pre>type MessageTypeCastResponse: void {
 	.message: undefined
@@ -266,22 +258,20 @@ Fault-handling install template: <code>install ( TypeMismatch => /* error-handli
 
 ---
 
-<a id="checkNativeType"></a>
 #### checkNativeType
 
 
 Invocation template: <code>checkNativeType@MetaJolie( request )( response )</code>
 
-**Request type**
-<a id="CheckNativeTypeRequest"></a>
+<h4 id="CheckNativeTypeRequest">Request type</h4>
+
 Type documentation: no documentation provided 
 <pre>type CheckNativeTypeRequest: void {
 	.type_name: string
 }</pre>
 
 
-**Response type**
-<a id="CheckNativeTypeResponse"></a>
+<h4 id="CheckNativeTypeResponse">Response type</h4>
 Type documentation: no documentation provided 
 <pre>type CheckNativeTypeResponse: void {
 	.result: bool
