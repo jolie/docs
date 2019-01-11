@@ -1,50 +1,85 @@
-# Exec
+# Include library: exec.iol
 
-## From file `exec.iol`
+Inclusion code: <code>include "exec.iol"</code>
 
-| Port Name | Location | Protocol |
-| :--- | :--- | :--- |
-| Exec |  |  |
+<table>
+  <caption>Service Deployment</caption>
+  <thead>
+    <tr>
+      <th>Port Name</th>
+      <th>Location</th>
+      <th>Protocol</th>
+      <th>Interfaces</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Exec</td>
+      <td>-</td>
+      <td>-</td>
+      <td><a href="#ExecInterface">ExecInterface</a></td>
+    </tr>
+  </tbody>
+</table>
 
-## List of the available interfaces
+<h3>List of Available Interfaces</h3>
 
-* [ExecInterface](exec.md#ExecInterface)
+<h3 id="ExecInterface">ExecInterface</h3>
 
-## Interface ExecInterface {#ExecInterface}
+<table>
+  <thead>
+    <tr>
+      <th>Operation Name</th>
+      <th>Input Type</th>
+      <th>Output Type</th>
+      <th>Faults</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="#exec">exec</a></td>
+      <td><a href="#CommandExecutionRequest">CommandExecutionRequest</a></td>
+      <td><a href="#CommandExecutionResult">CommandExecutionResult</a></td>
+      <td>
+      </td>
+    </tr>
+  </tbody>
+</table>
 
-| Heading | Input type | Output type | Faults |
-| :--- | :--- | :--- | :--- |
-| [exec](exec.md#exec) | [CommandExecutionRequest](exec.md#CommandExecutionRequest)  | [CommandExecutionResult](exec.md#CommandExecutionResult)  |  |
+### Operation Description
 
-## Operation list
 
-### exec {#exec}
+<a id="exec"></a>
+#### exec
 
-```text
-exec( CommandExecutionRequest )( CommandExecutionResult )
-```
 
-## Message type list
+Invocation template: <code>exec@Exec( request )( response )</code>
 
-### CommandExecutionRequest {#CommandExecutionRequest}
+**Request type**
+<a id="CommandExecutionRequest"></a>
+Type documentation: no documentation provided 
+<pre>type CommandExecutionRequest: string {
+	.args*: string
+	.workingDirectory?: string
+	.stdOutConsoleEnable?: bool
+	.waitFor?: int
+}</pre>
 
-```text
-type CommandExecutionRequest: string { 
-    .args*: string
-    .workingDirectory?: string
-    .stdOutConsoleEnable?: bool
-    .waitFor?: int
-}
-```
 
-### CommandExecutionResult {#CommandExecutionResult}
+**Response type**
+<a id="CommandExecutionResult"></a>
+Type documentation: no documentation provided 
+<pre>type CommandExecutionResult: any {
+	.exitCode?: int
+	.stderr?: string
+}</pre>
 
-```text
-type CommandExecutionResult: any { 
-    .exitCode?: int
-    .stderr?: string
-}
-```
 
-## Type list
+
+
+---
+
+
+
+
 

@@ -1,62 +1,106 @@
-# Reflection
+# Include library: reflection.iol
 
-## From file `reflection.iol`
+Inclusion code: <code>include "reflection.iol"</code>
 
-| Port Name | Location | Protocol |
-| :--- | :--- | :--- |
-| Reflection |  |  |
+<table>
+  <caption>Service Deployment</caption>
+  <thead>
+    <tr>
+      <th>Port Name</th>
+      <th>Location</th>
+      <th>Protocol</th>
+      <th>Interfaces</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Reflection</td>
+      <td>-</td>
+      <td>-</td>
+      <td><a href="#ReflectionIface">ReflectionIface</a></td>
+    </tr>
+  </tbody>
+</table>
 
-## List of the available interfaces
+<h3>List of Available Interfaces</h3>
 
-* [ReflectionIface](reflection.md#ReflectionIface)
+<h3 id="ReflectionIface">ReflectionIface</h3>
 
-## Interface ReflectionIface {#ReflectionIface}
-
- WARNING: the API of this service is experimental. Use it at your own risk.
-
-| Heading | Input type | Output type | Faults |
-| :--- | :--- | :--- | :--- |
-| [invoke](reflection.md#invoke) | [InvokeRequest](reflection.md#InvokeRequest)  | undefined  |  OperationNotFound\( [string](reflection.md#string) \)    InvocationFault\( [InvocationFaultType](reflection.md#InvocationFaultType) \)    |
-
-## Operation list
-
-### invoke {#invoke}
-
-```text
-invoke( InvokeRequest )( undefined )
- throws
+Interface documentation: 
+WARNING: the API of this service is experimental. Use it at your own risk.
 
 
-OperationNotFound( string )
+<table>
+  <thead>
+    <tr>
+      <th>Operation Name</th>
+      <th>Input Type</th>
+      <th>Output Type</th>
+      <th>Faults</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="#invoke">invoke</a></td>
+      <td><a href="#InvokeRequest">InvokeRequest</a></td>
+      <td>undefined</td>
+      <td>
+        OperationNotFound( string ) <br> 
+        InvocationFault( <a href="#InvocationFaultType">InvocationFaultType</a> )
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+### Operation Description
 
 
-InvocationFault( InvocationFaultType )
-```
+<a id="invoke"></a>
+#### invoke
+Operation documentation: 
+	Invokes the specified .operation at .outputPort.
+	If the operation is a OneWay, the invocation returns no value.
+	
 
-Invokes the specified .operation at .outputPort.  
- If the operation is a OneWay, the invocation returns no value.
+Invocation template: <code>invoke@Reflection( request )( response )</code>
 
-## Message type list
+**Request type**
+<a id="InvokeRequest"></a>
+Type documentation: no documentation provided 
+<pre>type InvokeRequest: void {
+	.outputPort: string
+	.data?: undefined
+	.resourcePath?: string
+	.operation: string
+}</pre>
 
-### InvokeRequest {#InvokeRequest}
 
-```text
-type InvokeRequest: void { 
-    .outputPort: string
-    .data?: undefined
-    .resourcePath?: string
-    .operation: string
-}
-```
+**Response type**
 
-### InvocationFaultType {#InvocationFaultType}
+Type documentation: no documentation provided 
 
-```text
-type InvocationFaultType: void { 
-    .data: string
-    .name: string
-}
-```
 
-## Type list
+
+**Possible faults thrown**
+
+
+Fault <code>OperationNotFound</code> with type <code>string</code>
+
+Fault-handling install template: <code>install ( OperationNotFound => /* error-handling code */ )</code>
+
+
+
+Fault <code>InvocationFault</code> with type <code>InvocationFaultType</code>
+
+Fault-handling install template: <code>install ( InvocationFault => /* error-handling code */ )</code>
+<pre>type InvocationFaultType: void {
+	.data: string
+	.name: string
+}</pre>
+
+---
+
+
+
+
 

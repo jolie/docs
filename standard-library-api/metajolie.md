@@ -1,335 +1,298 @@
-# MetaJolie
+# Include library: metajolie.iol
+
+Inclusion code: <code>include "metajolie.iol"</code>
+
+<table>
+  <caption>Service Deployment</caption>
+  <thead>
+    <tr>
+      <th>Port Name</th>
+      <th>Location</th>
+      <th>Protocol</th>
+      <th>Interfaces</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>MetaJolie</td>
+      <td>-</td>
+      <td>-</td>
+      <td><a href="#MetaJolieInterface">MetaJolieInterface</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>List of Available Interfaces</h3>
+
+<h3 id="MetaJolieInterface">MetaJolieInterface</h3>
+
+Interface documentation: 
+WARNING: the API of this service is experimental. Use it at your own risk.
+
+
+<table>
+  <thead>
+    <tr>
+      <th>Operation Name</th>
+      <th>Input Type</th>
+      <th>Output Type</th>
+      <th>Faults</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="#getInputPortMetaData">getInputPortMetaData</a></td>
+      <td><a href="#GetInputPortMetaDataRequest">GetInputPortMetaDataRequest</a></td>
+      <td><a href="#GetInputPortMetaDataResponse">GetInputPortMetaDataResponse</a></td>
+      <td>
+        ParserException( <a href="#ParserExceptionType">ParserExceptionType</a> ) <br> 
+        InputPortMetaDataFault( undefined ) <br> 
+        SemanticException( <a href="#SemanticExceptionType">SemanticExceptionType</a> )
+      </td>
+    </tr>
+    <tr>
+      <td><a href="#parseRoles">parseRoles</a></td>
+      <td><a href="#ParseRoleRequest">ParseRoleRequest</a></td>
+      <td><a href="#Role">Role</a></td>
+      <td>
+      </td>
+    </tr>
+    <tr>
+      <td><a href="#getMetaData">getMetaData</a></td>
+      <td><a href="#GetMetaDataRequest">GetMetaDataRequest</a></td>
+      <td><a href="#GetMetaDataResponse">GetMetaDataResponse</a></td>
+      <td>
+        ParserException( <a href="#ParserExceptionType">ParserExceptionType</a> ) <br> 
+        SemanticException( <a href="#SemanticExceptionType">SemanticExceptionType</a> )
+      </td>
+    </tr>
+    <tr>
+      <td><a href="#messageTypeCast">messageTypeCast</a></td>
+      <td><a href="#MessageTypeCastRequest">MessageTypeCastRequest</a></td>
+      <td><a href="#MessageTypeCastResponse">MessageTypeCastResponse</a></td>
+      <td>
+        TypeMismatch( undefined )
+      </td>
+    </tr>
+    <tr>
+      <td><a href="#checkNativeType">checkNativeType</a></td>
+      <td><a href="#CheckNativeTypeRequest">CheckNativeTypeRequest</a></td>
+      <td><a href="#CheckNativeTypeResponse">CheckNativeTypeResponse</a></td>
+      <td>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+### Operation Description
+
+
+<a id="getInputPortMetaData"></a>
+#### getInputPortMetaData
+
+
+Invocation template: <code>getInputPortMetaData@MetaJolie( request )( response )</code>
+
+**Request type**
+<a id="GetInputPortMetaDataRequest"></a>
+Type documentation: no documentation provided 
+<pre>type GetInputPortMetaDataRequest: void {
+	.filename: string
+	.name: Name
+}</pre>
 
-## From file `metajolie.iol`
 
-| Port Name | Location | Protocol |
-| :--- | :--- | :--- |
-| MetaJolie |  |  |
+**Response type**
+<a id="GetInputPortMetaDataResponse"></a>
+Type documentation: no documentation provided 
+<pre>type GetInputPortMetaDataResponse: void {
+	.input*: Participant
+}</pre>
 
-## List of the available interfaces
 
-* [MetaJolieInterface](metajolie.md#MetaJolieInterface)
+**Possible faults thrown**
 
-## Interface MetaJolieInterface {#MetaJolieInterface}
 
- WARNING: the API of this service is experimental. Use it at your own risk.
+Fault <code>ParserException</code> with type <code>ParserExceptionType</code>
 
-| Heading | Input type | Output type | Faults |
-| :--- | :--- | :--- | :--- |
-| [checkNativeType](metajolie.md#checkNativeType) | [CheckNativeTypeRequest](metajolie.md#CheckNativeTypeRequest)  | [CheckNativeTypeResponse](metajolie.md#CheckNativeTypeResponse)  |  |
-| [getInputPortMetaData](metajolie.md#getInputPortMetaData) | [GetInputPortMetaDataRequest](metajolie.md#GetInputPortMetaDataRequest)  | [GetInputPortMetaDataResponse](metajolie.md#GetInputPortMetaDataResponse)  |  ParserException\( [ParserExceptionType](metajolie.md#ParserExceptionType) \)    InputPortMetaDataFault,   SemanticException\( [SemanticExceptionType](metajolie.md#SemanticExceptionType) \)    |
-| [getMetaData](metajolie.md#getMetaData) | [GetMetaDataRequest](metajolie.md#GetMetaDataRequest)  | [GetMetaDataResponse](metajolie.md#GetMetaDataResponse)  |  ParserException\( [ParserExceptionType](metajolie.md#ParserExceptionType) \)    SemanticException\( [SemanticExceptionType](metajolie.md#SemanticExceptionType) \)    |
-| [messageTypeCast](metajolie.md#messageTypeCast) | [MessageTypeCastRequest](metajolie.md#MessageTypeCastRequest)  | [MessageTypeCastResponse](metajolie.md#MessageTypeCastResponse)  |  TypeMismatch,   |
-| [parseRoles](metajolie.md#parseRoles) | [ParseRoleRequest](metajolie.md#ParseRoleRequest)  | [Role](metajolie.md#Role)  |  |
+Fault-handling install template: <code>install ( ParserException => /* error-handling code */ )</code>
+<pre>type ParserExceptionType: void {
+	.line: int
+	.sourceName: string
+	.message: string
+}</pre>
 
-## Operation list
 
-### getInputPortMetaData {#getInputPortMetaData}
+Fault <code>InputPortMetaDataFault</code> with type <code>undefined</code>
 
-```text
-getInputPortMetaData( GetInputPortMetaDataRequest )( GetInputPortMetaDataResponse )
- throws
+Fault-handling install template: <code>install ( InputPortMetaDataFault => /* error-handling code */ )</code>
 
 
-ParserException( ParserExceptionType )
 
+Fault <code>SemanticException</code> with type <code>SemanticExceptionType</code>
 
-InputPortMetaDataFault
+Fault-handling install template: <code>install ( SemanticException => /* error-handling code */ )</code>
+<pre>type SemanticExceptionType: void {
+	.error*: void {
+		.line: int
+		.sourceName: string
+		.message: string
+	}
+}</pre>
 
+---
 
-SemanticException( SemanticExceptionType )
-```
+<a id="parseRoles"></a>
+#### parseRoles
 
-### parseRoles {#parseRoles}
 
-```text
-parseRoles( ParseRoleRequest )( Role )
-```
+Invocation template: <code>parseRoles@MetaJolie( request )( response )</code>
 
-### getMetaData {#getMetaData}
+**Request type**
+<a id="ParseRoleRequest"></a>
+Type documentation: no documentation provided 
+<pre>type ParseRoleRequest: void {
+	.filename: string
+	.rolename: Name
+}</pre>
 
-```text
-getMetaData( GetMetaDataRequest )( GetMetaDataResponse )
- throws
 
+**Response type**
+<a id="Role"></a>
+Type documentation: no documentation provided 
+<pre>type Role: void {
+	.output?: Participant
+	.input: Participant
+	.name: Name
+	.conversation*: Conversation
+}</pre>
 
-ParserException( ParserExceptionType )
 
 
-SemanticException( SemanticExceptionType )
-```
 
-### messageTypeCast {#messageTypeCast}
+---
 
-```text
-messageTypeCast( MessageTypeCastRequest )( MessageTypeCastResponse )
- throws
+<a id="getMetaData"></a>
+#### getMetaData
 
 
-TypeMismatch
-```
+Invocation template: <code>getMetaData@MetaJolie( request )( response )</code>
 
-### checkNativeType {#checkNativeType}
+**Request type**
+<a id="GetMetaDataRequest"></a>
+Type documentation: no documentation provided 
+<pre>type GetMetaDataRequest: void {
+	.filename: string
+	.name: Name
+}</pre>
 
-```text
-checkNativeType( CheckNativeTypeRequest )( CheckNativeTypeResponse )
-```
 
-## Message type list
+**Response type**
+<a id="GetMetaDataResponse"></a>
+Type documentation: no documentation provided 
+<pre>type GetMetaDataResponse: void {
+	.output*: Participant
+	.input*: Participant
+	.interfaces*: Interface
+	.types*: Type
+	.service: Service
+	.embeddedServices*: void {
+		.servicepath: string
+		.type: string
+		.portId: string
+	}
+}</pre>
 
-### GetInputPortMetaDataRequest {#GetInputPortMetaDataRequest}
 
-```text
-type GetInputPortMetaDataRequest: void { 
-    .filename: string
-    .name: Name
-}
-```
+**Possible faults thrown**
 
-### GetInputPortMetaDataResponse {#GetInputPortMetaDataResponse}
 
-```text
-type GetInputPortMetaDataResponse: void { 
-    .input*: Participant
-}
-```
+Fault <code>ParserException</code> with type <code>ParserExceptionType</code>
 
-### ParserExceptionType {#ParserExceptionType}
+Fault-handling install template: <code>install ( ParserException => /* error-handling code */ )</code>
+<pre>type ParserExceptionType: void {
+	.line: int
+	.sourceName: string
+	.message: string
+}</pre>
 
-```text
-type ParserExceptionType: void { 
-    .line: int
-    .sourceName: string
-    .message: string
-}
-```
-
-### SemanticExceptionType {#SemanticExceptionType}
-
-```text
-type SemanticExceptionType: void { 
-    .error*: void { 
-        .line: int
-        .sourceName: string
-        .message: string
-    }
-}
-```
-
-### ParseRoleRequest {#ParseRoleRequest}
-
-```text
-type ParseRoleRequest: void { 
-    .filename: string
-    .rolename: Name
-}
-```
-
-### Role {#Role}
-
-```text
-type Role: void { 
-    .output?: Participant
-    .input: Participant
-    .name: Name
-    .conversation*: Conversation
-}
-```
-
-### GetMetaDataRequest {#GetMetaDataRequest}
-
-```text
-type GetMetaDataRequest: void { 
-    .filename: string
-    .name: Name
-}
-```
-
-### GetMetaDataResponse {#GetMetaDataResponse}
-
-```text
-type GetMetaDataResponse: void { 
-    .output*: Participant
-    .input*: Participant
-    .interfaces*: Interface
-    .types*: Type
-    .service: Service
-    .embeddedServices*: void { 
-        .servicepath: string
-        .type: string
-        .portId: string
-    }
-}
-```
-
-### MessageTypeCastRequest {#MessageTypeCastRequest}
-
-```text
-type MessageTypeCastRequest: void { 
-    .types: void { 
-        .types*: Type
-        .messageTypeName: Name
-    }
-    .message: undefined
-}
-```
-
-### MessageTypeCastResponse {#MessageTypeCastResponse}
-
-```text
-type MessageTypeCastResponse: void { 
-    .message: undefined
-}
-```
-
-### CheckNativeTypeRequest {#CheckNativeTypeRequest}
-
-```text
-type CheckNativeTypeRequest: void { 
-    .type_name: string
-}
-```
-
-### CheckNativeTypeResponse {#CheckNativeTypeResponse}
-
-```text
-type CheckNativeTypeResponse: void { 
-    .result: bool
-}
-```
-
-## Type list
-
-### Name {#Name}
-
-```text
-type Name: void { 
-    .registry?: string
-    .domain?: string
-    .name: string
-}
-```
-
-### Participant {#Participant}
-
-```text
-type Participant: void { 
-    .protocol: string
-    .interfaces*: Interface
-    .name: Name
-    .location: any
-}
-```
-
-### Interface {#Interface}
-
-```text
-type Interface: void { 
-    .types*: Type
-    .operations*: Operation
-    .name: Name
-}
-```
-
-### Type {#Type}
-
-```text
-type Type: void { 
-    .root_type: NativeType
-    .sub_type*: SubType
-    .name: Name
-}
-```
-
-### NativeType {#NativeType}
-
-```text
-type NativeType: void { 
-    .string_type?: bool
-    .void_type?: bool
-    .raw_type?: bool
-    .int_type?: bool
-    .any_type?: bool
-    .link?: void { 
-        .domain?: string
-        .name: string
-    }
-    .bool_type?: bool
-    .double_type?: bool
-    .long_type?: bool
-}
-```
-
-### SubType {#SubType}
-
-```text
-type SubType: void { 
-    .type_inline?: Type
-    .name: string
-    .cardinality: Cardinality
-    .type_link?: Name
-}
-```
-
-### Cardinality {#Cardinality}
-
-```text
-type Cardinality: void { 
-    .min: int
-    .max?: int
-    .infinite?: int
-}
-```
-
-### Operation {#Operation}
-
-```text
-type Operation: void { 
-    .operation_name: string
-    .output?: Name
-    .input: Name
-    .documentation?: any
-    .fault*: Fault
-}
-```
-
-### Fault {#Fault}
-
-```text
-type Fault: void { 
-    .type_name?: Name
-    .name: Name
-}
-```
-
-### Conversation {#Conversation}
-
-```text
-type Conversation: void { 
-    .participant_type: void { 
-        .is_input?: int
-        .is_output?: int
-    }
-    .operation: string
-}
-```
-
-### Service {#Service}
-
-```text
-type Service: void { 
-    .output*: Name
-    .input*: void { 
-        .domain: string
-        .name: string
-    }
-    .name: Name
-}
-```
-
-### undefined {#undefined}
-
-```text
-type undefined: undefined
-```
+
+Fault <code>SemanticException</code> with type <code>SemanticExceptionType</code>
+
+Fault-handling install template: <code>install ( SemanticException => /* error-handling code */ )</code>
+<pre>type SemanticExceptionType: void {
+	.error*: void {
+		.line: int
+		.sourceName: string
+		.message: string
+	}
+}</pre>
+
+---
+
+<a id="messageTypeCast"></a>
+#### messageTypeCast
+
+
+Invocation template: <code>messageTypeCast@MetaJolie( request )( response )</code>
+
+**Request type**
+<a id="MessageTypeCastRequest"></a>
+Type documentation: no documentation provided 
+<pre>type MessageTypeCastRequest: void {
+	.types: void {
+		.types*: Type
+		.messageTypeName: Name
+	}
+	.message: undefined
+}</pre>
+
+
+**Response type**
+<a id="MessageTypeCastResponse"></a>
+Type documentation: no documentation provided 
+<pre>type MessageTypeCastResponse: void {
+	.message: undefined
+}</pre>
+
+
+**Possible faults thrown**
+
+
+Fault <code>TypeMismatch</code> with type <code>undefined</code>
+
+Fault-handling install template: <code>install ( TypeMismatch => /* error-handling code */ )</code>
+
+
+---
+
+<a id="checkNativeType"></a>
+#### checkNativeType
+
+
+Invocation template: <code>checkNativeType@MetaJolie( request )( response )</code>
+
+**Request type**
+<a id="CheckNativeTypeRequest"></a>
+Type documentation: no documentation provided 
+<pre>type CheckNativeTypeRequest: void {
+	.type_name: string
+}</pre>
+
+
+**Response type**
+<a id="CheckNativeTypeResponse"></a>
+Type documentation: no documentation provided 
+<pre>type CheckNativeTypeResponse: void {
+	.result: bool
+}</pre>
+
+
+
+
+---
+
+
+
+
 

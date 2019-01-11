@@ -1,6 +1,6 @@
-# Include library: converter.iol
+# Include library: zip_utils.iol
 
-Inclusion code: <code>include "converter.iol"</code>
+Inclusion code: <code>include "zip_utils.iol"</code>
 
 <table>
   <caption>Service Deployment</caption>
@@ -14,17 +14,17 @@ Inclusion code: <code>include "converter.iol"</code>
   </thead>
   <tbody>
     <tr>
-      <td>Converter</td>
+      <td>ZipUtils</td>
       <td>-</td>
       <td>-</td>
-      <td><a href="#ConverterInterface">ConverterInterface</a></td>
+      <td><a href="#ZipUtilsInterface">ZipUtilsInterface</a></td>
     </tr>
   </tbody>
 </table>
 
 <h3>List of Available Interfaces</h3>
 
-<h3 id="ConverterInterface">ConverterInterface</h3>
+<h3 id="ZipUtilsInterface">ZipUtilsInterface</h3>
 
 <table>
   <thead>
@@ -37,32 +37,32 @@ Inclusion code: <code>include "converter.iol"</code>
   </thead>
   <tbody>
     <tr>
-      <td><a href="#stringToRaw">stringToRaw</a></td>
-      <td><a href="#StringToRawRequest">StringToRawRequest</a></td>
+      <td><a href="#zip">zip</a></td>
+      <td><a href="#ZipRequest">ZipRequest</a></td>
       <td>raw</td>
       <td>
         IOException( <a href="#IOExceptionType">IOExceptionType</a> )
       </td>
     </tr>
     <tr>
-      <td><a href="#base64ToRaw">base64ToRaw</a></td>
-      <td>string</td>
-      <td>raw</td>
-      <td>
-        IOException( <a href="#IOExceptionType">IOExceptionType</a> )
-      </td>
-    </tr>
-    <tr>
-      <td><a href="#rawToBase64">rawToBase64</a></td>
-      <td>raw</td>
-      <td>string</td>
+      <td><a href="#IOException">IOException</a></td>
+      <td>undefined</a></td>
+      <td>undefined</td>
       <td>
       </td>
     </tr>
     <tr>
-      <td><a href="#rawToString">rawToString</a></td>
-      <td><a href="#RawToStringRequest">RawToStringRequest</a></td>
-      <td>string</td>
+      <td><a href="#unzip">unzip</a></td>
+      <td><a href="#UnzipRequest">UnzipRequest</a></td>
+      <td><a href="#UnzipResponse">UnzipResponse</a></td>
+      <td>
+        FileNotFound( undefined )
+      </td>
+    </tr>
+    <tr>
+      <td><a href="#readEntry">readEntry</a></td>
+      <td><a href="#ReadEntryRequest">ReadEntryRequest</a></td>
+      <td>any</td>
       <td>
         IOException( <a href="#IOExceptionType">IOExceptionType</a> )
       </td>
@@ -73,97 +73,101 @@ Inclusion code: <code>include "converter.iol"</code>
 ### Operation Description
 
 
-<a id="stringToRaw"></a>
-#### stringToRaw
+<a id="zip"></a>
+#### zip
 
 
-Invocation template: <code>stringToRaw@Converter( request )( response )</code>
+Invocation template: <code>zip@ZipUtils( request )( response )</code>
 
 **Request type**
-<a id="StringToRawRequest"></a>
+<a id="ZipRequest"></a>
 Type documentation: no documentation provided 
-<pre>type StringToRawRequest: string {
-	.charset?: string
+<pre>type ZipRequest: undefined</pre>
+
+
+**Response type**
+
+Type documentation: no documentation provided 
+
+
+
+**Possible faults thrown**
+
+
+Fault <code>IOException</code> with type <code>IOExceptionType</code>
+
+Fault-handling install template: <code>install ( IOException => /* error-handling code */ )</code>
+<pre>type IOExceptionType: JavaExceptionType</pre>
+
+---
+
+<a id="IOException"></a>
+#### IOException
+
+
+Invocation template: <code>IOException@ZipUtils( request )( response )</code>
+
+**Request type**
+
+Type documentation: no documentation provided 
+
+
+
+**Response type**
+
+Type documentation: no documentation provided 
+
+
+
+
+
+---
+
+<a id="unzip"></a>
+#### unzip
+
+
+Invocation template: <code>unzip@ZipUtils( request )( response )</code>
+
+**Request type**
+<a id="UnzipRequest"></a>
+Type documentation: no documentation provided 
+<pre>type UnzipRequest: void {
+	.filename: string
+	.targetPath: string
 }</pre>
 
 
 **Response type**
-
+<a id="UnzipResponse"></a>
 Type documentation: no documentation provided 
-
+<pre>type UnzipResponse: void {
+	.entry*: string
+}</pre>
 
 
 **Possible faults thrown**
 
 
-Fault <code>IOException</code> with type <code>IOExceptionType</code>
+Fault <code>FileNotFound</code> with type <code>undefined</code>
 
-Fault-handling install template: <code>install ( IOException => /* error-handling code */ )</code>
-<pre>type IOExceptionType: JavaExceptionType</pre>
-
----
-
-<a id="base64ToRaw"></a>
-#### base64ToRaw
-
-
-Invocation template: <code>base64ToRaw@Converter( request )( response )</code>
-
-**Request type**
-
-Type documentation: no documentation provided 
-
-
-
-**Response type**
-
-Type documentation: no documentation provided 
-
-
-
-**Possible faults thrown**
-
-
-Fault <code>IOException</code> with type <code>IOExceptionType</code>
-
-Fault-handling install template: <code>install ( IOException => /* error-handling code */ )</code>
-<pre>type IOExceptionType: JavaExceptionType</pre>
-
----
-
-<a id="rawToBase64"></a>
-#### rawToBase64
-
-
-Invocation template: <code>rawToBase64@Converter( request )( response )</code>
-
-**Request type**
-
-Type documentation: no documentation provided 
-
-
-
-**Response type**
-
-Type documentation: no documentation provided 
-
-
-
+Fault-handling install template: <code>install ( FileNotFound => /* error-handling code */ )</code>
 
 
 ---
 
-<a id="rawToString"></a>
-#### rawToString
+<a id="readEntry"></a>
+#### readEntry
 
 
-Invocation template: <code>rawToString@Converter( request )( response )</code>
+Invocation template: <code>readEntry@ZipUtils( request )( response )</code>
 
 **Request type**
-<a id="RawToStringRequest"></a>
+<a id="ReadEntryRequest"></a>
 Type documentation: no documentation provided 
-<pre>type RawToStringRequest: raw {
-	.charset?: string
+<pre>type ReadEntryRequest: void {
+	.entry: string
+	.filename: string
 }</pre>
 
 

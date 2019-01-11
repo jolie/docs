@@ -1,66 +1,129 @@
-# XMPP
+# Include library: xmpp.iol
 
-## From file `xmpp.iol`
+Inclusion code: <code>include "xmpp.iol"</code>
 
-| Port Name | Location | Protocol |
-| :--- | :--- | :--- |
-| XMPP |  |  |
+<table>
+  <caption>Service Deployment</caption>
+  <thead>
+    <tr>
+      <th>Port Name</th>
+      <th>Location</th>
+      <th>Protocol</th>
+      <th>Interfaces</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>XMPP</td>
+      <td>-</td>
+      <td>-</td>
+      <td><a href="#XMPPInterface">XMPPInterface</a></td>
+    </tr>
+  </tbody>
+</table>
 
-## List of the available interfaces
+<h3>List of Available Interfaces</h3>
 
-* [XMPPInterface](xmpp.md#XMPPInterface)
+<h3 id="XMPPInterface">XMPPInterface</h3>
 
-## Interface XMPPInterface {#XMPPInterface}
+<table>
+  <thead>
+    <tr>
+      <th>Operation Name</th>
+      <th>Input Type</th>
+      <th>Output Type</th>
+      <th>Faults</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="#sendMessage">sendMessage</a></td>
+      <td><a href="#SendMessageRequest">SendMessageRequest</a></td>
+      <td>void</td>
+      <td>
+        XMPPException( undefined )
+      </td>
+    </tr>
+    <tr>
+      <td><a href="#connect">connect</a></td>
+      <td><a href="#ConnectionRequest">ConnectionRequest</a></td>
+      <td>void</td>
+      <td>
+        XMPPException( undefined )
+      </td>
+    </tr>
+  </tbody>
+</table>
 
-| Heading | Input type | Output type | Faults |
-| :--- | :--- | :--- | :--- |
-| [connect](xmpp.md#connect) | [ConnectionRequest](xmpp.md#ConnectionRequest)  | void  |  XMPPException,   |
-| [sendMessage](xmpp.md#sendMessage) | [SendMessageRequest](xmpp.md#SendMessageRequest)  | void  |  XMPPException,   |
-
-## Operation list
-
-### sendMessage {#sendMessage}
-
-```text
-sendMessage( SendMessageRequest )( void )
- throws
+### Operation Description
 
 
-XMPPException
-```
-
-### connect {#connect}
-
-```text
-connect( ConnectionRequest )( void )
- throws
+<a id="sendMessage"></a>
+#### sendMessage
 
 
-XMPPException
-```
+Invocation template: <code>sendMessage@XMPP( request )( response )</code>
 
-## Message type list
+**Request type**
+<a id="SendMessageRequest"></a>
+Type documentation: no documentation provided 
+<pre>type SendMessageRequest: string {
+	.to: string
+}</pre>
 
-### SendMessageRequest {#SendMessageRequest}
 
-```text
-type SendMessageRequest: string { 
-    .to: string
-}
-```
+**Response type**
 
-### ConnectionRequest {#ConnectionRequest}
+Type documentation: no documentation provided 
 
-```text
-type ConnectionRequest: void { 
-    .password: string
-    .port?: int
-    .resource?: string
-    .host?: string
-    .serviceName: string
-    .username: string
-}
-```
 
-## Type list
+
+**Possible faults thrown**
+
+
+Fault <code>XMPPException</code> with type <code>undefined</code>
+
+Fault-handling install template: <code>install ( XMPPException => /* error-handling code */ )</code>
+
+
+---
+
+<a id="connect"></a>
+#### connect
+
+
+Invocation template: <code>connect@XMPP( request )( response )</code>
+
+**Request type**
+<a id="ConnectionRequest"></a>
+Type documentation: no documentation provided 
+<pre>type ConnectionRequest: void {
+	.password: string
+	.port?: int
+	.resource?: string
+	.host?: string
+	.serviceName: string
+	.username: string
+}</pre>
+
+
+**Response type**
+
+Type documentation: no documentation provided 
+
+
+
+**Possible faults thrown**
+
+
+Fault <code>XMPPException</code> with type <code>undefined</code>
+
+Fault-handling install template: <code>install ( XMPPException => /* error-handling code */ )</code>
+
+
+---
+
+
+
+
 
