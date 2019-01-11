@@ -63,6 +63,7 @@ Inclusion code: <code>include "ui/swing_ui.iol"</code>
 ### Operation Description
 
 
+
 #### showMessageDialog
 
 
@@ -82,6 +83,7 @@ Type documentation: no documentation provided
 
 
 
+
 #### showYesNoQuestionDialog
 
 
@@ -95,6 +97,7 @@ Type documentation: no documentation provided
 
 <h4>Response type</h4>
 Type documentation: no documentation provided 
+
 
 
 

@@ -94,6 +94,7 @@ Inclusion code: <code>include "database.iol"</code>
 ### Operation Description
 
 
+
 #### checkConnection
 Operation documentation: 
 	  Checks the connection with the database. Throws ConnectionError if the connection is not functioning properly.
@@ -118,6 +119,7 @@ Type documentation: no documentation provided
 Fault <code>ConnectionError</code> with type <code>undefined</code>
 
 Fault-handling install template: <code>install ( ConnectionError => /* error-handling code */ )</code>
+
 
 
 
@@ -190,6 +192,7 @@ Fault-handling install template: <code>install ( ConnectionError => /* error-han
 
 
 
+
 #### executeTransaction
 Operation documentation: 
 	  Executes more than one database command in a single transaction
@@ -224,6 +227,7 @@ Fault-handling install template: <code>install ( SQLException => /* error-handli
 Fault <code>ConnectionError</code> with type <code>undefined</code>
 
 Fault-handling install template: <code>install ( ConnectionError => /* error-handling code */ )</code>
+
 
 
 
@@ -269,6 +273,7 @@ Fault-handling install template: <code>install ( ConnectionError => /* error-han
 
 
 
+
 #### close
 Operation documentation: 
 	  Explicitly closes a database connection
@@ -286,6 +291,7 @@ Type documentation: no documentation provided
 
 <h4>Response type</h4>
 Type documentation: no documentation provided 
+
 
 
 

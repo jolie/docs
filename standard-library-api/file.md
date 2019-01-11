@@ -197,6 +197,7 @@ to: the target directory to copy into
 ### Operation Description
 
 
+
 #### convertFromBase64ToBinaryValue
 Operation documentation:  deprecated, please use base64ToRaw@Converter()() from converter.iol 
 
@@ -220,6 +221,7 @@ Fault <code>IOException</code> with type <code>IOExceptionType</code>
 
 Fault-handling install template: <code>install ( IOException => /* error-handling code */ )</code>
 <pre>type IOExceptionType: JavaExceptionType</pre>
+
 
 
 #### getMimeType
@@ -247,6 +249,7 @@ Fault-handling install template: <code>install ( FileNotFound => /* error-handli
 <pre>type FileNotFoundType: WeakJavaExceptionType</pre>
 
 
+
 #### convertFromBinaryToBase64Value
 Operation documentation:  deprecated, please use rawToBase64@Converter()() from converter.iol 
 
@@ -260,6 +263,7 @@ Type documentation: no documentation provided
 
 <h4>Response type</h4>
 Type documentation: no documentation provided 
+
 
 
 
@@ -297,6 +301,7 @@ Fault-handling install template: <code>install ( InvalidPathException => /* erro
 }</pre>
 
 
+
 #### getParentPath
 Operation documentation: 
 	  Constructs the path to the parent directory.
@@ -326,6 +331,7 @@ Fault-handling install template: <code>install ( InvalidPathException => /* erro
 <pre>type JavaExceptionType: string {
 	.stackTrace: string
 }</pre>
+
 
 
 #### list
@@ -360,6 +366,7 @@ Type documentation: no documentation provided
 		}
 	}
 }</pre>
+
 
 
 
@@ -401,6 +408,7 @@ Fault-handling install template: <code>install ( IOException => /* error-handlin
 
 
 
+
 #### delete
 
 
@@ -426,6 +434,7 @@ Fault <code>IOException</code> with type <code>IOExceptionType</code>
 
 Fault-handling install template: <code>install ( IOException => /* error-handling code */ )</code>
 <pre>type IOExceptionType: JavaExceptionType</pre>
+
 
 
 #### getSize
@@ -456,6 +465,7 @@ Type documentation: no documentation provided
 
 
 
+
 #### getFileSeparator
 
 
@@ -469,6 +479,7 @@ Type documentation: no documentation provided
 
 <h4>Response type</h4>
 Type documentation: no documentation provided 
+
 
 
 
@@ -501,6 +512,7 @@ Fault <code>IOException</code> with type <code>IOExceptionType</code>
 
 Fault-handling install template: <code>install ( IOException => /* error-handling code */ )</code>
 <pre>type IOExceptionType: JavaExceptionType</pre>
+
 
 
 #### readFile
@@ -556,6 +568,7 @@ Fault-handling install template: <code>install ( IOException => /* error-handlin
 <pre>type IOExceptionType: JavaExceptionType</pre>
 
 
+
 #### exists
 Operation documentation: 
 	 it tests if the specified file or directory exists or not.
@@ -571,6 +584,7 @@ Type documentation: no documentation provided
 
 <h4>Response type</h4>
 Type documentation: no documentation provided 
+
 
 
 
@@ -602,6 +616,7 @@ Fault-handling install template: <code>install ( IOException => /* error-handlin
 <pre>type IOExceptionType: JavaExceptionType</pre>
 
 
+
 #### deleteDir
 Operation documentation: 
 	   it deletes a directory recursively removing all its contents
@@ -629,6 +644,7 @@ Fault-handling install template: <code>install ( IOException => /* error-handlin
 <pre>type IOExceptionType: JavaExceptionType</pre>
 
 
+
 #### getServiceDirectory
 
 
@@ -652,6 +668,7 @@ Fault <code>IOException</code> with type <code>IOExceptionType</code>
 
 Fault-handling install template: <code>install ( IOException => /* error-handling code */ )</code>
 <pre>type IOExceptionType: JavaExceptionType</pre>
+
 
 
 #### writeFile
@@ -714,6 +731,7 @@ Fault-handling install template: <code>install ( IOException => /* error-handlin
 <pre>type IOExceptionType: JavaExceptionType</pre>
 
 
+
 #### mkdir
 Operation documentation: 
 	
@@ -731,6 +749,7 @@ Type documentation: no documentation provided
 
 <h4>Response type</h4>
 Type documentation: no documentation provided 
+
 
 
 

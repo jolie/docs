@@ -56,6 +56,7 @@ Inclusion code: <code>include "bluetooth.iol"</code>
 ### Operation Description
 
 
+
 #### inquire
 
 
@@ -78,6 +79,7 @@ Type documentation: no documentation provided
 		.name: string
 	}
 }</pre>
+
 
 
 

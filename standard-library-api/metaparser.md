@@ -112,6 +112,7 @@ Inclusion code: <code>include "metaparser.iol"</code>
 ### Operation Description
 
 
+
 #### getSurface
 
 
@@ -130,6 +131,7 @@ Type documentation: no documentation provided
 
 <h4>Response type</h4>
 Type documentation: no documentation provided 
+
 
 
 
@@ -168,6 +170,7 @@ Type documentation: no documentation provided
 
 
 
+
 #### getInterface
 
 
@@ -191,6 +194,7 @@ Type documentation: no documentation provided
 
 
 
+
 #### getTypeInLine
 
 
@@ -208,6 +212,7 @@ Type documentation: no documentation provided
 
 <h4>Response type</h4>
 Type documentation: no documentation provided 
+
 
 
 
@@ -238,6 +243,7 @@ Type documentation: no documentation provided
 
 
 
+
 #### getType
 
 
@@ -255,6 +261,7 @@ Type documentation: no documentation provided
 
 <h4>Response type</h4>
 Type documentation: no documentation provided 
+
 
 
 
@@ -285,6 +292,7 @@ Type documentation: no documentation provided
 
 
 
+
 #### getSubType
 
 
@@ -309,6 +317,7 @@ Type documentation: no documentation provided
 
 
 
+
 #### getParticipantInput
 
 
@@ -327,6 +336,7 @@ Type documentation: no documentation provided
 
 <h4>Response type</h4>
 Type documentation: no documentation provided 
+
 
 
 

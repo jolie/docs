@@ -84,6 +84,7 @@ Inclusion code: <code>include "queue_utils.iol"</code>
 ### Operation Description
 
 
+
 #### size
 
 
@@ -97,6 +98,7 @@ Type documentation: no documentation provided
 
 <h4>Response type</h4>
 Type documentation: no documentation provided 
+
 
 
 
@@ -122,6 +124,7 @@ Type documentation: no documentation provided
 
 
 
+
 #### new_queue
 
 
@@ -135,6 +138,7 @@ Type documentation: no documentation provided
 
 <h4>Response type</h4>
 Type documentation: no documentation provided 
+
 
 
 
@@ -160,6 +164,7 @@ Type documentation: no documentation provided
 
 
 
+
 #### push
 
 
@@ -176,6 +181,7 @@ Type documentation: no documentation provided
 
 <h4>Response type</h4>
 Type documentation: no documentation provided 
+
 
 
 

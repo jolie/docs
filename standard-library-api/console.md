@@ -55,6 +55,7 @@ Inclusion code: <code>include "console.iol"</code>
 ### Operation Description
 
 
+
 #### in
 
 
@@ -136,6 +137,7 @@ Type documentation: no documentation provided
 ### Operation Description
 
 
+
 #### print
 
 
@@ -155,6 +157,7 @@ Type documentation: no documentation provided
 
 
 
+
 #### println
 
 
@@ -168,6 +171,7 @@ Type documentation: no documentation provided
 
 <h4>Response type</h4>
 Type documentation: no documentation provided 
+
 
 
 
@@ -198,6 +202,7 @@ Type documentation: no documentation provided
 
 
 
+
 #### unsubscribeSessionListener
 Operation documentation: 
 	 it disables a session to receive inputs from the console, previously registered with subscribeSessionListener operation
@@ -215,6 +220,7 @@ Type documentation: no documentation provided
 
 <h4>Response type</h4>
 Type documentation: no documentation provided 
+
 
 
 
@@ -239,6 +245,7 @@ Type documentation: no documentation provided
 
 <h4>Response type</h4>
 Type documentation: no documentation provided 
+
 
 
 

@@ -87,6 +87,7 @@ WARNING: the API of this service is experimental. Use it at your own risk.
 ### Operation Description
 
 
+
 #### getInputPortMetaData
 
 
@@ -139,6 +140,7 @@ Fault-handling install template: <code>install ( SemanticException => /* error-h
 }</pre>
 
 
+
 #### parseRoles
 
 
@@ -161,6 +163,7 @@ Type documentation: no documentation provided
 	.name: Name
 	.conversation*: Conversation
 }</pre>
+
 
 
 
@@ -221,6 +224,7 @@ Fault-handling install template: <code>install ( SemanticException => /* error-h
 }</pre>
 
 
+
 #### messageTypeCast
 
 
@@ -251,6 +255,7 @@ Type documentation: no documentation provided
 Fault <code>TypeMismatch</code> with type <code>undefined</code>
 
 Fault-handling install template: <code>install ( TypeMismatch => /* error-handling code */ )</code>
+
 
 
 

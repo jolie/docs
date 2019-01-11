@@ -57,6 +57,7 @@ Inclusion code: <code>include "network_service.iol"</code>
 ### Operation Description
 
 
+
 #### getNetworkInterfaceNames
 
 
@@ -75,6 +76,7 @@ Type documentation: no documentation provided
 		.displayName: string
 	}
 }</pre>
+
 
 
 

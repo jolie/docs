@@ -73,6 +73,7 @@ Inclusion code: <code>include "converter.iol"</code>
 ### Operation Description
 
 
+
 #### stringToRaw
 
 
@@ -100,6 +101,7 @@ Fault-handling install template: <code>install ( IOException => /* error-handlin
 <pre>type IOExceptionType: JavaExceptionType</pre>
 
 
+
 #### base64ToRaw
 
 
@@ -125,6 +127,7 @@ Fault-handling install template: <code>install ( IOException => /* error-handlin
 <pre>type IOExceptionType: JavaExceptionType</pre>
 
 
+
 #### rawToBase64
 
 
@@ -138,6 +141,7 @@ Type documentation: no documentation provided
 
 <h4>Response type</h4>
 Type documentation: no documentation provided 
+
 
 
 

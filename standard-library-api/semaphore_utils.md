@@ -56,6 +56,7 @@ Inclusion code: <code>include "semaphore_utils.iol"</code>
 ### Operation Description
 
 
+
 #### release
 Operation documentation: 
 	 Releases permits to a semaphore.
@@ -77,6 +78,7 @@ Type documentation: no documentation provided
 
 <h4>Response type</h4>
 Type documentation: no documentation provided 
+
 
 
 

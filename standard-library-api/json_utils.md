@@ -58,6 +58,7 @@ Inclusion code: <code>include "json_utils.iol"</code>
 ### Operation Description
 
 
+
 #### getJsonString
 Operation documentation: 
 	  Returns the value converted into a JSON string
@@ -84,6 +85,7 @@ Type documentation: no documentation provided
 Fault <code>JSONCreationError</code> with type <code>undefined</code>
 
 Fault-handling install template: <code>install ( JSONCreationError => /* error-handling code */ )</code>
+
 
 
 

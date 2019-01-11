@@ -193,6 +193,7 @@ Interface documentation:
 ### Operation Description
 
 
+
 #### leftPad
 
 
@@ -209,6 +210,7 @@ Type documentation: no documentation provided
 
 <h4>Response type</h4>
 Type documentation: no documentation provided 
+
 
 
 
@@ -234,6 +236,7 @@ Type documentation: no documentation provided
 
 
 
+
 #### toLowerCase
 
 
@@ -253,6 +256,7 @@ Type documentation: no documentation provided
 
 
 
+
 #### length
 
 
@@ -266,6 +270,7 @@ Type documentation: no documentation provided
 
 <h4>Response type</h4>
 Type documentation: no documentation provided 
+
 
 
 
@@ -295,6 +300,7 @@ Type documentation: no documentation provided
 
 
 
+
 #### replaceFirst
 
 
@@ -311,6 +317,7 @@ Type documentation: no documentation provided
 
 <h4>Response type</h4>
 Type documentation: no documentation provided 
+
 
 
 
@@ -340,6 +347,7 @@ Type documentation: no documentation provided
 
 
 
+
 #### replaceAll
 
 
@@ -356,6 +364,7 @@ Type documentation: no documentation provided
 
 <h4>Response type</h4>
 Type documentation: no documentation provided 
+
 
 
 
@@ -384,6 +393,7 @@ Type documentation: no documentation provided
 
 
 
+
 #### getRandomUUID
 Operation documentation: 
 	 it returns a random UUID
@@ -399,6 +409,7 @@ Type documentation: no documentation provided
 
 <h4>Response type</h4>
 Type documentation: no documentation provided 
+
 
 
 
@@ -427,6 +438,7 @@ Type documentation: no documentation provided
 
 
 
+
 #### contains
 Operation documentation: 
 	  Returns true if the string contains .substring
@@ -444,6 +456,7 @@ Type documentation: no documentation provided
 
 <h4>Response type</h4>
 Type documentation: no documentation provided 
+
 
 
 
@@ -474,6 +487,7 @@ Type documentation: no documentation provided
 
 
 
+
 #### splitByLength
 
 
@@ -497,6 +511,7 @@ Type documentation: no documentation provided
 
 
 
+
 #### trim
 
 
@@ -510,6 +525,7 @@ Type documentation: no documentation provided
 
 <h4>Response type</h4>
 Type documentation: no documentation provided 
+
 
 
 
@@ -539,6 +555,7 @@ Type documentation: no documentation provided
 
 
 
+
 #### endsWith
 Operation documentation: 
 	  checks if a string ends with a given suffix
@@ -562,6 +579,7 @@ Type documentation: no documentation provided
 
 
 
+
 #### toUpperCase
 
 
@@ -575,6 +593,7 @@ Type documentation: no documentation provided
 
 <h4>Response type</h4>
 Type documentation: no documentation provided 
+
 
 
 
@@ -603,6 +622,7 @@ Type documentation: no documentation provided
 
 
 
+
 #### indexOf
 
 
@@ -619,6 +639,7 @@ Type documentation: no documentation provided
 <h4 id="IndexOfResponse">Response type</h4>
 Type documentation: no documentation provided 
 <pre>type IndexOfResponse: int</pre>
+
 
 
 

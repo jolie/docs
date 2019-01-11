@@ -165,6 +165,7 @@ Inclusion code: <code>include "time.iol"</code>
 ### Operation Description
 
 
+
 #### scheduleTimeout
 Operation documentation: 
 		 Schedules a timeout, which can be cancelled using #cancelTimeout from the returned string. Default .timeunit value is MILLISECONDS, .operation default is "timeout".
@@ -193,6 +194,7 @@ Type documentation: no documentation provided
 Fault <code>InvalidTimeUnit</code> with type <code>undefined</code>
 
 Fault-handling install template: <code>install ( InvalidTimeUnit => /* error-handling code */ )</code>
+
 
 
 
@@ -231,6 +233,7 @@ Fault-handling install template: <code>install ( InvalidDate => /* error-handlin
 
 
 
+
 #### getDateTime
 Operation documentation: 
 		 It returns a date time in a string format starting from a timestamp
@@ -261,6 +264,7 @@ Type documentation: no documentation provided
 
 
 
+
 #### getCurrentTimeMillis
 Operation documentation: 
 		 Warning: this is temporary and subject to future change as soon as long is supported by Jolie.
@@ -276,6 +280,7 @@ Type documentation: no documentation provided
 
 <h4>Response type</h4>
 Type documentation: no documentation provided 
+
 
 
 
@@ -305,6 +310,7 @@ Type documentation: no documentation provided
 
 
 
+
 #### getTimeDiff
 
 
@@ -321,6 +327,7 @@ Type documentation: no documentation provided
 
 <h4>Response type</h4>
 Type documentation: no documentation provided 
+
 
 
 
@@ -355,6 +362,7 @@ Fault-handling install template: <code>install ( InvalidTimestamp => /* error-ha
 
 
 
+
 #### cancelTimeout
 Operation documentation: 
 		 Cancels a timeout from a long-value created from #scheduleTimeout
@@ -376,6 +384,7 @@ Type documentation: no documentation provided
 
 
 
+
 #### setNextTimeoutByTime
 
 
@@ -384,6 +393,7 @@ Invocation template: <code>setNextTimeoutByTime@Time( request )</code>
 <h4>Request type</h4>
 
 Type documentation: no documentation provided 
+
 
 
 
@@ -412,6 +422,7 @@ Type documentation: no documentation provided
 
 
 
+
 #### sleep
 
 
@@ -425,6 +436,7 @@ Type documentation: no documentation provided
 
 <h4>Response type</h4>
 Type documentation: no documentation provided 
+
 
 
 
@@ -453,6 +465,7 @@ Type documentation: no documentation provided
 
 
 
+
 #### getTimeFromMilliSeconds
 
 
@@ -471,6 +484,7 @@ Type documentation: no documentation provided
 	.minute: int
 	.second: int
 }</pre>
+
 
 
 
@@ -511,6 +525,7 @@ Fault-handling install template: <code>install ( InvalidDate => /* error-handlin
 
 
 
+
 #### setNextTimeoutByDateTime
 
 
@@ -519,6 +534,7 @@ Invocation template: <code>setNextTimeoutByDateTime@Time( request )</code>
 <h4>Request type</h4>
 
 Type documentation: no documentation provided 
+
 
 
 
@@ -546,6 +562,7 @@ Type documentation: no documentation provided
 	.year: int
 	.day: int
 }</pre>
+
 
 
 

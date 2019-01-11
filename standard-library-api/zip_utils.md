@@ -73,6 +73,7 @@ Inclusion code: <code>include "zip_utils.iol"</code>
 ### Operation Description
 
 
+
 #### zip
 
 
@@ -98,6 +99,7 @@ Fault-handling install template: <code>install ( IOException => /* error-handlin
 <pre>type IOExceptionType: JavaExceptionType</pre>
 
 
+
 #### IOException
 
 
@@ -111,6 +113,7 @@ Type documentation: no documentation provided
 
 <h4>Response type</h4>
 Type documentation: no documentation provided 
+
 
 
 
@@ -144,6 +147,7 @@ Type documentation: no documentation provided
 Fault <code>FileNotFound</code> with type <code>undefined</code>
 
 Fault-handling install template: <code>install ( FileNotFound => /* error-handling code */ )</code>
+
 
 
 

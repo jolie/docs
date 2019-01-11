@@ -56,6 +56,7 @@ Inclusion code: <code>include "html_utils.iol"</code>
 ### Operation Description
 
 
+
 #### escapeHTML
 
 
@@ -69,6 +70,7 @@ Type documentation: no documentation provided
 
 <h4>Response type</h4>
 Type documentation: no documentation provided 
+
 
 
 

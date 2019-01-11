@@ -67,6 +67,7 @@ Inclusion code: <code>include "xml_utils.iol"</code>
 ### Operation Description
 
 
+
 #### xmlToValue
 Operation documentation: 
 		  Transforms the base value in XML format (data types string, raw) into a Jolie value
@@ -106,6 +107,7 @@ Fault-handling install template: <code>install ( IOException => /* error-handlin
 <pre>type IOExceptionType: JavaExceptionType</pre>
 
 
+
 #### transform
 
 
@@ -134,6 +136,7 @@ Fault-handling install template: <code>install ( TransformerException => /* erro
 <pre>type JavaExceptionType: string {
 	.stackTrace: string
 }</pre>
+
 
 
 #### valueToXml

@@ -55,6 +55,7 @@ Inclusion code: <code>include "monitors/standard_monitor.iol"</code>
 ### Operation Description
 
 
+
 #### monitorAlert
 
 
@@ -97,6 +98,7 @@ Type documentation: no documentation provided
 </table>
 
 ### Operation Description
+
 
 
 #### pushEvent
@@ -149,6 +151,7 @@ Type documentation: no documentation provided
 ### Operation Description
 
 
+
 #### flush
 
 
@@ -165,6 +168,7 @@ Type documentation: no documentation provided
 <pre>type FlushResponse: void {
 	.events*: MonitorEvent
 }</pre>
+
 
 
 

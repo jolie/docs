@@ -173,6 +173,7 @@ Inclusion code: <code>include "runtime.iol"</code>
 ### Operation Description
 
 
+
 #### loadLibrary
 
 
@@ -198,6 +199,7 @@ Fault-handling install template: <code>install ( IOException => /* error-handlin
 <pre>type IOExceptionType: JavaExceptionType</pre>
 
 
+
 #### removeOutputPort
 
 
@@ -211,6 +213,7 @@ Type documentation: no documentation provided
 
 <h4>Response type</h4>
 Type documentation: no documentation provided 
+
 
 
 
@@ -246,6 +249,7 @@ Fault-handling install template: <code>install ( RuntimeException => /* error-ha
 <pre>type RuntimeExceptionType: JavaExceptionType</pre>
 
 
+
 #### getOutputPorts
 Operation documentation: 
 		it returns the list of definitions of all the available outputPorts of the service
@@ -268,6 +272,7 @@ Type documentation: no documentation provided
 		.location: string
 	}
 }</pre>
+
 
 
 
@@ -299,6 +304,7 @@ Fault <code>RuntimeException</code> with type <code>RuntimeExceptionType</code>
 
 Fault-handling install template: <code>install ( RuntimeException => /* error-handling code */ )</code>
 <pre>type RuntimeExceptionType: JavaExceptionType</pre>
+
 
 
 #### getOutputPort
@@ -334,6 +340,7 @@ Fault-handling install template: <code>install ( OutputPortDoesNotExist => /* er
 
 
 
+
 #### dumpState
 
 
@@ -347,6 +354,7 @@ Type documentation: no documentation provided
 
 <h4>Response type</h4>
 Type documentation: no documentation provided 
+
 
 
 
@@ -372,6 +380,7 @@ Type documentation: no documentation provided
 
 
 
+
 #### getRedirection
 
 
@@ -388,6 +397,7 @@ Type documentation: no documentation provided
 
 <h4>Response type</h4>
 Type documentation: no documentation provided 
+
 
 
 
@@ -417,6 +427,7 @@ Type documentation: no documentation provided
 
 
 
+
 #### halt
 
 
@@ -438,6 +449,7 @@ Type documentation: no documentation provided
 
 
 
+
 #### callExit
 
 
@@ -451,6 +463,7 @@ Type documentation: no documentation provided
 
 <h4>Response type</h4>
 Type documentation: no documentation provided 
+
 
 
 
@@ -490,6 +503,7 @@ Type documentation: no documentation provided
 
 
 
+
 #### removeRedirection
 
 
@@ -518,6 +532,7 @@ Fault-handling install template: <code>install ( RuntimeException => /* error-ha
 <pre>type RuntimeExceptionType: JavaExceptionType</pre>
 
 
+
 #### setMonitor
 
 
@@ -534,6 +549,7 @@ Type documentation: no documentation provided
 
 <h4>Response type</h4>
 Type documentation: no documentation provided 
+
 
 
 
@@ -559,6 +575,7 @@ Type documentation: no documentation provided
 
 
 
+
 #### getIncludePaths
 
 
@@ -575,6 +592,7 @@ Type documentation: no documentation provided
 <pre>type GetIncludePathResponse: void {
 	.path*: string
 }</pre>
+
 
 
 
