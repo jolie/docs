@@ -100,7 +100,7 @@ Type documentation: no documentation provided
 
 
 
-**Possible faults thrown**
+<h4>Possible faults thrown</h4>
 
 
 
@@ -132,7 +132,7 @@ Type documentation: no documentation provided
 
 
 
-**Possible faults thrown**
+<h4>Possible faults thrown</h4>
 
 
 
@@ -179,7 +179,7 @@ Type documentation: no documentation provided
 
 
 
-**Possible faults thrown**
+<h4>Possible faults thrown</h4>
 
 
 
