@@ -153,7 +153,7 @@ Operation documentation:
 Invocation template: <code>valueToXml@XmlUtils( request )( response )</code>
 
 **Request type**
-<a id="ValueToXmlRequest"></a>
+<h4 id="ValueToXmlRequest"></h4>
 Type documentation: no documentation provided 
 <pre>type ValueToXmlRequest: void {
 	.omitXmlDeclaration?: bool
