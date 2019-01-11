@@ -74,7 +74,7 @@ Inclusion code: <code>include "converter.iol"</code>
 
 
 
-#### stringToRaw
+<h4 id="stringToRaw">stringToRaw</h4>
 
 
 Invocation template: <code>stringToRaw@Converter( request )( response )</code>
@@ -100,10 +100,9 @@ Fault <code>IOException</code> with type <code>IOExceptionType</code>
 Fault-handling install template: <code>install ( IOException => /* error-handling code */ )</code>
 <pre>type IOExceptionType: JavaExceptionType</pre>
 
-<hr>
 
 
-#### base64ToRaw
+<h4 id="base64ToRaw">base64ToRaw</h4>
 
 
 Invocation template: <code>base64ToRaw@Converter( request )( response )</code>
@@ -127,10 +126,9 @@ Fault <code>IOException</code> with type <code>IOExceptionType</code>
 Fault-handling install template: <code>install ( IOException => /* error-handling code */ )</code>
 <pre>type IOExceptionType: JavaExceptionType</pre>
 
-<hr>
 
 
-#### rawToBase64
+<h4 id="rawToBase64">rawToBase64</h4>
 
 
 Invocation template: <code>rawToBase64@Converter( request )( response )</code>
@@ -148,10 +146,9 @@ Type documentation: no documentation provided
 
 
 
-<hr>
 
 
-#### rawToString
+<h4 id="rawToString">rawToString</h4>
 
 
 Invocation template: <code>rawToString@Converter( request )( response )</code>
@@ -177,7 +174,6 @@ Fault <code>IOException</code> with type <code>IOExceptionType</code>
 Fault-handling install template: <code>install ( IOException => /* error-handling code */ )</code>
 <pre>type IOExceptionType: JavaExceptionType</pre>
 
-<hr>
 
 
 <h4>Subtypes</h4>

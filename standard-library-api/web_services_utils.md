@@ -51,7 +51,7 @@ Inclusion code: <code>include "web_services_utils.iol"</code>
 
 
 
-#### wsdlToJolie
+<h4 id="wsdlToJolie">wsdlToJolie</h4>
 
 
 Invocation template: <code>wsdlToJolie@WebServicesUtils( request )( response )</code>
@@ -75,7 +75,6 @@ Fault <code>IOException</code> with type <code>IOExceptionType</code>
 Fault-handling install template: <code>install ( IOException => /* error-handling code */ )</code>
 <pre>type IOExceptionType: JavaExceptionType</pre>
 
-<hr>
 
 
 <h4>Subtypes</h4>

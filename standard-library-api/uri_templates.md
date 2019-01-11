@@ -61,7 +61,7 @@ WARNING: the API of this service is experimental. Use it at your own risk.
 
 
 
-#### expand
+<h4 id="expand">expand</h4>
 
 
 Invocation template: <code>expand@UriTemplates( request )( response )</code>
@@ -82,10 +82,9 @@ Type documentation: no documentation provided
 
 
 
-<hr>
 
 
-#### match
+<h4 id="match">match</h4>
 
 
 Invocation template: <code>match@UriTemplates( request )( response )</code>
@@ -106,7 +105,6 @@ Type documentation: no documentation provided
 
 
 
-<hr>
 
 
 

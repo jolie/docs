@@ -57,7 +57,7 @@ Inclusion code: <code>include "security_utils.iol"</code>
 
 
 
-#### secureRandom
+<h4 id="secureRandom">secureRandom</h4>
 
 
 Invocation template: <code>secureRandom@SecurityUtils( request )( response )</code>
@@ -77,10 +77,9 @@ Type documentation: no documentation provided
 
 
 
-<hr>
 
 
-#### createSecureToken
+<h4 id="createSecureToken">createSecureToken</h4>
 
 
 Invocation template: <code>createSecureToken@SecurityUtils( request )( response )</code>
@@ -98,7 +97,6 @@ Type documentation: no documentation provided
 
 
 
-<hr>
 
 
 

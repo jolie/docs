@@ -95,7 +95,7 @@ Inclusion code: <code>include "database.iol"</code>
 
 
 
-#### checkConnection
+<h4 id="checkConnection">checkConnection</h4>
 Operation documentation: 
 	  Checks the connection with the database. Throws ConnectionError if the connection is not functioning properly.
 	 
@@ -121,10 +121,9 @@ Fault <code>ConnectionError</code> with type <code>undefined</code>
 Fault-handling install template: <code>install ( ConnectionError => /* error-handling code */ )</code>
 
 
-<hr>
 
 
-#### query
+<h4 id="query">query</h4>
 Operation documentation: 
 	  Queries the database and returns a result set
 	 
@@ -192,10 +191,9 @@ Fault <code>ConnectionError</code> with type <code>undefined</code>
 Fault-handling install template: <code>install ( ConnectionError => /* error-handling code */ )</code>
 
 
-<hr>
 
 
-#### executeTransaction
+<h4 id="executeTransaction">executeTransaction</h4>
 Operation documentation: 
 	  Executes more than one database command in a single transaction
 	 
@@ -231,10 +229,9 @@ Fault <code>ConnectionError</code> with type <code>undefined</code>
 Fault-handling install template: <code>install ( ConnectionError => /* error-handling code */ )</code>
 
 
-<hr>
 
 
-#### update
+<h4 id="update">update</h4>
 Operation documentation: 
 	  Updates the database and returns a single status code
 	 
@@ -275,10 +272,9 @@ Fault <code>ConnectionError</code> with type <code>undefined</code>
 Fault-handling install template: <code>install ( ConnectionError => /* error-handling code */ )</code>
 
 
-<hr>
 
 
-#### close
+<h4 id="close">close</h4>
 Operation documentation: 
 	  Explicitly closes a database connection
 	  Per default the close happens on reconnect or on termination of the
@@ -300,10 +296,9 @@ Type documentation: no documentation provided
 
 
 
-<hr>
 
 
-#### connect
+<h4 id="connect">connect</h4>
 Operation documentation: 
 	  Connects to a database and eventually closes a previous connection
 	 
@@ -362,7 +357,6 @@ Fault <code>DriverClassNotFound</code> with type <code>undefined</code>
 Fault-handling install template: <code>install ( DriverClassNotFound => /* error-handling code */ )</code>
 
 
-<hr>
 
 
 

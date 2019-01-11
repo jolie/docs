@@ -59,7 +59,7 @@ Inclusion code: <code>include "xmpp.iol"</code>
 
 
 
-#### sendMessage
+<h4 id="sendMessage">sendMessage</h4>
 
 
 Invocation template: <code>sendMessage@XMPP( request )( response )</code>
@@ -85,10 +85,9 @@ Fault <code>XMPPException</code> with type <code>undefined</code>
 Fault-handling install template: <code>install ( XMPPException => /* error-handling code */ )</code>
 
 
-<hr>
 
 
-#### connect
+<h4 id="connect">connect</h4>
 
 
 Invocation template: <code>connect@XMPP( request )( response )</code>
@@ -119,7 +118,6 @@ Fault <code>XMPPException</code> with type <code>undefined</code>
 Fault-handling install template: <code>install ( XMPPException => /* error-handling code */ )</code>
 
 
-<hr>
 
 
 

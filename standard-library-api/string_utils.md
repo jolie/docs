@@ -194,7 +194,7 @@ Interface documentation:
 
 
 
-#### leftPad
+<h4 id="leftPad">leftPad</h4>
 
 
 Invocation template: <code>leftPad@StringUtils( request )( response )</code>
@@ -215,10 +215,9 @@ Type documentation: no documentation provided
 
 
 
-<hr>
 
 
-#### valueToPrettyString
+<h4 id="valueToPrettyString">valueToPrettyString</h4>
 
 
 Invocation template: <code>valueToPrettyString@StringUtils( request )( response )</code>
@@ -236,10 +235,9 @@ Type documentation: no documentation provided
 
 
 
-<hr>
 
 
-#### toLowerCase
+<h4 id="toLowerCase">toLowerCase</h4>
 
 
 Invocation template: <code>toLowerCase@StringUtils( request )( response )</code>
@@ -257,10 +255,9 @@ Type documentation: no documentation provided
 
 
 
-<hr>
 
 
-#### length
+<h4 id="length">length</h4>
 
 
 Invocation template: <code>length@StringUtils( request )( response )</code>
@@ -278,10 +275,9 @@ Type documentation: no documentation provided
 
 
 
-<hr>
 
 
-#### match
+<h4 id="match">match</h4>
 
 
 Invocation template: <code>match@StringUtils( request )( response )</code>
@@ -303,10 +299,9 @@ Type documentation: no documentation provided
 
 
 
-<hr>
 
 
-#### replaceFirst
+<h4 id="replaceFirst">replaceFirst</h4>
 
 
 Invocation template: <code>replaceFirst@StringUtils( request )( response )</code>
@@ -327,10 +322,9 @@ Type documentation: no documentation provided
 
 
 
-<hr>
 
 
-#### sort
+<h4 id="sort">sort</h4>
 
 
 Invocation template: <code>sort@StringUtils( request )( response )</code>
@@ -352,10 +346,9 @@ Type documentation: no documentation provided
 
 
 
-<hr>
 
 
-#### replaceAll
+<h4 id="replaceAll">replaceAll</h4>
 
 
 Invocation template: <code>replaceAll@StringUtils( request )( response )</code>
@@ -376,10 +369,9 @@ Type documentation: no documentation provided
 
 
 
-<hr>
 
 
-#### substring
+<h4 id="substring">substring</h4>
 
 
 Invocation template: <code>substring@StringUtils( request )( response )</code>
@@ -400,10 +392,9 @@ Type documentation: no documentation provided
 
 
 
-<hr>
 
 
-#### getRandomUUID
+<h4 id="getRandomUUID">getRandomUUID</h4>
 Operation documentation: 
 	 it returns a random UUID
 	
@@ -423,10 +414,9 @@ Type documentation: no documentation provided
 
 
 
-<hr>
 
 
-#### rightPad
+<h4 id="rightPad">rightPad</h4>
 
 
 Invocation template: <code>rightPad@StringUtils( request )( response )</code>
@@ -447,10 +437,9 @@ Type documentation: no documentation provided
 
 
 
-<hr>
 
 
-#### contains
+<h4 id="contains">contains</h4>
 Operation documentation: 
 	  Returns true if the string contains .substring
 	 
@@ -472,10 +461,9 @@ Type documentation: no documentation provided
 
 
 
-<hr>
 
 
-#### split
+<h4 id="split">split</h4>
 
 
 Invocation template: <code>split@StringUtils( request )( response )</code>
@@ -498,10 +486,9 @@ Type documentation: no documentation provided
 
 
 
-<hr>
 
 
-#### splitByLength
+<h4 id="splitByLength">splitByLength</h4>
 
 
 Invocation template: <code>splitByLength@StringUtils( request )( response )</code>
@@ -523,10 +510,9 @@ Type documentation: no documentation provided
 
 
 
-<hr>
 
 
-#### trim
+<h4 id="trim">trim</h4>
 
 
 Invocation template: <code>trim@StringUtils( request )( response )</code>
@@ -544,10 +530,9 @@ Type documentation: no documentation provided
 
 
 
-<hr>
 
 
-#### find
+<h4 id="find">find</h4>
 
 
 Invocation template: <code>find@StringUtils( request )( response )</code>
@@ -569,10 +554,9 @@ Type documentation: no documentation provided
 
 
 
-<hr>
 
 
-#### endsWith
+<h4 id="endsWith">endsWith</h4>
 Operation documentation: 
 	  checks if a string ends with a given suffix
 	
@@ -594,10 +578,9 @@ Type documentation: no documentation provided
 
 
 
-<hr>
 
 
-#### toUpperCase
+<h4 id="toUpperCase">toUpperCase</h4>
 
 
 Invocation template: <code>toUpperCase@StringUtils( request )( response )</code>
@@ -615,10 +598,9 @@ Type documentation: no documentation provided
 
 
 
-<hr>
 
 
-#### join
+<h4 id="join">join</h4>
 
 
 Invocation template: <code>join@StringUtils( request )( response )</code>
@@ -639,10 +621,9 @@ Type documentation: no documentation provided
 
 
 
-<hr>
 
 
-#### indexOf
+<h4 id="indexOf">indexOf</h4>
 
 
 Invocation template: <code>indexOf@StringUtils( request )( response )</code>
@@ -662,10 +643,9 @@ Type documentation: no documentation provided
 
 
 
-<hr>
 
 
-#### startsWith
+<h4 id="startsWith">startsWith</h4>
 Operation documentation: 
 	 checks if the passed string starts with a given prefix
 	
@@ -687,7 +667,6 @@ Type documentation: no documentation provided
 
 
 
-<hr>
 
 
 

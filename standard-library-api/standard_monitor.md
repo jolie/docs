@@ -56,7 +56,7 @@ Inclusion code: <code>include "monitors/standard_monitor.iol"</code>
 
 
 
-#### monitorAlert
+<h4 id="monitorAlert">monitorAlert</h4>
 
 
 Invocation template: <code>monitorAlert( request )</code>
@@ -70,7 +70,6 @@ Type documentation: no documentation provided
 
 
 
-<hr>
 
 
 
@@ -102,7 +101,7 @@ Type documentation: no documentation provided
 
 
 
-#### pushEvent
+<h4 id="pushEvent">pushEvent</h4>
 
 
 Invocation template: <code>pushEvent@Monitor( request )</code>
@@ -116,7 +115,6 @@ Type documentation: no documentation provided
 
 
 
-<hr>
 
 
 
@@ -154,7 +152,7 @@ Type documentation: no documentation provided
 
 
 
-#### flush
+<h4 id="flush">flush</h4>
 
 
 Invocation template: <code>flush@Monitor( request )( response )</code>
@@ -174,10 +172,9 @@ Type documentation: no documentation provided
 
 
 
-<hr>
 
 
-#### setMonitor
+<h4 id="setMonitor">setMonitor</h4>
 
 
 Invocation template: <code>setMonitor@Monitor( request )( response )</code>
@@ -199,7 +196,6 @@ Type documentation: no documentation provided
 
 
 
-<hr>
 
 
 

@@ -85,7 +85,7 @@ Inclusion code: <code>include "queue_utils.iol"</code>
 
 
 
-#### size
+<h4 id="size">size</h4>
 
 
 Invocation template: <code>size@QueueUtils( request )( response )</code>
@@ -103,10 +103,9 @@ Type documentation: no documentation provided
 
 
 
-<hr>
 
 
-#### poll
+<h4 id="poll">poll</h4>
 
 
 Invocation template: <code>poll@QueueUtils( request )( response )</code>
@@ -124,10 +123,9 @@ Type documentation: no documentation provided
 
 
 
-<hr>
 
 
-#### new_queue
+<h4 id="new_queue">new_queue</h4>
 
 
 Invocation template: <code>new_queue@QueueUtils( request )( response )</code>
@@ -145,10 +143,9 @@ Type documentation: no documentation provided
 
 
 
-<hr>
 
 
-#### delete_queue
+<h4 id="delete_queue">delete_queue</h4>
 
 
 Invocation template: <code>delete_queue@QueueUtils( request )( response )</code>
@@ -166,10 +163,9 @@ Type documentation: no documentation provided
 
 
 
-<hr>
 
 
-#### push
+<h4 id="push">push</h4>
 
 
 Invocation template: <code>push@QueueUtils( request )( response )</code>
@@ -190,10 +186,9 @@ Type documentation: no documentation provided
 
 
 
-<hr>
 
 
-#### peek
+<h4 id="peek">peek</h4>
 
 
 Invocation template: <code>peek@QueueUtils( request )( response )</code>
@@ -211,7 +206,6 @@ Type documentation: no documentation provided
 
 
 
-<hr>
 
 
 

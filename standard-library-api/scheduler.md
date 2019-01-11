@@ -65,7 +65,7 @@ Inclusion code: <code>include "scheduler.iol"</code>
 
 
 
-#### setCronJob
+<h4 id="setCronJob">setCronJob</h4>
 
 
 Invocation template: <code>setCronJob@Scheduler( request )( response )</code>
@@ -101,10 +101,9 @@ Fault <code>JobAlreadyExists</code> with type <code>void</code>
 Fault-handling install template: <code>install ( JobAlreadyExists => /* error-handling code */ )</code>
 
 
-<hr>
 
 
-#### deleteCronJob
+<h4 id="deleteCronJob">deleteCronJob</h4>
 
 
 Invocation template: <code>deleteCronJob@Scheduler( request )( response )</code>
@@ -125,10 +124,9 @@ Type documentation: no documentation provided
 
 
 
-<hr>
 
 
-#### setCallbackOperation
+<h4 id="setCallbackOperation">setCallbackOperation</h4>
 
 
 Invocation template: <code>setCallbackOperation@Scheduler( request )</code>
@@ -144,7 +142,6 @@ Type documentation: no documentation provided
 
 
 
-<hr>
 
 
 

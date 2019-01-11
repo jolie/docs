@@ -85,7 +85,7 @@ Inclusion code: <code>include "math.iol"</code>
 
 
 
-#### random
+<h4 id="random">random</h4>
 Operation documentation:  Returns a random number d such that 0.0 <= d < 1.0. 
 
 Invocation template: <code>random@Math( request )( response )</code>
@@ -103,10 +103,9 @@ Type documentation: no documentation provided
 
 
 
-<hr>
 
 
-#### abs
+<h4 id="abs">abs</h4>
 Operation documentation:  Returns the absolute value of the input integer. 
 
 Invocation template: <code>abs@Math( request )( response )</code>
@@ -124,10 +123,9 @@ Type documentation: no documentation provided
 
 
 
-<hr>
 
 
-#### round
+<h4 id="round">round</h4>
 
 
 Invocation template: <code>round@Math( request )( response )</code>
@@ -147,10 +145,9 @@ Type documentation: no documentation provided
 
 
 
-<hr>
 
 
-#### pi
+<h4 id="pi">pi</h4>
 Operation documentation:  Returns the PI constant 
 
 Invocation template: <code>pi@Math( request )( response )</code>
@@ -168,10 +165,9 @@ Type documentation: no documentation provided
 
 
 
-<hr>
 
 
-#### pow
+<h4 id="pow">pow</h4>
 Operation documentation:  Returns the result of .base to the power of .exponent (see request data type). 
 
 Invocation template: <code>pow@Math( request )( response )</code>
@@ -192,10 +188,9 @@ Type documentation: no documentation provided
 
 
 
-<hr>
 
 
-#### summation
+<h4 id="summation">summation</h4>
 Operation documentation:  Returns the summation of values from .from to .to (see request data type). For example, .from=2 and .to=5 would produce a return value of 2+3+4+5=14. 
 
 Invocation template: <code>summation@Math( request )( response )</code>
@@ -216,7 +211,6 @@ Type documentation: no documentation provided
 
 
 
-<hr>
 
 
 

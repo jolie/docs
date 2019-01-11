@@ -58,7 +58,7 @@ Inclusion code: <code>include "network_service.iol"</code>
 
 
 
-#### getNetworkInterfaceNames
+<h4 id="getNetworkInterfaceNames">getNetworkInterfaceNames</h4>
 
 
 Invocation template: <code>getNetworkInterfaceNames@NetworkService( request )( response )</code>
@@ -80,10 +80,9 @@ Type documentation: no documentation provided
 
 
 
-<hr>
 
 
-#### getIPAddresses
+<h4 id="getIPAddresses">getIPAddresses</h4>
 
 
 Invocation template: <code>getIPAddresses@NetworkService( request )( response )</code>
@@ -112,7 +111,6 @@ Fault <code>InterfaceNotFound</code> with type <code>undefined</code>
 Fault-handling install template: <code>install ( InterfaceNotFound => /* error-handling code */ )</code>
 
 
-<hr>
 
 
 

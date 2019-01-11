@@ -56,7 +56,7 @@ Inclusion code: <code>include "console.iol"</code>
 
 
 
-#### in
+<h4 id="in">in</h4>
 
 
 Invocation template: <code>in( request )</code>
@@ -72,7 +72,6 @@ Type documentation: no documentation provided
 
 
 
-<hr>
 
 
 
@@ -139,7 +138,7 @@ Type documentation: no documentation provided
 
 
 
-#### print
+<h4 id="print">print</h4>
 
 
 Invocation template: <code>print@Console( request )( response )</code>
@@ -157,10 +156,9 @@ Type documentation: no documentation provided
 
 
 
-<hr>
 
 
-#### println
+<h4 id="println">println</h4>
 
 
 Invocation template: <code>println@Console( request )( response )</code>
@@ -178,10 +176,9 @@ Type documentation: no documentation provided
 
 
 
-<hr>
 
 
-#### registerForInput
+<h4 id="registerForInput">registerForInput</h4>
 Operation documentation: 
 	  it enables the console for input listening
 	  parameter enableSessionListener enables console input listening for more than one service session (default=false)
@@ -204,10 +201,9 @@ Type documentation: no documentation provided
 
 
 
-<hr>
 
 
-#### unsubscribeSessionListener
+<h4 id="unsubscribeSessionListener">unsubscribeSessionListener</h4>
 Operation documentation: 
 	 it disables a session to receive inputs from the console, previously registered with subscribeSessionListener operation
 	
@@ -229,10 +225,9 @@ Type documentation: no documentation provided
 
 
 
-<hr>
 
 
-#### subscribeSessionListener
+<h4 id="subscribeSessionListener">subscribeSessionListener</h4>
 Operation documentation: 
 	 it receives a token string which identifies a service session.
 	 it enables the session to receive inputs from the console
@@ -255,10 +250,9 @@ Type documentation: no documentation provided
 
 
 
-<hr>
 
 
-#### enableTimestamp
+<h4 id="enableTimestamp">enableTimestamp</h4>
 Operation documentation: 
 		It enables timestamp inline printing for each console output operation call: print, println
 		Parameter format allows to specifiy the timestamp output format. Bad Format will be printed out if format value is not allowed.
@@ -281,7 +275,6 @@ Type documentation: no documentation provided
 
 
 
-<hr>
 
 
 

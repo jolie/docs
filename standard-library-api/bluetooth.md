@@ -57,7 +57,7 @@ Inclusion code: <code>include "bluetooth.iol"</code>
 
 
 
-#### inquire
+<h4 id="inquire">inquire</h4>
 
 
 Invocation template: <code>inquire@Bluetooth( request )( response )</code>
@@ -83,10 +83,9 @@ Type documentation: no documentation provided
 
 
 
-<hr>
 
 
-#### setDiscoverable
+<h4 id="setDiscoverable">setDiscoverable</h4>
 Operation documentation: 
 	  Sets the current Bluetooth device as discoverable or not discoverable
 	  @request: 0 if the device has to be set not discoverable, 1 if the device has to be set discoverable.
@@ -107,7 +106,6 @@ Type documentation: no documentation provided
 
 
 
-<hr>
 
 
 

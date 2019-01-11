@@ -56,7 +56,7 @@ WARNING: the API of this service is experimental. Use it at your own risk.
 
 
 
-#### invoke
+<h4 id="invoke">invoke</h4>
 Operation documentation: 
 	Invokes the specified .operation at .outputPort.
 	If the operation is a OneWay, the invocation returns no value.
@@ -97,7 +97,6 @@ Fault-handling install template: <code>install ( InvocationFault => /* error-han
 	.name: string
 }</pre>
 
-<hr>
 
 
 

@@ -50,7 +50,7 @@ Inclusion code: <code>include "ini_utils.iol"</code>
 
 
 
-#### parseIniFile
+<h4 id="parseIniFile">parseIniFile</h4>
 
 
 Invocation template: <code>parseIniFile@IniUtils( request )( response )</code>
@@ -70,7 +70,6 @@ Type documentation: no documentation provided
 
 
 
-<hr>
 
 
 

@@ -198,7 +198,7 @@ to: the target directory to copy into
 
 
 
-#### convertFromBase64ToBinaryValue
+<h4 id="convertFromBase64ToBinaryValue">convertFromBase64ToBinaryValue</h4>
 Operation documentation:  deprecated, please use base64ToRaw@Converter()() from converter.iol 
 
 Invocation template: <code>convertFromBase64ToBinaryValue@File( request )( response )</code>
@@ -222,10 +222,9 @@ Fault <code>IOException</code> with type <code>IOExceptionType</code>
 Fault-handling install template: <code>install ( IOException => /* error-handling code */ )</code>
 <pre>type IOExceptionType: JavaExceptionType</pre>
 
-<hr>
 
 
-#### getMimeType
+<h4 id="getMimeType">getMimeType</h4>
 
 
 Invocation template: <code>getMimeType@File( request )( response )</code>
@@ -249,10 +248,9 @@ Fault <code>FileNotFound</code> with type <code>FileNotFoundType</code>
 Fault-handling install template: <code>install ( FileNotFound => /* error-handling code */ )</code>
 <pre>type FileNotFoundType: WeakJavaExceptionType</pre>
 
-<hr>
 
 
-#### convertFromBinaryToBase64Value
+<h4 id="convertFromBinaryToBase64Value">convertFromBinaryToBase64Value</h4>
 Operation documentation:  deprecated, please use rawToBase64@Converter()() from converter.iol 
 
 Invocation template: <code>convertFromBinaryToBase64Value@File( request )( response )</code>
@@ -270,10 +268,9 @@ Type documentation: no documentation provided
 
 
 
-<hr>
 
 
-#### toAbsolutePath
+<h4 id="toAbsolutePath">toAbsolutePath</h4>
 Operation documentation: 
 	  Constructs an absolute path to the target file or directory.
 	  Can be used to construct an absolute path for new files that does not exist yet.
@@ -303,10 +300,9 @@ Fault-handling install template: <code>install ( InvalidPathException => /* erro
 	.stackTrace: string
 }</pre>
 
-<hr>
 
 
-#### getParentPath
+<h4 id="getParentPath">getParentPath</h4>
 Operation documentation: 
 	  Constructs the path to the parent directory.
 	  Can be used to construct paths that does not exist so long as the path uses the system's filesystem path conventions.
@@ -336,10 +332,9 @@ Fault-handling install template: <code>install ( InvalidPathException => /* erro
 	.stackTrace: string
 }</pre>
 
-<hr>
 
 
-#### list
+<h4 id="list">list</h4>
 
 
 Invocation template: <code>list@File( request )( response )</code>
@@ -375,10 +370,9 @@ Type documentation: no documentation provided
 
 
 
-<hr>
 
 
-#### copyDir
+<h4 id="copyDir">copyDir</h4>
 Operation documentation: 
 	  it copies a source directory into a destination one
 	
@@ -413,10 +407,9 @@ Fault <code>IOException</code> with type <code>undefined</code>
 Fault-handling install template: <code>install ( IOException => /* error-handling code */ )</code>
 
 
-<hr>
 
 
-#### delete
+<h4 id="delete">delete</h4>
 
 
 Invocation template: <code>delete@File( request )( response )</code>
@@ -442,10 +435,9 @@ Fault <code>IOException</code> with type <code>IOExceptionType</code>
 Fault-handling install template: <code>install ( IOException => /* error-handling code */ )</code>
 <pre>type IOExceptionType: JavaExceptionType</pre>
 
-<hr>
 
 
-#### getSize
+<h4 id="getSize">getSize</h4>
 Operation documentation: 
 	  The size of any basic type variable.
 	  - raw: buffer size
@@ -472,10 +464,9 @@ Type documentation: no documentation provided
 
 
 
-<hr>
 
 
-#### getFileSeparator
+<h4 id="getFileSeparator">getFileSeparator</h4>
 
 
 Invocation template: <code>getFileSeparator@File( request )( response )</code>
@@ -493,10 +484,9 @@ Type documentation: no documentation provided
 
 
 
-<hr>
 
 
-#### rename
+<h4 id="rename">rename</h4>
 
 
 Invocation template: <code>rename@File( request )( response )</code>
@@ -523,10 +513,9 @@ Fault <code>IOException</code> with type <code>IOExceptionType</code>
 Fault-handling install template: <code>install ( IOException => /* error-handling code */ )</code>
 <pre>type IOExceptionType: JavaExceptionType</pre>
 
-<hr>
 
 
-#### readFile
+<h4 id="readFile">readFile</h4>
 Operation documentation: 
 	  Reads some file's content into a Jolie structure
 	 
@@ -578,10 +567,9 @@ Fault <code>IOException</code> with type <code>IOExceptionType</code>
 Fault-handling install template: <code>install ( IOException => /* error-handling code */ )</code>
 <pre>type IOExceptionType: JavaExceptionType</pre>
 
-<hr>
 
 
-#### exists
+<h4 id="exists">exists</h4>
 Operation documentation: 
 	 it tests if the specified file or directory exists or not.
 	
@@ -601,10 +589,9 @@ Type documentation: no documentation provided
 
 
 
-<hr>
 
 
-#### setMimeTypeFile
+<h4 id="setMimeTypeFile">setMimeTypeFile</h4>
 
 
 Invocation template: <code>setMimeTypeFile@File( request )( response )</code>
@@ -628,10 +615,9 @@ Fault <code>IOException</code> with type <code>IOExceptionType</code>
 Fault-handling install template: <code>install ( IOException => /* error-handling code */ )</code>
 <pre>type IOExceptionType: JavaExceptionType</pre>
 
-<hr>
 
 
-#### deleteDir
+<h4 id="deleteDir">deleteDir</h4>
 Operation documentation: 
 	   it deletes a directory recursively removing all its contents
 	
@@ -657,10 +643,9 @@ Fault <code>IOException</code> with type <code>IOExceptionType</code>
 Fault-handling install template: <code>install ( IOException => /* error-handling code */ )</code>
 <pre>type IOExceptionType: JavaExceptionType</pre>
 
-<hr>
 
 
-#### getServiceDirectory
+<h4 id="getServiceDirectory">getServiceDirectory</h4>
 
 
 Invocation template: <code>getServiceDirectory@File( request )( response )</code>
@@ -684,10 +669,9 @@ Fault <code>IOException</code> with type <code>IOExceptionType</code>
 Fault-handling install template: <code>install ( IOException => /* error-handling code */ )</code>
 <pre>type IOExceptionType: JavaExceptionType</pre>
 
-<hr>
 
 
-#### writeFile
+<h4 id="writeFile">writeFile</h4>
 Operation documentation: 
 	  Writes a Jolie structure out to an external file
 	 
@@ -746,10 +730,9 @@ Fault <code>IOException</code> with type <code>IOExceptionType</code>
 Fault-handling install template: <code>install ( IOException => /* error-handling code */ )</code>
 <pre>type IOExceptionType: JavaExceptionType</pre>
 
-<hr>
 
 
-#### mkdir
+<h4 id="mkdir">mkdir</h4>
 Operation documentation: 
 	
 	 it creates the directory specified in the request root. Returns true if the directory has been
@@ -771,10 +754,9 @@ Type documentation: no documentation provided
 
 
 
-<hr>
 
 
-#### isDirectory
+<h4 id="isDirectory">isDirectory</h4>
 Operation documentation: 
 	  it returns if a filename is a directory or not. False if the file does not exist.
 	
@@ -806,7 +788,6 @@ Fault <code>IOException</code> with type <code>IOExceptionType</code>
 Fault-handling install template: <code>install ( IOException => /* error-handling code */ )</code>
 <pre>type IOExceptionType: JavaExceptionType</pre>
 
-<hr>
 
 
 <h4>Subtypes</h4>

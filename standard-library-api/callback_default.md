@@ -50,7 +50,7 @@ Inclusion code: <code>include "scheduler/callback_default.iol"</code>
 
 
 
-#### schedulerCallback
+<h4 id="schedulerCallback">schedulerCallback</h4>
 
 
 Invocation template: <code>schedulerCallback( request )</code>
@@ -67,7 +67,6 @@ Type documentation: no documentation provided
 
 
 
-<hr>
 
 
 

@@ -174,7 +174,7 @@ Inclusion code: <code>include "runtime.iol"</code>
 
 
 
-#### loadLibrary
+<h4 id="loadLibrary">loadLibrary</h4>
 
 
 Invocation template: <code>loadLibrary@Runtime( request )( response )</code>
@@ -198,10 +198,9 @@ Fault <code>IOException</code> with type <code>IOExceptionType</code>
 Fault-handling install template: <code>install ( IOException => /* error-handling code */ )</code>
 <pre>type IOExceptionType: JavaExceptionType</pre>
 
-<hr>
 
 
-#### removeOutputPort
+<h4 id="removeOutputPort">removeOutputPort</h4>
 
 
 Invocation template: <code>removeOutputPort@Runtime( request )( response )</code>
@@ -219,10 +218,9 @@ Type documentation: no documentation provided
 
 
 
-<hr>
 
 
-#### setRedirection
+<h4 id="setRedirection">setRedirection</h4>
 
 
 Invocation template: <code>setRedirection@Runtime( request )( response )</code>
@@ -250,10 +248,9 @@ Fault <code>RuntimeException</code> with type <code>RuntimeExceptionType</code>
 Fault-handling install template: <code>install ( RuntimeException => /* error-handling code */ )</code>
 <pre>type RuntimeExceptionType: JavaExceptionType</pre>
 
-<hr>
 
 
-#### getOutputPorts
+<h4 id="getOutputPorts">getOutputPorts</h4>
 Operation documentation: 
 		it returns the list of definitions of all the available outputPorts of the service
 	
@@ -279,10 +276,9 @@ Type documentation: no documentation provided
 
 
 
-<hr>
 
 
-#### loadEmbeddedService
+<h4 id="loadEmbeddedService">loadEmbeddedService</h4>
 
 
 Invocation template: <code>loadEmbeddedService@Runtime( request )( response )</code>
@@ -309,10 +305,9 @@ Fault <code>RuntimeException</code> with type <code>RuntimeExceptionType</code>
 Fault-handling install template: <code>install ( RuntimeException => /* error-handling code */ )</code>
 <pre>type RuntimeExceptionType: JavaExceptionType</pre>
 
-<hr>
 
 
-#### getOutputPort
+<h4 id="getOutputPort">getOutputPort</h4>
 Operation documentation: 
 		it returns a port definition if it exists, OuputPortDoesNotExist fault otherwise
 	
@@ -344,10 +339,9 @@ Fault <code>OutputPortDoesNotExist</code> with type <code>undefined</code>
 Fault-handling install template: <code>install ( OutputPortDoesNotExist => /* error-handling code */ )</code>
 
 
-<hr>
 
 
-#### dumpState
+<h4 id="dumpState">dumpState</h4>
 
 
 Invocation template: <code>dumpState@Runtime( request )( response )</code>
@@ -365,10 +359,9 @@ Type documentation: no documentation provided
 
 
 
-<hr>
 
 
-#### getLocalLocation
+<h4 id="getLocalLocation">getLocalLocation</h4>
 
 
 Invocation template: <code>getLocalLocation@Runtime( request )( response )</code>
@@ -386,10 +379,9 @@ Type documentation: no documentation provided
 
 
 
-<hr>
 
 
-#### getRedirection
+<h4 id="getRedirection">getRedirection</h4>
 
 
 Invocation template: <code>getRedirection@Runtime( request )( response )</code>
@@ -410,10 +402,9 @@ Type documentation: no documentation provided
 
 
 
-<hr>
 
 
-#### setOutputPort
+<h4 id="setOutputPort">setOutputPort</h4>
 
 
 Invocation template: <code>setOutputPort@Runtime( request )( response )</code>
@@ -435,10 +426,9 @@ Type documentation: no documentation provided
 
 
 
-<hr>
 
 
-#### halt
+<h4 id="halt">halt</h4>
 
 
 Invocation template: <code>halt@Runtime( request )( response )</code>
@@ -458,10 +448,9 @@ Type documentation: no documentation provided
 
 
 
-<hr>
 
 
-#### callExit
+<h4 id="callExit">callExit</h4>
 
 
 Invocation template: <code>callExit@Runtime( request )( response )</code>
@@ -479,10 +468,9 @@ Type documentation: no documentation provided
 
 
 
-<hr>
 
 
-#### stats
+<h4 id="stats">stats</h4>
 Operation documentation: 
 	  Get information about the runtime state of the Jolie interpreter.
 	 
@@ -514,10 +502,9 @@ Type documentation: no documentation provided
 
 
 
-<hr>
 
 
-#### removeRedirection
+<h4 id="removeRedirection">removeRedirection</h4>
 
 
 Invocation template: <code>removeRedirection@Runtime( request )( response )</code>
@@ -544,10 +531,9 @@ Fault <code>RuntimeException</code> with type <code>RuntimeExceptionType</code>
 Fault-handling install template: <code>install ( RuntimeException => /* error-handling code */ )</code>
 <pre>type RuntimeExceptionType: JavaExceptionType</pre>
 
-<hr>
 
 
-#### setMonitor
+<h4 id="setMonitor">setMonitor</h4>
 
 
 Invocation template: <code>setMonitor@Runtime( request )( response )</code>
@@ -568,10 +554,9 @@ Type documentation: no documentation provided
 
 
 
-<hr>
 
 
-#### getProcessId
+<h4 id="getProcessId">getProcessId</h4>
 
 
 Invocation template: <code>getProcessId@Runtime( request )( response )</code>
@@ -589,10 +574,9 @@ Type documentation: no documentation provided
 
 
 
-<hr>
 
 
-#### getIncludePaths
+<h4 id="getIncludePaths">getIncludePaths</h4>
 
 
 Invocation template: <code>getIncludePaths@Runtime( request )( response )</code>
@@ -612,10 +596,9 @@ Type documentation: no documentation provided
 
 
 
-<hr>
 
 
-#### getenv
+<h4 id="getenv">getenv</h4>
 Operation documentation:  Get the value of an environment variable 
 
 Invocation template: <code>getenv@Runtime( request )( response )</code>
@@ -633,7 +616,6 @@ Type documentation: no documentation provided
 
 
 
-<hr>
 
 
 <h4>Subtypes</h4>

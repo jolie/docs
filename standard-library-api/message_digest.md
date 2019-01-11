@@ -51,7 +51,7 @@ Inclusion code: <code>include "message_digest.iol"</code>
 
 
 
-#### md5
+<h4 id="md5">md5</h4>
 
 
 Invocation template: <code>md5@MessageDigest( request )( response )</code>
@@ -79,7 +79,6 @@ Fault-handling install template: <code>install ( UnsupportedOperation => /* erro
 	.stackTrace: string
 }</pre>
 
-<hr>
 
 
 

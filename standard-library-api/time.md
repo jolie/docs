@@ -166,7 +166,7 @@ Inclusion code: <code>include "time.iol"</code>
 
 
 
-#### scheduleTimeout
+<h4 id="scheduleTimeout">scheduleTimeout</h4>
 Operation documentation: 
 		 Schedules a timeout, which can be cancelled using #cancelTimeout from the returned string. Default .timeunit value is MILLISECONDS, .operation default is "timeout".
 		
@@ -196,10 +196,9 @@ Fault <code>InvalidTimeUnit</code> with type <code>undefined</code>
 Fault-handling install template: <code>install ( InvalidTimeUnit => /* error-handling code */ )</code>
 
 
-<hr>
 
 
-#### getDateValues
+<h4 id="getDateValues">getDateValues</h4>
 Operation documentation: 
 		 Converts an input string into a date expressed by means of
 		 three elements: day, month and year. The request may specify the
@@ -233,10 +232,9 @@ Fault <code>InvalidDate</code> with type <code>undefined</code>
 Fault-handling install template: <code>install ( InvalidDate => /* error-handling code */ )</code>
 
 
-<hr>
 
 
-#### getDateTime
+<h4 id="getDateTime">getDateTime</h4>
 Operation documentation: 
 		 It returns a date time in a string format starting from a timestamp
 		
@@ -265,10 +263,9 @@ Type documentation: no documentation provided
 
 
 
-<hr>
 
 
-#### getCurrentTimeMillis
+<h4 id="getCurrentTimeMillis">getCurrentTimeMillis</h4>
 Operation documentation: 
 		 Warning: this is temporary and subject to future change as soon as long is supported by Jolie.
 		
@@ -288,10 +285,9 @@ Type documentation: no documentation provided
 
 
 
-<hr>
 
 
-#### getDateDiff
+<h4 id="getDateDiff">getDateDiff</h4>
 
 
 Invocation template: <code>getDateDiff@Time( request )( response )</code>
@@ -313,10 +309,9 @@ Type documentation: no documentation provided
 
 
 
-<hr>
 
 
-#### getTimeDiff
+<h4 id="getTimeDiff">getTimeDiff</h4>
 
 
 Invocation template: <code>getTimeDiff@Time( request )( response )</code>
@@ -337,10 +332,9 @@ Type documentation: no documentation provided
 
 
 
-<hr>
 
 
-#### getTimestampFromString
+<h4 id="getTimestampFromString">getTimestampFromString</h4>
 
 
 Invocation template: <code>getTimestampFromString@Time( request )( response )</code>
@@ -367,10 +361,9 @@ Fault <code>InvalidTimestamp</code> with type <code>undefined</code>
 Fault-handling install template: <code>install ( InvalidTimestamp => /* error-handling code */ )</code>
 
 
-<hr>
 
 
-#### cancelTimeout
+<h4 id="cancelTimeout">cancelTimeout</h4>
 Operation documentation: 
 		 Cancels a timeout from a long-value created from #scheduleTimeout
 		
@@ -390,10 +383,9 @@ Type documentation: no documentation provided
 
 
 
-<hr>
 
 
-#### setNextTimeoutByTime
+<h4 id="setNextTimeoutByTime">setNextTimeoutByTime</h4>
 
 
 Invocation template: <code>setNextTimeoutByTime@Time( request )</code>
@@ -407,10 +399,9 @@ Type documentation: no documentation provided
 
 
 
-<hr>
 
 
-#### getCurrentDateTime
+<h4 id="getCurrentDateTime">getCurrentDateTime</h4>
 
 
 Invocation template: <code>getCurrentDateTime@Time( request )( response )</code>
@@ -430,10 +421,9 @@ Type documentation: no documentation provided
 
 
 
-<hr>
 
 
-#### sleep
+<h4 id="sleep">sleep</h4>
 
 
 Invocation template: <code>sleep@Time( request )( response )</code>
@@ -451,10 +441,9 @@ Type documentation: no documentation provided
 
 
 
-<hr>
 
 
-#### setNextTimeout
+<h4 id="setNextTimeout">setNextTimeout</h4>
 Operation documentation: 
 		  it sets a timeout whose duration is in milliseconds and it is represented by the root value of the message
 		  When the alarm is triggered a message whose content is defined in .message is sent to operation defined in .operation
@@ -475,10 +464,9 @@ Type documentation: no documentation provided
 
 
 
-<hr>
 
 
-#### getTimeFromMilliSeconds
+<h4 id="getTimeFromMilliSeconds">getTimeFromMilliSeconds</h4>
 
 
 Invocation template: <code>getTimeFromMilliSeconds@Time( request )( response )</code>
@@ -500,10 +488,9 @@ Type documentation: no documentation provided
 
 
 
-<hr>
 
 
-#### getDateTimeValues
+<h4 id="getDateTimeValues">getDateTimeValues</h4>
 
 
 Invocation template: <code>getDateTimeValues@Time( request )( response )</code>
@@ -537,10 +524,9 @@ Fault <code>InvalidDate</code> with type <code>undefined</code>
 Fault-handling install template: <code>install ( InvalidDate => /* error-handling code */ )</code>
 
 
-<hr>
 
 
-#### setNextTimeoutByDateTime
+<h4 id="setNextTimeoutByDateTime">setNextTimeoutByDateTime</h4>
 
 
 Invocation template: <code>setNextTimeoutByDateTime@Time( request )</code>
@@ -554,10 +540,9 @@ Type documentation: no documentation provided
 
 
 
-<hr>
 
 
-#### getCurrentDateValues
+<h4 id="getCurrentDateValues">getCurrentDateValues</h4>
 Operation documentation: 
 		 Returns the current date split in three fields: day, month and year
 		
@@ -581,10 +566,9 @@ Type documentation: no documentation provided
 
 
 
-<hr>
 
 
-#### getTimeValues
+<h4 id="getTimeValues">getTimeValues</h4>
 
 
 Invocation template: <code>getTimeValues@Time( request )( response )</code>
@@ -606,7 +590,6 @@ Type documentation: no documentation provided
 
 
 
-<hr>
 
 
 

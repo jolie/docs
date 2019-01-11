@@ -64,7 +64,7 @@ Inclusion code: <code>include "ui/swing_ui.iol"</code>
 
 
 
-#### showMessageDialog
+<h4 id="showMessageDialog">showMessageDialog</h4>
 
 
 Invocation template: <code>showMessageDialog@SwingUI( request )( response )</code>
@@ -82,10 +82,9 @@ Type documentation: no documentation provided
 
 
 
-<hr>
 
 
-#### showYesNoQuestionDialog
+<h4 id="showYesNoQuestionDialog">showYesNoQuestionDialog</h4>
 
 
 Invocation template: <code>showYesNoQuestionDialog@SwingUI( request )( response )</code>
@@ -103,10 +102,9 @@ Type documentation: no documentation provided
 
 
 
-<hr>
 
 
-#### showInputDialog
+<h4 id="showInputDialog">showInputDialog</h4>
 
 
 Invocation template: <code>showInputDialog@SwingUI( request )( response )</code>
@@ -124,7 +122,6 @@ Type documentation: no documentation provided
 
 
 
-<hr>
 
 
 

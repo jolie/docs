@@ -51,7 +51,7 @@ Inclusion code: <code>include "smtp.iol"</code>
 
 
 
-#### sendMail
+<h4 id="sendMail">sendMail</h4>
 
 
 Invocation template: <code>sendMail@SMTP( request )( response )</code>
@@ -89,7 +89,6 @@ Fault <code>SMTPFault</code> with type <code>undefined</code>
 Fault-handling install template: <code>install ( SMTPFault => /* error-handling code */ )</code>
 
 
-<hr>
 
 
 
