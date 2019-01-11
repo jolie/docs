@@ -111,7 +111,7 @@ Type documentation: no documentation provided
 
 Fault <code>InterfaceNotFound</code> with type <code>undefined</code>
 
-Fault-handling install template: <code>install ( InterfaceNotFound => /* error-handling code */ )</code>
+Fault-handling install template: <pre>install ( InterfaceNotFound => /* error-handling code */ )</pre>
 
 
 

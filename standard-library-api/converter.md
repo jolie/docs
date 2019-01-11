@@ -99,7 +99,7 @@ Type documentation: no documentation provided
 
 Fault <code>IOException</code> with type <code>IOExceptionType</code>
 
-Fault-handling install template: <code>install ( IOException => /* error-handling code */ )</code>
+Fault-handling install template: <pre>install ( IOException => /* error-handling code */ )</pre>
 <pre>type IOExceptionType: JavaExceptionType</pre>
 
 
@@ -127,7 +127,7 @@ Type documentation: no documentation provided
 
 Fault <code>IOException</code> with type <code>IOExceptionType</code>
 
-Fault-handling install template: <code>install ( IOException => /* error-handling code */ )</code>
+Fault-handling install template: <pre>install ( IOException => /* error-handling code */ )</pre>
 <pre>type IOExceptionType: JavaExceptionType</pre>
 
 
@@ -178,7 +178,7 @@ Type documentation: no documentation provided
 
 Fault <code>IOException</code> with type <code>IOExceptionType</code>
 
-Fault-handling install template: <code>install ( IOException => /* error-handling code */ )</code>
+Fault-handling install template: <pre>install ( IOException => /* error-handling code */ )</pre>
 <pre>type IOExceptionType: JavaExceptionType</pre>
 
 

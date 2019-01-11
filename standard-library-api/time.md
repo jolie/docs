@@ -197,7 +197,7 @@ Type documentation: no documentation provided
 
 Fault <code>InvalidTimeUnit</code> with type <code>undefined</code>
 
-Fault-handling install template: <code>install ( InvalidTimeUnit => /* error-handling code */ )</code>
+Fault-handling install template: <pre>install ( InvalidTimeUnit => /* error-handling code */ )</pre>
 
 
 
@@ -237,7 +237,7 @@ Type documentation: no documentation provided
 
 Fault <code>InvalidDate</code> with type <code>undefined</code>
 
-Fault-handling install template: <code>install ( InvalidDate => /* error-handling code */ )</code>
+Fault-handling install template: <pre>install ( InvalidDate => /* error-handling code */ )</pre>
 
 
 
@@ -376,7 +376,7 @@ Type documentation: no documentation provided
 
 Fault <code>InvalidTimestamp</code> with type <code>undefined</code>
 
-Fault-handling install template: <code>install ( InvalidTimestamp => /* error-handling code */ )</code>
+Fault-handling install template: <pre>install ( InvalidTimestamp => /* error-handling code */ )</pre>
 
 
 
@@ -551,7 +551,7 @@ Type documentation: no documentation provided
 
 Fault <code>InvalidDate</code> with type <code>undefined</code>
 
-Fault-handling install template: <code>install ( InvalidDate => /* error-handling code */ )</code>
+Fault-handling install template: <pre>install ( InvalidDate => /* error-handling code */ )</pre>
 
 
 

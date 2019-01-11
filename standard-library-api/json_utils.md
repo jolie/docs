@@ -88,7 +88,7 @@ Type documentation: no documentation provided
 
 Fault <code>JSONCreationError</code> with type <code>undefined</code>
 
-Fault-handling install template: <code>install ( JSONCreationError => /* error-handling code */ )</code>
+Fault-handling install template: <pre>install ( JSONCreationError => /* error-handling code */ )</pre>
 
 
 
@@ -125,7 +125,7 @@ Type documentation: no documentation provided
 
 Fault <code>JSONCreationError</code> with type <code>undefined</code>
 
-Fault-handling install template: <code>install ( JSONCreationError => /* error-handling code */ )</code>
+Fault-handling install template: <pre>install ( JSONCreationError => /* error-handling code */ )</pre>
 
 
 

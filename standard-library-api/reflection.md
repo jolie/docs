@@ -89,14 +89,14 @@ Type documentation: no documentation provided
 
 Fault <code>OperationNotFound</code> with type <code>string</code>
 
-Fault-handling install template: <code>install ( OperationNotFound => /* error-handling code */ )</code>
+Fault-handling install template: <pre>install ( OperationNotFound => /* error-handling code */ )</pre>
 
 
 
 
 Fault <code>InvocationFault</code> with type <code>InvocationFaultType</code>
 
-Fault-handling install template: <code>install ( InvocationFault => /* error-handling code */ )</code>
+Fault-handling install template: <pre>install ( InvocationFault => /* error-handling code */ )</pre>
 <pre>type InvocationFaultType: void {
 	.data: string
 	.name: string

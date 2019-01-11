@@ -76,7 +76,7 @@ Type documentation: no documentation provided
 
 Fault <code>UnsupportedOperation</code> with type <code>JavaExceptionType</code>
 
-Fault-handling install template: <code>install ( UnsupportedOperation => /* error-handling code */ )</code>
+Fault-handling install template: <pre>install ( UnsupportedOperation => /* error-handling code */ )</pre>
 <pre>type JavaExceptionType: string {
 	.stackTrace: string
 }</pre>

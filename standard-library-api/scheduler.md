@@ -100,7 +100,7 @@ Type documentation: no documentation provided
 
 Fault <code>JobAlreadyExists</code> with type <code>void</code>
 
-Fault-handling install template: <code>install ( JobAlreadyExists => /* error-handling code */ )</code>
+Fault-handling install template: <pre>install ( JobAlreadyExists => /* error-handling code */ )</pre>
 
 
 

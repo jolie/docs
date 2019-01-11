@@ -116,7 +116,7 @@ Type documentation: no documentation provided
 
 Fault <code>ParserException</code> with type <code>ParserExceptionType</code>
 
-Fault-handling install template: <code>install ( ParserException => /* error-handling code */ )</code>
+Fault-handling install template: <pre>install ( ParserException => /* error-handling code */ )</pre>
 <pre>type ParserExceptionType: void {
 	.line: int
 	.sourceName: string
@@ -127,14 +127,14 @@ Fault-handling install template: <code>install ( ParserException => /* error-han
 
 Fault <code>InputPortMetaDataFault</code> with type <code>undefined</code>
 
-Fault-handling install template: <code>install ( InputPortMetaDataFault => /* error-handling code */ )</code>
+Fault-handling install template: <pre>install ( InputPortMetaDataFault => /* error-handling code */ )</pre>
 
 
 
 
 Fault <code>SemanticException</code> with type <code>SemanticExceptionType</code>
 
-Fault-handling install template: <code>install ( SemanticException => /* error-handling code */ )</code>
+Fault-handling install template: <pre>install ( SemanticException => /* error-handling code */ )</pre>
 <pre>type SemanticExceptionType: void {
 	.error*: void {
 		.line: int
@@ -211,7 +211,7 @@ Type documentation: no documentation provided
 
 Fault <code>ParserException</code> with type <code>ParserExceptionType</code>
 
-Fault-handling install template: <code>install ( ParserException => /* error-handling code */ )</code>
+Fault-handling install template: <pre>install ( ParserException => /* error-handling code */ )</pre>
 <pre>type ParserExceptionType: void {
 	.line: int
 	.sourceName: string
@@ -222,7 +222,7 @@ Fault-handling install template: <code>install ( ParserException => /* error-han
 
 Fault <code>SemanticException</code> with type <code>SemanticExceptionType</code>
 
-Fault-handling install template: <code>install ( SemanticException => /* error-handling code */ )</code>
+Fault-handling install template: <pre>install ( SemanticException => /* error-handling code */ )</pre>
 <pre>type SemanticExceptionType: void {
 	.error*: void {
 		.line: int
@@ -264,7 +264,7 @@ Type documentation: no documentation provided
 
 Fault <code>TypeMismatch</code> with type <code>undefined</code>
 
-Fault-handling install template: <code>install ( TypeMismatch => /* error-handling code */ )</code>
+Fault-handling install template: <pre>install ( TypeMismatch => /* error-handling code */ )</pre>
 
 
 

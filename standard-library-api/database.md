@@ -122,7 +122,7 @@ Type documentation: no documentation provided
 
 Fault <code>ConnectionError</code> with type <code>undefined</code>
 
-Fault-handling install template: <code>install ( ConnectionError => /* error-handling code */ )</code>
+Fault-handling install template: <pre>install ( ConnectionError => /* error-handling code */ )</pre>
 
 
 
@@ -190,14 +190,14 @@ Type documentation: no documentation provided
 
 Fault <code>SQLException</code> with type <code>undefined</code>
 
-Fault-handling install template: <code>install ( SQLException => /* error-handling code */ )</code>
+Fault-handling install template: <pre>install ( SQLException => /* error-handling code */ )</pre>
 
 
 
 
 Fault <code>ConnectionError</code> with type <code>undefined</code>
 
-Fault-handling install template: <code>install ( ConnectionError => /* error-handling code */ )</code>
+Fault-handling install template: <pre>install ( ConnectionError => /* error-handling code */ )</pre>
 
 
 
@@ -233,14 +233,14 @@ Type documentation: no documentation provided
 
 Fault <code>SQLException</code> with type <code>undefined</code>
 
-Fault-handling install template: <code>install ( SQLException => /* error-handling code */ )</code>
+Fault-handling install template: <pre>install ( SQLException => /* error-handling code */ )</pre>
 
 
 
 
 Fault <code>ConnectionError</code> with type <code>undefined</code>
 
-Fault-handling install template: <code>install ( ConnectionError => /* error-handling code */ )</code>
+Fault-handling install template: <pre>install ( ConnectionError => /* error-handling code */ )</pre>
 
 
 
@@ -281,14 +281,14 @@ Type documentation: no documentation provided
 
 Fault <code>SQLException</code> with type <code>undefined</code>
 
-Fault-handling install template: <code>install ( SQLException => /* error-handling code */ )</code>
+Fault-handling install template: <pre>install ( SQLException => /* error-handling code */ )</pre>
 
 
 
 
 Fault <code>ConnectionError</code> with type <code>undefined</code>
 
-Fault-handling install template: <code>install ( ConnectionError => /* error-handling code */ )</code>
+Fault-handling install template: <pre>install ( ConnectionError => /* error-handling code */ )</pre>
 
 
 
@@ -368,21 +368,21 @@ Type documentation: no documentation provided
 
 Fault <code>InvalidDriver</code> with type <code>undefined</code>
 
-Fault-handling install template: <code>install ( InvalidDriver => /* error-handling code */ )</code>
+Fault-handling install template: <pre>install ( InvalidDriver => /* error-handling code */ )</pre>
 
 
 
 
 Fault <code>ConnectionError</code> with type <code>undefined</code>
 
-Fault-handling install template: <code>install ( ConnectionError => /* error-handling code */ )</code>
+Fault-handling install template: <pre>install ( ConnectionError => /* error-handling code */ )</pre>
 
 
 
 
 Fault <code>DriverClassNotFound</code> with type <code>undefined</code>
 
-Fault-handling install template: <code>install ( DriverClassNotFound => /* error-handling code */ )</code>
+Fault-handling install template: <pre>install ( DriverClassNotFound => /* error-handling code */ )</pre>
 
 
 

@@ -88,7 +88,7 @@ Type documentation: no documentation provided
 
 Fault <code>SMTPFault</code> with type <code>undefined</code>
 
-Fault-handling install template: <code>install ( SMTPFault => /* error-handling code */ )</code>
+Fault-handling install template: <pre>install ( SMTPFault => /* error-handling code */ )</pre>
 
 
 

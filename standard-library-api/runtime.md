@@ -197,7 +197,7 @@ Type documentation: no documentation provided
 
 Fault <code>IOException</code> with type <code>IOExceptionType</code>
 
-Fault-handling install template: <code>install ( IOException => /* error-handling code */ )</code>
+Fault-handling install template: <pre>install ( IOException => /* error-handling code */ )</pre>
 <pre>type IOExceptionType: JavaExceptionType</pre>
 
 
@@ -250,7 +250,7 @@ Type documentation: no documentation provided
 
 Fault <code>RuntimeException</code> with type <code>RuntimeExceptionType</code>
 
-Fault-handling install template: <code>install ( RuntimeException => /* error-handling code */ )</code>
+Fault-handling install template: <pre>install ( RuntimeException => /* error-handling code */ )</pre>
 <pre>type RuntimeExceptionType: JavaExceptionType</pre>
 
 
@@ -312,7 +312,7 @@ Type documentation: no documentation provided
 
 Fault <code>RuntimeException</code> with type <code>RuntimeExceptionType</code>
 
-Fault-handling install template: <code>install ( RuntimeException => /* error-handling code */ )</code>
+Fault-handling install template: <pre>install ( RuntimeException => /* error-handling code */ )</pre>
 <pre>type RuntimeExceptionType: JavaExceptionType</pre>
 
 
@@ -350,7 +350,7 @@ Type documentation: no documentation provided
 
 Fault <code>OutputPortDoesNotExist</code> with type <code>undefined</code>
 
-Fault-handling install template: <code>install ( OutputPortDoesNotExist => /* error-handling code */ )</code>
+Fault-handling install template: <pre>install ( OutputPortDoesNotExist => /* error-handling code */ )</pre>
 
 
 
@@ -553,7 +553,7 @@ Type documentation: no documentation provided
 
 Fault <code>RuntimeException</code> with type <code>RuntimeExceptionType</code>
 
-Fault-handling install template: <code>install ( RuntimeException => /* error-handling code */ )</code>
+Fault-handling install template: <pre>install ( RuntimeException => /* error-handling code */ )</pre>
 <pre>type RuntimeExceptionType: JavaExceptionType</pre>
 
 

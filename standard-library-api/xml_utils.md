@@ -107,7 +107,7 @@ Type documentation: no documentation provided
 
 Fault <code>IOException</code> with type <code>IOExceptionType</code>
 
-Fault-handling install template: <code>install ( IOException => /* error-handling code */ )</code>
+Fault-handling install template: <pre>install ( IOException => /* error-handling code */ )</pre>
 <pre>type IOExceptionType: JavaExceptionType</pre>
 
 
@@ -138,7 +138,7 @@ Type documentation: no documentation provided
 
 Fault <code>TransformerException</code> with type <code>JavaExceptionType</code>
 
-Fault-handling install template: <code>install ( TransformerException => /* error-handling code */ )</code>
+Fault-handling install template: <pre>install ( TransformerException => /* error-handling code */ )</pre>
 <pre>type JavaExceptionType: string {
 	.stackTrace: string
 }</pre>
@@ -186,14 +186,14 @@ Type documentation: no documentation provided
 
 Fault <code>IOException</code> with type <code>IOExceptionType</code>
 
-Fault-handling install template: <code>install ( IOException => /* error-handling code */ )</code>
+Fault-handling install template: <pre>install ( IOException => /* error-handling code */ )</pre>
 <pre>type IOExceptionType: JavaExceptionType</pre>
 
 
 
 Fault <code>IllegalArgumentException</code> with type <code>string</code>
 
-Fault-handling install template: <code>install ( IllegalArgumentException => /* error-handling code */ )</code>
+Fault-handling install template: <pre>install ( IllegalArgumentException => /* error-handling code */ )</pre>
 
 
 
