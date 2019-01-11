@@ -54,7 +54,6 @@ Inclusion code: <pre>include "web_services_utils.iol"</pre>
 <h3 id="wsdlToJolie">wsdlToJolie</h3>
 
 
-
 Invocation template: <pre>wsdlToJolie@WebServicesUtils( request )( response )</pre>
 
 <h4>Request type</h4>

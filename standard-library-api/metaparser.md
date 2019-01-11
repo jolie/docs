@@ -116,7 +116,6 @@ Inclusion code: <pre>include "metaparser.iol"</pre>
 <h3 id="getSurface">getSurface</h3>
 
 
-
 Invocation template: <pre>getSurface@Parser( request )( response )</pre>
 
 <h4 id="Participant">Request type</h4>
@@ -141,7 +140,6 @@ Type documentation: no documentation provided
 
 
 <h3 id="getNativeType">getNativeType</h3>
-
 
 
 Invocation template: <pre>getNativeType@Parser( request )( response )</pre>
@@ -178,7 +176,6 @@ Type documentation: no documentation provided
 <h3 id="getInterface">getInterface</h3>
 
 
-
 Invocation template: <pre>getInterface@Parser( request )( response )</pre>
 
 <h4 id="Interface">Request type</h4>
@@ -204,7 +201,6 @@ Type documentation: no documentation provided
 <h3 id="getTypeInLine">getTypeInLine</h3>
 
 
-
 Invocation template: <pre>getTypeInLine@Parser( request )( response )</pre>
 
 <h4 id="Type">Request type</h4>
@@ -228,7 +224,6 @@ Type documentation: no documentation provided
 
 
 <h3 id="getSurfaceWithoutOutputPort">getSurfaceWithoutOutputPort</h3>
-
 
 
 Invocation template: <pre>getSurfaceWithoutOutputPort@Parser( request )( response )</pre>
@@ -257,7 +252,6 @@ Type documentation: no documentation provided
 <h3 id="getType">getType</h3>
 
 
-
 Invocation template: <pre>getType@Parser( request )( response )</pre>
 
 <h4 id="Type">Request type</h4>
@@ -281,7 +275,6 @@ Type documentation: no documentation provided
 
 
 <h3 id="getParticipantOutput">getParticipantOutput</h3>
-
 
 
 Invocation template: <pre>getParticipantOutput@Parser( request )( response )</pre>
@@ -310,7 +303,6 @@ Type documentation: no documentation provided
 <h3 id="getSubType">getSubType</h3>
 
 
-
 Invocation template: <pre>getSubType@Parser( request )( response )</pre>
 
 <h4 id="SubType">Request type</h4>
@@ -337,7 +329,6 @@ Type documentation: no documentation provided
 <h3 id="getParticipantInput">getParticipantInput</h3>
 
 
-
 Invocation template: <pre>getParticipantInput@Parser( request )( response )</pre>
 
 <h4 id="Participant">Request type</h4>
@@ -362,7 +353,6 @@ Type documentation: no documentation provided
 
 
 <h3 id="getCardinality">getCardinality</h3>
-
 
 
 Invocation template: <pre>getCardinality@Parser( request )( response )</pre>

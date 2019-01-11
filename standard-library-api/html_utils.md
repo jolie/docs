@@ -60,7 +60,6 @@ Inclusion code: <pre>include "html_utils.iol"</pre>
 <h3 id="escapeHTML">escapeHTML</h3>
 
 
-
 Invocation template: <pre>escapeHTML@HTMLUtils( request )( response )</pre>
 
 <h4>Request type</h4>
@@ -80,7 +79,6 @@ Type documentation: no documentation provided
 
 
 <h3 id="unescapeHTML">unescapeHTML</h3>
-
 
 
 Invocation template: <pre>unescapeHTML@HTMLUtils( request )( response )</pre>

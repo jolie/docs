@@ -60,6 +60,7 @@ Inclusion code: <pre>include "json_utils.iol"</pre>
 
 
 <h3 id="getJsonString">getJsonString</h3>
+
 Operation documentation: 
 	  Returns the value converted into a JSON string
 	 
@@ -93,6 +94,7 @@ Fault-handling install template: <code>install ( JSONCreationError => /* error-h
 
 
 <h3 id="getJsonValue">getJsonValue</h3>
+
 Operation documentation: 
 	  Returns the JSON string converted into a value
 	 

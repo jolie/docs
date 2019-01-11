@@ -62,7 +62,6 @@ Inclusion code: <pre>include "xmpp.iol"</pre>
 <h3 id="sendMessage">sendMessage</h3>
 
 
-
 Invocation template: <pre>sendMessage@XMPP( request )( response )</pre>
 
 <h4 id="SendMessageRequest">Request type</h4>
@@ -91,7 +90,6 @@ Fault-handling install template: <code>install ( XMPPException => /* error-handl
 
 
 <h3 id="connect">connect</h3>
-
 
 
 Invocation template: <pre>connect@XMPP( request )( response )</pre>

@@ -197,7 +197,6 @@ Interface documentation:
 <h3 id="leftPad">leftPad</h3>
 
 
-
 Invocation template: <pre>leftPad@StringUtils( request )( response )</pre>
 
 <h4 id="PadRequest">Request type</h4>
@@ -222,7 +221,6 @@ Type documentation: no documentation provided
 <h3 id="valueToPrettyString">valueToPrettyString</h3>
 
 
-
 Invocation template: <pre>valueToPrettyString@StringUtils( request )( response )</pre>
 
 <h4>Request type</h4>
@@ -242,7 +240,6 @@ Type documentation: no documentation provided
 
 
 <h3 id="toLowerCase">toLowerCase</h3>
-
 
 
 Invocation template: <pre>toLowerCase@StringUtils( request )( response )</pre>
@@ -266,7 +263,6 @@ Type documentation: no documentation provided
 <h3 id="length">length</h3>
 
 
-
 Invocation template: <pre>length@StringUtils( request )( response )</pre>
 
 <h4>Request type</h4>
@@ -286,7 +282,6 @@ Type documentation: no documentation provided
 
 
 <h3 id="match">match</h3>
-
 
 
 Invocation template: <pre>match@StringUtils( request )( response )</pre>
@@ -314,7 +309,6 @@ Type documentation: no documentation provided
 <h3 id="replaceFirst">replaceFirst</h3>
 
 
-
 Invocation template: <pre>replaceFirst@StringUtils( request )( response )</pre>
 
 <h4 id="ReplaceRequest">Request type</h4>
@@ -337,7 +331,6 @@ Type documentation: no documentation provided
 
 
 <h3 id="sort">sort</h3>
-
 
 
 Invocation template: <pre>sort@StringUtils( request )( response )</pre>
@@ -365,7 +358,6 @@ Type documentation: no documentation provided
 <h3 id="replaceAll">replaceAll</h3>
 
 
-
 Invocation template: <pre>replaceAll@StringUtils( request )( response )</pre>
 
 <h4 id="ReplaceRequest">Request type</h4>
@@ -390,7 +382,6 @@ Type documentation: no documentation provided
 <h3 id="substring">substring</h3>
 
 
-
 Invocation template: <pre>substring@StringUtils( request )( response )</pre>
 
 <h4 id="SubStringRequest">Request type</h4>
@@ -413,6 +404,7 @@ Type documentation: no documentation provided
 
 
 <h3 id="getRandomUUID">getRandomUUID</h3>
+
 Operation documentation: 
 	 it returns a random UUID
 	
@@ -439,7 +431,6 @@ Type documentation: no documentation provided
 <h3 id="rightPad">rightPad</h3>
 
 
-
 Invocation template: <pre>rightPad@StringUtils( request )( response )</pre>
 
 <h4 id="PadRequest">Request type</h4>
@@ -462,6 +453,7 @@ Type documentation: no documentation provided
 
 
 <h3 id="contains">contains</h3>
+
 Operation documentation: 
 	  Returns true if the string contains .substring
 	 
@@ -490,7 +482,6 @@ Type documentation: no documentation provided
 <h3 id="split">split</h3>
 
 
-
 Invocation template: <pre>split@StringUtils( request )( response )</pre>
 
 <h4 id="SplitRequest">Request type</h4>
@@ -515,7 +506,6 @@ Type documentation: no documentation provided
 
 
 <h3 id="splitByLength">splitByLength</h3>
-
 
 
 Invocation template: <pre>splitByLength@StringUtils( request )( response )</pre>
@@ -543,7 +533,6 @@ Type documentation: no documentation provided
 <h3 id="trim">trim</h3>
 
 
-
 Invocation template: <pre>trim@StringUtils( request )( response )</pre>
 
 <h4>Request type</h4>
@@ -563,7 +552,6 @@ Type documentation: no documentation provided
 
 
 <h3 id="find">find</h3>
-
 
 
 Invocation template: <pre>find@StringUtils( request )( response )</pre>
@@ -589,6 +577,7 @@ Type documentation: no documentation provided
 
 
 <h3 id="endsWith">endsWith</h3>
+
 Operation documentation: 
 	  checks if a string ends with a given suffix
 	
@@ -617,7 +606,6 @@ Type documentation: no documentation provided
 <h3 id="toUpperCase">toUpperCase</h3>
 
 
-
 Invocation template: <pre>toUpperCase@StringUtils( request )( response )</pre>
 
 <h4>Request type</h4>
@@ -637,7 +625,6 @@ Type documentation: no documentation provided
 
 
 <h3 id="join">join</h3>
-
 
 
 Invocation template: <pre>join@StringUtils( request )( response )</pre>
@@ -664,7 +651,6 @@ Type documentation: no documentation provided
 <h3 id="indexOf">indexOf</h3>
 
 
-
 Invocation template: <pre>indexOf@StringUtils( request )( response )</pre>
 
 <h4 id="IndexOfRequest">Request type</h4>
@@ -686,6 +672,7 @@ Type documentation: no documentation provided
 
 
 <h3 id="startsWith">startsWith</h3>
+
 Operation documentation: 
 	 checks if the passed string starts with a given prefix
 	

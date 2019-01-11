@@ -167,6 +167,7 @@ Inclusion code: <pre>include "time.iol"</pre>
 
 
 <h3 id="scheduleTimeout">scheduleTimeout</h3>
+
 Operation documentation: 
 		 Schedules a timeout, which can be cancelled using #cancelTimeout from the returned string. Default .timeunit value is MILLISECONDS, .operation default is "timeout".
 		
@@ -202,6 +203,7 @@ Fault-handling install template: <code>install ( InvalidTimeUnit => /* error-han
 
 
 <h3 id="getDateValues">getDateValues</h3>
+
 Operation documentation: 
 		 Converts an input string into a date expressed by means of
 		 three elements: day, month and year. The request may specify the
@@ -241,6 +243,7 @@ Fault-handling install template: <code>install ( InvalidDate => /* error-handlin
 
 
 <h3 id="getDateTime">getDateTime</h3>
+
 Operation documentation: 
 		 It returns a date time in a string format starting from a timestamp
 		
@@ -274,6 +277,7 @@ Type documentation: no documentation provided
 
 
 <h3 id="getCurrentTimeMillis">getCurrentTimeMillis</h3>
+
 Operation documentation: 
 		 Warning: this is temporary and subject to future change as soon as long is supported by Jolie.
 		
@@ -298,7 +302,6 @@ Type documentation: no documentation provided
 
 
 <h3 id="getDateDiff">getDateDiff</h3>
-
 
 
 Invocation template: <pre>getDateDiff@Time( request )( response )</pre>
@@ -326,7 +329,6 @@ Type documentation: no documentation provided
 <h3 id="getTimeDiff">getTimeDiff</h3>
 
 
-
 Invocation template: <pre>getTimeDiff@Time( request )( response )</pre>
 
 <h4 id="GetTimeDiffRequest">Request type</h4>
@@ -349,7 +351,6 @@ Type documentation: no documentation provided
 
 
 <h3 id="getTimestampFromString">getTimestampFromString</h3>
-
 
 
 Invocation template: <pre>getTimestampFromString@Time( request )( response )</pre>
@@ -381,6 +382,7 @@ Fault-handling install template: <code>install ( InvalidTimestamp => /* error-ha
 
 
 <h3 id="cancelTimeout">cancelTimeout</h3>
+
 Operation documentation: 
 		 Cancels a timeout from a long-value created from #scheduleTimeout
 		
@@ -407,7 +409,6 @@ Type documentation: no documentation provided
 <h3 id="setNextTimeoutByTime">setNextTimeoutByTime</h3>
 
 
-
 Invocation template: <pre>setNextTimeoutByTime@Time( request )</pre>
 
 <h4>Request type</h4>
@@ -423,7 +424,6 @@ Type documentation: no documentation provided
 
 
 <h3 id="getCurrentDateTime">getCurrentDateTime</h3>
-
 
 
 Invocation template: <pre>getCurrentDateTime@Time( request )( response )</pre>
@@ -449,7 +449,6 @@ Type documentation: no documentation provided
 <h3 id="sleep">sleep</h3>
 
 
-
 Invocation template: <pre>sleep@Time( request )( response )</pre>
 
 <h4>Request type</h4>
@@ -469,6 +468,7 @@ Type documentation: no documentation provided
 
 
 <h3 id="setNextTimeout">setNextTimeout</h3>
+
 Operation documentation: 
 		  it sets a timeout whose duration is in milliseconds and it is represented by the root value of the message
 		  When the alarm is triggered a message whose content is defined in .message is sent to operation defined in .operation
@@ -496,7 +496,6 @@ Type documentation: no documentation provided
 <h3 id="getTimeFromMilliSeconds">getTimeFromMilliSeconds</h3>
 
 
-
 Invocation template: <pre>getTimeFromMilliSeconds@Time( request )( response )</pre>
 
 <h4>Request type</h4>
@@ -520,7 +519,6 @@ Type documentation: no documentation provided
 
 
 <h3 id="getDateTimeValues">getDateTimeValues</h3>
-
 
 
 Invocation template: <pre>getDateTimeValues@Time( request )( response )</pre>
@@ -561,7 +559,6 @@ Fault-handling install template: <code>install ( InvalidDate => /* error-handlin
 <h3 id="setNextTimeoutByDateTime">setNextTimeoutByDateTime</h3>
 
 
-
 Invocation template: <pre>setNextTimeoutByDateTime@Time( request )</pre>
 
 <h4>Request type</h4>
@@ -577,6 +574,7 @@ Type documentation: no documentation provided
 
 
 <h3 id="getCurrentDateValues">getCurrentDateValues</h3>
+
 Operation documentation: 
 		 Returns the current date split in three fields: day, month and year
 		
@@ -605,7 +603,6 @@ Type documentation: no documentation provided
 
 
 <h3 id="getTimeValues">getTimeValues</h3>
-
 
 
 Invocation template: <pre>getTimeValues@Time( request )( response )</pre>

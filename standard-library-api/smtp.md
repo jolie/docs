@@ -54,7 +54,6 @@ Inclusion code: <pre>include "smtp.iol"</pre>
 <h3 id="sendMail">sendMail</h3>
 
 
-
 Invocation template: <pre>sendMail@SMTP( request )( response )</pre>
 
 <h4 id="SendMailRequest">Request type</h4>

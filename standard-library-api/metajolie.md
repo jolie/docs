@@ -91,7 +91,6 @@ WARNING: the API of this service is experimental. Use it at your own risk.
 <h3 id="getInputPortMetaData">getInputPortMetaData</h3>
 
 
-
 Invocation template: <pre>getInputPortMetaData@MetaJolie( request )( response )</pre>
 
 <h4 id="GetInputPortMetaDataRequest">Request type</h4>
@@ -149,7 +148,6 @@ Fault-handling install template: <code>install ( SemanticException => /* error-h
 <h3 id="parseRoles">parseRoles</h3>
 
 
-
 Invocation template: <pre>parseRoles@MetaJolie( request )( response )</pre>
 
 <h4 id="ParseRoleRequest">Request type</h4>
@@ -177,7 +175,6 @@ Type documentation: no documentation provided
 
 
 <h3 id="getMetaData">getMetaData</h3>
-
 
 
 Invocation template: <pre>getMetaData@MetaJolie( request )( response )</pre>
@@ -239,7 +236,6 @@ Fault-handling install template: <code>install ( SemanticException => /* error-h
 <h3 id="messageTypeCast">messageTypeCast</h3>
 
 
-
 Invocation template: <pre>messageTypeCast@MetaJolie( request )( response )</pre>
 
 <h4 id="MessageTypeCastRequest">Request type</h4>
@@ -274,7 +270,6 @@ Fault-handling install template: <code>install ( TypeMismatch => /* error-handli
 
 
 <h3 id="checkNativeType">checkNativeType</h3>
-
 
 
 Invocation template: <pre>checkNativeType@MetaJolie( request )( response )</pre>

@@ -96,6 +96,7 @@ Inclusion code: <pre>include "database.iol"</pre>
 
 
 <h3 id="checkConnection">checkConnection</h3>
+
 Operation documentation: 
 	  Checks the connection with the database. Throws ConnectionError if the connection is not functioning properly.
 	 
@@ -127,6 +128,7 @@ Fault-handling install template: <code>install ( ConnectionError => /* error-han
 
 
 <h3 id="query">query</h3>
+
 Operation documentation: 
 	  Queries the database and returns a result set
 	 
@@ -201,6 +203,7 @@ Fault-handling install template: <code>install ( ConnectionError => /* error-han
 
 
 <h3 id="executeTransaction">executeTransaction</h3>
+
 Operation documentation: 
 	  Executes more than one database command in a single transaction
 	 
@@ -243,6 +246,7 @@ Fault-handling install template: <code>install ( ConnectionError => /* error-han
 
 
 <h3 id="update">update</h3>
+
 Operation documentation: 
 	  Updates the database and returns a single status code
 	 
@@ -290,6 +294,7 @@ Fault-handling install template: <code>install ( ConnectionError => /* error-han
 
 
 <h3 id="close">close</h3>
+
 Operation documentation: 
 	  Explicitly closes a database connection
 	  Per default the close happens on reconnect or on termination of the
@@ -316,6 +321,7 @@ Type documentation: no documentation provided
 
 
 <h3 id="connect">connect</h3>
+
 Operation documentation: 
 	  Connects to a database and eventually closes a previous connection
 	 

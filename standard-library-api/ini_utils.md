@@ -53,7 +53,6 @@ Inclusion code: <pre>include "ini_utils.iol"</pre>
 <h3 id="parseIniFile">parseIniFile</h3>
 
 
-
 Invocation template: <pre>parseIniFile@IniUtils( request )( response )</pre>
 
 <h4 id="parseIniFileRequest">Request type</h4>

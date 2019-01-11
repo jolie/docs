@@ -54,7 +54,6 @@ Inclusion code: <pre>include "message_digest.iol"</pre>
 <h3 id="md5">md5</h3>
 
 
-
 Invocation template: <pre>md5@MessageDigest( request )( response )</pre>
 
 <h4 id="MD5Request">Request type</h4>

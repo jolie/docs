@@ -60,7 +60,6 @@ Inclusion code: <pre>include "security_utils.iol"</pre>
 <h3 id="secureRandom">secureRandom</h3>
 
 
-
 Invocation template: <pre>secureRandom@SecurityUtils( request )( response )</pre>
 
 <h4 id="SecureRandomRequest">Request type</h4>
@@ -82,7 +81,6 @@ Type documentation: no documentation provided
 
 
 <h3 id="createSecureToken">createSecureToken</h3>
-
 
 
 Invocation template: <pre>createSecureToken@SecurityUtils( request )( response )</pre>

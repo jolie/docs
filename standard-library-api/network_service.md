@@ -61,7 +61,6 @@ Inclusion code: <pre>include "network_service.iol"</pre>
 <h3 id="getNetworkInterfaceNames">getNetworkInterfaceNames</h3>
 
 
-
 Invocation template: <pre>getNetworkInterfaceNames@NetworkService( request )( response )</pre>
 
 <h4 id="GetNetworkInterfaceNamesRequest">Request type</h4>
@@ -85,7 +84,6 @@ Type documentation: no documentation provided
 
 
 <h3 id="getIPAddresses">getIPAddresses</h3>
-
 
 
 Invocation template: <pre>getIPAddresses@NetworkService( request )( response )</pre>

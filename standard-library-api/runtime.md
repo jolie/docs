@@ -177,7 +177,6 @@ Inclusion code: <pre>include "runtime.iol"</pre>
 <h3 id="loadLibrary">loadLibrary</h3>
 
 
-
 Invocation template: <pre>loadLibrary@Runtime( request )( response )</pre>
 
 <h4>Request type</h4>
@@ -206,7 +205,6 @@ Fault-handling install template: <code>install ( IOException => /* error-handlin
 <h3 id="removeOutputPort">removeOutputPort</h3>
 
 
-
 Invocation template: <pre>removeOutputPort@Runtime( request )( response )</pre>
 
 <h4>Request type</h4>
@@ -226,7 +224,6 @@ Type documentation: no documentation provided
 
 
 <h3 id="setRedirection">setRedirection</h3>
-
 
 
 Invocation template: <pre>setRedirection@Runtime( request )( response )</pre>
@@ -259,6 +256,7 @@ Fault-handling install template: <code>install ( RuntimeException => /* error-ha
 
 
 <h3 id="getOutputPorts">getOutputPorts</h3>
+
 Operation documentation: 
 		it returns the list of definitions of all the available outputPorts of the service
 	
@@ -291,7 +289,6 @@ Type documentation: no documentation provided
 <h3 id="loadEmbeddedService">loadEmbeddedService</h3>
 
 
-
 Invocation template: <pre>loadEmbeddedService@Runtime( request )( response )</pre>
 
 <h4 id="LoadEmbeddedServiceRequest">Request type</h4>
@@ -321,6 +318,7 @@ Fault-handling install template: <code>install ( RuntimeException => /* error-ha
 
 
 <h3 id="getOutputPort">getOutputPort</h3>
+
 Operation documentation: 
 		it returns a port definition if it exists, OuputPortDoesNotExist fault otherwise
 	
@@ -360,7 +358,6 @@ Fault-handling install template: <code>install ( OutputPortDoesNotExist => /* er
 <h3 id="dumpState">dumpState</h3>
 
 
-
 Invocation template: <pre>dumpState@Runtime( request )( response )</pre>
 
 <h4>Request type</h4>
@@ -382,7 +379,6 @@ Type documentation: no documentation provided
 <h3 id="getLocalLocation">getLocalLocation</h3>
 
 
-
 Invocation template: <pre>getLocalLocation@Runtime( request )( response )</pre>
 
 <h4>Request type</h4>
@@ -402,7 +398,6 @@ Type documentation: no documentation provided
 
 
 <h3 id="getRedirection">getRedirection</h3>
-
 
 
 Invocation template: <pre>getRedirection@Runtime( request )( response )</pre>
@@ -427,7 +422,6 @@ Type documentation: no documentation provided
 
 
 <h3 id="setOutputPort">setOutputPort</h3>
-
 
 
 Invocation template: <pre>setOutputPort@Runtime( request )( response )</pre>
@@ -455,7 +449,6 @@ Type documentation: no documentation provided
 <h3 id="halt">halt</h3>
 
 
-
 Invocation template: <pre>halt@Runtime( request )( response )</pre>
 
 <h4 id="HaltRequest">Request type</h4>
@@ -479,7 +472,6 @@ Type documentation: no documentation provided
 <h3 id="callExit">callExit</h3>
 
 
-
 Invocation template: <pre>callExit@Runtime( request )( response )</pre>
 
 <h4>Request type</h4>
@@ -499,6 +491,7 @@ Type documentation: no documentation provided
 
 
 <h3 id="stats">stats</h3>
+
 Operation documentation: 
 	  Get information about the runtime state of the Jolie interpreter.
 	 
@@ -537,7 +530,6 @@ Type documentation: no documentation provided
 <h3 id="removeRedirection">removeRedirection</h3>
 
 
-
 Invocation template: <pre>removeRedirection@Runtime( request )( response )</pre>
 
 <h4 id="GetRedirectionRequest">Request type</h4>
@@ -569,7 +561,6 @@ Fault-handling install template: <code>install ( RuntimeException => /* error-ha
 <h3 id="setMonitor">setMonitor</h3>
 
 
-
 Invocation template: <pre>setMonitor@Runtime( request )( response )</pre>
 
 <h4 id="SetMonitorRequest">Request type</h4>
@@ -594,7 +585,6 @@ Type documentation: no documentation provided
 <h3 id="getProcessId">getProcessId</h3>
 
 
-
 Invocation template: <pre>getProcessId@Runtime( request )( response )</pre>
 
 <h4>Request type</h4>
@@ -614,7 +604,6 @@ Type documentation: no documentation provided
 
 
 <h3 id="getIncludePaths">getIncludePaths</h3>
-
 
 
 Invocation template: <pre>getIncludePaths@Runtime( request )( response )</pre>
@@ -638,6 +627,7 @@ Type documentation: no documentation provided
 
 
 <h3 id="getenv">getenv</h3>
+
 Operation documentation:  Get the value of an environment variable 
 
 

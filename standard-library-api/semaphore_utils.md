@@ -58,6 +58,7 @@ Inclusion code: <pre>include "semaphore_utils.iol"</pre>
 
 
 <h3 id="release">release</h3>
+
 Operation documentation: 
 	 Releases permits to a semaphore.
 	 If there exists no semaphore with the given ".name", "release" creates a
@@ -88,6 +89,7 @@ Type documentation: no documentation provided
 
 
 <h3 id="acquire">acquire</h3>
+
 Operation documentation: 
 	  Acquires permits from a semaphore.
 	  If there exists no semaphore with the given ".name", "acquire" creates a 
