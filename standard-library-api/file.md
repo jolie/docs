@@ -213,6 +213,7 @@ Type documentation: no documentation provided
 
 
 <h4>Response type</h4>
+
 Type documentation: no documentation provided 
 
 
@@ -243,6 +244,7 @@ Type documentation: no documentation provided
 
 
 <h4>Response type</h4>
+
 Type documentation: no documentation provided 
 
 
@@ -275,6 +277,7 @@ Type documentation: no documentation provided
 
 
 <h4>Response type</h4>
+
 Type documentation: no documentation provided 
 
 
@@ -303,6 +306,7 @@ Type documentation: no documentation provided
 
 
 <h4>Response type</h4>
+
 Type documentation: no documentation provided 
 
 
@@ -341,6 +345,7 @@ Type documentation: no documentation provided
 
 
 <h4>Response type</h4>
+
 Type documentation: no documentation provided 
 
 
@@ -381,6 +386,7 @@ Type documentation: no documentation provided
 
 
 <h4 id="ListResponse">Response type</h4>
+
 Type documentation: no documentation provided 
 <pre>type ListResponse: void {
 	.result*: string {
@@ -420,6 +426,7 @@ Type documentation: no documentation provided
 
 
 <h4>Response type</h4>
+
 Type documentation: no documentation provided 
 
 
@@ -460,6 +467,7 @@ Type documentation: no documentation provided
 
 
 <h4>Response type</h4>
+
 Type documentation: no documentation provided 
 
 
@@ -501,6 +509,7 @@ Type documentation: no documentation provided
 
 
 <h4>Response type</h4>
+
 Type documentation: no documentation provided 
 
 
@@ -523,6 +532,7 @@ Type documentation: no documentation provided
 
 
 <h4>Response type</h4>
+
 Type documentation: no documentation provided 
 
 
@@ -548,6 +558,7 @@ Type documentation: no documentation provided
 
 
 <h4>Response type</h4>
+
 Type documentation: no documentation provided 
 
 
@@ -602,6 +613,7 @@ Type documentation: no documentation provided
 
 
 <h4>Response type</h4>
+
 Type documentation: no documentation provided 
 
 
@@ -644,6 +656,7 @@ Type documentation: no documentation provided
 
 
 <h4>Response type</h4>
+
 Type documentation: no documentation provided 
 
 
@@ -666,6 +679,7 @@ Type documentation: no documentation provided
 
 
 <h4>Response type</h4>
+
 Type documentation: no documentation provided 
 
 
@@ -700,6 +714,7 @@ Type documentation: no documentation provided
 
 
 <h4>Response type</h4>
+
 Type documentation: no documentation provided 
 
 
@@ -730,6 +745,7 @@ Type documentation: no documentation provided
 
 
 <h4>Response type</h4>
+
 Type documentation: no documentation provided 
 
 
@@ -791,6 +807,7 @@ Type documentation: no documentation provided
 
 
 <h4>Response type</h4>
+
 Type documentation: no documentation provided 
 
 
@@ -835,6 +852,7 @@ Type documentation: no documentation provided
 
 
 <h4>Response type</h4>
+
 Type documentation: no documentation provided 
 
 
@@ -861,6 +879,7 @@ Type documentation: no documentation provided
 
 
 <h4>Response type</h4>
+
 Type documentation: no documentation provided 
 
 

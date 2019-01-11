@@ -65,6 +65,7 @@ Type documentation: no documentation provided
 
 
 <h4 id="IniData">Response type</h4>
+
 Type documentation: no documentation provided 
 <pre>type IniData: undefined</pre>
 

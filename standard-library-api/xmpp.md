@@ -74,6 +74,7 @@ Type documentation: no documentation provided
 
 
 <h4>Response type</h4>
+
 Type documentation: no documentation provided 
 
 
@@ -111,6 +112,7 @@ Type documentation: no documentation provided
 
 
 <h4>Response type</h4>
+
 Type documentation: no documentation provided 
 
 

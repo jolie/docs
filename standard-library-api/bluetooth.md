@@ -70,6 +70,7 @@ Type documentation: no documentation provided
 
 
 <h4 id="BluetoothInquiryResponse">Response type</h4>
+
 Type documentation: no documentation provided 
 <pre>type BluetoothInquiryResponse: void {
 	.service*: void {
@@ -105,6 +106,7 @@ Type documentation: no documentation provided
 
 
 <h4>Response type</h4>
+
 Type documentation: no documentation provided 
 
 

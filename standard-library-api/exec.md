@@ -68,6 +68,7 @@ Type documentation: no documentation provided
 
 
 <h4 id="CommandExecutionResult">Response type</h4>
+
 Type documentation: no documentation provided 
 <pre>type CommandExecutionResult: any {
 	.exitCode?: int

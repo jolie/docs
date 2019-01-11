@@ -78,6 +78,7 @@ Type documentation: no documentation provided
 
 
 <h4 id="GetJsonStringResponse">Response type</h4>
+
 Type documentation: no documentation provided 
 <pre>type GetJsonStringResponse: string</pre>
 
@@ -117,6 +118,7 @@ Type documentation: no documentation provided
 
 
 <h4 id="GetJsonValueResponse">Response type</h4>
+
 Type documentation: no documentation provided 
 <pre>type GetJsonValueResponse: undefined</pre>
 

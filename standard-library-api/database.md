@@ -112,6 +112,7 @@ Type documentation: no documentation provided
 
 
 <h4>Response type</h4>
+
 Type documentation: no documentation provided 
 
 
@@ -180,6 +181,7 @@ Type documentation: no documentation provided
 
 
 <h4 id="QueryResult">Response type</h4>
+
 Type documentation: no documentation provided 
 <pre>type QueryResult: void {
 	.row*: undefined
@@ -226,6 +228,7 @@ Type documentation: no documentation provided
 
 
 <h4 id="DatabaseTransactionResult">Response type</h4>
+
 Type documentation: no documentation provided 
 <pre>type DatabaseTransactionResult: void {
 	.result*: TransactionQueryResult
@@ -279,6 +282,7 @@ Type documentation: no documentation provided
 
 
 <h4>Response type</h4>
+
 Type documentation: no documentation provided 
 
 
@@ -323,6 +327,7 @@ Type documentation: no documentation provided
 
 
 <h4>Response type</h4>
+
 Type documentation: no documentation provided 
 
 
@@ -370,6 +375,7 @@ Type documentation: no documentation provided
 
 
 <h4>Response type</h4>
+
 Type documentation: no documentation provided 
 
 

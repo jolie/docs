@@ -76,7 +76,6 @@ Type documentation: no documentation provided
 
 
 
-
 <h3 id="MonitorInterface">MonitorInterface</h3>
 
 <table>
@@ -112,7 +111,6 @@ Invocation template:
 <h4>Request type</h4>
 
 Type documentation: no documentation provided 
-
 
 
 
@@ -169,6 +167,7 @@ Type documentation: no documentation provided
 
 
 <h4 id="FlushResponse">Response type</h4>
+
 Type documentation: no documentation provided 
 <pre>type FlushResponse: void {
 	.events*: MonitorEvent
@@ -197,6 +196,7 @@ Type documentation: no documentation provided
 
 
 <h4>Response type</h4>
+
 Type documentation: no documentation provided 
 
 

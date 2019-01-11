@@ -187,6 +187,7 @@ Type documentation: no documentation provided
 
 
 <h4>Response type</h4>
+
 Type documentation: no documentation provided 
 
 
@@ -225,6 +226,7 @@ Type documentation: no documentation provided
 
 
 <h4 id="DateValuesType">Response type</h4>
+
 Type documentation: no documentation provided 
 <pre>type DateValuesType: void {
 	.month: int
@@ -265,6 +267,7 @@ Type documentation: no documentation provided
 
 
 <h4 id="GetDateTimeResponse">Response type</h4>
+
 Type documentation: no documentation provided 
 <pre>type GetDateTimeResponse: string {
 	.month: int
@@ -298,6 +301,7 @@ Type documentation: no documentation provided
 
 
 <h4>Response type</h4>
+
 Type documentation: no documentation provided 
 
 
@@ -324,6 +328,7 @@ Type documentation: no documentation provided
 
 
 <h4>Response type</h4>
+
 Type documentation: no documentation provided 
 
 
@@ -349,6 +354,7 @@ Type documentation: no documentation provided
 
 
 <h4>Response type</h4>
+
 Type documentation: no documentation provided 
 
 
@@ -374,6 +380,7 @@ Type documentation: no documentation provided
 
 
 <h4>Response type</h4>
+
 Type documentation: no documentation provided 
 
 
@@ -408,6 +415,7 @@ Type documentation: no documentation provided
 
 
 <h4>Response type</h4>
+
 Type documentation: no documentation provided 
 
 
@@ -434,7 +442,6 @@ Type documentation: no documentation provided
 
 
 
-
 <h3 id="getCurrentDateTime">getCurrentDateTime</h3>
 
 
@@ -450,6 +457,7 @@ Type documentation: no documentation provided
 
 
 <h4>Response type</h4>
+
 Type documentation: no documentation provided 
 
 
@@ -472,6 +480,7 @@ Type documentation: no documentation provided
 
 
 <h4>Response type</h4>
+
 Type documentation: no documentation provided 
 
 
@@ -507,7 +516,6 @@ Type documentation: no documentation provided
 
 
 
-
 <h3 id="getTimeFromMilliSeconds">getTimeFromMilliSeconds</h3>
 
 
@@ -521,6 +529,7 @@ Type documentation: no documentation provided
 
 
 <h4 id="TimeValuesType">Response type</h4>
+
 Type documentation: no documentation provided 
 <pre>type TimeValuesType: void {
 	.hour: int
@@ -550,6 +559,7 @@ Type documentation: no documentation provided
 
 
 <h4 id="DateTimeType">Response type</h4>
+
 Type documentation: no documentation provided 
 <pre>type DateTimeType: void {
 	.month: int
@@ -591,7 +601,6 @@ Type documentation: no documentation provided
 
 
 
-
 <h3 id="getCurrentDateValues">getCurrentDateValues</h3>
 
 Operation documentation: 
@@ -609,6 +618,7 @@ Type documentation: no documentation provided
 
 
 <h4 id="DateValuesType">Response type</h4>
+
 Type documentation: no documentation provided 
 <pre>type DateValuesType: void {
 	.month: int
@@ -635,6 +645,7 @@ Type documentation: no documentation provided
 
 
 <h4 id="TimeValuesType">Response type</h4>
+
 Type documentation: no documentation provided 
 <pre>type TimeValuesType: void {
 	.hour: int

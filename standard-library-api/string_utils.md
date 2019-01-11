@@ -210,6 +210,7 @@ Type documentation: no documentation provided
 
 
 <h4>Response type</h4>
+
 Type documentation: no documentation provided 
 
 
@@ -232,6 +233,7 @@ Type documentation: no documentation provided
 
 
 <h4>Response type</h4>
+
 Type documentation: no documentation provided 
 
 
@@ -254,6 +256,7 @@ Type documentation: no documentation provided
 
 
 <h4>Response type</h4>
+
 Type documentation: no documentation provided 
 
 
@@ -276,6 +279,7 @@ Type documentation: no documentation provided
 
 
 <h4>Response type</h4>
+
 Type documentation: no documentation provided 
 
 
@@ -300,6 +304,7 @@ Type documentation: no documentation provided
 
 
 <h4 id="MatchResult">Response type</h4>
+
 Type documentation: no documentation provided 
 <pre>type MatchResult: int {
 	.group*: string
@@ -327,6 +332,7 @@ Type documentation: no documentation provided
 
 
 <h4>Response type</h4>
+
 Type documentation: no documentation provided 
 
 
@@ -351,6 +357,7 @@ Type documentation: no documentation provided
 
 
 <h4 id="StringItemList">Response type</h4>
+
 Type documentation: no documentation provided 
 <pre>type StringItemList: void {
 	.item*: string
@@ -378,6 +385,7 @@ Type documentation: no documentation provided
 
 
 <h4>Response type</h4>
+
 Type documentation: no documentation provided 
 
 
@@ -403,6 +411,7 @@ Type documentation: no documentation provided
 
 
 <h4>Response type</h4>
+
 Type documentation: no documentation provided 
 
 
@@ -429,6 +438,7 @@ Type documentation: no documentation provided
 
 
 <h4>Response type</h4>
+
 Type documentation: no documentation provided 
 
 
@@ -454,6 +464,7 @@ Type documentation: no documentation provided
 
 
 <h4>Response type</h4>
+
 Type documentation: no documentation provided 
 
 
@@ -482,6 +493,7 @@ Type documentation: no documentation provided
 
 
 <h4>Response type</h4>
+
 Type documentation: no documentation provided 
 
 
@@ -507,6 +519,7 @@ Type documentation: no documentation provided
 
 
 <h4 id="SplitResult">Response type</h4>
+
 Type documentation: no documentation provided 
 <pre>type SplitResult: void {
 	.result*: string
@@ -533,6 +546,7 @@ Type documentation: no documentation provided
 
 
 <h4 id="SplitResult">Response type</h4>
+
 Type documentation: no documentation provided 
 <pre>type SplitResult: void {
 	.result*: string
@@ -557,6 +571,7 @@ Type documentation: no documentation provided
 
 
 <h4>Response type</h4>
+
 Type documentation: no documentation provided 
 
 
@@ -581,6 +596,7 @@ Type documentation: no documentation provided
 
 
 <h4 id="MatchResult">Response type</h4>
+
 Type documentation: no documentation provided 
 <pre>type MatchResult: int {
 	.group*: string
@@ -611,6 +627,7 @@ Type documentation: no documentation provided
 
 
 <h4>Response type</h4>
+
 Type documentation: no documentation provided 
 
 
@@ -633,6 +650,7 @@ Type documentation: no documentation provided
 
 
 <h4>Response type</h4>
+
 Type documentation: no documentation provided 
 
 
@@ -658,6 +676,7 @@ Type documentation: no documentation provided
 
 
 <h4>Response type</h4>
+
 Type documentation: no documentation provided 
 
 
@@ -682,6 +701,7 @@ Type documentation: no documentation provided
 
 
 <h4 id="IndexOfResponse">Response type</h4>
+
 Type documentation: no documentation provided 
 <pre>type IndexOfResponse: int</pre>
 
@@ -710,6 +730,7 @@ Type documentation: no documentation provided
 
 
 <h4>Response type</h4>
+
 Type documentation: no documentation provided 
 
 

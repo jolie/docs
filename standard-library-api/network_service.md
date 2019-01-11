@@ -71,6 +71,7 @@ Type documentation: no documentation provided
 
 
 <h4 id="GetNetworkInterfaceNamesResponse">Response type</h4>
+
 Type documentation: no documentation provided 
 <pre>type GetNetworkInterfaceNamesResponse: void {
 	.interfaceName*: string {
@@ -99,6 +100,7 @@ Type documentation: no documentation provided
 
 
 <h4 id="GetIPAddressesResponse">Response type</h4>
+
 Type documentation: no documentation provided 
 <pre>type GetIPAddressesResponse: void {
 	.ip4?: string

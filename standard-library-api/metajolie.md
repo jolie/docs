@@ -104,6 +104,7 @@ Type documentation: no documentation provided
 
 
 <h4 id="GetInputPortMetaDataResponse">Response type</h4>
+
 Type documentation: no documentation provided 
 <pre>type GetInputPortMetaDataResponse: void {
 	.input*: Participant
@@ -165,6 +166,7 @@ Type documentation: no documentation provided
 
 
 <h4 id="Role">Response type</h4>
+
 Type documentation: no documentation provided 
 <pre>type Role: void {
 	.output?: Participant
@@ -195,6 +197,7 @@ Type documentation: no documentation provided
 
 
 <h4 id="GetMetaDataResponse">Response type</h4>
+
 Type documentation: no documentation provided 
 <pre>type GetMetaDataResponse: void {
 	.output*: Participant
@@ -260,6 +263,7 @@ Type documentation: no documentation provided
 
 
 <h4 id="MessageTypeCastResponse">Response type</h4>
+
 Type documentation: no documentation provided 
 <pre>type MessageTypeCastResponse: void {
 	.message: undefined
@@ -294,6 +298,7 @@ Type documentation: no documentation provided
 
 
 <h4 id="CheckNativeTypeResponse">Response type</h4>
+
 Type documentation: no documentation provided 
 <pre>type CheckNativeTypeResponse: void {
 	.result: bool

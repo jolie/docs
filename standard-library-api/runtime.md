@@ -187,6 +187,7 @@ Type documentation: no documentation provided
 
 
 <h4>Response type</h4>
+
 Type documentation: no documentation provided 
 
 
@@ -217,6 +218,7 @@ Type documentation: no documentation provided
 
 
 <h4>Response type</h4>
+
 Type documentation: no documentation provided 
 
 
@@ -243,6 +245,7 @@ Type documentation: no documentation provided
 
 
 <h4>Response type</h4>
+
 Type documentation: no documentation provided 
 
 
@@ -277,6 +280,7 @@ Type documentation: no documentation provided
 
 
 <h4 id="GetOutputPortsResponse">Response type</h4>
+
 Type documentation: no documentation provided 
 <pre>type GetOutputPortsResponse: void {
 	.port*: void {
@@ -308,6 +312,7 @@ Type documentation: no documentation provided
 
 
 <h4>Response type</h4>
+
 Type documentation: no documentation provided 
 
 
@@ -344,6 +349,7 @@ Type documentation: no documentation provided
 
 
 <h4 id="GetOutputPortResponse">Response type</h4>
+
 Type documentation: no documentation provided 
 <pre>type GetOutputPortResponse: void {
 	.protocol: string
@@ -378,6 +384,7 @@ Type documentation: no documentation provided
 
 
 <h4>Response type</h4>
+
 Type documentation: no documentation provided 
 
 
@@ -400,6 +407,7 @@ Type documentation: no documentation provided
 
 
 <h4>Response type</h4>
+
 Type documentation: no documentation provided 
 
 
@@ -425,6 +433,7 @@ Type documentation: no documentation provided
 
 
 <h4>Response type</h4>
+
 Type documentation: no documentation provided 
 
 
@@ -451,6 +460,7 @@ Type documentation: no documentation provided
 
 
 <h4>Response type</h4>
+
 Type documentation: no documentation provided 
 
 
@@ -475,6 +485,7 @@ Type documentation: no documentation provided
 
 
 <h4>Response type</h4>
+
 Type documentation: no documentation provided 
 
 
@@ -497,6 +508,7 @@ Type documentation: no documentation provided
 
 
 <h4>Response type</h4>
+
 Type documentation: no documentation provided 
 
 
@@ -523,6 +535,7 @@ Type documentation: no documentation provided
 
 
 <h4 id="Stats">Response type</h4>
+
 Type documentation: no documentation provided 
 <pre>type Stats: void {
 	.os: void {
@@ -560,6 +573,7 @@ Type documentation: no documentation provided
 
 
 <h4>Response type</h4>
+
 Type documentation: no documentation provided 
 
 
@@ -593,6 +607,7 @@ Type documentation: no documentation provided
 
 
 <h4>Response type</h4>
+
 Type documentation: no documentation provided 
 
 
@@ -615,6 +630,7 @@ Type documentation: no documentation provided
 
 
 <h4>Response type</h4>
+
 Type documentation: no documentation provided 
 
 
@@ -637,6 +653,7 @@ Type documentation: no documentation provided
 
 
 <h4 id="GetIncludePathResponse">Response type</h4>
+
 Type documentation: no documentation provided 
 <pre>type GetIncludePathResponse: void {
 	.path*: string
@@ -663,6 +680,7 @@ Type documentation: no documentation provided
 
 
 <h4 id="MaybeString">Response type</h4>
+
 Type documentation: no documentation provided 
 <pre>type MaybeString: type MaybeString: void|type MaybeString: string</pre>
 
