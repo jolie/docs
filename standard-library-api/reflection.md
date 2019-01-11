@@ -64,7 +64,8 @@ Operation documentation:
 	
 
 
-Invocation template: <pre>invoke@Reflection( request )( response )</pre>
+Invocation template: 
+<pre>invoke@Reflection( request )( response )</pre>
 
 <h4 id="InvokeRequest">Request type</h4>
 
@@ -89,19 +90,20 @@ Type documentation: no documentation provided
 
 Fault <code>OperationNotFound</code> with type <code>string</code>
 
-Fault-handling install template: <pre>install ( OperationNotFound => /* error-handling code */ )</pre>
+Fault-handling install template: 
+<pre>install ( OperationNotFound => /* error-handling code */ )</pre>
 
 
 
 
 Fault <code>InvocationFault</code> with type <code>InvocationFaultType</code>
 
-Fault-handling install template: <pre>install ( InvocationFault => /* error-handling code */ )</pre>
+Fault-handling install template: 
+<pre>install ( InvocationFault => /* error-handling code */ )</pre>
 <pre>type InvocationFaultType: void {
 	.data: string
 	.name: string
 }</pre>
-
 
 
 

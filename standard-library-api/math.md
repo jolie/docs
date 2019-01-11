@@ -90,7 +90,8 @@ Inclusion code: <pre>include "math.iol"</pre>
 Operation documentation:  Returns a random number d such that 0.0 <= d < 1.0. 
 
 
-Invocation template: <pre>random@Math( request )( response )</pre>
+Invocation template: 
+<pre>random@Math( request )( response )</pre>
 
 <h4>Request type</h4>
 
@@ -113,7 +114,8 @@ Type documentation: no documentation provided
 Operation documentation:  Returns the absolute value of the input integer. 
 
 
-Invocation template: <pre>abs@Math( request )( response )</pre>
+Invocation template: 
+<pre>abs@Math( request )( response )</pre>
 
 <h4>Request type</h4>
 
@@ -134,7 +136,8 @@ Type documentation: no documentation provided
 <h3 id="round">round</h3>
 
 
-Invocation template: <pre>round@Math( request )( response )</pre>
+Invocation template: 
+<pre>round@Math( request )( response )</pre>
 
 <h4 id="RoundRequestType">Request type</h4>
 
@@ -159,7 +162,8 @@ Type documentation: no documentation provided
 Operation documentation:  Returns the PI constant 
 
 
-Invocation template: <pre>pi@Math( request )( response )</pre>
+Invocation template: 
+<pre>pi@Math( request )( response )</pre>
 
 <h4>Request type</h4>
 
@@ -182,7 +186,8 @@ Type documentation: no documentation provided
 Operation documentation:  Returns the result of .base to the power of .exponent (see request data type). 
 
 
-Invocation template: <pre>pow@Math( request )( response )</pre>
+Invocation template: 
+<pre>pow@Math( request )( response )</pre>
 
 <h4 id="PowRequest">Request type</h4>
 
@@ -208,7 +213,8 @@ Type documentation: no documentation provided
 Operation documentation:  Returns the summation of values from .from to .to (see request data type). For example, .from=2 and .to=5 would produce a return value of 2+3+4+5=14. 
 
 
-Invocation template: <pre>summation@Math( request )( response )</pre>
+Invocation template: 
+<pre>summation@Math( request )( response )</pre>
 
 <h4 id="SummationRequest">Request type</h4>
 
@@ -221,7 +227,6 @@ Type documentation: no documentation provided
 
 <h4>Response type</h4>
 Type documentation: no documentation provided 
-
 
 
 

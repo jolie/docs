@@ -173,7 +173,8 @@ Operation documentation:
 		
 
 
-Invocation template: <pre>scheduleTimeout@Time( request )( response )</pre>
+Invocation template: 
+<pre>scheduleTimeout@Time( request )( response )</pre>
 
 <h4 id="ScheduleTimeOutRequest">Request type</h4>
 
@@ -197,7 +198,8 @@ Type documentation: no documentation provided
 
 Fault <code>InvalidTimeUnit</code> with type <code>undefined</code>
 
-Fault-handling install template: <pre>install ( InvalidTimeUnit => /* error-handling code */ )</pre>
+Fault-handling install template: 
+<pre>install ( InvalidTimeUnit => /* error-handling code */ )</pre>
 
 
 
@@ -211,7 +213,8 @@ Operation documentation:
 		
 
 
-Invocation template: <pre>getDateValues@Time( request )( response )</pre>
+Invocation template: 
+<pre>getDateValues@Time( request )( response )</pre>
 
 <h4 id="DateValuesRequestType">Request type</h4>
 
@@ -237,7 +240,8 @@ Type documentation: no documentation provided
 
 Fault <code>InvalidDate</code> with type <code>undefined</code>
 
-Fault-handling install template: <pre>install ( InvalidDate => /* error-handling code */ )</pre>
+Fault-handling install template: 
+<pre>install ( InvalidDate => /* error-handling code */ )</pre>
 
 
 
@@ -249,7 +253,8 @@ Operation documentation:
 		
 
 
-Invocation template: <pre>getDateTime@Time( request )( response )</pre>
+Invocation template: 
+<pre>getDateTime@Time( request )( response )</pre>
 
 <h4 id="GetDateTimeRequest">Request type</h4>
 
@@ -283,7 +288,8 @@ Operation documentation:
 		
 
 
-Invocation template: <pre>getCurrentTimeMillis@Time( request )( response )</pre>
+Invocation template: 
+<pre>getCurrentTimeMillis@Time( request )( response )</pre>
 
 <h4>Request type</h4>
 
@@ -304,7 +310,8 @@ Type documentation: no documentation provided
 <h3 id="getDateDiff">getDateDiff</h3>
 
 
-Invocation template: <pre>getDateDiff@Time( request )( response )</pre>
+Invocation template: 
+<pre>getDateDiff@Time( request )( response )</pre>
 
 <h4 id="DiffDateRequestType">Request type</h4>
 
@@ -329,7 +336,8 @@ Type documentation: no documentation provided
 <h3 id="getTimeDiff">getTimeDiff</h3>
 
 
-Invocation template: <pre>getTimeDiff@Time( request )( response )</pre>
+Invocation template: 
+<pre>getTimeDiff@Time( request )( response )</pre>
 
 <h4 id="GetTimeDiffRequest">Request type</h4>
 
@@ -353,7 +361,8 @@ Type documentation: no documentation provided
 <h3 id="getTimestampFromString">getTimestampFromString</h3>
 
 
-Invocation template: <pre>getTimestampFromString@Time( request )( response )</pre>
+Invocation template: 
+<pre>getTimestampFromString@Time( request )( response )</pre>
 
 <h4 id="GetTimestampFromStringRequest">Request type</h4>
 
@@ -376,7 +385,8 @@ Type documentation: no documentation provided
 
 Fault <code>InvalidTimestamp</code> with type <code>undefined</code>
 
-Fault-handling install template: <pre>install ( InvalidTimestamp => /* error-handling code */ )</pre>
+Fault-handling install template: 
+<pre>install ( InvalidTimestamp => /* error-handling code */ )</pre>
 
 
 
@@ -388,7 +398,8 @@ Operation documentation:
 		
 
 
-Invocation template: <pre>cancelTimeout@Time( request )( response )</pre>
+Invocation template: 
+<pre>cancelTimeout@Time( request )( response )</pre>
 
 <h4>Request type</h4>
 
@@ -409,7 +420,8 @@ Type documentation: no documentation provided
 <h3 id="setNextTimeoutByTime">setNextTimeoutByTime</h3>
 
 
-Invocation template: <pre>setNextTimeoutByTime@Time( request )</pre>
+Invocation template: 
+<pre>setNextTimeoutByTime@Time( request )</pre>
 
 <h4>Request type</h4>
 
@@ -426,7 +438,8 @@ Type documentation: no documentation provided
 <h3 id="getCurrentDateTime">getCurrentDateTime</h3>
 
 
-Invocation template: <pre>getCurrentDateTime@Time( request )( response )</pre>
+Invocation template: 
+<pre>getCurrentDateTime@Time( request )( response )</pre>
 
 <h4 id="CurrentDateTimeRequestType">Request type</h4>
 
@@ -449,7 +462,8 @@ Type documentation: no documentation provided
 <h3 id="sleep">sleep</h3>
 
 
-Invocation template: <pre>sleep@Time( request )( response )</pre>
+Invocation template: 
+<pre>sleep@Time( request )( response )</pre>
 
 <h4>Request type</h4>
 
@@ -476,7 +490,8 @@ Operation documentation:
 		
 
 
-Invocation template: <pre>setNextTimeout@Time( request )</pre>
+Invocation template: 
+<pre>setNextTimeout@Time( request )</pre>
 
 <h4 id="SetNextTimeOutRequest">Request type</h4>
 
@@ -496,7 +511,8 @@ Type documentation: no documentation provided
 <h3 id="getTimeFromMilliSeconds">getTimeFromMilliSeconds</h3>
 
 
-Invocation template: <pre>getTimeFromMilliSeconds@Time( request )( response )</pre>
+Invocation template: 
+<pre>getTimeFromMilliSeconds@Time( request )( response )</pre>
 
 <h4>Request type</h4>
 
@@ -521,7 +537,8 @@ Type documentation: no documentation provided
 <h3 id="getDateTimeValues">getDateTimeValues</h3>
 
 
-Invocation template: <pre>getDateTimeValues@Time( request )( response )</pre>
+Invocation template: 
+<pre>getDateTimeValues@Time( request )( response )</pre>
 
 <h4 id="GetTimestampFromStringRequest">Request type</h4>
 
@@ -551,7 +568,8 @@ Type documentation: no documentation provided
 
 Fault <code>InvalidDate</code> with type <code>undefined</code>
 
-Fault-handling install template: <pre>install ( InvalidDate => /* error-handling code */ )</pre>
+Fault-handling install template: 
+<pre>install ( InvalidDate => /* error-handling code */ )</pre>
 
 
 
@@ -559,7 +577,8 @@ Fault-handling install template: <pre>install ( InvalidDate => /* error-handling
 <h3 id="setNextTimeoutByDateTime">setNextTimeoutByDateTime</h3>
 
 
-Invocation template: <pre>setNextTimeoutByDateTime@Time( request )</pre>
+Invocation template: 
+<pre>setNextTimeoutByDateTime@Time( request )</pre>
 
 <h4>Request type</h4>
 
@@ -580,7 +599,8 @@ Operation documentation:
 		
 
 
-Invocation template: <pre>getCurrentDateValues@Time( request )( response )</pre>
+Invocation template: 
+<pre>getCurrentDateValues@Time( request )( response )</pre>
 
 <h4>Request type</h4>
 
@@ -605,7 +625,8 @@ Type documentation: no documentation provided
 <h3 id="getTimeValues">getTimeValues</h3>
 
 
-Invocation template: <pre>getTimeValues@Time( request )( response )</pre>
+Invocation template: 
+<pre>getTimeValues@Time( request )( response )</pre>
 
 <h4>Request type</h4>
 
@@ -620,7 +641,6 @@ Type documentation: no documentation provided
 	.minute: int
 	.second: int
 }</pre>
-
 
 
 

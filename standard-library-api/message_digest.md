@@ -54,7 +54,8 @@ Inclusion code: <pre>include "message_digest.iol"</pre>
 <h3 id="md5">md5</h3>
 
 
-Invocation template: <pre>md5@MessageDigest( request )( response )</pre>
+Invocation template: 
+<pre>md5@MessageDigest( request )( response )</pre>
 
 <h4 id="MD5Request">Request type</h4>
 
@@ -76,11 +77,11 @@ Type documentation: no documentation provided
 
 Fault <code>UnsupportedOperation</code> with type <code>JavaExceptionType</code>
 
-Fault-handling install template: <pre>install ( UnsupportedOperation => /* error-handling code */ )</pre>
+Fault-handling install template: 
+<pre>install ( UnsupportedOperation => /* error-handling code */ )</pre>
 <pre>type JavaExceptionType: string {
 	.stackTrace: string
 }</pre>
-
 
 
 

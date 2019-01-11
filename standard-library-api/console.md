@@ -59,7 +59,8 @@ Inclusion code: <pre>include "console.iol"</pre>
 <h3 id="in">in</h3>
 
 
-Invocation template: <pre>in( request )</pre>
+Invocation template: 
+<pre>in( request )</pre>
 
 <h4 id="InRequest">Request type</h4>
 
@@ -142,7 +143,8 @@ Type documentation: no documentation provided
 <h3 id="print">print</h3>
 
 
-Invocation template: <pre>print@Console( request )( response )</pre>
+Invocation template: 
+<pre>print@Console( request )( response )</pre>
 
 <h4>Request type</h4>
 
@@ -163,7 +165,8 @@ Type documentation: no documentation provided
 <h3 id="println">println</h3>
 
 
-Invocation template: <pre>println@Console( request )( response )</pre>
+Invocation template: 
+<pre>println@Console( request )( response )</pre>
 
 <h4>Request type</h4>
 
@@ -189,7 +192,8 @@ Operation documentation:
 	
 
 
-Invocation template: <pre>registerForInput@Console( request )( response )</pre>
+Invocation template: 
+<pre>registerForInput@Console( request )( response )</pre>
 
 <h4 id="RegisterForInputRequest">Request type</h4>
 
@@ -216,7 +220,8 @@ Operation documentation:
 	
 
 
-Invocation template: <pre>unsubscribeSessionListener@Console( request )( response )</pre>
+Invocation template: 
+<pre>unsubscribeSessionListener@Console( request )( response )</pre>
 
 <h4 id="UnsubscribeSessionListener">Request type</h4>
 
@@ -244,7 +249,8 @@ Operation documentation:
 	
 
 
-Invocation template: <pre>subscribeSessionListener@Console( request )( response )</pre>
+Invocation template: 
+<pre>subscribeSessionListener@Console( request )( response )</pre>
 
 <h4 id="SubscribeSessionListener">Request type</h4>
 
@@ -272,7 +278,8 @@ Operation documentation:
 	
 
 
-Invocation template: <pre>enableTimestamp@Console( request )( response )</pre>
+Invocation template: 
+<pre>enableTimestamp@Console( request )( response )</pre>
 
 <h4 id="EnableTimestampRequest">Request type</h4>
 
@@ -284,7 +291,6 @@ Type documentation: no documentation provided
 
 <h4>Response type</h4>
 Type documentation: no documentation provided 
-
 
 
 

@@ -91,7 +91,8 @@ WARNING: the API of this service is experimental. Use it at your own risk.
 <h3 id="getInputPortMetaData">getInputPortMetaData</h3>
 
 
-Invocation template: <pre>getInputPortMetaData@MetaJolie( request )( response )</pre>
+Invocation template: 
+<pre>getInputPortMetaData@MetaJolie( request )( response )</pre>
 
 <h4 id="GetInputPortMetaDataRequest">Request type</h4>
 
@@ -116,7 +117,8 @@ Type documentation: no documentation provided
 
 Fault <code>ParserException</code> with type <code>ParserExceptionType</code>
 
-Fault-handling install template: <pre>install ( ParserException => /* error-handling code */ )</pre>
+Fault-handling install template: 
+<pre>install ( ParserException => /* error-handling code */ )</pre>
 <pre>type ParserExceptionType: void {
 	.line: int
 	.sourceName: string
@@ -127,14 +129,16 @@ Fault-handling install template: <pre>install ( ParserException => /* error-hand
 
 Fault <code>InputPortMetaDataFault</code> with type <code>undefined</code>
 
-Fault-handling install template: <pre>install ( InputPortMetaDataFault => /* error-handling code */ )</pre>
+Fault-handling install template: 
+<pre>install ( InputPortMetaDataFault => /* error-handling code */ )</pre>
 
 
 
 
 Fault <code>SemanticException</code> with type <code>SemanticExceptionType</code>
 
-Fault-handling install template: <pre>install ( SemanticException => /* error-handling code */ )</pre>
+Fault-handling install template: 
+<pre>install ( SemanticException => /* error-handling code */ )</pre>
 <pre>type SemanticExceptionType: void {
 	.error*: void {
 		.line: int
@@ -148,7 +152,8 @@ Fault-handling install template: <pre>install ( SemanticException => /* error-ha
 <h3 id="parseRoles">parseRoles</h3>
 
 
-Invocation template: <pre>parseRoles@MetaJolie( request )( response )</pre>
+Invocation template: 
+<pre>parseRoles@MetaJolie( request )( response )</pre>
 
 <h4 id="ParseRoleRequest">Request type</h4>
 
@@ -177,7 +182,8 @@ Type documentation: no documentation provided
 <h3 id="getMetaData">getMetaData</h3>
 
 
-Invocation template: <pre>getMetaData@MetaJolie( request )( response )</pre>
+Invocation template: 
+<pre>getMetaData@MetaJolie( request )( response )</pre>
 
 <h4 id="GetMetaDataRequest">Request type</h4>
 
@@ -211,7 +217,8 @@ Type documentation: no documentation provided
 
 Fault <code>ParserException</code> with type <code>ParserExceptionType</code>
 
-Fault-handling install template: <pre>install ( ParserException => /* error-handling code */ )</pre>
+Fault-handling install template: 
+<pre>install ( ParserException => /* error-handling code */ )</pre>
 <pre>type ParserExceptionType: void {
 	.line: int
 	.sourceName: string
@@ -222,7 +229,8 @@ Fault-handling install template: <pre>install ( ParserException => /* error-hand
 
 Fault <code>SemanticException</code> with type <code>SemanticExceptionType</code>
 
-Fault-handling install template: <pre>install ( SemanticException => /* error-handling code */ )</pre>
+Fault-handling install template: 
+<pre>install ( SemanticException => /* error-handling code */ )</pre>
 <pre>type SemanticExceptionType: void {
 	.error*: void {
 		.line: int
@@ -236,7 +244,8 @@ Fault-handling install template: <pre>install ( SemanticException => /* error-ha
 <h3 id="messageTypeCast">messageTypeCast</h3>
 
 
-Invocation template: <pre>messageTypeCast@MetaJolie( request )( response )</pre>
+Invocation template: 
+<pre>messageTypeCast@MetaJolie( request )( response )</pre>
 
 <h4 id="MessageTypeCastRequest">Request type</h4>
 
@@ -264,7 +273,8 @@ Type documentation: no documentation provided
 
 Fault <code>TypeMismatch</code> with type <code>undefined</code>
 
-Fault-handling install template: <pre>install ( TypeMismatch => /* error-handling code */ )</pre>
+Fault-handling install template: 
+<pre>install ( TypeMismatch => /* error-handling code */ )</pre>
 
 
 
@@ -272,7 +282,8 @@ Fault-handling install template: <pre>install ( TypeMismatch => /* error-handlin
 <h3 id="checkNativeType">checkNativeType</h3>
 
 
-Invocation template: <pre>checkNativeType@MetaJolie( request )( response )</pre>
+Invocation template: 
+<pre>checkNativeType@MetaJolie( request )( response )</pre>
 
 <h4 id="CheckNativeTypeRequest">Request type</h4>
 
@@ -287,7 +298,6 @@ Type documentation: no documentation provided
 <pre>type CheckNativeTypeResponse: void {
 	.result: bool
 }</pre>
-
 
 
 

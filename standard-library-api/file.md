@@ -203,7 +203,8 @@ to: the target directory to copy into
 Operation documentation:  deprecated, please use base64ToRaw@Converter()() from converter.iol 
 
 
-Invocation template: <pre>convertFromBase64ToBinaryValue@File( request )( response )</pre>
+Invocation template: 
+<pre>convertFromBase64ToBinaryValue@File( request )( response )</pre>
 
 <h4>Request type</h4>
 
@@ -223,7 +224,8 @@ Type documentation: no documentation provided
 
 Fault <code>IOException</code> with type <code>IOExceptionType</code>
 
-Fault-handling install template: <pre>install ( IOException => /* error-handling code */ )</pre>
+Fault-handling install template: 
+<pre>install ( IOException => /* error-handling code */ )</pre>
 <pre>type IOExceptionType: JavaExceptionType</pre>
 
 
@@ -231,7 +233,8 @@ Fault-handling install template: <pre>install ( IOException => /* error-handling
 <h3 id="getMimeType">getMimeType</h3>
 
 
-Invocation template: <pre>getMimeType@File( request )( response )</pre>
+Invocation template: 
+<pre>getMimeType@File( request )( response )</pre>
 
 <h4>Request type</h4>
 
@@ -251,7 +254,8 @@ Type documentation: no documentation provided
 
 Fault <code>FileNotFound</code> with type <code>FileNotFoundType</code>
 
-Fault-handling install template: <pre>install ( FileNotFound => /* error-handling code */ )</pre>
+Fault-handling install template: 
+<pre>install ( FileNotFound => /* error-handling code */ )</pre>
 <pre>type FileNotFoundType: WeakJavaExceptionType</pre>
 
 
@@ -261,7 +265,8 @@ Fault-handling install template: <pre>install ( FileNotFound => /* error-handlin
 Operation documentation:  deprecated, please use rawToBase64@Converter()() from converter.iol 
 
 
-Invocation template: <pre>convertFromBinaryToBase64Value@File( request )( response )</pre>
+Invocation template: 
+<pre>convertFromBinaryToBase64Value@File( request )( response )</pre>
 
 <h4>Request type</h4>
 
@@ -288,7 +293,8 @@ Operation documentation:
 	 
 
 
-Invocation template: <pre>toAbsolutePath@File( request )( response )</pre>
+Invocation template: 
+<pre>toAbsolutePath@File( request )( response )</pre>
 
 <h4>Request type</h4>
 
@@ -308,7 +314,8 @@ Type documentation: no documentation provided
 
 Fault <code>InvalidPathException</code> with type <code>JavaExceptionType</code>
 
-Fault-handling install template: <pre>install ( InvalidPathException => /* error-handling code */ )</pre>
+Fault-handling install template: 
+<pre>install ( InvalidPathException => /* error-handling code */ )</pre>
 <pre>type JavaExceptionType: string {
 	.stackTrace: string
 }</pre>
@@ -324,7 +331,8 @@ Operation documentation:
 	 
 
 
-Invocation template: <pre>getParentPath@File( request )( response )</pre>
+Invocation template: 
+<pre>getParentPath@File( request )( response )</pre>
 
 <h4>Request type</h4>
 
@@ -344,7 +352,8 @@ Type documentation: no documentation provided
 
 Fault <code>InvalidPathException</code> with type <code>JavaExceptionType</code>
 
-Fault-handling install template: <pre>install ( InvalidPathException => /* error-handling code */ )</pre>
+Fault-handling install template: 
+<pre>install ( InvalidPathException => /* error-handling code */ )</pre>
 <pre>type JavaExceptionType: string {
 	.stackTrace: string
 }</pre>
@@ -354,7 +363,8 @@ Fault-handling install template: <pre>install ( InvalidPathException => /* error
 <h3 id="list">list</h3>
 
 
-Invocation template: <pre>list@File( request )( response )</pre>
+Invocation template: 
+<pre>list@File( request )( response )</pre>
 
 <h4 id="ListRequest">Request type</h4>
 
@@ -397,7 +407,8 @@ Operation documentation:
 	
 
 
-Invocation template: <pre>copyDir@File( request )( response )</pre>
+Invocation template: 
+<pre>copyDir@File( request )( response )</pre>
 
 <h4 id="CopyDirRequest">Request type</h4>
 
@@ -420,14 +431,16 @@ Type documentation: no documentation provided
 
 Fault <code>FileNotFound</code> with type <code>undefined</code>
 
-Fault-handling install template: <pre>install ( FileNotFound => /* error-handling code */ )</pre>
+Fault-handling install template: 
+<pre>install ( FileNotFound => /* error-handling code */ )</pre>
 
 
 
 
 Fault <code>IOException</code> with type <code>undefined</code>
 
-Fault-handling install template: <pre>install ( IOException => /* error-handling code */ )</pre>
+Fault-handling install template: 
+<pre>install ( IOException => /* error-handling code */ )</pre>
 
 
 
@@ -435,7 +448,8 @@ Fault-handling install template: <pre>install ( IOException => /* error-handling
 <h3 id="delete">delete</h3>
 
 
-Invocation template: <pre>delete@File( request )( response )</pre>
+Invocation template: 
+<pre>delete@File( request )( response )</pre>
 
 <h4 id="DeleteRequest">Request type</h4>
 
@@ -457,7 +471,8 @@ Type documentation: no documentation provided
 
 Fault <code>IOException</code> with type <code>IOExceptionType</code>
 
-Fault-handling install template: <pre>install ( IOException => /* error-handling code */ )</pre>
+Fault-handling install template: 
+<pre>install ( IOException => /* error-handling code */ )</pre>
 <pre>type IOExceptionType: JavaExceptionType</pre>
 
 
@@ -476,7 +491,8 @@ Operation documentation:
 	 
 
 
-Invocation template: <pre>getSize@File( request )( response )</pre>
+Invocation template: 
+<pre>getSize@File( request )( response )</pre>
 
 <h4>Request type</h4>
 
@@ -497,7 +513,8 @@ Type documentation: no documentation provided
 <h3 id="getFileSeparator">getFileSeparator</h3>
 
 
-Invocation template: <pre>getFileSeparator@File( request )( response )</pre>
+Invocation template: 
+<pre>getFileSeparator@File( request )( response )</pre>
 
 <h4>Request type</h4>
 
@@ -518,7 +535,8 @@ Type documentation: no documentation provided
 <h3 id="rename">rename</h3>
 
 
-Invocation template: <pre>rename@File( request )( response )</pre>
+Invocation template: 
+<pre>rename@File( request )( response )</pre>
 
 <h4 id="RenameRequest">Request type</h4>
 
@@ -541,7 +559,8 @@ Type documentation: no documentation provided
 
 Fault <code>IOException</code> with type <code>IOExceptionType</code>
 
-Fault-handling install template: <pre>install ( IOException => /* error-handling code */ )</pre>
+Fault-handling install template: 
+<pre>install ( IOException => /* error-handling code */ )</pre>
 <pre>type IOExceptionType: JavaExceptionType</pre>
 
 
@@ -567,7 +586,8 @@ Operation documentation:
 	 
 
 
-Invocation template: <pre>readFile@File( request )( response )</pre>
+Invocation template: 
+<pre>readFile@File( request )( response )</pre>
 
 <h4 id="ReadFileRequest">Request type</h4>
 
@@ -593,14 +613,16 @@ Type documentation: no documentation provided
 
 Fault <code>FileNotFound</code> with type <code>FileNotFoundType</code>
 
-Fault-handling install template: <pre>install ( FileNotFound => /* error-handling code */ )</pre>
+Fault-handling install template: 
+<pre>install ( FileNotFound => /* error-handling code */ )</pre>
 <pre>type FileNotFoundType: WeakJavaExceptionType</pre>
 
 
 
 Fault <code>IOException</code> with type <code>IOExceptionType</code>
 
-Fault-handling install template: <pre>install ( IOException => /* error-handling code */ )</pre>
+Fault-handling install template: 
+<pre>install ( IOException => /* error-handling code */ )</pre>
 <pre>type IOExceptionType: JavaExceptionType</pre>
 
 
@@ -612,7 +634,8 @@ Operation documentation:
 	
 
 
-Invocation template: <pre>exists@File( request )( response )</pre>
+Invocation template: 
+<pre>exists@File( request )( response )</pre>
 
 <h4>Request type</h4>
 
@@ -633,7 +656,8 @@ Type documentation: no documentation provided
 <h3 id="setMimeTypeFile">setMimeTypeFile</h3>
 
 
-Invocation template: <pre>setMimeTypeFile@File( request )( response )</pre>
+Invocation template: 
+<pre>setMimeTypeFile@File( request )( response )</pre>
 
 <h4>Request type</h4>
 
@@ -653,7 +677,8 @@ Type documentation: no documentation provided
 
 Fault <code>IOException</code> with type <code>IOExceptionType</code>
 
-Fault-handling install template: <pre>install ( IOException => /* error-handling code */ )</pre>
+Fault-handling install template: 
+<pre>install ( IOException => /* error-handling code */ )</pre>
 <pre>type IOExceptionType: JavaExceptionType</pre>
 
 
@@ -665,7 +690,8 @@ Operation documentation:
 	
 
 
-Invocation template: <pre>deleteDir@File( request )( response )</pre>
+Invocation template: 
+<pre>deleteDir@File( request )( response )</pre>
 
 <h4>Request type</h4>
 
@@ -685,7 +711,8 @@ Type documentation: no documentation provided
 
 Fault <code>IOException</code> with type <code>IOExceptionType</code>
 
-Fault-handling install template: <pre>install ( IOException => /* error-handling code */ )</pre>
+Fault-handling install template: 
+<pre>install ( IOException => /* error-handling code */ )</pre>
 <pre>type IOExceptionType: JavaExceptionType</pre>
 
 
@@ -693,7 +720,8 @@ Fault-handling install template: <pre>install ( IOException => /* error-handling
 <h3 id="getServiceDirectory">getServiceDirectory</h3>
 
 
-Invocation template: <pre>getServiceDirectory@File( request )( response )</pre>
+Invocation template: 
+<pre>getServiceDirectory@File( request )( response )</pre>
 
 <h4>Request type</h4>
 
@@ -713,7 +741,8 @@ Type documentation: no documentation provided
 
 Fault <code>IOException</code> with type <code>IOExceptionType</code>
 
-Fault-handling install template: <pre>install ( IOException => /* error-handling code */ )</pre>
+Fault-handling install template: 
+<pre>install ( IOException => /* error-handling code */ )</pre>
 <pre>type IOExceptionType: JavaExceptionType</pre>
 
 
@@ -742,7 +771,8 @@ Operation documentation:
 	 
 
 
-Invocation template: <pre>writeFile@File( request )( response )</pre>
+Invocation template: 
+<pre>writeFile@File( request )( response )</pre>
 
 <h4 id="WriteFileRequest">Request type</h4>
 
@@ -772,14 +802,16 @@ Type documentation: no documentation provided
 
 Fault <code>FileNotFound</code> with type <code>FileNotFoundType</code>
 
-Fault-handling install template: <pre>install ( FileNotFound => /* error-handling code */ )</pre>
+Fault-handling install template: 
+<pre>install ( FileNotFound => /* error-handling code */ )</pre>
 <pre>type FileNotFoundType: WeakJavaExceptionType</pre>
 
 
 
 Fault <code>IOException</code> with type <code>IOExceptionType</code>
 
-Fault-handling install template: <pre>install ( IOException => /* error-handling code */ )</pre>
+Fault-handling install template: 
+<pre>install ( IOException => /* error-handling code */ )</pre>
 <pre>type IOExceptionType: JavaExceptionType</pre>
 
 
@@ -793,7 +825,8 @@ Operation documentation:
 	
 
 
-Invocation template: <pre>mkdir@File( request )( response )</pre>
+Invocation template: 
+<pre>mkdir@File( request )( response )</pre>
 
 <h4>Request type</h4>
 
@@ -818,7 +851,8 @@ Operation documentation:
 	
 
 
-Invocation template: <pre>isDirectory@File( request )( response )</pre>
+Invocation template: 
+<pre>isDirectory@File( request )( response )</pre>
 
 <h4>Request type</h4>
 
@@ -838,14 +872,16 @@ Type documentation: no documentation provided
 
 Fault <code>FileNotFound</code> with type <code>FileNotFoundType</code>
 
-Fault-handling install template: <pre>install ( FileNotFound => /* error-handling code */ )</pre>
+Fault-handling install template: 
+<pre>install ( FileNotFound => /* error-handling code */ )</pre>
 <pre>type FileNotFoundType: WeakJavaExceptionType</pre>
 
 
 
 Fault <code>IOException</code> with type <code>IOExceptionType</code>
 
-Fault-handling install template: <pre>install ( IOException => /* error-handling code */ )</pre>
+Fault-handling install template: 
+<pre>install ( IOException => /* error-handling code */ )</pre>
 <pre>type IOExceptionType: JavaExceptionType</pre>
 
 
@@ -860,7 +896,6 @@ Fault-handling install template: <pre>install ( IOException => /* error-handling
 <h4 id="FileNotFoundType">FileNotFoundType</h4>
 
 <pre>type FileNotFoundType: WeakJavaExceptionType</pre>
-
 
 
 

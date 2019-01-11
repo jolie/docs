@@ -67,7 +67,8 @@ Inclusion code: <pre>include "ui/swing_ui.iol"</pre>
 <h3 id="showMessageDialog">showMessageDialog</h3>
 
 
-Invocation template: <pre>showMessageDialog@SwingUI( request )( response )</pre>
+Invocation template: 
+<pre>showMessageDialog@SwingUI( request )( response )</pre>
 
 <h4>Request type</h4>
 
@@ -88,7 +89,8 @@ Type documentation: no documentation provided
 <h3 id="showYesNoQuestionDialog">showYesNoQuestionDialog</h3>
 
 
-Invocation template: <pre>showYesNoQuestionDialog@SwingUI( request )( response )</pre>
+Invocation template: 
+<pre>showYesNoQuestionDialog@SwingUI( request )( response )</pre>
 
 <h4>Request type</h4>
 
@@ -109,7 +111,8 @@ Type documentation: no documentation provided
 <h3 id="showInputDialog">showInputDialog</h3>
 
 
-Invocation template: <pre>showInputDialog@SwingUI( request )( response )</pre>
+Invocation template: 
+<pre>showInputDialog@SwingUI( request )( response )</pre>
 
 <h4>Request type</h4>
 
@@ -119,7 +122,6 @@ Type documentation: no documentation provided
 
 <h4>Response type</h4>
 Type documentation: no documentation provided 
-
 
 
 

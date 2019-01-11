@@ -77,7 +77,8 @@ Operation documentation:
 		 
 
 
-Invocation template: <pre>xmlToValue@XmlUtils( request )( response )</pre>
+Invocation template: 
+<pre>xmlToValue@XmlUtils( request )( response )</pre>
 
 <h4 id="XMLToValueRequest">Request type</h4>
 
@@ -107,7 +108,8 @@ Type documentation: no documentation provided
 
 Fault <code>IOException</code> with type <code>IOExceptionType</code>
 
-Fault-handling install template: <pre>install ( IOException => /* error-handling code */ )</pre>
+Fault-handling install template: 
+<pre>install ( IOException => /* error-handling code */ )</pre>
 <pre>type IOExceptionType: JavaExceptionType</pre>
 
 
@@ -115,7 +117,8 @@ Fault-handling install template: <pre>install ( IOException => /* error-handling
 <h3 id="transform">transform</h3>
 
 
-Invocation template: <pre>transform@XmlUtils( request )( response )</pre>
+Invocation template: 
+<pre>transform@XmlUtils( request )( response )</pre>
 
 <h4 id="XMLTransformationRequest">Request type</h4>
 
@@ -138,7 +141,8 @@ Type documentation: no documentation provided
 
 Fault <code>TransformerException</code> with type <code>JavaExceptionType</code>
 
-Fault-handling install template: <pre>install ( TransformerException => /* error-handling code */ )</pre>
+Fault-handling install template: 
+<pre>install ( TransformerException => /* error-handling code */ )</pre>
 <pre>type JavaExceptionType: string {
 	.stackTrace: string
 }</pre>
@@ -154,7 +158,8 @@ Operation documentation:
 		 
 
 
-Invocation template: <pre>valueToXml@XmlUtils( request )( response )</pre>
+Invocation template: 
+<pre>valueToXml@XmlUtils( request )( response )</pre>
 
 <h4 id="ValueToXmlRequest">Request type</h4>
 
@@ -186,14 +191,16 @@ Type documentation: no documentation provided
 
 Fault <code>IOException</code> with type <code>IOExceptionType</code>
 
-Fault-handling install template: <pre>install ( IOException => /* error-handling code */ )</pre>
+Fault-handling install template: 
+<pre>install ( IOException => /* error-handling code */ )</pre>
 <pre>type IOExceptionType: JavaExceptionType</pre>
 
 
 
 Fault <code>IllegalArgumentException</code> with type <code>string</code>
 
-Fault-handling install template: <pre>install ( IllegalArgumentException => /* error-handling code */ )</pre>
+Fault-handling install template: 
+<pre>install ( IllegalArgumentException => /* error-handling code */ )</pre>
 
 
 
@@ -204,7 +211,6 @@ Fault-handling install template: <pre>install ( IllegalArgumentException => /* e
 <h4 id="IOExceptionType">IOExceptionType</h4>
 
 <pre>type IOExceptionType: JavaExceptionType</pre>
-
 
 
 

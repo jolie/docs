@@ -67,7 +67,8 @@ Operation documentation:
 	
 
 
-Invocation template: <pre>release@SemaphoreUtils( request )( response )</pre>
+Invocation template: 
+<pre>release@SemaphoreUtils( request )( response )</pre>
 
 <h4 id="SemaphoreRequest">Request type</h4>
 
@@ -99,7 +100,8 @@ Operation documentation:
 	 
 
 
-Invocation template: <pre>acquire@SemaphoreUtils( request )( response )</pre>
+Invocation template: 
+<pre>acquire@SemaphoreUtils( request )( response )</pre>
 
 <h4 id="SemaphoreRequest">Request type</h4>
 
@@ -112,7 +114,6 @@ Type documentation: no documentation provided
 
 <h4>Response type</h4>
 Type documentation: no documentation provided 
-
 
 
 

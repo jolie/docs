@@ -64,7 +64,8 @@ WARNING: the API of this service is experimental. Use it at your own risk.
 <h3 id="expand">expand</h3>
 
 
-Invocation template: <pre>expand@UriTemplates( request )( response )</pre>
+Invocation template: 
+<pre>expand@UriTemplates( request )( response )</pre>
 
 <h4 id="ExpandRequest">Request type</h4>
 
@@ -88,7 +89,8 @@ Type documentation: no documentation provided
 <h3 id="match">match</h3>
 
 
-Invocation template: <pre>match@UriTemplates( request )( response )</pre>
+Invocation template: 
+<pre>match@UriTemplates( request )( response )</pre>
 
 <h4 id="UriMatchRequest">Request type</h4>
 
@@ -102,7 +104,6 @@ Type documentation: no documentation provided
 <h4 id="MatchResponse">Response type</h4>
 Type documentation: no documentation provided 
 <pre>type MatchResponse: undefined</pre>
-
 
 
 

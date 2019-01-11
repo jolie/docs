@@ -60,7 +60,8 @@ Inclusion code: <pre>include "bluetooth.iol"</pre>
 <h3 id="inquire">inquire</h3>
 
 
-Invocation template: <pre>inquire@Bluetooth( request )( response )</pre>
+Invocation template: 
+<pre>inquire@Bluetooth( request )( response )</pre>
 
 <h4>Request type</h4>
 
@@ -94,7 +95,8 @@ Operation documentation:
 	 
 
 
-Invocation template: <pre>setDiscoverable@Bluetooth( request )( response )</pre>
+Invocation template: 
+<pre>setDiscoverable@Bluetooth( request )( response )</pre>
 
 <h4>Request type</h4>
 
@@ -104,7 +106,6 @@ Type documentation: no documentation provided
 
 <h4>Response type</h4>
 Type documentation: no documentation provided 
-
 
 
 

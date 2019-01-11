@@ -53,7 +53,8 @@ Inclusion code: <pre>include "scheduler/callback_default.iol"</pre>
 <h3 id="schedulerCallback">schedulerCallback</h3>
 
 
-Invocation template: <pre>schedulerCallback( request )</pre>
+Invocation template: 
+<pre>schedulerCallback( request )</pre>
 
 <h4 id="SchedulerCallBackRequest">Request type</h4>
 
@@ -62,7 +63,6 @@ Type documentation: no documentation provided
 	.jobName: string
 	.groupName: string
 }</pre>
-
 
 
 

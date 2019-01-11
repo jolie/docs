@@ -88,7 +88,8 @@ Inclusion code: <pre>include "queue_utils.iol"</pre>
 <h3 id="size">size</h3>
 
 
-Invocation template: <pre>size@QueueUtils( request )( response )</pre>
+Invocation template: 
+<pre>size@QueueUtils( request )( response )</pre>
 
 <h4>Request type</h4>
 
@@ -109,7 +110,8 @@ Type documentation: no documentation provided
 <h3 id="poll">poll</h3>
 
 
-Invocation template: <pre>poll@QueueUtils( request )( response )</pre>
+Invocation template: 
+<pre>poll@QueueUtils( request )( response )</pre>
 
 <h4>Request type</h4>
 
@@ -130,7 +132,8 @@ Type documentation: no documentation provided
 <h3 id="new_queue">new_queue</h3>
 
 
-Invocation template: <pre>new_queue@QueueUtils( request )( response )</pre>
+Invocation template: 
+<pre>new_queue@QueueUtils( request )( response )</pre>
 
 <h4>Request type</h4>
 
@@ -151,7 +154,8 @@ Type documentation: no documentation provided
 <h3 id="delete_queue">delete_queue</h3>
 
 
-Invocation template: <pre>delete_queue@QueueUtils( request )( response )</pre>
+Invocation template: 
+<pre>delete_queue@QueueUtils( request )( response )</pre>
 
 <h4>Request type</h4>
 
@@ -172,7 +176,8 @@ Type documentation: no documentation provided
 <h3 id="push">push</h3>
 
 
-Invocation template: <pre>push@QueueUtils( request )( response )</pre>
+Invocation template: 
+<pre>push@QueueUtils( request )( response )</pre>
 
 <h4 id="QueueRequest">Request type</h4>
 
@@ -196,7 +201,8 @@ Type documentation: no documentation provided
 <h3 id="peek">peek</h3>
 
 
-Invocation template: <pre>peek@QueueUtils( request )( response )</pre>
+Invocation template: 
+<pre>peek@QueueUtils( request )( response )</pre>
 
 <h4>Request type</h4>
 
@@ -206,7 +212,6 @@ Type documentation: no documentation provided
 
 <h4>Response type</h4>
 Type documentation: no documentation provided 
-
 
 
 

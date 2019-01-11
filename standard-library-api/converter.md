@@ -77,7 +77,8 @@ Inclusion code: <pre>include "converter.iol"</pre>
 <h3 id="stringToRaw">stringToRaw</h3>
 
 
-Invocation template: <pre>stringToRaw@Converter( request )( response )</pre>
+Invocation template: 
+<pre>stringToRaw@Converter( request )( response )</pre>
 
 <h4 id="StringToRawRequest">Request type</h4>
 
@@ -99,7 +100,8 @@ Type documentation: no documentation provided
 
 Fault <code>IOException</code> with type <code>IOExceptionType</code>
 
-Fault-handling install template: <pre>install ( IOException => /* error-handling code */ )</pre>
+Fault-handling install template: 
+<pre>install ( IOException => /* error-handling code */ )</pre>
 <pre>type IOExceptionType: JavaExceptionType</pre>
 
 
@@ -107,7 +109,8 @@ Fault-handling install template: <pre>install ( IOException => /* error-handling
 <h3 id="base64ToRaw">base64ToRaw</h3>
 
 
-Invocation template: <pre>base64ToRaw@Converter( request )( response )</pre>
+Invocation template: 
+<pre>base64ToRaw@Converter( request )( response )</pre>
 
 <h4>Request type</h4>
 
@@ -127,7 +130,8 @@ Type documentation: no documentation provided
 
 Fault <code>IOException</code> with type <code>IOExceptionType</code>
 
-Fault-handling install template: <pre>install ( IOException => /* error-handling code */ )</pre>
+Fault-handling install template: 
+<pre>install ( IOException => /* error-handling code */ )</pre>
 <pre>type IOExceptionType: JavaExceptionType</pre>
 
 
@@ -135,7 +139,8 @@ Fault-handling install template: <pre>install ( IOException => /* error-handling
 <h3 id="rawToBase64">rawToBase64</h3>
 
 
-Invocation template: <pre>rawToBase64@Converter( request )( response )</pre>
+Invocation template: 
+<pre>rawToBase64@Converter( request )( response )</pre>
 
 <h4>Request type</h4>
 
@@ -156,7 +161,8 @@ Type documentation: no documentation provided
 <h3 id="rawToString">rawToString</h3>
 
 
-Invocation template: <pre>rawToString@Converter( request )( response )</pre>
+Invocation template: 
+<pre>rawToString@Converter( request )( response )</pre>
 
 <h4 id="RawToStringRequest">Request type</h4>
 
@@ -178,7 +184,8 @@ Type documentation: no documentation provided
 
 Fault <code>IOException</code> with type <code>IOExceptionType</code>
 
-Fault-handling install template: <pre>install ( IOException => /* error-handling code */ )</pre>
+Fault-handling install template: 
+<pre>install ( IOException => /* error-handling code */ )</pre>
 <pre>type IOExceptionType: JavaExceptionType</pre>
 
 
@@ -189,7 +196,6 @@ Fault-handling install template: <pre>install ( IOException => /* error-handling
 <h4 id="IOExceptionType">IOExceptionType</h4>
 
 <pre>type IOExceptionType: JavaExceptionType</pre>
-
 
 
 

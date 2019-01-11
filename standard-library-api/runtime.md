@@ -177,7 +177,8 @@ Inclusion code: <pre>include "runtime.iol"</pre>
 <h3 id="loadLibrary">loadLibrary</h3>
 
 
-Invocation template: <pre>loadLibrary@Runtime( request )( response )</pre>
+Invocation template: 
+<pre>loadLibrary@Runtime( request )( response )</pre>
 
 <h4>Request type</h4>
 
@@ -197,7 +198,8 @@ Type documentation: no documentation provided
 
 Fault <code>IOException</code> with type <code>IOExceptionType</code>
 
-Fault-handling install template: <pre>install ( IOException => /* error-handling code */ )</pre>
+Fault-handling install template: 
+<pre>install ( IOException => /* error-handling code */ )</pre>
 <pre>type IOExceptionType: JavaExceptionType</pre>
 
 
@@ -205,7 +207,8 @@ Fault-handling install template: <pre>install ( IOException => /* error-handling
 <h3 id="removeOutputPort">removeOutputPort</h3>
 
 
-Invocation template: <pre>removeOutputPort@Runtime( request )( response )</pre>
+Invocation template: 
+<pre>removeOutputPort@Runtime( request )( response )</pre>
 
 <h4>Request type</h4>
 
@@ -226,7 +229,8 @@ Type documentation: no documentation provided
 <h3 id="setRedirection">setRedirection</h3>
 
 
-Invocation template: <pre>setRedirection@Runtime( request )( response )</pre>
+Invocation template: 
+<pre>setRedirection@Runtime( request )( response )</pre>
 
 <h4 id="SetRedirectionRequest">Request type</h4>
 
@@ -250,7 +254,8 @@ Type documentation: no documentation provided
 
 Fault <code>RuntimeException</code> with type <code>RuntimeExceptionType</code>
 
-Fault-handling install template: <pre>install ( RuntimeException => /* error-handling code */ )</pre>
+Fault-handling install template: 
+<pre>install ( RuntimeException => /* error-handling code */ )</pre>
 <pre>type RuntimeExceptionType: JavaExceptionType</pre>
 
 
@@ -262,7 +267,8 @@ Operation documentation:
 	
 
 
-Invocation template: <pre>getOutputPorts@Runtime( request )( response )</pre>
+Invocation template: 
+<pre>getOutputPorts@Runtime( request )( response )</pre>
 
 <h4>Request type</h4>
 
@@ -289,7 +295,8 @@ Type documentation: no documentation provided
 <h3 id="loadEmbeddedService">loadEmbeddedService</h3>
 
 
-Invocation template: <pre>loadEmbeddedService@Runtime( request )( response )</pre>
+Invocation template: 
+<pre>loadEmbeddedService@Runtime( request )( response )</pre>
 
 <h4 id="LoadEmbeddedServiceRequest">Request type</h4>
 
@@ -312,7 +319,8 @@ Type documentation: no documentation provided
 
 Fault <code>RuntimeException</code> with type <code>RuntimeExceptionType</code>
 
-Fault-handling install template: <pre>install ( RuntimeException => /* error-handling code */ )</pre>
+Fault-handling install template: 
+<pre>install ( RuntimeException => /* error-handling code */ )</pre>
 <pre>type RuntimeExceptionType: JavaExceptionType</pre>
 
 
@@ -324,7 +332,8 @@ Operation documentation:
 	
 
 
-Invocation template: <pre>getOutputPort@Runtime( request )( response )</pre>
+Invocation template: 
+<pre>getOutputPort@Runtime( request )( response )</pre>
 
 <h4 id="GetOutputPortRequest">Request type</h4>
 
@@ -350,7 +359,8 @@ Type documentation: no documentation provided
 
 Fault <code>OutputPortDoesNotExist</code> with type <code>undefined</code>
 
-Fault-handling install template: <pre>install ( OutputPortDoesNotExist => /* error-handling code */ )</pre>
+Fault-handling install template: 
+<pre>install ( OutputPortDoesNotExist => /* error-handling code */ )</pre>
 
 
 
@@ -358,7 +368,8 @@ Fault-handling install template: <pre>install ( OutputPortDoesNotExist => /* err
 <h3 id="dumpState">dumpState</h3>
 
 
-Invocation template: <pre>dumpState@Runtime( request )( response )</pre>
+Invocation template: 
+<pre>dumpState@Runtime( request )( response )</pre>
 
 <h4>Request type</h4>
 
@@ -379,7 +390,8 @@ Type documentation: no documentation provided
 <h3 id="getLocalLocation">getLocalLocation</h3>
 
 
-Invocation template: <pre>getLocalLocation@Runtime( request )( response )</pre>
+Invocation template: 
+<pre>getLocalLocation@Runtime( request )( response )</pre>
 
 <h4>Request type</h4>
 
@@ -400,7 +412,8 @@ Type documentation: no documentation provided
 <h3 id="getRedirection">getRedirection</h3>
 
 
-Invocation template: <pre>getRedirection@Runtime( request )( response )</pre>
+Invocation template: 
+<pre>getRedirection@Runtime( request )( response )</pre>
 
 <h4 id="GetRedirectionRequest">Request type</h4>
 
@@ -424,7 +437,8 @@ Type documentation: no documentation provided
 <h3 id="setOutputPort">setOutputPort</h3>
 
 
-Invocation template: <pre>setOutputPort@Runtime( request )( response )</pre>
+Invocation template: 
+<pre>setOutputPort@Runtime( request )( response )</pre>
 
 <h4 id="SetOutputPortRequest">Request type</h4>
 
@@ -449,7 +463,8 @@ Type documentation: no documentation provided
 <h3 id="halt">halt</h3>
 
 
-Invocation template: <pre>halt@Runtime( request )( response )</pre>
+Invocation template: 
+<pre>halt@Runtime( request )( response )</pre>
 
 <h4 id="HaltRequest">Request type</h4>
 
@@ -472,7 +487,8 @@ Type documentation: no documentation provided
 <h3 id="callExit">callExit</h3>
 
 
-Invocation template: <pre>callExit@Runtime( request )( response )</pre>
+Invocation template: 
+<pre>callExit@Runtime( request )( response )</pre>
 
 <h4>Request type</h4>
 
@@ -497,7 +513,8 @@ Operation documentation:
 	 
 
 
-Invocation template: <pre>stats@Runtime( request )( response )</pre>
+Invocation template: 
+<pre>stats@Runtime( request )( response )</pre>
 
 <h4>Request type</h4>
 
@@ -530,7 +547,8 @@ Type documentation: no documentation provided
 <h3 id="removeRedirection">removeRedirection</h3>
 
 
-Invocation template: <pre>removeRedirection@Runtime( request )( response )</pre>
+Invocation template: 
+<pre>removeRedirection@Runtime( request )( response )</pre>
 
 <h4 id="GetRedirectionRequest">Request type</h4>
 
@@ -553,7 +571,8 @@ Type documentation: no documentation provided
 
 Fault <code>RuntimeException</code> with type <code>RuntimeExceptionType</code>
 
-Fault-handling install template: <pre>install ( RuntimeException => /* error-handling code */ )</pre>
+Fault-handling install template: 
+<pre>install ( RuntimeException => /* error-handling code */ )</pre>
 <pre>type RuntimeExceptionType: JavaExceptionType</pre>
 
 
@@ -561,7 +580,8 @@ Fault-handling install template: <pre>install ( RuntimeException => /* error-han
 <h3 id="setMonitor">setMonitor</h3>
 
 
-Invocation template: <pre>setMonitor@Runtime( request )( response )</pre>
+Invocation template: 
+<pre>setMonitor@Runtime( request )( response )</pre>
 
 <h4 id="SetMonitorRequest">Request type</h4>
 
@@ -585,7 +605,8 @@ Type documentation: no documentation provided
 <h3 id="getProcessId">getProcessId</h3>
 
 
-Invocation template: <pre>getProcessId@Runtime( request )( response )</pre>
+Invocation template: 
+<pre>getProcessId@Runtime( request )( response )</pre>
 
 <h4>Request type</h4>
 
@@ -606,7 +627,8 @@ Type documentation: no documentation provided
 <h3 id="getIncludePaths">getIncludePaths</h3>
 
 
-Invocation template: <pre>getIncludePaths@Runtime( request )( response )</pre>
+Invocation template: 
+<pre>getIncludePaths@Runtime( request )( response )</pre>
 
 <h4>Request type</h4>
 
@@ -631,7 +653,8 @@ Type documentation: no documentation provided
 Operation documentation:  Get the value of an environment variable 
 
 
-Invocation template: <pre>getenv@Runtime( request )( response )</pre>
+Invocation template: 
+<pre>getenv@Runtime( request )( response )</pre>
 
 <h4>Request type</h4>
 
@@ -659,7 +682,6 @@ Type documentation: no documentation provided
 <h4 id="RuntimeExceptionType">RuntimeExceptionType</h4>
 
 <pre>type RuntimeExceptionType: JavaExceptionType</pre>
-
 
 
 

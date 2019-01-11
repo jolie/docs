@@ -77,7 +77,8 @@ Inclusion code: <pre>include "zip_utils.iol"</pre>
 <h3 id="zip">zip</h3>
 
 
-Invocation template: <pre>zip@ZipUtils( request )( response )</pre>
+Invocation template: 
+<pre>zip@ZipUtils( request )( response )</pre>
 
 <h4 id="ZipRequest">Request type</h4>
 
@@ -97,7 +98,8 @@ Type documentation: no documentation provided
 
 Fault <code>IOException</code> with type <code>IOExceptionType</code>
 
-Fault-handling install template: <pre>install ( IOException => /* error-handling code */ )</pre>
+Fault-handling install template: 
+<pre>install ( IOException => /* error-handling code */ )</pre>
 <pre>type IOExceptionType: JavaExceptionType</pre>
 
 
@@ -105,7 +107,8 @@ Fault-handling install template: <pre>install ( IOException => /* error-handling
 <h3 id="IOException">IOException</h3>
 
 
-Invocation template: <pre>IOException@ZipUtils( request )( response )</pre>
+Invocation template: 
+<pre>IOException@ZipUtils( request )( response )</pre>
 
 <h4>Request type</h4>
 
@@ -126,7 +129,8 @@ Type documentation: no documentation provided
 <h3 id="unzip">unzip</h3>
 
 
-Invocation template: <pre>unzip@ZipUtils( request )( response )</pre>
+Invocation template: 
+<pre>unzip@ZipUtils( request )( response )</pre>
 
 <h4 id="UnzipRequest">Request type</h4>
 
@@ -151,7 +155,8 @@ Type documentation: no documentation provided
 
 Fault <code>FileNotFound</code> with type <code>undefined</code>
 
-Fault-handling install template: <pre>install ( FileNotFound => /* error-handling code */ )</pre>
+Fault-handling install template: 
+<pre>install ( FileNotFound => /* error-handling code */ )</pre>
 
 
 
@@ -159,7 +164,8 @@ Fault-handling install template: <pre>install ( FileNotFound => /* error-handlin
 <h3 id="readEntry">readEntry</h3>
 
 
-Invocation template: <pre>readEntry@ZipUtils( request )( response )</pre>
+Invocation template: 
+<pre>readEntry@ZipUtils( request )( response )</pre>
 
 <h4 id="ReadEntryRequest">Request type</h4>
 
@@ -182,7 +188,8 @@ Type documentation: no documentation provided
 
 Fault <code>IOException</code> with type <code>IOExceptionType</code>
 
-Fault-handling install template: <pre>install ( IOException => /* error-handling code */ )</pre>
+Fault-handling install template: 
+<pre>install ( IOException => /* error-handling code */ )</pre>
 <pre>type IOExceptionType: JavaExceptionType</pre>
 
 
@@ -193,7 +200,6 @@ Fault-handling install template: <pre>install ( IOException => /* error-handling
 <h4 id="IOExceptionType">IOExceptionType</h4>
 
 <pre>type IOExceptionType: JavaExceptionType</pre>
-
 
 
 

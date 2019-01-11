@@ -68,7 +68,8 @@ Operation documentation:
 	 
 
 
-Invocation template: <pre>getJsonString@JsonUtils( request )( response )</pre>
+Invocation template: 
+<pre>getJsonString@JsonUtils( request )( response )</pre>
 
 <h4 id="GetJsonStringRequest">Request type</h4>
 
@@ -88,7 +89,8 @@ Type documentation: no documentation provided
 
 Fault <code>JSONCreationError</code> with type <code>undefined</code>
 
-Fault-handling install template: <pre>install ( JSONCreationError => /* error-handling code */ )</pre>
+Fault-handling install template: 
+<pre>install ( JSONCreationError => /* error-handling code */ )</pre>
 
 
 
@@ -102,7 +104,8 @@ Operation documentation:
 	 
 
 
-Invocation template: <pre>getJsonValue@JsonUtils( request )( response )</pre>
+Invocation template: 
+<pre>getJsonValue@JsonUtils( request )( response )</pre>
 
 <h4 id="GetJsonValueRequest">Request type</h4>
 
@@ -125,7 +128,8 @@ Type documentation: no documentation provided
 
 Fault <code>JSONCreationError</code> with type <code>undefined</code>
 
-Fault-handling install template: <pre>install ( JSONCreationError => /* error-handling code */ )</pre>
+Fault-handling install template: 
+<pre>install ( JSONCreationError => /* error-handling code */ )</pre>
 
 
 
@@ -140,7 +144,6 @@ Fault-handling install template: <pre>install ( JSONCreationError => /* error-ha
 <h4 id="GetJsonValueResponse">GetJsonValueResponse</h4>
 
 <pre>type GetJsonValueResponse: undefined</pre>
-
 
 
 

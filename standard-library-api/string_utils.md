@@ -197,7 +197,8 @@ Interface documentation:
 <h3 id="leftPad">leftPad</h3>
 
 
-Invocation template: <pre>leftPad@StringUtils( request )( response )</pre>
+Invocation template: 
+<pre>leftPad@StringUtils( request )( response )</pre>
 
 <h4 id="PadRequest">Request type</h4>
 
@@ -221,7 +222,8 @@ Type documentation: no documentation provided
 <h3 id="valueToPrettyString">valueToPrettyString</h3>
 
 
-Invocation template: <pre>valueToPrettyString@StringUtils( request )( response )</pre>
+Invocation template: 
+<pre>valueToPrettyString@StringUtils( request )( response )</pre>
 
 <h4>Request type</h4>
 
@@ -242,7 +244,8 @@ Type documentation: no documentation provided
 <h3 id="toLowerCase">toLowerCase</h3>
 
 
-Invocation template: <pre>toLowerCase@StringUtils( request )( response )</pre>
+Invocation template: 
+<pre>toLowerCase@StringUtils( request )( response )</pre>
 
 <h4>Request type</h4>
 
@@ -263,7 +266,8 @@ Type documentation: no documentation provided
 <h3 id="length">length</h3>
 
 
-Invocation template: <pre>length@StringUtils( request )( response )</pre>
+Invocation template: 
+<pre>length@StringUtils( request )( response )</pre>
 
 <h4>Request type</h4>
 
@@ -284,7 +288,8 @@ Type documentation: no documentation provided
 <h3 id="match">match</h3>
 
 
-Invocation template: <pre>match@StringUtils( request )( response )</pre>
+Invocation template: 
+<pre>match@StringUtils( request )( response )</pre>
 
 <h4 id="MatchRequest">Request type</h4>
 
@@ -309,7 +314,8 @@ Type documentation: no documentation provided
 <h3 id="replaceFirst">replaceFirst</h3>
 
 
-Invocation template: <pre>replaceFirst@StringUtils( request )( response )</pre>
+Invocation template: 
+<pre>replaceFirst@StringUtils( request )( response )</pre>
 
 <h4 id="ReplaceRequest">Request type</h4>
 
@@ -333,7 +339,8 @@ Type documentation: no documentation provided
 <h3 id="sort">sort</h3>
 
 
-Invocation template: <pre>sort@StringUtils( request )( response )</pre>
+Invocation template: 
+<pre>sort@StringUtils( request )( response )</pre>
 
 <h4 id="StringItemList">Request type</h4>
 
@@ -358,7 +365,8 @@ Type documentation: no documentation provided
 <h3 id="replaceAll">replaceAll</h3>
 
 
-Invocation template: <pre>replaceAll@StringUtils( request )( response )</pre>
+Invocation template: 
+<pre>replaceAll@StringUtils( request )( response )</pre>
 
 <h4 id="ReplaceRequest">Request type</h4>
 
@@ -382,7 +390,8 @@ Type documentation: no documentation provided
 <h3 id="substring">substring</h3>
 
 
-Invocation template: <pre>substring@StringUtils( request )( response )</pre>
+Invocation template: 
+<pre>substring@StringUtils( request )( response )</pre>
 
 <h4 id="SubStringRequest">Request type</h4>
 
@@ -410,7 +419,8 @@ Operation documentation:
 	
 
 
-Invocation template: <pre>getRandomUUID@StringUtils( request )( response )</pre>
+Invocation template: 
+<pre>getRandomUUID@StringUtils( request )( response )</pre>
 
 <h4>Request type</h4>
 
@@ -431,7 +441,8 @@ Type documentation: no documentation provided
 <h3 id="rightPad">rightPad</h3>
 
 
-Invocation template: <pre>rightPad@StringUtils( request )( response )</pre>
+Invocation template: 
+<pre>rightPad@StringUtils( request )( response )</pre>
 
 <h4 id="PadRequest">Request type</h4>
 
@@ -459,7 +470,8 @@ Operation documentation:
 	 
 
 
-Invocation template: <pre>contains@StringUtils( request )( response )</pre>
+Invocation template: 
+<pre>contains@StringUtils( request )( response )</pre>
 
 <h4 id="ContainsRequest">Request type</h4>
 
@@ -482,7 +494,8 @@ Type documentation: no documentation provided
 <h3 id="split">split</h3>
 
 
-Invocation template: <pre>split@StringUtils( request )( response )</pre>
+Invocation template: 
+<pre>split@StringUtils( request )( response )</pre>
 
 <h4 id="SplitRequest">Request type</h4>
 
@@ -508,7 +521,8 @@ Type documentation: no documentation provided
 <h3 id="splitByLength">splitByLength</h3>
 
 
-Invocation template: <pre>splitByLength@StringUtils( request )( response )</pre>
+Invocation template: 
+<pre>splitByLength@StringUtils( request )( response )</pre>
 
 <h4 id="SplitByLengthRequest">Request type</h4>
 
@@ -533,7 +547,8 @@ Type documentation: no documentation provided
 <h3 id="trim">trim</h3>
 
 
-Invocation template: <pre>trim@StringUtils( request )( response )</pre>
+Invocation template: 
+<pre>trim@StringUtils( request )( response )</pre>
 
 <h4>Request type</h4>
 
@@ -554,7 +569,8 @@ Type documentation: no documentation provided
 <h3 id="find">find</h3>
 
 
-Invocation template: <pre>find@StringUtils( request )( response )</pre>
+Invocation template: 
+<pre>find@StringUtils( request )( response )</pre>
 
 <h4 id="MatchRequest">Request type</h4>
 
@@ -583,7 +599,8 @@ Operation documentation:
 	
 
 
-Invocation template: <pre>endsWith@StringUtils( request )( response )</pre>
+Invocation template: 
+<pre>endsWith@StringUtils( request )( response )</pre>
 
 <h4 id="EndsWithRequest">Request type</h4>
 
@@ -606,7 +623,8 @@ Type documentation: no documentation provided
 <h3 id="toUpperCase">toUpperCase</h3>
 
 
-Invocation template: <pre>toUpperCase@StringUtils( request )( response )</pre>
+Invocation template: 
+<pre>toUpperCase@StringUtils( request )( response )</pre>
 
 <h4>Request type</h4>
 
@@ -627,7 +645,8 @@ Type documentation: no documentation provided
 <h3 id="join">join</h3>
 
 
-Invocation template: <pre>join@StringUtils( request )( response )</pre>
+Invocation template: 
+<pre>join@StringUtils( request )( response )</pre>
 
 <h4 id="JoinRequest">Request type</h4>
 
@@ -651,7 +670,8 @@ Type documentation: no documentation provided
 <h3 id="indexOf">indexOf</h3>
 
 
-Invocation template: <pre>indexOf@StringUtils( request )( response )</pre>
+Invocation template: 
+<pre>indexOf@StringUtils( request )( response )</pre>
 
 <h4 id="IndexOfRequest">Request type</h4>
 
@@ -678,7 +698,8 @@ Operation documentation:
 	
 
 
-Invocation template: <pre>startsWith@StringUtils( request )( response )</pre>
+Invocation template: 
+<pre>startsWith@StringUtils( request )( response )</pre>
 
 <h4 id="StartsWithRequest">Request type</h4>
 
@@ -690,7 +711,6 @@ Type documentation: no documentation provided
 
 <h4>Response type</h4>
 Type documentation: no documentation provided 
-
 
 
 

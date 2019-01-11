@@ -53,7 +53,8 @@ Inclusion code: <pre>include "exec.iol"</pre>
 <h3 id="exec">exec</h3>
 
 
-Invocation template: <pre>exec@Exec( request )( response )</pre>
+Invocation template: 
+<pre>exec@Exec( request )( response )</pre>
 
 <h4 id="CommandExecutionRequest">Request type</h4>
 
@@ -72,7 +73,6 @@ Type documentation: no documentation provided
 	.exitCode?: int
 	.stderr?: string
 }</pre>
-
 
 
 
