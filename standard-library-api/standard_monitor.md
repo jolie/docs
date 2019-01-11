@@ -75,6 +75,7 @@ Type documentation: no documentation provided
 
 
 
+
 <h3 id="MonitorInterface">MonitorInterface</h3>
 
 <table>
@@ -115,6 +116,7 @@ Type documentation: no documentation provided
 
 
 ---
+
 
 
 
@@ -173,6 +175,7 @@ Type documentation: no documentation provided
 
 ---
 
+
 #### setMonitor
 
 
@@ -196,6 +199,7 @@ Type documentation: no documentation provided
 
 
 ---
+
 
 
 

@@ -122,6 +122,7 @@ Fault-handling install template: <code>install ( ConnectionError => /* error-han
 
 ---
 
+
 #### query
 Operation documentation: 
 	  Queries the database and returns a result set
@@ -192,6 +193,7 @@ Fault-handling install template: <code>install ( ConnectionError => /* error-han
 
 ---
 
+
 #### executeTransaction
 Operation documentation: 
 	  Executes more than one database command in a single transaction
@@ -229,6 +231,7 @@ Fault-handling install template: <code>install ( ConnectionError => /* error-han
 
 
 ---
+
 
 #### update
 Operation documentation: 
@@ -273,6 +276,7 @@ Fault-handling install template: <code>install ( ConnectionError => /* error-han
 
 ---
 
+
 #### close
 Operation documentation: 
 	  Explicitly closes a database connection
@@ -296,6 +300,7 @@ Type documentation: no documentation provided
 
 
 ---
+
 
 #### connect
 Operation documentation: 
@@ -357,6 +362,7 @@ Fault-handling install template: <code>install ( DriverClassNotFound => /* error
 
 
 ---
+
 
 
 

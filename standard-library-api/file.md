@@ -223,6 +223,7 @@ Fault-handling install template: <code>install ( IOException => /* error-handlin
 
 ---
 
+
 #### getMimeType
 
 
@@ -249,6 +250,7 @@ Fault-handling install template: <code>install ( FileNotFound => /* error-handli
 
 ---
 
+
 #### convertFromBinaryToBase64Value
 Operation documentation:  deprecated, please use rawToBase64@Converter()() from converter.iol 
 
@@ -268,6 +270,7 @@ Type documentation: no documentation provided
 
 
 ---
+
 
 #### toAbsolutePath
 Operation documentation: 
@@ -301,6 +304,7 @@ Fault-handling install template: <code>install ( InvalidPathException => /* erro
 
 ---
 
+
 #### getParentPath
 Operation documentation: 
 	  Constructs the path to the parent directory.
@@ -332,6 +336,7 @@ Fault-handling install template: <code>install ( InvalidPathException => /* erro
 }</pre>
 
 ---
+
 
 #### list
 
@@ -371,6 +376,7 @@ Type documentation: no documentation provided
 
 ---
 
+
 #### copyDir
 Operation documentation: 
 	  it copies a source directory into a destination one
@@ -408,6 +414,7 @@ Fault-handling install template: <code>install ( IOException => /* error-handlin
 
 ---
 
+
 #### delete
 
 
@@ -435,6 +442,7 @@ Fault-handling install template: <code>install ( IOException => /* error-handlin
 <pre>type IOExceptionType: JavaExceptionType</pre>
 
 ---
+
 
 #### getSize
 Operation documentation: 
@@ -465,6 +473,7 @@ Type documentation: no documentation provided
 
 ---
 
+
 #### getFileSeparator
 
 
@@ -484,6 +493,7 @@ Type documentation: no documentation provided
 
 
 ---
+
 
 #### rename
 
@@ -513,6 +523,7 @@ Fault-handling install template: <code>install ( IOException => /* error-handlin
 <pre>type IOExceptionType: JavaExceptionType</pre>
 
 ---
+
 
 #### readFile
 Operation documentation: 
@@ -568,6 +579,7 @@ Fault-handling install template: <code>install ( IOException => /* error-handlin
 
 ---
 
+
 #### exists
 Operation documentation: 
 	 it tests if the specified file or directory exists or not.
@@ -589,6 +601,7 @@ Type documentation: no documentation provided
 
 
 ---
+
 
 #### setMimeTypeFile
 
@@ -615,6 +628,7 @@ Fault-handling install template: <code>install ( IOException => /* error-handlin
 <pre>type IOExceptionType: JavaExceptionType</pre>
 
 ---
+
 
 #### deleteDir
 Operation documentation: 
@@ -644,6 +658,7 @@ Fault-handling install template: <code>install ( IOException => /* error-handlin
 
 ---
 
+
 #### getServiceDirectory
 
 
@@ -669,6 +684,7 @@ Fault-handling install template: <code>install ( IOException => /* error-handlin
 <pre>type IOExceptionType: JavaExceptionType</pre>
 
 ---
+
 
 #### writeFile
 Operation documentation: 
@@ -731,6 +747,7 @@ Fault-handling install template: <code>install ( IOException => /* error-handlin
 
 ---
 
+
 #### mkdir
 Operation documentation: 
 	
@@ -754,6 +771,7 @@ Type documentation: no documentation provided
 
 
 ---
+
 
 #### isDirectory
 Operation documentation: 
@@ -788,6 +806,7 @@ Fault-handling install template: <code>install ( IOException => /* error-handlin
 <pre>type IOExceptionType: JavaExceptionType</pre>
 
 ---
+
 
 
 <h4>Subtypes</h4>

@@ -84,6 +84,7 @@ Type documentation: no documentation provided
 
 ---
 
+
 #### acquire
 Operation documentation: 
 	  Acquires permits from a semaphore.
@@ -112,6 +113,7 @@ Type documentation: no documentation provided
 
 
 ---
+
 
 
 

@@ -197,6 +197,7 @@ Fault-handling install template: <code>install ( InvalidTimeUnit => /* error-han
 
 ---
 
+
 #### getDateValues
 Operation documentation: 
 		 Converts an input string into a date expressed by means of
@@ -233,6 +234,7 @@ Fault-handling install template: <code>install ( InvalidDate => /* error-handlin
 
 ---
 
+
 #### getDateTime
 Operation documentation: 
 		 It returns a date time in a string format starting from a timestamp
@@ -264,6 +266,7 @@ Type documentation: no documentation provided
 
 ---
 
+
 #### getCurrentTimeMillis
 Operation documentation: 
 		 Warning: this is temporary and subject to future change as soon as long is supported by Jolie.
@@ -285,6 +288,7 @@ Type documentation: no documentation provided
 
 
 ---
+
 
 #### getDateDiff
 
@@ -310,6 +314,7 @@ Type documentation: no documentation provided
 
 ---
 
+
 #### getTimeDiff
 
 
@@ -332,6 +337,7 @@ Type documentation: no documentation provided
 
 
 ---
+
 
 #### getTimestampFromString
 
@@ -362,6 +368,7 @@ Fault-handling install template: <code>install ( InvalidTimestamp => /* error-ha
 
 ---
 
+
 #### cancelTimeout
 Operation documentation: 
 		 Cancels a timeout from a long-value created from #scheduleTimeout
@@ -384,6 +391,7 @@ Type documentation: no documentation provided
 
 ---
 
+
 #### setNextTimeoutByTime
 
 
@@ -399,6 +407,7 @@ Type documentation: no documentation provided
 
 
 ---
+
 
 #### getCurrentDateTime
 
@@ -422,6 +431,7 @@ Type documentation: no documentation provided
 
 ---
 
+
 #### sleep
 
 
@@ -441,6 +451,7 @@ Type documentation: no documentation provided
 
 
 ---
+
 
 #### setNextTimeout
 Operation documentation: 
@@ -465,6 +476,7 @@ Type documentation: no documentation provided
 
 ---
 
+
 #### getTimeFromMilliSeconds
 
 
@@ -488,6 +500,7 @@ Type documentation: no documentation provided
 
 
 ---
+
 
 #### getDateTimeValues
 
@@ -525,6 +538,7 @@ Fault-handling install template: <code>install ( InvalidDate => /* error-handlin
 
 ---
 
+
 #### setNextTimeoutByDateTime
 
 
@@ -540,6 +554,7 @@ Type documentation: no documentation provided
 
 
 ---
+
 
 #### getCurrentDateValues
 Operation documentation: 
@@ -567,6 +582,7 @@ Type documentation: no documentation provided
 
 ---
 
+
 #### getTimeValues
 
 
@@ -590,6 +606,7 @@ Type documentation: no documentation provided
 
 
 ---
+
 
 
 

@@ -104,6 +104,7 @@ Type documentation: no documentation provided
 
 ---
 
+
 #### poll
 
 
@@ -123,6 +124,7 @@ Type documentation: no documentation provided
 
 
 ---
+
 
 #### new_queue
 
@@ -144,6 +146,7 @@ Type documentation: no documentation provided
 
 ---
 
+
 #### delete_queue
 
 
@@ -163,6 +166,7 @@ Type documentation: no documentation provided
 
 
 ---
+
 
 #### push
 
@@ -187,6 +191,7 @@ Type documentation: no documentation provided
 
 ---
 
+
 #### peek
 
 
@@ -206,6 +211,7 @@ Type documentation: no documentation provided
 
 
 ---
+
 
 
 

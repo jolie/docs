@@ -88,6 +88,7 @@ Fault-handling install template: <code>install ( JSONCreationError => /* error-h
 
 ---
 
+
 #### getJsonValue
 Operation documentation: 
 	  Returns the JSON string converted into a value
@@ -120,6 +121,7 @@ Fault-handling install template: <code>install ( JSONCreationError => /* error-h
 
 
 ---
+
 
 
 <h4>Subtypes</h4>

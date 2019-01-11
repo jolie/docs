@@ -99,6 +99,7 @@ Fault-handling install template: <code>install ( IOException => /* error-handlin
 
 ---
 
+
 #### IOException
 
 
@@ -118,6 +119,7 @@ Type documentation: no documentation provided
 
 
 ---
+
 
 #### unzip
 
@@ -150,6 +152,7 @@ Fault-handling install template: <code>install ( FileNotFound => /* error-handli
 
 ---
 
+
 #### readEntry
 
 
@@ -178,6 +181,7 @@ Fault-handling install template: <code>install ( IOException => /* error-handlin
 <pre>type IOExceptionType: JavaExceptionType</pre>
 
 ---
+
 
 
 <h4>Subtypes</h4>

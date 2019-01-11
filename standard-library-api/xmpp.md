@@ -86,6 +86,7 @@ Fault-handling install template: <code>install ( XMPPException => /* error-handl
 
 ---
 
+
 #### connect
 
 
@@ -118,6 +119,7 @@ Fault-handling install template: <code>install ( XMPPException => /* error-handl
 
 
 ---
+
 
 
 

@@ -84,6 +84,7 @@ Type documentation: no documentation provided
 
 ---
 
+
 #### setDiscoverable
 Operation documentation: 
 	  Sets the current Bluetooth device as discoverable or not discoverable
@@ -106,6 +107,7 @@ Type documentation: no documentation provided
 
 
 ---
+
 
 
 

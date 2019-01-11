@@ -104,6 +104,7 @@ Type documentation: no documentation provided
 
 ---
 
+
 #### abs
 Operation documentation:  Returns the absolute value of the input integer. 
 
@@ -123,6 +124,7 @@ Type documentation: no documentation provided
 
 
 ---
+
 
 #### round
 
@@ -146,6 +148,7 @@ Type documentation: no documentation provided
 
 ---
 
+
 #### pi
 Operation documentation:  Returns the PI constant 
 
@@ -165,6 +168,7 @@ Type documentation: no documentation provided
 
 
 ---
+
 
 #### pow
 Operation documentation:  Returns the result of .base to the power of .exponent (see request data type). 
@@ -189,6 +193,7 @@ Type documentation: no documentation provided
 
 ---
 
+
 #### summation
 Operation documentation:  Returns the summation of values from .from to .to (see request data type). For example, .from=2 and .to=5 would produce a return value of 2+3+4+5=14. 
 
@@ -211,6 +216,7 @@ Type documentation: no documentation provided
 
 
 ---
+
 
 
 

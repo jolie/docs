@@ -140,6 +140,7 @@ Fault-handling install template: <code>install ( SemanticException => /* error-h
 
 ---
 
+
 #### parseRoles
 
 
@@ -167,6 +168,7 @@ Type documentation: no documentation provided
 
 
 ---
+
 
 #### getMetaData
 
@@ -224,6 +226,7 @@ Fault-handling install template: <code>install ( SemanticException => /* error-h
 
 ---
 
+
 #### messageTypeCast
 
 
@@ -258,6 +261,7 @@ Fault-handling install template: <code>install ( TypeMismatch => /* error-handli
 
 ---
 
+
 #### checkNativeType
 
 
@@ -281,6 +285,7 @@ Type documentation: no documentation provided
 
 
 ---
+
 
 
 

@@ -101,6 +101,7 @@ Fault-handling install template: <code>install ( IOException => /* error-handlin
 
 ---
 
+
 #### base64ToRaw
 
 
@@ -127,6 +128,7 @@ Fault-handling install template: <code>install ( IOException => /* error-handlin
 
 ---
 
+
 #### rawToBase64
 
 
@@ -146,6 +148,7 @@ Type documentation: no documentation provided
 
 
 ---
+
 
 #### rawToString
 
@@ -174,6 +177,7 @@ Fault-handling install template: <code>install ( IOException => /* error-handlin
 <pre>type IOExceptionType: JavaExceptionType</pre>
 
 ---
+
 
 
 <h4>Subtypes</h4>

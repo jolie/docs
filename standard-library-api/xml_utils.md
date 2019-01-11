@@ -107,6 +107,7 @@ Fault-handling install template: <code>install ( IOException => /* error-handlin
 
 ---
 
+
 #### transform
 
 
@@ -137,6 +138,7 @@ Fault-handling install template: <code>install ( TransformerException => /* erro
 }</pre>
 
 ---
+
 
 #### valueToXml
 Operation documentation: 
@@ -185,6 +187,7 @@ Fault-handling install template: <code>install ( IllegalArgumentException => /* 
 
 
 ---
+
 
 
 <h4>Subtypes</h4>

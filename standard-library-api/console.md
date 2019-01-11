@@ -77,6 +77,7 @@ Type documentation: no documentation provided
 
 
 
+
 <h3 id="ConsoleInterface">ConsoleInterface</h3>
 
 <table>
@@ -157,6 +158,7 @@ Type documentation: no documentation provided
 
 ---
 
+
 #### println
 
 
@@ -176,6 +178,7 @@ Type documentation: no documentation provided
 
 
 ---
+
 
 #### registerForInput
 Operation documentation: 
@@ -202,6 +205,7 @@ Type documentation: no documentation provided
 
 ---
 
+
 #### unsubscribeSessionListener
 Operation documentation: 
 	 it disables a session to receive inputs from the console, previously registered with subscribeSessionListener operation
@@ -225,6 +229,7 @@ Type documentation: no documentation provided
 
 
 ---
+
 
 #### subscribeSessionListener
 Operation documentation: 
@@ -251,6 +256,7 @@ Type documentation: no documentation provided
 
 ---
 
+
 #### enableTimestamp
 Operation documentation: 
 		It enables timestamp inline printing for each console output operation call: print, println
@@ -275,6 +281,7 @@ Type documentation: no documentation provided
 
 
 ---
+
 
 
 

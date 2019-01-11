@@ -199,6 +199,7 @@ Fault-handling install template: <code>install ( IOException => /* error-handlin
 
 ---
 
+
 #### removeOutputPort
 
 
@@ -218,6 +219,7 @@ Type documentation: no documentation provided
 
 
 ---
+
 
 #### setRedirection
 
@@ -249,6 +251,7 @@ Fault-handling install template: <code>install ( RuntimeException => /* error-ha
 
 ---
 
+
 #### getOutputPorts
 Operation documentation: 
 		it returns the list of definitions of all the available outputPorts of the service
@@ -276,6 +279,7 @@ Type documentation: no documentation provided
 
 
 ---
+
 
 #### loadEmbeddedService
 
@@ -305,6 +309,7 @@ Fault-handling install template: <code>install ( RuntimeException => /* error-ha
 <pre>type RuntimeExceptionType: JavaExceptionType</pre>
 
 ---
+
 
 #### getOutputPort
 Operation documentation: 
@@ -340,6 +345,7 @@ Fault-handling install template: <code>install ( OutputPortDoesNotExist => /* er
 
 ---
 
+
 #### dumpState
 
 
@@ -360,6 +366,7 @@ Type documentation: no documentation provided
 
 ---
 
+
 #### getLocalLocation
 
 
@@ -379,6 +386,7 @@ Type documentation: no documentation provided
 
 
 ---
+
 
 #### getRedirection
 
@@ -402,6 +410,7 @@ Type documentation: no documentation provided
 
 
 ---
+
 
 #### setOutputPort
 
@@ -427,6 +436,7 @@ Type documentation: no documentation provided
 
 ---
 
+
 #### halt
 
 
@@ -449,6 +459,7 @@ Type documentation: no documentation provided
 
 ---
 
+
 #### callExit
 
 
@@ -468,6 +479,7 @@ Type documentation: no documentation provided
 
 
 ---
+
 
 #### stats
 Operation documentation: 
@@ -503,6 +515,7 @@ Type documentation: no documentation provided
 
 ---
 
+
 #### removeRedirection
 
 
@@ -532,6 +545,7 @@ Fault-handling install template: <code>install ( RuntimeException => /* error-ha
 
 ---
 
+
 #### setMonitor
 
 
@@ -555,6 +569,7 @@ Type documentation: no documentation provided
 
 ---
 
+
 #### getProcessId
 
 
@@ -574,6 +589,7 @@ Type documentation: no documentation provided
 
 
 ---
+
 
 #### getIncludePaths
 
@@ -597,6 +613,7 @@ Type documentation: no documentation provided
 
 ---
 
+
 #### getenv
 Operation documentation:  Get the value of an environment variable 
 
@@ -616,6 +633,7 @@ Type documentation: no documentation provided
 
 
 ---
+
 
 
 <h4>Subtypes</h4>

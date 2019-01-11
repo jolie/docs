@@ -102,6 +102,7 @@ Fault-handling install template: <code>install ( JobAlreadyExists => /* error-ha
 
 ---
 
+
 #### deleteCronJob
 
 
@@ -125,6 +126,7 @@ Type documentation: no documentation provided
 
 ---
 
+
 #### setCallbackOperation
 
 
@@ -142,6 +144,7 @@ Type documentation: no documentation provided
 
 
 ---
+
 
 
 
