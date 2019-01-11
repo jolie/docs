@@ -52,11 +52,11 @@ WARNING: the API of this service is experimental. Use it at your own risk.
   </tbody>
 </table>
 
-### Operation Description
+<h2>Operation Description</h2>
 
 
 
-<h4 id="invoke">invoke</h4>
+<h3 id="invoke">invoke</h4>
 Operation documentation: 
 	Invokes the specified .operation at .outputPort.
 	If the operation is a OneWay, the invocation returns no value.
@@ -81,12 +81,15 @@ Type documentation: no documentation provided
 
 
 
+
 **Possible faults thrown**
+
 
 
 Fault <code>OperationNotFound</code> with type <code>string</code>
 
 Fault-handling install template: <code>install ( OperationNotFound => /* error-handling code */ )</code>
+
 
 
 

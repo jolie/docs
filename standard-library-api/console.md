@@ -52,11 +52,11 @@ Inclusion code: <pre>include "console.iol"</pre>
   </tbody>
 </table>
 
-### Operation Description
+<h2>Operation Description</h2>
 
 
 
-<h4 id="in">in</h4>
+<h3 id="in">in</h4>
 
 
 
@@ -68,6 +68,7 @@ Type documentation: no documentation provided
 <pre>type InRequest: string {
 	.token?: string
 }</pre>
+
 
 
 
@@ -135,11 +136,11 @@ Type documentation: no documentation provided
   </tbody>
 </table>
 
-### Operation Description
+<h2>Operation Description</h2>
 
 
 
-<h4 id="print">print</h4>
+<h3 id="print">print</h4>
 
 
 
@@ -160,7 +161,8 @@ Type documentation: no documentation provided
 
 
 
-<h4 id="println">println</h4>
+
+<h3 id="println">println</h4>
 
 
 
@@ -181,7 +183,8 @@ Type documentation: no documentation provided
 
 
 
-<h4 id="registerForInput">registerForInput</h4>
+
+<h3 id="registerForInput">registerForInput</h4>
 Operation documentation: 
 	  it enables the console for input listening
 	  parameter enableSessionListener enables console input listening for more than one service session (default=false)
@@ -207,7 +210,8 @@ Type documentation: no documentation provided
 
 
 
-<h4 id="unsubscribeSessionListener">unsubscribeSessionListener</h4>
+
+<h3 id="unsubscribeSessionListener">unsubscribeSessionListener</h4>
 Operation documentation: 
 	 it disables a session to receive inputs from the console, previously registered with subscribeSessionListener operation
 	
@@ -232,7 +236,8 @@ Type documentation: no documentation provided
 
 
 
-<h4 id="subscribeSessionListener">subscribeSessionListener</h4>
+
+<h3 id="subscribeSessionListener">subscribeSessionListener</h4>
 Operation documentation: 
 	 it receives a token string which identifies a service session.
 	 it enables the session to receive inputs from the console
@@ -258,7 +263,8 @@ Type documentation: no documentation provided
 
 
 
-<h4 id="enableTimestamp">enableTimestamp</h4>
+
+<h3 id="enableTimestamp">enableTimestamp</h4>
 Operation documentation: 
 		It enables timestamp inline printing for each console output operation call: print, println
 		Parameter format allows to specifiy the timestamp output format. Bad Format will be printed out if format value is not allowed.
@@ -277,6 +283,7 @@ Type documentation: no documentation provided
 
 <h4>Response type</h4>
 Type documentation: no documentation provided 
+
 
 
 

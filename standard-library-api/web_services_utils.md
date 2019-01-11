@@ -47,11 +47,11 @@ Inclusion code: <pre>include "web_services_utils.iol"</pre>
   </tbody>
 </table>
 
-### Operation Description
+<h2>Operation Description</h2>
 
 
 
-<h4 id="wsdlToJolie">wsdlToJolie</h4>
+<h3 id="wsdlToJolie">wsdlToJolie</h4>
 
 
 
@@ -68,7 +68,9 @@ Type documentation: no documentation provided
 
 
 
+
 **Possible faults thrown**
+
 
 
 Fault <code>IOException</code> with type <code>IOExceptionType</code>
@@ -81,8 +83,7 @@ Fault-handling install template: <code>install ( IOException => /* error-handlin
 <h4>Subtypes</h4>
 
 
-<a id="IOExceptionType"></a>
-IOExceptionType
+<h3 id="IOExceptionType">IOExceptionType</h3>
 
 <pre>type IOExceptionType: JavaExceptionType</pre>
 

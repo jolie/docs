@@ -52,11 +52,11 @@ Inclusion code: <pre>include "monitors/standard_monitor.iol"</pre>
   </tbody>
 </table>
 
-### Operation Description
+<h2>Operation Description</h2>
 
 
 
-<h4 id="monitorAlert">monitorAlert</h4>
+<h3 id="monitorAlert">monitorAlert</h4>
 
 
 
@@ -65,6 +65,7 @@ Invocation template: <pre>monitorAlert( request )</pre>
 <h4>Request type</h4>
 
 Type documentation: no documentation provided 
+
 
 
 
@@ -98,11 +99,11 @@ Type documentation: no documentation provided
   </tbody>
 </table>
 
-### Operation Description
+<h2>Operation Description</h2>
 
 
 
-<h4 id="pushEvent">pushEvent</h4>
+<h3 id="pushEvent">pushEvent</h4>
 
 
 
@@ -111,6 +112,7 @@ Invocation template: <pre>pushEvent@Monitor( request )</pre>
 <h4>Request type</h4>
 
 Type documentation: no documentation provided 
+
 
 
 
@@ -150,11 +152,11 @@ Type documentation: no documentation provided
   </tbody>
 </table>
 
-### Operation Description
+<h2>Operation Description</h2>
 
 
 
-<h4 id="flush">flush</h4>
+<h3 id="flush">flush</h4>
 
 
 
@@ -177,7 +179,8 @@ Type documentation: no documentation provided
 
 
 
-<h4 id="setMonitor">setMonitor</h4>
+
+<h3 id="setMonitor">setMonitor</h4>
 
 
 
@@ -195,6 +198,7 @@ Type documentation: no documentation provided
 
 <h4>Response type</h4>
 Type documentation: no documentation provided 
+
 
 
 

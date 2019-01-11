@@ -70,11 +70,11 @@ Inclusion code: <pre>include "zip_utils.iol"</pre>
   </tbody>
 </table>
 
-### Operation Description
+<h2>Operation Description</h2>
 
 
 
-<h4 id="zip">zip</h4>
+<h3 id="zip">zip</h4>
 
 
 
@@ -91,7 +91,9 @@ Type documentation: no documentation provided
 
 
 
+
 **Possible faults thrown**
+
 
 
 Fault <code>IOException</code> with type <code>IOExceptionType</code>
@@ -101,7 +103,7 @@ Fault-handling install template: <code>install ( IOException => /* error-handlin
 
 
 
-<h4 id="IOException">IOException</h4>
+<h3 id="IOException">IOException</h4>
 
 
 
@@ -122,7 +124,8 @@ Type documentation: no documentation provided
 
 
 
-<h4 id="unzip">unzip</h4>
+
+<h3 id="unzip">unzip</h4>
 
 
 
@@ -144,7 +147,9 @@ Type documentation: no documentation provided
 }</pre>
 
 
+
 **Possible faults thrown**
+
 
 
 Fault <code>FileNotFound</code> with type <code>undefined</code>
@@ -154,7 +159,7 @@ Fault-handling install template: <code>install ( FileNotFound => /* error-handli
 
 
 
-<h4 id="readEntry">readEntry</h4>
+<h3 id="readEntry">readEntry</h4>
 
 
 
@@ -174,7 +179,9 @@ Type documentation: no documentation provided
 
 
 
+
 **Possible faults thrown**
+
 
 
 Fault <code>IOException</code> with type <code>IOExceptionType</code>
@@ -187,8 +194,7 @@ Fault-handling install template: <code>install ( IOException => /* error-handlin
 <h4>Subtypes</h4>
 
 
-<a id="IOExceptionType"></a>
-IOExceptionType
+<h3 id="IOExceptionType">IOExceptionType</h3>
 
 <pre>type IOExceptionType: JavaExceptionType</pre>
 

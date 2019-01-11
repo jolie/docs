@@ -60,11 +60,11 @@ Inclusion code: <pre>include "ui/swing_ui.iol"</pre>
   </tbody>
 </table>
 
-### Operation Description
+<h2>Operation Description</h2>
 
 
 
-<h4 id="showMessageDialog">showMessageDialog</h4>
+<h3 id="showMessageDialog">showMessageDialog</h4>
 
 
 
@@ -85,7 +85,8 @@ Type documentation: no documentation provided
 
 
 
-<h4 id="showYesNoQuestionDialog">showYesNoQuestionDialog</h4>
+
+<h3 id="showYesNoQuestionDialog">showYesNoQuestionDialog</h4>
 
 
 
@@ -106,7 +107,8 @@ Type documentation: no documentation provided
 
 
 
-<h4 id="showInputDialog">showInputDialog</h4>
+
+<h3 id="showInputDialog">showInputDialog</h4>
 
 
 
@@ -120,6 +122,7 @@ Type documentation: no documentation provided
 
 <h4>Response type</h4>
 Type documentation: no documentation provided 
+
 
 
 

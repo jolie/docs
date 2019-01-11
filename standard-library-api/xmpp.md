@@ -55,11 +55,11 @@ Inclusion code: <pre>include "xmpp.iol"</pre>
   </tbody>
 </table>
 
-### Operation Description
+<h2>Operation Description</h2>
 
 
 
-<h4 id="sendMessage">sendMessage</h4>
+<h3 id="sendMessage">sendMessage</h4>
 
 
 
@@ -78,7 +78,9 @@ Type documentation: no documentation provided
 
 
 
+
 **Possible faults thrown**
+
 
 
 Fault <code>XMPPException</code> with type <code>undefined</code>
@@ -88,7 +90,7 @@ Fault-handling install template: <code>install ( XMPPException => /* error-handl
 
 
 
-<h4 id="connect">connect</h4>
+<h3 id="connect">connect</h4>
 
 
 
@@ -112,7 +114,9 @@ Type documentation: no documentation provided
 
 
 
+
 **Possible faults thrown**
+
 
 
 Fault <code>XMPPException</code> with type <code>undefined</code>

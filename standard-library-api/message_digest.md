@@ -47,11 +47,11 @@ Inclusion code: <pre>include "message_digest.iol"</pre>
   </tbody>
 </table>
 
-### Operation Description
+<h2>Operation Description</h2>
 
 
 
-<h4 id="md5">md5</h4>
+<h3 id="md5">md5</h4>
 
 
 
@@ -70,7 +70,9 @@ Type documentation: no documentation provided
 
 
 
+
 **Possible faults thrown**
+
 
 
 Fault <code>UnsupportedOperation</code> with type <code>JavaExceptionType</code>

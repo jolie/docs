@@ -54,11 +54,11 @@ Inclusion code: <pre>include "network_service.iol"</pre>
   </tbody>
 </table>
 
-### Operation Description
+<h2>Operation Description</h2>
 
 
 
-<h4 id="getNetworkInterfaceNames">getNetworkInterfaceNames</h4>
+<h3 id="getNetworkInterfaceNames">getNetworkInterfaceNames</h4>
 
 
 
@@ -83,7 +83,8 @@ Type documentation: no documentation provided
 
 
 
-<h4 id="getIPAddresses">getIPAddresses</h4>
+
+<h3 id="getIPAddresses">getIPAddresses</h4>
 
 
 
@@ -105,7 +106,9 @@ Type documentation: no documentation provided
 }</pre>
 
 
+
 **Possible faults thrown**
+
 
 
 Fault <code>InterfaceNotFound</code> with type <code>undefined</code>

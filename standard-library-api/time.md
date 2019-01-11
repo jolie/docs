@@ -162,11 +162,11 @@ Inclusion code: <pre>include "time.iol"</pre>
   </tbody>
 </table>
 
-### Operation Description
+<h2>Operation Description</h2>
 
 
 
-<h4 id="scheduleTimeout">scheduleTimeout</h4>
+<h3 id="scheduleTimeout">scheduleTimeout</h4>
 Operation documentation: 
 		 Schedules a timeout, which can be cancelled using #cancelTimeout from the returned string. Default .timeunit value is MILLISECONDS, .operation default is "timeout".
 		
@@ -189,7 +189,9 @@ Type documentation: no documentation provided
 
 
 
+
 **Possible faults thrown**
+
 
 
 Fault <code>InvalidTimeUnit</code> with type <code>undefined</code>
@@ -199,7 +201,7 @@ Fault-handling install template: <code>install ( InvalidTimeUnit => /* error-han
 
 
 
-<h4 id="getDateValues">getDateValues</h4>
+<h3 id="getDateValues">getDateValues</h4>
 Operation documentation: 
 		 Converts an input string into a date expressed by means of
 		 three elements: day, month and year. The request may specify the
@@ -226,7 +228,9 @@ Type documentation: no documentation provided
 }</pre>
 
 
+
 **Possible faults thrown**
+
 
 
 Fault <code>InvalidDate</code> with type <code>undefined</code>
@@ -236,7 +240,7 @@ Fault-handling install template: <code>install ( InvalidDate => /* error-handlin
 
 
 
-<h4 id="getDateTime">getDateTime</h4>
+<h3 id="getDateTime">getDateTime</h4>
 Operation documentation: 
 		 It returns a date time in a string format starting from a timestamp
 		
@@ -268,7 +272,8 @@ Type documentation: no documentation provided
 
 
 
-<h4 id="getCurrentTimeMillis">getCurrentTimeMillis</h4>
+
+<h3 id="getCurrentTimeMillis">getCurrentTimeMillis</h4>
 Operation documentation: 
 		 Warning: this is temporary and subject to future change as soon as long is supported by Jolie.
 		
@@ -291,7 +296,8 @@ Type documentation: no documentation provided
 
 
 
-<h4 id="getDateDiff">getDateDiff</h4>
+
+<h3 id="getDateDiff">getDateDiff</h4>
 
 
 
@@ -316,7 +322,8 @@ Type documentation: no documentation provided
 
 
 
-<h4 id="getTimeDiff">getTimeDiff</h4>
+
+<h3 id="getTimeDiff">getTimeDiff</h4>
 
 
 
@@ -340,7 +347,8 @@ Type documentation: no documentation provided
 
 
 
-<h4 id="getTimestampFromString">getTimestampFromString</h4>
+
+<h3 id="getTimestampFromString">getTimestampFromString</h4>
 
 
 
@@ -360,7 +368,9 @@ Type documentation: no documentation provided
 
 
 
+
 **Possible faults thrown**
+
 
 
 Fault <code>InvalidTimestamp</code> with type <code>undefined</code>
@@ -370,7 +380,7 @@ Fault-handling install template: <code>install ( InvalidTimestamp => /* error-ha
 
 
 
-<h4 id="cancelTimeout">cancelTimeout</h4>
+<h3 id="cancelTimeout">cancelTimeout</h4>
 Operation documentation: 
 		 Cancels a timeout from a long-value created from #scheduleTimeout
 		
@@ -393,7 +403,8 @@ Type documentation: no documentation provided
 
 
 
-<h4 id="setNextTimeoutByTime">setNextTimeoutByTime</h4>
+
+<h3 id="setNextTimeoutByTime">setNextTimeoutByTime</h4>
 
 
 
@@ -410,7 +421,8 @@ Type documentation: no documentation provided
 
 
 
-<h4 id="getCurrentDateTime">getCurrentDateTime</h4>
+
+<h3 id="getCurrentDateTime">getCurrentDateTime</h4>
 
 
 
@@ -433,7 +445,8 @@ Type documentation: no documentation provided
 
 
 
-<h4 id="sleep">sleep</h4>
+
+<h3 id="sleep">sleep</h4>
 
 
 
@@ -454,7 +467,8 @@ Type documentation: no documentation provided
 
 
 
-<h4 id="setNextTimeout">setNextTimeout</h4>
+
+<h3 id="setNextTimeout">setNextTimeout</h4>
 Operation documentation: 
 		  it sets a timeout whose duration is in milliseconds and it is represented by the root value of the message
 		  When the alarm is triggered a message whose content is defined in .message is sent to operation defined in .operation
@@ -478,7 +492,8 @@ Type documentation: no documentation provided
 
 
 
-<h4 id="getTimeFromMilliSeconds">getTimeFromMilliSeconds</h4>
+
+<h3 id="getTimeFromMilliSeconds">getTimeFromMilliSeconds</h4>
 
 
 
@@ -503,7 +518,8 @@ Type documentation: no documentation provided
 
 
 
-<h4 id="getDateTimeValues">getDateTimeValues</h4>
+
+<h3 id="getDateTimeValues">getDateTimeValues</h4>
 
 
 
@@ -530,7 +546,9 @@ Type documentation: no documentation provided
 }</pre>
 
 
+
 **Possible faults thrown**
+
 
 
 Fault <code>InvalidDate</code> with type <code>undefined</code>
@@ -540,7 +558,7 @@ Fault-handling install template: <code>install ( InvalidDate => /* error-handlin
 
 
 
-<h4 id="setNextTimeoutByDateTime">setNextTimeoutByDateTime</h4>
+<h3 id="setNextTimeoutByDateTime">setNextTimeoutByDateTime</h4>
 
 
 
@@ -557,7 +575,8 @@ Type documentation: no documentation provided
 
 
 
-<h4 id="getCurrentDateValues">getCurrentDateValues</h4>
+
+<h3 id="getCurrentDateValues">getCurrentDateValues</h4>
 Operation documentation: 
 		 Returns the current date split in three fields: day, month and year
 		
@@ -584,7 +603,8 @@ Type documentation: no documentation provided
 
 
 
-<h4 id="getTimeValues">getTimeValues</h4>
+
+<h3 id="getTimeValues">getTimeValues</h4>
 
 
 
@@ -603,6 +623,7 @@ Type documentation: no documentation provided
 	.minute: int
 	.second: int
 }</pre>
+
 
 
 

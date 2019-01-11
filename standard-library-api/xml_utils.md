@@ -64,11 +64,11 @@ Inclusion code: <pre>include "xml_utils.iol"</pre>
   </tbody>
 </table>
 
-### Operation Description
+<h2>Operation Description</h2>
 
 
 
-<h4 id="xmlToValue">xmlToValue</h4>
+<h3 id="xmlToValue">xmlToValue</h4>
 Operation documentation: 
 		  Transforms the base value in XML format (data types string, raw) into a Jolie value
 		 
@@ -99,7 +99,9 @@ Type documentation: no documentation provided
 
 
 
+
 **Possible faults thrown**
+
 
 
 Fault <code>IOException</code> with type <code>IOExceptionType</code>
@@ -109,7 +111,7 @@ Fault-handling install template: <code>install ( IOException => /* error-handlin
 
 
 
-<h4 id="transform">transform</h4>
+<h3 id="transform">transform</h4>
 
 
 
@@ -129,7 +131,9 @@ Type documentation: no documentation provided
 
 
 
+
 **Possible faults thrown**
+
 
 
 Fault <code>TransformerException</code> with type <code>JavaExceptionType</code>
@@ -141,7 +145,7 @@ Fault-handling install template: <code>install ( TransformerException => /* erro
 
 
 
-<h4 id="valueToXml">valueToXml</h4>
+<h3 id="valueToXml">valueToXml</h4>
 Operation documentation: 
 		  Transforms the value contained within the root node into an xml string.
 		 
@@ -174,13 +178,16 @@ Type documentation: no documentation provided
 
 
 
+
 **Possible faults thrown**
+
 
 
 Fault <code>IOException</code> with type <code>IOExceptionType</code>
 
 Fault-handling install template: <code>install ( IOException => /* error-handling code */ )</code>
 <pre>type IOExceptionType: JavaExceptionType</pre>
+
 
 
 Fault <code>IllegalArgumentException</code> with type <code>string</code>
@@ -193,8 +200,7 @@ Fault-handling install template: <code>install ( IllegalArgumentException => /* 
 <h4>Subtypes</h4>
 
 
-<a id="IOExceptionType"></a>
-IOExceptionType
+<h3 id="IOExceptionType">IOExceptionType</h3>
 
 <pre>type IOExceptionType: JavaExceptionType</pre>
 

@@ -81,11 +81,11 @@ Inclusion code: <pre>include "queue_utils.iol"</pre>
   </tbody>
 </table>
 
-### Operation Description
+<h2>Operation Description</h2>
 
 
 
-<h4 id="size">size</h4>
+<h3 id="size">size</h4>
 
 
 
@@ -106,7 +106,8 @@ Type documentation: no documentation provided
 
 
 
-<h4 id="poll">poll</h4>
+
+<h3 id="poll">poll</h4>
 
 
 
@@ -127,7 +128,8 @@ Type documentation: no documentation provided
 
 
 
-<h4 id="new_queue">new_queue</h4>
+
+<h3 id="new_queue">new_queue</h4>
 
 
 
@@ -148,7 +150,8 @@ Type documentation: no documentation provided
 
 
 
-<h4 id="delete_queue">delete_queue</h4>
+
+<h3 id="delete_queue">delete_queue</h4>
 
 
 
@@ -169,7 +172,8 @@ Type documentation: no documentation provided
 
 
 
-<h4 id="push">push</h4>
+
+<h3 id="push">push</h4>
 
 
 
@@ -193,7 +197,8 @@ Type documentation: no documentation provided
 
 
 
-<h4 id="peek">peek</h4>
+
+<h3 id="peek">peek</h4>
 
 
 
@@ -207,6 +212,7 @@ Type documentation: no documentation provided
 
 <h4>Response type</h4>
 Type documentation: no documentation provided 
+
 
 
 

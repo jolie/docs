@@ -70,11 +70,11 @@ Inclusion code: <pre>include "converter.iol"</pre>
   </tbody>
 </table>
 
-### Operation Description
+<h2>Operation Description</h2>
 
 
 
-<h4 id="stringToRaw">stringToRaw</h4>
+<h3 id="stringToRaw">stringToRaw</h4>
 
 
 
@@ -93,7 +93,9 @@ Type documentation: no documentation provided
 
 
 
+
 **Possible faults thrown**
+
 
 
 Fault <code>IOException</code> with type <code>IOExceptionType</code>
@@ -103,7 +105,7 @@ Fault-handling install template: <code>install ( IOException => /* error-handlin
 
 
 
-<h4 id="base64ToRaw">base64ToRaw</h4>
+<h3 id="base64ToRaw">base64ToRaw</h4>
 
 
 
@@ -120,7 +122,9 @@ Type documentation: no documentation provided
 
 
 
+
 **Possible faults thrown**
+
 
 
 Fault <code>IOException</code> with type <code>IOExceptionType</code>
@@ -130,7 +134,7 @@ Fault-handling install template: <code>install ( IOException => /* error-handlin
 
 
 
-<h4 id="rawToBase64">rawToBase64</h4>
+<h3 id="rawToBase64">rawToBase64</h4>
 
 
 
@@ -151,7 +155,8 @@ Type documentation: no documentation provided
 
 
 
-<h4 id="rawToString">rawToString</h4>
+
+<h3 id="rawToString">rawToString</h4>
 
 
 
@@ -170,7 +175,9 @@ Type documentation: no documentation provided
 
 
 
+
 **Possible faults thrown**
+
 
 
 Fault <code>IOException</code> with type <code>IOExceptionType</code>
@@ -183,8 +190,7 @@ Fault-handling install template: <code>install ( IOException => /* error-handlin
 <h4>Subtypes</h4>
 
 
-<a id="IOExceptionType"></a>
-IOExceptionType
+<h3 id="IOExceptionType">IOExceptionType</h3>
 
 <pre>type IOExceptionType: JavaExceptionType</pre>
 

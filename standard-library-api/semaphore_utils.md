@@ -53,11 +53,11 @@ Inclusion code: <pre>include "semaphore_utils.iol"</pre>
   </tbody>
 </table>
 
-### Operation Description
+<h2>Operation Description</h2>
 
 
 
-<h4 id="release">release</h4>
+<h3 id="release">release</h4>
 Operation documentation: 
 	 Releases permits to a semaphore.
 	 If there exists no semaphore with the given ".name", "release" creates a
@@ -86,7 +86,8 @@ Type documentation: no documentation provided
 
 
 
-<h4 id="acquire">acquire</h4>
+
+<h3 id="acquire">acquire</h4>
 Operation documentation: 
 	  Acquires permits from a semaphore.
 	  If there exists no semaphore with the given ".name", "acquire" creates a 
@@ -109,6 +110,7 @@ Type documentation: no documentation provided
 
 <h4>Response type</h4>
 Type documentation: no documentation provided 
+
 
 
 

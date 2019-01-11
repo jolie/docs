@@ -46,11 +46,11 @@ Inclusion code: <pre>include "ini_utils.iol"</pre>
   </tbody>
 </table>
 
-### Operation Description
+<h2>Operation Description</h2>
 
 
 
-<h4 id="parseIniFile">parseIniFile</h4>
+<h3 id="parseIniFile">parseIniFile</h4>
 
 
 
@@ -67,6 +67,7 @@ Type documentation: no documentation provided
 <h4 id="IniData">Response type</h4>
 Type documentation: no documentation provided 
 <pre>type IniData: undefined</pre>
+
 
 
 

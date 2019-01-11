@@ -84,11 +84,11 @@ WARNING: the API of this service is experimental. Use it at your own risk.
   </tbody>
 </table>
 
-### Operation Description
+<h2>Operation Description</h2>
 
 
 
-<h4 id="getInputPortMetaData">getInputPortMetaData</h4>
+<h3 id="getInputPortMetaData">getInputPortMetaData</h4>
 
 
 
@@ -110,7 +110,9 @@ Type documentation: no documentation provided
 }</pre>
 
 
+
 **Possible faults thrown**
+
 
 
 Fault <code>ParserException</code> with type <code>ParserExceptionType</code>
@@ -123,9 +125,11 @@ Fault-handling install template: <code>install ( ParserException => /* error-han
 }</pre>
 
 
+
 Fault <code>InputPortMetaDataFault</code> with type <code>undefined</code>
 
 Fault-handling install template: <code>install ( InputPortMetaDataFault => /* error-handling code */ )</code>
+
 
 
 
@@ -142,7 +146,7 @@ Fault-handling install template: <code>install ( SemanticException => /* error-h
 
 
 
-<h4 id="parseRoles">parseRoles</h4>
+<h3 id="parseRoles">parseRoles</h4>
 
 
 
@@ -171,7 +175,8 @@ Type documentation: no documentation provided
 
 
 
-<h4 id="getMetaData">getMetaData</h4>
+
+<h3 id="getMetaData">getMetaData</h4>
 
 
 
@@ -202,7 +207,9 @@ Type documentation: no documentation provided
 }</pre>
 
 
+
 **Possible faults thrown**
+
 
 
 Fault <code>ParserException</code> with type <code>ParserExceptionType</code>
@@ -213,6 +220,7 @@ Fault-handling install template: <code>install ( ParserException => /* error-han
 	.sourceName: string
 	.message: string
 }</pre>
+
 
 
 Fault <code>SemanticException</code> with type <code>SemanticExceptionType</code>
@@ -228,7 +236,7 @@ Fault-handling install template: <code>install ( SemanticException => /* error-h
 
 
 
-<h4 id="messageTypeCast">messageTypeCast</h4>
+<h3 id="messageTypeCast">messageTypeCast</h4>
 
 
 
@@ -253,7 +261,9 @@ Type documentation: no documentation provided
 }</pre>
 
 
+
 **Possible faults thrown**
+
 
 
 Fault <code>TypeMismatch</code> with type <code>undefined</code>
@@ -263,7 +273,7 @@ Fault-handling install template: <code>install ( TypeMismatch => /* error-handli
 
 
 
-<h4 id="checkNativeType">checkNativeType</h4>
+<h3 id="checkNativeType">checkNativeType</h4>
 
 
 
@@ -282,6 +292,7 @@ Type documentation: no documentation provided
 <pre>type CheckNativeTypeResponse: void {
 	.result: bool
 }</pre>
+
 
 
 

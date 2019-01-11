@@ -53,11 +53,11 @@ Inclusion code: <pre>include "bluetooth.iol"</pre>
   </tbody>
 </table>
 
-### Operation Description
+<h2>Operation Description</h2>
 
 
 
-<h4 id="inquire">inquire</h4>
+<h3 id="inquire">inquire</h4>
 
 
 
@@ -86,7 +86,8 @@ Type documentation: no documentation provided
 
 
 
-<h4 id="setDiscoverable">setDiscoverable</h4>
+
+<h3 id="setDiscoverable">setDiscoverable</h4>
 Operation documentation: 
 	  Sets the current Bluetooth device as discoverable or not discoverable
 	  @request: 0 if the device has to be set not discoverable, 1 if the device has to be set discoverable.
@@ -103,6 +104,7 @@ Type documentation: no documentation provided
 
 <h4>Response type</h4>
 Type documentation: no documentation provided 
+
 
 
 

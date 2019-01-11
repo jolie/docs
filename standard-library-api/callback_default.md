@@ -46,11 +46,11 @@ Inclusion code: <pre>include "scheduler/callback_default.iol"</pre>
   </tbody>
 </table>
 
-### Operation Description
+<h2>Operation Description</h2>
 
 
 
-<h4 id="schedulerCallback">schedulerCallback</h4>
+<h3 id="schedulerCallback">schedulerCallback</h4>
 
 
 
@@ -63,6 +63,7 @@ Type documentation: no documentation provided
 	.jobName: string
 	.groupName: string
 }</pre>
+
 
 
 

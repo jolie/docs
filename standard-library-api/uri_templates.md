@@ -57,11 +57,11 @@ WARNING: the API of this service is experimental. Use it at your own risk.
   </tbody>
 </table>
 
-### Operation Description
+<h2>Operation Description</h2>
 
 
 
-<h4 id="expand">expand</h4>
+<h3 id="expand">expand</h4>
 
 
 
@@ -85,7 +85,8 @@ Type documentation: no documentation provided
 
 
 
-<h4 id="match">match</h4>
+
+<h3 id="match">match</h4>
 
 
 
@@ -103,6 +104,7 @@ Type documentation: no documentation provided
 <h4 id="MatchResponse">Response type</h4>
 Type documentation: no documentation provided 
 <pre>type MatchResponse: undefined</pre>
+
 
 
 

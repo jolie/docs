@@ -109,11 +109,11 @@ Inclusion code: <pre>include "metaparser.iol"</pre>
   </tbody>
 </table>
 
-### Operation Description
+<h2>Operation Description</h2>
 
 
 
-<h4 id="getSurface">getSurface</h4>
+<h3 id="getSurface">getSurface</h4>
 
 
 
@@ -139,7 +139,8 @@ Type documentation: no documentation provided
 
 
 
-<h4 id="getNativeType">getNativeType</h4>
+
+<h3 id="getNativeType">getNativeType</h4>
 
 
 
@@ -173,7 +174,8 @@ Type documentation: no documentation provided
 
 
 
-<h4 id="getInterface">getInterface</h4>
+
+<h3 id="getInterface">getInterface</h4>
 
 
 
@@ -198,7 +200,8 @@ Type documentation: no documentation provided
 
 
 
-<h4 id="getTypeInLine">getTypeInLine</h4>
+
+<h3 id="getTypeInLine">getTypeInLine</h4>
 
 
 
@@ -223,7 +226,8 @@ Type documentation: no documentation provided
 
 
 
-<h4 id="getSurfaceWithoutOutputPort">getSurfaceWithoutOutputPort</h4>
+
+<h3 id="getSurfaceWithoutOutputPort">getSurfaceWithoutOutputPort</h4>
 
 
 
@@ -249,7 +253,8 @@ Type documentation: no documentation provided
 
 
 
-<h4 id="getType">getType</h4>
+
+<h3 id="getType">getType</h4>
 
 
 
@@ -274,7 +279,8 @@ Type documentation: no documentation provided
 
 
 
-<h4 id="getParticipantOutput">getParticipantOutput</h4>
+
+<h3 id="getParticipantOutput">getParticipantOutput</h4>
 
 
 
@@ -300,7 +306,8 @@ Type documentation: no documentation provided
 
 
 
-<h4 id="getSubType">getSubType</h4>
+
+<h3 id="getSubType">getSubType</h4>
 
 
 
@@ -326,7 +333,8 @@ Type documentation: no documentation provided
 
 
 
-<h4 id="getParticipantInput">getParticipantInput</h4>
+
+<h3 id="getParticipantInput">getParticipantInput</h4>
 
 
 
@@ -352,7 +360,8 @@ Type documentation: no documentation provided
 
 
 
-<h4 id="getCardinality">getCardinality</h4>
+
+<h3 id="getCardinality">getCardinality</h4>
 
 
 
@@ -370,6 +379,7 @@ Type documentation: no documentation provided
 
 <h4>Response type</h4>
 Type documentation: no documentation provided 
+
 
 
 

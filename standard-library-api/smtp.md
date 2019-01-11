@@ -47,11 +47,11 @@ Inclusion code: <pre>include "smtp.iol"</pre>
   </tbody>
 </table>
 
-### Operation Description
+<h2>Operation Description</h2>
 
 
 
-<h4 id="sendMail">sendMail</h4>
+<h3 id="sendMail">sendMail</h4>
 
 
 
@@ -82,7 +82,9 @@ Type documentation: no documentation provided
 
 
 
+
 **Possible faults thrown**
+
 
 
 Fault <code>SMTPFault</code> with type <code>undefined</code>

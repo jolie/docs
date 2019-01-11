@@ -61,11 +61,11 @@ Inclusion code: <pre>include "scheduler.iol"</pre>
   </tbody>
 </table>
 
-### Operation Description
+<h2>Operation Description</h2>
 
 
 
-<h4 id="setCronJob">setCronJob</h4>
+<h3 id="setCronJob">setCronJob</h4>
 
 
 
@@ -94,7 +94,9 @@ Type documentation: no documentation provided
 
 
 
+
 **Possible faults thrown**
+
 
 
 Fault <code>JobAlreadyExists</code> with type <code>void</code>
@@ -104,7 +106,7 @@ Fault-handling install template: <code>install ( JobAlreadyExists => /* error-ha
 
 
 
-<h4 id="deleteCronJob">deleteCronJob</h4>
+<h3 id="deleteCronJob">deleteCronJob</h4>
 
 
 
@@ -128,7 +130,8 @@ Type documentation: no documentation provided
 
 
 
-<h4 id="setCallbackOperation">setCallbackOperation</h4>
+
+<h3 id="setCallbackOperation">setCallbackOperation</h4>
 
 
 
@@ -140,6 +143,7 @@ Type documentation: no documentation provided
 <pre>type SetCallBackOperationRequest: void {
 	.operationName: string
 }</pre>
+
 
 
 

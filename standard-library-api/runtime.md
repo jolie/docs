@@ -170,11 +170,11 @@ Inclusion code: <pre>include "runtime.iol"</pre>
   </tbody>
 </table>
 
-### Operation Description
+<h2>Operation Description</h2>
 
 
 
-<h4 id="loadLibrary">loadLibrary</h4>
+<h3 id="loadLibrary">loadLibrary</h4>
 
 
 
@@ -191,7 +191,9 @@ Type documentation: no documentation provided
 
 
 
+
 **Possible faults thrown**
+
 
 
 Fault <code>IOException</code> with type <code>IOExceptionType</code>
@@ -201,7 +203,7 @@ Fault-handling install template: <code>install ( IOException => /* error-handlin
 
 
 
-<h4 id="removeOutputPort">removeOutputPort</h4>
+<h3 id="removeOutputPort">removeOutputPort</h4>
 
 
 
@@ -222,7 +224,8 @@ Type documentation: no documentation provided
 
 
 
-<h4 id="setRedirection">setRedirection</h4>
+
+<h3 id="setRedirection">setRedirection</h4>
 
 
 
@@ -243,7 +246,9 @@ Type documentation: no documentation provided
 
 
 
+
 **Possible faults thrown**
+
 
 
 Fault <code>RuntimeException</code> with type <code>RuntimeExceptionType</code>
@@ -253,7 +258,7 @@ Fault-handling install template: <code>install ( RuntimeException => /* error-ha
 
 
 
-<h4 id="getOutputPorts">getOutputPorts</h4>
+<h3 id="getOutputPorts">getOutputPorts</h4>
 Operation documentation: 
 		it returns the list of definitions of all the available outputPorts of the service
 	
@@ -282,7 +287,8 @@ Type documentation: no documentation provided
 
 
 
-<h4 id="loadEmbeddedService">loadEmbeddedService</h4>
+
+<h3 id="loadEmbeddedService">loadEmbeddedService</h4>
 
 
 
@@ -302,7 +308,9 @@ Type documentation: no documentation provided
 
 
 
+
 **Possible faults thrown**
+
 
 
 Fault <code>RuntimeException</code> with type <code>RuntimeExceptionType</code>
@@ -312,7 +320,7 @@ Fault-handling install template: <code>install ( RuntimeException => /* error-ha
 
 
 
-<h4 id="getOutputPort">getOutputPort</h4>
+<h3 id="getOutputPort">getOutputPort</h4>
 Operation documentation: 
 		it returns a port definition if it exists, OuputPortDoesNotExist fault otherwise
 	
@@ -337,7 +345,9 @@ Type documentation: no documentation provided
 }</pre>
 
 
+
 **Possible faults thrown**
+
 
 
 Fault <code>OutputPortDoesNotExist</code> with type <code>undefined</code>
@@ -347,7 +357,7 @@ Fault-handling install template: <code>install ( OutputPortDoesNotExist => /* er
 
 
 
-<h4 id="dumpState">dumpState</h4>
+<h3 id="dumpState">dumpState</h4>
 
 
 
@@ -368,7 +378,8 @@ Type documentation: no documentation provided
 
 
 
-<h4 id="getLocalLocation">getLocalLocation</h4>
+
+<h3 id="getLocalLocation">getLocalLocation</h4>
 
 
 
@@ -389,7 +400,8 @@ Type documentation: no documentation provided
 
 
 
-<h4 id="getRedirection">getRedirection</h4>
+
+<h3 id="getRedirection">getRedirection</h4>
 
 
 
@@ -413,7 +425,8 @@ Type documentation: no documentation provided
 
 
 
-<h4 id="setOutputPort">setOutputPort</h4>
+
+<h3 id="setOutputPort">setOutputPort</h4>
 
 
 
@@ -438,7 +451,8 @@ Type documentation: no documentation provided
 
 
 
-<h4 id="halt">halt</h4>
+
+<h3 id="halt">halt</h4>
 
 
 
@@ -461,7 +475,8 @@ Type documentation: no documentation provided
 
 
 
-<h4 id="callExit">callExit</h4>
+
+<h3 id="callExit">callExit</h4>
 
 
 
@@ -482,7 +497,8 @@ Type documentation: no documentation provided
 
 
 
-<h4 id="stats">stats</h4>
+
+<h3 id="stats">stats</h4>
 Operation documentation: 
 	  Get information about the runtime state of the Jolie interpreter.
 	 
@@ -517,7 +533,8 @@ Type documentation: no documentation provided
 
 
 
-<h4 id="removeRedirection">removeRedirection</h4>
+
+<h3 id="removeRedirection">removeRedirection</h4>
 
 
 
@@ -537,7 +554,9 @@ Type documentation: no documentation provided
 
 
 
+
 **Possible faults thrown**
+
 
 
 Fault <code>RuntimeException</code> with type <code>RuntimeExceptionType</code>
@@ -547,7 +566,7 @@ Fault-handling install template: <code>install ( RuntimeException => /* error-ha
 
 
 
-<h4 id="setMonitor">setMonitor</h4>
+<h3 id="setMonitor">setMonitor</h4>
 
 
 
@@ -571,7 +590,8 @@ Type documentation: no documentation provided
 
 
 
-<h4 id="getProcessId">getProcessId</h4>
+
+<h3 id="getProcessId">getProcessId</h4>
 
 
 
@@ -592,7 +612,8 @@ Type documentation: no documentation provided
 
 
 
-<h4 id="getIncludePaths">getIncludePaths</h4>
+
+<h3 id="getIncludePaths">getIncludePaths</h4>
 
 
 
@@ -615,7 +636,8 @@ Type documentation: no documentation provided
 
 
 
-<h4 id="getenv">getenv</h4>
+
+<h3 id="getenv">getenv</h4>
 Operation documentation:  Get the value of an environment variable 
 
 
@@ -636,16 +658,15 @@ Type documentation: no documentation provided
 
 
 
+
 <h4>Subtypes</h4>
 
 
-<a id="IOExceptionType"></a>
-IOExceptionType
+<h3 id="IOExceptionType">IOExceptionType</h3>
 
 <pre>type IOExceptionType: JavaExceptionType</pre>
 
-<a id="RuntimeExceptionType"></a>
-RuntimeExceptionType
+<h3 id="RuntimeExceptionType">RuntimeExceptionType</h3>
 
 <pre>type RuntimeExceptionType: JavaExceptionType</pre>
 

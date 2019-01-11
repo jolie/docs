@@ -190,11 +190,11 @@ Interface documentation:
   </tbody>
 </table>
 
-### Operation Description
+<h2>Operation Description</h2>
 
 
 
-<h4 id="leftPad">leftPad</h4>
+<h3 id="leftPad">leftPad</h4>
 
 
 
@@ -218,7 +218,8 @@ Type documentation: no documentation provided
 
 
 
-<h4 id="valueToPrettyString">valueToPrettyString</h4>
+
+<h3 id="valueToPrettyString">valueToPrettyString</h4>
 
 
 
@@ -239,7 +240,8 @@ Type documentation: no documentation provided
 
 
 
-<h4 id="toLowerCase">toLowerCase</h4>
+
+<h3 id="toLowerCase">toLowerCase</h4>
 
 
 
@@ -260,7 +262,8 @@ Type documentation: no documentation provided
 
 
 
-<h4 id="length">length</h4>
+
+<h3 id="length">length</h4>
 
 
 
@@ -281,7 +284,8 @@ Type documentation: no documentation provided
 
 
 
-<h4 id="match">match</h4>
+
+<h3 id="match">match</h4>
 
 
 
@@ -306,7 +310,8 @@ Type documentation: no documentation provided
 
 
 
-<h4 id="replaceFirst">replaceFirst</h4>
+
+<h3 id="replaceFirst">replaceFirst</h4>
 
 
 
@@ -330,7 +335,8 @@ Type documentation: no documentation provided
 
 
 
-<h4 id="sort">sort</h4>
+
+<h3 id="sort">sort</h4>
 
 
 
@@ -355,7 +361,8 @@ Type documentation: no documentation provided
 
 
 
-<h4 id="replaceAll">replaceAll</h4>
+
+<h3 id="replaceAll">replaceAll</h4>
 
 
 
@@ -379,7 +386,8 @@ Type documentation: no documentation provided
 
 
 
-<h4 id="substring">substring</h4>
+
+<h3 id="substring">substring</h4>
 
 
 
@@ -403,7 +411,8 @@ Type documentation: no documentation provided
 
 
 
-<h4 id="getRandomUUID">getRandomUUID</h4>
+
+<h3 id="getRandomUUID">getRandomUUID</h4>
 Operation documentation: 
 	 it returns a random UUID
 	
@@ -426,7 +435,8 @@ Type documentation: no documentation provided
 
 
 
-<h4 id="rightPad">rightPad</h4>
+
+<h3 id="rightPad">rightPad</h4>
 
 
 
@@ -450,7 +460,8 @@ Type documentation: no documentation provided
 
 
 
-<h4 id="contains">contains</h4>
+
+<h3 id="contains">contains</h4>
 Operation documentation: 
 	  Returns true if the string contains .substring
 	 
@@ -475,7 +486,8 @@ Type documentation: no documentation provided
 
 
 
-<h4 id="split">split</h4>
+
+<h3 id="split">split</h4>
 
 
 
@@ -501,7 +513,8 @@ Type documentation: no documentation provided
 
 
 
-<h4 id="splitByLength">splitByLength</h4>
+
+<h3 id="splitByLength">splitByLength</h4>
 
 
 
@@ -526,7 +539,8 @@ Type documentation: no documentation provided
 
 
 
-<h4 id="trim">trim</h4>
+
+<h3 id="trim">trim</h4>
 
 
 
@@ -547,7 +561,8 @@ Type documentation: no documentation provided
 
 
 
-<h4 id="find">find</h4>
+
+<h3 id="find">find</h4>
 
 
 
@@ -572,7 +587,8 @@ Type documentation: no documentation provided
 
 
 
-<h4 id="endsWith">endsWith</h4>
+
+<h3 id="endsWith">endsWith</h4>
 Operation documentation: 
 	  checks if a string ends with a given suffix
 	
@@ -597,7 +613,8 @@ Type documentation: no documentation provided
 
 
 
-<h4 id="toUpperCase">toUpperCase</h4>
+
+<h3 id="toUpperCase">toUpperCase</h4>
 
 
 
@@ -618,7 +635,8 @@ Type documentation: no documentation provided
 
 
 
-<h4 id="join">join</h4>
+
+<h3 id="join">join</h4>
 
 
 
@@ -642,7 +660,8 @@ Type documentation: no documentation provided
 
 
 
-<h4 id="indexOf">indexOf</h4>
+
+<h3 id="indexOf">indexOf</h4>
 
 
 
@@ -665,7 +684,8 @@ Type documentation: no documentation provided
 
 
 
-<h4 id="startsWith">startsWith</h4>
+
+<h3 id="startsWith">startsWith</h4>
 Operation documentation: 
 	 checks if the passed string starts with a given prefix
 	
@@ -683,6 +703,7 @@ Type documentation: no documentation provided
 
 <h4>Response type</h4>
 Type documentation: no documentation provided 
+
 
 
 

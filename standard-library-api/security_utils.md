@@ -53,11 +53,11 @@ Inclusion code: <pre>include "security_utils.iol"</pre>
   </tbody>
 </table>
 
-### Operation Description
+<h2>Operation Description</h2>
 
 
 
-<h4 id="secureRandom">secureRandom</h4>
+<h3 id="secureRandom">secureRandom</h4>
 
 
 
@@ -80,7 +80,8 @@ Type documentation: no documentation provided
 
 
 
-<h4 id="createSecureToken">createSecureToken</h4>
+
+<h3 id="createSecureToken">createSecureToken</h4>
 
 
 
@@ -94,6 +95,7 @@ Type documentation: no documentation provided
 
 <h4>Response type</h4>
 Type documentation: no documentation provided 
+
 
 
 

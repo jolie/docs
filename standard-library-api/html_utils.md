@@ -53,11 +53,11 @@ Inclusion code: <pre>include "html_utils.iol"</pre>
   </tbody>
 </table>
 
-### Operation Description
+<h2>Operation Description</h2>
 
 
 
-<h4 id="escapeHTML">escapeHTML</h4>
+<h3 id="escapeHTML">escapeHTML</h4>
 
 
 
@@ -78,7 +78,8 @@ Type documentation: no documentation provided
 
 
 
-<h4 id="unescapeHTML">unescapeHTML</h4>
+
+<h3 id="unescapeHTML">unescapeHTML</h4>
 
 
 
@@ -92,6 +93,7 @@ Type documentation: no documentation provided
 
 <h4>Response type</h4>
 Type documentation: no documentation provided 
+
 
 
 

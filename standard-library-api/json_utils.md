@@ -55,11 +55,11 @@ Inclusion code: <pre>include "json_utils.iol"</pre>
   </tbody>
 </table>
 
-### Operation Description
+<h2>Operation Description</h2>
 
 
 
-<h4 id="getJsonString">getJsonString</h4>
+<h3 id="getJsonString">getJsonString</h4>
 Operation documentation: 
 	  Returns the value converted into a JSON string
 	 
@@ -80,7 +80,9 @@ Type documentation: no documentation provided
 <pre>type GetJsonStringResponse: string</pre>
 
 
+
 **Possible faults thrown**
+
 
 
 Fault <code>JSONCreationError</code> with type <code>undefined</code>
@@ -90,7 +92,7 @@ Fault-handling install template: <code>install ( JSONCreationError => /* error-h
 
 
 
-<h4 id="getJsonValue">getJsonValue</h4>
+<h3 id="getJsonValue">getJsonValue</h4>
 Operation documentation: 
 	  Returns the JSON string converted into a value
 	 
@@ -114,7 +116,9 @@ Type documentation: no documentation provided
 <pre>type GetJsonValueResponse: undefined</pre>
 
 
+
 **Possible faults thrown**
+
 
 
 Fault <code>JSONCreationError</code> with type <code>undefined</code>
@@ -127,13 +131,11 @@ Fault-handling install template: <code>install ( JSONCreationError => /* error-h
 <h4>Subtypes</h4>
 
 
-<a id="GetJsonStringRequest"></a>
-GetJsonStringRequest
+<h3 id="GetJsonStringRequest">GetJsonStringRequest</h3>
 
 <pre>type GetJsonStringRequest: undefined</pre>
 
-<a id="GetJsonValueResponse"></a>
-GetJsonValueResponse
+<h3 id="GetJsonValueResponse">GetJsonValueResponse</h3>
 
 <pre>type GetJsonValueResponse: undefined</pre>
 

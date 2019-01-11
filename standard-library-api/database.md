@@ -91,11 +91,11 @@ Inclusion code: <pre>include "database.iol"</pre>
   </tbody>
 </table>
 
-### Operation Description
+<h2>Operation Description</h2>
 
 
 
-<h4 id="checkConnection">checkConnection</h4>
+<h3 id="checkConnection">checkConnection</h4>
 Operation documentation: 
 	  Checks the connection with the database. Throws ConnectionError if the connection is not functioning properly.
 	 
@@ -114,7 +114,9 @@ Type documentation: no documentation provided
 
 
 
+
 **Possible faults thrown**
+
 
 
 Fault <code>ConnectionError</code> with type <code>undefined</code>
@@ -124,7 +126,7 @@ Fault-handling install template: <code>install ( ConnectionError => /* error-han
 
 
 
-<h4 id="query">query</h4>
+<h3 id="query">query</h4>
 Operation documentation: 
 	  Queries the database and returns a result set
 	 
@@ -179,12 +181,15 @@ Type documentation: no documentation provided
 }</pre>
 
 
+
 **Possible faults thrown**
+
 
 
 Fault <code>SQLException</code> with type <code>undefined</code>
 
 Fault-handling install template: <code>install ( SQLException => /* error-handling code */ )</code>
+
 
 
 
@@ -195,7 +200,7 @@ Fault-handling install template: <code>install ( ConnectionError => /* error-han
 
 
 
-<h4 id="executeTransaction">executeTransaction</h4>
+<h3 id="executeTransaction">executeTransaction</h4>
 Operation documentation: 
 	  Executes more than one database command in a single transaction
 	 
@@ -218,12 +223,15 @@ Type documentation: no documentation provided
 }</pre>
 
 
+
 **Possible faults thrown**
+
 
 
 Fault <code>SQLException</code> with type <code>undefined</code>
 
 Fault-handling install template: <code>install ( SQLException => /* error-handling code */ )</code>
+
 
 
 
@@ -234,7 +242,7 @@ Fault-handling install template: <code>install ( ConnectionError => /* error-han
 
 
 
-<h4 id="update">update</h4>
+<h3 id="update">update</h4>
 Operation documentation: 
 	  Updates the database and returns a single status code
 	 
@@ -262,12 +270,15 @@ Type documentation: no documentation provided
 
 
 
+
 **Possible faults thrown**
+
 
 
 Fault <code>SQLException</code> with type <code>undefined</code>
 
 Fault-handling install template: <code>install ( SQLException => /* error-handling code */ )</code>
+
 
 
 
@@ -278,7 +289,7 @@ Fault-handling install template: <code>install ( ConnectionError => /* error-han
 
 
 
-<h4 id="close">close</h4>
+<h3 id="close">close</h4>
 Operation documentation: 
 	  Explicitly closes a database connection
 	  Per default the close happens on reconnect or on termination of the
@@ -303,7 +314,8 @@ Type documentation: no documentation provided
 
 
 
-<h4 id="connect">connect</h4>
+
+<h3 id="connect">connect</h4>
 Operation documentation: 
 	  Connects to a database and eventually closes a previous connection
 	 
@@ -343,7 +355,9 @@ Type documentation: no documentation provided
 
 
 
+
 **Possible faults thrown**
+
 
 
 Fault <code>InvalidDriver</code> with type <code>undefined</code>
@@ -352,9 +366,11 @@ Fault-handling install template: <code>install ( InvalidDriver => /* error-handl
 
 
 
+
 Fault <code>ConnectionError</code> with type <code>undefined</code>
 
 Fault-handling install template: <code>install ( ConnectionError => /* error-handling code */ )</code>
+
 
 
 
