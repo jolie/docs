@@ -105,8 +105,6 @@ Fault <code>IOException</code> with type <code>IOExceptionType</code>
 Fault-handling install template: <code>install ( IOException => /* error-handling code */ )</code>
 <pre>type IOExceptionType: JavaExceptionType</pre>
 
----
-
 
 #### transform
 
@@ -136,8 +134,6 @@ Fault-handling install template: <code>install ( TransformerException => /* erro
 <pre>type JavaExceptionType: string {
 	.stackTrace: string
 }</pre>
-
----
 
 
 #### valueToXml
@@ -185,8 +181,6 @@ Fault <code>IllegalArgumentException</code> with type <code>string</code>
 
 Fault-handling install template: <code>install ( IllegalArgumentException => /* error-handling code */ )</code>
 
-
----
 
 
 

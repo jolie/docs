@@ -221,8 +221,6 @@ Fault <code>IOException</code> with type <code>IOExceptionType</code>
 Fault-handling install template: <code>install ( IOException => /* error-handling code */ )</code>
 <pre>type IOExceptionType: JavaExceptionType</pre>
 
----
-
 
 #### getMimeType
 
@@ -248,8 +246,6 @@ Fault <code>FileNotFound</code> with type <code>FileNotFoundType</code>
 Fault-handling install template: <code>install ( FileNotFound => /* error-handling code */ )</code>
 <pre>type FileNotFoundType: WeakJavaExceptionType</pre>
 
----
-
 
 #### convertFromBinaryToBase64Value
 Operation documentation:  deprecated, please use rawToBase64@Converter()() from converter.iol 
@@ -268,8 +264,6 @@ Type documentation: no documentation provided
 
 
 
-
----
 
 
 #### toAbsolutePath
@@ -302,8 +296,6 @@ Fault-handling install template: <code>install ( InvalidPathException => /* erro
 	.stackTrace: string
 }</pre>
 
----
-
 
 #### getParentPath
 Operation documentation: 
@@ -334,8 +326,6 @@ Fault-handling install template: <code>install ( InvalidPathException => /* erro
 <pre>type JavaExceptionType: string {
 	.stackTrace: string
 }</pre>
-
----
 
 
 #### list
@@ -374,8 +364,6 @@ Type documentation: no documentation provided
 
 
 
----
-
 
 #### copyDir
 Operation documentation: 
@@ -412,8 +400,6 @@ Fault <code>IOException</code> with type <code>undefined</code>
 Fault-handling install template: <code>install ( IOException => /* error-handling code */ )</code>
 
 
----
-
 
 #### delete
 
@@ -440,8 +426,6 @@ Fault <code>IOException</code> with type <code>IOExceptionType</code>
 
 Fault-handling install template: <code>install ( IOException => /* error-handling code */ )</code>
 <pre>type IOExceptionType: JavaExceptionType</pre>
-
----
 
 
 #### getSize
@@ -471,8 +455,6 @@ Type documentation: no documentation provided
 
 
 
----
-
 
 #### getFileSeparator
 
@@ -491,8 +473,6 @@ Type documentation: no documentation provided
 
 
 
-
----
 
 
 #### rename
@@ -521,8 +501,6 @@ Fault <code>IOException</code> with type <code>IOExceptionType</code>
 
 Fault-handling install template: <code>install ( IOException => /* error-handling code */ )</code>
 <pre>type IOExceptionType: JavaExceptionType</pre>
-
----
 
 
 #### readFile
@@ -577,8 +555,6 @@ Fault <code>IOException</code> with type <code>IOExceptionType</code>
 Fault-handling install template: <code>install ( IOException => /* error-handling code */ )</code>
 <pre>type IOExceptionType: JavaExceptionType</pre>
 
----
-
 
 #### exists
 Operation documentation: 
@@ -599,8 +575,6 @@ Type documentation: no documentation provided
 
 
 
-
----
 
 
 #### setMimeTypeFile
@@ -626,8 +600,6 @@ Fault <code>IOException</code> with type <code>IOExceptionType</code>
 
 Fault-handling install template: <code>install ( IOException => /* error-handling code */ )</code>
 <pre>type IOExceptionType: JavaExceptionType</pre>
-
----
 
 
 #### deleteDir
@@ -656,8 +628,6 @@ Fault <code>IOException</code> with type <code>IOExceptionType</code>
 Fault-handling install template: <code>install ( IOException => /* error-handling code */ )</code>
 <pre>type IOExceptionType: JavaExceptionType</pre>
 
----
-
 
 #### getServiceDirectory
 
@@ -682,8 +652,6 @@ Fault <code>IOException</code> with type <code>IOExceptionType</code>
 
 Fault-handling install template: <code>install ( IOException => /* error-handling code */ )</code>
 <pre>type IOExceptionType: JavaExceptionType</pre>
-
----
 
 
 #### writeFile
@@ -745,8 +713,6 @@ Fault <code>IOException</code> with type <code>IOExceptionType</code>
 Fault-handling install template: <code>install ( IOException => /* error-handling code */ )</code>
 <pre>type IOExceptionType: JavaExceptionType</pre>
 
----
-
 
 #### mkdir
 Operation documentation: 
@@ -769,8 +735,6 @@ Type documentation: no documentation provided
 
 
 
-
----
 
 
 #### isDirectory
@@ -804,8 +768,6 @@ Fault <code>IOException</code> with type <code>IOExceptionType</code>
 
 Fault-handling install template: <code>install ( IOException => /* error-handling code */ )</code>
 <pre>type IOExceptionType: JavaExceptionType</pre>
-
----
 
 
 

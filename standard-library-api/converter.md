@@ -99,8 +99,6 @@ Fault <code>IOException</code> with type <code>IOExceptionType</code>
 Fault-handling install template: <code>install ( IOException => /* error-handling code */ )</code>
 <pre>type IOExceptionType: JavaExceptionType</pre>
 
----
-
 
 #### base64ToRaw
 
@@ -126,8 +124,6 @@ Fault <code>IOException</code> with type <code>IOExceptionType</code>
 Fault-handling install template: <code>install ( IOException => /* error-handling code */ )</code>
 <pre>type IOExceptionType: JavaExceptionType</pre>
 
----
-
 
 #### rawToBase64
 
@@ -146,8 +142,6 @@ Type documentation: no documentation provided
 
 
 
-
----
 
 
 #### rawToString
@@ -175,8 +169,6 @@ Fault <code>IOException</code> with type <code>IOExceptionType</code>
 
 Fault-handling install template: <code>install ( IOException => /* error-handling code */ )</code>
 <pre>type IOExceptionType: JavaExceptionType</pre>
-
----
 
 
 

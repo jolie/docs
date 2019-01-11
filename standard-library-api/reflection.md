@@ -96,8 +96,6 @@ Fault-handling install template: <code>install ( InvocationFault => /* error-han
 	.name: string
 }</pre>
 
----
-
 
 
 

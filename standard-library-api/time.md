@@ -195,8 +195,6 @@ Fault <code>InvalidTimeUnit</code> with type <code>undefined</code>
 Fault-handling install template: <code>install ( InvalidTimeUnit => /* error-handling code */ )</code>
 
 
----
-
 
 #### getDateValues
 Operation documentation: 
@@ -232,8 +230,6 @@ Fault <code>InvalidDate</code> with type <code>undefined</code>
 Fault-handling install template: <code>install ( InvalidDate => /* error-handling code */ )</code>
 
 
----
-
 
 #### getDateTime
 Operation documentation: 
@@ -264,8 +260,6 @@ Type documentation: no documentation provided
 
 
 
----
-
 
 #### getCurrentTimeMillis
 Operation documentation: 
@@ -286,8 +280,6 @@ Type documentation: no documentation provided
 
 
 
-
----
 
 
 #### getDateDiff
@@ -312,8 +304,6 @@ Type documentation: no documentation provided
 
 
 
----
-
 
 #### getTimeDiff
 
@@ -335,8 +325,6 @@ Type documentation: no documentation provided
 
 
 
-
----
 
 
 #### getTimestampFromString
@@ -366,8 +354,6 @@ Fault <code>InvalidTimestamp</code> with type <code>undefined</code>
 Fault-handling install template: <code>install ( InvalidTimestamp => /* error-handling code */ )</code>
 
 
----
-
 
 #### cancelTimeout
 Operation documentation: 
@@ -389,8 +375,6 @@ Type documentation: no documentation provided
 
 
 
----
-
 
 #### setNextTimeoutByTime
 
@@ -405,8 +389,6 @@ Type documentation: no documentation provided
 
 
 
-
----
 
 
 #### getCurrentDateTime
@@ -429,8 +411,6 @@ Type documentation: no documentation provided
 
 
 
----
-
 
 #### sleep
 
@@ -449,8 +429,6 @@ Type documentation: no documentation provided
 
 
 
-
----
 
 
 #### setNextTimeout
@@ -474,8 +452,6 @@ Type documentation: no documentation provided
 
 
 
----
-
 
 #### getTimeFromMilliSeconds
 
@@ -498,8 +474,6 @@ Type documentation: no documentation provided
 
 
 
-
----
 
 
 #### getDateTimeValues
@@ -536,8 +510,6 @@ Fault <code>InvalidDate</code> with type <code>undefined</code>
 Fault-handling install template: <code>install ( InvalidDate => /* error-handling code */ )</code>
 
 
----
-
 
 #### setNextTimeoutByDateTime
 
@@ -552,8 +524,6 @@ Type documentation: no documentation provided
 
 
 
-
----
 
 
 #### getCurrentDateValues
@@ -580,8 +550,6 @@ Type documentation: no documentation provided
 
 
 
----
-
 
 #### getTimeValues
 
@@ -604,8 +572,6 @@ Type documentation: no documentation provided
 
 
 
-
----
 
 
 

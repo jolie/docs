@@ -197,8 +197,6 @@ Fault <code>IOException</code> with type <code>IOExceptionType</code>
 Fault-handling install template: <code>install ( IOException => /* error-handling code */ )</code>
 <pre>type IOExceptionType: JavaExceptionType</pre>
 
----
-
 
 #### removeOutputPort
 
@@ -217,8 +215,6 @@ Type documentation: no documentation provided
 
 
 
-
----
 
 
 #### setRedirection
@@ -249,8 +245,6 @@ Fault <code>RuntimeException</code> with type <code>RuntimeExceptionType</code>
 Fault-handling install template: <code>install ( RuntimeException => /* error-handling code */ )</code>
 <pre>type RuntimeExceptionType: JavaExceptionType</pre>
 
----
-
 
 #### getOutputPorts
 Operation documentation: 
@@ -277,8 +271,6 @@ Type documentation: no documentation provided
 
 
 
-
----
 
 
 #### loadEmbeddedService
@@ -307,8 +299,6 @@ Fault <code>RuntimeException</code> with type <code>RuntimeExceptionType</code>
 
 Fault-handling install template: <code>install ( RuntimeException => /* error-handling code */ )</code>
 <pre>type RuntimeExceptionType: JavaExceptionType</pre>
-
----
 
 
 #### getOutputPort
@@ -343,8 +333,6 @@ Fault <code>OutputPortDoesNotExist</code> with type <code>undefined</code>
 Fault-handling install template: <code>install ( OutputPortDoesNotExist => /* error-handling code */ )</code>
 
 
----
-
 
 #### dumpState
 
@@ -364,8 +352,6 @@ Type documentation: no documentation provided
 
 
 
----
-
 
 #### getLocalLocation
 
@@ -384,8 +370,6 @@ Type documentation: no documentation provided
 
 
 
-
----
 
 
 #### getRedirection
@@ -408,8 +392,6 @@ Type documentation: no documentation provided
 
 
 
-
----
 
 
 #### setOutputPort
@@ -434,8 +416,6 @@ Type documentation: no documentation provided
 
 
 
----
-
 
 #### halt
 
@@ -457,8 +437,6 @@ Type documentation: no documentation provided
 
 
 
----
-
 
 #### callExit
 
@@ -477,8 +455,6 @@ Type documentation: no documentation provided
 
 
 
-
----
 
 
 #### stats
@@ -513,8 +489,6 @@ Type documentation: no documentation provided
 
 
 
----
-
 
 #### removeRedirection
 
@@ -543,8 +517,6 @@ Fault <code>RuntimeException</code> with type <code>RuntimeExceptionType</code>
 Fault-handling install template: <code>install ( RuntimeException => /* error-handling code */ )</code>
 <pre>type RuntimeExceptionType: JavaExceptionType</pre>
 
----
-
 
 #### setMonitor
 
@@ -567,8 +539,6 @@ Type documentation: no documentation provided
 
 
 
----
-
 
 #### getProcessId
 
@@ -587,8 +557,6 @@ Type documentation: no documentation provided
 
 
 
-
----
 
 
 #### getIncludePaths
@@ -611,8 +579,6 @@ Type documentation: no documentation provided
 
 
 
----
-
 
 #### getenv
 Operation documentation:  Get the value of an environment variable 
@@ -631,8 +597,6 @@ Type documentation: no documentation provided
 
 
 
-
----
 
 
 

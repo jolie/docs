@@ -120,8 +120,6 @@ Fault <code>ConnectionError</code> with type <code>undefined</code>
 Fault-handling install template: <code>install ( ConnectionError => /* error-handling code */ )</code>
 
 
----
-
 
 #### query
 Operation documentation: 
@@ -191,8 +189,6 @@ Fault <code>ConnectionError</code> with type <code>undefined</code>
 Fault-handling install template: <code>install ( ConnectionError => /* error-handling code */ )</code>
 
 
----
-
 
 #### executeTransaction
 Operation documentation: 
@@ -229,8 +225,6 @@ Fault <code>ConnectionError</code> with type <code>undefined</code>
 
 Fault-handling install template: <code>install ( ConnectionError => /* error-handling code */ )</code>
 
-
----
 
 
 #### update
@@ -274,8 +268,6 @@ Fault <code>ConnectionError</code> with type <code>undefined</code>
 Fault-handling install template: <code>install ( ConnectionError => /* error-handling code */ )</code>
 
 
----
-
 
 #### close
 Operation documentation: 
@@ -298,8 +290,6 @@ Type documentation: no documentation provided
 
 
 
-
----
 
 
 #### connect
@@ -360,8 +350,6 @@ Fault <code>DriverClassNotFound</code> with type <code>undefined</code>
 
 Fault-handling install template: <code>install ( DriverClassNotFound => /* error-handling code */ )</code>
 
-
----
 
 
 

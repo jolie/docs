@@ -214,8 +214,6 @@ Type documentation: no documentation provided
 
 
 
----
-
 
 #### valueToPrettyString
 
@@ -234,8 +232,6 @@ Type documentation: no documentation provided
 
 
 
-
----
 
 
 #### toLowerCase
@@ -256,8 +252,6 @@ Type documentation: no documentation provided
 
 
 
----
-
 
 #### length
 
@@ -276,8 +270,6 @@ Type documentation: no documentation provided
 
 
 
-
----
 
 
 #### match
@@ -302,8 +294,6 @@ Type documentation: no documentation provided
 
 
 
----
-
 
 #### replaceFirst
 
@@ -325,8 +315,6 @@ Type documentation: no documentation provided
 
 
 
-
----
 
 
 #### sort
@@ -351,8 +339,6 @@ Type documentation: no documentation provided
 
 
 
----
-
 
 #### replaceAll
 
@@ -374,8 +360,6 @@ Type documentation: no documentation provided
 
 
 
-
----
 
 
 #### substring
@@ -399,8 +383,6 @@ Type documentation: no documentation provided
 
 
 
----
-
 
 #### getRandomUUID
 Operation documentation: 
@@ -421,8 +403,6 @@ Type documentation: no documentation provided
 
 
 
-
----
 
 
 #### rightPad
@@ -446,8 +426,6 @@ Type documentation: no documentation provided
 
 
 
----
-
 
 #### contains
 Operation documentation: 
@@ -470,8 +448,6 @@ Type documentation: no documentation provided
 
 
 
-
----
 
 
 #### split
@@ -497,8 +473,6 @@ Type documentation: no documentation provided
 
 
 
----
-
 
 #### splitByLength
 
@@ -522,8 +496,6 @@ Type documentation: no documentation provided
 
 
 
----
-
 
 #### trim
 
@@ -542,8 +514,6 @@ Type documentation: no documentation provided
 
 
 
-
----
 
 
 #### find
@@ -568,8 +538,6 @@ Type documentation: no documentation provided
 
 
 
----
-
 
 #### endsWith
 Operation documentation: 
@@ -593,8 +561,6 @@ Type documentation: no documentation provided
 
 
 
----
-
 
 #### toUpperCase
 
@@ -613,8 +579,6 @@ Type documentation: no documentation provided
 
 
 
-
----
 
 
 #### join
@@ -638,8 +602,6 @@ Type documentation: no documentation provided
 
 
 
----
-
 
 #### indexOf
 
@@ -660,8 +622,6 @@ Type documentation: no documentation provided
 
 
 
-
----
 
 
 #### startsWith
@@ -685,8 +645,6 @@ Type documentation: no documentation provided
 
 
 
-
----
 
 
 

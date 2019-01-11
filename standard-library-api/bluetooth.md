@@ -82,8 +82,6 @@ Type documentation: no documentation provided
 
 
 
----
-
 
 #### setDiscoverable
 Operation documentation: 
@@ -105,8 +103,6 @@ Type documentation: no documentation provided
 
 
 
-
----
 
 
 

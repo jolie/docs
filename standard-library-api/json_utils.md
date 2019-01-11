@@ -86,8 +86,6 @@ Fault <code>JSONCreationError</code> with type <code>undefined</code>
 Fault-handling install template: <code>install ( JSONCreationError => /* error-handling code */ )</code>
 
 
----
-
 
 #### getJsonValue
 Operation documentation: 
@@ -119,8 +117,6 @@ Fault <code>JSONCreationError</code> with type <code>undefined</code>
 
 Fault-handling install template: <code>install ( JSONCreationError => /* error-handling code */ )</code>
 
-
----
 
 
 

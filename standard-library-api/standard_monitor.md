@@ -69,8 +69,6 @@ Type documentation: no documentation provided
 
 
 
----
-
 
 
 
@@ -114,8 +112,6 @@ Type documentation: no documentation provided
 
 
 
-
----
 
 
 
@@ -173,8 +169,6 @@ Type documentation: no documentation provided
 
 
 
----
-
 
 #### setMonitor
 
@@ -197,8 +191,6 @@ Type documentation: no documentation provided
 
 
 
-
----
 
 
 

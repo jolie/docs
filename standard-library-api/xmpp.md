@@ -84,8 +84,6 @@ Fault <code>XMPPException</code> with type <code>undefined</code>
 Fault-handling install template: <code>install ( XMPPException => /* error-handling code */ )</code>
 
 
----
-
 
 #### connect
 
@@ -117,8 +115,6 @@ Fault <code>XMPPException</code> with type <code>undefined</code>
 
 Fault-handling install template: <code>install ( XMPPException => /* error-handling code */ )</code>
 
-
----
 
 
 

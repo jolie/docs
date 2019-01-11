@@ -82,8 +82,6 @@ Type documentation: no documentation provided
 
 
 
----
-
 
 #### acquire
 Operation documentation: 
@@ -111,8 +109,6 @@ Type documentation: no documentation provided
 
 
 
-
----
 
 
 
