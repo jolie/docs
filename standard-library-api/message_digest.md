@@ -79,6 +79,7 @@ Fault-handling install template: <code>install ( UnsupportedOperation => /* erro
 	.stackTrace: string
 }</pre>
 
+<hr>
 
 
 

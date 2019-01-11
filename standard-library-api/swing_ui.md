@@ -82,6 +82,7 @@ Type documentation: no documentation provided
 
 
 
+<hr>
 
 
 #### showYesNoQuestionDialog
@@ -102,6 +103,7 @@ Type documentation: no documentation provided
 
 
 
+<hr>
 
 
 #### showInputDialog
@@ -122,6 +124,7 @@ Type documentation: no documentation provided
 
 
 
+<hr>
 
 
 

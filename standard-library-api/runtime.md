@@ -198,6 +198,7 @@ Fault <code>IOException</code> with type <code>IOExceptionType</code>
 Fault-handling install template: <code>install ( IOException => /* error-handling code */ )</code>
 <pre>type IOExceptionType: JavaExceptionType</pre>
 
+<hr>
 
 
 #### removeOutputPort
@@ -218,6 +219,7 @@ Type documentation: no documentation provided
 
 
 
+<hr>
 
 
 #### setRedirection
@@ -248,6 +250,7 @@ Fault <code>RuntimeException</code> with type <code>RuntimeExceptionType</code>
 Fault-handling install template: <code>install ( RuntimeException => /* error-handling code */ )</code>
 <pre>type RuntimeExceptionType: JavaExceptionType</pre>
 
+<hr>
 
 
 #### getOutputPorts
@@ -276,6 +279,7 @@ Type documentation: no documentation provided
 
 
 
+<hr>
 
 
 #### loadEmbeddedService
@@ -305,6 +309,7 @@ Fault <code>RuntimeException</code> with type <code>RuntimeExceptionType</code>
 Fault-handling install template: <code>install ( RuntimeException => /* error-handling code */ )</code>
 <pre>type RuntimeExceptionType: JavaExceptionType</pre>
 
+<hr>
 
 
 #### getOutputPort
@@ -339,6 +344,7 @@ Fault <code>OutputPortDoesNotExist</code> with type <code>undefined</code>
 Fault-handling install template: <code>install ( OutputPortDoesNotExist => /* error-handling code */ )</code>
 
 
+<hr>
 
 
 #### dumpState
@@ -359,6 +365,7 @@ Type documentation: no documentation provided
 
 
 
+<hr>
 
 
 #### getLocalLocation
@@ -379,6 +386,7 @@ Type documentation: no documentation provided
 
 
 
+<hr>
 
 
 #### getRedirection
@@ -402,6 +410,7 @@ Type documentation: no documentation provided
 
 
 
+<hr>
 
 
 #### setOutputPort
@@ -426,6 +435,7 @@ Type documentation: no documentation provided
 
 
 
+<hr>
 
 
 #### halt
@@ -448,6 +458,7 @@ Type documentation: no documentation provided
 
 
 
+<hr>
 
 
 #### callExit
@@ -468,6 +479,7 @@ Type documentation: no documentation provided
 
 
 
+<hr>
 
 
 #### stats
@@ -502,6 +514,7 @@ Type documentation: no documentation provided
 
 
 
+<hr>
 
 
 #### removeRedirection
@@ -531,6 +544,7 @@ Fault <code>RuntimeException</code> with type <code>RuntimeExceptionType</code>
 Fault-handling install template: <code>install ( RuntimeException => /* error-handling code */ )</code>
 <pre>type RuntimeExceptionType: JavaExceptionType</pre>
 
+<hr>
 
 
 #### setMonitor
@@ -554,6 +568,7 @@ Type documentation: no documentation provided
 
 
 
+<hr>
 
 
 #### getProcessId
@@ -574,6 +589,7 @@ Type documentation: no documentation provided
 
 
 
+<hr>
 
 
 #### getIncludePaths
@@ -596,6 +612,7 @@ Type documentation: no documentation provided
 
 
 
+<hr>
 
 
 #### getenv
@@ -616,6 +633,7 @@ Type documentation: no documentation provided
 
 
 
+<hr>
 
 
 <h4>Subtypes</h4>

@@ -215,6 +215,7 @@ Type documentation: no documentation provided
 
 
 
+<hr>
 
 
 #### valueToPrettyString
@@ -235,6 +236,7 @@ Type documentation: no documentation provided
 
 
 
+<hr>
 
 
 #### toLowerCase
@@ -255,6 +257,7 @@ Type documentation: no documentation provided
 
 
 
+<hr>
 
 
 #### length
@@ -275,6 +278,7 @@ Type documentation: no documentation provided
 
 
 
+<hr>
 
 
 #### match
@@ -299,6 +303,7 @@ Type documentation: no documentation provided
 
 
 
+<hr>
 
 
 #### replaceFirst
@@ -322,6 +327,7 @@ Type documentation: no documentation provided
 
 
 
+<hr>
 
 
 #### sort
@@ -346,6 +352,7 @@ Type documentation: no documentation provided
 
 
 
+<hr>
 
 
 #### replaceAll
@@ -369,6 +376,7 @@ Type documentation: no documentation provided
 
 
 
+<hr>
 
 
 #### substring
@@ -392,6 +400,7 @@ Type documentation: no documentation provided
 
 
 
+<hr>
 
 
 #### getRandomUUID
@@ -414,6 +423,7 @@ Type documentation: no documentation provided
 
 
 
+<hr>
 
 
 #### rightPad
@@ -437,6 +447,7 @@ Type documentation: no documentation provided
 
 
 
+<hr>
 
 
 #### contains
@@ -461,6 +472,7 @@ Type documentation: no documentation provided
 
 
 
+<hr>
 
 
 #### split
@@ -486,6 +498,7 @@ Type documentation: no documentation provided
 
 
 
+<hr>
 
 
 #### splitByLength
@@ -510,6 +523,7 @@ Type documentation: no documentation provided
 
 
 
+<hr>
 
 
 #### trim
@@ -530,6 +544,7 @@ Type documentation: no documentation provided
 
 
 
+<hr>
 
 
 #### find
@@ -554,6 +569,7 @@ Type documentation: no documentation provided
 
 
 
+<hr>
 
 
 #### endsWith
@@ -578,6 +594,7 @@ Type documentation: no documentation provided
 
 
 
+<hr>
 
 
 #### toUpperCase
@@ -598,6 +615,7 @@ Type documentation: no documentation provided
 
 
 
+<hr>
 
 
 #### join
@@ -621,6 +639,7 @@ Type documentation: no documentation provided
 
 
 
+<hr>
 
 
 #### indexOf
@@ -643,6 +662,7 @@ Type documentation: no documentation provided
 
 
 
+<hr>
 
 
 #### startsWith
@@ -667,6 +687,7 @@ Type documentation: no documentation provided
 
 
 
+<hr>
 
 
 

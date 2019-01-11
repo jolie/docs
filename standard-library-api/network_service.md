@@ -80,6 +80,7 @@ Type documentation: no documentation provided
 
 
 
+<hr>
 
 
 #### getIPAddresses
@@ -111,6 +112,7 @@ Fault <code>InterfaceNotFound</code> with type <code>undefined</code>
 Fault-handling install template: <code>install ( InterfaceNotFound => /* error-handling code */ )</code>
 
 
+<hr>
 
 
 

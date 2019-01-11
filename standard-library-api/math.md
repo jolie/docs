@@ -103,6 +103,7 @@ Type documentation: no documentation provided
 
 
 
+<hr>
 
 
 #### abs
@@ -123,6 +124,7 @@ Type documentation: no documentation provided
 
 
 
+<hr>
 
 
 #### round
@@ -145,6 +147,7 @@ Type documentation: no documentation provided
 
 
 
+<hr>
 
 
 #### pi
@@ -165,6 +168,7 @@ Type documentation: no documentation provided
 
 
 
+<hr>
 
 
 #### pow
@@ -188,6 +192,7 @@ Type documentation: no documentation provided
 
 
 
+<hr>
 
 
 #### summation
@@ -211,6 +216,7 @@ Type documentation: no documentation provided
 
 
 
+<hr>
 
 
 

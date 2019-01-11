@@ -196,6 +196,7 @@ Fault <code>InvalidTimeUnit</code> with type <code>undefined</code>
 Fault-handling install template: <code>install ( InvalidTimeUnit => /* error-handling code */ )</code>
 
 
+<hr>
 
 
 #### getDateValues
@@ -232,6 +233,7 @@ Fault <code>InvalidDate</code> with type <code>undefined</code>
 Fault-handling install template: <code>install ( InvalidDate => /* error-handling code */ )</code>
 
 
+<hr>
 
 
 #### getDateTime
@@ -263,6 +265,7 @@ Type documentation: no documentation provided
 
 
 
+<hr>
 
 
 #### getCurrentTimeMillis
@@ -285,6 +288,7 @@ Type documentation: no documentation provided
 
 
 
+<hr>
 
 
 #### getDateDiff
@@ -309,6 +313,7 @@ Type documentation: no documentation provided
 
 
 
+<hr>
 
 
 #### getTimeDiff
@@ -332,6 +337,7 @@ Type documentation: no documentation provided
 
 
 
+<hr>
 
 
 #### getTimestampFromString
@@ -361,6 +367,7 @@ Fault <code>InvalidTimestamp</code> with type <code>undefined</code>
 Fault-handling install template: <code>install ( InvalidTimestamp => /* error-handling code */ )</code>
 
 
+<hr>
 
 
 #### cancelTimeout
@@ -383,6 +390,7 @@ Type documentation: no documentation provided
 
 
 
+<hr>
 
 
 #### setNextTimeoutByTime
@@ -399,6 +407,7 @@ Type documentation: no documentation provided
 
 
 
+<hr>
 
 
 #### getCurrentDateTime
@@ -421,6 +430,7 @@ Type documentation: no documentation provided
 
 
 
+<hr>
 
 
 #### sleep
@@ -441,6 +451,7 @@ Type documentation: no documentation provided
 
 
 
+<hr>
 
 
 #### setNextTimeout
@@ -464,6 +475,7 @@ Type documentation: no documentation provided
 
 
 
+<hr>
 
 
 #### getTimeFromMilliSeconds
@@ -488,6 +500,7 @@ Type documentation: no documentation provided
 
 
 
+<hr>
 
 
 #### getDateTimeValues
@@ -524,6 +537,7 @@ Fault <code>InvalidDate</code> with type <code>undefined</code>
 Fault-handling install template: <code>install ( InvalidDate => /* error-handling code */ )</code>
 
 
+<hr>
 
 
 #### setNextTimeoutByDateTime
@@ -540,6 +554,7 @@ Type documentation: no documentation provided
 
 
 
+<hr>
 
 
 #### getCurrentDateValues
@@ -566,6 +581,7 @@ Type documentation: no documentation provided
 
 
 
+<hr>
 
 
 #### getTimeValues
@@ -590,6 +606,7 @@ Type documentation: no documentation provided
 
 
 
+<hr>
 
 
 

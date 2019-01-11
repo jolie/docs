@@ -89,6 +89,7 @@ Fault <code>SMTPFault</code> with type <code>undefined</code>
 Fault-handling install template: <code>install ( SMTPFault => /* error-handling code */ )</code>
 
 
+<hr>
 
 
 

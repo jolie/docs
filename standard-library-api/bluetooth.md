@@ -83,6 +83,7 @@ Type documentation: no documentation provided
 
 
 
+<hr>
 
 
 #### setDiscoverable
@@ -106,6 +107,7 @@ Type documentation: no documentation provided
 
 
 
+<hr>
 
 
 

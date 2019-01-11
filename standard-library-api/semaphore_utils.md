@@ -83,6 +83,7 @@ Type documentation: no documentation provided
 
 
 
+<hr>
 
 
 #### acquire
@@ -112,6 +113,7 @@ Type documentation: no documentation provided
 
 
 
+<hr>
 
 
 

@@ -222,6 +222,7 @@ Fault <code>IOException</code> with type <code>IOExceptionType</code>
 Fault-handling install template: <code>install ( IOException => /* error-handling code */ )</code>
 <pre>type IOExceptionType: JavaExceptionType</pre>
 
+<hr>
 
 
 #### getMimeType
@@ -248,6 +249,7 @@ Fault <code>FileNotFound</code> with type <code>FileNotFoundType</code>
 Fault-handling install template: <code>install ( FileNotFound => /* error-handling code */ )</code>
 <pre>type FileNotFoundType: WeakJavaExceptionType</pre>
 
+<hr>
 
 
 #### convertFromBinaryToBase64Value
@@ -268,6 +270,7 @@ Type documentation: no documentation provided
 
 
 
+<hr>
 
 
 #### toAbsolutePath
@@ -300,6 +303,7 @@ Fault-handling install template: <code>install ( InvalidPathException => /* erro
 	.stackTrace: string
 }</pre>
 
+<hr>
 
 
 #### getParentPath
@@ -332,6 +336,7 @@ Fault-handling install template: <code>install ( InvalidPathException => /* erro
 	.stackTrace: string
 }</pre>
 
+<hr>
 
 
 #### list
@@ -370,6 +375,7 @@ Type documentation: no documentation provided
 
 
 
+<hr>
 
 
 #### copyDir
@@ -407,6 +413,7 @@ Fault <code>IOException</code> with type <code>undefined</code>
 Fault-handling install template: <code>install ( IOException => /* error-handling code */ )</code>
 
 
+<hr>
 
 
 #### delete
@@ -435,6 +442,7 @@ Fault <code>IOException</code> with type <code>IOExceptionType</code>
 Fault-handling install template: <code>install ( IOException => /* error-handling code */ )</code>
 <pre>type IOExceptionType: JavaExceptionType</pre>
 
+<hr>
 
 
 #### getSize
@@ -464,6 +472,7 @@ Type documentation: no documentation provided
 
 
 
+<hr>
 
 
 #### getFileSeparator
@@ -484,6 +493,7 @@ Type documentation: no documentation provided
 
 
 
+<hr>
 
 
 #### rename
@@ -513,6 +523,7 @@ Fault <code>IOException</code> with type <code>IOExceptionType</code>
 Fault-handling install template: <code>install ( IOException => /* error-handling code */ )</code>
 <pre>type IOExceptionType: JavaExceptionType</pre>
 
+<hr>
 
 
 #### readFile
@@ -567,6 +578,7 @@ Fault <code>IOException</code> with type <code>IOExceptionType</code>
 Fault-handling install template: <code>install ( IOException => /* error-handling code */ )</code>
 <pre>type IOExceptionType: JavaExceptionType</pre>
 
+<hr>
 
 
 #### exists
@@ -589,6 +601,7 @@ Type documentation: no documentation provided
 
 
 
+<hr>
 
 
 #### setMimeTypeFile
@@ -615,6 +628,7 @@ Fault <code>IOException</code> with type <code>IOExceptionType</code>
 Fault-handling install template: <code>install ( IOException => /* error-handling code */ )</code>
 <pre>type IOExceptionType: JavaExceptionType</pre>
 
+<hr>
 
 
 #### deleteDir
@@ -643,6 +657,7 @@ Fault <code>IOException</code> with type <code>IOExceptionType</code>
 Fault-handling install template: <code>install ( IOException => /* error-handling code */ )</code>
 <pre>type IOExceptionType: JavaExceptionType</pre>
 
+<hr>
 
 
 #### getServiceDirectory
@@ -669,6 +684,7 @@ Fault <code>IOException</code> with type <code>IOExceptionType</code>
 Fault-handling install template: <code>install ( IOException => /* error-handling code */ )</code>
 <pre>type IOExceptionType: JavaExceptionType</pre>
 
+<hr>
 
 
 #### writeFile
@@ -730,6 +746,7 @@ Fault <code>IOException</code> with type <code>IOExceptionType</code>
 Fault-handling install template: <code>install ( IOException => /* error-handling code */ )</code>
 <pre>type IOExceptionType: JavaExceptionType</pre>
 
+<hr>
 
 
 #### mkdir
@@ -754,6 +771,7 @@ Type documentation: no documentation provided
 
 
 
+<hr>
 
 
 #### isDirectory
@@ -788,6 +806,7 @@ Fault <code>IOException</code> with type <code>IOExceptionType</code>
 Fault-handling install template: <code>install ( IOException => /* error-handling code */ )</code>
 <pre>type IOExceptionType: JavaExceptionType</pre>
 
+<hr>
 
 
 <h4>Subtypes</h4>

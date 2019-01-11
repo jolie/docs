@@ -75,6 +75,7 @@ Type documentation: no documentation provided
 
 
 
+<hr>
 
 
 #### unescapeHTML
@@ -95,6 +96,7 @@ Type documentation: no documentation provided
 
 
 
+<hr>
 
 
 

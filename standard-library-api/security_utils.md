@@ -77,6 +77,7 @@ Type documentation: no documentation provided
 
 
 
+<hr>
 
 
 #### createSecureToken
@@ -97,6 +98,7 @@ Type documentation: no documentation provided
 
 
 
+<hr>
 
 
 

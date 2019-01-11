@@ -98,6 +98,7 @@ Fault <code>IOException</code> with type <code>IOExceptionType</code>
 Fault-handling install template: <code>install ( IOException => /* error-handling code */ )</code>
 <pre>type IOExceptionType: JavaExceptionType</pre>
 
+<hr>
 
 
 #### IOException
@@ -118,6 +119,7 @@ Type documentation: no documentation provided
 
 
 
+<hr>
 
 
 #### unzip
@@ -149,6 +151,7 @@ Fault <code>FileNotFound</code> with type <code>undefined</code>
 Fault-handling install template: <code>install ( FileNotFound => /* error-handling code */ )</code>
 
 
+<hr>
 
 
 #### readEntry
@@ -178,6 +181,7 @@ Fault <code>IOException</code> with type <code>IOExceptionType</code>
 Fault-handling install template: <code>install ( IOException => /* error-handling code */ )</code>
 <pre>type IOExceptionType: JavaExceptionType</pre>
 
+<hr>
 
 
 <h4>Subtypes</h4>

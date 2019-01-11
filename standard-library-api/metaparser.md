@@ -136,6 +136,7 @@ Type documentation: no documentation provided
 
 
 
+<hr>
 
 
 #### getNativeType
@@ -169,6 +170,7 @@ Type documentation: no documentation provided
 
 
 
+<hr>
 
 
 #### getInterface
@@ -193,6 +195,7 @@ Type documentation: no documentation provided
 
 
 
+<hr>
 
 
 #### getTypeInLine
@@ -217,6 +220,7 @@ Type documentation: no documentation provided
 
 
 
+<hr>
 
 
 #### getSurfaceWithoutOutputPort
@@ -242,6 +246,7 @@ Type documentation: no documentation provided
 
 
 
+<hr>
 
 
 #### getType
@@ -266,6 +271,7 @@ Type documentation: no documentation provided
 
 
 
+<hr>
 
 
 #### getParticipantOutput
@@ -291,6 +297,7 @@ Type documentation: no documentation provided
 
 
 
+<hr>
 
 
 #### getSubType
@@ -316,6 +323,7 @@ Type documentation: no documentation provided
 
 
 
+<hr>
 
 
 #### getParticipantInput
@@ -341,6 +349,7 @@ Type documentation: no documentation provided
 
 
 
+<hr>
 
 
 #### getCardinality
@@ -365,6 +374,7 @@ Type documentation: no documentation provided
 
 
 
+<hr>
 
 
 

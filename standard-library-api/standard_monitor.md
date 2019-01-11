@@ -70,6 +70,7 @@ Type documentation: no documentation provided
 
 
 
+<hr>
 
 
 
@@ -115,6 +116,7 @@ Type documentation: no documentation provided
 
 
 
+<hr>
 
 
 
@@ -172,6 +174,7 @@ Type documentation: no documentation provided
 
 
 
+<hr>
 
 
 #### setMonitor
@@ -196,6 +199,7 @@ Type documentation: no documentation provided
 
 
 
+<hr>
 
 
 

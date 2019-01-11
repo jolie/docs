@@ -101,6 +101,7 @@ Fault <code>JobAlreadyExists</code> with type <code>void</code>
 Fault-handling install template: <code>install ( JobAlreadyExists => /* error-handling code */ )</code>
 
 
+<hr>
 
 
 #### deleteCronJob
@@ -124,6 +125,7 @@ Type documentation: no documentation provided
 
 
 
+<hr>
 
 
 #### setCallbackOperation
@@ -142,6 +144,7 @@ Type documentation: no documentation provided
 
 
 
+<hr>
 
 
 
