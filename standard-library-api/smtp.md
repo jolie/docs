@@ -59,6 +59,8 @@ Invocation template:
 
 <h4 id="SendMailRequest">Request type</h4>
 
+Type: void
+
 Type documentation: no documentation provided 
 <pre>type SendMailRequest: void {
 	.cc*: string
@@ -78,6 +80,8 @@ Type documentation: no documentation provided
 
 
 <h4>Response type</h4>
+
+Type: void
 
 Type documentation: no documentation provided 
 

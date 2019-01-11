@@ -107,11 +107,15 @@ Invocation template:
 
 <h4>Request type</h4>
 
+Type: void
+
 Type documentation: no documentation provided 
 
 
 
 <h4>Response type</h4>
+
+Type: void
 
 Type documentation: no documentation provided 
 
@@ -176,11 +180,15 @@ Invocation template:
 
 <h4 id="QueryRequest">Request type</h4>
 
+Type: QueryResult
+
 Type documentation: no documentation provided 
 <pre>type QueryRequest: undefined</pre>
 
 
 <h4 id="QueryResult">Response type</h4>
+
+Type: QueryResult
 
 Type documentation: no documentation provided 
 <pre>type QueryResult: void {
@@ -221,6 +229,8 @@ Invocation template:
 
 <h4 id="DatabaseTransactionRequest">Request type</h4>
 
+Type: DatabaseTransactionResult
+
 Type documentation: no documentation provided 
 <pre>type DatabaseTransactionRequest: void {
 	.statement[1,2147483647]: undefined
@@ -228,6 +238,8 @@ Type documentation: no documentation provided
 
 
 <h4 id="DatabaseTransactionResult">Response type</h4>
+
+Type: DatabaseTransactionResult
 
 Type documentation: no documentation provided 
 <pre>type DatabaseTransactionResult: void {
@@ -277,11 +289,15 @@ Invocation template:
 
 <h4 id="UpdateRequest">Request type</h4>
 
+Type: int
+
 Type documentation: no documentation provided 
 <pre>type UpdateRequest: undefined</pre>
 
 
 <h4>Response type</h4>
+
+Type: int
 
 Type documentation: no documentation provided 
 
@@ -322,11 +338,15 @@ Invocation template:
 
 <h4>Request type</h4>
 
+Type: void
+
 Type documentation: no documentation provided 
 
 
 
 <h4>Response type</h4>
+
+Type: void
 
 Type documentation: no documentation provided 
 
@@ -359,6 +379,8 @@ Invocation template:
 
 <h4 id="ConnectionInfo">Request type</h4>
 
+Type: void
+
 Type documentation: no documentation provided 
 <pre>type ConnectionInfo: void {
 	.database: string
@@ -375,6 +397,8 @@ Type documentation: no documentation provided
 
 
 <h4>Response type</h4>
+
+Type: void
 
 Type documentation: no documentation provided 
 

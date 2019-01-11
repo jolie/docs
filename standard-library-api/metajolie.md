@@ -96,6 +96,8 @@ Invocation template:
 
 <h4 id="GetInputPortMetaDataRequest">Request type</h4>
 
+Type: GetInputPortMetaDataResponse
+
 Type documentation: no documentation provided 
 <pre>type GetInputPortMetaDataRequest: void {
 	.filename: string
@@ -104,6 +106,8 @@ Type documentation: no documentation provided
 
 
 <h4 id="GetInputPortMetaDataResponse">Response type</h4>
+
+Type: GetInputPortMetaDataResponse
 
 Type documentation: no documentation provided 
 <pre>type GetInputPortMetaDataResponse: void {
@@ -158,6 +162,8 @@ Invocation template:
 
 <h4 id="ParseRoleRequest">Request type</h4>
 
+Type: Role
+
 Type documentation: no documentation provided 
 <pre>type ParseRoleRequest: void {
 	.filename: string
@@ -166,6 +172,8 @@ Type documentation: no documentation provided
 
 
 <h4 id="Role">Response type</h4>
+
+Type: Role
 
 Type documentation: no documentation provided 
 <pre>type Role: void {
@@ -189,6 +197,8 @@ Invocation template:
 
 <h4 id="GetMetaDataRequest">Request type</h4>
 
+Type: GetMetaDataResponse
+
 Type documentation: no documentation provided 
 <pre>type GetMetaDataRequest: void {
 	.filename: string
@@ -197,6 +207,8 @@ Type documentation: no documentation provided
 
 
 <h4 id="GetMetaDataResponse">Response type</h4>
+
+Type: GetMetaDataResponse
 
 Type documentation: no documentation provided 
 <pre>type GetMetaDataResponse: void {
@@ -252,6 +264,8 @@ Invocation template:
 
 <h4 id="MessageTypeCastRequest">Request type</h4>
 
+Type: MessageTypeCastResponse
+
 Type documentation: no documentation provided 
 <pre>type MessageTypeCastRequest: void {
 	.types: void {
@@ -263,6 +277,8 @@ Type documentation: no documentation provided
 
 
 <h4 id="MessageTypeCastResponse">Response type</h4>
+
+Type: MessageTypeCastResponse
 
 Type documentation: no documentation provided 
 <pre>type MessageTypeCastResponse: void {
@@ -291,6 +307,8 @@ Invocation template:
 
 <h4 id="CheckNativeTypeRequest">Request type</h4>
 
+Type: CheckNativeTypeResponse
+
 Type documentation: no documentation provided 
 <pre>type CheckNativeTypeRequest: void {
 	.type_name: string
@@ -298,6 +316,8 @@ Type documentation: no documentation provided
 
 
 <h4 id="CheckNativeTypeResponse">Response type</h4>
+
+Type: CheckNativeTypeResponse
 
 Type documentation: no documentation provided 
 <pre>type CheckNativeTypeResponse: void {

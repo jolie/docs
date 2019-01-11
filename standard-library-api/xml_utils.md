@@ -82,6 +82,8 @@ Invocation template:
 
 <h4 id="XMLToValueRequest">Request type</h4>
 
+Type: undefined
+
 Type documentation: no documentation provided 
 <pre>type XMLToValueRequest: any {
 	.options?: void {
@@ -97,6 +99,8 @@ Type documentation: no documentation provided
 
 
 <h4>Response type</h4>
+
+Type: undefined
 
 Type documentation: no documentation provided 
 
@@ -123,6 +127,8 @@ Invocation template:
 
 <h4 id="XMLTransformationRequest">Request type</h4>
 
+Type: string
+
 Type documentation: no documentation provided 
 <pre>type XMLTransformationRequest: void {
 	.source: string
@@ -131,6 +137,8 @@ Type documentation: no documentation provided
 
 
 <h4>Response type</h4>
+
+Type: string
 
 Type documentation: no documentation provided 
 
@@ -165,6 +173,8 @@ Invocation template:
 
 <h4 id="ValueToXmlRequest">Request type</h4>
 
+Type: string
+
 Type documentation: no documentation provided 
 <pre>type ValueToXmlRequest: void {
 	.omitXmlDeclaration?: bool
@@ -182,6 +192,8 @@ Type documentation: no documentation provided
 
 
 <h4>Response type</h4>
+
+Type: string
 
 Type documentation: no documentation provided 
 

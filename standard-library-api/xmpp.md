@@ -67,6 +67,8 @@ Invocation template:
 
 <h4 id="SendMessageRequest">Request type</h4>
 
+Type: void
+
 Type documentation: no documentation provided 
 <pre>type SendMessageRequest: string {
 	.to: string
@@ -74,6 +76,8 @@ Type documentation: no documentation provided
 
 
 <h4>Response type</h4>
+
+Type: void
 
 Type documentation: no documentation provided 
 
@@ -100,6 +104,8 @@ Invocation template:
 
 <h4 id="ConnectionRequest">Request type</h4>
 
+Type: void
+
 Type documentation: no documentation provided 
 <pre>type ConnectionRequest: void {
 	.password: string
@@ -112,6 +118,8 @@ Type documentation: no documentation provided
 
 
 <h4>Response type</h4>
+
+Type: void
 
 Type documentation: no documentation provided 
 

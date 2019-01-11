@@ -82,6 +82,8 @@ Invocation template:
 
 <h4 id="StringToRawRequest">Request type</h4>
 
+Type: raw
+
 Type documentation: no documentation provided 
 <pre>type StringToRawRequest: string {
 	.charset?: string
@@ -89,6 +91,8 @@ Type documentation: no documentation provided
 
 
 <h4>Response type</h4>
+
+Type: raw
 
 Type documentation: no documentation provided 
 
@@ -115,11 +119,15 @@ Invocation template:
 
 <h4>Request type</h4>
 
+Type: raw
+
 Type documentation: no documentation provided 
 
 
 
 <h4>Response type</h4>
+
+Type: raw
 
 Type documentation: no documentation provided 
 
@@ -146,11 +154,15 @@ Invocation template:
 
 <h4>Request type</h4>
 
+Type: string
+
 Type documentation: no documentation provided 
 
 
 
 <h4>Response type</h4>
+
+Type: string
 
 Type documentation: no documentation provided 
 
@@ -169,6 +181,8 @@ Invocation template:
 
 <h4 id="RawToStringRequest">Request type</h4>
 
+Type: string
+
 Type documentation: no documentation provided 
 <pre>type RawToStringRequest: raw {
 	.charset?: string
@@ -176,6 +190,8 @@ Type documentation: no documentation provided
 
 
 <h4>Response type</h4>
+
+Type: string
 
 Type documentation: no documentation provided 
 

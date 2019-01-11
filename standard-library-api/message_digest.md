@@ -59,6 +59,8 @@ Invocation template:
 
 <h4 id="MD5Request">Request type</h4>
 
+Type: string
+
 Type documentation: no documentation provided 
 <pre>type MD5Request: string {
 	.radix?: int
@@ -66,6 +68,8 @@ Type documentation: no documentation provided
 
 
 <h4>Response type</h4>
+
+Type: string
 
 Type documentation: no documentation provided 
 

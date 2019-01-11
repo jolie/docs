@@ -95,11 +95,15 @@ Invocation template:
 
 <h4>Request type</h4>
 
+Type: double
+
 Type documentation: no documentation provided 
 
 
 
 <h4>Response type</h4>
+
+Type: double
 
 Type documentation: no documentation provided 
 
@@ -120,11 +124,15 @@ Invocation template:
 
 <h4>Request type</h4>
 
+Type: int
+
 Type documentation: no documentation provided 
 
 
 
 <h4>Response type</h4>
+
+Type: int
 
 Type documentation: no documentation provided 
 
@@ -143,6 +151,8 @@ Invocation template:
 
 <h4 id="RoundRequestType">Request type</h4>
 
+Type: double
+
 Type documentation: no documentation provided 
 <pre>type RoundRequestType: double {
 	.decimals?: int
@@ -150,6 +160,8 @@ Type documentation: no documentation provided
 
 
 <h4>Response type</h4>
+
+Type: double
 
 Type documentation: no documentation provided 
 
@@ -170,11 +182,15 @@ Invocation template:
 
 <h4>Request type</h4>
 
+Type: double
+
 Type documentation: no documentation provided 
 
 
 
 <h4>Response type</h4>
+
+Type: double
 
 Type documentation: no documentation provided 
 
@@ -195,6 +211,8 @@ Invocation template:
 
 <h4 id="PowRequest">Request type</h4>
 
+Type: double
+
 Type documentation: no documentation provided 
 <pre>type PowRequest: void {
 	.base: double
@@ -203,6 +221,8 @@ Type documentation: no documentation provided
 
 
 <h4>Response type</h4>
+
+Type: double
 
 Type documentation: no documentation provided 
 
@@ -223,6 +243,8 @@ Invocation template:
 
 <h4 id="SummationRequest">Request type</h4>
 
+Type: int
+
 Type documentation: no documentation provided 
 <pre>type SummationRequest: void {
 	.from: int
@@ -231,6 +253,8 @@ Type documentation: no documentation provided
 
 
 <h4>Response type</h4>
+
+Type: int
 
 Type documentation: no documentation provided 
 

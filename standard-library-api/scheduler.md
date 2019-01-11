@@ -73,6 +73,8 @@ Invocation template:
 
 <h4 id="SetCronJobRequest">Request type</h4>
 
+Type: void
+
 Type documentation: no documentation provided 
 <pre>type SetCronJobRequest: void {
 	.jobName: string
@@ -90,6 +92,8 @@ Type documentation: no documentation provided
 
 
 <h4>Response type</h4>
+
+Type: void
 
 Type documentation: no documentation provided 
 
@@ -116,6 +120,8 @@ Invocation template:
 
 <h4 id="DeleteCronJobRequest">Request type</h4>
 
+Type: void
+
 Type documentation: no documentation provided 
 <pre>type DeleteCronJobRequest: void {
 	.jobName: string
@@ -124,6 +130,8 @@ Type documentation: no documentation provided
 
 
 <h4>Response type</h4>
+
+Type: void
 
 Type documentation: no documentation provided 
 
@@ -141,6 +149,8 @@ Invocation template:
 <pre>setCallbackOperation@Scheduler( request )</pre>
 
 <h4 id="SetCallBackOperationRequest">Request type</h4>
+
+Type: 
 
 Type documentation: no documentation provided 
 <pre>type SetCallBackOperationRequest: void {

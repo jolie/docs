@@ -72,6 +72,8 @@ Invocation template:
 
 <h4 id="SemaphoreRequest">Request type</h4>
 
+Type: bool
+
 Type documentation: no documentation provided 
 <pre>type SemaphoreRequest: void {
 	.permits?: int
@@ -80,6 +82,8 @@ Type documentation: no documentation provided
 
 
 <h4>Response type</h4>
+
+Type: bool
 
 Type documentation: no documentation provided 
 
@@ -106,6 +110,8 @@ Invocation template:
 
 <h4 id="SemaphoreRequest">Request type</h4>
 
+Type: bool
+
 Type documentation: no documentation provided 
 <pre>type SemaphoreRequest: void {
 	.permits?: int
@@ -114,6 +120,8 @@ Type documentation: no documentation provided
 
 
 <h4>Response type</h4>
+
+Type: bool
 
 Type documentation: no documentation provided 
 

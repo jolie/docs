@@ -178,6 +178,8 @@ Invocation template:
 
 <h4 id="ScheduleTimeOutRequest">Request type</h4>
 
+Type: long
+
 Type documentation: no documentation provided 
 <pre>type ScheduleTimeOutRequest: int {
 	.message?: undefined
@@ -187,6 +189,8 @@ Type documentation: no documentation provided
 
 
 <h4>Response type</h4>
+
+Type: long
 
 Type documentation: no documentation provided 
 
@@ -219,6 +223,8 @@ Invocation template:
 
 <h4 id="DateValuesRequestType">Request type</h4>
 
+Type: DateValuesType
+
 Type documentation: no documentation provided 
 <pre>type DateValuesRequestType: string {
 	.format?: string
@@ -226,6 +232,8 @@ Type documentation: no documentation provided
 
 
 <h4 id="DateValuesType">Response type</h4>
+
+Type: DateValuesType
 
 Type documentation: no documentation provided 
 <pre>type DateValuesType: void {
@@ -260,6 +268,8 @@ Invocation template:
 
 <h4 id="GetDateTimeRequest">Request type</h4>
 
+Type: GetDateTimeResponse
+
 Type documentation: no documentation provided 
 <pre>type GetDateTimeRequest: long {
 	.format?: string
@@ -267,6 +277,8 @@ Type documentation: no documentation provided
 
 
 <h4 id="GetDateTimeResponse">Response type</h4>
+
+Type: GetDateTimeResponse
 
 Type documentation: no documentation provided 
 <pre>type GetDateTimeResponse: string {
@@ -296,11 +308,15 @@ Invocation template:
 
 <h4>Request type</h4>
 
+Type: long
+
 Type documentation: no documentation provided 
 
 
 
 <h4>Response type</h4>
+
+Type: long
 
 Type documentation: no documentation provided 
 
@@ -319,6 +335,8 @@ Invocation template:
 
 <h4 id="DiffDateRequestType">Request type</h4>
 
+Type: int
+
 Type documentation: no documentation provided 
 <pre>type DiffDateRequestType: void {
 	.format?: string
@@ -328,6 +346,8 @@ Type documentation: no documentation provided
 
 
 <h4>Response type</h4>
+
+Type: int
 
 Type documentation: no documentation provided 
 
@@ -346,6 +366,8 @@ Invocation template:
 
 <h4 id="GetTimeDiffRequest">Request type</h4>
 
+Type: int
+
 Type documentation: no documentation provided 
 <pre>type GetTimeDiffRequest: void {
 	.time1: string
@@ -354,6 +376,8 @@ Type documentation: no documentation provided
 
 
 <h4>Response type</h4>
+
+Type: int
 
 Type documentation: no documentation provided 
 
@@ -372,6 +396,8 @@ Invocation template:
 
 <h4 id="GetTimestampFromStringRequest">Request type</h4>
 
+Type: long
+
 Type documentation: no documentation provided 
 <pre>type GetTimestampFromStringRequest: string {
 	.format?: string
@@ -380,6 +406,8 @@ Type documentation: no documentation provided
 
 
 <h4>Response type</h4>
+
+Type: long
 
 Type documentation: no documentation provided 
 
@@ -410,11 +438,15 @@ Invocation template:
 
 <h4>Request type</h4>
 
+Type: bool
+
 Type documentation: no documentation provided 
 
 
 
 <h4>Response type</h4>
+
+Type: bool
 
 Type documentation: no documentation provided 
 
@@ -433,6 +465,8 @@ Invocation template:
 
 <h4>Request type</h4>
 
+Type: 
+
 Type documentation: no documentation provided 
 
 
@@ -450,6 +484,8 @@ Invocation template:
 
 <h4 id="CurrentDateTimeRequestType">Request type</h4>
 
+Type: string
+
 Type documentation: no documentation provided 
 <pre>type CurrentDateTimeRequestType: void {
 	.format?: string
@@ -457,6 +493,8 @@ Type documentation: no documentation provided
 
 
 <h4>Response type</h4>
+
+Type: string
 
 Type documentation: no documentation provided 
 
@@ -475,11 +513,15 @@ Invocation template:
 
 <h4>Request type</h4>
 
+Type: undefined
+
 Type documentation: no documentation provided 
 
 
 
 <h4>Response type</h4>
+
+Type: undefined
 
 Type documentation: no documentation provided 
 
@@ -504,6 +546,8 @@ Invocation template:
 
 <h4 id="SetNextTimeOutRequest">Request type</h4>
 
+Type: 
+
 Type documentation: no documentation provided 
 <pre>type SetNextTimeOutRequest: int {
 	.message?: undefined
@@ -524,11 +568,15 @@ Invocation template:
 
 <h4>Request type</h4>
 
+Type: TimeValuesType
+
 Type documentation: no documentation provided 
 
 
 
 <h4 id="TimeValuesType">Response type</h4>
+
+Type: TimeValuesType
 
 Type documentation: no documentation provided 
 <pre>type TimeValuesType: void {
@@ -551,6 +599,8 @@ Invocation template:
 
 <h4 id="GetTimestampFromStringRequest">Request type</h4>
 
+Type: DateTimeType
+
 Type documentation: no documentation provided 
 <pre>type GetTimestampFromStringRequest: string {
 	.format?: string
@@ -559,6 +609,8 @@ Type documentation: no documentation provided
 
 
 <h4 id="DateTimeType">Response type</h4>
+
+Type: DateTimeType
 
 Type documentation: no documentation provided 
 <pre>type DateTimeType: void {
@@ -592,6 +644,8 @@ Invocation template:
 
 <h4>Request type</h4>
 
+Type: 
+
 Type documentation: no documentation provided 
 
 
@@ -613,11 +667,15 @@ Invocation template:
 
 <h4>Request type</h4>
 
+Type: DateValuesType
+
 Type documentation: no documentation provided 
 
 
 
 <h4 id="DateValuesType">Response type</h4>
+
+Type: DateValuesType
 
 Type documentation: no documentation provided 
 <pre>type DateValuesType: void {
@@ -640,11 +698,15 @@ Invocation template:
 
 <h4>Request type</h4>
 
+Type: TimeValuesType
+
 Type documentation: no documentation provided 
 
 
 
 <h4 id="TimeValuesType">Response type</h4>
+
+Type: TimeValuesType
 
 Type documentation: no documentation provided 
 <pre>type TimeValuesType: void {

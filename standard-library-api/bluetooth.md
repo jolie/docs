@@ -65,11 +65,15 @@ Invocation template:
 
 <h4>Request type</h4>
 
+Type: BluetoothInquiryResponse
+
 Type documentation: no documentation provided 
 
 
 
 <h4 id="BluetoothInquiryResponse">Response type</h4>
+
+Type: BluetoothInquiryResponse
 
 Type documentation: no documentation provided 
 <pre>type BluetoothInquiryResponse: void {
@@ -101,11 +105,15 @@ Invocation template:
 
 <h4>Request type</h4>
 
+Type: int
+
 Type documentation: no documentation provided 
 
 
 
 <h4>Response type</h4>
+
+Type: int
 
 Type documentation: no documentation provided 
 

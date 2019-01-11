@@ -65,6 +65,8 @@ Invocation template:
 
 <h4 id="SecureRandomRequest">Request type</h4>
 
+Type: raw
+
 Type documentation: no documentation provided 
 <pre>type SecureRandomRequest: void {
 	.size: int
@@ -72,6 +74,8 @@ Type documentation: no documentation provided
 
 
 <h4>Response type</h4>
+
+Type: raw
 
 Type documentation: no documentation provided 
 
@@ -90,11 +94,15 @@ Invocation template:
 
 <h4>Request type</h4>
 
+Type: string
+
 Type documentation: no documentation provided 
 
 
 
 <h4>Response type</h4>
+
+Type: string
 
 Type documentation: no documentation provided 
 

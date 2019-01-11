@@ -64,6 +64,8 @@ Invocation template:
 
 <h4>Request type</h4>
 
+Type: 
+
 Type documentation: no documentation provided 
 
 
@@ -109,6 +111,8 @@ Invocation template:
 <pre>pushEvent@Monitor( request )</pre>
 
 <h4>Request type</h4>
+
+Type: 
 
 Type documentation: no documentation provided 
 
@@ -162,11 +166,15 @@ Invocation template:
 
 <h4>Request type</h4>
 
+Type: FlushResponse
+
 Type documentation: no documentation provided 
 
 
 
 <h4 id="FlushResponse">Response type</h4>
+
+Type: FlushResponse
 
 Type documentation: no documentation provided 
 <pre>type FlushResponse: void {
@@ -187,6 +195,8 @@ Invocation template:
 
 <h4 id="SetStandardMonitorRequest">Request type</h4>
 
+Type: void
+
 Type documentation: no documentation provided 
 <pre>type SetStandardMonitorRequest: void {
 	.queueMax?: int
@@ -196,6 +206,8 @@ Type documentation: no documentation provided
 
 
 <h4>Response type</h4>
+
+Type: void
 
 Type documentation: no documentation provided 
 

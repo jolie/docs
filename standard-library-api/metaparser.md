@@ -121,6 +121,8 @@ Invocation template:
 
 <h4 id="Participant">Request type</h4>
 
+Type: string
+
 Type documentation: no documentation provided 
 <pre>type Participant: void {
 	.protocol: string
@@ -131,6 +133,8 @@ Type documentation: no documentation provided
 
 
 <h4>Response type</h4>
+
+Type: string
 
 Type documentation: no documentation provided 
 
@@ -148,6 +152,8 @@ Invocation template:
 <pre>getNativeType@Parser( request )( response )</pre>
 
 <h4 id="NativeType">Request type</h4>
+
+Type: string
 
 Type documentation: no documentation provided 
 <pre>type NativeType: void {
@@ -168,6 +174,8 @@ Type documentation: no documentation provided
 
 <h4>Response type</h4>
 
+Type: string
+
 Type documentation: no documentation provided 
 
 
@@ -185,6 +193,8 @@ Invocation template:
 
 <h4 id="Interface">Request type</h4>
 
+Type: string
+
 Type documentation: no documentation provided 
 <pre>type Interface: void {
 	.types*: Type
@@ -194,6 +204,8 @@ Type documentation: no documentation provided
 
 
 <h4>Response type</h4>
+
+Type: string
 
 Type documentation: no documentation provided 
 
@@ -212,6 +224,8 @@ Invocation template:
 
 <h4 id="Type">Request type</h4>
 
+Type: string
+
 Type documentation: no documentation provided 
 <pre>type Type: void {
 	.root_type: NativeType
@@ -221,6 +235,8 @@ Type documentation: no documentation provided
 
 
 <h4>Response type</h4>
+
+Type: string
 
 Type documentation: no documentation provided 
 
@@ -239,6 +255,8 @@ Invocation template:
 
 <h4 id="Participant">Request type</h4>
 
+Type: string
+
 Type documentation: no documentation provided 
 <pre>type Participant: void {
 	.protocol: string
@@ -249,6 +267,8 @@ Type documentation: no documentation provided
 
 
 <h4>Response type</h4>
+
+Type: string
 
 Type documentation: no documentation provided 
 
@@ -267,6 +287,8 @@ Invocation template:
 
 <h4 id="Type">Request type</h4>
 
+Type: string
+
 Type documentation: no documentation provided 
 <pre>type Type: void {
 	.root_type: NativeType
@@ -276,6 +298,8 @@ Type documentation: no documentation provided
 
 
 <h4>Response type</h4>
+
+Type: string
 
 Type documentation: no documentation provided 
 
@@ -294,6 +318,8 @@ Invocation template:
 
 <h4 id="Participant">Request type</h4>
 
+Type: string
+
 Type documentation: no documentation provided 
 <pre>type Participant: void {
 	.protocol: string
@@ -304,6 +330,8 @@ Type documentation: no documentation provided
 
 
 <h4>Response type</h4>
+
+Type: string
 
 Type documentation: no documentation provided 
 
@@ -322,6 +350,8 @@ Invocation template:
 
 <h4 id="SubType">Request type</h4>
 
+Type: string
+
 Type documentation: no documentation provided 
 <pre>type SubType: void {
 	.type_inline?: Type
@@ -332,6 +362,8 @@ Type documentation: no documentation provided
 
 
 <h4>Response type</h4>
+
+Type: string
 
 Type documentation: no documentation provided 
 
@@ -350,6 +382,8 @@ Invocation template:
 
 <h4 id="Participant">Request type</h4>
 
+Type: string
+
 Type documentation: no documentation provided 
 <pre>type Participant: void {
 	.protocol: string
@@ -360,6 +394,8 @@ Type documentation: no documentation provided
 
 
 <h4>Response type</h4>
+
+Type: string
 
 Type documentation: no documentation provided 
 
@@ -378,6 +414,8 @@ Invocation template:
 
 <h4 id="Cardinality">Request type</h4>
 
+Type: string
+
 Type documentation: no documentation provided 
 <pre>type Cardinality: void {
 	.min: int
@@ -387,6 +425,8 @@ Type documentation: no documentation provided
 
 
 <h4>Response type</h4>
+
+Type: string
 
 Type documentation: no documentation provided 
 

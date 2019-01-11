@@ -64,6 +64,8 @@ Invocation template:
 
 <h4 id="InRequest">Request type</h4>
 
+Type: 
+
 Type documentation: no documentation provided 
 <pre>type InRequest: string {
 	.token?: string
@@ -147,11 +149,15 @@ Invocation template:
 
 <h4>Request type</h4>
 
+Type: void
+
 Type documentation: no documentation provided 
 
 
 
 <h4>Response type</h4>
+
+Type: void
 
 Type documentation: no documentation provided 
 
@@ -170,11 +176,15 @@ Invocation template:
 
 <h4>Request type</h4>
 
+Type: void
+
 Type documentation: no documentation provided 
 
 
 
 <h4>Response type</h4>
+
+Type: void
 
 Type documentation: no documentation provided 
 
@@ -198,6 +208,8 @@ Invocation template:
 
 <h4 id="RegisterForInputRequest">Request type</h4>
 
+Type: void
+
 Type documentation: no documentation provided 
 <pre>type RegisterForInputRequest: void {
 	.enableSessionListener?: bool
@@ -205,6 +217,8 @@ Type documentation: no documentation provided
 
 
 <h4>Response type</h4>
+
+Type: void
 
 Type documentation: no documentation provided 
 
@@ -227,6 +241,8 @@ Invocation template:
 
 <h4 id="UnsubscribeSessionListener">Request type</h4>
 
+Type: void
+
 Type documentation: no documentation provided 
 <pre>type UnsubscribeSessionListener: void {
 	.token: string
@@ -234,6 +250,8 @@ Type documentation: no documentation provided
 
 
 <h4>Response type</h4>
+
+Type: void
 
 Type documentation: no documentation provided 
 
@@ -257,6 +275,8 @@ Invocation template:
 
 <h4 id="SubscribeSessionListener">Request type</h4>
 
+Type: void
+
 Type documentation: no documentation provided 
 <pre>type SubscribeSessionListener: void {
 	.token: string
@@ -264,6 +284,8 @@ Type documentation: no documentation provided
 
 
 <h4>Response type</h4>
+
+Type: void
 
 Type documentation: no documentation provided 
 
@@ -287,6 +309,8 @@ Invocation template:
 
 <h4 id="EnableTimestampRequest">Request type</h4>
 
+Type: void
+
 Type documentation: no documentation provided 
 <pre>type EnableTimestampRequest: bool {
 	.format?: string
@@ -294,6 +318,8 @@ Type documentation: no documentation provided
 
 
 <h4>Response type</h4>
+
+Type: void
 
 Type documentation: no documentation provided 
 

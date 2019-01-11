@@ -69,6 +69,8 @@ Invocation template:
 
 <h4 id="ExpandRequest">Request type</h4>
 
+Type: string
+
 Type documentation: no documentation provided 
 <pre>type ExpandRequest: void {
 	.template: string
@@ -77,6 +79,8 @@ Type documentation: no documentation provided
 
 
 <h4>Response type</h4>
+
+Type: string
 
 Type documentation: no documentation provided 
 
@@ -95,6 +99,8 @@ Invocation template:
 
 <h4 id="UriMatchRequest">Request type</h4>
 
+Type: MatchResponse
+
 Type documentation: no documentation provided 
 <pre>type UriMatchRequest: void {
 	.template: string
@@ -103,6 +109,8 @@ Type documentation: no documentation provided
 
 
 <h4 id="MatchResponse">Response type</h4>
+
+Type: MatchResponse
 
 Type documentation: no documentation provided 
 <pre>type MatchResponse: undefined</pre>

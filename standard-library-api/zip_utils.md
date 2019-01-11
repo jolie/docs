@@ -82,11 +82,15 @@ Invocation template:
 
 <h4 id="ZipRequest">Request type</h4>
 
+Type: raw
+
 Type documentation: no documentation provided 
 <pre>type ZipRequest: undefined</pre>
 
 
 <h4>Response type</h4>
+
+Type: raw
 
 Type documentation: no documentation provided 
 
@@ -113,11 +117,15 @@ Invocation template:
 
 <h4>Request type</h4>
 
+Type: undefined
+
 Type documentation: no documentation provided 
 
 
 
 <h4>Response type</h4>
+
+Type: undefined
 
 Type documentation: no documentation provided 
 
@@ -136,6 +144,8 @@ Invocation template:
 
 <h4 id="UnzipRequest">Request type</h4>
 
+Type: UnzipResponse
+
 Type documentation: no documentation provided 
 <pre>type UnzipRequest: void {
 	.filename: string
@@ -144,6 +154,8 @@ Type documentation: no documentation provided
 
 
 <h4 id="UnzipResponse">Response type</h4>
+
+Type: UnzipResponse
 
 Type documentation: no documentation provided 
 <pre>type UnzipResponse: void {
@@ -172,6 +184,8 @@ Invocation template:
 
 <h4 id="ReadEntryRequest">Request type</h4>
 
+Type: any
+
 Type documentation: no documentation provided 
 <pre>type ReadEntryRequest: void {
 	.entry: string
@@ -180,6 +194,8 @@ Type documentation: no documentation provided
 
 
 <h4>Response type</h4>
+
+Type: any
 
 Type documentation: no documentation provided 
 

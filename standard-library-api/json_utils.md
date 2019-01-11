@@ -73,11 +73,15 @@ Invocation template:
 
 <h4 id="GetJsonStringRequest">Request type</h4>
 
+Type: GetJsonStringResponse
+
 Type documentation: no documentation provided 
 <pre>type GetJsonStringRequest: undefined</pre>
 
 
 <h4 id="GetJsonStringResponse">Response type</h4>
+
+Type: GetJsonStringResponse
 
 Type documentation: no documentation provided 
 <pre>type GetJsonStringResponse: string</pre>
@@ -110,6 +114,8 @@ Invocation template:
 
 <h4 id="GetJsonValueRequest">Request type</h4>
 
+Type: GetJsonValueResponse
+
 Type documentation: no documentation provided 
 <pre>type GetJsonValueRequest: any {
 	.strictEncoding?: bool
@@ -118,6 +124,8 @@ Type documentation: no documentation provided
 
 
 <h4 id="GetJsonValueResponse">Response type</h4>
+
+Type: GetJsonValueResponse
 
 Type documentation: no documentation provided 
 <pre>type GetJsonValueResponse: undefined</pre>

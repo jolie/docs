@@ -208,11 +208,15 @@ Invocation template:
 
 <h4>Request type</h4>
 
+Type: raw
+
 Type documentation: no documentation provided 
 
 
 
 <h4>Response type</h4>
+
+Type: raw
 
 Type documentation: no documentation provided 
 
@@ -239,11 +243,15 @@ Invocation template:
 
 <h4>Request type</h4>
 
+Type: string
+
 Type documentation: no documentation provided 
 
 
 
 <h4>Response type</h4>
+
+Type: string
 
 Type documentation: no documentation provided 
 
@@ -272,11 +280,15 @@ Invocation template:
 
 <h4>Request type</h4>
 
+Type: string
+
 Type documentation: no documentation provided 
 
 
 
 <h4>Response type</h4>
+
+Type: string
 
 Type documentation: no documentation provided 
 
@@ -301,11 +313,15 @@ Invocation template:
 
 <h4>Request type</h4>
 
+Type: string
+
 Type documentation: no documentation provided 
 
 
 
 <h4>Response type</h4>
+
+Type: string
 
 Type documentation: no documentation provided 
 
@@ -340,11 +356,15 @@ Invocation template:
 
 <h4>Request type</h4>
 
+Type: string
+
 Type documentation: no documentation provided 
 
 
 
 <h4>Response type</h4>
+
+Type: string
 
 Type documentation: no documentation provided 
 
@@ -373,6 +393,8 @@ Invocation template:
 
 <h4 id="ListRequest">Request type</h4>
 
+Type: ListResponse
+
 Type documentation: no documentation provided 
 <pre>type ListRequest: void {
 	.regex?: string
@@ -386,6 +408,8 @@ Type documentation: no documentation provided
 
 
 <h4 id="ListResponse">Response type</h4>
+
+Type: ListResponse
 
 Type documentation: no documentation provided 
 <pre>type ListResponse: void {
@@ -418,6 +442,8 @@ Invocation template:
 
 <h4 id="CopyDirRequest">Request type</h4>
 
+Type: bool
+
 Type documentation: no documentation provided 
 <pre>type CopyDirRequest: void {
 	.from: string
@@ -426,6 +452,8 @@ Type documentation: no documentation provided
 
 
 <h4>Response type</h4>
+
+Type: bool
 
 Type documentation: no documentation provided 
 
@@ -460,6 +488,8 @@ Invocation template:
 
 <h4 id="DeleteRequest">Request type</h4>
 
+Type: bool
+
 Type documentation: no documentation provided 
 <pre>type DeleteRequest: string {
 	.isRegex?: int
@@ -467,6 +497,8 @@ Type documentation: no documentation provided
 
 
 <h4>Response type</h4>
+
+Type: bool
 
 Type documentation: no documentation provided 
 
@@ -504,11 +536,15 @@ Invocation template:
 
 <h4>Request type</h4>
 
+Type: int
+
 Type documentation: no documentation provided 
 
 
 
 <h4>Response type</h4>
+
+Type: int
 
 Type documentation: no documentation provided 
 
@@ -527,11 +563,15 @@ Invocation template:
 
 <h4>Request type</h4>
 
+Type: string
+
 Type documentation: no documentation provided 
 
 
 
 <h4>Response type</h4>
+
+Type: string
 
 Type documentation: no documentation provided 
 
@@ -550,6 +590,8 @@ Invocation template:
 
 <h4 id="RenameRequest">Request type</h4>
 
+Type: void
+
 Type documentation: no documentation provided 
 <pre>type RenameRequest: void {
 	.filename: string
@@ -558,6 +600,8 @@ Type documentation: no documentation provided
 
 
 <h4>Response type</h4>
+
+Type: void
 
 Type documentation: no documentation provided 
 
@@ -602,6 +646,8 @@ Invocation template:
 
 <h4 id="ReadFileRequest">Request type</h4>
 
+Type: undefined
+
 Type documentation: no documentation provided 
 <pre>type ReadFileRequest: void {
 	.filename: string
@@ -613,6 +659,8 @@ Type documentation: no documentation provided
 
 
 <h4>Response type</h4>
+
+Type: undefined
 
 Type documentation: no documentation provided 
 
@@ -651,11 +699,15 @@ Invocation template:
 
 <h4>Request type</h4>
 
+Type: bool
+
 Type documentation: no documentation provided 
 
 
 
 <h4>Response type</h4>
+
+Type: bool
 
 Type documentation: no documentation provided 
 
@@ -674,11 +726,15 @@ Invocation template:
 
 <h4>Request type</h4>
 
+Type: void
+
 Type documentation: no documentation provided 
 
 
 
 <h4>Response type</h4>
+
+Type: void
 
 Type documentation: no documentation provided 
 
@@ -709,11 +765,15 @@ Invocation template:
 
 <h4>Request type</h4>
 
+Type: bool
+
 Type documentation: no documentation provided 
 
 
 
 <h4>Response type</h4>
+
+Type: bool
 
 Type documentation: no documentation provided 
 
@@ -740,11 +800,15 @@ Invocation template:
 
 <h4>Request type</h4>
 
+Type: string
+
 Type documentation: no documentation provided 
 
 
 
 <h4>Response type</h4>
+
+Type: string
 
 Type documentation: no documentation provided 
 
@@ -792,6 +856,8 @@ Invocation template:
 
 <h4 id="WriteFileRequest">Request type</h4>
 
+Type: void
+
 Type documentation: no documentation provided 
 <pre>type WriteFileRequest: void {
 	.filename: string
@@ -807,6 +873,8 @@ Type documentation: no documentation provided
 
 
 <h4>Response type</h4>
+
+Type: void
 
 Type documentation: no documentation provided 
 
@@ -847,11 +915,15 @@ Invocation template:
 
 <h4>Request type</h4>
 
+Type: bool
+
 Type documentation: no documentation provided 
 
 
 
 <h4>Response type</h4>
+
+Type: bool
 
 Type documentation: no documentation provided 
 
@@ -874,11 +946,15 @@ Invocation template:
 
 <h4>Request type</h4>
 
+Type: bool
+
 Type documentation: no documentation provided 
 
 
 
 <h4>Response type</h4>
+
+Type: bool
 
 Type documentation: no documentation provided 
 

@@ -65,11 +65,15 @@ Invocation template:
 
 <h4>Request type</h4>
 
+Type: string
+
 Type documentation: no documentation provided 
 
 
 
 <h4>Response type</h4>
+
+Type: string
 
 Type documentation: no documentation provided 
 
@@ -88,11 +92,15 @@ Invocation template:
 
 <h4>Request type</h4>
 
+Type: string
+
 Type documentation: no documentation provided 
 
 
 
 <h4>Response type</h4>
+
+Type: string
 
 Type documentation: no documentation provided 
 

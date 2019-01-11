@@ -58,6 +58,8 @@ Invocation template:
 
 <h4 id="SchedulerCallBackRequest">Request type</h4>
 
+Type: 
+
 Type documentation: no documentation provided 
 <pre>type SchedulerCallBackRequest: void {
 	.jobName: string

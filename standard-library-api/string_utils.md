@@ -202,6 +202,8 @@ Invocation template:
 
 <h4 id="PadRequest">Request type</h4>
 
+Type: string
+
 Type documentation: no documentation provided 
 <pre>type PadRequest: string {
 	.length: int
@@ -210,6 +212,8 @@ Type documentation: no documentation provided
 
 
 <h4>Response type</h4>
+
+Type: string
 
 Type documentation: no documentation provided 
 
@@ -228,11 +232,15 @@ Invocation template:
 
 <h4>Request type</h4>
 
+Type: string
+
 Type documentation: no documentation provided 
 
 
 
 <h4>Response type</h4>
+
+Type: string
 
 Type documentation: no documentation provided 
 
@@ -251,11 +259,15 @@ Invocation template:
 
 <h4>Request type</h4>
 
+Type: string
+
 Type documentation: no documentation provided 
 
 
 
 <h4>Response type</h4>
+
+Type: string
 
 Type documentation: no documentation provided 
 
@@ -274,11 +286,15 @@ Invocation template:
 
 <h4>Request type</h4>
 
+Type: int
+
 Type documentation: no documentation provided 
 
 
 
 <h4>Response type</h4>
+
+Type: int
 
 Type documentation: no documentation provided 
 
@@ -297,6 +313,8 @@ Invocation template:
 
 <h4 id="MatchRequest">Request type</h4>
 
+Type: MatchResult
+
 Type documentation: no documentation provided 
 <pre>type MatchRequest: string {
 	.regex: string
@@ -304,6 +322,8 @@ Type documentation: no documentation provided
 
 
 <h4 id="MatchResult">Response type</h4>
+
+Type: MatchResult
 
 Type documentation: no documentation provided 
 <pre>type MatchResult: int {
@@ -324,6 +344,8 @@ Invocation template:
 
 <h4 id="ReplaceRequest">Request type</h4>
 
+Type: string
+
 Type documentation: no documentation provided 
 <pre>type ReplaceRequest: string {
 	.regex: string
@@ -332,6 +354,8 @@ Type documentation: no documentation provided
 
 
 <h4>Response type</h4>
+
+Type: string
 
 Type documentation: no documentation provided 
 
@@ -350,6 +374,8 @@ Invocation template:
 
 <h4 id="StringItemList">Request type</h4>
 
+Type: StringItemList
+
 Type documentation: no documentation provided 
 <pre>type StringItemList: void {
 	.item*: string
@@ -357,6 +383,8 @@ Type documentation: no documentation provided
 
 
 <h4 id="StringItemList">Response type</h4>
+
+Type: StringItemList
 
 Type documentation: no documentation provided 
 <pre>type StringItemList: void {
@@ -377,6 +405,8 @@ Invocation template:
 
 <h4 id="ReplaceRequest">Request type</h4>
 
+Type: string
+
 Type documentation: no documentation provided 
 <pre>type ReplaceRequest: string {
 	.regex: string
@@ -385,6 +415,8 @@ Type documentation: no documentation provided
 
 
 <h4>Response type</h4>
+
+Type: string
 
 Type documentation: no documentation provided 
 
@@ -403,6 +435,8 @@ Invocation template:
 
 <h4 id="SubStringRequest">Request type</h4>
 
+Type: string
+
 Type documentation: no documentation provided 
 <pre>type SubStringRequest: string {
 	.end: int
@@ -411,6 +445,8 @@ Type documentation: no documentation provided
 
 
 <h4>Response type</h4>
+
+Type: string
 
 Type documentation: no documentation provided 
 
@@ -433,11 +469,15 @@ Invocation template:
 
 <h4>Request type</h4>
 
+Type: string
+
 Type documentation: no documentation provided 
 
 
 
 <h4>Response type</h4>
+
+Type: string
 
 Type documentation: no documentation provided 
 
@@ -456,6 +496,8 @@ Invocation template:
 
 <h4 id="PadRequest">Request type</h4>
 
+Type: string
+
 Type documentation: no documentation provided 
 <pre>type PadRequest: string {
 	.length: int
@@ -464,6 +506,8 @@ Type documentation: no documentation provided
 
 
 <h4>Response type</h4>
+
+Type: string
 
 Type documentation: no documentation provided 
 
@@ -486,6 +530,8 @@ Invocation template:
 
 <h4 id="ContainsRequest">Request type</h4>
 
+Type: bool
+
 Type documentation: no documentation provided 
 <pre>type ContainsRequest: string {
 	.substring: string
@@ -493,6 +539,8 @@ Type documentation: no documentation provided
 
 
 <h4>Response type</h4>
+
+Type: bool
 
 Type documentation: no documentation provided 
 
@@ -511,6 +559,8 @@ Invocation template:
 
 <h4 id="SplitRequest">Request type</h4>
 
+Type: SplitResult
+
 Type documentation: no documentation provided 
 <pre>type SplitRequest: string {
 	.regex: string
@@ -519,6 +569,8 @@ Type documentation: no documentation provided
 
 
 <h4 id="SplitResult">Response type</h4>
+
+Type: SplitResult
 
 Type documentation: no documentation provided 
 <pre>type SplitResult: void {
@@ -539,6 +591,8 @@ Invocation template:
 
 <h4 id="SplitByLengthRequest">Request type</h4>
 
+Type: SplitResult
+
 Type documentation: no documentation provided 
 <pre>type SplitByLengthRequest: string {
 	.length: int
@@ -546,6 +600,8 @@ Type documentation: no documentation provided
 
 
 <h4 id="SplitResult">Response type</h4>
+
+Type: SplitResult
 
 Type documentation: no documentation provided 
 <pre>type SplitResult: void {
@@ -566,11 +622,15 @@ Invocation template:
 
 <h4>Request type</h4>
 
+Type: string
+
 Type documentation: no documentation provided 
 
 
 
 <h4>Response type</h4>
+
+Type: string
 
 Type documentation: no documentation provided 
 
@@ -589,6 +649,8 @@ Invocation template:
 
 <h4 id="MatchRequest">Request type</h4>
 
+Type: MatchResult
+
 Type documentation: no documentation provided 
 <pre>type MatchRequest: string {
 	.regex: string
@@ -596,6 +658,8 @@ Type documentation: no documentation provided
 
 
 <h4 id="MatchResult">Response type</h4>
+
+Type: MatchResult
 
 Type documentation: no documentation provided 
 <pre>type MatchResult: int {
@@ -620,6 +684,8 @@ Invocation template:
 
 <h4 id="EndsWithRequest">Request type</h4>
 
+Type: bool
+
 Type documentation: no documentation provided 
 <pre>type EndsWithRequest: string {
 	.suffix: string
@@ -627,6 +693,8 @@ Type documentation: no documentation provided
 
 
 <h4>Response type</h4>
+
+Type: bool
 
 Type documentation: no documentation provided 
 
@@ -645,11 +713,15 @@ Invocation template:
 
 <h4>Request type</h4>
 
+Type: string
+
 Type documentation: no documentation provided 
 
 
 
 <h4>Response type</h4>
+
+Type: string
 
 Type documentation: no documentation provided 
 
@@ -668,6 +740,8 @@ Invocation template:
 
 <h4 id="JoinRequest">Request type</h4>
 
+Type: string
+
 Type documentation: no documentation provided 
 <pre>type JoinRequest: void {
 	.piece*: string
@@ -676,6 +750,8 @@ Type documentation: no documentation provided
 
 
 <h4>Response type</h4>
+
+Type: string
 
 Type documentation: no documentation provided 
 
@@ -694,6 +770,8 @@ Invocation template:
 
 <h4 id="IndexOfRequest">Request type</h4>
 
+Type: IndexOfResponse
+
 Type documentation: no documentation provided 
 <pre>type IndexOfRequest: string {
 	.word: string
@@ -701,6 +779,8 @@ Type documentation: no documentation provided
 
 
 <h4 id="IndexOfResponse">Response type</h4>
+
+Type: IndexOfResponse
 
 Type documentation: no documentation provided 
 <pre>type IndexOfResponse: int</pre>
@@ -723,6 +803,8 @@ Invocation template:
 
 <h4 id="StartsWithRequest">Request type</h4>
 
+Type: bool
+
 Type documentation: no documentation provided 
 <pre>type StartsWithRequest: string {
 	.prefix: string
@@ -730,6 +812,8 @@ Type documentation: no documentation provided
 
 
 <h4>Response type</h4>
+
+Type: bool
 
 Type documentation: no documentation provided 
 

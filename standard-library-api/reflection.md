@@ -69,6 +69,8 @@ Invocation template:
 
 <h4 id="InvokeRequest">Request type</h4>
 
+Type: undefined
+
 Type documentation: no documentation provided 
 <pre>type InvokeRequest: void {
 	.outputPort: string
@@ -79,6 +81,8 @@ Type documentation: no documentation provided
 
 
 <h4>Response type</h4>
+
+Type: undefined
 
 Type documentation: no documentation provided 
 

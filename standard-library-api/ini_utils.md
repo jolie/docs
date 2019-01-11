@@ -58,6 +58,8 @@ Invocation template:
 
 <h4 id="parseIniFileRequest">Request type</h4>
 
+Type: IniData
+
 Type documentation: no documentation provided 
 <pre>type parseIniFileRequest: string {
 	.charset?: string
@@ -65,6 +67,8 @@ Type documentation: no documentation provided
 
 
 <h4 id="IniData">Response type</h4>
+
+Type: IniData
 
 Type documentation: no documentation provided 
 <pre>type IniData: undefined</pre>

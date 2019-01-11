@@ -182,11 +182,15 @@ Invocation template:
 
 <h4>Request type</h4>
 
+Type: void
+
 Type documentation: no documentation provided 
 
 
 
 <h4>Response type</h4>
+
+Type: void
 
 Type documentation: no documentation provided 
 
@@ -213,11 +217,15 @@ Invocation template:
 
 <h4>Request type</h4>
 
+Type: void
+
 Type documentation: no documentation provided 
 
 
 
 <h4>Response type</h4>
+
+Type: void
 
 Type documentation: no documentation provided 
 
@@ -236,6 +244,8 @@ Invocation template:
 
 <h4 id="SetRedirectionRequest">Request type</h4>
 
+Type: void
+
 Type documentation: no documentation provided 
 <pre>type SetRedirectionRequest: void {
 	.inputPortName: string
@@ -245,6 +255,8 @@ Type documentation: no documentation provided
 
 
 <h4>Response type</h4>
+
+Type: void
 
 Type documentation: no documentation provided 
 
@@ -275,11 +287,15 @@ Invocation template:
 
 <h4>Request type</h4>
 
+Type: GetOutputPortsResponse
+
 Type documentation: no documentation provided 
 
 
 
 <h4 id="GetOutputPortsResponse">Response type</h4>
+
+Type: GetOutputPortsResponse
 
 Type documentation: no documentation provided 
 <pre>type GetOutputPortsResponse: void {
@@ -304,6 +320,8 @@ Invocation template:
 
 <h4 id="LoadEmbeddedServiceRequest">Request type</h4>
 
+Type: any
+
 Type documentation: no documentation provided 
 <pre>type LoadEmbeddedServiceRequest: void {
 	.filepath: string
@@ -312,6 +330,8 @@ Type documentation: no documentation provided
 
 
 <h4>Response type</h4>
+
+Type: any
 
 Type documentation: no documentation provided 
 
@@ -342,6 +362,8 @@ Invocation template:
 
 <h4 id="GetOutputPortRequest">Request type</h4>
 
+Type: GetOutputPortResponse
+
 Type documentation: no documentation provided 
 <pre>type GetOutputPortRequest: void {
 	.name: string
@@ -349,6 +371,8 @@ Type documentation: no documentation provided
 
 
 <h4 id="GetOutputPortResponse">Response type</h4>
+
+Type: GetOutputPortResponse
 
 Type documentation: no documentation provided 
 <pre>type GetOutputPortResponse: void {
@@ -379,11 +403,15 @@ Invocation template:
 
 <h4>Request type</h4>
 
+Type: string
+
 Type documentation: no documentation provided 
 
 
 
 <h4>Response type</h4>
+
+Type: string
 
 Type documentation: no documentation provided 
 
@@ -402,11 +430,15 @@ Invocation template:
 
 <h4>Request type</h4>
 
+Type: any
+
 Type documentation: no documentation provided 
 
 
 
 <h4>Response type</h4>
+
+Type: any
 
 Type documentation: no documentation provided 
 
@@ -425,6 +457,8 @@ Invocation template:
 
 <h4 id="GetRedirectionRequest">Request type</h4>
 
+Type: any
+
 Type documentation: no documentation provided 
 <pre>type GetRedirectionRequest: void {
 	.inputPortName: string
@@ -433,6 +467,8 @@ Type documentation: no documentation provided
 
 
 <h4>Response type</h4>
+
+Type: any
 
 Type documentation: no documentation provided 
 
@@ -451,6 +487,8 @@ Invocation template:
 
 <h4 id="SetOutputPortRequest">Request type</h4>
 
+Type: void
+
 Type documentation: no documentation provided 
 <pre>type SetOutputPortRequest: void {
 	.protocol?: undefined
@@ -460,6 +498,8 @@ Type documentation: no documentation provided
 
 
 <h4>Response type</h4>
+
+Type: void
 
 Type documentation: no documentation provided 
 
@@ -478,6 +518,8 @@ Invocation template:
 
 <h4 id="HaltRequest">Request type</h4>
 
+Type: void
+
 Type documentation: no documentation provided 
 <pre>type HaltRequest: void {
 	.status?: int
@@ -485,6 +527,8 @@ Type documentation: no documentation provided
 
 
 <h4>Response type</h4>
+
+Type: void
 
 Type documentation: no documentation provided 
 
@@ -503,11 +547,15 @@ Invocation template:
 
 <h4>Request type</h4>
 
+Type: void
+
 Type documentation: no documentation provided 
 
 
 
 <h4>Response type</h4>
+
+Type: void
 
 Type documentation: no documentation provided 
 
@@ -530,11 +578,15 @@ Invocation template:
 
 <h4>Request type</h4>
 
+Type: Stats
+
 Type documentation: no documentation provided 
 
 
 
 <h4 id="Stats">Response type</h4>
+
+Type: Stats
 
 Type documentation: no documentation provided 
 <pre>type Stats: void {
@@ -565,6 +617,8 @@ Invocation template:
 
 <h4 id="GetRedirectionRequest">Request type</h4>
 
+Type: void
+
 Type documentation: no documentation provided 
 <pre>type GetRedirectionRequest: void {
 	.inputPortName: string
@@ -573,6 +627,8 @@ Type documentation: no documentation provided
 
 
 <h4>Response type</h4>
+
+Type: void
 
 Type documentation: no documentation provided 
 
@@ -599,6 +655,8 @@ Invocation template:
 
 <h4 id="SetMonitorRequest">Request type</h4>
 
+Type: void
+
 Type documentation: no documentation provided 
 <pre>type SetMonitorRequest: void {
 	.protocol?: undefined
@@ -607,6 +665,8 @@ Type documentation: no documentation provided
 
 
 <h4>Response type</h4>
+
+Type: void
 
 Type documentation: no documentation provided 
 
@@ -625,11 +685,15 @@ Invocation template:
 
 <h4>Request type</h4>
 
+Type: string
+
 Type documentation: no documentation provided 
 
 
 
 <h4>Response type</h4>
+
+Type: string
 
 Type documentation: no documentation provided 
 
@@ -648,11 +712,15 @@ Invocation template:
 
 <h4>Request type</h4>
 
+Type: GetIncludePathResponse
+
 Type documentation: no documentation provided 
 
 
 
 <h4 id="GetIncludePathResponse">Response type</h4>
+
+Type: GetIncludePathResponse
 
 Type documentation: no documentation provided 
 <pre>type GetIncludePathResponse: void {
@@ -675,11 +743,15 @@ Invocation template:
 
 <h4>Request type</h4>
 
+Type: MaybeString
+
 Type documentation: no documentation provided 
 
 
 
 <h4 id="MaybeString">Response type</h4>
+
+Type: MaybeString
 
 Type documentation: no documentation provided 
 <pre>type MaybeString: type MaybeString: void|type MaybeString: string</pre>

@@ -58,6 +58,8 @@ Invocation template:
 
 <h4 id="CommandExecutionRequest">Request type</h4>
 
+Type: CommandExecutionResult
+
 Type documentation: no documentation provided 
 <pre>type CommandExecutionRequest: string {
 	.args*: string
@@ -68,6 +70,8 @@ Type documentation: no documentation provided
 
 
 <h4 id="CommandExecutionResult">Response type</h4>
+
+Type: CommandExecutionResult
 
 Type documentation: no documentation provided 
 <pre>type CommandExecutionResult: any {
