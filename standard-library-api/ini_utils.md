@@ -50,7 +50,7 @@ Inclusion code: <pre>include "ini_utils.iol"</pre>
 
 
 
-<h3 id="parseIniFile">parseIniFile</h4>
+<h3 id="parseIniFile">parseIniFile</h3>
 
 
 

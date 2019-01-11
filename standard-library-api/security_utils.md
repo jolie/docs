@@ -57,7 +57,7 @@ Inclusion code: <pre>include "security_utils.iol"</pre>
 
 
 
-<h3 id="secureRandom">secureRandom</h4>
+<h3 id="secureRandom">secureRandom</h3>
 
 
 
@@ -81,7 +81,7 @@ Type documentation: no documentation provided
 
 
 
-<h3 id="createSecureToken">createSecureToken</h4>
+<h3 id="createSecureToken">createSecureToken</h3>
 
 
 

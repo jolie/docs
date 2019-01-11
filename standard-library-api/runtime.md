@@ -174,7 +174,7 @@ Inclusion code: <pre>include "runtime.iol"</pre>
 
 
 
-<h3 id="loadLibrary">loadLibrary</h4>
+<h3 id="loadLibrary">loadLibrary</h3>
 
 
 
@@ -203,7 +203,7 @@ Fault-handling install template: <code>install ( IOException => /* error-handlin
 
 
 
-<h3 id="removeOutputPort">removeOutputPort</h4>
+<h3 id="removeOutputPort">removeOutputPort</h3>
 
 
 
@@ -225,7 +225,7 @@ Type documentation: no documentation provided
 
 
 
-<h3 id="setRedirection">setRedirection</h4>
+<h3 id="setRedirection">setRedirection</h3>
 
 
 
@@ -258,7 +258,7 @@ Fault-handling install template: <code>install ( RuntimeException => /* error-ha
 
 
 
-<h3 id="getOutputPorts">getOutputPorts</h4>
+<h3 id="getOutputPorts">getOutputPorts</h3>
 Operation documentation: 
 		it returns the list of definitions of all the available outputPorts of the service
 	
@@ -288,7 +288,7 @@ Type documentation: no documentation provided
 
 
 
-<h3 id="loadEmbeddedService">loadEmbeddedService</h4>
+<h3 id="loadEmbeddedService">loadEmbeddedService</h3>
 
 
 
@@ -320,7 +320,7 @@ Fault-handling install template: <code>install ( RuntimeException => /* error-ha
 
 
 
-<h3 id="getOutputPort">getOutputPort</h4>
+<h3 id="getOutputPort">getOutputPort</h3>
 Operation documentation: 
 		it returns a port definition if it exists, OuputPortDoesNotExist fault otherwise
 	
@@ -357,7 +357,7 @@ Fault-handling install template: <code>install ( OutputPortDoesNotExist => /* er
 
 
 
-<h3 id="dumpState">dumpState</h4>
+<h3 id="dumpState">dumpState</h3>
 
 
 
@@ -379,7 +379,7 @@ Type documentation: no documentation provided
 
 
 
-<h3 id="getLocalLocation">getLocalLocation</h4>
+<h3 id="getLocalLocation">getLocalLocation</h3>
 
 
 
@@ -401,7 +401,7 @@ Type documentation: no documentation provided
 
 
 
-<h3 id="getRedirection">getRedirection</h4>
+<h3 id="getRedirection">getRedirection</h3>
 
 
 
@@ -426,7 +426,7 @@ Type documentation: no documentation provided
 
 
 
-<h3 id="setOutputPort">setOutputPort</h4>
+<h3 id="setOutputPort">setOutputPort</h3>
 
 
 
@@ -452,7 +452,7 @@ Type documentation: no documentation provided
 
 
 
-<h3 id="halt">halt</h4>
+<h3 id="halt">halt</h3>
 
 
 
@@ -476,7 +476,7 @@ Type documentation: no documentation provided
 
 
 
-<h3 id="callExit">callExit</h4>
+<h3 id="callExit">callExit</h3>
 
 
 
@@ -498,7 +498,7 @@ Type documentation: no documentation provided
 
 
 
-<h3 id="stats">stats</h4>
+<h3 id="stats">stats</h3>
 Operation documentation: 
 	  Get information about the runtime state of the Jolie interpreter.
 	 
@@ -534,7 +534,7 @@ Type documentation: no documentation provided
 
 
 
-<h3 id="removeRedirection">removeRedirection</h4>
+<h3 id="removeRedirection">removeRedirection</h3>
 
 
 
@@ -566,7 +566,7 @@ Fault-handling install template: <code>install ( RuntimeException => /* error-ha
 
 
 
-<h3 id="setMonitor">setMonitor</h4>
+<h3 id="setMonitor">setMonitor</h3>
 
 
 
@@ -591,7 +591,7 @@ Type documentation: no documentation provided
 
 
 
-<h3 id="getProcessId">getProcessId</h4>
+<h3 id="getProcessId">getProcessId</h3>
 
 
 
@@ -613,7 +613,7 @@ Type documentation: no documentation provided
 
 
 
-<h3 id="getIncludePaths">getIncludePaths</h4>
+<h3 id="getIncludePaths">getIncludePaths</h3>
 
 
 
@@ -637,7 +637,7 @@ Type documentation: no documentation provided
 
 
 
-<h3 id="getenv">getenv</h4>
+<h3 id="getenv">getenv</h3>
 Operation documentation:  Get the value of an environment variable 
 
 
@@ -659,14 +659,14 @@ Type documentation: no documentation provided
 
 
 
-<h4>Subtypes</h4>
+<h3>Subtypes</h3>
 
 
-<h3 id="IOExceptionType">IOExceptionType</h3>
+<h4 id="IOExceptionType">IOExceptionType</h4>
 
 <pre>type IOExceptionType: JavaExceptionType</pre>
 
-<h3 id="RuntimeExceptionType">RuntimeExceptionType</h3>
+<h4 id="RuntimeExceptionType">RuntimeExceptionType</h4>
 
 <pre>type RuntimeExceptionType: JavaExceptionType</pre>
 

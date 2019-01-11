@@ -74,7 +74,7 @@ Inclusion code: <pre>include "zip_utils.iol"</pre>
 
 
 
-<h3 id="zip">zip</h4>
+<h3 id="zip">zip</h3>
 
 
 
@@ -103,7 +103,7 @@ Fault-handling install template: <code>install ( IOException => /* error-handlin
 
 
 
-<h3 id="IOException">IOException</h4>
+<h3 id="IOException">IOException</h3>
 
 
 
@@ -125,7 +125,7 @@ Type documentation: no documentation provided
 
 
 
-<h3 id="unzip">unzip</h4>
+<h3 id="unzip">unzip</h3>
 
 
 
@@ -159,7 +159,7 @@ Fault-handling install template: <code>install ( FileNotFound => /* error-handli
 
 
 
-<h3 id="readEntry">readEntry</h4>
+<h3 id="readEntry">readEntry</h3>
 
 
 
@@ -191,10 +191,10 @@ Fault-handling install template: <code>install ( IOException => /* error-handlin
 
 
 
-<h4>Subtypes</h4>
+<h3>Subtypes</h3>
 
 
-<h3 id="IOExceptionType">IOExceptionType</h3>
+<h4 id="IOExceptionType">IOExceptionType</h4>
 
 <pre>type IOExceptionType: JavaExceptionType</pre>
 

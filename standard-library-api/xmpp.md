@@ -59,7 +59,7 @@ Inclusion code: <pre>include "xmpp.iol"</pre>
 
 
 
-<h3 id="sendMessage">sendMessage</h4>
+<h3 id="sendMessage">sendMessage</h3>
 
 
 
@@ -90,7 +90,7 @@ Fault-handling install template: <code>install ( XMPPException => /* error-handl
 
 
 
-<h3 id="connect">connect</h4>
+<h3 id="connect">connect</h3>
 
 
 

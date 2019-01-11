@@ -198,7 +198,7 @@ to: the target directory to copy into
 
 
 
-<h3 id="convertFromBase64ToBinaryValue">convertFromBase64ToBinaryValue</h4>
+<h3 id="convertFromBase64ToBinaryValue">convertFromBase64ToBinaryValue</h3>
 Operation documentation:  deprecated, please use base64ToRaw@Converter()() from converter.iol 
 
 
@@ -227,7 +227,7 @@ Fault-handling install template: <code>install ( IOException => /* error-handlin
 
 
 
-<h3 id="getMimeType">getMimeType</h4>
+<h3 id="getMimeType">getMimeType</h3>
 
 
 
@@ -256,7 +256,7 @@ Fault-handling install template: <code>install ( FileNotFound => /* error-handli
 
 
 
-<h3 id="convertFromBinaryToBase64Value">convertFromBinaryToBase64Value</h4>
+<h3 id="convertFromBinaryToBase64Value">convertFromBinaryToBase64Value</h3>
 Operation documentation:  deprecated, please use rawToBase64@Converter()() from converter.iol 
 
 
@@ -278,7 +278,7 @@ Type documentation: no documentation provided
 
 
 
-<h3 id="toAbsolutePath">toAbsolutePath</h4>
+<h3 id="toAbsolutePath">toAbsolutePath</h3>
 Operation documentation: 
 	  Constructs an absolute path to the target file or directory.
 	  Can be used to construct an absolute path for new files that does not exist yet.
@@ -313,7 +313,7 @@ Fault-handling install template: <code>install ( InvalidPathException => /* erro
 
 
 
-<h3 id="getParentPath">getParentPath</h4>
+<h3 id="getParentPath">getParentPath</h3>
 Operation documentation: 
 	  Constructs the path to the parent directory.
 	  Can be used to construct paths that does not exist so long as the path uses the system's filesystem path conventions.
@@ -348,7 +348,7 @@ Fault-handling install template: <code>install ( InvalidPathException => /* erro
 
 
 
-<h3 id="list">list</h4>
+<h3 id="list">list</h3>
 
 
 
@@ -388,7 +388,7 @@ Type documentation: no documentation provided
 
 
 
-<h3 id="copyDir">copyDir</h4>
+<h3 id="copyDir">copyDir</h3>
 Operation documentation: 
 	  it copies a source directory into a destination one
 	
@@ -429,7 +429,7 @@ Fault-handling install template: <code>install ( IOException => /* error-handlin
 
 
 
-<h3 id="delete">delete</h4>
+<h3 id="delete">delete</h3>
 
 
 
@@ -460,7 +460,7 @@ Fault-handling install template: <code>install ( IOException => /* error-handlin
 
 
 
-<h3 id="getSize">getSize</h4>
+<h3 id="getSize">getSize</h3>
 Operation documentation: 
 	  The size of any basic type variable.
 	  - raw: buffer size
@@ -491,7 +491,7 @@ Type documentation: no documentation provided
 
 
 
-<h3 id="getFileSeparator">getFileSeparator</h4>
+<h3 id="getFileSeparator">getFileSeparator</h3>
 
 
 
@@ -513,7 +513,7 @@ Type documentation: no documentation provided
 
 
 
-<h3 id="rename">rename</h4>
+<h3 id="rename">rename</h3>
 
 
 
@@ -545,7 +545,7 @@ Fault-handling install template: <code>install ( IOException => /* error-handlin
 
 
 
-<h3 id="readFile">readFile</h4>
+<h3 id="readFile">readFile</h3>
 Operation documentation: 
 	  Reads some file's content into a Jolie structure
 	 
@@ -603,7 +603,7 @@ Fault-handling install template: <code>install ( IOException => /* error-handlin
 
 
 
-<h3 id="exists">exists</h4>
+<h3 id="exists">exists</h3>
 Operation documentation: 
 	 it tests if the specified file or directory exists or not.
 	
@@ -627,7 +627,7 @@ Type documentation: no documentation provided
 
 
 
-<h3 id="setMimeTypeFile">setMimeTypeFile</h4>
+<h3 id="setMimeTypeFile">setMimeTypeFile</h3>
 
 
 
@@ -656,7 +656,7 @@ Fault-handling install template: <code>install ( IOException => /* error-handlin
 
 
 
-<h3 id="deleteDir">deleteDir</h4>
+<h3 id="deleteDir">deleteDir</h3>
 Operation documentation: 
 	   it deletes a directory recursively removing all its contents
 	
@@ -687,7 +687,7 @@ Fault-handling install template: <code>install ( IOException => /* error-handlin
 
 
 
-<h3 id="getServiceDirectory">getServiceDirectory</h4>
+<h3 id="getServiceDirectory">getServiceDirectory</h3>
 
 
 
@@ -716,7 +716,7 @@ Fault-handling install template: <code>install ( IOException => /* error-handlin
 
 
 
-<h3 id="writeFile">writeFile</h4>
+<h3 id="writeFile">writeFile</h3>
 Operation documentation: 
 	  Writes a Jolie structure out to an external file
 	 
@@ -781,7 +781,7 @@ Fault-handling install template: <code>install ( IOException => /* error-handlin
 
 
 
-<h3 id="mkdir">mkdir</h4>
+<h3 id="mkdir">mkdir</h3>
 Operation documentation: 
 	
 	 it creates the directory specified in the request root. Returns true if the directory has been
@@ -807,7 +807,7 @@ Type documentation: no documentation provided
 
 
 
-<h3 id="isDirectory">isDirectory</h4>
+<h3 id="isDirectory">isDirectory</h3>
 Operation documentation: 
 	  it returns if a filename is a directory or not. False if the file does not exist.
 	
@@ -845,14 +845,14 @@ Fault-handling install template: <code>install ( IOException => /* error-handlin
 
 
 
-<h4>Subtypes</h4>
+<h3>Subtypes</h3>
 
 
-<h3 id="IOExceptionType">IOExceptionType</h3>
+<h4 id="IOExceptionType">IOExceptionType</h4>
 
 <pre>type IOExceptionType: JavaExceptionType</pre>
 
-<h3 id="FileNotFoundType">FileNotFoundType</h3>
+<h4 id="FileNotFoundType">FileNotFoundType</h4>
 
 <pre>type FileNotFoundType: WeakJavaExceptionType</pre>
 

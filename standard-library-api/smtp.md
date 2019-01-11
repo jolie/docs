@@ -51,7 +51,7 @@ Inclusion code: <pre>include "smtp.iol"</pre>
 
 
 
-<h3 id="sendMail">sendMail</h4>
+<h3 id="sendMail">sendMail</h3>
 
 
 

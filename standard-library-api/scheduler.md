@@ -65,7 +65,7 @@ Inclusion code: <pre>include "scheduler.iol"</pre>
 
 
 
-<h3 id="setCronJob">setCronJob</h4>
+<h3 id="setCronJob">setCronJob</h3>
 
 
 
@@ -106,7 +106,7 @@ Fault-handling install template: <code>install ( JobAlreadyExists => /* error-ha
 
 
 
-<h3 id="deleteCronJob">deleteCronJob</h4>
+<h3 id="deleteCronJob">deleteCronJob</h3>
 
 
 
@@ -131,7 +131,7 @@ Type documentation: no documentation provided
 
 
 
-<h3 id="setCallbackOperation">setCallbackOperation</h4>
+<h3 id="setCallbackOperation">setCallbackOperation</h3>
 
 
 

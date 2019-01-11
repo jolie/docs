@@ -57,7 +57,7 @@ Inclusion code: <pre>include "html_utils.iol"</pre>
 
 
 
-<h3 id="escapeHTML">escapeHTML</h4>
+<h3 id="escapeHTML">escapeHTML</h3>
 
 
 
@@ -79,7 +79,7 @@ Type documentation: no documentation provided
 
 
 
-<h3 id="unescapeHTML">unescapeHTML</h4>
+<h3 id="unescapeHTML">unescapeHTML</h3>
 
 
 

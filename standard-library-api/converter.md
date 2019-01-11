@@ -74,7 +74,7 @@ Inclusion code: <pre>include "converter.iol"</pre>
 
 
 
-<h3 id="stringToRaw">stringToRaw</h4>
+<h3 id="stringToRaw">stringToRaw</h3>
 
 
 
@@ -105,7 +105,7 @@ Fault-handling install template: <code>install ( IOException => /* error-handlin
 
 
 
-<h3 id="base64ToRaw">base64ToRaw</h4>
+<h3 id="base64ToRaw">base64ToRaw</h3>
 
 
 
@@ -134,7 +134,7 @@ Fault-handling install template: <code>install ( IOException => /* error-handlin
 
 
 
-<h3 id="rawToBase64">rawToBase64</h4>
+<h3 id="rawToBase64">rawToBase64</h3>
 
 
 
@@ -156,7 +156,7 @@ Type documentation: no documentation provided
 
 
 
-<h3 id="rawToString">rawToString</h4>
+<h3 id="rawToString">rawToString</h3>
 
 
 
@@ -187,10 +187,10 @@ Fault-handling install template: <code>install ( IOException => /* error-handlin
 
 
 
-<h4>Subtypes</h4>
+<h3>Subtypes</h3>
 
 
-<h3 id="IOExceptionType">IOExceptionType</h3>
+<h4 id="IOExceptionType">IOExceptionType</h4>
 
 <pre>type IOExceptionType: JavaExceptionType</pre>
 

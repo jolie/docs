@@ -61,7 +61,7 @@ WARNING: the API of this service is experimental. Use it at your own risk.
 
 
 
-<h3 id="expand">expand</h4>
+<h3 id="expand">expand</h3>
 
 
 
@@ -86,7 +86,7 @@ Type documentation: no documentation provided
 
 
 
-<h3 id="match">match</h4>
+<h3 id="match">match</h3>
 
 
 

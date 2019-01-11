@@ -51,7 +51,7 @@ Inclusion code: <pre>include "web_services_utils.iol"</pre>
 
 
 
-<h3 id="wsdlToJolie">wsdlToJolie</h4>
+<h3 id="wsdlToJolie">wsdlToJolie</h3>
 
 
 
@@ -80,10 +80,10 @@ Fault-handling install template: <code>install ( IOException => /* error-handlin
 
 
 
-<h4>Subtypes</h4>
+<h3>Subtypes</h3>
 
 
-<h3 id="IOExceptionType">IOExceptionType</h3>
+<h4 id="IOExceptionType">IOExceptionType</h4>
 
 <pre>type IOExceptionType: JavaExceptionType</pre>
 

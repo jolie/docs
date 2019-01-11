@@ -56,7 +56,7 @@ Inclusion code: <pre>include "monitors/standard_monitor.iol"</pre>
 
 
 
-<h3 id="monitorAlert">monitorAlert</h4>
+<h3 id="monitorAlert">monitorAlert</h3>
 
 
 
@@ -103,7 +103,7 @@ Type documentation: no documentation provided
 
 
 
-<h3 id="pushEvent">pushEvent</h4>
+<h3 id="pushEvent">pushEvent</h3>
 
 
 
@@ -156,7 +156,7 @@ Type documentation: no documentation provided
 
 
 
-<h3 id="flush">flush</h4>
+<h3 id="flush">flush</h3>
 
 
 
@@ -180,7 +180,7 @@ Type documentation: no documentation provided
 
 
 
-<h3 id="setMonitor">setMonitor</h4>
+<h3 id="setMonitor">setMonitor</h3>
 
 
 

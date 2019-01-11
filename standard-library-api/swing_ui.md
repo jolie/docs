@@ -64,7 +64,7 @@ Inclusion code: <pre>include "ui/swing_ui.iol"</pre>
 
 
 
-<h3 id="showMessageDialog">showMessageDialog</h4>
+<h3 id="showMessageDialog">showMessageDialog</h3>
 
 
 
@@ -86,7 +86,7 @@ Type documentation: no documentation provided
 
 
 
-<h3 id="showYesNoQuestionDialog">showYesNoQuestionDialog</h4>
+<h3 id="showYesNoQuestionDialog">showYesNoQuestionDialog</h3>
 
 
 
@@ -108,7 +108,7 @@ Type documentation: no documentation provided
 
 
 
-<h3 id="showInputDialog">showInputDialog</h4>
+<h3 id="showInputDialog">showInputDialog</h3>
 
 
 

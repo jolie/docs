@@ -88,7 +88,7 @@ WARNING: the API of this service is experimental. Use it at your own risk.
 
 
 
-<h3 id="getInputPortMetaData">getInputPortMetaData</h4>
+<h3 id="getInputPortMetaData">getInputPortMetaData</h3>
 
 
 
@@ -146,7 +146,7 @@ Fault-handling install template: <code>install ( SemanticException => /* error-h
 
 
 
-<h3 id="parseRoles">parseRoles</h4>
+<h3 id="parseRoles">parseRoles</h3>
 
 
 
@@ -176,7 +176,7 @@ Type documentation: no documentation provided
 
 
 
-<h3 id="getMetaData">getMetaData</h4>
+<h3 id="getMetaData">getMetaData</h3>
 
 
 
@@ -236,7 +236,7 @@ Fault-handling install template: <code>install ( SemanticException => /* error-h
 
 
 
-<h3 id="messageTypeCast">messageTypeCast</h4>
+<h3 id="messageTypeCast">messageTypeCast</h3>
 
 
 
@@ -273,7 +273,7 @@ Fault-handling install template: <code>install ( TypeMismatch => /* error-handli
 
 
 
-<h3 id="checkNativeType">checkNativeType</h4>
+<h3 id="checkNativeType">checkNativeType</h3>
 
 
 

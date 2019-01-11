@@ -68,7 +68,7 @@ Inclusion code: <pre>include "xml_utils.iol"</pre>
 
 
 
-<h3 id="xmlToValue">xmlToValue</h4>
+<h3 id="xmlToValue">xmlToValue</h3>
 Operation documentation: 
 		  Transforms the base value in XML format (data types string, raw) into a Jolie value
 		 
@@ -111,7 +111,7 @@ Fault-handling install template: <code>install ( IOException => /* error-handlin
 
 
 
-<h3 id="transform">transform</h4>
+<h3 id="transform">transform</h3>
 
 
 
@@ -145,7 +145,7 @@ Fault-handling install template: <code>install ( TransformerException => /* erro
 
 
 
-<h3 id="valueToXml">valueToXml</h4>
+<h3 id="valueToXml">valueToXml</h3>
 Operation documentation: 
 		  Transforms the value contained within the root node into an xml string.
 		 
@@ -197,10 +197,10 @@ Fault-handling install template: <code>install ( IllegalArgumentException => /* 
 
 
 
-<h4>Subtypes</h4>
+<h3>Subtypes</h3>
 
 
-<h3 id="IOExceptionType">IOExceptionType</h3>
+<h4 id="IOExceptionType">IOExceptionType</h4>
 
 <pre>type IOExceptionType: JavaExceptionType</pre>
 

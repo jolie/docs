@@ -50,7 +50,7 @@ Inclusion code: <pre>include "scheduler/callback_default.iol"</pre>
 
 
 
-<h3 id="schedulerCallback">schedulerCallback</h4>
+<h3 id="schedulerCallback">schedulerCallback</h3>
 
 
 

@@ -59,7 +59,7 @@ Inclusion code: <pre>include "json_utils.iol"</pre>
 
 
 
-<h3 id="getJsonString">getJsonString</h4>
+<h3 id="getJsonString">getJsonString</h3>
 Operation documentation: 
 	  Returns the value converted into a JSON string
 	 
@@ -92,7 +92,7 @@ Fault-handling install template: <code>install ( JSONCreationError => /* error-h
 
 
 
-<h3 id="getJsonValue">getJsonValue</h4>
+<h3 id="getJsonValue">getJsonValue</h3>
 Operation documentation: 
 	  Returns the JSON string converted into a value
 	 
@@ -128,14 +128,14 @@ Fault-handling install template: <code>install ( JSONCreationError => /* error-h
 
 
 
-<h4>Subtypes</h4>
+<h3>Subtypes</h3>
 
 
-<h3 id="GetJsonStringRequest">GetJsonStringRequest</h3>
+<h4 id="GetJsonStringRequest">GetJsonStringRequest</h4>
 
 <pre>type GetJsonStringRequest: undefined</pre>
 
-<h3 id="GetJsonValueResponse">GetJsonValueResponse</h3>
+<h4 id="GetJsonValueResponse">GetJsonValueResponse</h4>
 
 <pre>type GetJsonValueResponse: undefined</pre>
 
