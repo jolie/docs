@@ -1,6 +1,6 @@
 # Include library: xmpp.iol
 
-Inclusion code: <code>include "xmpp.iol"</code>
+Inclusion code: <pre>include "xmpp.iol"</pre>
 
 <table>
   <caption>Service Deployment</caption>
@@ -62,7 +62,8 @@ Inclusion code: <code>include "xmpp.iol"</code>
 <h4 id="sendMessage">sendMessage</h4>
 
 
-Invocation template: <code>sendMessage@XMPP( request )( response )</code>
+
+Invocation template: <pre>sendMessage@XMPP( request )( response )</pre>
 
 <h4 id="SendMessageRequest">Request type</h4>
 
@@ -90,7 +91,8 @@ Fault-handling install template: <code>install ( XMPPException => /* error-handl
 <h4 id="connect">connect</h4>
 
 
-Invocation template: <code>connect@XMPP( request )( response )</code>
+
+Invocation template: <pre>connect@XMPP( request )( response )</pre>
 
 <h4 id="ConnectionRequest">Request type</h4>
 

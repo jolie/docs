@@ -1,6 +1,6 @@
 # Include library: scheduler.iol
 
-Inclusion code: <code>include "scheduler.iol"</code>
+Inclusion code: <pre>include "scheduler.iol"</pre>
 
 <table>
   <caption>Service Deployment</caption>
@@ -68,7 +68,8 @@ Inclusion code: <code>include "scheduler.iol"</code>
 <h4 id="setCronJob">setCronJob</h4>
 
 
-Invocation template: <code>setCronJob@Scheduler( request )( response )</code>
+
+Invocation template: <pre>setCronJob@Scheduler( request )( response )</pre>
 
 <h4 id="SetCronJobRequest">Request type</h4>
 
@@ -106,7 +107,8 @@ Fault-handling install template: <code>install ( JobAlreadyExists => /* error-ha
 <h4 id="deleteCronJob">deleteCronJob</h4>
 
 
-Invocation template: <code>deleteCronJob@Scheduler( request )( response )</code>
+
+Invocation template: <pre>deleteCronJob@Scheduler( request )( response )</pre>
 
 <h4 id="DeleteCronJobRequest">Request type</h4>
 
@@ -129,7 +131,8 @@ Type documentation: no documentation provided
 <h4 id="setCallbackOperation">setCallbackOperation</h4>
 
 
-Invocation template: <code>setCallbackOperation@Scheduler( request )</code>
+
+Invocation template: <pre>setCallbackOperation@Scheduler( request )</pre>
 
 <h4 id="SetCallBackOperationRequest">Request type</h4>
 

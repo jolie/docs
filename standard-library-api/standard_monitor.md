@@ -1,6 +1,6 @@
 # Include library: monitors/standard_monitor.iol
 
-Inclusion code: <code>include "monitors/standard_monitor.iol"</code>
+Inclusion code: <pre>include "monitors/standard_monitor.iol"</pre>
 
 <table>
   <caption>Service Deployment</caption>
@@ -59,7 +59,8 @@ Inclusion code: <code>include "monitors/standard_monitor.iol"</code>
 <h4 id="monitorAlert">monitorAlert</h4>
 
 
-Invocation template: <code>monitorAlert( request )</code>
+
+Invocation template: <pre>monitorAlert( request )</pre>
 
 <h4>Request type</h4>
 
@@ -104,7 +105,8 @@ Type documentation: no documentation provided
 <h4 id="pushEvent">pushEvent</h4>
 
 
-Invocation template: <code>pushEvent@Monitor( request )</code>
+
+Invocation template: <pre>pushEvent@Monitor( request )</pre>
 
 <h4>Request type</h4>
 
@@ -155,7 +157,8 @@ Type documentation: no documentation provided
 <h4 id="flush">flush</h4>
 
 
-Invocation template: <code>flush@Monitor( request )( response )</code>
+
+Invocation template: <pre>flush@Monitor( request )( response )</pre>
 
 <h4>Request type</h4>
 
@@ -177,7 +180,8 @@ Type documentation: no documentation provided
 <h4 id="setMonitor">setMonitor</h4>
 
 
-Invocation template: <code>setMonitor@Monitor( request )( response )</code>
+
+Invocation template: <pre>setMonitor@Monitor( request )( response )</pre>
 
 <h4 id="SetStandardMonitorRequest">Request type</h4>
 

@@ -1,6 +1,6 @@
 # Include library: time.iol
 
-Inclusion code: <code>include "time.iol"</code>
+Inclusion code: <pre>include "time.iol"</pre>
 
 <table>
   <caption>Service Deployment</caption>
@@ -171,7 +171,8 @@ Operation documentation:
 		 Schedules a timeout, which can be cancelled using #cancelTimeout from the returned string. Default .timeunit value is MILLISECONDS, .operation default is "timeout".
 		
 
-Invocation template: <code>scheduleTimeout@Time( request )( response )</code>
+
+Invocation template: <pre>scheduleTimeout@Time( request )( response )</pre>
 
 <h4 id="ScheduleTimeOutRequest">Request type</h4>
 
@@ -205,7 +206,8 @@ Operation documentation:
 		 date parsing format. See #DateValuesRequestType for details.
 		
 
-Invocation template: <code>getDateValues@Time( request )( response )</code>
+
+Invocation template: <pre>getDateValues@Time( request )( response )</pre>
 
 <h4 id="DateValuesRequestType">Request type</h4>
 
@@ -239,7 +241,8 @@ Operation documentation:
 		 It returns a date time in a string format starting from a timestamp
 		
 
-Invocation template: <code>getDateTime@Time( request )( response )</code>
+
+Invocation template: <pre>getDateTime@Time( request )( response )</pre>
 
 <h4 id="GetDateTimeRequest">Request type</h4>
 
@@ -270,7 +273,8 @@ Operation documentation:
 		 Warning: this is temporary and subject to future change as soon as long is supported by Jolie.
 		
 
-Invocation template: <code>getCurrentTimeMillis@Time( request )( response )</code>
+
+Invocation template: <pre>getCurrentTimeMillis@Time( request )( response )</pre>
 
 <h4>Request type</h4>
 
@@ -290,7 +294,8 @@ Type documentation: no documentation provided
 <h4 id="getDateDiff">getDateDiff</h4>
 
 
-Invocation template: <code>getDateDiff@Time( request )( response )</code>
+
+Invocation template: <pre>getDateDiff@Time( request )( response )</pre>
 
 <h4 id="DiffDateRequestType">Request type</h4>
 
@@ -314,7 +319,8 @@ Type documentation: no documentation provided
 <h4 id="getTimeDiff">getTimeDiff</h4>
 
 
-Invocation template: <code>getTimeDiff@Time( request )( response )</code>
+
+Invocation template: <pre>getTimeDiff@Time( request )( response )</pre>
 
 <h4 id="GetTimeDiffRequest">Request type</h4>
 
@@ -337,7 +343,8 @@ Type documentation: no documentation provided
 <h4 id="getTimestampFromString">getTimestampFromString</h4>
 
 
-Invocation template: <code>getTimestampFromString@Time( request )( response )</code>
+
+Invocation template: <pre>getTimestampFromString@Time( request )( response )</pre>
 
 <h4 id="GetTimestampFromStringRequest">Request type</h4>
 
@@ -368,7 +375,8 @@ Operation documentation:
 		 Cancels a timeout from a long-value created from #scheduleTimeout
 		
 
-Invocation template: <code>cancelTimeout@Time( request )( response )</code>
+
+Invocation template: <pre>cancelTimeout@Time( request )( response )</pre>
 
 <h4>Request type</h4>
 
@@ -388,7 +396,8 @@ Type documentation: no documentation provided
 <h4 id="setNextTimeoutByTime">setNextTimeoutByTime</h4>
 
 
-Invocation template: <code>setNextTimeoutByTime@Time( request )</code>
+
+Invocation template: <pre>setNextTimeoutByTime@Time( request )</pre>
 
 <h4>Request type</h4>
 
@@ -404,7 +413,8 @@ Type documentation: no documentation provided
 <h4 id="getCurrentDateTime">getCurrentDateTime</h4>
 
 
-Invocation template: <code>getCurrentDateTime@Time( request )( response )</code>
+
+Invocation template: <pre>getCurrentDateTime@Time( request )( response )</pre>
 
 <h4 id="CurrentDateTimeRequestType">Request type</h4>
 
@@ -426,7 +436,8 @@ Type documentation: no documentation provided
 <h4 id="sleep">sleep</h4>
 
 
-Invocation template: <code>sleep@Time( request )( response )</code>
+
+Invocation template: <pre>sleep@Time( request )( response )</pre>
 
 <h4>Request type</h4>
 
@@ -450,7 +461,8 @@ Operation documentation:
 		  ( default: timeout )
 		
 
-Invocation template: <code>setNextTimeout@Time( request )</code>
+
+Invocation template: <pre>setNextTimeout@Time( request )</pre>
 
 <h4 id="SetNextTimeOutRequest">Request type</h4>
 
@@ -469,7 +481,8 @@ Type documentation: no documentation provided
 <h4 id="getTimeFromMilliSeconds">getTimeFromMilliSeconds</h4>
 
 
-Invocation template: <code>getTimeFromMilliSeconds@Time( request )( response )</code>
+
+Invocation template: <pre>getTimeFromMilliSeconds@Time( request )( response )</pre>
 
 <h4>Request type</h4>
 
@@ -493,7 +506,8 @@ Type documentation: no documentation provided
 <h4 id="getDateTimeValues">getDateTimeValues</h4>
 
 
-Invocation template: <code>getDateTimeValues@Time( request )( response )</code>
+
+Invocation template: <pre>getDateTimeValues@Time( request )( response )</pre>
 
 <h4 id="GetTimestampFromStringRequest">Request type</h4>
 
@@ -529,7 +543,8 @@ Fault-handling install template: <code>install ( InvalidDate => /* error-handlin
 <h4 id="setNextTimeoutByDateTime">setNextTimeoutByDateTime</h4>
 
 
-Invocation template: <code>setNextTimeoutByDateTime@Time( request )</code>
+
+Invocation template: <pre>setNextTimeoutByDateTime@Time( request )</pre>
 
 <h4>Request type</h4>
 
@@ -547,7 +562,8 @@ Operation documentation:
 		 Returns the current date split in three fields: day, month and year
 		
 
-Invocation template: <code>getCurrentDateValues@Time( request )( response )</code>
+
+Invocation template: <pre>getCurrentDateValues@Time( request )( response )</pre>
 
 <h4>Request type</h4>
 
@@ -571,7 +587,8 @@ Type documentation: no documentation provided
 <h4 id="getTimeValues">getTimeValues</h4>
 
 
-Invocation template: <code>getTimeValues@Time( request )( response )</code>
+
+Invocation template: <pre>getTimeValues@Time( request )( response )</pre>
 
 <h4>Request type</h4>
 

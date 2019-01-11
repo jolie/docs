@@ -1,6 +1,6 @@
 # Include library: message_digest.iol
 
-Inclusion code: <code>include "message_digest.iol"</code>
+Inclusion code: <pre>include "message_digest.iol"</pre>
 
 <table>
   <caption>Service Deployment</caption>
@@ -54,7 +54,8 @@ Inclusion code: <code>include "message_digest.iol"</code>
 <h4 id="md5">md5</h4>
 
 
-Invocation template: <code>md5@MessageDigest( request )( response )</code>
+
+Invocation template: <pre>md5@MessageDigest( request )( response )</pre>
 
 <h4 id="MD5Request">Request type</h4>
 

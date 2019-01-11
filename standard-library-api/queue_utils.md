@@ -1,6 +1,6 @@
 # Include library: queue_utils.iol
 
-Inclusion code: <code>include "queue_utils.iol"</code>
+Inclusion code: <pre>include "queue_utils.iol"</pre>
 
 <table>
   <caption>Service Deployment</caption>
@@ -88,7 +88,8 @@ Inclusion code: <code>include "queue_utils.iol"</code>
 <h4 id="size">size</h4>
 
 
-Invocation template: <code>size@QueueUtils( request )( response )</code>
+
+Invocation template: <pre>size@QueueUtils( request )( response )</pre>
 
 <h4>Request type</h4>
 
@@ -108,7 +109,8 @@ Type documentation: no documentation provided
 <h4 id="poll">poll</h4>
 
 
-Invocation template: <code>poll@QueueUtils( request )( response )</code>
+
+Invocation template: <pre>poll@QueueUtils( request )( response )</pre>
 
 <h4>Request type</h4>
 
@@ -128,7 +130,8 @@ Type documentation: no documentation provided
 <h4 id="new_queue">new_queue</h4>
 
 
-Invocation template: <code>new_queue@QueueUtils( request )( response )</code>
+
+Invocation template: <pre>new_queue@QueueUtils( request )( response )</pre>
 
 <h4>Request type</h4>
 
@@ -148,7 +151,8 @@ Type documentation: no documentation provided
 <h4 id="delete_queue">delete_queue</h4>
 
 
-Invocation template: <code>delete_queue@QueueUtils( request )( response )</code>
+
+Invocation template: <pre>delete_queue@QueueUtils( request )( response )</pre>
 
 <h4>Request type</h4>
 
@@ -168,7 +172,8 @@ Type documentation: no documentation provided
 <h4 id="push">push</h4>
 
 
-Invocation template: <code>push@QueueUtils( request )( response )</code>
+
+Invocation template: <pre>push@QueueUtils( request )( response )</pre>
 
 <h4 id="QueueRequest">Request type</h4>
 
@@ -191,7 +196,8 @@ Type documentation: no documentation provided
 <h4 id="peek">peek</h4>
 
 
-Invocation template: <code>peek@QueueUtils( request )( response )</code>
+
+Invocation template: <pre>peek@QueueUtils( request )( response )</pre>
 
 <h4>Request type</h4>
 

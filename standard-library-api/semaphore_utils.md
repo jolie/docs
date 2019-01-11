@@ -1,6 +1,6 @@
 # Include library: semaphore_utils.iol
 
-Inclusion code: <code>include "semaphore_utils.iol"</code>
+Inclusion code: <pre>include "semaphore_utils.iol"</pre>
 
 <table>
   <caption>Service Deployment</caption>
@@ -65,7 +65,8 @@ Operation documentation:
 	 The default behaviour when value ".permits" is absent is to release one permit.
 	
 
-Invocation template: <code>release@SemaphoreUtils( request )( response )</code>
+
+Invocation template: <pre>release@SemaphoreUtils( request )( response )</pre>
 
 <h4 id="SemaphoreRequest">Request type</h4>
 
@@ -94,7 +95,8 @@ Operation documentation:
 	  The default behaviour when value ".permits" is absent is to acquire one permit.
 	 
 
-Invocation template: <code>acquire@SemaphoreUtils( request )( response )</code>
+
+Invocation template: <pre>acquire@SemaphoreUtils( request )( response )</pre>
 
 <h4 id="SemaphoreRequest">Request type</h4>
 

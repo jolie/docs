@@ -1,6 +1,6 @@
 # Include library: file.iol
 
-Inclusion code: <code>include "file.iol"</code>
+Inclusion code: <pre>include "file.iol"</pre>
 
 <table>
   <caption>Service Deployment</caption>
@@ -201,7 +201,8 @@ to: the target directory to copy into
 <h4 id="convertFromBase64ToBinaryValue">convertFromBase64ToBinaryValue</h4>
 Operation documentation:  deprecated, please use base64ToRaw@Converter()() from converter.iol 
 
-Invocation template: <code>convertFromBase64ToBinaryValue@File( request )( response )</code>
+
+Invocation template: <pre>convertFromBase64ToBinaryValue@File( request )( response )</pre>
 
 <h4>Request type</h4>
 
@@ -227,7 +228,8 @@ Fault-handling install template: <code>install ( IOException => /* error-handlin
 <h4 id="getMimeType">getMimeType</h4>
 
 
-Invocation template: <code>getMimeType@File( request )( response )</code>
+
+Invocation template: <pre>getMimeType@File( request )( response )</pre>
 
 <h4>Request type</h4>
 
@@ -253,7 +255,8 @@ Fault-handling install template: <code>install ( FileNotFound => /* error-handli
 <h4 id="convertFromBinaryToBase64Value">convertFromBinaryToBase64Value</h4>
 Operation documentation:  deprecated, please use rawToBase64@Converter()() from converter.iol 
 
-Invocation template: <code>convertFromBinaryToBase64Value@File( request )( response )</code>
+
+Invocation template: <pre>convertFromBinaryToBase64Value@File( request )( response )</pre>
 
 <h4>Request type</h4>
 
@@ -277,7 +280,8 @@ Operation documentation:
 	  Throws a InvalidPathException fault if input is a relative path is not system recognized path.
 	 
 
-Invocation template: <code>toAbsolutePath@File( request )( response )</code>
+
+Invocation template: <pre>toAbsolutePath@File( request )( response )</pre>
 
 <h4>Request type</h4>
 
@@ -309,7 +313,8 @@ Operation documentation:
 	  Throws a InvalidPathException fault if input path is not a recognized system path or if the parent has no parent.
 	 
 
-Invocation template: <code>getParentPath@File( request )( response )</code>
+
+Invocation template: <pre>getParentPath@File( request )( response )</pre>
 
 <h4>Request type</h4>
 
@@ -337,7 +342,8 @@ Fault-handling install template: <code>install ( InvalidPathException => /* erro
 <h4 id="list">list</h4>
 
 
-Invocation template: <code>list@File( request )( response )</code>
+
+Invocation template: <pre>list@File( request )( response )</pre>
 
 <h4 id="ListRequest">Request type</h4>
 
@@ -377,7 +383,8 @@ Operation documentation:
 	  it copies a source directory into a destination one
 	
 
-Invocation template: <code>copyDir@File( request )( response )</code>
+
+Invocation template: <pre>copyDir@File( request )( response )</pre>
 
 <h4 id="CopyDirRequest">Request type</h4>
 
@@ -412,7 +419,8 @@ Fault-handling install template: <code>install ( IOException => /* error-handlin
 <h4 id="delete">delete</h4>
 
 
-Invocation template: <code>delete@File( request )( response )</code>
+
+Invocation template: <pre>delete@File( request )( response )</pre>
 
 <h4 id="DeleteRequest">Request type</h4>
 
@@ -449,7 +457,8 @@ Operation documentation:
 	    equal to the string's length, on Unicode (UTF-8 etc.) >= string's length
 	 
 
-Invocation template: <code>getSize@File( request )( response )</code>
+
+Invocation template: <pre>getSize@File( request )( response )</pre>
 
 <h4>Request type</h4>
 
@@ -469,7 +478,8 @@ Type documentation: no documentation provided
 <h4 id="getFileSeparator">getFileSeparator</h4>
 
 
-Invocation template: <code>getFileSeparator@File( request )( response )</code>
+
+Invocation template: <pre>getFileSeparator@File( request )( response )</pre>
 
 <h4>Request type</h4>
 
@@ -489,7 +499,8 @@ Type documentation: no documentation provided
 <h4 id="rename">rename</h4>
 
 
-Invocation template: <code>rename@File( request )( response )</code>
+
+Invocation template: <pre>rename@File( request )( response )</pre>
 
 <h4 id="RenameRequest">Request type</h4>
 
@@ -534,7 +545,8 @@ Operation documentation:
 	  - json: each attribute corresponds to a child value, the default values (attribute "$" or singular value) are saved as the base values, nested arrays get mapped with the "_" helper childs (e.g. a[i][j] -> a._[i]._[j]), the rest is filled in recursively
 	 
 
-Invocation template: <code>readFile@File( request )( response )</code>
+
+Invocation template: <pre>readFile@File( request )( response )</pre>
 
 <h4 id="ReadFileRequest">Request type</h4>
 
@@ -574,7 +586,8 @@ Operation documentation:
 	 it tests if the specified file or directory exists or not.
 	
 
-Invocation template: <code>exists@File( request )( response )</code>
+
+Invocation template: <pre>exists@File( request )( response )</pre>
 
 <h4>Request type</h4>
 
@@ -594,7 +607,8 @@ Type documentation: no documentation provided
 <h4 id="setMimeTypeFile">setMimeTypeFile</h4>
 
 
-Invocation template: <code>setMimeTypeFile@File( request )( response )</code>
+
+Invocation template: <pre>setMimeTypeFile@File( request )( response )</pre>
 
 <h4>Request type</h4>
 
@@ -622,7 +636,8 @@ Operation documentation:
 	   it deletes a directory recursively removing all its contents
 	
 
-Invocation template: <code>deleteDir@File( request )( response )</code>
+
+Invocation template: <pre>deleteDir@File( request )( response )</pre>
 
 <h4>Request type</h4>
 
@@ -648,7 +663,8 @@ Fault-handling install template: <code>install ( IOException => /* error-handlin
 <h4 id="getServiceDirectory">getServiceDirectory</h4>
 
 
-Invocation template: <code>getServiceDirectory@File( request )( response )</code>
+
+Invocation template: <pre>getServiceDirectory@File( request )( response )</pre>
 
 <h4>Request type</h4>
 
@@ -693,7 +709,8 @@ Operation documentation:
 	   Use "@ForceAttribute" for forcing an attribute in an element even if it is not defined in the corresponding schema
 	 
 
-Invocation template: <code>writeFile@File( request )( response )</code>
+
+Invocation template: <pre>writeFile@File( request )( response )</pre>
 
 <h4 id="WriteFileRequest">Request type</h4>
 
@@ -739,7 +756,8 @@ Operation documentation:
 	 created with success, false otherwise
 	
 
-Invocation template: <code>mkdir@File( request )( response )</code>
+
+Invocation template: <pre>mkdir@File( request )( response )</pre>
 
 <h4>Request type</h4>
 
@@ -761,7 +779,8 @@ Operation documentation:
 	  it returns if a filename is a directory or not. False if the file does not exist.
 	
 
-Invocation template: <code>isDirectory@File( request )( response )</code>
+
+Invocation template: <pre>isDirectory@File( request )( response )</pre>
 
 <h4>Request type</h4>
 

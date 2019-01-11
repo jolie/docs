@@ -1,6 +1,6 @@
 # Include library: reflection.iol
 
-Inclusion code: <code>include "reflection.iol"</code>
+Inclusion code: <pre>include "reflection.iol"</pre>
 
 <table>
   <caption>Service Deployment</caption>
@@ -62,7 +62,8 @@ Operation documentation:
 	If the operation is a OneWay, the invocation returns no value.
 	
 
-Invocation template: <code>invoke@Reflection( request )( response )</code>
+
+Invocation template: <pre>invoke@Reflection( request )( response )</pre>
 
 <h4 id="InvokeRequest">Request type</h4>
 

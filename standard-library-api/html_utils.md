@@ -1,6 +1,6 @@
 # Include library: html_utils.iol
 
-Inclusion code: <code>include "html_utils.iol"</code>
+Inclusion code: <pre>include "html_utils.iol"</pre>
 
 <table>
   <caption>Service Deployment</caption>
@@ -60,7 +60,8 @@ Inclusion code: <code>include "html_utils.iol"</code>
 <h4 id="escapeHTML">escapeHTML</h4>
 
 
-Invocation template: <code>escapeHTML@HTMLUtils( request )( response )</code>
+
+Invocation template: <pre>escapeHTML@HTMLUtils( request )( response )</pre>
 
 <h4>Request type</h4>
 
@@ -80,7 +81,8 @@ Type documentation: no documentation provided
 <h4 id="unescapeHTML">unescapeHTML</h4>
 
 
-Invocation template: <code>unescapeHTML@HTMLUtils( request )( response )</code>
+
+Invocation template: <pre>unescapeHTML@HTMLUtils( request )( response )</pre>
 
 <h4>Request type</h4>
 

@@ -1,6 +1,6 @@
 # Include library: smtp.iol
 
-Inclusion code: <code>include "smtp.iol"</code>
+Inclusion code: <pre>include "smtp.iol"</pre>
 
 <table>
   <caption>Service Deployment</caption>
@@ -54,7 +54,8 @@ Inclusion code: <code>include "smtp.iol"</code>
 <h4 id="sendMail">sendMail</h4>
 
 
-Invocation template: <code>sendMail@SMTP( request )( response )</code>
+
+Invocation template: <pre>sendMail@SMTP( request )( response )</pre>
 
 <h4 id="SendMailRequest">Request type</h4>
 

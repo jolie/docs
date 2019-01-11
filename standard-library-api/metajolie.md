@@ -1,6 +1,6 @@
 # Include library: metajolie.iol
 
-Inclusion code: <code>include "metajolie.iol"</code>
+Inclusion code: <pre>include "metajolie.iol"</pre>
 
 <table>
   <caption>Service Deployment</caption>
@@ -91,7 +91,8 @@ WARNING: the API of this service is experimental. Use it at your own risk.
 <h4 id="getInputPortMetaData">getInputPortMetaData</h4>
 
 
-Invocation template: <code>getInputPortMetaData@MetaJolie( request )( response )</code>
+
+Invocation template: <pre>getInputPortMetaData@MetaJolie( request )( response )</pre>
 
 <h4 id="GetInputPortMetaDataRequest">Request type</h4>
 
@@ -144,7 +145,8 @@ Fault-handling install template: <code>install ( SemanticException => /* error-h
 <h4 id="parseRoles">parseRoles</h4>
 
 
-Invocation template: <code>parseRoles@MetaJolie( request )( response )</code>
+
+Invocation template: <pre>parseRoles@MetaJolie( request )( response )</pre>
 
 <h4 id="ParseRoleRequest">Request type</h4>
 
@@ -172,7 +174,8 @@ Type documentation: no documentation provided
 <h4 id="getMetaData">getMetaData</h4>
 
 
-Invocation template: <code>getMetaData@MetaJolie( request )( response )</code>
+
+Invocation template: <pre>getMetaData@MetaJolie( request )( response )</pre>
 
 <h4 id="GetMetaDataRequest">Request type</h4>
 
@@ -228,7 +231,8 @@ Fault-handling install template: <code>install ( SemanticException => /* error-h
 <h4 id="messageTypeCast">messageTypeCast</h4>
 
 
-Invocation template: <code>messageTypeCast@MetaJolie( request )( response )</code>
+
+Invocation template: <pre>messageTypeCast@MetaJolie( request )( response )</pre>
 
 <h4 id="MessageTypeCastRequest">Request type</h4>
 
@@ -262,7 +266,8 @@ Fault-handling install template: <code>install ( TypeMismatch => /* error-handli
 <h4 id="checkNativeType">checkNativeType</h4>
 
 
-Invocation template: <code>checkNativeType@MetaJolie( request )( response )</code>
+
+Invocation template: <pre>checkNativeType@MetaJolie( request )( response )</pre>
 
 <h4 id="CheckNativeTypeRequest">Request type</h4>
 

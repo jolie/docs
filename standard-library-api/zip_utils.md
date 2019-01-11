@@ -1,6 +1,6 @@
 # Include library: zip_utils.iol
 
-Inclusion code: <code>include "zip_utils.iol"</code>
+Inclusion code: <pre>include "zip_utils.iol"</pre>
 
 <table>
   <caption>Service Deployment</caption>
@@ -77,7 +77,8 @@ Inclusion code: <code>include "zip_utils.iol"</code>
 <h4 id="zip">zip</h4>
 
 
-Invocation template: <code>zip@ZipUtils( request )( response )</code>
+
+Invocation template: <pre>zip@ZipUtils( request )( response )</pre>
 
 <h4 id="ZipRequest">Request type</h4>
 
@@ -103,7 +104,8 @@ Fault-handling install template: <code>install ( IOException => /* error-handlin
 <h4 id="IOException">IOException</h4>
 
 
-Invocation template: <code>IOException@ZipUtils( request )( response )</code>
+
+Invocation template: <pre>IOException@ZipUtils( request )( response )</pre>
 
 <h4>Request type</h4>
 
@@ -123,7 +125,8 @@ Type documentation: no documentation provided
 <h4 id="unzip">unzip</h4>
 
 
-Invocation template: <code>unzip@ZipUtils( request )( response )</code>
+
+Invocation template: <pre>unzip@ZipUtils( request )( response )</pre>
 
 <h4 id="UnzipRequest">Request type</h4>
 
@@ -154,7 +157,8 @@ Fault-handling install template: <code>install ( FileNotFound => /* error-handli
 <h4 id="readEntry">readEntry</h4>
 
 
-Invocation template: <code>readEntry@ZipUtils( request )( response )</code>
+
+Invocation template: <pre>readEntry@ZipUtils( request )( response )</pre>
 
 <h4 id="ReadEntryRequest">Request type</h4>
 

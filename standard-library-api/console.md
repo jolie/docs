@@ -1,6 +1,6 @@
 # Include library: console.iol
 
-Inclusion code: <code>include "console.iol"</code>
+Inclusion code: <pre>include "console.iol"</pre>
 
 <table>
   <caption>Service Deployment</caption>
@@ -59,7 +59,8 @@ Inclusion code: <code>include "console.iol"</code>
 <h4 id="in">in</h4>
 
 
-Invocation template: <code>in( request )</code>
+
+Invocation template: <pre>in( request )</pre>
 
 <h4 id="InRequest">Request type</h4>
 
@@ -141,7 +142,8 @@ Type documentation: no documentation provided
 <h4 id="print">print</h4>
 
 
-Invocation template: <code>print@Console( request )( response )</code>
+
+Invocation template: <pre>print@Console( request )( response )</pre>
 
 <h4>Request type</h4>
 
@@ -161,7 +163,8 @@ Type documentation: no documentation provided
 <h4 id="println">println</h4>
 
 
-Invocation template: <code>println@Console( request )( response )</code>
+
+Invocation template: <pre>println@Console( request )( response )</pre>
 
 <h4>Request type</h4>
 
@@ -184,7 +187,8 @@ Operation documentation:
 	  parameter enableSessionListener enables console input listening for more than one service session (default=false)
 	
 
-Invocation template: <code>registerForInput@Console( request )( response )</code>
+
+Invocation template: <pre>registerForInput@Console( request )( response )</pre>
 
 <h4 id="RegisterForInputRequest">Request type</h4>
 
@@ -208,7 +212,8 @@ Operation documentation:
 	 it disables a session to receive inputs from the console, previously registered with subscribeSessionListener operation
 	
 
-Invocation template: <code>unsubscribeSessionListener@Console( request )( response )</code>
+
+Invocation template: <pre>unsubscribeSessionListener@Console( request )( response )</pre>
 
 <h4 id="UnsubscribeSessionListener">Request type</h4>
 
@@ -233,7 +238,8 @@ Operation documentation:
 	 it enables the session to receive inputs from the console
 	
 
-Invocation template: <code>subscribeSessionListener@Console( request )( response )</code>
+
+Invocation template: <pre>subscribeSessionListener@Console( request )( response )</pre>
 
 <h4 id="SubscribeSessionListener">Request type</h4>
 
@@ -258,7 +264,8 @@ Operation documentation:
 		Parameter format allows to specifiy the timestamp output format. Bad Format will be printed out if format value is not allowed.
 	
 
-Invocation template: <code>enableTimestamp@Console( request )( response )</code>
+
+Invocation template: <pre>enableTimestamp@Console( request )( response )</pre>
 
 <h4 id="EnableTimestampRequest">Request type</h4>
 

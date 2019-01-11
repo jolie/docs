@@ -1,6 +1,6 @@
 # Include library: string_utils.iol
 
-Inclusion code: <code>include "string_utils.iol"</code>
+Inclusion code: <pre>include "string_utils.iol"</pre>
 
 <table>
   <caption>Service Deployment</caption>
@@ -197,7 +197,8 @@ Interface documentation:
 <h4 id="leftPad">leftPad</h4>
 
 
-Invocation template: <code>leftPad@StringUtils( request )( response )</code>
+
+Invocation template: <pre>leftPad@StringUtils( request )( response )</pre>
 
 <h4 id="PadRequest">Request type</h4>
 
@@ -220,7 +221,8 @@ Type documentation: no documentation provided
 <h4 id="valueToPrettyString">valueToPrettyString</h4>
 
 
-Invocation template: <code>valueToPrettyString@StringUtils( request )( response )</code>
+
+Invocation template: <pre>valueToPrettyString@StringUtils( request )( response )</pre>
 
 <h4>Request type</h4>
 
@@ -240,7 +242,8 @@ Type documentation: no documentation provided
 <h4 id="toLowerCase">toLowerCase</h4>
 
 
-Invocation template: <code>toLowerCase@StringUtils( request )( response )</code>
+
+Invocation template: <pre>toLowerCase@StringUtils( request )( response )</pre>
 
 <h4>Request type</h4>
 
@@ -260,7 +263,8 @@ Type documentation: no documentation provided
 <h4 id="length">length</h4>
 
 
-Invocation template: <code>length@StringUtils( request )( response )</code>
+
+Invocation template: <pre>length@StringUtils( request )( response )</pre>
 
 <h4>Request type</h4>
 
@@ -280,7 +284,8 @@ Type documentation: no documentation provided
 <h4 id="match">match</h4>
 
 
-Invocation template: <code>match@StringUtils( request )( response )</code>
+
+Invocation template: <pre>match@StringUtils( request )( response )</pre>
 
 <h4 id="MatchRequest">Request type</h4>
 
@@ -304,7 +309,8 @@ Type documentation: no documentation provided
 <h4 id="replaceFirst">replaceFirst</h4>
 
 
-Invocation template: <code>replaceFirst@StringUtils( request )( response )</code>
+
+Invocation template: <pre>replaceFirst@StringUtils( request )( response )</pre>
 
 <h4 id="ReplaceRequest">Request type</h4>
 
@@ -327,7 +333,8 @@ Type documentation: no documentation provided
 <h4 id="sort">sort</h4>
 
 
-Invocation template: <code>sort@StringUtils( request )( response )</code>
+
+Invocation template: <pre>sort@StringUtils( request )( response )</pre>
 
 <h4 id="StringItemList">Request type</h4>
 
@@ -351,7 +358,8 @@ Type documentation: no documentation provided
 <h4 id="replaceAll">replaceAll</h4>
 
 
-Invocation template: <code>replaceAll@StringUtils( request )( response )</code>
+
+Invocation template: <pre>replaceAll@StringUtils( request )( response )</pre>
 
 <h4 id="ReplaceRequest">Request type</h4>
 
@@ -374,7 +382,8 @@ Type documentation: no documentation provided
 <h4 id="substring">substring</h4>
 
 
-Invocation template: <code>substring@StringUtils( request )( response )</code>
+
+Invocation template: <pre>substring@StringUtils( request )( response )</pre>
 
 <h4 id="SubStringRequest">Request type</h4>
 
@@ -399,7 +408,8 @@ Operation documentation:
 	 it returns a random UUID
 	
 
-Invocation template: <code>getRandomUUID@StringUtils( request )( response )</code>
+
+Invocation template: <pre>getRandomUUID@StringUtils( request )( response )</pre>
 
 <h4>Request type</h4>
 
@@ -419,7 +429,8 @@ Type documentation: no documentation provided
 <h4 id="rightPad">rightPad</h4>
 
 
-Invocation template: <code>rightPad@StringUtils( request )( response )</code>
+
+Invocation template: <pre>rightPad@StringUtils( request )( response )</pre>
 
 <h4 id="PadRequest">Request type</h4>
 
@@ -444,7 +455,8 @@ Operation documentation:
 	  Returns true if the string contains .substring
 	 
 
-Invocation template: <code>contains@StringUtils( request )( response )</code>
+
+Invocation template: <pre>contains@StringUtils( request )( response )</pre>
 
 <h4 id="ContainsRequest">Request type</h4>
 
@@ -466,7 +478,8 @@ Type documentation: no documentation provided
 <h4 id="split">split</h4>
 
 
-Invocation template: <code>split@StringUtils( request )( response )</code>
+
+Invocation template: <pre>split@StringUtils( request )( response )</pre>
 
 <h4 id="SplitRequest">Request type</h4>
 
@@ -491,7 +504,8 @@ Type documentation: no documentation provided
 <h4 id="splitByLength">splitByLength</h4>
 
 
-Invocation template: <code>splitByLength@StringUtils( request )( response )</code>
+
+Invocation template: <pre>splitByLength@StringUtils( request )( response )</pre>
 
 <h4 id="SplitByLengthRequest">Request type</h4>
 
@@ -515,7 +529,8 @@ Type documentation: no documentation provided
 <h4 id="trim">trim</h4>
 
 
-Invocation template: <code>trim@StringUtils( request )( response )</code>
+
+Invocation template: <pre>trim@StringUtils( request )( response )</pre>
 
 <h4>Request type</h4>
 
@@ -535,7 +550,8 @@ Type documentation: no documentation provided
 <h4 id="find">find</h4>
 
 
-Invocation template: <code>find@StringUtils( request )( response )</code>
+
+Invocation template: <pre>find@StringUtils( request )( response )</pre>
 
 <h4 id="MatchRequest">Request type</h4>
 
@@ -561,7 +577,8 @@ Operation documentation:
 	  checks if a string ends with a given suffix
 	
 
-Invocation template: <code>endsWith@StringUtils( request )( response )</code>
+
+Invocation template: <pre>endsWith@StringUtils( request )( response )</pre>
 
 <h4 id="EndsWithRequest">Request type</h4>
 
@@ -583,7 +600,8 @@ Type documentation: no documentation provided
 <h4 id="toUpperCase">toUpperCase</h4>
 
 
-Invocation template: <code>toUpperCase@StringUtils( request )( response )</code>
+
+Invocation template: <pre>toUpperCase@StringUtils( request )( response )</pre>
 
 <h4>Request type</h4>
 
@@ -603,7 +621,8 @@ Type documentation: no documentation provided
 <h4 id="join">join</h4>
 
 
-Invocation template: <code>join@StringUtils( request )( response )</code>
+
+Invocation template: <pre>join@StringUtils( request )( response )</pre>
 
 <h4 id="JoinRequest">Request type</h4>
 
@@ -626,7 +645,8 @@ Type documentation: no documentation provided
 <h4 id="indexOf">indexOf</h4>
 
 
-Invocation template: <code>indexOf@StringUtils( request )( response )</code>
+
+Invocation template: <pre>indexOf@StringUtils( request )( response )</pre>
 
 <h4 id="IndexOfRequest">Request type</h4>
 
@@ -650,7 +670,8 @@ Operation documentation:
 	 checks if the passed string starts with a given prefix
 	
 
-Invocation template: <code>startsWith@StringUtils( request )( response )</code>
+
+Invocation template: <pre>startsWith@StringUtils( request )( response )</pre>
 
 <h4 id="StartsWithRequest">Request type</h4>
 

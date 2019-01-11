@@ -1,6 +1,6 @@
 # Include library: xml_utils.iol
 
-Inclusion code: <code>include "xml_utils.iol"</code>
+Inclusion code: <pre>include "xml_utils.iol"</pre>
 
 <table>
   <caption>Service Deployment</caption>
@@ -75,7 +75,8 @@ Operation documentation:
 		  The XML root node will be discarded, the rest gets converted recursively
 		 
 
-Invocation template: <code>xmlToValue@XmlUtils( request )( response )</code>
+
+Invocation template: <pre>xmlToValue@XmlUtils( request )( response )</pre>
 
 <h4 id="XMLToValueRequest">Request type</h4>
 
@@ -111,7 +112,8 @@ Fault-handling install template: <code>install ( IOException => /* error-handlin
 <h4 id="transform">transform</h4>
 
 
-Invocation template: <code>transform@XmlUtils( request )( response )</code>
+
+Invocation template: <pre>transform@XmlUtils( request )( response )</pre>
 
 <h4 id="XMLTransformationRequest">Request type</h4>
 
@@ -146,7 +148,8 @@ Operation documentation:
 		  The base value of ValueToXmlRequest.root will be discarded, the rest gets converted recursively
 		 
 
-Invocation template: <code>valueToXml@XmlUtils( request )( response )</code>
+
+Invocation template: <pre>valueToXml@XmlUtils( request )( response )</pre>
 
 <h4 id="ValueToXmlRequest">Request type</h4>
 

@@ -1,6 +1,6 @@
 # Include library: security_utils.iol
 
-Inclusion code: <code>include "security_utils.iol"</code>
+Inclusion code: <pre>include "security_utils.iol"</pre>
 
 <table>
   <caption>Service Deployment</caption>
@@ -60,7 +60,8 @@ Inclusion code: <code>include "security_utils.iol"</code>
 <h4 id="secureRandom">secureRandom</h4>
 
 
-Invocation template: <code>secureRandom@SecurityUtils( request )( response )</code>
+
+Invocation template: <pre>secureRandom@SecurityUtils( request )( response )</pre>
 
 <h4 id="SecureRandomRequest">Request type</h4>
 
@@ -82,7 +83,8 @@ Type documentation: no documentation provided
 <h4 id="createSecureToken">createSecureToken</h4>
 
 
-Invocation template: <code>createSecureToken@SecurityUtils( request )( response )</code>
+
+Invocation template: <pre>createSecureToken@SecurityUtils( request )( response )</pre>
 
 <h4>Request type</h4>
 

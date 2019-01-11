@@ -1,6 +1,6 @@
 # Include library: web_services_utils.iol
 
-Inclusion code: <code>include "web_services_utils.iol"</code>
+Inclusion code: <pre>include "web_services_utils.iol"</pre>
 
 <table>
   <caption>Service Deployment</caption>
@@ -54,7 +54,8 @@ Inclusion code: <code>include "web_services_utils.iol"</code>
 <h4 id="wsdlToJolie">wsdlToJolie</h4>
 
 
-Invocation template: <code>wsdlToJolie@WebServicesUtils( request )( response )</code>
+
+Invocation template: <pre>wsdlToJolie@WebServicesUtils( request )( response )</pre>
 
 <h4>Request type</h4>
 

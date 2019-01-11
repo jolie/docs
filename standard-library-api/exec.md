@@ -1,6 +1,6 @@
 # Include library: exec.iol
 
-Inclusion code: <code>include "exec.iol"</code>
+Inclusion code: <pre>include "exec.iol"</pre>
 
 <table>
   <caption>Service Deployment</caption>
@@ -53,7 +53,8 @@ Inclusion code: <code>include "exec.iol"</code>
 <h4 id="exec">exec</h4>
 
 
-Invocation template: <code>exec@Exec( request )( response )</code>
+
+Invocation template: <pre>exec@Exec( request )( response )</pre>
 
 <h4 id="CommandExecutionRequest">Request type</h4>
 

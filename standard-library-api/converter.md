@@ -1,6 +1,6 @@
 # Include library: converter.iol
 
-Inclusion code: <code>include "converter.iol"</code>
+Inclusion code: <pre>include "converter.iol"</pre>
 
 <table>
   <caption>Service Deployment</caption>
@@ -77,7 +77,8 @@ Inclusion code: <code>include "converter.iol"</code>
 <h4 id="stringToRaw">stringToRaw</h4>
 
 
-Invocation template: <code>stringToRaw@Converter( request )( response )</code>
+
+Invocation template: <pre>stringToRaw@Converter( request )( response )</pre>
 
 <h4 id="StringToRawRequest">Request type</h4>
 
@@ -105,7 +106,8 @@ Fault-handling install template: <code>install ( IOException => /* error-handlin
 <h4 id="base64ToRaw">base64ToRaw</h4>
 
 
-Invocation template: <code>base64ToRaw@Converter( request )( response )</code>
+
+Invocation template: <pre>base64ToRaw@Converter( request )( response )</pre>
 
 <h4>Request type</h4>
 
@@ -131,7 +133,8 @@ Fault-handling install template: <code>install ( IOException => /* error-handlin
 <h4 id="rawToBase64">rawToBase64</h4>
 
 
-Invocation template: <code>rawToBase64@Converter( request )( response )</code>
+
+Invocation template: <pre>rawToBase64@Converter( request )( response )</pre>
 
 <h4>Request type</h4>
 
@@ -151,7 +154,8 @@ Type documentation: no documentation provided
 <h4 id="rawToString">rawToString</h4>
 
 
-Invocation template: <code>rawToString@Converter( request )( response )</code>
+
+Invocation template: <pre>rawToString@Converter( request )( response )</pre>
 
 <h4 id="RawToStringRequest">Request type</h4>
 

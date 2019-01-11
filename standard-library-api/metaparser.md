@@ -1,6 +1,6 @@
 # Include library: metaparser.iol
 
-Inclusion code: <code>include "metaparser.iol"</code>
+Inclusion code: <pre>include "metaparser.iol"</pre>
 
 <table>
   <caption>Service Deployment</caption>
@@ -116,7 +116,8 @@ Inclusion code: <code>include "metaparser.iol"</code>
 <h4 id="getSurface">getSurface</h4>
 
 
-Invocation template: <code>getSurface@Parser( request )( response )</code>
+
+Invocation template: <pre>getSurface@Parser( request )( response )</pre>
 
 <h4 id="Participant">Request type</h4>
 
@@ -141,7 +142,8 @@ Type documentation: no documentation provided
 <h4 id="getNativeType">getNativeType</h4>
 
 
-Invocation template: <code>getNativeType@Parser( request )( response )</code>
+
+Invocation template: <pre>getNativeType@Parser( request )( response )</pre>
 
 <h4 id="NativeType">Request type</h4>
 
@@ -174,7 +176,8 @@ Type documentation: no documentation provided
 <h4 id="getInterface">getInterface</h4>
 
 
-Invocation template: <code>getInterface@Parser( request )( response )</code>
+
+Invocation template: <pre>getInterface@Parser( request )( response )</pre>
 
 <h4 id="Interface">Request type</h4>
 
@@ -198,7 +201,8 @@ Type documentation: no documentation provided
 <h4 id="getTypeInLine">getTypeInLine</h4>
 
 
-Invocation template: <code>getTypeInLine@Parser( request )( response )</code>
+
+Invocation template: <pre>getTypeInLine@Parser( request )( response )</pre>
 
 <h4 id="Type">Request type</h4>
 
@@ -222,7 +226,8 @@ Type documentation: no documentation provided
 <h4 id="getSurfaceWithoutOutputPort">getSurfaceWithoutOutputPort</h4>
 
 
-Invocation template: <code>getSurfaceWithoutOutputPort@Parser( request )( response )</code>
+
+Invocation template: <pre>getSurfaceWithoutOutputPort@Parser( request )( response )</pre>
 
 <h4 id="Participant">Request type</h4>
 
@@ -247,7 +252,8 @@ Type documentation: no documentation provided
 <h4 id="getType">getType</h4>
 
 
-Invocation template: <code>getType@Parser( request )( response )</code>
+
+Invocation template: <pre>getType@Parser( request )( response )</pre>
 
 <h4 id="Type">Request type</h4>
 
@@ -271,7 +277,8 @@ Type documentation: no documentation provided
 <h4 id="getParticipantOutput">getParticipantOutput</h4>
 
 
-Invocation template: <code>getParticipantOutput@Parser( request )( response )</code>
+
+Invocation template: <pre>getParticipantOutput@Parser( request )( response )</pre>
 
 <h4 id="Participant">Request type</h4>
 
@@ -296,7 +303,8 @@ Type documentation: no documentation provided
 <h4 id="getSubType">getSubType</h4>
 
 
-Invocation template: <code>getSubType@Parser( request )( response )</code>
+
+Invocation template: <pre>getSubType@Parser( request )( response )</pre>
 
 <h4 id="SubType">Request type</h4>
 
@@ -321,7 +329,8 @@ Type documentation: no documentation provided
 <h4 id="getParticipantInput">getParticipantInput</h4>
 
 
-Invocation template: <code>getParticipantInput@Parser( request )( response )</code>
+
+Invocation template: <pre>getParticipantInput@Parser( request )( response )</pre>
 
 <h4 id="Participant">Request type</h4>
 
@@ -346,7 +355,8 @@ Type documentation: no documentation provided
 <h4 id="getCardinality">getCardinality</h4>
 
 
-Invocation template: <code>getCardinality@Parser( request )( response )</code>
+
+Invocation template: <pre>getCardinality@Parser( request )( response )</pre>
 
 <h4 id="Cardinality">Request type</h4>
 

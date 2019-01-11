@@ -1,6 +1,6 @@
 # Include library: json_utils.iol
 
-Inclusion code: <code>include "json_utils.iol"</code>
+Inclusion code: <pre>include "json_utils.iol"</pre>
 
 <table>
   <caption>Service Deployment</caption>
@@ -66,7 +66,8 @@ Operation documentation:
 	  Each child value corresponds to an attribute, the base values are saved as the default values (attribute "$" or singular value), the "_" helper childs disappear (e.g. a._[i]._[j] -> a[i][j]), the rest gets converted recursively
 	 
 
-Invocation template: <code>getJsonString@JsonUtils( request )( response )</code>
+
+Invocation template: <pre>getJsonString@JsonUtils( request )( response )</pre>
 
 <h4 id="GetJsonStringRequest">Request type</h4>
 
@@ -96,7 +97,8 @@ Operation documentation:
 	  Each attribute corresponds to a child value, the default values (attribute "$" or singular value) are saved as the base values, nested arrays get mapped with the "_" helper childs (e.g. a[i][j] -> a._[i]._[j]), the rest gets converted recursively
 	 
 
-Invocation template: <code>getJsonValue@JsonUtils( request )( response )</code>
+
+Invocation template: <pre>getJsonValue@JsonUtils( request )( response )</pre>
 
 <h4 id="GetJsonValueRequest">Request type</h4>
 

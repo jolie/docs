@@ -1,6 +1,6 @@
 # Include library: ini_utils.iol
 
-Inclusion code: <code>include "ini_utils.iol"</code>
+Inclusion code: <pre>include "ini_utils.iol"</pre>
 
 <table>
   <caption>Service Deployment</caption>
@@ -53,7 +53,8 @@ Inclusion code: <code>include "ini_utils.iol"</code>
 <h4 id="parseIniFile">parseIniFile</h4>
 
 
-Invocation template: <code>parseIniFile@IniUtils( request )( response )</code>
+
+Invocation template: <pre>parseIniFile@IniUtils( request )( response )</pre>
 
 <h4 id="parseIniFileRequest">Request type</h4>
 

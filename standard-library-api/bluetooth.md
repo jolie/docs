@@ -1,6 +1,6 @@
 # Include library: bluetooth.iol
 
-Inclusion code: <code>include "bluetooth.iol"</code>
+Inclusion code: <pre>include "bluetooth.iol"</pre>
 
 <table>
   <caption>Service Deployment</caption>
@@ -60,7 +60,8 @@ Inclusion code: <code>include "bluetooth.iol"</code>
 <h4 id="inquire">inquire</h4>
 
 
-Invocation template: <code>inquire@Bluetooth( request )( response )</code>
+
+Invocation template: <pre>inquire@Bluetooth( request )( response )</pre>
 
 <h4>Request type</h4>
 
@@ -91,7 +92,8 @@ Operation documentation:
 	  @request: 0 if the device has to be set not discoverable, 1 if the device has to be set discoverable.
 	 
 
-Invocation template: <code>setDiscoverable@Bluetooth( request )( response )</code>
+
+Invocation template: <pre>setDiscoverable@Bluetooth( request )( response )</pre>
 
 <h4>Request type</h4>
 

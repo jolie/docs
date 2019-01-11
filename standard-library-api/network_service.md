@@ -1,6 +1,6 @@
 # Include library: network_service.iol
 
-Inclusion code: <code>include "network_service.iol"</code>
+Inclusion code: <pre>include "network_service.iol"</pre>
 
 <table>
   <caption>Service Deployment</caption>
@@ -61,7 +61,8 @@ Inclusion code: <code>include "network_service.iol"</code>
 <h4 id="getNetworkInterfaceNames">getNetworkInterfaceNames</h4>
 
 
-Invocation template: <code>getNetworkInterfaceNames@NetworkService( request )( response )</code>
+
+Invocation template: <pre>getNetworkInterfaceNames@NetworkService( request )( response )</pre>
 
 <h4 id="GetNetworkInterfaceNamesRequest">Request type</h4>
 
@@ -85,7 +86,8 @@ Type documentation: no documentation provided
 <h4 id="getIPAddresses">getIPAddresses</h4>
 
 
-Invocation template: <code>getIPAddresses@NetworkService( request )( response )</code>
+
+Invocation template: <pre>getIPAddresses@NetworkService( request )( response )</pre>
 
 <h4 id="GetIPAddressesRequest">Request type</h4>
 

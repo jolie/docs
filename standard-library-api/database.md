@@ -1,6 +1,6 @@
 # Include library: database.iol
 
-Inclusion code: <code>include "database.iol"</code>
+Inclusion code: <pre>include "database.iol"</pre>
 
 <table>
   <caption>Service Deployment</caption>
@@ -100,7 +100,8 @@ Operation documentation:
 	  Checks the connection with the database. Throws ConnectionError if the connection is not functioning properly.
 	 
 
-Invocation template: <code>checkConnection@Database( request )( response )</code>
+
+Invocation template: <pre>checkConnection@Database( request )( response )</pre>
 
 <h4>Request type</h4>
 
@@ -162,7 +163,8 @@ Operation documentation:
 	  _template does not currently support vectors.
 	 
 
-Invocation template: <code>query@Database( request )( response )</code>
+
+Invocation template: <pre>query@Database( request )( response )</pre>
 
 <h4 id="QueryRequest">Request type</h4>
 
@@ -198,7 +200,8 @@ Operation documentation:
 	  Executes more than one database command in a single transaction
 	 
 
-Invocation template: <code>executeTransaction@Database( request )( response )</code>
+
+Invocation template: <pre>executeTransaction@Database( request )( response )</pre>
 
 <h4 id="DatabaseTransactionRequest">Request type</h4>
 
@@ -245,7 +248,8 @@ Operation documentation:
 	  update@Database( updateRequest )( ret )
 	 
 
-Invocation template: <code>update@Database( request )( response )</code>
+
+Invocation template: <pre>update@Database( request )( response )</pre>
 
 <h4 id="UpdateRequest">Request type</h4>
 
@@ -281,7 +285,8 @@ Operation documentation:
 	  Database service, eg. when the enclosing program finishes.
 	 
 
-Invocation template: <code>close@Database( request )( response )</code>
+
+Invocation template: <pre>close@Database( request )( response )</pre>
 
 <h4>Request type</h4>
 
@@ -313,7 +318,8 @@ Operation documentation:
 	  connect@Database( connectionInfo )( void );
 	 
 
-Invocation template: <code>connect@Database( request )( response )</code>
+
+Invocation template: <pre>connect@Database( request )( response )</pre>
 
 <h4 id="ConnectionInfo">Request type</h4>
 

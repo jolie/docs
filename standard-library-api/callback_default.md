@@ -1,6 +1,6 @@
 # Include library: scheduler/callback_default.iol
 
-Inclusion code: <code>include "scheduler/callback_default.iol"</code>
+Inclusion code: <pre>include "scheduler/callback_default.iol"</pre>
 
 <table>
   <caption>Service Deployment</caption>
@@ -53,7 +53,8 @@ Inclusion code: <code>include "scheduler/callback_default.iol"</code>
 <h4 id="schedulerCallback">schedulerCallback</h4>
 
 
-Invocation template: <code>schedulerCallback( request )</code>
+
+Invocation template: <pre>schedulerCallback( request )</pre>
 
 <h4 id="SchedulerCallBackRequest">Request type</h4>
 
