@@ -28,7 +28,7 @@ main
 }
 ```
 
-**Attention**
+**Attention.**
 Keep in mind that, in Jolie, `;` is NOT the "end of statement" marker. For the sake of clarity, let us consider an INVALID use of the sequence operator:
 
 ```text
