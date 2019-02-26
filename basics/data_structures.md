@@ -2,7 +2,7 @@
 
 ## Jolie data structures
 
-Jolie data structures are tree-like. It is easier to understand them by making a comparison between a data structure in Jolie and its equivalent in XML.
+Jolie data structures are tree-like similarly to XML data trees or JSON data trees.
 
 ## Creating a data structure
 
