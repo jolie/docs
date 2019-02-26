@@ -5,3 +5,4 @@ You will learn to:
 - executing a service with arguments
 - creating a client and a service able to communicate
 - adding an interface to a service
+- setting the execution modality
