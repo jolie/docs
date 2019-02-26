@@ -200,7 +200,7 @@ main {
 
 ### Iterating over arrays
 
-Attention Arrays and the `#` operator are explained in detail in the [Data Structures](https://jolielang.gitbook.io/docs/basics/data_structures) section.
+**Attention.** Arrays and the `#` operator are explained in detail in the [Data Structures](https://jolielang.gitbook.io/docs/basics/data_structures) section.
 
 Another form of `for` loops is the following, which iterates over all elements of an array `a`.
 
