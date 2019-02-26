@@ -1,8 +1,13 @@
-# Behavioural operators
+## Tree operators
+- `<<`: deep copy. [Go to section: Copying an entire tree structure](basics/data_structures.md#less-than-less-than-copying-an-entire-tree-structure)
+- `->`: alias. [Go to section: Structure aliases](basics/data_structures.md#greater-than-structures-aliases)
+
+
+## Behavioural operators
 - `;`: sequence. [Go to section: Sequence](basics/composing_statements.md#sequence)
 - `|`: parallel. [Go to section: Parallel](basics/composing_statements.md#parallel)
 
-# Statements
+## Statements
 - `[]{}`: input choice. [Go to section: Input Choice](basics/composing_statements.md#input-choice)
 - `define`: macro definition. [Go to section: Define](basics/define.md)
 - `if {} else {}`: conditional statement. [Go to section: Conditions and conditional statement](basics/composing_statements.md#conditions-and-conditional-statement)
