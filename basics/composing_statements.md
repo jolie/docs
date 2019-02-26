@@ -119,25 +119,6 @@ Note that input choice are used also as the first statement of the behaviour in 
 In the link below we modified the example presented in the previous section (Parallel) where in the forecast service we specify two operations inside a input choice.
 [Click here to get the example code.](https://github.com/jolie/examples/tree/master/02_basics/2_input_choice)
 
-## The provide-until statement
-
-The `provide` `until` statement eases defining workflows where a microservice _provides_ access to a set of resources _until_ some event happened.
-
-The syntax is
-
-```text
-provide
-  [ IS_1 ] { branch_code_1 }
-  [ IS_i ] { branch_code_i }
-  [ IS_n ] { branch_code_n }
-until
-  [ IS_m ] { branch_code_m }
-  [ IS_j ] { branch_code_j }
-  [ IS_k ] { branch_code_k }
-```
-
-The inputs `IS_1, ..., IS_n` will be continuously available until one of the operations under the `until` \(`IS_m, ..., IS_k`\) is called.
-
 ## Conditions and conditional operator
 
 Conditions are used in control flow statements in order to check a boolean expression. Conditions can use the following relational operators:
