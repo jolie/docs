@@ -343,6 +343,25 @@ Whenever a service receives a message through an input port \(and the message is
 * The message does not correlate with any behaviour instance and its operation is a starting operation in the behavioural definition. In this case, a new behaviour instance is created and the message is assigned to it. If the starting operation has an associated correlation set, all the correlation variables in the correlation set are atomically assigned \(from the values of the aliases in the message\) to the behaviour instance before starting its executing.
 * The message does not correlate with any behaviour instance and its operation is not a starting operation in the behavioural definition. In this case, the message is rejected and a `CorrelationError` fault is sent back to the invoker.
 
+## The provide-until statement
+
+The `provide` `until` statement eases defining workflows where a microservice _provides_ access to a set of resources _until_ some event happened.
+
+The syntax is
+
+```text
+provide
+  [ IS_1 ] { branch_code_1 }
+  [ IS_i ] { branch_code_i }
+  [ IS_n ] { branch_code_n }
+until
+  [ IS_m ] { branch_code_m }
+  [ IS_j ] { branch_code_j }
+  [ IS_k ] { branch_code_k }
+```
+
+The inputs `IS_1, ..., IS_n` will be continuously available until one of the operations under the `until` \(`IS_m, ..., IS_k`\) is called.
+
 ## Sessions and the provide-until statement
 
 The [provide-until](https://jolielang.gitbook.io/docs/basics/composing_statements#the-provide-until-statement) statement is particularly useful to handle in-session behaviours.
