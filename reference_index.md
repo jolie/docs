@@ -1,5 +1,5 @@
 # Behavioural operators
-- `;`: sequence. [Go to section: Parallel](basics/composing_statements.md)
+- `;`: sequence. [Go to section: Sequence](basics/composing_statements.md)
 - `|`: parallel. [Go to section: Parallel](basics/composing_statements.md)
 
 # Statements
