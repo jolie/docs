@@ -6,7 +6,6 @@
   * [Running a Jolie service with arguments](getting-started/running_a_jolie_service_with_arguments.md)
   * [Creating a Service and a Client](getting-started/creating_service_and_client.md)
   * [Adding Interfaces](getting-started/adding_interface.md)
-* [Tutorials](tutorials.md)
 * [Basics](basics/README.md)
   * [Handling Simple Data](basics/handling_simple_data.md)
   * [Composing Statements](basics/composing_statements.md)
