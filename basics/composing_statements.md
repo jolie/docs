@@ -6,7 +6,7 @@ The behaviour of a Jolie application is defined by conditions, loops, and statem
 
 Whilst conditions and loops implement the standard conditional and iteration constructs, execution rules defines the priority among code blocks.
 
-## Behavioural operators
+# Behavioural operators
 
 Jolie offers three kinds of operators to compose statements in sequence, parallel, or as a set of input choices.
 
@@ -90,6 +90,8 @@ main {
 [Click here to get the comprehensive code of the example above.](https://github.com/jolie/examples/tree/master/02_basics/3_parallel)
 
 Concurrent access to shared variables can be restricted through [synchronized](https://jolielang.gitbook.io/docs/basics/processes) blocks.
+
+# Statements
 
 ## Input choice
 
