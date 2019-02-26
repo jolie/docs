@@ -136,10 +136,7 @@ with ( animals ){
 }
 ```
 
-Attention
-
-The paths starting with `.` within the scope of the `with` operator are just shortcuts.
-
+**Attention.** The paths starting with `.` within the scope of the `with` operator are just shortcuts.
 Hence, when writing paths with dynamically evaluated values, e.g., array lengths, the path declared as argument of the `with` operator is evaluated for each subpath in the body of the `with` .
 
 For instance, the code below
