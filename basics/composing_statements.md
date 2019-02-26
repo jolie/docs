@@ -120,7 +120,7 @@ Note that input choice are used also as the first statement of the behaviour in 
 In the link below we modified the example presented in the previous section (Parallel) where in the forecast service we specify two operations inside a input choice.
 [Click here to get the example code.](https://github.com/jolie/examples/tree/master/02_basics/2_input_choice)
 
-## Conditions and conditional operator
+## Conditions and conditional statement
 
 Conditions are used in control flow statements in order to check a boolean expression. Conditions can use the following relational operators:
 
