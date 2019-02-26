@@ -53,6 +53,7 @@ animals : {
 
 }
 ```
+**Attention.** It is worth noting that each node of a tree is potentially an array of elements. If no index is defined, the first elements is always considered. Otherwise, the element index is always defined between square brackets [].
 
 ## Navigating data structures
 
