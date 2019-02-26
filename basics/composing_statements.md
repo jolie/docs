@@ -207,7 +207,13 @@ for( init-code-block, condition, post-cycle-code-block ) {
 Example:
 
 ```text
-for( i = 0, i
+include "console.iol"
+
+main {
+    for( i = 0, i < 10, i++ ) {
+        println@Console( i )()
+    }
+}
 ```
 
 ### Iterating over arrays
