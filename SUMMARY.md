@@ -1,6 +1,7 @@
 # Table of contents
 
 * [Introduction](README.md)
+* [Reference Index](reference_index.md)
 * [Getting started](getting-started/README.md)
   * [Hello, World!](getting-started/hello_world.md)
   * [Running a Jolie service with arguments](getting-started/running_a_jolie_service_with_arguments.md)
