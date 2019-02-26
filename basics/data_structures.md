@@ -108,8 +108,21 @@ foreach ( nameVar : root ) {
 Combining `foreach` and dynamic look-up is very useful for navigating and handling nested structures:
 
 ```text
-foreach ( kind : animals ){
-    for ( i = 0, i 
+include "console.iol"
+
+main {
+  animals.pet[0].name = "cat";
+  animals.pet[1].name = "dog";
+  animals.wild[0].name = "tiger";
+  animals.wild[1].name = "lion";
+
+  foreach ( kind : animals ){
+    for ( i = 0, i < #animals.( kind ), i++ ) {
+        println@Console( "animals." + kind + "[" + i + "].name=" + animals.( kind )[ i ].name )()
+    }
+  }
+}
+
 ```
 
 In the example above `kind` ranges over all child-nodes of `animals` \(`pet` and `wild`\), while the `for` statement ranges over the elements of the current `animals.kind` node, printing both it's path in the structure and its content:
@@ -262,18 +275,24 @@ Aliases are evaluated every time they are used.
 Thus we can exploit aliases to make our code more readable even when handling deeply nested structure like the one in the example below:
 
 ```text
-with ( a.b.c ){
+include "console.iol"
+
+main {
+  with ( a.b.c ){
     .d[ 0 ] = "zero";
     .d[ 1 ] = "one";
     .d[ 2 ] = "two";
     .d[ 3 ] = "three"
-};
-currentElement[ 0 ] -> a.b.c.d[ i ];
+  };
+  currentElement -> a.b.c.d;
 
-for ( i = 0, i 
+  for ( i = 0, i < #currentElement, i++ ) {
+      println@Console( currentElement[ i ] )()
+  }
+}
 ```
 
-The alias `currentElement[ 0 ]` is used to refer to the `i`-th element of `d` nested inside `a.b.c`. At each iteration the alias is evaluated, using the current value of `i` variable as index. Therefore, the example's output is:
+The alias `currentElement` is used to refer to the `i`-th element of `d` nested inside `a.b.c`. At each iteration the alias is evaluated, using the current value of `i` variable as index. Therefore, the example's output is:
 
 ```text
 zero
