@@ -115,6 +115,10 @@ Let us consider the example below in which only `buy` or `sell` operation can ex
 }] { println@Console( "Sell order forwarded" )() }
 ```
 
+Note that input choice are used also as first statement of the behaviour in order to specify all the available operations for that service. In this case all the operations are available to be called from external clients.
+In the link below we modified the example presented in the previous section (Parallel) where in the forecast service we specify two operations inside a input choice.
+[Click here to get the example code.](https://github.com/jolie/examples/tree/master/02_basics/2_input_choice)
+
 ## The provide-until statement
 
 The `provide` `until` statement eases defining workflows where a microservice _provides_ access to a set of resources _until_ some event happened.
