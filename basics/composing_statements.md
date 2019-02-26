@@ -79,7 +79,7 @@ main
 }
 ```
 
-[Click here to download the comprehensive code of the example above.](https://github.com/jolie/docs/blob/master/files/basics/code/composing_statements_parallel.zip)
+[Click here to get the comprehensive code of the example above.](https://github.com/jolie/examples/tree/master/02_basics/3_parallel)
 
 Concurrent access to shared variables can be restricted through [synchronized](https://jolielang.gitbook.io/docs/basics/processes) blocks.
 
