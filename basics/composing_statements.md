@@ -67,15 +67,23 @@ A ; B | C ; D
 
 Parallel execution is especially useful when dealing with multiple services, in order to minimize waiting times by managing multiple communications at once.
 
-In this example we concurrently retrieve information from both a forecast and a traffic service:
+In this example we consider the scenario where there are three services: 
+- trafficService: it provides information about traffic for a given city
+- forecastServyce: it provides information about forecasts for a given city (in the specific case it just provides the current temperature)
+- infoService: it concurrently retrieves information from both the forecast and the  traffic service:
+
+![](../.gitbook/assets/arch_parallel_example.png)
+
+The behaviour of the InfoService is reported below. It is worth noting that the parallel operator combines the two calls to the other services, and the responses are stored into subnodes response.temperature and response.traffic, respectively.
 
 ```text
-main
-{
-    getTemperature@Forecast( city )( temperature ) |
-    getData@Traffic( city )( traffic );
-
-    println@Console( "Request served!" )()
+main {
+  getInfo(request)(response) {
+    getTemperature@Forecast( request )( response.temperature )
+    |
+    getData@Traffic( request )( response.traffic )
+  };
+  println@Console("Request served!")()
 }
 ```
 
