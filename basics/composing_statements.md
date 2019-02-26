@@ -6,7 +6,7 @@ The behaviour of a Jolie application is defined by conditions, loops, and statem
 
 Whilst conditions and loops implement the standard conditional and iteration constructs, execution rules defines the priority among code blocks.
 
-## Statement execution operators
+## Behavioural operators
 
 Jolie offers three kinds of operators to compose statements in sequence, parallel, or as a set of input choices.
 
