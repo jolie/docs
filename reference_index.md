@@ -13,6 +13,6 @@
 - `if {} else {}`: conditional statement. [Go to section: Conditions and conditional statement](basics/composing_statements.md#conditions-and-conditional-statement)
 - `for(){}`: deterministic loop. [Go to section: for and while](basics/composing_statements.md#for-and-while)
 - `foreach(:){}`: traversing items. [Go to section: foreach](basics/data_structures.md#foreach-traversing-items)
-- `undef()`: undefines a variable. [Go to section: Undefining variables](basics/handling_simple_data.md#undefining-variables)
+- `undef()`: undefines a variable. [Go to section: Undef](basics/data_structures.md#undef-erasing-tree-structures)
 - `while(){}`: conditional loop. [Go to section: for and while](basics/composing_statements.md#for-and-while)
 - `with(:){}`: shortcut to repetitive variable paths. [Go to section: with](basics/data_structures.md#with-a-shortcut-to-repetitive-variable-paths)
