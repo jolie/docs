@@ -3,4 +3,8 @@
 - `|`: parallel. [Go to section: Parallel](basics/composing_statements.md#parallel)
 
 # Statements
-- `undef`: undefines a variable. [Go to section: Undefining variables](basics/handling_simple_data.md#undefining-variables)
+- `if {} else {}`: conditional statement. [Go to section: Conditions and conditional statement](basics/composing_statements.md#conditions-and-conditional-statement)
+- `[]{}`: input choice. [Go to section: Input Choice](basics/composing_statements.md#input-choice)
+- `for(){}`: deterministic loop. [Go to section: for and while](basics/composing_statements.md#for-and-while)
+- `undef()`: undefines a variable. [Go to section: Undefining variables](basics/handling_simple_data.md#undefining-variables)
+- `while(){}`: conditional loop. [Go to section: for and while](basics/composing_statements.md#for-and-while)
