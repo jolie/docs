@@ -204,9 +204,7 @@ For the sake of clarity a representation of the `zoo` structure is provided as i
 </zoo>
 ```
 
-Attention
-
-At runtime `d<< s` explores the source \(tree `s`\) node-wise and for all initialised sub-nodes in `s`, e.g., `s.path.to.subnode`, it assigns the value of `s.path.to.subnode` to the corresponding sub-node rooted in `d`. According to the example `d.path.to.subnode = s.path.to.subnode`. This means that if `d` already had initialised sub-nodes, `d<< s` will overwrite all the correspondent sub-nodes of `s` rooted in `d`, leaving all the others initialised node of `d` unaffected.
+**Attention.** At runtime `d<< s` explores the source \(tree `s`\) node-wise and for all initialised sub-nodes in `s`, e.g., `s.path.to.subnode`, it assigns the value of `s.path.to.subnode` to the corresponding sub-node rooted in `d`. According to the example `d.path.to.subnode = s.path.to.subnode`. This means that if `d` already had initialised sub-nodes, `d<< s` will overwrite all the correspondent sub-nodes of `s` rooted in `d`, leaving all the others initialised node of `d` unaffected.
 
 ```text
 d.greeting = "hello";
