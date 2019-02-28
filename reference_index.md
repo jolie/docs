@@ -13,6 +13,7 @@
 - `define`: macro definition. [Go to section: Define](basics/define.md)
 - `if {} else {}`: conditional statement. [Go to section: Conditions and conditional statement](basics/composing_statements.md#conditions-and-conditional-statement)
 - `inputPort`: input port statement. [Go to section: Ports] (basics/communication-ports/ports)
+- `Location`: port location. [Go to section: Locations] (basics/communication-ports/locations)
 - `for(){}`: deterministic loop. [Go to section: for and while](basics/composing_statements.md#for-and-while)
 - `foreach(:){}`: traversing items. [Go to section: foreach](basics/data_structures.md#foreach-traversing-items)
 - `outputPort`: output port statement. [Go to section: Ports] (basics/communication-ports/ports)
