@@ -37,3 +37,4 @@ outputPort id {
 
 where `URI` is a [URI](http://en.wikipedia.org/wiki/Uniform_resource_identifier) \(Uniform Resource Identifier\), defining the location of the port; `id`, `p` and `iface_i` are the identifiers representing, respectively, the name of the port, the data protocol to use, and the interfaces accessible through the port.
 
+Details about Location, Protocol and Interfacescan be found in the next sections.
