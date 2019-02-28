@@ -15,7 +15,6 @@
   * [Data Structures](basics/data_structures.md)
   * [Constants](basics/constants.md)
   * [Communication Ports](basics/communication-ports/README.md)
-    * [Introduction](basics/communication-ports/introduction.md)
     * [Ports](basics/communication-ports/ports.md)
     * [Locations](basics/communication-ports/locations.md)
     * [Protocols](basics/communication-ports/protocols.md)
