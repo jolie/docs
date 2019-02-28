@@ -1,12 +1,15 @@
 # Ports
 
-Let us recall the concepts of _input ports_ and _output ports_ seen in the [Behaviour and Deployment](https://jolielang.gitbook.io/docs/getting-started/behavior_and_deployment) section.
+In Jolie there are two kinds of ports:
+- _input ports_: which expose input operations to other services;
+- _output ports_: which define how to invoke the operations of other services.
 
-There are two kinds of ports: _input ports_, which expose input operations to other services, and _output ports_, defining how to invoke the operations of other services.
+Within each port, both input and output, it is possible to define three elements: 
+- _Location_; 
+- _Protocol_;
+- _Interfaces_.
 
-_Location_, _protocol_ and _interface_ are the three elements in the definition of ports.
-
-Location and protocol define the concrete binding information between a Jolie program and other service, interfaces specify type information expected to be satisfied by the behaviour that uses the port.
+The Location defines _where_ the service is listening for a message (in the case of input ports) or where the message has to be sent (in the case of output ports). The Protocol defines _how_ Jolie will send or receive a message. It could defines both the transportation protocol (e.g. http) and the message format (e.g. json). Finally, Interfaces specify the list of the available operations and the related message types information. In particular, in case of an input port, an interfaces specifies the operation exhibited by the current service, whereas in the case of an output port it defines the operations which can be invoked by that service.
 
 ## The syntax of input and output ports
 
