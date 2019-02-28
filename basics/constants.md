@@ -25,9 +25,6 @@ constants {
 
 Constants might also be assigned on the command line. Just call a program using `jolie -C server_location=\"socket://localhost:4003\" program.ol` to override `Server_location`. We can even remove its declaration from the `constants` list in case of a mandatory command line assignment.
 
-Attention
-
-Under Windows `=` is a parameter delimiter.
-
+**Attention.** Under Windows `=` is a parameter delimiter.
 To correctly use the command line option `-C` make sure to enclose the assignment of the constant between single or double quotes like `jolie -C "server_location=\"socket://localhost:4003\"" program.ol` .
 
