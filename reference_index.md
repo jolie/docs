@@ -25,6 +25,6 @@ This reference index is still under construction. If you spot something missing,
 - `Protocol`: port protocol. [Go to section: Protocol](basics/communication-ports/protocol)
 - `RequestResponse`: request response operation definition. [Go to section: Interfaces](basics/communication-ports/interfaces)
 - `undef()`: undefines a variable. [Go to section: Undef](basics/data_structures.md#undef-erasing-tree-structures)
-- `type`: type definition. [Go to section: Interfaces](basics/communication-ports/data_types)
+- `type`: type definition. [Go to section: Data Types](basics/communication-ports/data_types)
 - `while(){}`: conditional loop. [Go to section: for and while](basics/composing_statements.md#for-and-while)
 - `with(:){}`: shortcut to repetitive variable paths. [Go to section: with](basics/data_structures.md#with-a-shortcut-to-repetitive-variable-paths)
