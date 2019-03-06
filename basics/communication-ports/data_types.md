@@ -67,13 +67,31 @@ type ShoppingList: void {
 
 The custom type `ShoppingList` represents a list of items to be bought. In the example the subnode `fruits` contains the sum of all the fruits that should be bought, while its subnodes corresponds to which kind of fruits to buy and their quantity.
 
+A definition of type can be used within another type definition thus to express more complex types. In the example below, fruits are expressed within a custom type and then used in type `ShoppingList`:
+
+```text
+type Fruits: void {
+    .bananas: int
+    .apples: int
+}
+
+type ShoppingList: void {
+    .fruits: Fruits
+    .notes: string
+}
+```
+
+
 ### Subnodes with cardinality
+Since each node of a tree in Jolie is a vector, in a type declaration each node requires a cardinality to be specified. The cardinality espresses the minimum and the maximum occurencies for that node (`[min, max]`). Cardinality is always expressed in the form:
+* `[min, max]` - an interval from `min` to `max` \(both integers\), where `max` can be equal to `*` for defining an unlimited number of occurencies (`[min, *]`).
 
-Given `R` as a range, which specifies the allowed number of occurrences of the subnode in a value, `R` could be: 1. `[min, max]` - an interval from `min` to `max` \(both integers\); 2. `*` - meaning any number of occurrences, a shortcut for `[0, *]`; 3. `?` - meaning non or one occurrence, a shortcut for `[0, 1]`.
+Some special shortcuts can be used for expressing cardinality easily instead of the ordinary syntax with square brackets:
+* `*` - meaning any number of occurrences, a shortcut for `[0, *]`.
+* `?` - meaning non or one occurrence, a shortcut for `[0, 1]`.
+* when no cardinality is defined, it is defaulted to the value `[1,1]`, meaning that one and only one occurrence of that subnode can be contained in the node.
 
-In Jolie, when no cardinality is defined, it is defaulted to the value `[1,1]`, meaning that one and only one occurrence of that subnode can be contained in the node.
-
-The complete syntax for nested data types with cardinality follows:
+Formally, given `R` as a range, which specifies the allowed number of occurrences of the subnode in a value, the complete syntax for nested data types with cardinality follows:
 
 ```text
 type CustomType: T {
@@ -95,7 +113,7 @@ type CustomType: T {
 }
 ```
 
-In this case cardinalities are defined by occurrences where minimal occurrence of `aSubNode` of type `T` is one and maximum occurrences of the same node are five.
+*Example*. In this case cardinalities are defined by occurrences where minimal occurrence of `aSubNode` of type `T` is one and maximum occurrences of the same node are five.
 
 ```text
 type CustomType: T {
