@@ -7,6 +7,7 @@ where _medium_ is a medium identifier and the optional _parameters_ is a medium-
 
 Jolie currently supports four media:
 
+* `local` \(Jolie in-memory communication\);
 * `socket` \(TCP/IP sockets\).
 * `btl2cap` \(Bluetooth L2CAP\);
 * `rmi` \(Java RMI\);
