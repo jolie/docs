@@ -133,7 +133,8 @@ type CustomType: T {
 
 The above example shows that `*` is a shortcut for `[0,*]` and hence the cardinality of `aSubNode` and `anotherSubNode` are the same.
 
-Jolie provides the term any { ? } to capture the type of a tree with any type for the root and an undefined set of subnodes. Jolie also provides a shortcut to any { ? } which is the undefined type. Hence the two writings below are equal
+##Undefined set of subnodes##
+Jolie provides the term `any { ? }` to capture the type of a tree with any type for the root and an undefined set of subnodes. Jolie also provides a shortcut to `any { ? }` which is the type `undefined`. Hence the two writings below are equal
 
 ```text
 type CustomType: any { ? }
@@ -175,10 +176,6 @@ Referring to the previous example, `x` requires the definition of both nodes `va
 
 ### Defining type nodes with reserved characters
 
-Attention
-
-This feature is available from Jolie 1.6.2.
-
 Sometimes you may need to define node names that contain special characters, such as @. In these cases, you need to put your node name between double quotes, as in the following example.
 
 ```text
@@ -188,6 +185,8 @@ type TestType: void {
 ```
 
 You can access these nodes with special characters by using dynamic look-up, for example x.\("@node"\). This is explained more in detail in [data structures](https://jolielang.gitbook.io/docs/basic/data_structures).
+
+*Attention: This feature is available from Jolie 1.6.2.*
 
 ### Data types choice \(sum types\)
 
