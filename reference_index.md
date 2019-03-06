@@ -1,5 +1,15 @@
 This reference index is still under construction. If you spot something missing, please consider [contributing](https://github.com/jolie/docs/blob/master/reference_index.md)!
 
+## Basic Data Types
+* `bool`: booleans;
+* `int`: integers;
+* `long`: long integers \(with `L` or `l` suffix\);
+* `double`: double-precision float \(decimal literals\);
+* `string`: strings;
+* `raw`: byte arrays;
+* `void`: the empty type.
+[Go to section: Handling Simple Data](basics/handling_simple_data)
+
 ## Tree operators
 - `<<`: deep copy. [Go to section: Copying an entire tree structure](basics/data_structures.md#less-than-less-than-copying-an-entire-tree-structure)
 - `->`: alias. [Go to section: Structure aliases](basics/data_structures.md#greater-than-structures-aliases)
