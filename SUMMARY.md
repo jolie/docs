@@ -61,7 +61,6 @@
   * [SODEPs](protocols/sodeps.md)
   * [SSL](protocols/ssl.md)
 * [Locations](locations/README.md)
-  * [Introduction](locations/introduction.md)
   * [Socket](locations/socket.md)
   * [Local](locations/local.md)
   * [Btl2Cap](locations/btl2cap.md)
