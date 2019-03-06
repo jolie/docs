@@ -2,8 +2,8 @@
 
 Jolie defines two types of operations:
 
-* one-way operations, which receive a message;
-* request-response operations, which reply or receive a message and send back a response.
+* **one-way** operations, which receive a message;
+* **request-response** operations, which reply or receive a message and send back a response.
 
 Thus an interface is a collection of operation types, a list of One-Way and Request-Response operation declarations.
 
@@ -27,7 +27,7 @@ interface identifier {
 
 The syntax presented above includes the types of the messages of each operation. One-way operations require only one message type, whilst request-responses define both request \(left argument\) and response \(right argument\) types.
 
-Let us declare the interface `SumInterface`:
+As an example, let us declare the interface `SumInterface`:
 
 ```text
 interface SumInterface {
