@@ -19,6 +19,7 @@
   * [Communication](basics/communication-ports/README.md)
     * [Ports](basics/communication-ports/ports.md)
     * [Communication Primitives](basics/communication-ports/using_communication_ports.md)
+    * [Synchronous vs Asynchronous Communication](basics/communication-ports/synchronousVSAsynchronous.md)
     * [A Comprehensive Example](basics/communication-ports/a_comprehensive_example.md)
     * [Type Mismatching](basics/communication-ports/type_mismatching.md)
   * [Processes](basics/processes.md)
