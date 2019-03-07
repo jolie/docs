@@ -101,7 +101,7 @@ More than one input and one output ports can be defined into a service thus, ena
 
 ![](../../.gitbook/assets/multipleports.png)
 
-As an example the following piece of service two input ports and three outputPorts are declared:
+As an example, in the following piece of service, two input ports and three outputPorts are declared:
 
 ```text
 include "Interface1.iol"
