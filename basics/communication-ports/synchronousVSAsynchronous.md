@@ -3,7 +3,6 @@ Input and output primitives allows for the programming of both synchronous and a
 
 ![](../../.gitbook/assets/asyncVSsync.png)
 
-Such a definition has some implications 
+It is worth noting that both of them have always an impact on the architecture of the system. The synchrnous communication permits to have a double message exchange on the port of the receiver whereas the asynchronous one deal only with a single message exchange. Thus, if we need to implement an asynchronous request/reply message exchange we are forced to modify the architecture adding an input port to the sender and an output port to the receiver just for dealing with the reply message.
 
 
-It is worth noting that both of them have always an impact on the architecture of the system. 
