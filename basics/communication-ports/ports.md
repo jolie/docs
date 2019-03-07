@@ -12,6 +12,7 @@ Within each port, both input and output, it is possible to define three elements
 The Location defines _where_ the service is listening for a message (in the case of input ports) or where the message has to be sent (in the case of output ports). The Protocol defines _how_ Jolie will send or receive a message. It could defines both the transportation protocol (e.g. http) and the message format (e.g. json). Finally, Interfaces specify the list of the available operations and the related message types information. In particular, in case of an input port, an interfaces specifies the operation exhibited by the current service, whereas in the case of an output port it defines the operations which can be invoked by that service.
 
 Usually we graphically represent outputPorts with red triangles and inputPort with yellow squares. As an example, in the diagram below we represent a client connected to a server by means of an outputPort defined in the client and an inputPort defined in the server.
+
 ![](../../.gitbook/assets/creating_service_and_client.png)
 
 ## The syntax of input and output ports
