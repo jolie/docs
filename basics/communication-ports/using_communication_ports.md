@@ -29,6 +29,34 @@ operation_name( request )( response ){
 }
 ```
 
+As an example let us consider the following service which has two operations defined. The former is a one-way operation and the latter a request-response one.
+
+```text
+include "console.iol"
+
+interface MyInterface {
+OneWay:
+    myOW( string )
+RequestResponse: 
+    myRR( string )( string ) 
+}
+
+inputPort myPort {
+Location: "socket://localhost:8000"
+Protocol: sodep
+Interfaces: MyInterface
+}
+
+main {
+    [ myOW( request ) ]{ println@Console("OW:" + request )() }
+    
+    [ myRR( request )( response ) {
+        println@Console("RR:" + request )();
+        response = "received " + request
+    }]
+}
+```
+
 ### Output primitives
 
 Sending one-way operations are similar to receiving ones although their syntax indicates also the port on which they execute their output.
