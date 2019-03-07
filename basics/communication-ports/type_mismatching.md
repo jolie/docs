@@ -22,12 +22,6 @@ In case a `TypeMismatch` is raised by the receiver, no fault is sent back to the
 
 ## Type mismatching in request-response operations
 
-Message type declaration can be used for both request and response messages in a request-response operation. Moreover, it is possible to declare types for the fault messages by means of the following syntax:
-
-```text
-op_name ( request_type )( response_type ) throws fault_name ( fault_type )
-```
-
 `TypeMismatch` fault in request-response operations leads to four different scenarios, summed in the table below:
 
 |  | Fault raised in REQUEST messages | Fault raised in RESPONSE messages |
