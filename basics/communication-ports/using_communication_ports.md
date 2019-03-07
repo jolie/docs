@@ -1,36 +1,4 @@
-# Using Communication Ports
-
-## Creating a communication port
-
-Let us write a complete example of communication ports in Jolie:
-
-```text
-//sumInterface.ol
-
-type SumRequest: void {
-    .number [ 2, * ]: int
-}
-
-interface SumInterface {
-    RequestResponse: sum( SumRequest )( int )
-}
-```
-
-`SumInterface` declaration.
-
-```text
-include "sumInterface.ol"
-
-inputPort SumInput {
-    Location: "socket://localhost:8000/"
-    Protocol: soap
-    Interfaces: SumInterface
-}
-```
-
-`SumInput` port declaration.
-
-## Using communications ports
+# Communication Primitives
 
 Once defined, ports can be used for input and output communications. Below we present the syntax of one-way and request-response operations used in the behaviour part for sending \(output\) and receiving \(input\) messages.
 
