@@ -16,7 +16,7 @@
   * [Constants](basics/constants.md)
   * [Interfaces](basics/communication-ports/interfaces.md)
     * [Data Types](basics/communication-ports/data_types.md)
-  * [Communication Ports](basics/communication-ports/README.md)
+  * [Communication](basics/communication-ports/README.md)
     * [Ports](basics/communication-ports/ports.md)
     * [Locations](basics/communication-ports/locations.md)
     * [Protocols](basics/communication-ports/protocols.md)
