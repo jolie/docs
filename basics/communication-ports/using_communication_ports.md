@@ -34,6 +34,8 @@ As an example let us consider the following service which has two operations def
 ```text
 include "console.iol"
 
+exceution{ concurrent }
+
 interface MyInterface {
 OneWay:
     myOW( string )
@@ -58,18 +60,48 @@ main {
 ```
 
 ### Output primitives
+Output primitives allow for sending messages to some input operations defined on another service. Also the output primitives can be divided into two categories:
+* **notification**: a message can be sent to a receving one-way operation.
+* **solicit-response**: a message can be sent to a receiving request-response operation. The solicit-response is blocked until the reply message is received.
 
-Sending one-way operations are similar to receiving ones although their syntax indicates also the port on which they execute their output.
+The syntax of notification and solicit-response resembles those of one-way and request-response with the exception that the operation name is followed by the token `@` and the name of the outputPort to be used for sending the message. Here in the following, we report the syntax of the notification where *OutputPort_Name* is the name of the outputPort to be used and *request* is the variable where the sending message is stored.
 
 ```text
 
 operation_name@OutputPort_Name( request )
 ```
 
-Analogously, also sending request-response operations indicate the port used to send their message. As for sending one-ways no code block is associated with the receiving operation as it simply sends a message and wait until it receives a response from the requested service.
+Analogously, in order to program a solicit-response it is necessary to indicate the port used to send the message. Differently from the one-way primitive, in the solicit-response one the first variable contains the message to be sent and the second one contains the variable where the reply message will be stored. No code block is associated with a solicit-response primitive because it simply sends a message and waits until it receives a response from the requested service.
 
 ```text
 
 operation_name@OutputPort_Name( request )( response )
+```
+
+In the following we report a possible client of the service above which is able to call the operations *myOW* and *myRR* in sequence:
+
+```text
+include "console.iol"
+
+exceution{ concurrent }
+
+interface MyInterface {
+OneWay:
+    myOW( string )
+RequestResponse: 
+    myRR( string )( string ) 
+}
+
+outputPort myPort {
+Location: "socket://localhost:8000"
+Protocol: sodep
+Interfaces: MyInterface
+}
+
+main {
+    myOW@MyPort( "hello world, I am the notification" );
+    myRR@MyPort( "hello world, I am the solicit-response" )( response );
+    println@Console( response )()
+}
 ```
 
