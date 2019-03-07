@@ -37,4 +37,57 @@ outputPort id {
 
 where `URI` is a [URI](http://en.wikipedia.org/wiki/Uniform_resource_identifier) \(Uniform Resource Identifier\), defining the location of the port; `id`, `p` and `iface_i` are the identifiers representing, respectively, the name of the port, the data protocol to use, and the interfaces accessible through the port.
 
-Details about Location, Protocol and Interfacescan be found in the next sections.
+## Locations
+
+A location expresses the communication medium and the address a service uses for exposing its interface \(input port\) or invoking another service \(output port\).
+
+A location must indicate the communication medium the port has to use and its related parameters in this form: `medium[:parameters]`
+where _medium_ is a medium identifier and the optional _parameters_ is a medium-specific string. Usually the medium parameters define the address where the service is actually located.
+
+Jolie currently supports four media:
+
+* `local` \(Jolie in-memory communication\);
+* `socket` \(TCP/IP sockets\).
+* `btl2cap` \(Bluetooth L2CAP\);
+* `rmi` \(Java RMI\);
+* `localsocket` \(Unix local sockets\);
+
+An example of a valid location is: `"socket://www.mysite.com:80/"`, where `socket://` is the location medium and the following part represents the address.
+
+For a thorough description of the locations supported by Jolie and their parameters see [Locations](https://jolielang.gitbook.io/docs/locations/introduction) section.
+
+## Protocols
+
+A protocol defines how data to be sent or received should be, respectively, encoded or decoded, following an isomorphism.
+
+Protocols are referred by name. Examples of valid \(supported\) protocol names are:
+
+* `http`
+* `https`
+* `soap`
+* `sodep` \(a binary protocol specifically developed for Jolie\)
+* `xmlrpc`
+
+For a thorough description of the protocols supported by Jolie and their parameters see [Protocols](https://jolielang.gitbook.io/docs/protocols/introduction) section.
+
+Let us consider the following input port declaration:
+
+```text
+inputPort SumInput {
+    Location: "socket://localhost:8000/"
+    Protocol: soap
+    Interfaces: SumInterface
+}
+```
+
+`SumInput` is an inputPort, and it exposes the operations defined in `SumInterface` interface. Such operations can be invoked at the TCP/IP socket `localhost`, on port `8000`, and by encoding messages with the `soap` protocol.
+
+Finally, let us define the `SumServ` outputPort, which is used to invoke the services exposed by `SumInput`:
+
+```text
+outputPort SumServ {
+    Location: "socket://localhost:8000/"
+    Protocol: soap
+    Interfaces: SumInterface
+}
+```
