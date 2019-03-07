@@ -100,3 +100,51 @@ outputPort SumServ {
 More than one input and one output ports can be defined into a service thus, enabling a service to receive messages from different location and different protocols.
 
 ![](../../.gitbook/assets/multipleports.png)
+
+As an example the following piece of service two input ports and three outputPorts are declared:
+
+```text
+include "Interface1.iol"
+include "Interface2.iol"
+include "Interface3.iol"
+include "MyInterface.iol"
+
+execution{ concurrent }
+
+outputPort OutputPort1 {
+    Location: "socket://localhost:9000/"
+    Protocol: sodep
+    Interfaces: Interface1
+}
+
+outputPort OutputPort2 {
+    Location: "socket://localhost:9001/"
+    Protocol: sodep
+    Interfaces: Interface2
+}
+
+outputPort OutputPort3 {
+    Location: "socket://localhost:9002/"
+    Protocol: sodep
+    Interfaces: Interface3
+}
+
+inputPort InputPort1 {
+    Location: "socket://localhost:8000/"
+    Protocol: soap
+    Interfaces: MyInterface
+}
+
+inputPort InputPort2 {
+    Location: "socket://localhost:8001/"
+    Protocol: sodep
+    Interfaces: MyInterface
+}
+
+main {
+...
+}
+```
+
+
+
