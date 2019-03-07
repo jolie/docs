@@ -95,3 +95,8 @@ outputPort SumServ {
     Interfaces: SumInterface
 }
 ```
+
+## Multiple ports
+More than one input and one output ports can be defined into a service thus, enabling a service to receive messages from different location and different protocols.
+
+![](../../.gitbook/assets/multipleports.png)
