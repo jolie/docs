@@ -3,7 +3,9 @@ Input and output primitives allows for the programming of both synchronous and a
 
 ![](../../.gitbook/assets/asyncVSsync.png)
 
-It is worth noting that both of them have always an impact on the architecture of the system. The synchrnous communication permits to have a double message exchange on the port of the receiver whereas the asynchronous one deal only with a single message exchange. Thus, if we need to implement an asynchronous request/reply message exchange we are forced to modify the architecture adding an input port to the sender and an output port to the receiver just for dealing with the reply message.
+It is worth noting that both of them have always an impact on the architecture of the system. The synchrOnous communication permits to have a double message exchange on the port of the receiver whereas the asynchronous one deals only with a single message exchange. Thus, if we need to implement an asynchronous request/reply message exchange we are forced to modify the architecture adding an input port to the sender and an output port to the receiver just for dealing with the reply message.
 
 ![](../../.gitbook/assets/async.png)
+
+In the example reported at ![https://github.com/jolie/examples/tree/master/02_basics/6_async_vs_sync](https://github.com/jolie/examples/tree/master/02_basics/6_async_vs_sync) we modelled a message exchange both using a synchronous communication and an asynchronous one. Note that the synchronous version can be easily considered as a common pattern to be used as is in your projects, whereas the asynchronous one could require some more analysis from the point of view of the session management. Please, read the section about ![sessions](../basics/sessions.md) in order to keep the basic concepts be 
 
