@@ -1,6 +1,7 @@
 # A Comprehensive Example
 
 Let us consider the following scenario for a comprehensive example on communication ports.
+The code can be checked and downloaded at this [link](https://github.com/jolie/examples/tree/master/02_basics/1_ports).
 
 `PercentInterface` defines the `percent` request-response operation. Both request and response messages are typed.
 
@@ -82,11 +83,8 @@ main
 }
 ```
 
-The programs can be downloaded from the link below:
 
-[Communication Ports Code Example](https://github.com/jolie/docs/blob/master/files/basics/code/communication_ports_code.zip)
-
-Once extracted, the two programs may be run in two separate shells. Make sure to start `server.ol` before `client.ol`.
+The two programs may be run in two separate shells. Make sure to start `server.ol` before `client.ol`.
 
 Note the presence of two definitions, respectively at Lines 12-15 and Lines 17-18 in client's source code. Both of these procedures set the values of `request.total` and `request.part` in the request message. By switching the comment from Line 27 to 28 and viceversa the invocation of `percent` operation is successful or returns a `TypeMismatch` error.
 
