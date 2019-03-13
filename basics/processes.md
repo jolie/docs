@@ -13,7 +13,6 @@ The syntax of the _execution modality_ is:
 ```text
 execution { single | concurrent | sequential }
 ```
-
 `single` is the default execution modality \(so the `execution` construct can be omitted\), which runs the program behaviour once. `sequential`, instead, causes the program behaviour to be made available again after the current instance has terminated. This is useful, for instance, for modelling services that need to guarantee exclusive access to a resource. Finally, `concurrent` causes a program behaviour to be instantiated and executed _whenever its first input statement can receive a message_.
 
 In the \`sequential\` and \`concurrent\` cases, the behavioural definition inside the main procedure must be an input statement, thus the executed process always animates a session. Single modality is usually exploited for running scripts because they require to be triggered by command instead of a message reception.
@@ -44,9 +43,9 @@ main {
 
 ```
 
-## `init{}`
+## `main{}` and `init{}`
 
-Jolie also supports special procedures for initialising a service before it makes its behaviours available. The `init{}` scope allows the specification of such procedures. All the code specified within the `init{}` scope is executed only once, when the service is started.
+*main* and *init* define the behaviour scope and the initializating one respectively. All the operations of the service must be implemented within the scope *main*, whereas the scope *init* is devoted to execute special procedures for initialising a service before it makes its behaviours available. All the code specified within the `init{}` scope is executed only once, when the service is started. The scope *init* is not affected by the _execution modality_. On the contrary, the code defined in the scope *main* is executed following the _execution modality_  of the service.
 
 ## Global variables
 
