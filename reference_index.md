@@ -23,7 +23,7 @@ This reference index is still under construction. If you spot something missing,
 - `[..]{..}`: input choice. [Go to section: Input Choice](basics/composing_statements.md#input-choice)
 - `constants`: constants definition. [Go to section: Constants](basics/constants.md)
 - `define`: procedure definition. [Go to section: Define](basics/define.md)
-- `execution { single | concurrent | sequential }`: execution modality. [Go to section: Processes and Sessions](basics/processes,md)
+- `execution { single | concurrent | sequential }`: execution modality. [Go to section: Processes and Sessions](basics/processes.md)
 - `for(){}`: deterministic loop. [Go to section: for and while](basics/composing_statements.md#for-and-while)
 - `foreach(:){}`: traversing items. [Go to section: foreach](basics/data_structures.md#foreach-traversing-items)
 - `global`: global variables. [Go to section: Processes and Sessions](basics/processes.md)
