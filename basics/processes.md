@@ -1,10 +1,14 @@
-# Processes
+# Processes and Sessions
+In Jolie a *process* is a running instance of a behaviour whereas a *session* is a process in charge to serve one or more requests. The two concepts are quite similar, thus the two terms could be used for referring the same entity. The only difference is that a process is a term which refers to an executable entity inside a Jolie engine, whereas a session is an entity which represents an open conversation among two or more services. Briefly, the *process* can be considered as the executable artifact which animates a session. A session always starts when triggered from an external message, whereas a processalways starts when a session is trigerred or when a Jolie script is run.
 
-## Behaviour instances
+## Execution modality
+The execution modality permits to specify the way a process must be executed whithin the engine. An process can be executed in three modalities:
 
-A service participates in a session by executing an instance of its behaviour. So far we have executed behaviours a single time, which means that each service we run supported only a single session. If needed again, the service must be executed manually another time.
+* single
+* sequential
+* concurrent
 
-Jolie allows to reuse behavioural definition multiple times with the _execution modality_ deployment primitive, whose syntax is:
+The syntax of the _execution modality_ is:
 
 ```text
 execution { single | concurrent | sequential }
@@ -12,9 +16,9 @@ execution { single | concurrent | sequential }
 
 `single` is the default execution modality \(so the `execution` construct can be omitted\), which runs the program behaviour once. `sequential`, instead, causes the program behaviour to be made available again after the current instance has terminated. This is useful, for instance, for modelling services that need to guarantee exclusive access to a resource. Finally, `concurrent` causes a program behaviour to be instantiated and executed _whenever its first input statement can receive a message_.
 
-In the \`sequential\` and \`concurrent\` cases, the behavioural definition inside the main procedure must be an input statement.
+In the \`sequential\` and \`concurrent\` cases, the behavioural definition inside the main procedure must be an input statement, thus the executed process always animates a session. Single modality is usually exploited for running scripts because they require to be triggered by command instead of a message reception.
 
-A crucial aspect of behaviour instances is that each instance has its own private state, determining variable scoping. This lifts programmers from worrying about race conditions in most cases.
+A crucial aspect of processes is that each of them has its own private state, determining variable scoping. This lifts programmers from worrying about race conditions in most cases.
 
 For instance, let us recall the server program given at the end of [Communication Ports](https://jolielang.gitbook.io/docs/basics/communication-ports) section. We can simply add the deployment instruction `execution{ concurrent }` to the server's deployment to make it supporting multiple clients at the same time. Access to variables would be safe since each behaviour instance would have its private state.
 
