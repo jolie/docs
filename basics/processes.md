@@ -20,34 +20,28 @@ In the \`sequential\` and \`concurrent\` cases, the behavioural definition insid
 
 A crucial aspect of processes is that each of them has its own private state, determining variable scoping. This lifts programmers from worrying about race conditions in most cases.
 
-For instance, let us recall the server program given at the end of [Communication Ports](https://jolielang.gitbook.io/docs/basics/communication-ports) section. We can simply add the deployment instruction `execution{ concurrent }` to the server's deployment to make it supporting multiple clients at the same time. Access to variables would be safe since each behaviour instance would have its private state.
+For instance, let us recall the server program given at the end of [Communication Ports](https://jolielang.gitbook.io/docs/basics/communication-ports/a_comprehensive_example.md) section. The execution modality of the *NewsPaper* is  `concurrent` thus it can support multiple requests from both the script *author.ol* and *user.ol*. 
 
 ```text
 //Server.ol
-
-include "console.iol"
-include "percentInterface.iol"
-
-inputPort PercService {
-    Location: "socket://localhost:2000"
-    Protocol: sodep
-    Interfaces: PercentInterface
-}
+include "NewsPaperInterface.iol"
 
 execution{ concurrent }
 
-init {
-    install( TypeMismatch =>
-        println@Console( "TypeMismatch: " + main.TypeMismatch )()
-    )
+inputPort NewsPaperPort {
+  Location:"auto:ini:/Locations/NewsPaperPort:file:locations.ini"
+  Protocol: sodep
+  Interfaces: NewsPaperInterface
 }
 
-main
-{
-    percent( request )( response ){
-        response.percent_value = double( request.part )/request.total
-    }
+main {
+    [ getNews( request )( response ) {
+        response.news -> global.news
+    }]
+
+    [ sendNews( request ) ] { global.news[ #global.news ] << request }
 }
+
 ```
 
 ## `init{}`
