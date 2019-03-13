@@ -21,7 +21,7 @@
     * [Communication Primitives](basics/communication-ports/using_communication_ports.md)
     * [Synchronous vs Asynchronous Communication](basics/communication-ports/synchronousVSAsynchronous.md)
     * [Type Mismatching](basics/communication-ports/type_mismatching.md)
-    * [A Comprehensive Example](basics/communication-ports/a_comprehensive_example.md)
+    * [Example](basics/communication-ports/a_comprehensive_example.md)
   * [Processes](basics/processes.md)
   * [Dynamic Binding](basics/dynamic_binding.md)
   * [Sessions](basics/sessions.md)
