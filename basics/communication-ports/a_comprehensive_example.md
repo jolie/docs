@@ -1,90 +1,117 @@
-# A Comprehensive Example
+# Example
 
-Let us consider the following scenario for a comprehensive example on communication ports.
-The code can be checked and downloaded at this [link](https://github.com/jolie/examples/tree/master/02_basics/1_ports).
+Here we discuss a simple example where both OneWay/Notification and RequestResponse/SolicitResponse primitives are used.
+The complete code can be checked and downloaded at this [link](https://github.com/jolie/examples/tree/master/02_basics/1_ports/newspaper).
 
-`PercentInterface` defines the `percent` request-response operation. Both request and response messages are typed.
+The example's architecture is reported below.
+
+![](../../.gitbook/assets/newspaper.png)
+
+A newspaper service collects news sent by authors, users can get all the registered news into the newspaper.
+The interface of the newspaper service defines two operations: 
+
+* *sendNews* which is a OneWay operation used by authors for sending news to the newspaper service
+* *getNews* which is a RequestResponse operation used by users for getting the list of the registered news
 
 ```text
-//percentInterface.iol
-
-type percent_request: void {
-    .part: int
-    .total: int
+type News: void {
+    .category: string
+    .title: string
+    .text: string
+    .author: string
 }
 
-type percent_response: void {
-    .percent_value: double
+type GetNewsResponse: void {
+    .news*: News
 }
 
-interface PercentInterface {
-    RequestResponse: percent( percent_request )( percent_response )
+type SendNewsRequest: News
+
+interface NewsPaperInterface {
+  RequestResponse:
+      getNews( void )( GetNewsResponse )
+
+  OneWay:
+      sendNews( SendNewsRequest )
+}
+```
+The implementation of the two operations is very simple; we exploit a global variable for storing all the incoming news. When the *getNews* is invoked, we just return the list of the stored news.
+Details about the global variables can be found in section [Processes](basics/processes.md).
+
+```text
+include "NewsPaperInterface.iol"
+
+execution{ concurrent }
+
+inputPort NewsPaperPort {
+  Location:"auto:ini:/Locations/NewsPaperPort:file:locations.ini"
+  Protocol: sodep
+  Interfaces: NewsPaperInterface
+}
+
+main {
+    [ getNews( request )( response ) {
+        response.news -> global.news
+    }]
+
+    [ sendNews( request ) ] { global.news[ #global.news ] << request }
 }
 ```
 
-The client declares the `outputPort` to communicate with the server and invokes the `percent` operation.
+The author and the user can invoke the *NewsPaper* by exploiting two jolie scripts, *author.ol* and *user.ol* respectively.
+The two scripts can be run in a separate shell with respect to the newspaper one.
+In the following we report the code of the twi scripts:
 
 ```text
-//Client.ol
+//author.ol
+include "NewsPaperInterface.iol"
 
 include "console.iol"
-include "percentInterface.iol"
 
-outputPort PercService {
-    Location: "socket://localhost:2000"
-    Protocol: sodep
-    Interfaces: PercentInterface
+outputPort NewsPaper {
+  Location: "socket://localhost:9000"
+  Protocol: sodep
+  Interfaces: NewsPaperInterface
 }
 
-define valid_request {
-    request.total = 10;
-    request.part = 3
-}
-
-define typeMismatch_request {
-    request.total = 10.0;
-    request.part = 3
-}
-
-main
-{
-    install( TypeMismatch =>
-                println@Console( "TypeMismatch: " + main.TypeMismatch )()
-        );
-    //valid_request;
-    typeMismatch_request;
-    percent@PercService( request )( response );
-    println@Console( "n"+"Percentage value: "+response.percent_value )()
+main {
+    /* in order to get parameters from the console we need to register the service to the console one
+    by using the operatio registerForInput. After this, we are enabled to receive messages from the console
+    on input operation in (defined in console.iol)*/
+    registerForInput@Console()();
+    print@Console("Insert category:")(); in( request.category );
+    print@Console("Insert title:")(); in( request.title );
+    print@Console("Insert news text:")(); in( request.text );
+    print@Console("Insert your name:")(); in( request.author );
+    sendNews@NewsPaper( request );
+    println@Console("The news has been sent to the newspaper")()
 }
 ```
 
-The server declares the corresponding `inputPort` to exposes the `percent` service and implements its behaviour.
+
 
 ```text
-//Server.ol
+//user.ol
 
+include "NewsPaperInterface.iol"
 include "console.iol"
-include "percentInterface.iol"
 
-inputPort PercService {
-    Location: "socket://localhost:2000"
-    Protocol: sodep
-    Interfaces: PercentInterface
+outputPort NewsPaper {
+  Location: "socket://localhost:9000"
+  Protocol: sodep
+  Interfaces: NewsPaperInterface
 }
 
-main
-{
-    install( TypeMismatch =>
-                println@Console( "TypeMismatch: " + main.TypeMismatch )()
-    );
-    percent( request )( response ){
-        response.percent_value = double( request.part )/request.total
+main {
+    getNews@NewsPaper()( response );
+    for( i = 0, i < #response.news, i++ ) {
+        println@Console( "CATEGORY: " + response.news[ i ].category )();
+        println@Console( "TITLE: " + response.news[ i ].title )();
+        println@Console( "TEXT: " + response.news[ i ].text )();
+        println@Console( "AUTHOR: " + response.news[ i ].author )();
+        println@Console("------------------------------------------")()
     }
 }
 ```
 
-
-The two programs may be run in two separate shells. Make sure to start `server.ol` before `client.ol`.
-
-Note the presence of two definitions, respectively at Lines 12-15 and Lines 17-18 in client's source code. Both of these procedures set the values of `request.total` and `request.part` in the request message. By switching the comment from Line 27 to 28 and viceversa the invocation of `percent` operation is successful or returns a `TypeMismatch` error.
 
