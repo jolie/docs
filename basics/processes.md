@@ -82,12 +82,73 @@ The service is running...
 
 ## Global variables
 
-Jolie also provides _global variables_ to support sharing of data among different behaviour instances. These can be accessed using the `global` prefix:
+Jolie also provides _global variables_ to support sharing of data among different processes. These can be accessed using the `global` prefix:
 
 ```text
 global.myGlobalVariable = 3 // Global variable
 myLocalVariable = 1 // Local to this behaviour instance
 ```
+In the example reportes at this [link](https://github.com/jolie/examples/tree/master/02_basics/7_global) it is shown the difference between a global variable and a local variable. The server is defined as it follows:
+
+```text
+include "ServiceInterface.iol"
+include "console.iol"
+
+execution{ concurrent }
+
+inputPort Test {
+  Location: "socket://localhost:9000"
+  Protocol: sodep
+  Interfaces: ServiceInterface
+}
+
+main {
+    test( request)( response ) {
+        global.count++;
+        count++;
+        println@Console("global.count:" + global.count )();
+        println@Console("count:" + count )();
+        println@Console()()
+    }
+}
+
+```
+
+In the body of the request-response *test* the global variable *global.count* and the local variable *count* are incremented by one for each received message, then their value are printed out on the console. If we call such service ten times the output is:
+
+```text
+global.count:1
+count:1
+
+global.count:2
+count:1
+
+global.count:3
+count:1
+
+global.count:4
+count:1
+
+global.count:5
+count:1
+
+global.count:6
+count:1
+
+global.count:7
+count:1
+
+global.count:8
+count:1
+
+global.count:9
+count:1
+
+global.count:10
+count:1
+```
+
+It is worth noting that the global variable keeps its value independently from the executiing instance, thus it can be incremented each time a new session is executed. On the other hand the local variable is fresh each time.
 
 ## Synchronisation
 
