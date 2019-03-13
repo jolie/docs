@@ -22,7 +22,6 @@ A crucial aspect of processes is that each of them has its own private state, de
 For instance, let us recall the server program given at the end of [Communication Ports](https://jolielang.gitbook.io/docs/basics/communication-ports/a_comprehensive_example.md) section. The execution modality of the *NewsPaper* is  `concurrent` thus it can support multiple requests from both the script *author.ol* and *user.ol*. 
 
 ```text
-//Server.ol
 include "NewsPaperInterface.iol"
 
 execution{ concurrent }
@@ -46,6 +45,40 @@ main {
 ## `main{}` and `init{}`
 
 *main* and *init* define the behaviour scope and the initializating one respectively. All the operations of the service must be implemented within the scope *main*, whereas the scope *init* is devoted to execute special procedures for initialising a service before it makes its behaviours available. All the code specified within the `init{}` scope is executed only once, when the service is started. The scope *init* is not affected by the _execution modality_. On the contrary, the code defined in the scope *main* is executed following the _execution modality_  of the service.
+
+As an example let us consider the newspaper service reported above enriched with a simple init scope where a message is printed out on the console:
+
+```text
+include "NewsPaperInterface.iol"
+include "console.iol"
+
+execution{ concurrent }
+
+inputPort NewsPaperPort {
+  Location:"auto:ini:/Locations/NewsPaperPort:file:locations.ini"
+  Protocol: sodep
+  Interfaces: NewsPaperInterface
+}
+
+init {
+     println@Console("The service is running...")()
+}
+
+main {
+    [ getNews( request )( response ) {
+        response.news -> global.news
+    }]
+
+    [ sendNews( request ) ] { global.news[ #global.news ] << request }
+}
+
+```
+
+When run the service will print out the following message in the console:
+
+```text
+The service is running...
+```
 
 ## Global variables
 
