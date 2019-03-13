@@ -36,7 +36,7 @@ interface NewsPaperInterface {
 }
 ```
 The implementation of the two operations is very simple; we exploit a global variable for storing all the incoming news. When the *getNews* is invoked, we just return the list of the stored news.
-Details about the global variables can be found in section [Processes](basics/processes.md).
+Details about the global variables can be found in section [Processes](../basics/processes.md).
 
 ```text
 include "NewsPaperInterface.iol"
