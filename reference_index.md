@@ -23,6 +23,7 @@ This reference index is still under construction. If you spot something missing,
 - `[..]{..}`: input choice. [Go to section: Input Choice](basics/composing_statements.md#input-choice)
 - `constants`: constants definition. [Go to section: Constants](basics/constants.md)
 - `define`: procedure definition. [Go to section: Define](basics/define.md)
+- `execution { single | concurrent | sequential }`: execution modality. [Go to section: Processes and Sessions](basics/processes.md)
 - `if (..) {..} else {..}`: conditional statement. [Go to section: Conditions and conditional statement](basics/composing_statements.md#conditions-and-conditional-statement)
 - `inputPort`: input port statement. [Go to section: Ports](basics/communication-ports/ports)
 - `interface`: interface definition. [Go to section: Interfaces](basics/communication-ports/interfaces)
