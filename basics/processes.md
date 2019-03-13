@@ -162,11 +162,9 @@ synchronized( id ){
 
 The synchronisation block allows only one process at a time to enter any `synchronized` block sharing the same `id`.
 
-## A comprehensive example
+As an example, let us consider the service reported at this [link](https://github.com/jolie/examples/tree/master/02_basics/4_synchronized)
 
-Let us consider a comprehensive example using the concepts explained in this section.
-
-The register service has a concurrent execution and exposes the `register` request-response operation. `register` increments a global variable, which counts the number of registered users, and sends back a response to the client.
+The register service has a concurrent execution and exposes the `register` request-response operation. `register` increments a global variable, which counts the number of registered users, and sends back a response to the client. A *sleep* call to time service, simulates the server side computation time.
 
 _regInterface.ol_
 
@@ -184,53 +182,65 @@ _server.ol_
 
 ```text
 include "regInterface.iol"
+include "time.iol"
 
 inputPort Register {
-    Location: "socket://localhost:2000"
-    Protocol: sodep
-    Interfaces: RegInterface
+	Location: "socket://localhost:2000"
+	Protocol: sodep
+	Interfaces: RegInterface
 }
 
 execution { concurrent }
 
-init 
-{    
-    global.registered_users=0;
-    response.message = "Successful registration.nYou are the user number "
+init
+{
+	global.registered_users=0;
+	response.message = "Successful registration.\nYou are the user number "
 }
 
-main 
+main
 {
-    register()( response ){
-        synchronized( syncToken ) {
-            response.message = response.message + ++global.registered_users
-        }
-    }
+	register()( response ){
+		/* the synchronized section allows to access syncToken scope in mutual exclusion */
+		synchronized( syncToken ) {
+			response.message = response.message + ++global.registered_users;
+			sleep@Time( 2000 )()
+		}
+	}
 }
 ```
 
-_client.ol_
+The client executes five parallel calls to the service in order to register five different users.
 
 ```text
-include "regInterface.iol"
-include "console.iol"
-
-outputPort Register {
-    Location: "socket://localhost:2000"
-    Protocol: sodep
-    Interfaces: RegService
-}
-
-main 
+main
 {
-    register@Register()( response );
-    println@Console( response.message )()
+	{
+		register@Register()( response1 );
+		println@Console( response1.message )()
+	}
+	|
+	{
+		register@Register()( response2 );
+		println@Console( response2.message )()
+	}
+	|
+	{
+		register@Register()( response3 );
+		println@Console( response3.message )()
+	}
+	|
+	{
+		register@Register()( response4 );
+		println@Console( response4.message )()
+	}
+	|
+	{
+		register@Register()( response5 );
+		println@Console( response5.message )()
+	}
 }
 ```
 
-The programs can be downloaded from the link below:
-
-[Processes Code Example](https://github.com/jolie/docs/blob/master/files/basics/code/processes_code.zip)
-
-Once extracted, the two programs may be run in two separate shells. Make sure to start `register.ol` before `client.ol`. Try to start more than one `client.ol` at once and see the results.
+If executed, it is possible to observe that the parallel calls of the client are sequentialized by the service thanks to the primitive *synchronized* which implements a mutual access of the scope *syncToken*.
 
