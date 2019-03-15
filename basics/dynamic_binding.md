@@ -96,8 +96,10 @@ main
 ```
 
 ## Compatibity of the interfaces
-It is worth noting that, in case of dynamic binding, the interfaces defined in the output port must be compatible with those defined into the  receiving input port. The following rules must be respected for stating that there is compatibility:
+It is worth noting that, in case of dynamic binding, the interfaces defined in the output port must be compatible with those defined into the  receiving input port. The following rules must be respected for stating that there is compatibility between two interfaces:
 
 * all the operations defined in the interfaces at the output ports must be declared also in the interfaces at the input port (it does not matter in which interface an operation is defined, it is important that it is defined).
+
 * all the types of the messages defined for the operations of the output port, must be compatible with the the correspondat type of the same operation at the receiving input port.
+
 * a sending message type is considered compatible with the correspondant receiving one, when all the message it represents can be received without producing a *TypeMismatch* on the receiver part.
