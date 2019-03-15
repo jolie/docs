@@ -51,7 +51,7 @@ main
 ```
 
 
-## The chat example
+## Example: programming a chat
 We show a usage example of dynamic binding and binding transmission by implementing a a simple chat service. It is composed by a *Chat Registry* which is in charge to manage all the open chats and participants, and a *User* service which is in charge to manage a single participant connected to a chat. There are no limits to the users that can be connected to a chat. In the following diagram we report an example architecture where three users are connected to the *Chat Registry* service.
 
 ![](../../.gitbook/assets/chat_example.png)
