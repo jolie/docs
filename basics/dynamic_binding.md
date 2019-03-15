@@ -60,9 +60,9 @@ The code can be consulted at this [link](https://github.com/jolie/examples/tree/
 
 Note that both the *Chat Registry* and each *User* service exhibit an inputPort for receiving messages. The outputPort of the *Chat Registry* which points to the *User* service is not bound to any service, but it needs to be bound dynamically depending on the users connected to a chat.
 
-The *Chat Registry* offers two operations: *addChat* and *sendMessage*. The former operation permits to a user to connect to a chat, whereas the latter is exploited by the user to send messages to all the participants of a chat. The *User* service is composed by two components: _user_service.ol_ and _user.ol_. The former one is in charge to receive messages from the *Chat Registry* whereas the latter just manages the console for enabling human interactions.
+The *Chat Registry* offers two operations: *addChat* and *sendMessage*. The former operation permits to a user to connect to a chat, whereas the latter is exploited by the user to send messages to all the participants of a chat. The *User* service is composed by two components: _user_service.ol_ and _user.ol_. The former one is in charge to receive messages from the *Chat Registry* whereas the latter just manages the console for enabling human interactions and sending local messages to the *Chat Registry*.
 
-Dynamic binding is exploited in the implementation of the *sendMessage* operation in the *Chat Registry* where every time a message is received the outputPort *User* is bound to each registered user for forwarding messages.
+Dynamic binding is exploited in the implementation of the *sendMessage* operation of the *Chat Registry* where every time a message is received the outputPort *User* is bound to each registered user for forwarding messages. Note that user's locations are stored into the hashmap *global.chat.( <chat_name> ).users.( <userbame> ).location* which is set everytime a user requests to be connected to a chat by using operation *addChat*.
 
 ```text
 [ sendMessage( request )( response ) {
@@ -88,7 +88,7 @@ Dynamic binding is exploited in the implementation of the *sendMessage* operatio
         }
     }]
 ```
-
+The operation *setMessage* is exploited by the *Chat Registry* to send a message to each participant of the chat. Note that such an operation is exhibited in the inputPort of the *user_service.ol* at the user side.
 
 ## Compatibility of the interfaces
 It is worth noting that, in case of dynamic binding, the interfaces defined in the output port must be compatible with those defined into the  receiving input port. The following rules must be respected for stating that there is compatibility between two interfaces:
