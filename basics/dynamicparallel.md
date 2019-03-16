@@ -21,5 +21,5 @@ All the spawned sessions must be considered as common*service sessions* instanti
 * they can exploit global variables. Note that global variables are in common to all the sessions of the service
 
 
-**Advanced Pattern**
+## Advanced usage of the spawn primitive
 If you need to spawn sessions which are able to receive messages from other services, please consult the service oriented pattern <a id="navlink_language_advanced_spawn">Advanced Spawn</a></li>
