@@ -4,11 +4,11 @@ which allows for the parallel composion of statically defined activities, the sp
 
 The syntax of the spawn follows:
 ```text
-spawn( <var> over <range> ) in <resultVar> {
-    <spwan session>
+spawn( var over range ) in resultVar {
+    spawn session
 }
 ```
-where *<var>* is the index variable which ranges over *<range>*. *<resultVar>* is the variable vector which will containt all the results from each spawned activity. *<spawn session>* represents the session code to be  executed in parallel for each spawn instantiation.
+where *var* is the index variable which ranges over *range*. *resultVar* is the variable vector which will containt all the results from each spawned activity. *spawn session* represents the session code to be  executed in parallel for each spawn instantiation.
 
 **Restrictions**
 * the spawned sessions cannot contain input operations
