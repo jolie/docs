@@ -8,7 +8,7 @@ Jolie data structures are tree-like similarly to XML data trees or JSON data tre
 
 Let us create a root node, named `animals` which contains two children nodes: `pet` and `wild`. Each of them is an array with two elements, respectively equipped with another sub-element \(its name\).
 
-```text
+```jolie
 main
 {
     animals.pet[0].name = "cat";    
@@ -59,7 +59,7 @@ animals : {
 
 Data structures are navigated using the `.` operator, which is the same used for creating nested structures. The structures created by nesting variables are called _variable paths_. Some examples of valid variable paths follows:
 
-```text
+```jolie
 myVar; // our variable AND the first element of the array
 myVar[0]; // the first element of the array. Equivalent to myVar
 myVar[i]; // the i-th element of the array
@@ -69,7 +69,7 @@ myVar.b.c.d // the d element nested in c nested in b nested in myVar
 
 `.` operator requires a single value operand on its left. Thus if no index is specified, it is defaulted to 0. In our example the variable path at Line 5 is automatically translated to:
 
-```text
+```jolie
 myVar[0].b[0].c[0].d
 ```
 
@@ -79,7 +79,7 @@ Nested variables can be identified by means of a string expression evaluated at 
 
 Dynamic look-up can be obtained by placing a string between round parentheses. Let us consider the `animals` structure mentioned above and write the following instruction:
 
-```text
+```jolie
 println@Console( animals.( "pet" )[ 0 ].name )()
 ```
 
@@ -87,7 +87,7 @@ The string `"pet"` is evaluated as an element's name, nested inside `animals` st
 
 Also a concatenation of strings can be used as an argument of a dynamic look-up statement, like in the following example, which returns the same result as the previous one.
 
-```text
+```jolie
 a = "pe";
 println@Console( animals.( a + "t" )[ 0 ].name )()
 ```
@@ -96,7 +96,7 @@ println@Console( animals.( a + "t" )[ 0 ].name )()
 
 Data structures can be navigated by exploiting the `foreach` statement, whose syntax is:
 
-```text
+```jolie
 
 foreach ( nameVar : root ) {
     //code block
@@ -107,7 +107,7 @@ foreach ( nameVar : root ) {
 
 Combining `foreach` and dynamic look-up is very useful for navigating and handling nested structures:
 
-```text
+```jolie
 include "console.iol"
 
 main {
@@ -127,7 +127,7 @@ main {
 
 In the example above `kind` ranges over all child-nodes of `animals` \(`pet` and `wild`\), while the `for` statement ranges over the elements of the current `animals.kind` node, printing both it's path in the structure and its content:
 
-```text
+```jolie
 animals.pet[0].name=cat
 animals.pet[1].name=dog
 animals.wild[0].name=tiger
@@ -140,7 +140,7 @@ animals.wild[1].name=lion
 
 In the following example the same structure used in previous examples \(`animals`\) is created, avoiding the need to write redundant code:
 
-```text
+```jolie
 with ( animals ){
     .pet[ 0 ].name = "cat";
     .pet[ 1 ].name = "dog";
@@ -154,7 +154,7 @@ Hence, when writing paths with dynamically evaluated values, e.g., array lengths
 
 For instance, the code below
 
-```text
+```jolie
 with ( myArray[ #myArray ] ) {
     .first     = "1";
     .second = "2";
@@ -164,7 +164,7 @@ with ( myArray[ #myArray ] ) {
 
 will unfold as the one below
 
-```text
+```jolie
 myArray[ #myArray ].first  = "1";
 myArray[ #myArray ].second = "2";
 myArray[ #myArray ].third  = "3"
@@ -172,7 +172,7 @@ myArray[ #myArray ].third  = "3"
 
 At each line \`\#myArray\` returns the size of \`myArray\`, which increases at each assignment, yielding the structure:
 
-```text
+```jolie
 myArray[ 0 ].first[ 0 ] = "1"
 myArray[ 1 ].second[ 0 ] = "2"
 myArray[ 2 ].third[ 0 ] = "3"
@@ -182,7 +182,7 @@ myArray[ 2 ].third[ 0 ] = "3"
 
 A structure can be completely erased - undefined - using the statement `undef`:
 
-```text
+```jolie
 undef( animals )
 ```
 
@@ -190,7 +190,7 @@ undef( animals )
 
 The deep copy operator `<<` copies an entire tree structure into another.
 
-```text
+```jolie
 zoo.sector_a << animals; undef( animals ) 
 ```
 
@@ -219,7 +219,7 @@ For the sake of clarity a representation of the `zoo` structure is provided as i
 
 **Attention.** At runtime `d<< s` explores the source \(tree `s`\) node-wise and for all initialised sub-nodes in `s`, e.g., `s.path.to.subnode`, it assigns the value of `s.path.to.subnode` to the corresponding sub-node rooted in `d`. According to the example `d.path.to.subnode = s.path.to.subnode`. This means that if `d` already had initialised sub-nodes, `d<< s` will overwrite all the correspondent sub-nodes of `s` rooted in `d`, leaving all the others initialised node of `d` unaffected.
 
-```text
+```jolie
 d.greeting = "hello";
 d.first = "to the";
 d.first.second = "world";
@@ -263,7 +263,7 @@ A structure element can be an alias, i.e. it can point to another variable path.
 
 Aliases are created with the `->` operator, like in the following example:
 
-```text
+```jolie
 myPets -> animals.pet;
 println@Console( myPets[ 1 ].name )(); // will print dog
 myPets[ 0 ].name = "bird"; // will replace animals.pet[ 0 ].name value with "bird"
@@ -274,7 +274,7 @@ Aliases are evaluated every time they are used.
 
 Thus we can exploit aliases to make our code more readable even when handling deeply nested structure like the one in the example below:
 
-```text
+```jolie
 include "console.iol"
 
 main {
