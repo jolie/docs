@@ -28,18 +28,19 @@ In the following example whose code can be found at this [link](https://github.c
 In the following, we report the implementation of the operation *getAverageTemperature* which exploits the primitive *spawn* for collecting the temperatures reading from the sensors.
 
 ```jolie
-[ getAverageTemperature( request )( response ) {
+    [ getAverageTemperature( request )( response ) {
         index = 0;
-        foreach( sensor : global.sensor_hashlist ) {
+        foreach( sensor : global.sensor_hashmap ) {
             /* creates the vector for ranging over in the spawn primitive */
-            sensor_vector[ index ] << global.sensor_hashlist.( sensor );
+            sensor_vector[ index ] << global.sensor_hashmap.( sensor );
             index++
         };
         /* calling the spawn primitive */
         spawn( i over #sensor_vector ) in resultVar {
             scope( call_sensor ) {
                 install( IOException =>
-                    undef( global.sensor_hashlist.( sensor_vector[ i ].id ) )
+                    /* de-register a sensor if it does not respond */
+                    undef( global.sensor_hashmap.( sensor_vector[ i ].id ) )
                 );
                 Sensor.location = sensor_vector[ i ].location;
                 getTemperature@Sensor()( resultVar )
@@ -53,7 +54,11 @@ In the following, we report the implementation of the operation *getAverageTempe
         response = total / #resultVar
     }]
 ```
+All the locations of the sensors are stored into the global hashmap called *sensor_hashmap*. Before calling the spawn primitive the vector *sensor_vector* is prepared to keep all the necessary information about each sensor. In each spawn session the variable *i*, which ranges overe the size of the vector *sensor_vector*, takes the value of the current spawn session, thus it is possible to bind the outputPort *Sensor* to each different sensor location.
 
+The results are stored into variable *resultVar* which is a vector where, at each index, stores the response of the *i-th* sensor. Finally, the calculation of the average temperature is very easy to be made.
+
+It is worth noting that each spawn session must be considered as a separate session with its own local variables, thus the location of the port *Sensor* can be bound separately from the others spawned sessions because its value is local and independent. At the same time all the variables of the parent session are available to be used (e.g. *sensor_vector*.
 
 
 ## Advanced usage of the spawn primitive
