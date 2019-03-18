@@ -8,6 +8,7 @@ This reference index is still under construction. If you spot something missing,
 * `string`: strings;
 * `raw`: byte arrays;
 * `void`: the empty type.
+
 [Go to section: Handling Simple Data](basics/handling_simple_data)
 
 ## Tree operators
@@ -38,7 +39,7 @@ This reference index is still under construction. If you spot something missing,
 - `outputPort`: output port statement. [Go to section: Ports](basics/communication-ports/ports)
 - `Protocol`: port protocol. [Go to section: Protocol](basics/communication-ports/protocol)
 - `RequestResponse`: request response operation definition. [Go to section: Interfaces](basics/communication-ports/interfaces)
-- `spawn( .. over .. )  in .. {}`: spawn primitive definition. [Go to section: Dynamic Parallel](basics/synamicoarallel.md)
+- `spawn( .. over .. )  in .. {}`: spawn primitive definition. [Go to section: Dynamic Parallel](basics/dynamicparallel.md)
 - `type`: type definition. [Go to section: Data Types](basics/communication-ports/data_types)
 - `undef()`: undefines a variable. [Go to section: Undef](basics/data_structures.md#undef-erasing-tree-structures)
 - `while(){}`: conditional loop. [Go to section: for and while](basics/composing_statements.md#for-and-while)
