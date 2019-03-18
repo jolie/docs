@@ -25,7 +25,7 @@
   * [Processes](basics/processes.md)
   * [Dynamic Binding](basics/dynamic_binding.md)
   * [Sessions](basics/sessions.md)
-   * [Dynamic Parallel](basics/dynamicparallel.md)
+  * [Dynamic Parallel](basics/dynamicparallel.md)
 * [Fault Handling](fault-handling/README.md)
   * [Basics](fault-handling/basics.md)
   * [Termination and Compensation](fault-handling/termination_and_compensation.md)
