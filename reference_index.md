@@ -39,6 +39,7 @@ This reference index is still under construction. If you spot something missing,
 - `outputPort`: output port statement. [Go to section: Ports](basics/communication-ports/ports)
 - `Protocol`: port protocol. [Go to section: Protocol](basics/communication-ports/protocol)
 - `RequestResponse`: request response operation definition. [Go to section: Interfaces](basics/communication-ports/interfaces)
+- `synchronized`: variables synchronization. [Go to section: Processes](basics/processes.md)
 - `spawn( .. over .. )  in .. {}`: spawn primitive definition. [Go to section: Dynamic Parallel](basics/dynamicparallel.md)
 - `type`: type definition. [Go to section: Data Types](basics/communication-ports/data_types)
 - `undef()`: undefines a variable. [Go to section: Undef](basics/data_structures.md#undef-erasing-tree-structures)
