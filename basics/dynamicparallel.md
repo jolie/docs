@@ -62,4 +62,51 @@ It is worth noting that each spawn session must be considered as a separate sess
 
 
 ## Advanced usage of the spawn primitive
-If you need to spawn sessions which are able to receive messages from other services, please consult the service oriented pattern <a id="navlink_language_advanced_spawn">Advanced Spawn</a></li>
+The previous example has been modified at this [link](https://github.com/jolie/examples/tree/master/02_basics/9_dynamicparallel/2_temperature_average_advanced) in order to considerthe case that the sensors require to communicate asynchronously with the collector. In such a scenario the architecture has been modifiled as reported in the following diagram:
+
+![](../../.gitbook/assets/temperature_collector_advanced.png)
+
+In this case an embedded service, called *TemperatureCollectorEndpoint* has been introduced for the *TemperatureCollector* in order to deal with the asynchronous communication with the sensors. In this case, the spawn primitive runs a session into the *TemperatureCollectorEndpoint* synchronously calling the operation *retrieveTemperature* (a request-response operation). In the request message the target location of the sensor is specified.
+
+```jolie
+spawn( i over #sensor_vector ) in resultVar {
+    scope( call_sensor ) {
+        install( IOException =>
+            undef( global.sensor_hashmap.( sensor_vector[ i ].id ) )
+        );
+        rq_temp.sensor_location = sensor_vector[ i ].location;
+        retrieveTemperature@TemperatureCollectorEndpoint( rq_temp )( resultVar )
+    }
+}
+```
+
+Once triggered, the *TemperatureCollectorEndpoint* session calls the sensor on a OneWay operation (*getTemperature*) and the sensor will reply by means of another OneWay operation (*returnTemperature*). 
+
+```jolie
+[ getTemperature( request ) ] {
+    random@Math()( r );
+    response.temperature = r*40;
+    response.token = request.token;
+    random@Math()( t );
+    timetosleep = t*10000;
+    println@Console("Simulate delay, sleeping for " + timetosleep + "ms" )();
+    sleep@Time( int( timetosleep ) )();
+    returnTemperature@TemperatureCollectorEndpoint( response )
+}
+```
+
+The correlation between the two calls inside the *TemperatureCollectorEndpoint* is kept thanks to a correlation set freshly generated at the beginning of the session and joined to the variable named *token*.
+
+```jolie
+retrieveTemperature( request )( response ) {
+    csets.token = new;
+    req_temp.token = csets.token;
+    Sensor.location = request.sensor_location;
+    getTemperature@Sensor( req_temp );
+    /* asynchrnous call */
+    returnTemperature( result );
+    response = result.temperature
+}
+```
+
+
