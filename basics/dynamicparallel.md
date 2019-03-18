@@ -64,7 +64,7 @@ It is worth noting that each spawn session must be considered as a separate sess
 ## Advanced usage of the spawn primitive
 The previous example has been modified at this [link](https://github.com/jolie/examples/tree/master/02_basics/9_dynamicparallel/2_temperature_average_advanced) in order to considerthe case that the sensors require to communicate asynchronously with the collector. In such a scenario the architecture has been modifiled as reported in the following diagram:
 
-![](../../.gitbook/assets/temperature_collector_advanced.png)
+![](https://github.com/jolie/docs/blob/master/.gitbook/assets/temperature_collector_advanced.png)
 
 In this case an embedded service, called *TemperatureCollectorEndpoint* has been introduced for the *TemperatureCollector* in order to deal with the asynchronous communication with the sensors. In this case, the spawn primitive runs a session into the *TemperatureCollectorEndpoint* synchronously calling the operation *retrieveTemperature* (a request-response operation). In the request message the target location of the sensor is specified.
 
