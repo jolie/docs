@@ -1,6 +1,6 @@
 # Sessions
 
-## Statefull sessions
+## Stateful sessions
 
 Usually a service provides *loosely coupled* operations, which means that there is no correlation among the different invocations of different operatons. Each invocation can be considered as independent from the others. Neverthless, it could happen that we need to design sessions which can receive messages more than once from external invokers. In these cases, we need to correctly route the incoming messages to the right session. 
 
