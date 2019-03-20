@@ -25,7 +25,15 @@ a = 5;
 a = "Hello"
 ```
 
-Jolie supports some basic arithmetic operators: add \(`+`\), subtract \(`-`\), multiply \(`*`\), divide \(`/`\) and modulo \(`%`\). Their behaviour is the same as in other classical programming languages. The language also supports pre-/post-increment \(`++`\) and pre-/post-decrement \(`--`\) operators.
+Jolie supports some basic arithmetic operators: 
+
+* add \(`+`\)
+* subtract \(`-`\)
+* multiply \(`*`\)
+* divide \(`/`\)
+* modulo \(`%`\) 
+
+Their behaviour is the same as in other classical programming languages. The language also supports pre-/post-increment \(`++`\) and pre-/post-decrement \(`--`\) operators.
 
 An example of the aforementioned operators follows:
 
