@@ -4,7 +4,15 @@
 
 Usually a service provides *loosely coupled* operations, which means that there is no correlation among the different invocations of different operatons. Each invocation can be considered as independent from the others. Neverthless, it could happen that we need to design sessions which can receive messages more than once from external invokers. In these cases, we need to correctly route the incoming messages to the right session. 
 
-Let us clarify with an example. Assume a scenario where there is a service which allows two users for playing tris game. The tris game service will keep each game into a specific session. A user can participate to different games, thus it needs to send its move to the right session for correctly playing the game. Such an issue is solved by sending for each message an extra information, usually a session identifier, for correctly routing the message on the server side.
+Let us clarify with an example. Assume a scenario where there is a service which allows two users for playing tris game. The tris game service will keep each game into a specific session. A user can participate to different games, thus it needs to send its move to the right session for correctly playing the game. 
+
+![](../../.gitbook/assets/tris.png)
+
+If you are curious on seeing how a trig game can be implemented in Jolie, you can find the code at this [link](https://github.com/jolie/examples/tree/master/02_basics/5_sessions/tris)
+
+In this case, we need to route each user message to the right session it is involved in. Such an issue is solved by sending for each message an extra information, usually a session identifier, for correctly routing the message on the server side. We call these kind of information _correlation sets_.
+
+
 
 ## Correlation sets
 In common web application frameworks this issue is covered by _sid_ session identifier, a unique key usually stored as a browser cookie. Jolie supports incoming message routing to behaviour instances by means of _correlation sets_. Correlation sets are a generalisation of session identifiers: instead of referring to a single variable for identifying behaviour instances, a correlation set allows the programmer to refer to the combination of multiple variables, called _correlation variables_. Correlation set programming deals both with the deployment and behavioural parts. The former must declare the correlation sets, instructing the interpreter on how to relate incoming messages to internal behaviour instances. The latter instead has to assign the concrete values to the correlation variables.
