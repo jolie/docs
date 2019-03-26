@@ -137,10 +137,6 @@ main
 
 Finally, at Line 6, the client assigns the `sid` value to its variable `opMessage.sid`. It will be used in any other message sent to the server to correlate client's messages to its session on the server.
 
-The files of the example above can be downloaded from the following link:
-
-[Sessions Code Example](https://github.com/jolie/docs/blob/master/files/basics/code/sessions_code.zip)
-
 ## Correlation variables and aliases
 
 Correlation variable declaration links a correlation variable to a list of aliases. Aliases ensure loose coupling between the names of the correlation variables and the data structures of incoming messages.
