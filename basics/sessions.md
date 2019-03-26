@@ -17,11 +17,40 @@ Jolie supports incoming message routing to behaviour instances by means of _corr
 
 Correlation set programming deals both with the deployment and behavioural parts. In particular, the former must declare the correlation sets, instructing the interpreter on how to relate incoming messages to internal behaviour instances. The latter instead has to assign the concrete values to the correlation variables.
 
+In the deployment part the cset is defined as it follows:
+```text
+cset {
+   <variable name>: <List of type paths coupled with the correlation variable>
+}
+```
+
+In the behaviural part, the cset is initialized as it follows:
+```text
+   csets.<variable name> = <variable value>
+```
+
 ![](../../.gitbook/assets/cset.png)
 
 When a message is received, the intepreter looks into the message for finding the node which contains the value to be compared with the correlation values. In the diagram above, the variable _x_ is correlation variable and it can be found in the message of type _MyRequest_ in the subnode _x_.
 
 ![](../../.gitbook/assets/cset_messages.png)
+
+In the example of the tris game, the cset is defined in file _tris.ol_ as it follows:
+```text
+cset {
+    token: MoveRequest.game_token
+}
+```
+where _MoveRequest_ is a message type related to operation _move_ defined in the interface _TrisGameInterface_.
+```text
+    type MoveRequest: void {
+    .game_token: string
+    .participant_token: string
+    .place: int
+}
+```
+It is worth noting that the correlation variable is named _token_ but it can be found in node _game_token_ within the type _MoveRequest_. 
+
 
 
 ## A simple correlation set example
