@@ -8,14 +8,16 @@ Let us clarify with an example. Assume a scenario where there is a service which
 
 ![](../../.gitbook/assets/tris.png)
 
-If you are curious on seeing how a trig game can be implemented in Jolie, you can find the code at this [link](https://github.com/jolie/examples/tree/master/02_basics/5_sessions/tris)
+If you are curious on seeing how a tris game can be implemented in Jolie, you can find the code at this [link](https://github.com/jolie/examples/tree/master/02_basics/5_sessions/tris)
 
 In this case, we need to route each user message to the right session it is involved in. Such an issue is solved by sending for each message an extra information, usually a session identifier, for correctly routing the message on the server side. We call these kind of information _correlation sets_.
 
-
-
 ## Correlation sets
-In common web application frameworks this issue is covered by _sid_ session identifier, a unique key usually stored as a browser cookie. Jolie supports incoming message routing to behaviour instances by means of _correlation sets_. Correlation sets are a generalisation of session identifiers: instead of referring to a single variable for identifying behaviour instances, a correlation set allows the programmer to refer to the combination of multiple variables, called _correlation variables_. Correlation set programming deals both with the deployment and behavioural parts. The former must declare the correlation sets, instructing the interpreter on how to relate incoming messages to internal behaviour instances. The latter instead has to assign the concrete values to the correlation variables.
+Jolie supports incoming message routing to behaviour instances by means of _correlation sets_. Correlation sets are a generalisation of session identifiers: instead of referring to a single variable for identifying behaviour instances, a correlation set allows the programmer to refer to the combination of multiple variables, called _correlation variables_. In common web application frameworks this issue is covered by _sid_ session identifier, a unique key usually stored as a browser cookie. 
+
+Correlation set programming deals both with the deployment and behavioural parts. In particular, the former must declare the correlation sets, instructing the interpreter on how to relate incoming messages to internal behaviour instances. The latter instead has to assign the concrete values to the correlation variables.
+
+![](../../.gitbook/assets/cset.png)
 
 Let us introduce correlation sets via some examples and then look at their syntax.
 
