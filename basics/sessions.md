@@ -28,6 +28,7 @@ In the behaviural part, the cset is initialized as it follows:
 ```text
    csets.<variable name> = <variable value>
 ```
+A precise definition of the syntax can be found in the [section below](#correlation-sets-syntax) 
 
 ![](../../.gitbook/assets/cset.png)
 
