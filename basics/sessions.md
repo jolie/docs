@@ -21,6 +21,9 @@ Correlation set programming deals both with the deployment and behavioural parts
 
 When a message is received, the intepreter looks into the message for finding the node which contains the value to be compared with the correlation values. In the diagram above, the variable _x_ is correlation variable and it can be found in the message of type _MyRequest_ in the subnode _x_.
 
+![](../../.gitbook/assets/cset_messages.png)
+
+
 ## A simple correlation set example
 
 Managing sessions identifiers through `csets` is simple.
