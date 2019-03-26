@@ -19,7 +19,7 @@ Correlation set programming deals both with the deployment and behavioural parts
 
 ![](../../.gitbook/assets/cset.png)
 
-Let us introduce correlation sets via some examples and then look at their syntax.
+When a message is received, the intepreter looks into the message for finding the node which contains the value to be compared with the correlation values. In the diagram above, the variable _x_ is correlation variable and it can be found in the message of type _MyRequest_ in the subnode _x_.
 
 ## A simple correlation set example
 
