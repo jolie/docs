@@ -140,7 +140,7 @@ Finally, at Line 6, the client assigns the `sid` value to its variable `opMessag
 
 ## Correlation variables and aliases
 
-Correlation variable declaration links a correlation variable to a list of aliases. Aliases ensure loose coupling between the names of the correlation variables and the data structures of incoming messages.
+So far we have shown how a correlation variable can be related to a one single subnode of a type, but generally there could be more messages which can contain a value to be correlated. We say there could be more _aliases_ for the same correlation variable. Aliases ensure loose coupling between the names of the correlation variables and the data structures of incoming messages.
 
 Let us consider the following scenario: a chat server allows its users to log in and choose the channel \(identified by an integer\) they want to join. Once subscribed into a channel a user can send a message, log out from the server or switch channel, by sending another subscription request.
 
@@ -185,7 +185,7 @@ cset {
 }
 ```
 
-At Line 29 the correlation variable `sid` is linked to aliases `SubscriptionType.sid`, `MessageType.sid`, `LogType.sid`. Each time the server will receive a correlated-operation request, it will correlate any client to its corresponding session by checking the aliased value of `sid`.
+It is worth noting that the correlation variable `sid` is linked to aliases `SubscriptionType.sid`, `MessageType.sid`, `LogType.sid`. Each time the server will receive a correlated-operation request, it will correlate any client to its corresponding session by checking the aliased value of `sid`.
 
 ## Multiple correlation variables
 
