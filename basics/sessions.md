@@ -67,6 +67,11 @@ csets.token = request.game_token;
 ```
 Then a loop is started for managing the right moves from the players. Each of them receives the actual status of the game on the operation _syncPlaces_ and they will send their moves using the operation _move_. As we shown before, the message of operation _move_ contains the node _game_token_ which brings the actual token to be correlated with the variable _token_.
 
+## The primitive `new`
+Jolie provides the primitive `new` which returns a _fresh_ value to a correlation variable. `new` guarantees to return a value never returned by one of its previous calls. Its usage is very simple, it is sufficient to assign a variable with the value _new_:
+```text
+x = new
+```
 
 ## Another simple correlation set example
 
@@ -114,8 +119,6 @@ At Lines 3-5 we declare the server's correlation set. `cset` is the scope contai
 In our example the correlation variable `sid` is linked to the alias `OpMessage.sid`.
 
 At Line 11, the `csets` prefix is used to assign a value to the correlation variable `sid`. The same value is assigned to `response.sid` \(via chained assignment\), which is passed as a response to the client.
-
-Jolie provides the primitive `new` which returns a _fresh_ value to a correlation variable. `new` guarantees to return a value never returned by one of its previous calls.
 
 ```text
 //client.ol
