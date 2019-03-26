@@ -68,11 +68,9 @@ csets.token = request.game_token;
 Then a loop is started for managing the right moves from the players. Each of them receives the actual status of the game on the operation _syncPlaces_ and they will send their moves using the operation _move_. As we shown before, the message of operation _move_ contains the node _game_token_ which brings the actual token to be correlated with the variable _token_.
 
 
-## A simple correlation set example
+## Another simple correlation set example
 
-Managing sessions identifiers through `csets` is simple.
-
-Let us consider an example in which a server prints at console concurrent messages coming from different clients. Each time a client logs in, the server instantiates a unique `sid`, by means of the `new` function. To request any other operation \(`print` or `logout`\), each client must send its own `sid` in order to identify its session with the server.
+Let us consider an example in which a server prints at console concurrent messages coming from different clients. The complete code can be found [here](https://github.com/jolie/examples/tree/master/02_basics/5_sessions/login). Each time a client logs in, the server instantiates a unique `sid`, by means of the `new` function. To request any other operation \(`print` or `logout`\), each client must send its own `sid` in order to identify its session with the server.
 
 ```text
 //interface.iol
