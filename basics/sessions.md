@@ -142,10 +142,12 @@ Finally, at Line 6, the client assigns the `sid` value to its variable `opMessag
 
 Multiple correlation sets can be used in order to manage distributed scenarios. In the [authentication example](https://github.com/jolie/examples/tree/master/02_basics/5_sessions/authentication) we model the case of an application which delegates the authentication phase to an external _identity provider_.
 
-![](../../.gitbook/assets/cset_messages.png)
+![](../../.gitbook/assets/auth.png)
 
 The sequence chart of the exchanged messages follows:
+
 ![](../../.gitbook/assets/auth_sequence_chart.svg)
+
 
 
 
