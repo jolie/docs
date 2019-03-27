@@ -74,7 +74,7 @@ Jolie provides the primitive `new` which returns a _fresh_ value to a correlatio
 x = new
 ```
 
-## Another simple correlation set example
+## Another correlation set example
 
 Let us consider an example in which a server prints at console concurrent messages coming from different clients. The complete code can be found [here](https://github.com/jolie/examples/tree/master/02_basics/5_sessions/login). Each time a client logs in, the server instantiates a unique `sid`, by means of the `new` function. To request any other operation \(`print` or `logout`\), each client must send its own `sid` in order to identify its session with the server.
 
@@ -137,6 +137,17 @@ main
 ```
 
 Finally, at Line 6, the client assigns the `sid` value to its variable `opMessage.sid`. It will be used in any other message sent to the server to correlate client's messages to its session on the server.
+
+## Multiple correlation sets
+
+Multiple correlation sets can be used in order to manage distributed scenarios. In the [authentication example](https://github.com/jolie/examples/tree/master/02_basics/5_sessions/authentication) we model the case of an application which delegates the authentication phase to an external _identity provider_.
+
+![](../../.gitbook/assets/cset_messages.png)
+
+The sequence chart of the exchanged messages follows:
+![](../../.gitbook/assets/auth_sequence_chart.svg)
+
+
 
 ## Correlation variables and aliases
 
@@ -296,87 +307,7 @@ In the example above, each time the operation `openExam` is invoked, a new sessi
 
 `getExams` returns the list of all exams available for a student. Professor and Student ports are dynamically bound.
 
-## Multiple correlation sets
 
-Multiple correlation sets can be used in order to manage distributed scenarios.
-
-We report an example of a chat service supporting the management of chat rooms. Chat rooms are identified by name, like in IRC servers. The service allows users to:
-
-* create new chat rooms;
-* publish a message in a chat room;
-* retrieve published messages from existing chat rooms;
-* close chat rooms.
-
-When a client requests the creation of a chat room, the service checks that no other room with the same name exists. Then, it sends an _administration token_ back to the invoker. Any client can publish messages in an open chat room. The initial creator can close the chat room at any point by using the administration token.
-
-```text
-// chat.iol
-
-type CreateRoomRequest:void {
-    .name:string
-    .description:string
-}
-
-type CloseRoomMessage:void {
-    .adminToken:string
-    .reason:string
-}
-
-type SendMessage:void {
-    .roomName:string
-    .content:string
-}
-
-interface ChatInterface {
-OneWay: publish(SendMessage), 
-        close(CloseRoomMessage)
-RequestResponse: create(CreateRoomRequest)(string)    
-}
-```
-
-```text
-// server.iol
-include "chat.iol"
-include "console.iol"
-include "security_utils.iol"
-
-execution { concurrent }
-
-cset { 
-    name:     CreateRoomRequest.name
-            SendMessage.roomName 
-}
-
-cset { 
-    adminToken: CloseRoomMessage.adminToken 
-}
-
-inputPort ChatInput {
-Location: "socket://localhost:8000/"
-Protocol: sodep
-Interfaces: ChatInterface
-}
-
-main {
-    create( createRoomRequest )( csets.adminToken ) {
-        csets.adminToken = new
-    }; run = 1;
-    while( run ) {
-        [ publish( message ) ] {
-            println@Console( "[" + csets.name + "]: " + message.content )()
-        }
-        [ close( closeMessage ) ] {
-            run = 0;
-            println@Console(    "Chat room " + csets.name + 
-                                " closed. Reason: " + closeMessage.reason )()
-        }
-    }
-}
-```
-
-Two csets are defined, one for chat-management operations and the other for publishing messages.
-
-The first instruction is an input on operation `create`. We call this input instruction a _session start_, since its execution will start a new chat \(instantiating the correlation variable `name`\). After invocation, the service enters a loop containing a choice of two inputs with operations `publish` \(for publishing in the chat room\) and `close` \(for closing the chat room\).
 
 ## Correlation sets syntax
 
