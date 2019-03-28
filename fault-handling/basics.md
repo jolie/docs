@@ -40,33 +40,37 @@ scope( scope_name )
 A fault which is not caught within a scope, is automatically re-thrown to the parent scope. In the following example whose runnable code can be found [here](https://github.com/jolie/examples/tree/master/03_fault_handling/01_install), a simple jolie script asks the user to insert a number, if the number does not correspond to the `secret` one, a fault is raised.
 
 ```text
-include "ui/ui.iol"
-include "ui/swing_ui.iol"
 include "console.iol"
 
 main
-{    
-    install( fault_main => 
-        println@Console( "A wrong number has been inserted!" )()
-    );
+{
+    registerForInput@Console()();
+	install( WrongNumberFault =>
+    /* this fault handler will be executed last */
+		println@Console( "A wrong number has been inserted!" )()
+	);
 
-    secret = 3;
+    /* number to guess */
+	secret = 3;
 
-    scope( num_scope ) 
-    {    
-        install( 
-            fault_number => 
-                println@Console( "Wrong!" )();
-                throw( fault_main )
-        );
+	scope( num_scope )
+	{
+		install(
+            /* this fault handler will be executed first, then the fault will be re-thrown */
+			WrongNumberFault =>
+				println@Console( "Wrong!" )();
+				throw( WrongNumberFault )
+		);
 
-        showInputDialog@SwingUI( "Insert a number" )( number );
-        if ( number == secret ) {
-            println@Console("OK!")()
-        } else {
-            throw( fault_number )
-        }
-    }
+		print@Console( "Insert a number: " )();
+        in( number );
+		if ( number == secret ) {
+			println@Console("OK!")()
+		} else {
+            /* here the fault is thrown */
+			throw( WrongNumberFault )
+		}
+	}
 }
 ```
 
