@@ -51,4 +51,4 @@ interface IfaceName {
       OpN( ReqTypeN )( ResTypeN ) throws ErrW( MsgTypeW ) ... ErrZ( MsgTypeZ )
 }
 ```
-Examples of its usage can be found in Section [Fault Handling](fault-handling.md).
+Examples of its usage can be found in Section [Fault Handling](fault-handling).
