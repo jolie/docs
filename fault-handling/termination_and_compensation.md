@@ -50,7 +50,7 @@ main
 }
 ```
 
-In the example above, the code at Lines 7 and 13 is executed concurrently. In `scope_name`, a recovery handler is initially installed and then the code at Line 10 is executed. Besides, the parallel activity may raise the fault at line 13. In that case a termination is triggered and the corresponding recovery code is executed.
+In the example above, the code at Lines 7 and 13 is executed concurrently. In `scope_name`, a recovery handler is initially installed and then the code at Line 10 is executed. Besides, the parallel activity may raise the fault at line 13. In that case a termination is triggered and the corresponding recovery code is executed. The complete code of this example can be found [here](https://github.com/jolie/examples/tree/master/03_fault_handling/05_termination)
 
 ### Terminating child scopes
 
