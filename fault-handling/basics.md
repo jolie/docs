@@ -1,10 +1,4 @@
-# Basics
-
-## Fault Handling
-
-Basic fault handing in Jolie involves three concepts: _scope_, _fault_ and _throw_.
-
-## Scope, fault and throw
+# Scope, fault and throw
 
 A `scope` is a behavioural container denoted by a unique name and able to manage faults. Remarkably, in a service behaviour, the `main` is a scope named _main_. We say that a scope terminates successfully if it does not raise any fault signal; a scope obtains this by handling all the faults thrown by its internal behaviour.
 
