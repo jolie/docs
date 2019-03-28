@@ -41,7 +41,7 @@ This reference index is still under construction. If you spot something missing,
 - `OneWay`: one way operation definition. [Go to section: Interfaces](basics/communication-ports/interfaces)
 - `outputPort`: output port statement. [Go to section: Ports](basics/communication-ports/ports)
 - `Protocol`: port protocol. [Go to section: Protocol](basics/communication-ports/protocol)
-- `provide [] until []`: provide until statement. [Go to section: Sessions](basics/sessions#the-provide-until-statement)
+- `provide [] until []`: provide until statement. [Go to section: Sessions](basics/sessions#the-provide-until-statement.md)
 - `RequestResponse`: request response operation definition. [Go to section: Interfaces](basics/communication-ports/interfaces)
 - `synchronized(){}`: variables synchronization. [Go to section: Processes](basics/processes.md)
 - `spawn( .. over .. )  in .. {}`: spawn primitive definition. [Go to section: Dynamic Parallel](basics/dynamicparallel.md)
