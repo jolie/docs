@@ -201,7 +201,7 @@ main
 
 It is worth noting that, in order to correctly reference fault data within a fault handler, it is necessary to specify the scope path where the fault is contained. The path is always built in the follwing way:
 
-* _<name of the scope>.<Name of the fault>.<Node of the message to access>_
+* _name of the scope.Name of the fault.Node of the message to access_
 	
 Thus in the example, since we want to access the node `exceptionMessage`, we use the following path:
 
@@ -209,15 +209,15 @@ Thus in the example, since we want to access the node `exceptionMessage`, we use
 main.NumberException.exceptionMessage )()
 ```
 
-## Accessing a fault caught in a scope
+## Accessing a fault caught in a scope: the alias `default` 
 
-It is possible to check if scopes caught faults and also to access the contents of faults.
+In some cases, we do not want to specify all the handlers of all the faults raised within a scope, but we want to specify a unique handler for all those faults without a handler. In this case it is possible to check if scopes caught faults and also to access the contents of faults thanks to alias `default`.
 
 With syntax `scope_name.default` we access the name of the fault caught by the scope.
 
 Used in combination with [dynamic lookup](https://jolielang.gitbook.io/docs/basics/data_structures#dynamic-look-up), with syntax `scope_name( scope_name.default ).faultMessage`, we can access the message sent with the fault, for instance `msg` in the example below.
 
-```text
+```jolie
 scope ( s ){
     install( MyFault => 
         println@Console( "Caught MyFault, message: " + s.MyFault.msg )() 
