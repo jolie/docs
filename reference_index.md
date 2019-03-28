@@ -48,6 +48,7 @@ This reference index is still under construction. If you spot something missing,
 - `scope(){}`: scope definition. [Go to section: Scopes and Faults](fault-handling/basics.md)
 - `synchronized(){}`: variables synchronization. [Go to section: Processes](basics/processes.md)
 - `spawn( .. over .. )  in .. {}`: spawn primitive definition. [Go to section: Dynamic Parallel](basics/dynamicparallel.md)
+- `this`: termination handler reference. [Go to section: Termination and Compeonsation](https://jolielang.gitbook.io/docs/fault-handling/termination_and_compensation.md)
 - `throw(){}`: fault raising. [Go to section: Scopes and Faults](fault-handling/basics.md)
 - `throws`: fault raising declaration. [Go to section: Interfaces](basics/communication-ports/interfaces.md)
 - `type`: type definition. [Go to section: Data Types](basics/communication-ports/data_types)
