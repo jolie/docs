@@ -87,7 +87,7 @@ main
 }
 ```
 
-If the fault is raised when the scope `son` is still executing \(we use Jolie's standard library `time` for making the child process wait for 500 milliseconds\), a termination is triggered for scope `grandFather`, which triggers the termination of scope `father`. Finally, scope `father` triggers the termination of the scope `son`, which executes its own recovery handler. Inside-out, `son`'s, `father`'s and `grandFather`'s recovery handlers are executed subsequently.
+If the fault is raised when the scope `son` is still executing \(we use Jolie's standard library `time` for making the child process wait for 500 milliseconds\), a termination is triggered for scope `grandFather`, which triggers the termination of scope `father`. Finally, scope `father` triggers the termination of the scope `son`, which executes its own recovery handler. Inside-out, `son`'s, `father`'s and `grandFather`'s recovery handlers are executed subsequently. You can find the code of this example [here](https://github.com/jolie/examples/tree/master/03_fault_handling/06_terminating_child_scopes).
 
 ### Dynamic installation of recovery handlers
 
