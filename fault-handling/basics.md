@@ -90,9 +90,9 @@ println@Console( "A wrong number has been inserted!" )()
 
 ### Install statement priority
 
-An install statement may execute in parallel to other behaviours that may throw a fault. This introduces a problem of nondeterminism: how can the programmer ensure that the correct handlers are installed regardless of the scheduling of the parallel activities? Jolie solves this issue by giving priority to the install primitive with relation to the fault processing, making handler installation predictable.
+An install statement may execute in parallel to other behaviours that may throw a fault. This introduces a problem of nondeterminism: how can the programmer ensure that the correct handlers are installed regardless of the scheduling of the parallel activities? Jolie solves this issue by **giving priority to the install primitive with relation to the fault processing**, making handler installation predictable.
 
-As an example, consider the following code:
+As an example, consider the following code which can be found also [here](https://github.com/jolie/examples/tree/master/03_fault_handling/02_install_priority):
 
 ```text
 scope( s )
