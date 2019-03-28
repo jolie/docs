@@ -91,7 +91,7 @@ If the fault is raised when the scope `son` is still executing \(we use Jolie's 
 
 ### Dynamic installation of recovery handlers
 
-Recovery handlers can be dynamically updated like fault handlers. Example:
+Recovery handlers can be dynamically updated like fault handlers. Such a feature is particularly useful when we intend to update the termination handler depending on the activities executed successfully. As an example, let us consider the following script whose code can be downloaded [here](https://github.com/jolie/examples/tree/master/03_fault_handling/07_dynamic_install):
 
 ```text
 include "console.iol"
