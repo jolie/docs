@@ -1,6 +1,7 @@
 ## Scopes
 A `scope` is a behavioural container denoted by a unique name and able to manage faults. Remarkably, in a service behaviour, the `main` is a scope named _main_. We say that a scope terminates successfully if it does not raise any fault signal; a scope obtains this by handling all the faults thrown by its internal behaviour.
 
+### The primitive `throw`
 A fault is a signal, identified by its name, raised by a behaviour towards the enclosing scope when an error state is reached, in order to allow its recovery.
 
 Jolie provides the statement `throw` to raise faults.
