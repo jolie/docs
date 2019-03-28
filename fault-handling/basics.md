@@ -20,7 +20,7 @@ scope( scope_name )
 
 ## Fault handlers, the primitive `install`
 
-The `install` statement provides the installation of dynamic fault handlers, where `install` joins a fault to a process and its handler is executed when the scope catches the fault.
+The `install` statement provides the installation of dynamic fault handlers within a scope. The primitive `install` joins a fault to a process and its handler is executed when the scope catches the fault.
 
 ```text
 scope( scope_name )
@@ -37,7 +37,7 @@ scope( scope_name )
 }
 ```
 
-A fault which is not caught within a scope, is automatically re-thrown to the parent scope. In the following example, a simple service asks the user to insert a number, if the number does not correspond to the `secret` one, a fault is raised.
+A fault which is not caught within a scope, is automatically re-thrown to the parent scope. In the following example whose runnable code can be found [here](https://github.com/jolie/examples/tree/master/03_fault_handling/01_install), a simple jolie script asks the user to insert a number, if the number does not correspond to the `secret` one, a fault is raised.
 
 ```text
 include "ui/ui.iol"
