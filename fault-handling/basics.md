@@ -39,7 +39,7 @@ scope( scope_name )
 
 A fault which is not caught within a scope, is automatically re-thrown to the parent scope. In the following example whose runnable code can be found [here](https://github.com/jolie/examples/tree/master/03_fault_handling/01_install), a simple jolie script asks the user to insert a number, if the number does not correspond to the `secret` one, a fault is raised.
 
-```text
+```jolie
 include "console.iol"
 
 main
@@ -67,11 +67,25 @@ main
 	if ( number == secret ) {
 		println@Console("OK!")()
 	} else {
-            /* here the fault is thrown */
+                /* here the fault is thrown */
 		throw( WrongNumberFault )
 	}
     }
 }
+```
+
+It is worth noting that the fault is firstly cathed by the first handler defined within the scope _num_scope_ which will execute the following code:
+
+```jolie
+println@Console( "Wrong!" )();
+throw( WrongNumberFault )
+```
+
+It will print the string `"Wrong!"` in the console and then it will re-throw the fault to the parent scope, the scope _main_.
+At this point the seconf fault handler defined at the level of the main scope will be executed:
+
+```jolie
+println@Console( "A wrong number has been inserted!" )()
 ```
 
 ### Install statement priority
