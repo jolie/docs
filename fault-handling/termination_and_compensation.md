@@ -167,7 +167,7 @@ main
 
 `cH` can be composed within another handler by means of the sequence and parallel operators. The resulting handler will be the composition of the previous one \(represented by `cH`\) and the new one.
 
-## Compensation
+## Compensation, the primitive `comp`
 
 Compensation allows to handle the recovery of a scope which has successfully executed. When a scope finishes with success its own activities, its current recovery handler is promoted to the parent scope in order to be available for compensation.
 
