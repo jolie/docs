@@ -48,7 +48,7 @@ This reference index is still under construction. If you spot something missing,
 - `synchronized(){}`: variables synchronization. [Go to section: Processes](basics/processes.md)
 - `spawn( .. over .. )  in .. {}`: spawn primitive definition. [Go to section: Dynamic Parallel](basics/dynamicparallel.md)
 - `throw(){}`: fault raising. [Go to section: Scopes and Faults](basics/fault-handling/basics.md)
-- `throws`: fault raising declaration. [Go to section: Scopes and Faults](basics/fault-handling/basics.md)
+- `throws`: fault raising declaration. [Go to section: Scopes and Faults](fault-handling/basics.md)
 - `type`: type definition. [Go to section: Data Types](basics/communication-ports/data_types)
 - `undef()`: undefines a variable. [Go to section: Undef](basics/data_structures.md#undef-erasing-tree-structures)
 - `while(){}`: conditional loop. [Go to section: for and while](basics/composing_statements.md#for-and-while)
