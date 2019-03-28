@@ -40,3 +40,15 @@ interface SumInterface {
 
 The type declarations of both request and response messages are explained further in the data types subsection below.
 
+## Declarations of Faults: the statement `throws`
+The operations of type _RequestResponse_ can reply with a fault instead of the response message. In such a case, we need to specify into the interface declaration that a request-response operation can raise a fault. In order to do that it is sufficient to list the faults after the usage of the statement _throws_ as it is shown here in the complete syntax:
+
+```text
+interface IfaceName {
+ RequestResponse:
+      Op1( ReqType1 )( ResType1 ) throws ErrX( MsgTypeX ) ... ErrY( MsgTypeY ) 
+      //...
+      OpN( ReqTypeN )( ResTypeN ) throws ErrW( MsgTypeW ) ... ErrZ( MsgTypeZ )
+}
+```
+Examples of its usage can be found in Section [Fault Handling](basics/fault-handling.md).
