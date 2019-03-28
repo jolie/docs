@@ -18,7 +18,7 @@ scope( scope_name )
 }
 ```
 
-## Fault handlers
+## Fault handlers, the primitive `install`
 
 The `install` statement provides the installation of dynamic fault handlers, where `install` joins a fault to a process and its handler is executed when the scope catches the fault.
 
