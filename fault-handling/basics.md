@@ -107,67 +107,66 @@ where, inside the scope `s`, we have a parallel composition of a `throw` stateme
 
 Uncaught fault signals in a request-response body are automatically sent to the invoker. Hence, invokers are always notified of unhandled faults. We introduced the syntax for declaring a fault into an interface at Section [Interfaces](../basics/communication-ports/interfaces.md)
 
-Here we transfrom the previous example script into a service in order to introduce a request-response operation (operation _guess_).
+Here we transform the previous example script into a service in order to introduce a request-response operation (operation _guess_). You can find the complete code [here](https://github.com/jolie/examples/tree/master/03_fault_handling/03_fault_in_messages)
 
-```text
-// interface.iol
-
+```jolie
 type NumberExceptionType: void{
-    .number: int
-    .exceptionMessage: string
+	.number: int
+	.exceptionMessage: string
 }
 
 interface GuessInterface {
-    RequestResponse: guess throws NumberException( NumberExceptionType )
+	RequestResponse: guess( int )( string ) throws NumberException( NumberExceptionType )
 }
+
 ```
 
 The interface defines the operation `guess` able to throw a `NumberException`, whose message type is `NumberExceptionType`.
 
-```text
-//server.ol
-include "interface.iol"
+```jolie
+include "GuessInterface.iol"
 include "console.iol"
 
+execution{ concurrent }
+
 inputPort Guess {
-    Protocol: sodep
-    Location: "socket://localhost:2000"
-    Interfaces: GuessInterface
+	Protocol: sodep
+	Location: "socket://localhost:2000"
+	Interfaces: GuessInterface
 }
 
 init {
-    secret = 3
+	secret = int(args[0]);
+  install( FaultMain =>
+		println@Console( "A wrong number has been sent!" )()
+	);
+  install( NumberException =>
+    println@Console( "Wrong number sent!" )();
+    throw( FaultMain )
+  )
 }
 
 main
 {
-    install( FaultMain =>
-        println@Console( "A wrong number has been sent!" )()
-    );
-    scope( num_scope )
-    {
-        install( NumberException =>
-            println@Console( "Wrong number sent!" )();
-            throw( FaultMain )
-        );
-        guess( number )( response ){
-            if ( number == secret ) {
-                println@Console( "Number guessed!" )();
-                response = "You won!"
-            } else {
-                with( exceptionMessage ){
-                    .number = number;
-                    .exceptionMessage = "Wrong number, better luck next time!"
-                };
-                throw( NumberException, exceptionMessage )
-            }
-        }
-    }
+	guess( number )( response ){
+		if ( number == secret ) {
+			println@Console( "Number guessed!" )();
+			response = "You won!"
+		} else {
+			with( exceptionMessage ){
+				.number = number;
+				.exceptionMessage = "Wrong number, better luck next time!"
+			};
+					/* here the throw also attach the exceptionMessage variable to the fault */
+			throw( NumberException, exceptionMessage )
+		}
+	}
 }
 ```
 
 The server implements the throw statement in the else branch of operation `guess` behaviour. If the number sent by the client is different than the `secret` one, the request-response operation will send a `NumberException` fault to the client along the fault data.
 
+### Joining data to a fault
 The syntax for joining data into a fault is a simple extension of the `throw` syntax given previously.
 
 ```text
