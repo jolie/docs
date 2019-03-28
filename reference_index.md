@@ -22,6 +22,8 @@ This reference index is still under construction. If you spot something missing,
 
 ## Statements
 - `[..]{..}`: input choice. [Go to section: Input Choice](basics/composing_statements.md#input-choice)
+- `cH`: handler placeholder. [Go to section: Termination and Compeonsation](https://jolielang.gitbook.io/docs/basics/fault-handling/termination_and_compensation)
+- `comp()`: compensation statement. [Go to section: Termination and Compeonsation](https://jolielang.gitbook.io/docs/basics/fault-handling/termination_and_compensation)
 - `constants`: constants definition. [Go to section: Constants](basics/constants.md)
 - `cset`: cset definition. [Go to section: Sessions](basics/sessions.md)
 - `csets`: csets assignment. [Go to section: Sessions](basics/sessions.md)
