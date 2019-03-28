@@ -11,9 +11,9 @@ Compensation deals with the recovery of an activity that has successfully comple
 Each scope can be equipped with an error handler that contains the code to be executed for its recovery. As for fault handlers, recovery handlers can be dynamically installed by means of the `install` statement. Besides using a specific fault name, which installs the handler as a _fault handler_, the handler can refer to `this`. The term `this` refers to a _termination_ or a _recovery handler_ for the enclosing scope.
 
 ## Termination and Compensation: concepts
-Each scope is equipped with a termination handler and a compensation handler by default. If no code is joint with these handlers they will never be executed. The termination handler permits to finalize a scope when it is interrupted during its execution, whereas a compensation handler permits to recover a scope which successfully finished its activities. But let us clarify better these concepts:
+Each scope is equipped with a termination handler and a compensation handler by default. If no code is joint with these handlers they will never be executed. The termination handler permits to finalize a scope when it is interrupted during its execution, whereas a compensation handler permits to recover a scope which successfully finished its activities. A termination handler is automatically executed when the related scope is interrupted by a parallel activity. A compensation handler is always executed by a fault handler of the parent scope which receives that handler from the child scope when successfully finishes. The most important fact is that in Jolie, a termination handler and a compensation handler are the same with the exception that: a termination becomes a compensation handler when the related scope finishes with success.
 
-Fig. 1 displays a scenario in which a scope A contains an activity that executes:
+Let us clarify a little but more these concepts with the help of Fig 1. The diagram displays a scenario in which a scope A contains an activity that executes:
 
 * an activity _P_;
 * the scope _B_;
@@ -26,8 +26,6 @@ Fault handlers can execute compensations by invoking the compensation handlers l
 ![](../.gitbook/assets/termination_and_compensation.jpg)
 
 **Fig.1** Code _P_ is executed in parallel with scopes _B_ and _C_ within scope _A_. _C_ is supposed to be successfully ended, whereas _B_ is terminated during its execution by the fault _f_ raised by _P_. The fault handler of _A_ can execute the compensation handler loaded by _C_.
-
-Installing a handler overwrites the previous one for the same fault or scope name; however, handlers can be composed by using the [`cH` placeholder](#handler-composition-the-ch-placeholder), which is replaced by the code of the previously installed handler.
 
 ## Termination
 
