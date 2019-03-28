@@ -105,18 +105,9 @@ where, inside the scope `s`, we have a parallel composition of a `throw` stateme
 
 ## RequestResponse Pattern and transmission of data into a fault
 
-Uncaught fault signals in a request-response body are automatically sent to the invoker. Hence, invokers are always notified of unhandled faults. We update the syntax given for request-response operation types to declare the faults that could be sent back to invokers along with their data type.
+Uncaught fault signals in a request-response body are automatically sent to the invoker. Hence, invokers are always notified of unhandled faults. We introduced the syntax for declaring a fault into an interface at Section [Interfaces](../basics/communication-ports/interfaces.md)
 
-```text
-interface IfaceName {
- RequestResponse:
-    Op1( ReqType1 )( ResType1 ) throws ErrX( MsgTypeX ) ... ErrY( MsgTypeY ) 
-  //...
-  OpN( ReqTypeN )( ResTypeN ) throws ErrW( MsgTypeW ) ... ErrZ( MsgTypeZ )
-}
-```
-
-Let us modify the previous example in order to introduce a request-response operation.
+Here we transfrom the previous example script into a service in order to introduce a request-response operation (operation _guess_).
 
 ```text
 // interface.iol
