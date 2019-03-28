@@ -157,7 +157,7 @@ main
 				.number = number;
 				.exceptionMessage = "Wrong number, better luck next time!"
 			};
-					/* here the throw also attach the exceptionMessage variable to the fault */
+		        /* here the throw also attach the exceptionMessage variable to the fault */
 			throw( NumberException, exceptionMessage )
 		}
 	}
@@ -169,7 +169,7 @@ The server implements the throw statement in the else branch of operation `guess
 ### Joining data to a fault
 The syntax for joining data into a fault is a simple extension of the `throw` syntax given previously.
 
-```text
+```jolie
 scope ( scope_name )
 {
     install ( FaultName => /* fault handling code */ );
@@ -177,20 +177,18 @@ scope ( scope_name )
     throw ( FaultName, faultData )
 }
 ```
+In the server of the example above, it is obtained by the follwoing piece of code:
+```jolie
+with( exceptionMessage ){
+	.number = number;
+	.exceptionMessage = "Wrong number, better luck next time!"
+};
+throw( NumberException, exceptionMessage )
+```
 
-Let us write a client that handles the raise of the fault and prints the data sent from it:
+Let us check the client of the example in order to show how it handles the raise of the fault and prints the data sent from it:
 
-```text
-//client.ol
-include "console.iol"
-include "interface.iol"
-
-outputPort Guess {
-    Protocol: sodep
-    Location: "socket://localhost:2000"
-    Interfaces: Guess
-}
-
+```jolie
 main
 {
     install( NumberException=>
@@ -201,7 +199,15 @@ main
 }
 ```
 
-As shown at Line 15, in order to correctly reference fault data within a fault handler, it is necessary to specify the scope path where the fault is contained.
+It is worth noting that, in order to correctly reference fault data within a fault handler, it is necessary to specify the scope path where the fault is contained. The path is always built in the follwing way:
+
+* _<name of the scope>.<Name of the fault>.<Node of the message to access>_
+	
+Thus in the example, since we want to access the node `exceptionMessage`, we use the following path:
+
+```jolie
+main.NumberException.exceptionMessage )()
+```
 
 ## Accessing a fault caught in a scope
 
