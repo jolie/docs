@@ -8,9 +8,7 @@ Termination deals with the recovery of an activity that is still running.
 
 Compensation deals with the recovery of an activity that has successfully completed its execution.
 
-Each scope can be equipped with an error handler that contains the code to be executed for its recovery. As for fault handlers, recovery handlers can be dynamically installed by means of the `install` statement. Besides using a specific fault name, which installs the handler as a _fault handler_, the handler can refer to `this` or `default` keywords.
-
-In case the handler refers to `this`, it is a _termination_ or _recovery handler_ for the enclosing scope, if it refers to `default`, the handler is installed as a _fallback fault_ handler for all faults that do not have a specific fault handler.
+Each scope can be equipped with an error handler that contains the code to be executed for its recovery. As for fault handlers, recovery handlers can be dynamically installed by means of the `install` statement. Besides using a specific fault name, which installs the handler as a _fault handler_, the handler can refer to `this`. The term `this` refers to a _termination_ or a _recovery handler_ for the enclosing scope.
 
 Installing a handler overwrites the previous one for the same fault or scope name; however, handlers can be composed by using the `cH` placeholder, which is replaced by the code of the previously installed handler.
 
