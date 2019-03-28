@@ -10,6 +10,7 @@ Compensation deals with the recovery of an activity that has successfully comple
 
 Each scope can be equipped with an error handler that contains the code to be executed for its recovery. As for fault handlers, recovery handlers can be dynamically installed by means of the `install` statement. Besides using a specific fault name, which installs the handler as a _fault handler_, the handler can refer to `this`. The term `this` refers to a _termination_ or a _recovery handler_ for the enclosing scope.
 
+## Termination and Compensation: concepts
 Fig. 1 displays a scenario in which a scope A contains an activity that executes:
 
 * an activity _P_;
