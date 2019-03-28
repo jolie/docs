@@ -238,7 +238,7 @@ The former permits to identify the session thanks to _auth_token_ whereas the la
 
 ## The provide-until statement
 
-The `provide` `until` statement eases defining workflows where a microservice _provides_ access to a set of resources _until_ some event happened.
+The `provide` `until` statement eases defining workflows where a microservice _provides_ access to a set of resources _until_ some event happened. Such a statement is useful in combination with correlation sets, because it allows for accessing a specific subset of operations once a session is established.
 
 The syntax is
 
@@ -255,27 +255,16 @@ until
 
 The inputs `IS_1, ..., IS_n` will be continuously available until one of the operations under the `until` \(`IS_m, ..., IS_k`\) is called.
 
-## Sessions and the provide-until statement
-
-The [provide-until](https://jolielang.gitbook.io/docs/basics/composing_statements#the-provide-until-statement) statement is particularly useful to handle in-session behaviours.
-
-As an example, consider the code in section [Multiple correlation sets](sessions.md#multiple-correlation-sets). Instead of using a `while` with some book-keeping variables, we can simply define that, after the `create` operation , operation `publish` is always available until `close` is called.
+In the authentication example described in the previous section, the application exploits a `provide` `until` for providing the operation _printMessage_ to the final user, until she sends the exiting operation _exitApplication_:
 
 ```text
-main {
-    create( createRoomRequest )( csets.adminToken ) {
-        csets.adminToken = new
-    };
-    provide
-        [ publish( message ) ] {
-            println@Console( "[" + csets.name + "]: " + message.content )()
-        }
-    until
-        [ close( closeMessage ) ] {
-            println@Console(    "Chat room " + csets.name + 
-                                " closed. Reason: " + closeMessage.reason )()
-        }
-    }
-}
+provide
+   [ printMessage( print_request ) ] {
+       println@Console("Message to print:" + print_request.message )()
+   }
+ until
+   [ exitApplication( request ) ] {
+       println@Console("Exiting from session " + request.session_id )()
+   }
 ```
 
