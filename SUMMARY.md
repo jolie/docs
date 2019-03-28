@@ -27,7 +27,7 @@
   * [Sessions](basics/sessions.md)
   * [Dynamic Parallel](basics/dynamicparallel.md)
   * [Fault Handling](fault-handling/README.md)
-    * [Basics](fault-handling/basics.md)
+    * [Scopes and faults](fault-handling/basics.md)
     * [Termination and Compensation](fault-handling/termination_and_compensation.md)
 * [Architectural Composition](architectural-composition/README.md)
   * [Introduction](architectural-composition/introduction.md)
