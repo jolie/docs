@@ -25,6 +25,7 @@ This reference index is still under construction. If you spot something missing,
 - `constants`: constants definition. [Go to section: Constants](basics/constants.md)
 - `cset`: cset definition. [Go to section: Sessions](basics/sessions.md)
 - `csets`: csets assignment. [Go to section: Sessions](basics/sessions.md)
+- `default`: fautl name alias. [Go to section: Scopes and Faults](fault-handling/basics.md#accessing-a-fault-caught-in-a-scope-the-alias-default)
 - `define`: procedure definition. [Go to section: Define](basics/define.md)
 - `execution { single | concurrent | sequential }`: execution modality. [Go to section: Processes](basics/processes.md)
 - `for(){}`: deterministic loop. [Go to section: for and while](basics/composing_statements.md#for-and-while)
