@@ -203,7 +203,7 @@ When scope `example_scope` ends with success, its current recovery handler is pr
 
 ### The electronic purchase example
 Here we consider a simplified scenario of an electronic purchase where termination and compensation handlers are used.
-The reference architecture of the example follows:
+The full code can be checked [here](https://github.com/jolie/examples/tree/master/03_fault_handling/12_transaction_example) whereas the reference architecture of the example follows:
 
 ![](../.gitbook/assets/transactions.png)
 
