@@ -201,6 +201,12 @@ main
 
 When scope `example_scope` ends with success, its current recovery handler is promoted to the parent scope \(`main`\) in order to be available for compensation. At the end of the program, the `a_fault` is raised, triggering the execution of its fault handler, defined at Lines 5-8. At Line 7 the compensation of scope `example_scope` is executed, triggering the execution of the corresponding recovery handler \(in this case, the one at Line 15, including the first at Line 11\).
 
+### The electronic purchase example
+Here we consider a simplified scenario of an electronic purchase where termination and compensation handlers are used.
+The reference architecture of the example follows:
+
+![](../.gitbook/assets/transactions.svg)
+
 ## Installation-time variable evaluation
 
 Handlers need to use and manipulate variable data often and a handler may need to refer to the status of a variable at the moment of its installation. Hence, Jolie provides the `^` operator which "freezes" a variable state within an installed handler. `^` is applied to a variable by prefixing it, as shown in the example below.
