@@ -275,6 +275,54 @@ In this example a user wants to electronically buy ten beers invoking the transa
           response.delivery_date = log_res.actual_delivery_date
     }]
 ```
+Here the transaction service starts two parallel activities:
+* contact the product store and the logistics for booking the product and the transportation service. In particular it executes a sequence of two calls: _lockProduct@ProductStore_ and _bookTransportation_. The former locks the requested product on the Product Store whereas the latter books the transportation service. 
+* contact the bank account for locking the neccesary amount
+
+Note that in the former activity, after each invocation a termination handler is installed:
+```jolie
+  with( pr_req ) {
+      .product = request.product;
+      .quantity = request.quantity
+  };
+  lockProduct@ProductStore( pr_req )( pr_res );
+  install( this =>
+      println@Console("unlocking product...")();
+      unlockProduct@ProductStore( { .token = pr_res.token })();
+      println@Console("product unlocking done")()
+  );
+  /* lock logistics delivery time */
+  getCurrentTimeMillis@Time()( now );
+  with( log_req ) {
+      .weight = product_details.weight * request.quantity;
+      .expected_delivery_date = now + 1000*60*60*72; // three days
+      .product = request.product
+  };
+  bookTransportation@Logistics( log_req )( log_res );
+  install( this =>
+      cH;
+      println@Console("cancelling logistics booking..." )();
+      cancelBooking@Logistics({ .reservation_id = log_res.reservation_id } )();
+      println@Console("cancelling logistics booking done")()
+  )
+```
+In particular, in the second one, the termination handler is installed as an update of the previous one thanks to the usage of the keyword `cH`. Indeed, after the second installation the handler will appear as it follows:
+
+```jolie
+println@Console("unlocking product...")();
+unlockProduct@ProductStore( { .token = pr_res.token })();
+println@Console("product unlocking done")();
+println@Console("cancelling logistics booking..." )();
+cancelBooking@Logistics({ .reservation_id = log_res.reservation_id } )();
+println@Console("cancelling logistics booking done")()
+```
+On the other hand a termination is installed for unlocking the amount of money. All these termination handlers are promoted at the parent scope, and in case of fault, they will be compensated:
+
+```jolie
+  install( default =>
+                        { comp( lock_product ) | comp( account ) }
+                        ...
+```
 
 
 ## Installation-time variable evaluation
