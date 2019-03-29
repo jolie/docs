@@ -205,7 +205,7 @@ When scope `example_scope` ends with success, its current recovery handler is pr
 Here we consider a simplified scenario of an electronic purchase where termination and compensation handlers are used.
 The reference architecture of the example follows:
 
-![](../.gitbook/assets/transactions.svg)
+![](../.gitbook/assets/transactions.png)
 
 ## Installation-time variable evaluation
 
