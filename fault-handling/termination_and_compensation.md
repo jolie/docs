@@ -323,7 +323,9 @@ On the other hand a termination is installed for unlocking the amount of money. 
                         { comp( lock_product ) | comp( account ) }
                         ...
 ```
+If we simulate that the user has not enough money into the bank account, teh fault _CreditNotPresent_ is raised by the bank account service. In this case, the compensation handlers of the sibling activities are executed by rolling back the lock of the product and the book of the transportation service.
 
+In case there are no faults, all the activities are finalized in the last parallel of the operation _buy_ where all the involved services are called for commiting the previous lock of resources.
 
 ## Installation-time variable evaluation
 
