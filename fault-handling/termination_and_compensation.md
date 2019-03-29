@@ -125,7 +125,7 @@ When `a_fault` is raised, the lastly installed recovery handler is executed.
 
 Besides replacing a recovery handlers, it may be useful to add code to the current handler, without replacing the entire previously installed code. Jolie provides the keyword `cH` as a placeholder for the _current handler_.
 
-Let us consider the following example:
+Let us consider the following example whose executable code can be found [here](https://github.com/jolie/examples/tree/master/03_fault_handling/08_cH):
 
 ```text
 include "console.iol"
@@ -173,7 +173,7 @@ Compensation allows to handle the recovery of a scope which has successfully exe
 
 Compensation is invoked by means of the `comp` statement, which can be used only within a handler.
 
-Let us consider the following example showing how to perform a compensation:
+Let us consider the following example showing how to perform a compensation. The executable code can be found [here](https://github.com/jolie/examples/tree/master/03_fault_handling/09_compensation):
 
 ```text
 include "console.iol"
