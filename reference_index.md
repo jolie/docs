@@ -21,6 +21,7 @@ This reference index is still under construction. If you spot something missing,
 - `|`: parallel. [Go to section: Parallel](basics/composing_statements.md#parallel)
 
 ## Statements
+- `^`: "freezing" operator. [Go to section: Termination and Compeonsation](https://jolielang.gitbook.io/docs/basicsfault-handling/termination_and_compensation#installation-time-variable-evaluation)
 - `[..]{..}`: input choice. [Go to section: Input Choice](basics/composing_statements.md#input-choice)
 - `cH`: handler placeholder. [Go to section: Termination and Compeonsation](https://jolielang.gitbook.io/docs/basics/fault-handling/termination_and_compensation)
 - `comp()`: compensation statement. [Go to section: Termination and Compeonsation](https://jolielang.gitbook.io/docs/basics/fault-handling/termination_and_compensation)
