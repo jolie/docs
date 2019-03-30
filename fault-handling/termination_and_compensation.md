@@ -429,9 +429,9 @@ Solicit-Responses communication primitives allow for synchrnously sending a requ
 ```jolie
 operation_name@Port_name( request )( response ) [ this => handler code here ]
 ```
-between the sqaure brackets it is possible to install a termination handler which is installed after the sending of the request and before receiving a reply.
+between the square brackets it is possible to install a termination handler which is installed after the sending of the request and before receiving a reply. **Note that the handler is installed only in case of a successfull reply, not in the case of a fault one**.
 
-At this [link](https://github.com/jolie/examples/tree/master/03_fault_handling/13_transaction_example_multiple_products) we report an executable example where a client calls a server with a solicit-response operation named _hello_. Here we install a _println_ command after sending the request message:
+At this [link](https://github.com/jolie/examples/tree/master/03_fault_handling/13_transaction_example_multiple_products) we report an executable example where a client calls a server with a solicit-response operation named _hello_. In particular, we install a _println_ command after sending the request message:
 
 ```jolie
 scope( calling ) {
@@ -442,5 +442,9 @@ scope( calling ) {
     ]
 }
 ```
+
+In the same example the solicit-response is programmed with a fake activity which raises a fault thus trigerring the termination handler of the Solicit-Response. It is woth noting how the solicit-response handler is installed before executing the termination trigerred by the parallel fault. 
+
+
 
 
