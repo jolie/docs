@@ -422,5 +422,25 @@ scope( locks ) {
   ```
 At lines 22-23 and 36-37 it is possible to find the usage of the freeze operator. Note that the operator `cH` allows for queueing all the installed handlers. 
 
+## Solicit-Response handler installation
+
+Solicit-Responses communication primitives allow for synchrnously sending a request and receiving a reply. Since the sending and the receiving are performed atomically in the same primitive, apparently it is not possible to install a handler after the request sending and before the reply reception. In Jolie it is possible to program such a behaviour using the following syntax:
+
+```jolie
+operation_name@Port_name( request )( response ) [ this => handler code here ]
+```
+between the sqaure brackets it is possible to install a termination handler which is installed after the sending of the request and before receiving a reply.
+
+At this [link](https://github.com/jolie/examples/tree/master/03_fault_handling/13_transaction_example_multiple_products) we report an executable example where a client calls a server with a solicit-response operation named _hello_. Here we install a _println_ command after sending the request message:
+
+```jolie
+scope( calling ) {
+    install( this => println@Console( "Before calling" )() );
+    hello@Server("hello")( response )
+    [
+          this => println@Console("Installed Solicit-response handler")()
+    ]
+}
+```
 
 
