@@ -329,7 +329,7 @@ In case there are no faults, all the activities are finalized in the last parall
 
 ## Installation-time variable evaluation
 
-Handlers need to use and manipulate variable data often and a handler may need to refer to the status of a variable at the moment of its installation. Hence, Jolie provides the `^` operator which "freezes" a variable state within an installed handler. `^` is applied to a variable by prefixing it, as shown in the example below.
+Handlers need to use and manipulate variable data often and a handler may need to refer to the status of a variable at the moment of its installation. Hence, Jolie provides the `^` operator which "freezes" a variable state within an installed handler. `^` is applied to a variable by prefixing it, as shown in the example below whose executable code can be found [here](https://github.com/jolie/examples/tree/master/03_fault_handling/10_installation_time_variable_evaluation).
 
 ```text
 include "console.iol"
