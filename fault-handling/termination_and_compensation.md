@@ -358,3 +358,67 @@ main
 
 The install primitive contained in the `while` loop updates the scope recovery handler at each iteration. In the process the value of the variable `i` is frozen within the handler.
 
+At this [link](https://github.com/jolie/examples/tree/master/03_fault_handling/13_transaction_example_multiple_products) we modified the electronic purchase example described above, introducing the possibility to buy a set of products instead of a single one. In such a case, the transaction service performs a locking call to the store service for each received product and, for each of these calls, it installs a related termination handler. In the termination handler, we exploits the freeze operator for freezing variables _i_, _token_ and _reservation_id_ at the values they have in the moment of the installation:
+
+```jolie
+scope( locks ) {
+  install( default =>
+        { comp( lock_product ) | comp( account ) }
+        ;
+        valueToPrettyString@StringUtils( locks.( locks.default ) )( s );
+        msg_failure = "ERROR: " + locks.default + "," + s;
+        throw( TransactionFailure, msg_failure )
+  );
+  scope( lock_product ) {
+      /* lock product availability */
+      for( i = 0, i < #request.product, i++ ) {
+            println@Console("processing product " + request.product[ i ] )();
+            with( pr_req ) {
+                .product = request.product[ i ];
+                .quantity = request.product[ i ].quantity
+            };
+            println@Console("locking " + request.product[ i ])();
+            lockProduct@ProductStore( pr_req )( pr_res );
+            token = product.( request.product[ i ]).token = pr_res.token ;
+            install( this =>
+                cH;
+                println@Console("unlocking product " + request.product[ ^i ] )();
+                unlockProduct@ProductStore( { .token = ^token })()
+            );
+            /* lock logistics delivery time */
+            getCurrentTimeMillis@Time()( now );
+            with( log_req ) {
+                .weight = products.( request.product[ i ] ).weight * request.product[ i ].quantity;
+                .expected_delivery_date = now + 1000*60*60*72; // three days
+                .product = request.product[ i ]
+            };
+            bookTransportation@Logistics( log_req )( log_res );
+            reservation_id = product.( request.product[ i ]).reservation_id = log_res.reservation_id;
+            install( this =>
+                cH;
+                println@Console("cancelling logistics booking for product " + request.product[ ^i ] )();
+                cancelBooking@Logistics({ .reservation_id = ^reservation_id } )()
+            )
+      }
+  }
+  |
+  scope( account ) {
+      /* lock account availability */
+      for( y = 0, y < #request.product, y++ ) {
+          amount = amount + request.product[ y ].quantity * products.( request.product[ y ] ).price
+      };
+      with( cba ) {
+          .card_number = request.card_number;
+          .amount = amount
+      };
+      lockCredit@BankAccount( cba )( lock_credit );
+      install( this =>
+          println@Console("cancelling account lock..")();
+          cancelLock@BankAccount( { .token = lock_credit.token })();
+          println@Console("cancelling account lock done")()
+      )
+  }
+}
+  ```
+
+
