@@ -420,6 +420,7 @@ scope( locks ) {
   }
 }
   ```
-At lines 22-23 and 36-37 it is possible to find the usage of the freeze operator.
+At lines 22-23 and 36-37 it is possible to find the usage of the freeze operator. Note that the operator `cH` allows for queueing all the installed handlers. 
+
 
 
