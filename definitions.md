@@ -88,7 +88,7 @@ RequestResponse:
 }
 ```
 
-# Sessions
+## Sessions
 Services execute sessions for serving requests. A session is a running instance of a service operation. 
 Sessions are independently executed and their data are independently scoped. 
 If we suppose to send three messages to a microservice which implements the following service 
@@ -104,7 +104,7 @@ if we concurrently send three request messages with content "1", "2", "3", we wi
 related reply messages with the same content.
 
 
-## A definition of service and microservice
+# A definition of service and microservice
 Here we summarize a definition of service starting from the basic concepts highlighted above. 
 
 _A service is a unit of programmable software able to exchange messages with other services whose behaviour 
