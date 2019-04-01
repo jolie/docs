@@ -31,7 +31,6 @@
     * [Termination and Compensation](fault-handling/termination_and_compensation.md)
 * [Architectural Programming](architectural-composition/README.md)
   * [Embedding](architectural-composition/embedding.md)
-  * [Embedding Jolie Services](architectural-composition/embedding_jolie.md)
   * [Internal Services](architectural-composition/internal_services.md)
   * [Dynamic Embedding](architectural-composition/dynamic_embedding.md)
   * [Aggregation](architectural-composition/aggregation.md)
