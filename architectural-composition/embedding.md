@@ -23,6 +23,13 @@ Embedding produces a hierarchy of services where the embedder is the parent serv
 
 Command line parameters can also be passed within the embedding path. 
 
+## Macroservices
+Here we introduce the concept of _macroservice_ as a unique execution context for a set of microservices. One or more microservices can be executed within the same execution context. When there is only one microservice, the definition of a macroservice corresponds with the same of microservice. A macroservice exhibit only the public available ports of the inner microservices. The ports that are not reachable by external invokers are considered internal ports and they are hidden from the point of view of a macroservice. Operationally, a macroservice can be obtained by exploiting the embedding primitive.
+
+![](../.gitbook/assets/macroservices.png)
+
+Graphically they are represented with a orange exagon.
+
 ## Embedding Jolie Services
 
 Let us consider the _twice_ service example given in [Behaviour and Deployment](https://jolielang.gitbook.io/docs/getting-started/behavior_and_deployment) sub-section.
