@@ -1,7 +1,5 @@
 # Architectural Programming
 
-# Introduction
-
 In the Basics section we have shown how a behaviour can compose other behaviours abstracting from its deployment. In Architectural Programming section we show how Jolie enables architectural composition through the usage of linguistic primitives.
 
 _Architectural Programming_ can be roughly divided in two main categories.
