@@ -1,6 +1,217 @@
-# Tutorial on Java Services
+# Integrating Java code
 
-## JavaServices
+## Embedding a Java service
+
+When embedding a Java service, the path URL must unambiguously identify a Java class, which must also be in the Java classpath of the Jolie interpreter. The class must extend the `JavaServices` abstract class, offered by the Jolie Java library for supporting the automatic conversion between Java values and their Jolie representations.
+
+Each method of the embedded class is seen as an operation from the embedder, which will instantiate an object using the class and bind it to the output port. Embedding Java services is particularly useful for interacting with existing Java code or to perform some task where computational performance is important.
+
+## The `println@MyConsole` example
+
+Many services of the Jolie standard library \(like `Console`\) are Java services.
+
+Each public method of the Java Service is an input operation invokable by the embedder. Depending on the output object, each method represents a one-way operation \(if the output is void\) or a request-response \(for non-void outputs\). This behaviour can be overridden by using the `@RequestResponse` annotation when declaring a void-returning operation.
+
+Let us write our own `MyConsole` Java service that offers a `println` request-response operation. `println` is a public method of `MyConsole` class that takes a string as request and prints it at console.
+
+```text
+package example;
+import jolie.runtime.JavaService;
+
+public class MyConsole extends JavaService {
+
+    public void println( String s  ){
+        System.out.println( s );
+    }
+}
+```
+
+Once stored in the `example` folder, as defined by the package statement, our Java class must be compiled into a .jar library and added to the folder "javaServices" in Jolie's installation directory:
+
+* run the Java compiler on our MyConsole.java file adding the _jolie.jar_ library in the classpaths \(`-cp`\): `javac -cp /path/to/jolie.jar MyConsole.java`;
+* compress the MyConsole.class file into a .jar library with the `jar` command: `jar cvf example.jar example/MyConsole.class`
+* move the example.jar file into javaServices folder in Jolie installation directory.
+
+Once our service is visible by Jolie's interpreter, we can embed it in a Jolie service:
+
+```text
+interface MyConsoleInterface {
+    OneWay: println( string )
+}
+
+outputPort MyConsole {
+    Interfaces: MyConsoleInterface
+}
+
+embedded {
+    Java: "example.MyConsole" in MyConsole
+}
+
+main
+{
+    println@MyConsole("Hello World!")
+}
+```
+
+The embedder construct, at Line 10, declares the type keyword as `Java` and defines the path name of the Java Service as `package_name.class_name`.
+
+## Using a request-response operation in Java services
+
+To practice on request-response operations between embedded and embedder, let us rewrite the _twice_ service used in the section [Embedding Jolie Services](https://jolielang.gitbook.io/docs/architectural-composition/embedding_jolie).
+
+We use the previously written Java Service `MyConsole` to print the result and show how to embed multiple classes.
+
+```text
+package example;
+
+import jolie.runtime.JavaService;
+
+public class Twice extends JavaService {
+
+    public Integer twiceInt( Integer request ){
+        Integer result = request + request;
+        return result;
+    }
+
+    public Double twiceDoub( Double request ){
+        Double result = request + request;
+        return result;
+    }
+}
+```
+
+Note that both input and output types of each method, although meant to be primitive types `int` and `double`, must be declared as their wrapping classes, respectively `Interger` and `Double`.
+
+Following, the Jolie service embeds both MyConsole and Twice classes:
+
+```text
+interface MyConsoleInterface {
+    OneWay:    println( string )
+}
+
+interface TwiceInterface {
+    RequestResponse:     twiceInt( int )( int ),
+                        twiceDoub( double )( double )
+}
+
+outputPort MyConsole {
+    Interfaces: MyConsoleInterface
+}
+
+outputPort Twice {
+    Interfaces: TwiceInterface
+}
+
+embedded {
+    Java:     "example.Twice" in Twice,
+            "example.MyConsole" in MyConsole
+}
+
+main
+{
+    intExample = 3;
+    doubleExample = 3.14;
+    twiceInt@Twice( intExample )( intExample );
+    twiceDoub@Twice( doubleExample )( doubleExample );
+    println@MyConsole("intExample twice: " + intExample );
+    println@MyConsole("doubleExample twice: " + doubleExample )
+}
+```
+
+## Handling structured messages and embedder's operations invocation
+
+A Java Service can also call an operation of the embedder by means of the `sendMessage` method of Jolie standard library. In this example we use the `Value` and `ValueVector` objects to handle a custom-typed message from a request-response operation invoked on the embedder.
+
+```text
+include "console.iol"
+
+type Split_req: void{
+    .string: string
+    .regExpr: string
+}
+
+type Split_res : void{
+    .s_chunk*: string
+}
+
+interface SplitterInterface {
+    RequestResponse:     split( Split_req )( Split_res )
+}
+
+interface MyJavaExampleInterface {
+    OneWay: start( void )
+}
+
+outputPort Splitter {
+    Interfaces: SplitterInterface
+}
+
+outputPort MyJavaExample {
+    Interfaces: MyJavaExampleInterface
+}
+
+inputPort Embedder {
+    Location: "local"
+    Interfaces: SplitterInterface
+}
+
+embedded {
+    Java:     "example.Splitter" in Splitter,
+            "example.JavaExample" in MyJavaExample
+}
+
+main
+{    
+    start@MyJavaExample();
+    split( split_req )( split_res ){
+        split@Splitter( split_req )( split_res )
+    }
+}
+```
+
+The embedder acts as a bridge between two embedded Java Services, `MyJavaExample` which requests a `split` operation and, `Splitter` which implements it.
+
+```text
+package example;
+
+import jolie.runtime.JavaService;
+import jolie.net.CommMessage;
+import jolie.runtime.Value;
+import jolie.runtime.ValueVector;
+
+public class JavaExample extends JavaService {
+
+    public void start(){
+        String s_string = "a_steaming_coffee_cup";
+        String s_regExpr = "_";
+
+        Value s_req = Value.create();
+        s_req.getNewChild("string").setValue(s_string);
+        s_req.getNewChild("regExpr").setValue(s_regExpr);
+
+        try {
+            System.out.println("Sent request");
+            CommMessage request = CommMessage.createRequest(     "split",
+                                                                "/",
+                                                                s_req );
+            CommMessage response = sendMessage( request ).recvResponseFor( request );
+            System.out.println("Received response");
+
+            Value s_array = response.value();
+            ValueVector s_children = s_array.getChildren("s_chunk");
+            for( int i = 0; i
+```
+
+After `start()` is called by the embedder, our Java Service creates a `Value` object according to the `Split_req` type definition. At Line 20 it creates a request message, defining the invoked operation \(`split`\), the resource \(`/`\), and the message \(`s_req`\). Finally, at Line 21, it sends the request and waits for receiving a response.
+
+After receiving the response, the service prints at console the subnodes of the response exploiting the `ValueVector` object.
+
+The comprehensive code of this example can be downloaded here:
+
+[Embedding Java Code Example](https://github.com/jolie/docs/blob/master/files/architectural-composition/code/embedding_java_code.zip)
+
+
+## Creating a JavaService
 
 This tutorial explains how to develop JavaService classes which can be easily embedded into a Jolie service. For the sake of clarity, here we consider to use [Netbeans IDE](http://www.netbeans.org) as a project management tool, but the following instructions can be easily adapted to any kind of Java IDE.
 
@@ -496,7 +707,7 @@ import Jolie.runtime.JavaService;
 import Jolie.runtime.Value;
 import Jolie.runtime.embedding.RequestResponse;
 
-public class JavaServiceWithRequestResponseCall extends JavaService { 
+public class JavaServiceWithRequestResponseCall extends JavaService {
 
     public void start( Value msg ) {
         System.out.println( msg.getFirstChild( "message" ).strValue() );
@@ -609,11 +820,11 @@ interface FirstJavaServiceInterface {
 In Jolie a RequestResponse message can return a fault message which must be managed into the JavaService. Such a task is very easy and can be achieved by checking if the response is a fault or not by exploiting method `isFault` of the class `CommMessage` as reported in the following code snippet:
 
 ```text
-CommMessage response = sendMessage( request ).recvResponseFor( request ); 
-if ( response.isFault() ) { 
-    System.out.println( response.fault().faultName() ); 
-} else { 
-    System.out.println( response.value().strValue() ); 
+CommMessage response = sendMessage( request ).recvResponseFor( request );
+if ( response.isFault() ) {
+    System.out.println( response.fault().faultName() );
+} else {
+    System.out.println( response.value().strValue() );
 }
 ```
 
@@ -622,13 +833,13 @@ if ( response.isFault() ) {
 So far, we have discussed the possibility to statically embed a JavaService. In this case the JavaService is shared among all the sessions created by the embedder. In some cases, it could be particularly suitable to embed an instance of JavaService for each running session of the embedder. Such a task can be fulfilled by exploiting the dynamic embedding functionality supplied by the `Runtime` of Jolie. In the following example we present the Java code of a JavaService which simply returns the value of a counter that is increased each time it is invoked on its method `start`.
 
 ```text
-public class FourthJavaService extends JavaService { 
-    private int counter; 
+public class FourthJavaService extends JavaService {
+    private int counter;
 
-    public Value start( Value request ) { 
-        counter++; 
-        Value v = Value.create(); 
-        v.setValue( counter ); return v; 
+    public Value start( Value request ) {
+        counter++;
+        Value v = Value.create();
+        v.setValue( counter ); return v;
     }
 }
 ```
@@ -746,4 +957,3 @@ Received counter 1
 ```
 
 Such a result means that for each session enabled on the embedder, a new JavaService object is instantiated and executed, thus the counter will start from zero every invocation.
-
