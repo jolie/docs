@@ -1,6 +1,6 @@
 # Embedding
 
-Embedding is a mechanism for executing multiple services in the same virtual machine. A service, called _embedder_, can _embed_ another service, called _embedded_ service, by targeting it with the `embedded` primitive.
+Embedding is a mechanism for executing multiple services within the same execution context. A service, called _embedder_, can _embed_ another service, called _embedded_ service, by targeting it with the `embedded` primitive.
 
 The syntax for embedding is:
 
@@ -11,11 +11,15 @@ embedded {
 }
 ```
 
-the embedding construct specifies the type \(`Language`\) of the service to embed, and `path` is a URL \(possible in simple form\) pointing to the definition of the service to embed. Jolie currently supports the embedding of `Jolie`, `Java`, and `JavaScript` service definitions.
+the embedding construct specifies the type \(`Language`\) of the service to embed, and `path` is a URL \(possible in simple form\) pointing to the definition of the service to embed. Jolie currently supports the embedding of services written with the following technologies: 
 
-Embedding may optionally specify an output port: in this case, as soon as the service is loaded, the output port is bound to the "local" communication input port of the embedded service. The meaning of local communication input port is dependent on the embedding type.
+* `Jolie`;
+* `Java`;
+* `JavaScript`.
 
-This makes embedding a _cross-technology_ mechanism: it can load services defined using different languages. Embedding produces a hierarchy of services where the embedder is the parent service of embedded ones; this hierarchy handles termination: whenever a service terminates, all its embedded services are recursively terminated. The hierarchy is also useful for enhancing performances: services in the same virtual machines may communicate using fast local memory communication channels.
+Embedding may optionally specify an output port: in this case, as soon as the service is loaded and in case there is no location defined, the output port is bound to the _"local"_ communication input port of the embedded service. 
 
-Command line parameters can also be passed. Local in-memory communication between embedder and embedded is enabled by means of the `local` communication medium, which must be specified by the embedder service. In this case no protocol definition is needed.
+Embedding produces a hierarchy of services where the embedder is the parent service of embedded ones; this hierarchy handles termination: whenever a service terminates, all its embedded services are recursively terminated. The hierarchy is also useful for enhancing performances: services in the same virtual machines indeed, may communicate using fast local memory communication channels.
+
+Command line parameters can also be passed within the embedding path. 
 
