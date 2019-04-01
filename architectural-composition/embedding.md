@@ -68,6 +68,7 @@ main {
 }
 
 ```
+![](../.gitbook/assets/embedding.png)
 
 It is worth noting that:
 * the outputPort _CleanBr_ does not define nor the location and the procolo because they are set by the embedding primitive with localtion "local" and inner memory protocol.
@@ -91,8 +92,8 @@ outputPort CleanDiv {
 }
 
 embedded {
-		Jolie:
-			"clean_div.ol" in CleanDiv
+Jolie:
+	"clean_div.ol" in CleanDiv
 }
 
 main
