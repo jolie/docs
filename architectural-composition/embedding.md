@@ -32,48 +32,81 @@ Graphically they are represented with a orange exagon.
 
 ## Embedding Jolie Services
 
-Let us consider the _twice_ service example given in [Behaviour and Deployment](https://jolielang.gitbook.io/docs/getting-started/behavior_and_deployment) sub-section.
+Embedding Jolie services is very simple. In order to show how it works, let us consider a simple example whose executable code can be found [here](https://github.com/jolie/examples/tree/master/04_architectural_composition/01_embedding_jolie/01_embedding). 
 
-First, we add the following input port to allow local communications:
+In this example we want to implement a service which is able to clean a html string from the tags `<div>`,  `</div>`, `<br>` and `</br>` replacing the br ones with a line feed and a carriage return. In order to do this, we implement a parent service called _clean_div.ol_ which is in charge to clean the div tags and another service called _clean_br.ol_ in charge to clean the br tags. The service _clean_div.ol_ embeds the service _clean_br.ol_:
 
-```text
-include "twiceInterface.iol"
+```jolie
+include "CleanBrInterface.iol"
+include "CleanDivInterface.iol"
 
-inputPort LocalIn {
-    Location: "local"
-    Interfaces: TwiceInterface
-}
+include "string_utils.iol"
 
-main
-{
-    twice( number )( result ) {
-        result = number * 2
-    }
-}
-```
+execution{ concurrent }
 
-Afterwards, we can write a modified version of the client program which embeds the twice service and calls it using an output port bound by embedding. We assume that the embedded service is stored in `twice_service.ol`.
-
-```text
-include "twiceInterface.iol"
-include "console.iol"
-
-outputPort TwiceService {
-    Interfaces: TwiceInterface
+outputPort CleanBr {
+  Interfaces: CleanBrInterface
 }
 
 embedded {
-    Jolie: "twice_service.ol" in TwiceService
+  Jolie:
+    "clean_br.ol" in CleanBr
+}
+
+inputPort CleanDiv {
+  Location: "socket://localhost:9000"
+  Protocol: sodep
+  Interfaces: CleanDivInterface
+}
+
+main {
+    cleanDiv( request )( response ) {
+        replaceAll@StringUtils( request { .regex="<div>", .replacement="" })( request );
+        replaceAll@StringUtils( request { .regex="</div>", .replacement="\n" })( request );
+        cleanBr@CleanBr( request )( response )
+    }
+}
+
+```
+
+It is worth noting that:
+* the outputPort _CleanBr_ does not define nor the location and the procolo because they are set by the embedding primitive with localtion "local" and inner memory protocol.
+* the embedding primitive specifies the language "Jolie" because the service _clean_br.ol_ is written in Jolie
+* the embedding primitive joins the service _clean_br.ol_ with the outputPort _CleanBr_ thus implying that each time we use port CleanBr inside the behaviour we will invoke the embedded service:
+
+```jolie
+cleanBr@CleanBr( request )( response )
+```
+
+### Creating a script from a service architecture
+
+Afterwards, we can write a modified version of the client program of the previous example, in order to directly embed the service _clean_dv.ol_ thus **transforming the service architecture into a single script**. The code of this example can be found [here](https://github.com/jolie/examples/tree/master/04_architectural_composition/01_embedding_jolie/02_script). Here we report the code of the script:
+
+```text
+include "CleanDivInterface.iol"
+include "console.iol"
+
+outputPort CleanDiv {
+	Interfaces: CleanDivInterface
+}
+
+embedded {
+		Jolie:
+			"clean_div.ol" in CleanDiv
 }
 
 main
 {
-    twice@TwiceService( 5 )( response );
-    println@Console( response )()
+	div = "<div>This is an example of embedding<br>try to run the encoding_div.ol<br>and watch the result.</div>";
+	println@Console("String to be cleaned:" + div )();
+	cleanDiv@CleanDiv( div )( clean_string );
+	println@Console()();
+	println@Console( "String cleaned:" + clean_string )()
 }
+
 ```
 
-When embedding a Jolie service, the path URL must point to a file containing a Jolie program \(provided as source code or in binary form\).
+It is worth noting that now the file _script.ol_ embeds the service _clean_div.ol_ which embeds the service _clean_br.ol_. Since _script.ol_ does not implement any inputPort but it just executes a script, when it reach the ends all the embedded services are automatically shut down.
 
 
 
