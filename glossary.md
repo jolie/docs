@@ -10,7 +10,7 @@ There are two types of operations:
 
 ## Interface
 
-A machine-readable and -checkable declaration of a set of operations.
+A machine-readable and -checkable declaration of a set of operations, which defines an API.
 An interface acts as the contract between a service and its clients.
 
 ## Ports
