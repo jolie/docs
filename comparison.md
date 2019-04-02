@@ -23,10 +23,23 @@ We don't think so, in the same way, C was not a OO language as well if you could
 ### Interface or lack of it
 
 ECMAScript/NodeJS does not contemplate the possibility to define an interface this has some considerable on how we code our service let's start with a simple example in Jolie 
+
 '''
-interface MySimple {
+interface MySimpleInterface {
  RequestResponse:
   myOp(MyOpRequest)(MyOpResponse)
-}  
+}
+
 '''
-Now let's look how  
+'''
+  inputPort myHttpPort{
+     Location:"socket://localhost:8000"
+     Protocol:HTTP{
+        
+     }
+     Interfaces:MySimpleInterface
+     
+  }
+'''
+
+  
