@@ -31,7 +31,6 @@
     * [Termination and Compensation](fault-handling/termination_and_compensation.md)
 * [Architectural Programming](architectural-composition/README.md)
   * [Embedding](architectural-composition/embedding.md)
-  * [Dynamic Embedding](architectural-composition/dynamic_embedding.md)
   * [Internal Services](architectural-composition/internal_services.md)
   * [Aggregation](architectural-composition/aggregation.md)
   * [Couriers](architectural-composition/couriers.md)
