@@ -19,9 +19,14 @@ Ports are endpoints used for sending and receiving messages.
 There are two kind of ports: _input ports_ and _output ports_.
 The former are used for receiving messages the latter for sending messages.
 An input port must define how it can be accessed (e.g., by accepting connections on a TCP port),
-the transport protocol that it uses (e.g., HTTP), and the _interface_
+the transport protocol that it uses (e.g., HTTP), and the _interfaces_
 that it exposes (which concretely defines the data types and available operations of the exposed API).
 Likewise, a service can invoke another service by means of _output ports_ with a compatible configuration.
+
+Jolie is flexible regarding ports:
+- a port can give access to multiple interfaces;
+- two input ports can give access to the same interface in different ways (e.g., different locations/protocols);
+- a service can have multiple input and output ports, with different definitions.
 
 ## Connection
 
