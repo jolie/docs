@@ -27,12 +27,6 @@ Likewise, a service can invoke another service by means of _output ports_ with a
 
 We say that an output port is _connected to_ an input port when it is meant that messages sent through the former will reach the latter.
 
-**così però andiamo ad introdurre il concetto che una connessione esiste solamente quando c'è anche una rete che permette alle due porte di parlarsi, a noi servirebbe un concetto un pelo più astratto per quando si va a fare il design di un'architettura, ossia io disegno due porte che per me sono connesse ma poi mi aspetto che sotto la rete sia predisposta a realizzare tale connessione. Proposta: ...when messages sent through the former potentially reach the latter.**
-
-**Oppure teniamo così la definizione di connection ma ne introduciamo un'altra più astratta per rappresentare quello che intendo io. Se ci rifacciamo al tema dei circuiti potremmo utilizzare il termine Tracks (o qualcosa di simile)**
-
-**FM: sono d'accordo. Vorrei un concetto solo, ho cambiato un pelo questo. Ti torna?**
-
 This typically happens when the output port has the same location and protocol as the target input port, but
 network or container configurations might alter this. As such, knowing the connections in a system requires looking both at 
 the involved Jolie programs and how they are deployed in the system.
@@ -43,14 +37,18 @@ A code block in Jolie. A behaviour can perform computation and communicate with 
 
 **Non userei il termine block che mi richiama una sottoporzione di programma**
 **FM: cosa useresti? Comunque e' corretto che il behaviour e' una porzione. Il programma intero si chiama appunto programma.
-Il behaviour della procedura `main` e' quello che definisce il comportamento del servizio. E' sempre un behaviour come gli altri (e.g., il codice delle altre procedure fatte con define). Ma siccome sta in quel posto speciale, e' quello che definisce il comportamento del servizio. Ho aggiunto questa spiegazione.
+Il behaviour della procedura `main` e' quello che definisce il comportamento del servizio. E' sempre un behaviour come gli altri (e.g., il codice delle altre procedure fatte con define). Ma siccome sta in quel posto speciale, e' quello che definisce il comportamento del servizio. Ho aggiunto questa spiegazione. 
 **
+
+**CG: io toglierei proprio la frase "A code block in Jolie"**
 
 The behaviour contained in the `main` procedure of a service defines the logic that the service will execute.
 
 ## Procedure
 
 **FM: non sarebbe male trovare un buon termine qui, per ora ho messo procedure. Il problema e' che "definition" e' troppo generico.**
+
+**CG: a che servirebbe questo? Non mi è chiaro**
 
 A named behaviour, which can be invoked by other behaviours. Procedures in Jolie have a call stack and support general recursion, but they are parameterless (the state is shared among all procedure calls).
 
@@ -66,6 +64,12 @@ A series of related message exchanges between two or more services.
 
 A complete, executable Jolie program.
 
+## Composition
+The Composition (or a service composition) is a unitary linguistic definition which joins interfaces to ports and ports to behaviours.
+
+## Engine
+The Engine is the runtime support that executes a Composition. That is, a service is obtained by executing a Composition within the Engine.
+
 ## Service
 
 The unit of reusable applications in Jolie. All components are services.
@@ -76,16 +80,9 @@ Service share no memory, although shared memory is sometimes used under the hood
 optimise some message exchanges (for example by using shared memory channels among services living in
 the same **VM [change this term later]**).
 
+**prosposta inclusiva delle definizioni sopra**
+A service is the smallest unit of programmable software in Jolie. It publicly supplies API which are formally defined into an interface. It is always willing to serve requests and it is able to communicate with other services by establishing conversations. Service's API logics are actually defined in terms of a behaviour whose running instance is carried by a process.
 
-## Service definition [da definire bene; nome da migliorare.]
-
-The definition of a service, as code.
-A service definition includes at least its entry-point behaviour (in the main procedure).
-
-
-## Service runtime [da definire bene; nome da migliorare]
-
-The runtime support that executes a service definition. That is, a service is obtained by executing a service definition with the service runtime.
 
 ## Embedding
 
