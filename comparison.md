@@ -24,22 +24,136 @@ We don't think so, in the same way, C was not a OO language as well if you could
 
 ECMAScript/NodeJS does not contemplate the possibility to define an interface this has some considerable on how we code our service let's start with a simple example in Jolie 
 
-'''
+```jolie
+type MyOpRequest:void{
+   .name:string
+   .surname:string
+   .age:int
+}
+
+type MyOpResponse:void{
+   .iam:string
+}
 interface MySimpleInterface {
  RequestResponse:
   myOp(MyOpRequest)(MyOpResponse)
 }
 
-'''
-'''
+```
+Here is my port definition 
+
+```jolie
   inputPort myHttpPort{
      Location:"socket://localhost:8000"
      Protocol:HTTP{
-        
+          .format -> format;
+          .contentType -> mime
      }
      Interfaces:MySimpleInterface
      
   }
-'''
+```
+Now lets look at the behaviour part
+```jolie
+execution{ concurrent }
+
+main {
+ [myOp(request)(response){
+    response.iam = "I'am' and request.name + " " + request.surname + " and I am  " + request.age
+ }]
+}
+```
+
+Putting all toghether 
+
+```jolie
+type MyOpRequest:void{
+   .name:string
+   .surname:string
+   .age:int
+}
+
+type MyOpResponse:void{
+   .iam:string
+}
+interface MySimpleInterface {
+ RequestResponse:
+  myOp(MyOpRequest)(MyOpResponse)
+}
+
+  inputPort myHttpPort{
+     Location:"socket://localhost:8000"
+     Protocol:HTTP{
+          .format -> format;
+          .contentType -> mime
+     }
+     Interfaces:MySimpleInterface
+     
+  }
+  execution{ concurrent }
+  main{
+      [myOp(request)(response){
+        response.iam = "I'am' and request.name + " " + request.surname + " and I am  " + request.age
+     }]
+  }
+```
+So how we can do this in NodeJs, as said before we can really define an interface so we need to start from the definition of a port. NodeJs is a modular framework based on JS, and to instantiate a HTTP we will use the *express* module
+
+```js
+var express = require('express');
+```
+now we can create the "port" variable
+ ```js
+ var myHttpPort = express();
+```
+and we initiate it 
+ ```js
+myHttpPort.listen(8000)
+ ```
+ now we need to write the behaviour
+ 
+ ```js
+myHttpPort.get('/myOp', function (req, res) {
+  var query = request.query;
+  var resVariable = {iAm: "I'am " + query.name + " " + query.surname + " and I am "  + query.age}
+  response.set('Content-Type', 'text/xml');
+  response.send(xml(resVariable));
+});
+ ```
+ 
+Putting all toghether 
+ ```js
+var express = require('express');
+var myHttpPort = express();
+var xml = require('xml');
+
+
+
+myHttpPort.get('/myOp', function (request, response) {
+  var query =request.query;
+  var resVariable = {iAm: "I'am " + query.name + " " + query.surname + " and I am "  + query.age}
+  response.set('Content-Type', 'text/xml');
+  response.send(xml(resVariable));
+});
+
+myHttpPort.listen(8000)
+
+ ```
+Now with an implementation like this one can argue there is not need for interface definition , but what about type check or type casting lets us try to modify our implementation in NodeJs 
+
+ ```js
+ myHttpPort.get('/myOp', function (request, response) {
+  var query =request.query;
+  var resVariable = {iAm: "I'am " + query.name + " " + query.surname + " and I will  "  + (query.age +1)}
+  response.set('Content-Type', 'text/xml');
+  response.send(xml(resVariable));
+});
+ ```
+ 
+ 
+ 
+ 
+
+
 
   
