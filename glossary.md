@@ -62,57 +62,37 @@ A running instance of a behaviour, equipped with its own private state and messa
 
 A series of related message exchanges between two or more services.
 
-**e perché allora non la chiamiamo direttamente conversation? Oppure se la teniamo così dobbiamo definire cosa è una conversation**
-
-**FM: giusto. Ci penso un po'.**
-
-**FM: conversation e' molto piu' facile da definire, che ne dici? Ci serve parlare di sessions per ora?**
-
 ## Program
 
 A complete, executable Jolie program.
 
-## Jolie Virtual Machine (o la chiamiamo Jolie Runtime in qualche modo?)
-
-The Virtual Machine (VM) executing a Jolie program.
-**il termine Virtual Machine secondo me è fuorviante perché al momento il nostro è un interprete non una virtual machine. Alla fin fine un macroservice non è altro che un ambiente che mette a disposizione la possibilità di rendere private le connessioni sopra tramite in-memory communication. Infatti un macroservice non può essere splittato su più macchine senza per questo dover rendere pubbliche le comunicazioni interne. Uo lo chiamerei macroservice proprio per questa sua proprietà di "nascondere" le comunicazioni interne che è un aspetto da programmazione e non solo da deployment**
-
-**FM: vorrei evitare di dire "interprete" dato che e' piu' una scelta implementativa. Ma sono d'accordo che VM non e' granche', come ho gia' scritto nel titolo. Hai alternative? Intanto io penso a session.**
-
 ## Service
 
-The _service_ is the unit of reusable software in Jolie. All components are services.
+The unit of reusable applications in Jolie. All components are services.
 
 Services communicate with each other by exchanging messages.
 That is the only way that they have for exchanging data with each other.
 Service share no memory, although shared memory is sometimes used under the hood by Jolie to
 optimise some message exchanges (for example by using shared memory channels among services living in
-the same VM).
+the same **VM [change this term later]**).
+
+
+## Service definition [da definire bene; nome da migliorare.]
+
+The definition of a service, as code.
+A service definition includes at least its entry-point behaviour (in the main procedure).
+
+
+## Service runtime [da definire bene; nome da migliorare]
+
+The runtime support that executes a service definition. That is, a service is obtained by executing a service definition with the service runtime.
 
 ## Embedding
-**questa secondo me è una primitiva che viene spiegata all'interno della doc, non ha senso metterla qui. Perché la vuoi mettere? A mio avviso l'embedding gerarchico è solo uno dei modi che hai per ottenere un macroservizio, potresti anche pensare di tirare su tutti i servizi in modo flat e lasciare che si parlino tramite comunicazione interna**
 
-**FM: OK, comincio a capire cosa intendi. Mi sa che tutto questo casino e' nato dal fatto che hai introdotto macroservices nella pagina di embedding, il che fa pensare che siano in sintonia. Quando dici nella tua descrizione che un macroservice si puo' creare con embedding non e' vero, perche' l'embedding non e' flat. Questo mi incasina assai. Quindi per te un macroservice e' un concetto astratto che in Jolie non ha ancora un preciso corrispettivo linguistico, giusto? Procederei a concordare separatamente (ho creato punto sotto) su quali sono le features di un macroservice, e poi vediamo che nome dargli (magari macroservice va bene).**
-
-**FM: Intanto teniamo qua embedding per reference.**
+**FM: ho spostato embedding in fondo per ora, poi vediamo come rientra nel discorso globale quando abbiamo finito con il service runtime/environment/whatever it is.**
 
 A service can _embed_ other services. We call the service embedding the others the _embedder_ service, and the others _embedded_ services.
 Embedding produces a hierarchy, where the embedder is the parent service of
 its embedded services. This hierarchy handles termination: whenever an embedder service terminates, all its embedded services
 are recursively terminated. The hierarchy is also useful for enhancing performances: services in the same
 VM can communicate using fast shared memory communication channels.
-
-
-## Microservice 
-
-A service with no embedded services.
-**così è una definizione molto limitante nel senso che diventa solamente una specializzazione del termine service**.
-**FM: per me e' questa e' una feature. Io non vorrei mai dover specificare se ho macro- e micro-services in realta', per me e' tutto un servizio e buona. Ho bisogno di **
-
-## Macroservice
-
-A collection of services executed in the same Jolie execution environment.
-
-**FM: Cosa ci da' questa cosa in piu'?**
-
-
