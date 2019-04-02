@@ -33,14 +33,7 @@ the involved Jolie programs and how they are deployed in the system.
 
 ## Behaviour
 
-A code block in Jolie. A behaviour can perform computation and communicate with other services by using primitives for sending and receiving messages.
-
-**Non userei il termine block che mi richiama una sottoporzione di programma**
-**FM: cosa useresti? Comunque e' corretto che il behaviour e' una porzione. Il programma intero si chiama appunto programma.
-Il behaviour della procedura `main` e' quello che definisce il comportamento del servizio. E' sempre un behaviour come gli altri (e.g., il codice delle altre procedure fatte con define). Ma siccome sta in quel posto speciale, e' quello che definisce il comportamento del servizio. Ho aggiunto questa spiegazione. 
-**
-
-**CG: io toglierei proprio la frase "A code block in Jolie"**
+Code that can perform computation and communicate with other services by using primitives for sending and receiving messages.
 
 The behaviour contained in the `main` procedure of a service defines the logic that the service will execute.
 
@@ -49,6 +42,8 @@ The behaviour contained in the `main` procedure of a service defines the logic t
 **FM: non sarebbe male trovare un buon termine qui, per ora ho messo procedure. Il problema e' che "definition" e' troppo generico.**
 
 **CG: a che servirebbe questo? Non mi è chiaro**
+
+**FM: mi serve dire cos'e' la "main" procedure quando diciamo cos'e' l'entry point di esecuzione di un servizio. Anche la init e' la "init procedure". Ci serve in generale nella doc.**
 
 A named behaviour, which can be invoked by other behaviours. Procedures in Jolie have a call stack and support general recursion, but they are parameterless (the state is shared among all procedure calls).
 
