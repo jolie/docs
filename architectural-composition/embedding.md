@@ -79,6 +79,12 @@ It is worth noting that:
 cleanBr@CleanBr( request )( response )
 ```
 
+### Hiding connections
+
+Note that the embedding primitive, together with the usage of in-memory communication, allows for hiding connections among embedded microservices. In the example above the connection between the service _clean_div.ol_ and _clean_br.ol_ is hidden by the embedding and no external microservices can call the inputPort of the microservice _clean_br.ol_. 
+
+![](../.gitbook/assets/embedding_2.png)
+
 ### Creating a script from a service architecture
 
 Afterwards, we can write a modified version of the client program of the previous example, in order to directly embed the service _clean_dv.ol_ thus **transforming the service architecture into a single script**. The code of this example can be found [here](https://github.com/jolie/examples/tree/master/04_architectural_composition/01_embedding_jolie/02_script). Here we report the code of the script:
