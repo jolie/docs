@@ -81,7 +81,7 @@ optimise some message exchanges (for example by using shared memory channels amo
 the same **VM [change this term later]**).
 
 **prosposta inclusiva delle definizioni sopra**
-A service is the smallest unit of programmable software in Jolie. It publicly supplies API which are formally defined into an interface. It is always willing to serve requests and it is able to communicate with other services by establishing conversations. Service's API logics are actually defined in terms of a behaviour whose running instance is carried by a process.
+A service is the running instance of a composition into an engine. 
 
 
 ## Embedding
