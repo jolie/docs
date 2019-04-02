@@ -75,7 +75,3 @@ VM can communicate using fast shared memory communication channels.
 ## Microservice 
 
 A service with no embedded services.
-
-## Macroservice
-
-A service that contains embedded services.
