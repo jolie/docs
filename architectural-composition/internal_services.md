@@ -35,9 +35,7 @@ The `service` construct specifies:
 
 The internal service has access to all the output ports defined in the owner. This is limited to the information statically defined therein, not the dynamic bindings set by the caller processes.
 
-Attention
-
-Every internal service has `execution { concurrent }` set by default.
+**Attention:** Every internal service has `execution { concurrent }` set by default.
 
 This is convenient, although it contrasts with the usual execution for normal Jolie services, which is set to [single](https://jolielang.gitbook.io/docs/basics/composing_statements#statement-execution-operators)
 
