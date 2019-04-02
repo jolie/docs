@@ -1,10 +1,6 @@
 # Internal Services
 
-## Internal Services
-
-Attention
-
-Internal services are available from Jolie release 1.6.2.
+_Internal services are available from Jolie release 1.6.2._
 
 Internal Services are embedded Jolie services defined directly within the embedder program, rather than in a separate file. They offer a convenient way of reusing code as in procedural programming, without breaking the principle that such code should be easily exported to an external microservice. In particular, an internal service can always be easily moved to a separate file to make it a standalone service, without requiring code changes in the behaviours of the other services that were interacting with it. This is in contrast with the [define](https://jolielang.gitbook.io/docs/basics/define) keyword, which is intended only for short configuration macros or recursive workflows.
 
