@@ -11,17 +11,17 @@ embedded {
 }
 ```
 
-the embedding construct specifies the type \(`Language`\) of the service to embed, and `path` is a URL \(possible in simple form\) pointing to the definition of the service to embed. Jolie currently supports the embedding of services written with the following technologies: 
+the embedding construct specifies the type \(`Language`\) of the service to embed, and `path` is a URL \(possible in simple form\) pointing to the definition of the service to embed. Jolie currently supports the embedding of services written with the following technologies:
 
 * `Jolie`: described in the section below;
 * `Java`: go to section [Integration with other technologies/Java](../technology-integration/javaservices.md);
 * `JavaScript`: go to section [Integration with other technologies/Javascript](../technology-integration/javascript.md).
 
-Embedding may optionally specify an output port: in this case, as soon as the service is loaded and in case there is no location defined, the output port is bound to the _"local"_ communication input port of the embedded service. 
+Embedding may optionally specify an output port: in this case, as soon as the service is loaded and in case there is no location defined, the output port is bound to the _"local"_ communication input port of the embedded service.
 
 Embedding produces a hierarchy of services where the embedder is the parent service of embedded ones; this hierarchy handles termination: whenever a service terminates, all its embedded services are recursively terminated. The hierarchy is also useful for enhancing performances: services in the same virtual machines indeed, may communicate using fast local memory communication channels.
 
-Command line parameters can also be passed within the embedding path. 
+Command line parameters can also be passed within the embedding path.
 
 ## Macroservices
 Here we introduce the concept of _macroservice_ as a unique execution context for a set of microservices. One or more microservices can be executed within the same execution context. When there is only one microservice, the definition of a macroservice corresponds with the same of microservice. A macroservice exhibit only the public available ports of the inner microservices. The ports that are not reachable by external invokers are considered internal ports and they are hidden from the point of view of a macroservice. Operationally, a macroservice can be obtained by exploiting the embedding primitive.
@@ -32,7 +32,7 @@ Graphically they are represented with a orange exagon.
 
 ## Embedding Jolie Services
 
-Embedding Jolie services is very simple. In order to show how it works, let us consider a simple example whose executable code can be found [here](https://github.com/jolie/examples/tree/master/04_architectural_composition/01_embedding_jolie/01_embedding). 
+Embedding Jolie services is very simple. In order to show how it works, let us consider a simple example whose executable code can be found [here](https://github.com/jolie/examples/tree/master/04_architectural_composition/01_embedding_jolie/01_embedding).
 
 In this example we want to implement a service which is able to clean a html string from the tags `<div>`,  `</div>`, `<br>` and `</br>` replacing the br ones with a line feed and a carriage return. In order to do this, we implement a parent service called _clean_div.ol_ which is in charge to clean the div tags and another service called _clean_br.ol_ in charge to clean the br tags. The service _clean_div.ol_ embeds the service _clean_br.ol_:
 
@@ -81,9 +81,9 @@ cleanBr@CleanBr( request )( response )
 
 ### Hiding connections
 
-Note that the embedding primitive, together with the usage of in-memory communication, allows for hiding connections among embedded microservices. In the example above the connection between the service _clean_div.ol_ and _clean_br.ol_ is hidden by the embedding and no external microservices can call the inputPort of the microservice _clean_br.ol_. 
+Note that the embedding primitive, together with the usage of in-memory communication, allows for hiding connections among embedded microservices. In the example above the connection between the service _clean_div.ol_ and _clean_br.ol_ is hidden by the embedding and no external microservices can call the inputPort of the microservice _clean_br.ol_.
 
-![](../.gitbook/assets/embedding_2.png)
+![](../.gitbook/assets/embedding2.png)
 
 ### Creating a script from a service architecture
 
@@ -114,6 +114,3 @@ main
 ```
 
 It is worth noting that now the file _script.ol_ embeds the service _clean_div.ol_ which embeds the service _clean_br.ol_. Since _script.ol_ does not implement any inputPort but it just executes a script, when it reach the ends all the embedded services are automatically shut down.
-
-
-
