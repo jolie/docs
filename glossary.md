@@ -59,11 +59,14 @@ A series of related message exchanges between two or more services.
 
 A complete, executable Jolie program.
 
-## Composition
+## Composition [FM: mi sembra un po' troppo generico]
+
 The Composition (or a service composition) is a unitary linguistic definition which joins interfaces to ports and ports to behaviours.
 
 ## Engine
-The Engine is the runtime support that executes a Composition. That is, a service is obtained by executing a Composition within the Engine.
+
+The runtime support that executes a Composition.
+That is, a service is obtained by executing a Composition within an engine.
 
 ## Service
 
@@ -73,9 +76,10 @@ Services communicate with each other by exchanging messages.
 That is the only way that they have for exchanging data with each other.
 Service share no memory, although shared memory is sometimes used under the hood by Jolie to
 optimise some message exchanges (for example by using shared memory channels among services living in
-the same **VM [change this term later]**).
+the same engine).
 
 **prosposta inclusiva delle definizioni sopra**
+
 A service is the running instance of a composition into an engine. 
 
 
