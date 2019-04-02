@@ -58,11 +58,15 @@ A named behaviour, which can be invoked by other behaviours. Procedures in Jolie
 
 A running instance of a behaviour, equipped with its own private state and message queues.
 
-## Session
+## Conversation
 
-A conversation between two or more services.
+A series of related message exchanges between two or more services.
+
 **e perché allora non la chiamiamo direttamente conversation? Oppure se la teniamo così dobbiamo definire cosa è una conversation**
+
 **FM: giusto. Ci penso un po'.**
+
+**FM: conversation e' molto piu' facile da definire, che ne dici? Ci serve parlare di sessions per ora?**
 
 ## Program
 
