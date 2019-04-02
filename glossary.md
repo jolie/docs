@@ -28,6 +28,8 @@ A dependency of a service expressed in terms of a required binding of one output
 ### Conversation
 A conversation is a series of related message exchanges between two or more services.
 
+![](.gitbook/assets/definitions.png)
+
 ### Jolie Service
 A definition of service in the Jolie language. A Jolie Service is the unit of programmable software in Jolie.
 
