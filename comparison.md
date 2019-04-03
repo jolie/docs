@@ -97,7 +97,9 @@ interface MySimpleInterface {
      }]
   }
 ```
+
 ### TypeCheck TypeCast
+
 So how we can do this in NodeJs, as said before we can really define an interface so we need to start from the definition of a port. NodeJs is a modular framework based on JS, and to instantiate a HTTP we will use the *express* module
 
 ```js
