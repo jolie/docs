@@ -19,7 +19,7 @@ This typically happens when the output port has the same location and protocol a
 network or container configurations might alter this. As such, knowing the connections in a system requires looking both at 
 the involved Jolie programs and how they are deployed in the system.
 
-### Service
+### Service (or Microservice)
 A service is a software artifact which supplies API in the form of operations available at its input ports. It communicates with other services by exchanging messages and it can both receive and send them. A service is always willing to serve requests related to its available API.
 
 ### Service Dependency
