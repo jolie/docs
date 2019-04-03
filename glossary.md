@@ -78,7 +78,7 @@ The code to be executed for implementing a service's API in a Jolie program. Beh
 ### Process
 A running instance of a behaviour, equipped with its own private state and message queues.
 
-### Local group [FM: o local domain?]
+### Local group [FM: o local domain? o service group?]
 
 **FM: se un Jolie service e' "living", allora posso introdurre questa def di local group e non ci serve piu' parlare di engine o composition per tutte le cose dette fino ad ora. Ma magari ci sono cose che non abbiamo ancora detto o scritto per cui servivano?**
 
