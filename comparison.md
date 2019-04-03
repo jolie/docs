@@ -98,8 +98,6 @@ interface MySimpleInterface {
   }
 ```
 
-### TypeCheck TypeCast
-
 So how we can do this in NodeJs, as said before we can really define an interface so we need to start from the definition of a port. NodeJs is a modular framework based on JS, and to instantiate a HTTP we will use the *express* module
 
 ```js
@@ -142,6 +140,9 @@ myHttpPort.get('/myOp', function (request, response) {
 myHttpPort.listen(8000)
 
  ```
+ 
+### TypeCheck TypeCast
+ 
 Now with an implementation like this one can argue there is not need for interface definition , but what about type check or type casting lets us try to modify our implementation in NodeJs 
 
  ```js
@@ -214,6 +215,8 @@ function(request, response) {
   response.send(xml(resVariable));
 });
  ```
+Now the end result is comparable, but the approch is complitly different in Jolie the developer is forced to define the type for each operation, this free the developer to implement control check later on.
+
 
 
 
