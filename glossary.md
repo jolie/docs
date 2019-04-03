@@ -2,7 +2,7 @@
 
 This document defines the terminology used in the Jolie website and documentation.
 
-## Paradigm
+## Architectural Paradigm
 
 These terms are general: they refer to the paradigm of service programming.
 
@@ -53,7 +53,7 @@ When a service `A` has an output port that needs to be connected to another serv
 
 ![](.gitbook/assets/definitions.png)
 
-## Jolie
+## Jolie (linguistic paradigm)
 
 These terms are specific to the Jolie language.
 
