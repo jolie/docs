@@ -20,7 +20,7 @@ So what things one should look in a (micro)service-oriented language; a good sta
 NodeJs is accredited to be a "microservice" technology based on the fact that can "construct non-blocking, event-driven I/O software", so the question comes natural, so if I implement an event-driven software in C++ does it make C++ a microservice language? 
 We don't think so, in the same way, C was not a OO language as well if you could design OO artefacts.
 
-### Interface or lack of it
+## Interface or lack of it
 
 ECMAScript/NodeJS does not contemplate the possibility to define an interface this has some considerable on how we code our service let's start with a simple example in Jolie 
 
@@ -97,6 +97,7 @@ interface MySimpleInterface {
      }]
   }
 ```
+### TypeCheck TypeCast
 So how we can do this in NodeJs, as said before we can really define an interface so we need to start from the definition of a port. NodeJs is a modular framework based on JS, and to instantiate a HTTP we will use the *express* module
 
 ```js
@@ -144,14 +145,78 @@ Now with an implementation like this one can argue there is not need for interfa
  ```js
  myHttpPort.get('/myOp', function (request, response) {
   var query =request.query;
-  var resVariable = {iAm: "I'am " + query.name + " " + query.surname + " and I will  "  + (query.age +1)}
+  var resVariable = {iam: "I'am " + query.name + " " + query.surname + " and I will  "  + (query.age +1)}
   response.set('Content-Type', 'text/xml');
   response.send(xml(resVariable));
 });
  ```
+ now the same implemntation with jolie 
+```jolie
+[myOp(request)(response){
+   response.iam = "I'am "+ request.name + " " + request.surname + " and I am  " + (request.age +1)
+ }]
+ ```
+let's test them
  
- 
- 
+ ``` 
+http://localhost:8000/myop?name=John&surname=Green&age=41
+ ``` 
+ The result for the NodeJS implementation returns 
+ ```xml
+<iam>I'am John Green and I will 411</iAm>
+ ```
+  and the Jolie implementation 
+```xml  
+ <iam>I'am John Green and I am 42</iam>
+ ```
+Now the difference is result is given by the presence of the interface with its type definition that allows to cast when possible 
+
+What about type checking 
+ ``` 
+ http://localhost:8000/myOp?name=John&surname=Green&age=Fourty-one
+ ``` 
+Jolie guards against type TypeMismatch intrinsically thanks to its TypeDefinition
+```xml 
+<myOpResponse>
+<TypeMismatch>
+Invalid native type for node #Message.age: expected INT, found java.lang.String
+</TypeMismatch>
+</myOpResponse>
+```
+when NodeJs will need some extra code to implement type cast and type check
+
+ ```js
+const {buildSanitizeFunction} = require('express-validator/filter');
+const sanitizeBodyAndQuery = buildSanitizeFunction(['body', 'query']);
+const {check,validationResult} = require('express-validator/check');
+
+
+
+myHttpPort.get('/myOp', [check("name").exists(), 
+                         check("surname").exists(), 
+                         check("age").exists(),
+                         check("age").isInt(), 
+                         sanitizeBodyAndQuery('age').toInt()],
+function(request, response) {
+  const errors = validationResult(request);
+  if (!errors.isEmpty()) {
+    return response.status(422).json({
+      errors: errors.array()
+    });
+  }
+  var query = request.query;
+  var resVariable = {
+    iAm: "I'am " + query.name + " " + query.surname + " and I will  " + (query.age + 1)
+  }
+  response.set('Content-Type', 'text/xml');
+  response.send(xml(resVariable));
+});
+ ```
+
+
+
+
+
  
 
 
