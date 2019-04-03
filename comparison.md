@@ -209,21 +209,180 @@ function(request, response) {
   }
   var query = request.query;
   var resVariable = {
-    iAm: "I'am " + query.name + " " + query.surname + " and I will  " + (query.age + 1)
+    iam: "I'am " + query.name + " " + query.surname + " and I will  " + (query.age + 1)
   }
   response.set('Content-Type', 'text/xml');
   response.send(xml(resVariable));
 });
  ```
-Now the end result is comparable, but the approch is complitly different in Jolie the developer is forced to define the type for each operation, this free the developer to implement control check later on.
+Now the end result is comparable, but the approach is complicity different in Jolie the developer is forced to define the type for each operation, this free the developer to implement control check later on.
 
 
+### Service Refactoring 
 
+Now let's imagine that we need to define an other set of operation grouped together in an new interface MySecondInterface here is the Jolie code 
 
+ ```jolie
+ type myOp1Request:void{
+   .name:string
+   .surname:string
+}
 
+type myOp1Response:void{
+   .hello:string
+}
 
+interface MySecondInterface {
+ RequestResponse:
+  myOp1(myOp1Request)(myOp1Response)
+}
+
+  inputPort myHttpPort{
+     Location:"socket://localhost:8000"
+     Protocol:http{
+          .format -> format;
+          .contentType -> mime
+     }
+     Interfaces:MySimpleInterface,MySecondInterface
+
+  }
+  execution{ concurrent }
+    main{
+      [myOp(request)(response){
+        response.iam = "I'am "+ request.name + " " + request.surname + " and I am  " + (request.age +1)
+     }]
+
+     [myOp1(request)(response){
+       response.hello = "Hello "+ request.name + " " + request.surname + 
+    }]
+    }
  
+  ```
+now in NodeJs
 
+ ```js
+myHttpPort.get('/myOp1', [check("name").exists(),
+                         check("surname").exists(),
+                         ],
+function(request, response) {
+  const errors = validationResult(request);
+  if (!errors.isEmpty()) {
+    return response.status(422).json({
+      errors: errors.array()
+    });
+  }
+  var query = request.query;
+  var resVariable = {
+    hello: "hello " + query.name + " " + query.surname 
+  }
+  response.set('Content-Type', 'text/xml');
+  response.send(xml(resVariable));
+});
+ ```
+ There is nothing special about this but lets consider the case where all the operation in of MySecondInterface need to be exposed by a second port in Jolie in this is achieved by 
+ 
+```jolie
+  inputPort mySecondHttpPort{
+     Location:"socket://localhost:8001"
+     Protocol:http{
+          .format -> format;
+          .contentType -> mime
+     }
+     Interfaces:MySecondInterface
+
+  }
+
+```
+In Jolie there is not the need to change any code in the behavior because there is a clear separation between the logical and physical layer of the service
+On the other hand in nodeJs 
+```js
+var mySecondHttpPort = express();
+
+mySecondHttpPort.get('/myOp1', [check("name").exists(),
+                         check("surname").exists(),
+                         ],
+function(request, response) {
+  const errors = validationResult(request);
+  if (!errors.isEmpty()) {
+    return response.status(422).json({
+      errors: errors.array()
+    });
+  }
+  var query = request.query;
+  var resVariable = {
+    hello: "hello " + query.name + " " + query.surname
+  }
+  response.set('Content-Type', 'text/xml');
+  response.send(xml(resVariable));
+});
+ 
+mySecondHttpPort.listen(8001)
+```
+The resulting change may look trivial changing myHttpPort into mySecondHttpPort , but let's consider the case where MySecondInterface would contain a bigger number of operation the developer would be forced to find all the operation involved in the change and apply the port. It goes without saying that if you want move operation from one interface to the other is the you have the problem due to the fact namePot.HTTPVerb format binds together an deployment aspect with the the way my (micro)service need to be coded this in our opinion is counter productive in a (micro)service complaint language. 
+
+### Client Service
+
+In Jolie it possible to export your interfaces into a separate file with extension .iol that can be feed into the client service -
+
+```jolie
+
+type myOpRequest:void{
+   .name:string
+   .surname:string
+   .age:int
+}
+
+type myOpResponse:void{
+   .iam:string
+}
+
+interface MySimpleInterface {
+ RequestResponse:
+  myOp(myOpRequest)(myOpResponse)
+}
+
+type myOp1Request:void{
+   .name:string
+   .surname:string
+}
+
+type myOp1Response:void{
+   .hello:string
+}
+
+interface MySecondInterface {
+ RequestResponse:
+  myOp1(myOp1Request)(myOp1Response)
+}
+
+```
+now lets look at client 
+
+```jolie
+include "simpleInterface.iol"
+
+
+outputPort myHttpPort{
+   Location:"socket://localhost:8000"
+   Protocol:http{
+        .format -> format;
+        .contentType -> mime
+   }
+   Interfaces:MySimpleInterface
+
+}
+
+
+main{
+  req.name = "John";
+  req.surname ="Green";
+  req.age = 41;
+  myOp@myHttpPort(req)(response)
+
+}
+```
+
+Now look at the 
 
 
   
