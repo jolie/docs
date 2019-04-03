@@ -38,8 +38,7 @@ the definitions of the involved ports and how they are deployed in the system.
 ### Service (or microservice)
 A service is a running software application that supplies APIs in the form of operations available at its input ports. It communicates with other services by message passing.
 
-### Service definition
-The software code that, when executed, implements a service.
+We call _service definition_ the code that, when executed, implements a service. When clear from the context, we simply use the word service interchangeably.
 
 ### Conversation
 A conversation is a series of related message exchanges between two or more services.
