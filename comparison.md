@@ -93,7 +93,9 @@ interface MySimpleInterface {
   execution{ concurrent }
   main{
       [myOp(request)(response){
-        response.iam = "I'am' and request.name + " " + request.surname + " and I am  " + request.age
+        response.iam = "I'am "+ request.name + " " + request.surname + " and I am  " + request.age;
+        mime = "application/json";
+        format = "json"
      }]
   }
 ```
@@ -117,8 +119,8 @@ myHttpPort.listen(8000)
 myHttpPort.get('/myOp', function (req, res) {
   var query = request.query;
   var resVariable = {iAm: "I'am " + query.name + " " + query.surname + " and I am "  + query.age}
-  response.set('Content-Type', 'text/xml');
-  response.send(xml(resVariable));
+  
+  response.send(resVariable);
 });
  ```
  
@@ -126,15 +128,11 @@ Putting all toghether
  ```js
 var express = require('express');
 var myHttpPort = express();
-var xml = require('xml');
-
-
 
 myHttpPort.get('/myOp', function (request, response) {
   var query =request.query;
   var resVariable = {iAm: "I'am " + query.name + " " + query.surname + " and I am "  + query.age}
-  response.set('Content-Type', 'text/xml');
-  response.send(xml(resVariable));
+  response.send(resVariable);
 });
 
 myHttpPort.listen(8000)
@@ -146,17 +144,26 @@ myHttpPort.listen(8000)
 Now with an implementation like this one can argue there is not need for interface definition , but what about type check or type casting lets us try to modify our implementation in NodeJs 
 
  ```js
- myHttpPort.get('/myOp', function (request, response) {
-  var query =request.query;
-  var resVariable = {iam: "I'am " + query.name + " " + query.surname + " and I will  "  + (query.age +1)}
-  response.set('Content-Type', 'text/xml');
-  response.send(xml(resVariable));
+function(request, response) {
+  const errors = validationResult(request);
+  if (!errors.isEmpty()) {
+    return response.status(422).json({
+      errors: errors.array()
+    });
+  }
+  var query = request.query;
+  var resVariable = {
+    iam: "I'am " + query.name + " " + query.surname + " and I will  " + (query.age + 1)
+  }
+  response.send(resVariable);
 });
  ```
  now the same implemntation with jolie 
 ```jolie
 [myOp(request)(response){
-   response.iam = "I'am "+ request.name + " " + request.surname + " and I am  " + (request.age +1)
+   response.iam = "I'am "+ request.name + " " + request.surname + " and I am  " + (request.age +1);
+   mime = "application/json";
+   format = "json"
  }]
  ```
 let's test them
@@ -165,12 +172,12 @@ let's test them
 http://localhost:8000/myop?name=John&surname=Green&age=41
  ``` 
  The result for the NodeJS implementation returns 
- ```xml
-<iam>I'am John Green and I will 411</iAm>
+ ```json
+{"iam":"I'am John Green and I will  411"}
  ```
   and the Jolie implementation 
-```xml  
- <iam>I'am John Green and I am 42</iam>
+```json  
+{"iam":"I'am John Green and I will  42"}
  ```
 Now the difference is result is given by the presence of the interface with its type definition that allows to cast when possible 
 
@@ -249,11 +256,15 @@ interface MySecondInterface {
   execution{ concurrent }
     main{
       [myOp(request)(response){
-        response.iam = "I'am "+ request.name + " " + request.surname + " and I am  " + (request.age +1)
+        response.iam = "I'am "+ request.name + " " + request.surname + " and I am  " + (request.age +1);
+        mime = "application/json";
+        format = "json"
      }]
 
      [myOp1(request)(response){
-       response.hello = "Hello "+ request.name + " " + request.surname + 
+       response.hello = "Hello "+ request.name + " " + request.surname ;
+          mime = "application/json";
+          format = "json"
     }]
     }
  
@@ -279,7 +290,7 @@ function(request, response) {
   response.send(xml(resVariable));
 });
  ```
- There is nothing special about this but lets consider the case where all the operation in of MySecondInterface need to be exposed by a second port in Jolie in this is achieved by 
+ There is nothing special about this but lets consider the case where all the operation in of MySecondInterface need to be exposed by a second port in Jolie in this is achieved by creating a second port and binding MySecondInterface to the second port 
  
 ```jolie
   inputPort mySecondHttpPort{
@@ -295,6 +306,7 @@ function(request, response) {
 ```
 In Jolie there is not the need to change any code in the behavior because there is a clear separation between the logical and physical layer of the service
 On the other hand in nodeJs 
+
 ```js
 var mySecondHttpPort = express();
 
@@ -312,8 +324,7 @@ function(request, response) {
   var resVariable = {
     hello: "hello " + query.name + " " + query.surname
   }
-  response.set('Content-Type', 'text/xml');
-  response.send(xml(resVariable));
+  response.send(resVariable);
 });
  
 mySecondHttpPort.listen(8001)
@@ -365,8 +376,8 @@ include "simpleInterface.iol"
 outputPort myHttpPort{
    Location:"socket://localhost:8000"
    Protocol:http{
-        .format -> format;
-        .contentType -> mime
+        .debug= true;
+        .method = "GET"
    }
    Interfaces:MySimpleInterface
 
@@ -380,9 +391,90 @@ main{
   myOp@myHttpPort(req)(response)
 
 }
+
 ```
 
-Now look at the 
+Now look at the NodeJs
+```javascript
+var request = require('request');
+
+
+var propertiesObject = { name:'John', surname :'Green', age: 41 };
+var url = "http://localhost:8000/myOp"
+request({url:url, qs:propertiesObject}, function(err, response, body) {
+  if(err) { console.log(err); return; }
+  console.log("Get response: " + body);
+});
+```
+In this NodeJs implementation there are certain consideration to do
+
+1. You need to know pass the full url each time you are calling your operation
+2. You need to parse the body to extract the information  
+
+This is given by the fact that nodeJs is not been though to work with service operation, it can implement call to service operation but it does remain a function based language.
+
+### Orchestrating services 
+
+Let us consider the following example our client need to write a minimum of logic calling two operation of the server, how would look the code in Jolie and in NodeJS let's start with a new operation in NodeJs
+
+```javascript
+myHttpPort.get('/checkAge', [
+    check("age").isInt(),
+    sanitizeBodyAndQuery('age').toInt()
+  ],
+  function(request, response) {
+    const errors = validationResult(request);
+    if (!errors.isEmpty()) {
+      return response.status(422).json({
+        errors: errors.array()
+      });
+    }
+    var query = request.query;
+    var resVariable = {
+        ageOK: false
+      }
+    if (query.age > 21) {
+      resVariable.ageOK: true
+      }
+    };
+    response.send(resVariable);
+  });
+  
+  myHttpPort.post('/booking', [
+    check("age").isInt(),
+    sanitizeBodyAndQuery('age').toInt()
+  ],
+  function(request, response) {
+    const errors = validationResult(request);
+    if (!errors.isEmpty()) {
+      return response.status(422).json({
+        errors: errors.array()
+      });
+    }
+    var query = request.query;
+    var resVariable = {
+        ageOK: false
+      }
+    if (query.age > 21) {
+      resVariable.ageOK: true
+      }
+    };
+    response.send(resVariable);
+  });
+```
+and now in Jolie
+
+```jolie
+[checkAge(request)(response){
+   response.ageOK = false;
+  if (request.age>21){
+      response.ageOK = true
+  };
+  mime = "application/json";
+  format = "json"
+}]
+```
+
 
 
   
