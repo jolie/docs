@@ -60,11 +60,12 @@ When a service `A` has an output port that needs to be connected to another serv
 The execution context where one or more services can be executed
 
 ### Service Frame
-A group of services running in the same service environment, which can communicate by using in-application shared-memory connections that cannot be accessed from outside the frame.
+A group of services running in the same service environment, which can communicate by using in-application shared-memory connections that cannot be accessed from outside the frame. A Service Frame can always be represented as a single service when hiding the internal connections.
 
+### Service Circuit
+A connected composition of services or frames.
 
-
-
+-----------------
 ## Jolie (linguistic paradigm)
 
 These terms are specific to the Jolie language.
