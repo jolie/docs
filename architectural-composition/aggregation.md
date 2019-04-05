@@ -18,6 +18,7 @@ Where the `Aggregates` primitive expects a list of output port names.
 
 ![](../.gitbook/assets/aggregation.png)
 
+If we observe the list of the operations available at the inputPort of the aggregator, we will see the list of all the aggregated operations together with those of the aggregator. From the perspective of the final invoker, the aggregation architectural operator actually hides the presence of the aggregated services.
 
 ## How Aggregation works
 We can now define how aggregation works. Given IP as an input port, whenever a message for operation OP is received through IP, we have three scenarios:
