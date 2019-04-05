@@ -16,7 +16,7 @@ inputPort id {
 
 Where the `Aggregates` primitive expects a list of output port names.
 
-![](../.gitbook/assets/aggregation.png)
+![](../../.gitbook/assets/aggregation.png)
 
 
 ## How Aggregation works
