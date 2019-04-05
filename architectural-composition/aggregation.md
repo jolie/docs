@@ -1,8 +1,6 @@
 # Aggregation
 
-## Aggregation
-
-Aggregation is a generalisation of network proxies that allow a service to expose operations without implementing them in its behaviour, but delegating them to other services. Aggregation can also be used for programming various architectural patterns, such as load balancers, reverse proxies, and adapters.
+The _Aggregation_ is an architectural operator between an inputPort and a set of outpurPorts which allows for composing services in a way that the API of the aggregated services are merged with those of the aggregator. It is a generalisation of network proxies that allow a service to expose operations without implementing them in its behaviour, but delegating them to other services. Aggregation can also be used for programming various architectural patterns, such as load balancers, reverse proxies, and adapters.
 
 The syntax for aggregation extends that given for input ports.
 
@@ -18,6 +16,8 @@ inputPort id {
 
 Where the `Aggregates` primitive expects a list of output port names.
 
+
+## How Aggregation works
 We can now define how aggregation works. Given IP as an input port, whenever a message for operation OP is received through IP, we have three scenarios:
 
 * OP is an operation declared in one of the interfaces of IP. In this case, the message is normally received by the program.
