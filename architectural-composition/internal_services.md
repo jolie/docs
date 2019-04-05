@@ -45,7 +45,7 @@ Semantically, internal services are just syntactic sugar for embedded Jolie serv
 
 Let us see an example of Internal Services in action with a simplified implementation of the `tree` command in Jolie. In Unix and Unix-like systems, `tree` is a recursive directory listing program that produces a depth-indented listing of files.
 
-With internal services its is very quick and easy to draft a prototype implementation of tree
+With internal services its is very quick and easy to draft a prototype implementation of tree. The full code of the example can be checked at this [link](https://github.com/jolie/examples/tree/master/04_architectural_composition/03_internal_services/02_tree_as_a_service).
 
 ```text
 include "console.iol"
@@ -103,4 +103,4 @@ main
   println@Console( res )()
 }
 ```
-
+Note that at line 39, the internal service _TreeInternalService_ is recursively called on operation _tree_.
