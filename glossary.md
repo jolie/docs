@@ -5,6 +5,7 @@ This document defines the terminology used in the Jolie website and documentatio
 ## Architectural Paradigm
 
 These terms are general: they refer to the paradigm of service programming.
+**come detto in chat io qui parlerei direttamente del paradigma linguistico senza differenziare, in altri articoli o nel sito possiamo poi spiegare cosa intendiamo noi come paradigma linguistico**
 
 ### Operation
 A functionality exposed by a service.
@@ -24,12 +25,8 @@ A port includes at least three elements:
 - the transport protocol used for communications through the port;
 - the interface that the port makes accessible.
 
-**FM: secondo me le tre componenti delle porte sono generali, non solo di Jolie, quindi li ho rimessi e riscritti in modo un po' piu' astratto. Poi in alcune tecnologie sono difficili da vedere o impliciti, ma ci sono sempre. E' importante pensarci quando uno fa un'architettura.**
-
 ### Connection
 We say that an output port is _connected to_ an input port when it is meant that messages sent through the former will reach the latter.
-
-**FM: Ho cambiato un po' il paragrafo sotto per essere generale.**
 
 This typically happens when the output port has the same location and protocol as the target input port, but
 network or container configurations might alter this. As such, knowing the connections in a system requires looking both at 
@@ -38,7 +35,8 @@ the definitions of the involved ports and how they are deployed in the system.
 ### Service (or microservice)
 A service is a running software application that supplies APIs in the form of operations available at its input ports. It communicates with other services by message passing.
 
-We call _service definition_ the code that, when executed, implements a service. When clear from the context, we simply use the word service interchangeably.
+### Service definition
+The code that, when executed, implements a service. When clear from the context, we simply use the word service interchangeably.
 
 ### Conversation
 A conversation is a series of related message exchanges between two or more services.
@@ -47,14 +45,30 @@ During a conversation between a client and a service, the set of available opera
 
 A service is always willing to serve requests for its available API.
 
+### Behaviour
+The part of the service definition which defines the logics to be executed at runtime for implementing a service's API. Behaviours can send and/or receive messages, and perform internal computation.
+
+### Process
+A running instance of a behaviour, equipped with its own private state and message queues.
+
 ### Service dependency
 When a service `A` has an output port that needs to be connected to another service `B` in order for the service `A` to function, we say that service `A` _depends on_ service `B`.
 
 ![](.gitbook/assets/definitions.png)
 
+### Service Environment
+The execution context where one or more services can be executed
+
+### Service Frame
+A group of services running in the same service environment, which can communicate by using in-application shared-memory connections that cannot be accessed from outside the frame.
+
+
+
+
 ## Jolie (linguistic paradigm)
 
 These terms are specific to the Jolie language.
+**CG: caverei**
 
 ### Jolie service
 
@@ -70,16 +84,7 @@ Quindi dobbiamo essere specifici su cosa intendiamo. Per ora ho messo "component
 
 A service implemented in the Jolie language.
 The unit of reusable components in Jolie is a service (all components are services).
+**caverei la definizione di Jolie service**
 
-### Behaviour
-The code to be executed for implementing a service's API in a Jolie program. Behaviours can send and/or receive messages, and perform internal computation.
 
-### Process
-A running instance of a behaviour, equipped with its own private state and message queues.
-
-### Local group [FM: o local domain? o service group?]
-
-**FM: se un Jolie service e' "living", allora posso introdurre questa def di local group e non ci serve piu' parlare di engine o composition per tutte le cose dette fino ad ora. Ma magari ci sono cose che non abbiamo ancora detto o scritto per cui servivano?**
-
-A group of services running in the same application, which can communicate by using in-application shared-memory connections that cannot be accessed from outside the group.
 
