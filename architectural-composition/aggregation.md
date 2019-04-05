@@ -16,6 +16,8 @@ inputPort id {
 
 Where the `Aggregates` primitive expects a list of output port names.
 
+![](../.gitbook/assets/aggregation.png)
+
 
 ## How Aggregation works
 We can now define how aggregation works. Given IP as an input port, whenever a message for operation OP is received through IP, we have three scenarios:
