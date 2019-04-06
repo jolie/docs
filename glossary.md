@@ -1,4 +1,4 @@
-# Definitions
+# The linguistic paradigm of (micro)services
 
 This document defines the key elements of the linguistic paradigm of (micro)services.
 
@@ -52,6 +52,22 @@ A running instance of a behaviour, equipped with its own private state and messa
 When a service `A` has an output port that needs to be connected to another service `B` in order for the service `A` to function, we say that service `A` _depends on_ service `B`.
 
 ![](.gitbook/assets/definitions.png)
+
+## Alternativa 1: service network (o composition)
+
+**FM: nel momento in cui generalizziamo il concetto di frame a qualunque virtual network con private connections, non e' piu' vero che un frame puo' essere visto come un singolo servizio mi sa. O si'? In ogni caso mi piacerebbe togliere questo requisito. Inoltre dato un gruppo di servizi non e' detto che sia connesso. Ho provato a generalizzare tutte le def in service network (possiamo cambiare il nome network magari). La parola network e' gia' nella testa della gente, ed ammette composizioni di networks come un unico network (sfruttiamo il fatto che siano gia' abituati al concetto di networks of networks).**
+
+### Service network, o Service composition, o Service circuit
+
+A group of services and their connections.
+
+Some networks allow for _private locations_: locations that are visible only to the services in the network.
+
+The nature of a private location depends on the implementation, e.g., shared-memory channels, local sockets, virtual networks.
+
+Networks can be composed into bigger networks (networks of networks), allowing for communication between services in different networks.
+
+## Alternativa 2: service environment, frame, and circuit
 
 ### Service Environment
 The execution context where one or more services can be executed
