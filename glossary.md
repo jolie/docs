@@ -1,11 +1,8 @@
 # Definitions
 
-This document defines the terminology used in the Jolie website and documentation.
+This document defines the key elements of the linguistic paradigm of (micro)services.
 
-## Architectural Paradigm
-
-These terms are general: they refer to the paradigm of service programming.
-**come detto in chat io qui parlerei direttamente del paradigma linguistico senza differenziare, in altri articoli o nel sito possiamo poi spiegare cosa intendiamo noi come paradigma linguistico**
+This terminology is used in the Jolie website and documentation.
 
 ### Operation
 A functionality exposed by a service.
@@ -64,28 +61,3 @@ A group of services running in the same service environment, which can communica
 
 ### Service Circuit
 A connected composition of services or frames.
-
------------------
-## Jolie (linguistic paradigm)
-
-These terms are specific to the Jolie language.
-**CG: caverei**
-
-### Jolie service
-
-**FM: ho reso questa def la living thing, altrimenti un Jolie service non e' un service, il che non torna in Inglese. I qualifiers non cambiano la natura di un oggetto. Una mela rossa e' sempre una mela. Una frase indiana e' sempre una frase.**
-
-**FM: questo cambiamento semplifica anche un po' del testo nelle defs in fondo.**
-
-**FM: dobbiamo stare attenti con questa "unit", perche' in Jolie ci sono altri elementi di codice riusabile, tipo le define.
-Quando la gente dice per un linguaggio che "everything is an object", vuol dire che tutti i _valori_ sono oggetti. (Non e' vero in Java, ma e' vero in Scala, ruby, kotlin..)
-Da noi i valori sono alberi, il normale discorso non torna.
-Quindi dobbiamo essere specifici su cosa intendiamo. Per ora ho messo "component".
-**
-
-A service implemented in the Jolie language.
-The unit of reusable components in Jolie is a service (all components are services).
-**caverei la definizione di Jolie service**
-
-
-
