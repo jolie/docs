@@ -23,6 +23,7 @@ This reference index is still under construction. If you spot something missing,
 ## Statements
 - `^`: "freezing" operator. [Go to section: Termination and Compeonsation](https://jolielang.gitbook.io/docs/basicsfault-handling/termination_and_compensation#installation-time-variable-evaluation)
 - `[..]{..}`: input choice. [Go to section: Input Choice](basics/composing_statements.md#input-choice)
+- `Aggregates`: aggregation statement. [Go to section: Aggregation](architectural-composition/aggregation.md)
 - `cH`: handler placeholder. [Go to section: Termination and Compeonsation](https://jolielang.gitbook.io/docs/basics/fault-handling/termination_and_compensation)
 - `comp()`: compensation statement. [Go to section: Termination and Compeonsation](https://jolielang.gitbook.io/docs/basics/fault-handling/termination_and_compensation)
 - `constants`: constants definition. [Go to section: Constants](basics/constants.md)
@@ -30,6 +31,7 @@ This reference index is still under construction. If you spot something missing,
 - `csets`: csets assignment. [Go to section: Sessions](basics/sessions.md)
 - `default`: fautl name alias. [Go to section: Scopes and Faults](fault-handling/basics.md#accessing-a-fault-caught-in-a-scope-the-alias-default)
 - `define`: procedure definition. [Go to section: Define](basics/define.md)
+- `embedded`: embedding statement. [Go to section: Embedding](architectural-composition/embedding.md)
 - `execution { single | concurrent | sequential }`: execution modality. [Go to section: Processes](basics/processes.md)
 - `for(){}`: deterministic loop. [Go to section: for and while](basics/composing_statements.md#for-and-while)
 - `foreach(:){}`: traversing items. [Go to section: foreach](basics/data_structures.md#foreach-traversing-items)
