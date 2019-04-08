@@ -81,24 +81,6 @@ It is worth noting that the inputPort _Aggregator_ actually offers all the opera
 In particular, let us notice that the operation _faxAndPrint_ actually orchestrates the operations _print_ and _fax_ in order to provide a unique operation which executes both of them. 
 
 
-## The forwarder
-
-Aggregation can be used for system integration, e.g., bridging services that use different communication technologies or protocols. The deployment snippet below creates a service that forwards incoming SODEP calls on TCP port 8000 to the output port `MyOP`, converting the received message to SOAP.
-
-```text
-outputPort MyOP {
-    Location: "socket://someurl.ex:80"
-    Protocol: soap
-    Interfaces: MyInterface
-}
-
-inputPort MyInput {
-    Location: "socket://localhost:8000"
-    Protocol: sodep
-    Aggregates: MyOP
-}
-```
-
 ## Aggregation and embedding
 
 We give an example where three services - `A`, `B`, and `C` - are aggregated by a service `M`, which also embeds `C`.
@@ -140,4 +122,23 @@ The code for aggregating services abstracts their actual deployment and remains 
 The obtained architectures is graphically represented in Fig.1, where we assume that the aggregated interfaces are singletons.
 
 The grey arrows represent how messages will be forwarded. E.g., an incoming message for operation `op3` will be forwarded to the embedded service `C`.
+
+
+## The forwarder
+
+Aggregation can be used for system integration, e.g., bridging services that use different communication technologies or protocols. The deployment snippet below creates a service that forwards incoming SODEP calls on TCP port 8000 to the output port `MyOP`, converting the received message to SOAP.
+
+```text
+outputPort MyOP {
+    Location: "socket://someurl.ex:80"
+    Protocol: soap
+    Interfaces: MyInterface
+}
+
+inputPort MyInput {
+    Location: "socket://localhost:8000"
+    Protocol: sodep
+    Aggregates: MyOP
+}
+```
 
