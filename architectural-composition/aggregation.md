@@ -31,7 +31,57 @@ We can observe that in the second scenario aggregation _merges_ the interfaces o
 
 Remarkably, aggregation handles the request-response pattern seamlessly: when forwarding a request-response invocation to an aggregated service, the aggregator will automatically take care of relaying the response to the original invoker.
 
-## The forwarder, an Aggregation example
+As an example let us consider the case of two services, the printer and fax, aggregated into one service which also add another operation called _faxAndPrint_. The code may be consulted [here](https://github.com/jolie/examples/tree/master/04_architectural_composition/06_aggregation/01_aggregation_and%20orchestration).
+
+![](../.gitbook/assets/aggregation_example.png)
+
+The service _printer_ offers two operations called _print_ and _del_. The former allows for the printing of a document whereas the latter allows for its deletion from the queue. On the other hand the service _fax_ offers just one operation called _fax_. The aggregator, aggregates on its inputPort called _Aggregator_ both the printer and fax services as it is shown below where we report the ports declaration of the aggregator service:
+
+```jolie
+include "printer.iol"
+include "fax.iol"
+
+type FaxAndPrintRequest: void {
+	.fax: FaxRequest
+	.print: PrintRequest
+}
+
+interface AggregatorInterface {
+	RequestResponse:
+		faxAndPrint( FaxAndPrintRequest )( void ) throws Aborted
+}
+
+
+outputPort Printer {
+Location: "socket://localhost:9000"
+Protocol: sodep
+Interfaces: PrinterInterface
+}
+
+outputPort Fax {
+Location: "socket://localhost:9001"
+Protocol: sodep
+Interfaces: FaxInterface
+}
+
+inputPort Aggregator {
+Location: "socket://localhost:9002"
+Protocol: sodep
+Interfaces: AggregatorInterface
+Aggregates: Printer, Fax
+}
+```
+It is worth noting that the inputPort _Aggregator_ actually offers all the operations available at outputPorts _Printer_ and _Fax_ which are connected with service _printer_ and _fax_ respectively. Moreover, the same inputPort declares also to make available the operations defined into interface _AggregatorInterface_ where one operation is defined: _faxAndPrint_. As a result, the following operations are available at the inputPort _Aggregator_:
+
+* _print_: which is executed by service _printer_;
+* _del_: which is executed by service _printer_;
+* _fax_: which is executed by service _fax_;
+* _faxAndPrint_: which is executed by the aggregator
+
+In particular, let us notice that the operation _faxAndPrint_ actually orchestrates the operations _print_ and _fax_ in order to provide a unique operation which executes both of them. 
+
+
+## The forwarder
 
 Aggregation can be used for system integration, e.g., bridging services that use different communication technologies or protocols. The deployment snippet below creates a service that forwards incoming SODEP calls on TCP port 8000 to the output port `MyOP`, converting the received message to SOAP.
 
