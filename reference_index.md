@@ -50,6 +50,7 @@ This reference index is still under construction. If you spot something missing,
 - `Protocol`: port protocol. [Go to section: Protocol](basics/communication-ports/protocol)
 - `provide [] until []`: provide until statement. [Go to section: Sessions](basics/sessions.md#the-provide-until-statement)
 - `RequestResponse`: request response operation definition. [Go to section: Interfaces](basics/communication-ports/interfaces.md)
+- `service`: internal service definition. [Go to section: Internal Services](architectural-composition/internal_services.md)
 - `scope(){}`: scope definition. [Go to section: Scopes and Faults](fault-handling/basics.md)
 - `synchronized(){}`: variables synchronization. [Go to section: Processes](basics/processes.md)
 - `spawn( .. over .. )  in .. {}`: spawn primitive definition. [Go to section: Dynamic Parallel](basics/dynamicparallel.md)
