@@ -80,49 +80,89 @@ It is worth noting that the inputPort _Aggregator_ actually offers all the opera
 
 In particular, let us notice that the operation _faxAndPrint_ actually orchestrates the operations _print_ and _fax_ in order to provide a unique operation which executes both of them. 
 
+## The Surface
+Here we introduce the concept of surface that is quite similar to that of _interface_ but with some important differences. 
 
-## Aggregation and embedding
-
-We give an example where three services - `A`, `B`, and `C` - are aggregated by a service `M`, which also embeds `C`.
+A _surface_ is the resulting interface available at a given input port.
 
 ```text
-outputPort A {
-    Location: "socket://someurlA.com:80/"
-    Protocol: soap
-    Interfaces: InterfaceA
+interface A { ... }
+interface B { ... }
+interface C { ... }
+interface D { ... }
+
+outputPort Aport {
+  Interfaces: A
 }
 
-outputPort B {
-    Location: "socket://someurlB.com:80/"
-    Protocol: xmlrpc
-    Interfaces: InterfaceB
+outputPort Bport {
+  Interfaces: B
 }
 
-outputPort C {
-    Interfaces: InterfaceC
-}
 
-embedded {
-    Java: "example.serviceC" in C
-}
-
-inputPort M {
-    Location: "socket://urlM.com:8000/"
-    Protocol: sodep
-    Aggregates: A, B, C
+inputPort MyInput {
+    ...
+    Interfaces: C, D
+    Aggregates: Aport, Bport
 }
 ```
+In this example there are four interfaces declared: interface _A_, interface _B_, interface _C_ and interface _D_ and there are two outputPorts _Aport_ and _Bport_. The former exploits interface _A_ whereas the latter interface _B_. There is only one inputPort called _MyInput_ which aggregated both the output ports and also offers interfaces _A_ and _B_.
 
-The code for aggregating services abstracts their actual deployment and remains the same either it is an embedded service \(C\) or an "external" one \(A,B\); this abstraction is achieved by setting the aggregation definition on output ports, which uncouples from it both the implementation and the location of the target service.
+In this case the surface at input port _MyInput_ is the resulting interface of the composition of interfaces _A_, _B_, _C_ and _D_. 
 
-![](../.gitbook/assets/aggregation_1.png)
+A surface is always obtained by listing all the available operations and types of all the interfaces available at a given input port. Thus if we calculate the surface of the port _Aggregator_ dicussed in the previous section we will obtain the following one:
 
-**Fig.1** The aggregator `M` exposes the union of all the interfaces of the services it aggregates \(`A`, `B`, `C`\). Service `C` executes inside the virtual machine of `M`, by embedding. Interfaces are represented with dotted rectangles
+```jolie
+type JobID:void{
+	.jobId:string
+}
 
-The obtained architectures is graphically represented in Fig.1, where we assume that the aggregated interfaces are singletons.
+type FaxAndPrintRequest:void{
+	.print:PrintRequest
+	.fax:FaxRequest
+}
+type PrintRequest:void{
+	.content:string
+}
+type PrintResponse:JobID
+type FaxRequest:void{
+	.destination:string
+	.content:string
+}
 
-The grey arrows represent how messages will be forwarded. E.g., an incoming message for operation `op3` will be forwarded to the embedded service `C`.
 
+interface AggregatorSurface {
+OneWay:
+	del( JobID )
+RequestResponse:
+	faxAndPrint( FaxAndPrintRequest )( void ) throws Aborted( undefined ),
+	print( PrintRequest )( PrintResponse ),
+	fax( FaxRequest )( void )
+}
+```
+The surface can be included by an invoker service for getting all the available operations for invoking the port _Aggregator_. 
+
+### jolie2surface
+One important characteristic of the surface is that it actually does not exist as a software artifact until it is automatically derived and created from an input port declaration. So, how could we create a surface?
+
+The Jolie installation is equipped with a tool called _jolie2surface_ which allows for the creation of a surface starting from a service definition. Its usage is very simple, it is sufficient to run the following command:
+
+```jolie
+jolie2surface <filename.ol> <name of the port>
+```
+
+in order to obtain the previous surface of port _Aggregator_ the command is:
+
+```jolie
+jolie2surface aggregator.ol Aggregator
+```
+
+if you need to save it into a file, just redirects the standard output:
+
+```jolie
+jolie2surface aggregator.ol Aggregator > surface.iol
+```
+Note that the tool _jolie2surface_ also adds the outputPort declaration connected to the input port.
 
 ## The forwarder
 
