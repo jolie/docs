@@ -475,6 +475,79 @@ and now in Jolie
 }]
 ```
 
+Now lets us look to the orchetrator
+
+```javascript
+function booking(req){
+   var request = require('request');
+   let url = "http://localhost:8000/booking"
+   request({url:url, qs:req}, function(err, response, body) {
+     if(err) { console.log(err); return; }
+     responseBooking = JSON.parse(body);
+
+   });
+
+ }
+
+function checkAge (req){
+ var request = require('request');
+ var url = "http://localhost:8000/checkAge"
+ request({url:url, qs:req}, function(err, response, body) {
+  if(err) { console.log(err); return; }
+  responseCheckAge = JSON.parse(body);
+   if (responseCheckAge.ageOK === true){
+     var requestBooking={
+       name:'John',
+       surname:'Green',
+       date: new Date()
+     };
+     booking(requestBooking)
+   }
+});
+
+}
+
+requestCheckAge={age : 22};
+
+checkAge(requestCheckAge);
+
+```
+and now the Jolie orchestator
+
+```jolie
+include "simpleInterface.iol"
+include "time.iol"
+
+outputPort myHttpPort{
+   Location:"socket://localhost:8000"
+   Protocol:http{
+        .debug= true;
+        .debug.showContent= true;
+        .method = "GET"
+   }
+   Interfaces:MySimpleInterface
+
+}
+
+
+main{
+  requestCheckAge.age = 22;
+  checkAge@myHttpPort(requestCheckAge)(responseCheckAge);
+   if (responseCheckAge.ageOK == true ){
+     requestBooking.name ="John";
+     requestBooking.surname = "Green";
+     getCurrentTimeMillis@Time( request )( requestGetTime );
+     getDateTime@Time( requestGetTime )( responseGetTime );
+     requestBooking.date = responseGetTime;
+     booking@myHttpPort(requestBooking)(responseBooking)
+   }
+
+
+}
+```
+Let's comperare the two way orchestrate operation in jolie we can clearly identify a sequence of  operation calls with a clear compositional  logic ,where in NodeJs the orchestration logic need to be defined as a series http call response handling functions. With in this functions we can see how the programmer need to extract the content from the body ```responseCheckAge = JSON.parse(body); ``` when in Jolie you just work with straight three variable. In NodeJs the programmer is force to define a lot of low level aspects and continuously switching paradigm between the native functional paradigm and the need to thinking to operations. 
+
+This result in an increase in complexity and difficulty in reading the code, in Jolie the syntax il coherent with the service paradigm that help the programmer with the definition of the orchestration behavior  
 
 
   
