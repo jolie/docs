@@ -473,6 +473,11 @@ and now in Jolie
   mime = "application/json";
   format = "json"
 }]
+ [booking(request)(reponse){
+       response.booked = "Dear "+ request.name + " " + request.surname + " your booking has been confirm for " + request.date;
+       mime = "application/json";
+       format = "json"
+      }]
 ```
 
 Now lets us look to the orchetrator
