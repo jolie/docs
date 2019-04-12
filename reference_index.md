@@ -61,3 +61,6 @@ This reference index is still under construction. If you spot something missing,
 - `undef()`: undefines a variable. [Go to section: Undef](basics/data_structures.md#undef-erasing-tree-structures)
 - `while(){}`: conditional loop. [Go to section: for and while](basics/composing_statements.md#for-and-while)
 - `with(:){}`: shortcut to repetitive variable paths. [Go to section: with](basics/data_structures.md#with-a-shortcut-to-repetitive-variable-paths)
+
+## Tools and related projects
+- `jolie2surface`: surface generation tool. [Go to section: jolie2surface](architectural-composition/aggregation.md#jolie-2-surface)
