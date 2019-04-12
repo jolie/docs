@@ -151,7 +151,7 @@ The Jolie installation is equipped with a tool called _jolie2surface_ which allo
 jolie2surface <filename.ol> <name of the port>
 ```
 
-in order to obtain the previous surface of port _Aggregator_ the command is:
+in order to obtain the surface of port _Aggregator_ discussed in the previous section, the command is:
 
 ```jolie
 jolie2surface aggregator.ol Aggregator
