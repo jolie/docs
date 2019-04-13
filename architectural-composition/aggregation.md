@@ -190,7 +190,7 @@ The executable code can be found at this [link](https://github.com/jolie/example
 
 Aggregation can be used for system integration, e.g., bridging services that use different communication technologies or protocols. As an example, let us consider the system discussed in the previous section but considering that the aggregated services offers they operation using different protocols like http/json and http/soap as depicted in the following picture:
 
-![](../.gitbook/assets/aggregation_example.png)
+![](../.gitbook/assets/protocol_transformation.png)
 
 In this case the aggregator automatically transforms the messages thus enabling a transparent composition of services which exploit different protocols.
 
