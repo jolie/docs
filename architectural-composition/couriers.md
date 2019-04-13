@@ -1,16 +1,16 @@
 # Couriers
 
-## Courier sessions
+## Courier processes
 
-Courier sessions allow to compose services independently from the context they belong to, like mandatory procedures \(e.g., authentications\) and the functionalities of the single services involved.
+Courier processes allow to compose services independently from the context they belong to, like mandatory procedures \(e.g., authentications\) and the functionalities of the single services involved.
 
-Courier sessions rely on aggregation and allow an aggregator to handle a special session, called courier session, in which it checks some proprieties of overloaded incoming messages and then forwards them to the aggregated service accordingly.
+Courier processes rely on aggregation and allow an aggregator to handle a special process, called courier process, in which it checks some properties of overloaded incoming messages and then forwards them to the aggregated service accordingly.
 
 ## Extended interfaces
 
 In order to execute a code block according to the service invoked, the aggregated operations must be _extended_.
 
-`interface extender` is the keyword used in Jolie for extending operations by overloading their types. The overloaded types contain additional fields exploited within the courier session to perform checks and, before forwarding, they are automatically removed from the message. The `interface extender` syntax follows.
+`interface extender` is the keyword used in Jolie for extending operations by overloading their types. The overloaded types contain additional fields exploited within the courier process to perform checks and, before forwarding, they are automatically removed from the message. The `interface extender` syntax follows.
 
 ```text
 interface extender extender_id {
@@ -34,7 +34,7 @@ inputPort AggregatorPort {
 
 Then, in the aggregator's deployment, `extender_id` declares to extend the list of operations between curly brackets, followed by the keyword `with`.
 
-Finally, the courier session block is defined in order to forward messages to the operations of the aggregated services:
+Finally, the courier process block is defined in order to forward messages to the operations of the aggregated services:
 
 ```text
 courier AggregatorPort {
