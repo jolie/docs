@@ -186,22 +186,51 @@ The executable code can be found at this [link](https://github.com/jolie/example
 
 
 
-## The forwarder
+## Protocol Transformation
 
-Aggregation can be used for system integration, e.g., bridging services that use different communication technologies or protocols. The deployment snippet below creates a service that forwards incoming SODEP calls on TCP port 8000 to the output port `MyOP`, converting the received message to SOAP.
+Aggregation can be used for system integration, e.g., bridging services that use different communication technologies or protocols. As an example, let us consider the system discussed in the previous section but considering that the aggregated services offers they operation using different protocols like http/json and http/soap as depicted in the following picture:
+
+![](../.gitbook/assets/aggregation_example.png)
+
+In this case the aggregator automatically transforms the messages thus enabling a transparent composition of services which exploit different protocols.
+
+The full executable example can be found [here](https://github.com/jolie/examples/tree/master/04_architectural_composition/06_aggregation/07_protocol_transformation). Here  we report the input ports of both the fax and the printer services, and the output ports of the aggregator together with its main input port.
 
 ```text
-outputPort MyOP {
-    Location: "socket://someurl.ex:80"
-    Protocol: soap
-    Interfaces: MyInterface
+// Fax Service
+inputPort FaxInput {
+Location: "socket://localhost:9001"
+Protocol: soap { .wsdl = "fax.wsdl" }
+Interfaces: FaxInterface
 }
 
-inputPort MyInput {
-    Location: "socket://localhost:8000"
-    Protocol: sodep
-    Aggregates: MyOP
+// Printer Service
+inputPort PrinterInput {
+Location: "socket://localhost:9000"
+Protocol: http { .fomat = "json" }
+Interfaces: PrinterInterface
 }
+
+// Aggregator
+outputPort Printer {
+Location: "socket://localhost:9000"
+Protocol: http { .fomat = "json" }
+Interfaces: PrinterInterface
+}
+
+outputPort Fax {
+Location: "socket://localhost:9001"
+Protocol: soap { .wsdl = "fax.wsdl" }
+Interfaces: FaxInterface
+}
+
+inputPort Aggregator {
+Location: "socket://localhost:9002"
+Protocol: sodep
+Interfaces: AggregatorInterface
+Aggregates: Printer, Fax
+}
+
 ```
 
  
