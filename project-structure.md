@@ -4,9 +4,9 @@
 ```
 ├── cmd (contains executable commands)
 │   ├── executable1 (directory containing executable1)
-│   │   ├── main.ol
+│   │   ├── someExecutableFile1.ol
 │   └── executable2 (directory containing executable2)
-│   │   ├── main.ol
+│   │   ├── someExecutableFile2.ol
 │   │   └── internal (executable2 has internal project dependencies)
 |   │   │   └── leonardo (Leonardo project directory, as git submodule)
 ├── docker (Docker files)
