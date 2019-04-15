@@ -48,7 +48,7 @@ As aforementioned, `RootContentDirectory` points to the `www` folder, which is t
 Leonardo supports dynamic web application through the Jolie HTTP protocol. There are many ways this can be achieved, hereby we overview some of these:
 
 * HTML querystring and HTML forms;
-* via web development libraries like JQuery and Google Web Toolkit \(GWT\).
+* via standard js web development or JQuery library ;
 
 In the following examples we show how to interface a web application with some Jolie code through Leonardo. Specifically, we expose an operation - `length` - which accepts a list of strings, computes their total length and, finally, returns the computed value.
 
@@ -117,6 +117,25 @@ Let us consider a html page with a form which submits a request to the operation
 
 After it is stored in our `www` directory, we can navigate to: `http://localhost:8000/form.html` where we can find the form containing both a text input and a file input fields. If we write something in the text field and choose a file to upload for the file input one, we can submit the request to the operation `length` that will reply with the sum of the length of both the text and the content of the file.
 
+## Js
+Jolie fully supports asynchronous JavaScript and XML \(AJAX\) calls via XMLHttpRequest,
+```js
+var xhr = new XMLHttpRequest();
+xhr.open('POST', 'myservice/user/1234');
+xhr.setRequestHeader('Content-Type', 'application/json');
+xhr.onload = function() {
+    if (xhr.status === 200) {
+        var userInfo = JSON.parse(xhr.responseText);
+    }
+};
+xhr.send(JSON.stringify({
+    item: ['John Smith','Tom Green','Sara Brown']
+}));
+```
+For the sake of brevity, we are not showing the boilerplate for building the HTML interface here, but it can be downloaded entirely from the link below:
+
+[Leonardo and Js example](https://github.com/jolie/docs/blob/master/files/web_applications/code/leonardo_js_code.zip)
+
 ## JQuery
 
 Jolie fully supports asynchronous JavaScript and XML \(AJAX\) calls via XMLHttpRequest, which subsequently assures the support of most part of web application development libraries.
@@ -147,28 +166,6 @@ $( document ).ready( function() {
 ```
 
 The code is contained in library `jolie-jquery.js` stored inside the `lib` directory.
-
-## Google Web Toolkit \(GWT\)
-
-Jolie supports Google Web Toolkit too by means of the `jolie-gwt.jar` library stored inside the `lib` subdirectory of the standard trunk Jolie installation. Inside the library there is a standard GWT module, called JolieGWT, which must be imported into the GWT module we are using.
-
-The module comes with support classes for invoking operations published by the service of Leonardo which is serving the GWT application. In our case, we can easily call the `length` operation with the following code:
-
-```text
-Value request = new Value();
-request.getNewChild( "item" ).setValue( "Hello" );
-request.getNewChild( "item" ).setValue( "World!" );
-JolieService.Util.getInstance().call( 
-    "length", 
-    request,
-    new AsyncCallback<Value> () {
-        public void onFailure( Throwable t ) {}
-        public void onSuccess( Value response )
-        {
-            Window.alert( response.strValue() );
-        }
-    });
-```
 
 ## Using Cookie
 
