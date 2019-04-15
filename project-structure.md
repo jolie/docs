@@ -13,17 +13,17 @@
 ├── docker (Docker files)
 │   ├── Dockerfile (default Dockerfile)
 │   └── Dockerfile.jre8 (example of alternative Dockerfile)
+├── interfaces (published interfaces)
 ├── internal (internal files that are not supposed to be used by other projects, e.g., internal .iol files)
 ├── ports (output ports exposed to clients)
 │   ├── Port1.iol (client can include this to access some input port at the service)
 │   └── Port2.iol (client can include this to access some input port at the service)
+├── scripts (scripts for building, installing, etc.)
 ├── test (for tests)
-├── types (contains all published types exposed to clients, including data types and interfaces)
-(clients do not typically include files from this directory, but rather ports from the ports directory)
+├── types (utility directory for sharing data type definitions to clients or among interfaces)
 │   ├── SomeDataTypes.iol
 │   └── SomeInterface.iol
 ├── web (web files, e.g., CSS and HTML files)
-├── Dockerfile
 ├── build.sh (file for building the docker image)
 ├── run.sh (file for running the containerised service with docker)
 └── README.md
