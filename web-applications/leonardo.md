@@ -60,7 +60,7 @@ We start by creating the Jolie code that serves the requests from the web interf
 
 Let us open `leonardo.ol` and add the following interface:
 
-```text
+```jolie
 type LengthRequest: void{
     .item[ 1, * ]: string
 }
@@ -73,7 +73,7 @@ interface ExampleInterface {
 
 Then we edit the main HTTP input port, `HTTPInput`, and add `ExampleInterface` to the published interfaces:
 
-```text
+```jolie
 inputPort HTTPInput {
     // other deployment code
     Intefaces: HTTPInterface, ExampleInterface
@@ -82,7 +82,7 @@ inputPort HTTPInput {
 
 Finally, we write the operation `length` by adding the code below to the input choice inside the `main` procedure in Leonardo:
 
-```text
+```jolie
 main
 {
     // existing code in Leonardo
@@ -146,7 +146,7 @@ For the sake of brevity, we are not showing the boilerplate for building the HTM
 
 Once downloaded and unpacked, we can launch Leonardo and navigate to address `http://localhost:8000/`. Inside the `www` directory there are a `index.html` with a form containing three text fields - text1, text2, and text3. Submitting the request, by pressing the submit button, the event is intercepted by the JavaScript code shown below:
 
-```text
+```js
 $( document ).ready( function() {
   $( "#lengthButton" ).click( function() {
     Jolie.call(
@@ -155,7 +155,7 @@ $( document ).ready( function() {
           $("#text1").val(),
           $("#text2").val(),
           $("#text3").val()
-        ] 
+        ]
       },
       function( response ) {
          $( "#result" ).html( response );
@@ -166,6 +166,31 @@ $( document ).ready( function() {
 ```
 
 The code is contained in library `jolie-jquery.js` stored inside the `lib` directory.
+
+## Error handling
+As seen in the HTTP protocol section of the documentation is possible to set dynamically the  HTTP response status. In leornado when dealing with static content such as HTML , css , js  the service will return two possible error code 404 or 303.  If a specific throw is defined in an operation like in the example.
+
+```jolie
+interface ExampleInterface {
+    RequestResponse:
+        length( LengthRequest )( int ) throws EmptyItem
+}
+```
+
+Leonardo will return by default a 500 status code for any raised exceptions. you can override this behaviour by  setting manually the status variable
+
+```jolie
+[length(request)(response){
+
+  for (counter =0 , counter < #request.item , counter++ ){
+         if (request.item[counter]==""){
+             statusCode = 501;
+             throw( EmptyItem )
+         }
+    };
+    response = #request.item
+}]
+```
 
 ## Using Cookie
 
@@ -185,4 +210,3 @@ In this specific example you will find the code for both the client side \(HTML/
 * `/leornardo.ol`
 
 It is not necessary to define precisely the cookie binding for each operation exposed by the HTTP input port, one can use the global cookies configuration expressed in the following form `.cookies.cookieName = "subNodeName"`, Particular attention must be paid on the presence subNodeName in the type of all operation exposed by the port otherwise a TypeMismatch will occur.
-
