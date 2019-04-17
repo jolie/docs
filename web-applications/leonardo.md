@@ -87,8 +87,14 @@ main
 {
     // existing code in Leonardo
     [ length( request )( response ){
-        response = 0;
-        for( i = 0, i
+      for (counter =0 , counter < #request.item , counter++ ){
+             if (request.item[counter]==""){
+                 statusCode = 501;
+                 throw( EmptyItem )
+             }
+        };
+        response = #request.item
+      }
 ```
 
 The code above iterates over all the received items and sums their lengths.
@@ -121,16 +127,19 @@ After it is stored in our `www` directory, we can navigate to: `http://localhost
 Jolie fully supports asynchronous JavaScript and XML \(AJAX\) calls via XMLHttpRequest,
 ```js
 var xhr = new XMLHttpRequest();
-xhr.open('POST', 'myservice/user/1234');
+xhr.open('POST', '/length');
 xhr.setRequestHeader('Content-Type', 'application/json');
 xhr.onload = function() {
-    if (xhr.status === 200) {
-        var userInfo = JSON.parse(xhr.responseText);
-    }
+  if (xhr.status === 200) {
+    var response = JSON.parse(xhr.responseText);
+    document.getElementById('status').textContent= response.$
+  }
+  if (xhr.status === 500){
+    var errorResponse = JSON.parse(xhr.responseText)
+    document.getElementById('status').textContent=  errorResponse.error.message
+  }
 };
-xhr.send(JSON.stringify({
-    item: ['John Smith','Tom Green','Sara Brown']
-}));
+xhr.send(JSON.stringify(messageToBeSent));
 ```
 For the sake of brevity, we are not showing the boilerplate for building the HTML interface here, but it can be downloaded entirely from the link below:
 
@@ -139,6 +148,20 @@ For the sake of brevity, we are not showing the boilerplate for building the HTM
 ## JQuery
 
 Jolie fully supports asynchronous JavaScript and XML \(AJAX\) calls via XMLHttpRequest, which subsequently assures the support of most part of web application development libraries.
+```js
+$.ajax({
+  url: '/length',
+  type: 'POST',
+  data: JSON.stringify(messageToBeSent),
+  contentType: 'application/json;charset=UTF-8'
+})
+.done(function(res) {
+  $('#response')[0].textContent= res.$
+})
+.fail(function(res) {
+    $('#status')[0].textContent= res.responseJSON.error.message
+})
+```
 
 For the sake of brevity, we are not showing the boilerplate for building the HTML interface here, but it can be downloaded entirely from the link below:
 
