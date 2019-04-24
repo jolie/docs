@@ -2,9 +2,7 @@
 
 ## Courier processes
 
-Courier processes allow to compose services independently from the context they belong to, like mandatory procedures \(e.g., authentications\) and the functionalities of the single services involved.
-
-Courier processes rely on aggregation and allow an aggregator to handle a special process, called courier process, in which it checks some properties of overloaded incoming messages and then forwards them to the aggregated service accordingly.
+Courier processes allow to enrich a service aggregation with context functionalities. They are joint to an aggregation operator and they are executed in between a message reception and its forwarding to the final target service. In a courier it is possible to program any kind of behaviour and they are usually exploited for managing all those functionalities which are not directly pertinent with the target service but they are usefull for the network context like authentication and logging.
 
 ## Extended interfaces
 
