@@ -45,6 +45,11 @@ A service is always willing to serve requests for its available API.
 ### Behaviour
 The part of the service definition which defines the logics to be executed at runtime for implementing a service's API. Behaviours can send and/or receive messages, and perform internal computation.
 
+### Activity (NUOVA!)
+A portion of a behaviour.
+
+PS: l'ho aggiunta perché nella doc molto spesso serve riferirsi alle attività del behaviour in senso generico e ci serve una parola per definirle.
+
 ### Process
 A running instance of a behaviour, equipped with its own private state and message queues.
 
