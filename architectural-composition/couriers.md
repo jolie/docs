@@ -6,7 +6,7 @@ Courier processes allow to enrich a service aggregation with context functionali
 
 ![](../.gitbook/assets/courier.png)
 
-In the diagram above, we represent a courier process as a black square within an inputPort. A courier indeed, does not alter the connection topology of a circuit but it just enhance the capabilitites of an inputPort with a specific set of activities.
+In the diagram above, we represent a courier process as a black square within an inputPort. A courier process does not alter the connection topology of a circuit but it just enhances the capabilitites of an inputPort with a specific set of activities.
 
 ## Extended interfaces
 
