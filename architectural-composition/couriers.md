@@ -4,6 +4,10 @@
 
 Courier processes allow to enrich a service aggregation with context functionalities. They are joint to an aggregation operator and they are executed in between a message reception and its forwarding to the final target service. In a courier it is possible to program any kind of behaviour and they are usually exploited for managing all those functionalities which are not directly pertinent with the target service but they are usefull for the network context like authentication and logging.
 
+![](../.gitbook/assets/courier.png)
+
+In the diagram above, we represent a courier process as a black square within an inputPort. A courier indeed, does not alter the connection topology of a circuit but it just enhance the capabilitites of an inputPort with a specific set of activities.
+
 ## Extended interfaces
 
 In order to execute a code block according to the service invoked, the aggregated operations must be _extended_.
