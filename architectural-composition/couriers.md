@@ -132,9 +132,17 @@ courier Aggregator {
 	}
 }
 ```
+It is worth noting that the output port of service Logger is just one of the output ports available within the service aggregator and it is normally defined like all the others.
 
+```text
+outputPort Logger {
+	Location: Location_Logger
+	Protocol: sodep
+	Interfaces: LoggerInterface
+}
+```
 
-
+Thus, a courier process can exploit all the available output ports of the service where it is defined for executing its activities.
 
 
 ## Extended interfaces
