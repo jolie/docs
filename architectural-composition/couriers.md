@@ -8,6 +8,69 @@ Courier processes allow to enrich a service aggregation with context functionali
 
 In the diagram above, we represent a courier process as a black square within an inputPort. A courier process does not alter the connection topology of a circuit but it just enhances the capabilitites of an inputPort with a specific set of activities.
 
+## The syntax
+A courier process is defined in terms of a scope prefixed with the keyword `courier` followed by the name of the input port where attaching the courier process:
+
+```text
+courier <Name of the Input port> {
+    ...
+}
+```
+In the body of the scope, the list of the operations affected by the courier process must be defined. The list of operations follows this syntactical structure:
+
+```text
+courier <Name of the Input port> {
+    [ <declaration of operation> ] {
+       // code
+    }
+    
+    [ <declaration of operation> ] {
+       // code
+    }
+    
+    [ <declaration of operation> ] {
+       // code
+    }
+    
+    ...
+}
+```
+where the declaration of the operation can be twofold depending on the operation type: request response or one way:
+```text
+courier <Name of the Input port> {
+    /* request response */
+    [ operation_name( request )( response ) ] {
+       // code of courier process executed for this operation
+    }
+    
+    /* one way */
+    [ operation_name( request ) ] {
+        // code of courier process executed for this operation
+    }
+}
+```
+
+### The statement `forward` 
+The statement `forward` can be used within the courier process code of each operation for delivering the message to the final target, as specified in the input port definition for the given operation. The syntax of the forward is very simple and it just follows the structure of the request response or the one way operation:
+
+```text
+courier <Name of the Input port> {
+    /* request response */
+    [ operation_name( request )( response ) ] {
+       // code of courier process executed for this operation
+       forward( request )( response )
+    }
+    
+    /* one way */
+    [ operation_name( request ) ] {
+        // code of courier process executed for this operation
+        forward( request )
+    }
+}
+```
+
+
+
 ## Extended interfaces
 
 In order to execute a code block according to the service invoked, the aggregated operations must be _extended_.
