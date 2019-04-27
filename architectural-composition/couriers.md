@@ -90,6 +90,31 @@ Such a courier process is attached to port `Aggregator` and it is applied only o
 - the courier process waits on the statement `forward` for a response from the printer service
 - once the courier process receives the response it delivers it to the input port which forwards it to the initial caller
 
+### Courier processes attached to interfaces
+Sometimes it could happen that a courier process must be executed for all the operations of the same interface. In these cases could be quite annoying to list all the operations of that interface and write for each of them the same code. In Jolie it is possible to join a courier process to all the operations of a given interface. In this case the syntax is:
+
+```text
+courier <Name of the Input port> {
+    /* all the request response operations of the interface*/
+    [ interface interface_name( request )( response ) ] {
+       // code of courier process executed for this operation
+       forward( request )( response )
+    }
+    
+    /* all the one way operations of the interface */
+    [ interface interface_name( request ) ] {
+        // code of courier process executed for this operation
+        forward( request )
+    }
+}
+```
+Instead of specifying the name of the operations it is sufficient to use the keyword `interface` followed by the name of the interface. All the operations of that interface will be attached of the courier process defined in the body code. It is worth  noting that there are two different declarations for request response operationd and one way operations just because the formers deal woth both request and response messages whereas the latter only with the request one.
+
+### Example
+Here we extend the example presented in [Section Aggregation](./aggregation.md) by adding a logging service which is called into the couriers of the aggregator in order to log all the messages sent to the aggregator port.
+
+
+
 
 ## Extended interfaces
 
