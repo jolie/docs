@@ -111,7 +111,28 @@ courier <Name of the Input port> {
 Instead of specifying the name of the operations it is sufficient to use the keyword `interface` followed by the name of the interface. All the operations of that interface will be attached of the courier process defined in the body code. It is worth  noting that there are two different declarations for request response operationd and one way operations just because the formers deal woth both request and response messages whereas the latter only with the request one.
 
 ### Example
-Here we extend the example presented in [Section Aggregation](./aggregation.md) by adding a logging service which is called into the couriers of the aggregator in order to log all the messages sent to the aggregator port.
+Here we extend the example presented in [Section Aggregation](./aggregation.md) by adding a logging service which is called into the couriers of the aggregator in order to log all the messages sent to the aggregator port. 
+
+![](../.gitbook/assets/courier_example.png)
+
+The complete code of the example can be checked [here](https://github.com/jolie/examples/tree/master/04_architectural_composition/06_aggregation/03_courier/01-Courier). In this case we add courier processes to the interfaces of the aggregated ports where, before forwarding the incoming messages to the target ports we call the logger service by sending the content of the message obtained with the operation `valueToPrettyString` of service [StringUtils](https://jolielang.gitbook.io/docs/standard-library-api/string_utils).
+
+```text
+courier Aggregator {
+	[ interface PrinterInterface( request )( response ) ] {
+		valueToPrettyString@StringUtils( request )( s );
+		log@Logger( { .content = s } );
+		forward( request )( response )
+	}
+
+	[ interface PrinterInterface( request ) ] {
+		valueToPrettyString@StringUtils( request )( s );
+		log@Logger( { .content = s }  );
+		forward( request )
+	}
+}
+```
+
 
 
 
