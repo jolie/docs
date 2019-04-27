@@ -69,6 +69,25 @@ courier <Name of the Input port> {
 }
 ```
 
+### Example
+As an example, try to add the following courier process to the service aggregator of the example described in ![section Aggregation](../aggregation.md)
+
+```jolie
+courier Aggregator {
+	[ print( request )( response ) ] {
+		println@Console("Hello, I am the courier process")();
+		forward( request )( response )
+	}
+```
+Such a courier process is attached to port `Aggregator` and it is applied only on operation `print` which comes from the aggregated output port `Printer`. In the console of the service aggregator, as a result, you will see the string `Hello, I am the courier process` printed out every time the operation `print` is called. Ideally, the steps performed by the jolie engine of the service aggregator are the following ones:
+
+- it receives a message for operation `print` on input port `Printer`
+- it recongnized that there is a courier process attached for it
+- it executes the courier process passing the request message into the request variable, in the example it is the variable `request`
+- the courier process prints out the string `Hello, I am the courier process`
+- the courier process forwards the request to the output port `Printer` executing the statement `forward`
+- the courier process waits on the statement `forward` for a response from the printer service
+- once the courier process receives the response it delivers it to the input port which forwards it to the initial caller
 
 
 ## Extended interfaces
