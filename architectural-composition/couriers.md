@@ -70,7 +70,7 @@ courier <Name of the Input port> {
 ```
 
 ### Example
-As an example, try to add the following courier process to the service aggregator of the example described in ![section Aggregation](../aggregation.md)
+As an example, try to add the following courier process to the service aggregator of the example described in [Section Aggregation](./aggregation.md)
 
 ```jolie
 courier Aggregator {
@@ -78,6 +78,7 @@ courier Aggregator {
 		println@Console("Hello, I am the courier process")();
 		forward( request )( response )
 	}
+}
 ```
 Such a courier process is attached to port `Aggregator` and it is applied only on operation `print` which comes from the aggregated output port `Printer`. In the console of the service aggregator, as a result, you will see the string `Hello, I am the courier process` printed out every time the operation `print` is called. Ideally, the steps performed by the jolie engine of the service aggregator are the following ones:
 
