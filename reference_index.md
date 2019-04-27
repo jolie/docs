@@ -36,7 +36,7 @@ This reference index is still under construction. If you spot something missing,
 - `execution { single | concurrent | sequential }`: execution modality. [Go to section: Processes](basics/processes.md)
 - `for(){}`: deterministic loop. [Go to section: for and while](basics/composing_statements.md#for-and-while)
 - `foreach(:){}`: traversing items. [Go to section: foreach](basics/data_structures.md#foreach-traversing-items)
-- `forward`: forward statement. [Go to section: Couriers](architectural-composition/couriers.md)
+- `forward`: forward statement. [Go to section: Couriers](architectural-composition/couriers.md#the-statement-forward)
 - `global`: global variables. [Go to section: Processes](basics/processes.md)
 - `if (..) {..} else {..}`: conditional statement. [Go to section: Conditions and conditional statement](basics/composing_statements.md#conditions-and-conditional-statement)
 - `init{}`: init scope. [Go to section: Processes and Sessions](basics/processes.md)
