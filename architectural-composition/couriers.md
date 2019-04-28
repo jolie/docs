@@ -208,83 +208,12 @@ inputPort AggregatorPort {
 Such a declaration is sufficient for applying the extension rules. It is worth noting that at the level of courier processes, the statement `forward` **will always erase** the extended part of the message before forwarding them to the target port.
 
 
-## A comprehensive example
+### Example
 
-For a better understanding of how aggregation and interface extension work, let us consider a scenario where a fax service F is part of a trusted intranet, accepting requests coming from any intranet's user.
+For a better understanding of how aggregation and interface extension work, let us enhance the previous example with an interface extension. The full code can be checked [here](https://github.com/jolie/examples/tree/master/04_architectural_composition/06_aggregation/03_courier/02-InterfaceExtension).
 
-```text
-// fax.iol
-type FaxRequest:void {
-    .destination:string
-    .content:string
-}
+In this example we add a service called _authenticator_ for checking the validity of an access key released to all the client which aims at accessing to the port _Aggregator_ of the service _aggregator_.
 
-interface FaxInterface {
-OneWay:
-    fax(FaxRequest)
-}
-```
+![](../.gitbook/assets/interface_extension_example.png)
 
-We can deploy a service that aggregates F in order to keep it unchanged and accept requests from external networks \(e.g., the Internet\). In this way, we allow external users to invoke F's services, but we introduce security concerns too. To keep the intranet trustworthy, we want to authenticate the external users that use F's service, hence we require additional information than the one needed by F's operations.
-
-In this scenario the "simple" message-forwarding capability of the aggregation is not sufficient. The requests coming from external users cannot be directly forwarded to the aggregated services, as they require some sort of elaboration, which is achieved by extending the operations of the aggregated services in the aggregator.
-
-```text
-include "fax.iol"
-include "console.iol"
-
-execution { concurrent }
-
-type AuthenticationData: void {
-    .key:string
-}
-
-interface extender AuthInterfaceExtender {
-    OneWay:
-        *(AuthenticationData)
-}
-
-interface AggregatorInterface {
-RequestResponse:
-    get_key(string)(string)
-}
-
-outputPort Fax {
-    Location: Location_Fax
-    Protocol: sodep
-    Interfaces: FaxInterface
-}
-
-inputPort AggregatorInput {
-    Location: Location_Aggregator
-    Protocol: sodep
-    Interfaces: AggregatorInterface
-    Aggregates: Fax with AuthInterfaceExtender
-}
-
-courier AggregatorInput {
-    [interface FaxInterface( request )] {
-        if ( key == "1111" ){
-            forward ( request )
-        }
-    }
-}
-
-main
-{
-    get_key( username )( key ) {
-        if ( username == "username" ) {
-            key = "1111"
-        } else {
-            key = "XXXX"
-        }
-    }
-}
-```
-
-In the example above, the aggregator exposes the inputPort `AggregatorInput` that aggregates the `Fax` service whose operations types are extended by the `AuthInterfaceExtender`.
-
-`AuthInterfaceExtender` adds an additional node `key` of type `string` to each type of each operation.
-
-The input port uses the field _Interfaces_ specifying the additional operation `get_key` that the aggregator provides on its own. That operation is invoked by a client requesting the authentication `key`. The `key` is sent back accordingly to the client's `username` and must be included by the client in every `FaxInterface`'s forward operation.
 
