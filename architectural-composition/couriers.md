@@ -200,12 +200,12 @@ inputPort AggregatorPort {
     // Location definition
     // Protocol definition
     Aggregates: 
-        { outputPort_1, outputPort_2, ... , outputPort_n } with extender_id1,
+        outputPort_1 with extender_id1,
         //  ...
-        outputPort_n+1 with extender_idn
+        outputPort_n with extender_idn
 }
 ```
-Note that more than one input port can be extended with the same extender, in order to do that it is sufficient to group them into culry brackets (`{ outputPort_1, outputPort_2, ... , outputPort_n }`). Such a declaration is sufficient for applying the extension rules. It is worth noting that at the level of courier processes, the statement `forward` **will always erase** the extended part of the message before forwarding them to the target port.
+Such a declaration is sufficient for applying the extension rules. It is worth noting that at the level of courier processes, the statement `forward` **will always erase** the extended part of the message before forwarding them to the target port.
 
 
 ## A comprehensive example
