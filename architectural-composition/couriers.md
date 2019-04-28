@@ -50,7 +50,7 @@ courier <Name of the Input port> {
 }
 ```
 
-### The statement `forward` 
+## The statement `forward` 
 The statement `forward` can be used within the courier process code of each operation for delivering the message to the final target, as specified in the input port definition for the given operation. The syntax of the forward is very simple and it just follows the structure of the request response or the one way operation:
 
 ```text
@@ -69,7 +69,7 @@ courier <Name of the Input port> {
 }
 ```
 
-### Example
+## Example
 As an example, try to add the following courier process to the service aggregator of the example described in [Section Aggregation](./aggregation.md)
 
 ```jolie
@@ -90,7 +90,7 @@ Such a courier process is attached to port `Aggregator` and it is applied only o
 - the courier process waits on the statement `forward` for a response from the printer service
 - once the courier process receives the response it delivers it to the input port which forwards it to the initial caller
 
-### Courier processes attached to interfaces
+## Courier processes attached to interfaces
 Sometimes it could happen that a courier process must be executed for all the operations of the same interface. In these cases could be quite annoying to list all the operations of that interface and write for each of them the same code. In Jolie it is possible to join a courier process to all the operations of a given interface. In this case the syntax is:
 
 ```text
@@ -110,7 +110,7 @@ courier <Name of the Input port> {
 ```
 Instead of specifying the name of the operations it is sufficient to use the keyword `interface` followed by the name of the interface. All the operations of that interface will be attached of the courier process defined in the body code. It is worth  noting that there are two different declarations for request response operationd and one way operations just because the formers deal woth both request and response messages whereas the latter only with the request one.
 
-### Example
+## Example
 Here we extend the example presented in [Section Aggregation](./aggregation.md) by adding a logging service which is called into the couriers of the aggregator in order to log all the messages sent to the aggregator port. 
 
 ![](../.gitbook/assets/courier_example.png)
