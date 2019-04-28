@@ -178,7 +178,7 @@ RequestResponse:
 ```
 
 This interface extender must be read in the following way:
-* extends all the request response operations of a given interface with type `AuthenticationData` in request messages and type `void` in response messages. The `AuthenticationData` just adds a node `key:string` to each request message, whereas the type `void` does not actually alter the response messages. In case we specify the name of the operation in the interface extender, the rule will be applied only to that operation. In the following example, the rule will be applied only to operations named `op1`.
+* extends all the request response operations of a given interface with type `AuthenticationData` in request messages and type `void` in response messages. The `AuthenticationData` just adds a node `key:string` to each request message, whereas the type `void` does not actually alter the response messages. A new fault called `KeyNotValid` can be thrown by all the extended request response operations. In case we specify the name of the operation in the interface extender, the rule will be applied only to that operation. In the following example, the rule will be applied only to operations named `op1`.
 
 ```text
 type AuthenticationData: void {
@@ -190,6 +190,7 @@ RequestResponse:
     op1( AuthenticationData )( void ) throws KeyNotValid
 }
 ```
+
 
 ### How to apply the extension rules
 Interface extenders can only be applied to aggregated output ports. In order to do that the keyword `with` is used for associating an aggregated output port to an interface extender. The syntax follows:
