@@ -152,8 +152,8 @@ Interface extension is a feature of Jolie language which can be used jointly wit
 
 Interface extension can be particularly useful when it is necessary to enrich the message types of an aggregated ports due to the presence of a courier process attached to it. It is worth noting that the courier process will manage request and response messages conformant to the extended interfaces, but it will **automatically** forward messages cleaned from the extended parts.
 
-### How to extend an interface
-`interface extender` is the keyword used in Jolie for extending operations by overloading their types. The overloaded types contain additional fields exploited within the courier process to perform checks and, before forwarding, they are automatically removed from the message. The `interface extender` syntax follows.
+### How to define extension rules
+`interface extender` is the keyword used in Jolie for defining the extending rules to overload the types of a given interface. The syntax follows.
 
 ```text
 interface extender extender_id {
@@ -162,32 +162,50 @@ interface extender extender_id {
 }
 ```
 
-The `interface extender` associates an identifier \(`extender_id`\) to a collection of operations, where `OneWayDefinition` and `RequestResponseDefinition` are respectively the one-way operations definition and request-response operations definition seen in [Communication Ports](https://jolielang.gitbook.io/docs/fault-handling/basics) subsections.
+The `interface extender` associates an identifier \(`extender_id`\) to a set of extending rules which takes the form of a standard operation declaration with the exception of the usage of the token `*` for denoting _all the operations_.
 
+As an example let us consider the following interface extender:
+
+```text
+type AuthenticationData: void {
+    .key:string
+}
+
+interface extender AuthInterfaceExtender {
+RequestResponse:
+    *( AuthenticationData )( void ) throws KeyNotValid
+}
+```
+
+This interface extender must be read in the following way:
+* extends all the request response operations of a given interface with type `AuthenticationData` in request messages and type `void` in response messages. The `AuthenticationData` just adds a node `key:string` to each request message, whereas the type `void` does not actually alter the response messages. In case we specify the name of the operation in the interface extender, the rule will be applied only to that operation. In the following example, the rule will be applied only to operations named `op1`.
+
+```text
+type AuthenticationData: void {
+    .key:string
+}
+
+interface extender AuthInterfaceExtender {
+RequestResponse:
+    op1( AuthenticationData )( void ) throws KeyNotValid
+}
+```
+
+### How to apply the extension rules
+Interface extenders can only be applied to aggregated output ports by exploiting the keyword `with` as reported in the following syntax:
+  
 ```text
 inputPort AggregatorPort {
     // Location definition
     // Protocol definition
     Aggregates: 
-        outputPort_1 with extender_id1,
+        { outputPort_1, outputPort_2, ... , outputPort_n } with extender_id1,
         //  ...
-        outputPort_n with extender_idn
+        outputPort_n+1 with extender_idn
 }
 ```
+Note that more than one input port can be extended with the same extender, in order to do that it is sufficient to group them into culry brackets (`{ outputPort_1, outputPort_2, ... , outputPort_n }`). 
 
-Then, in the aggregator's deployment, `extender_id` declares to extend the list of operations between curly brackets, followed by the keyword `with`.
-
-Finally, the courier process block is defined in order to forward messages to the operations of the aggregated services:
-
-```text
-courier AggregatorPort {
-    interface interface_id( request )[( response )]{
-        // some code, if necessary
-        // and eventually
-        forward( request )[( response )]
-    }
-}
-```
 
 ## A comprehensive example
 
