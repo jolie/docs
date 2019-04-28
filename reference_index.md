@@ -42,6 +42,7 @@ This reference index is still under construction. If you spot something missing,
 - `init{}`: init scope. [Go to section: Processes and Sessions](basics/processes.md)
 - `inputPort`: input port statement. [Go to section: Ports](basics/communication-ports/ports.md)
 - `interface`: interface definition. [Go to section: Interfaces](basics/communication-ports/interfaces.md)
+- `interface extender`: interface extension. [Go to section: Couriers](architectural-composition/couriers.md#interface-extension)
 - `Interfaces`: port interfaces. [Go to section: Interfaces](basics/communication-ports/interfaces.md)
 - `install()`: handler installation. [Go to section: Scopes and Faults](fault-handling/basics.md)
 - `Location`: port location. [Go to section: Locations](basics/communication-ports/locations.md)
