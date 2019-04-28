@@ -192,7 +192,7 @@ RequestResponse:
 ```
 
 ### How to apply the extension rules
-Interface extenders can only be applied to aggregated output ports by exploiting the keyword `with` as reported in the following syntax:
+Interface extenders can only be applied to aggregated output ports. In order to do that the keyword `with` is used for associating an aggregated output port to an interface extender. The syntax follows:
   
 ```text
 inputPort AggregatorPort {
@@ -204,7 +204,7 @@ inputPort AggregatorPort {
         outputPort_n+1 with extender_idn
 }
 ```
-Note that more than one input port can be extended with the same extender, in order to do that it is sufficient to group them into culry brackets (`{ outputPort_1, outputPort_2, ... , outputPort_n }`). 
+Note that more than one input port can be extended with the same extender, in order to do that it is sufficient to group them into culry brackets (`{ outputPort_1, outputPort_2, ... , outputPort_n }`). Such a declaration is sufficient for applying the extension rules. It is worth noting that at the level of courier processes, the statement `forward` **will always erase** the extended part of the message before forwarding them to the target port.
 
 
 ## A comprehensive example
