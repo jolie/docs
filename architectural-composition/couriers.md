@@ -146,7 +146,13 @@ Thus, a courier process can exploit all the available output ports of the servic
 
 
 ## Interface extension
-Interface extension is a feature of Jolie language which can be used jointly with courier processes in order to extend the message types of the operations of an aggregated port. Interface extension can be particularly useful when it is necessary to enrich the message types of an aggregated ports due to the presence of a courier process attached to it.
+Interface extension is a feature of Jolie language which can be used jointly with courier processes in order to extend the message types of the operations of an aggregated port. The interface extension alters the final surface at the aggregating input port without affecting the aggregated one. 
+
+![](../.gitbook/assets/interface_extension.png)
+
+
+
+Interface extension can be particularly useful when it is necessary to enrich the message types of an aggregated ports due to the presence of a courier process attached to it.
 
 `interface extender` is the keyword used in Jolie for extending operations by overloading their types. The overloaded types contain additional fields exploited within the courier process to perform checks and, before forwarding, they are automatically removed from the message. The `interface extender` syntax follows.
 
