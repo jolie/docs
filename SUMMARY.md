@@ -48,7 +48,6 @@
   * [HTTP GET/POST Requests](web-applications/web_get_post.md)
   * [REST APIs, Publication and Integration](web-applications/rest-apis-publication-and-integration.md)
 * [Protocols](protocols/README.md)
-  * [Introduction](protocols/introduction.md)
   * [HTTP](protocols/http.md)
   * [HTTPs](protocols/https.md)
   * [JSON/RPC](protocols/jsonrpc.md)
