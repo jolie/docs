@@ -28,50 +28,10 @@ inputPort id {
 
 where `sid_i => OP_id_i` associates a resource name `sid_i` to an output port identifier `OP_id_i`.
 
-For a better understanding of the second advantage, consider Fig.1. Let us suppose that resource A uses a protocol p\_A and a client C, using a different protocol p\_C, needs to interact with A. By invoking the master service M, C can simply interact with A through M \(M/A\) using p\_C, leaving to M the task to translate the message in protocol p\_A, before forwarding it to A.
+## Example
+In the following example we show a simple redirection scenario where a proxy provides a common endpoint for two services, _Sum_ and _Sub_, which performrs addiction and substraction respecitvely. At this [link](https://github.com/jolie/examples/tree/master/04_architectural_composition/07_redirection/01_static_redirection) it is possible to check the complete code.
 
-
-
-The example in Fig.1 is implemented by the code below:
-
-```text
-outputPort ServiceA {
-    Location: "socket://www.a_location.com/"
-    Protocol: soap
-    Interfaces: A_interface
-}
-
-outputPort ServiceB {
-    Location: "socket://www.b_location.com/"
-    Protocol: sodep
-    Interfaces: B_interface
-}
-
-outputPort ServiceC {
-    Location: "socket://www.b_location.com/"
-    Protocol: http
-    Interfaces: C_interface
-}
-
-inputPort MasterInput {
-    Location: "socket://masterservice.com:8000/"
-    Protocol: sodep
-    Redirects:
-        A => ServiceA,
-        B => ServiceB,
-        C => ServiceC
-}
-```
-
-Once set, calling a master service for one of its resources is done by declaring the resource name in the location used by the invoker, followed by the resource name separator `!/`, as shown at Line 2
-
-```text
-outputPort A{
-    Location: "socket://masterservice.com/8000/!/A"
-    Protocol: sodep
-    Interfaces: A_interface
-}
-```
+![](../.gitbook/assets/redirection_example.png)
 
 ## Dynamic Redirection
 
