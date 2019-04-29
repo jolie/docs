@@ -76,6 +76,7 @@ outputPort Sum {
   Interfaces: SumInterface
 }
 ```
+From an architectural point of view redirection and aggregation are very different, even if the seem to behave similarly. The most important difference is what the client is able to see on the input port of the aggregator and redirector. On the former case, the client is not aware of the services handled by the aggregator because it just sees a unique service which exposes all the operations, whereas in the latter case, the client is aware of the target services and it needs to treat them as separate entities with different output ports.
 
 ## Dynamic Redirection
 
