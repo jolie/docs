@@ -4,19 +4,12 @@ Redirection allows for the creation of a service, called _proxy_, acting as a si
 
 ![](../.gitbook/assets/redirection.png)
 
-Invokers send messages to the master service specifying also the intended resource name.
-
-The main advantages of such an approach are:
+The main advantages of redirection are:
 
 * the possibility to provide a unique access point to the system clients. In this way the services of the system could be relocated and/or replaced transparently to the clients;
 * the possibility to provide transparent communication protocol transformations between the invoker and the master and the master and the rest of the system;
 
-
-
-**Fig.1** Service `M` redirect messages to services `A` , `B` , and `C` depending on the target destination of the message \(`M/A` , `M/B` , or `M/C` \)
-
-For a better understanding of the second advantage, consider Fig.1. Let us suppose that resource A uses a protocol p\_A and a client C, using a different protocol p\_C, needs to interact with A. By invoking the master service M, C can simply interact with A through M \(M/A\) using p\_C, leaving to M the task to translate the message in protocol p\_A, before forwarding it to A.
-
+## The syntax
 The syntax of redirection is:
 
 ```text
@@ -34,6 +27,10 @@ inputPort id {
 ```
 
 where `sid_i => OP_id_i` associates a resource name `sid_i` to an output port identifier `OP_id_i`.
+
+For a better understanding of the second advantage, consider Fig.1. Let us suppose that resource A uses a protocol p\_A and a client C, using a different protocol p\_C, needs to interact with A. By invoking the master service M, C can simply interact with A through M \(M/A\) using p\_C, leaving to M the task to translate the message in protocol p\_A, before forwarding it to A.
+
+
 
 The example in Fig.1 is implemented by the code below:
 
