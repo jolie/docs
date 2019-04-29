@@ -1,8 +1,8 @@
 # Redirection
 
-Redirection allows for the creation of a service, called _proxy_, acting as a single communication endpoint for multiple services, called _resources_. Similarly to an aggregator which exploits [aggregation](aggregation.md), a proxy receives all the messages meant for the system that it handles, but it transparently exposes the resource names of the redirected services. Redirection is syntactically obtained by binding an input port of the proxy service to multiple output ports, each one identifying a service by means of a _resource name_.
+Redirection allows for the creation of a service, called _proxy_, acting as a single communication endpoint for multiple services, called _resources_. Similarly to an [aggregator](aggregation.md), a proxy receives all the messages meant for the system that it handles, but it transparently exposes the resource names of the redirected services. Redirection is syntactically obtained by binding an input port of the proxy service to multiple output ports, each one identifying a service by means of a _resource name_.
 
-
+![](../.gitbook/assets/redirection_1.jpg)
 
 Invokers send messages to the master service specifying also the intended resource name.
 
@@ -11,7 +11,7 @@ The main advantages of such an approach are:
 * the possibility to provide a unique access point to the system clients. In this way the services of the system could be relocated and/or replaced transparently to the clients;
 * the possibility to provide transparent communication protocol transformations between the invoker and the master and the master and the rest of the system;
 
-![](../.gitbook/assets/redirection_1.jpg)
+
 
 **Fig.1** Service `M` redirect messages to services `A` , `B` , and `C` depending on the target destination of the message \(`M/A` , `M/B` , or `M/C` \)
 
