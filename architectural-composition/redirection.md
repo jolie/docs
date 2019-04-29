@@ -28,10 +28,54 @@ inputPort id {
 
 where `sid_i => OP_id_i` associates a resource name `sid_i` to an output port identifier `OP_id_i`.
 
+### How to add a resource name to a location
+The resource name must be specified into the location of service to invoke within the output port. The syntax os very simple, it i sufficient to put the token `/!/` between the redirector location and the resource name. As an example let us consider the following locations:
+
+* `socket://localhost:9000/!/A`: where `socket://localhost:9000` is the base location of the redirector port and `A` is the resource name of the target service.
+* `socket://200.200.200.200:19000/!/MyService`: where `socket://200.200.200.200:19000` is the base location of the redirector port and `MyService` is the resource name of the target service.
+
 ## Example
 In the following example we show a simple redirection scenario where a proxy provides a common endpoint for two services, _Sum_ and _Sub_, which performrs addiction and substraction respecitvely. At this [link](https://github.com/jolie/examples/tree/master/04_architectural_composition/07_redirection/01_static_redirection) it is possible to check the complete code.
 
 ![](../.gitbook/assets/redirection_example.png)
+
+The redirection is obtained by simply using the `Redirects` keyword as explained above:
+
+```text
+outputPort SubService {
+Location: Location_Sub
+Protocol: sodep
+}
+
+outputPort SumService {
+Location: Location_Sum
+Protocol: sodep
+}
+
+inputPort Redirector {
+Location: Location_Redirector
+Protocol: sodep
+Redirects:
+	Sub => SubService,
+	Sum => SumService
+}
+```
+
+It is worth noting that, differently from an aggregation scenario where the client just uses a unique output port for sending messages to the target service, here the client has two output ports, one for the service _Sum_ and one for the service _Sub_.
+
+```text
+outputPort Sub {
+  Location: "socket://localhost:9000/!/Sub"
+  Protocol: sodep
+  Interfaces: SubInterface
+}
+
+outputPort Sum {
+  Location: "socket://localhost:9000/!/Sum"
+  Protocol: sodep
+  Interfaces: SumInterface
+}
+```
 
 ## Dynamic Redirection
 
