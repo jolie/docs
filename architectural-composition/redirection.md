@@ -1,8 +1,8 @@
 # Redirection
 
-## Redirection
+Redirection allows for the creation of a service, called _proxy_, acting as a single communication endpoint for multiple services, called _resources_. Similarly to an aggregator which exploits [aggregation](aggregation.md), a proxy receives all the messages meant for the system that it handles, but it transparently exposes the resource names of the redirected services. Redirection is syntactically obtained by binding an input port of the proxy service to multiple output ports, each one identifying a service by means of a _resource name_.
 
-Redirection allows the creation of a _master service_ acting as a single communication endpoint to multiple service, called resources. The master service receives all the messages meant for the system that it handles. This is obtained by binding an input port of the master service to multiple output ports, each one identifying a service by means of a _resource name_.
+
 
 Invokers send messages to the master service specifying also the intended resource name.
 
