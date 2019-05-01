@@ -57,6 +57,8 @@ When a service `A` has an output port that needs to be connected to another serv
 
 A group of services and their connections.
 
+Networks are always connected, in the sense that there is always a path from one service to another, possibly through many connections.
+
 Some networks allow for _private locations_: locations that are visible only to the services in the network.
 
 The nature of a private location depends on the implementation, e.g., shared-memory channels, local sockets, virtual networks.
@@ -72,3 +74,11 @@ Given a service network, we call its _boundary_ the set of:
 ### Cell
 
 A group of service networks in execution.
+
+### Cell boundary
+
+The union of all the network boundaries of the cell.
+
+### Cell network
+
+A group of cells and their connections.
