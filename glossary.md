@@ -68,3 +68,7 @@ Networks can be composed into bigger networks.
 Given a service network, we call its _boundary_ the set of:
 - the input ports exposed by the services in the network that can be reached from outside of the network;
 - the output ports that the services inside of the network require to be connected to services outside of the network.
+
+### Cell
+
+A software artifact that, when run, executes a group of service networks.
