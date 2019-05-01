@@ -59,7 +59,7 @@ A group of services and their connections.
 
 Networks are always connected, in the sense that there is always a path from one service to another, possibly through many connections.
 
-Some networks allow for _private locations_: locations that are visible only to the services in the network.
+Networks might have _private locations_: locations that are visible only to the services in the network.
 
 The nature of a private location depends on the implementation, e.g., shared-memory channels, local sockets, virtual networks.
 
@@ -79,6 +79,6 @@ A group of service networks in execution.
 
 The union of all the network boundaries of the cell.
 
-### Cell network
+### Cell overlay
 
-A group of cells and their connections.
+A group of cells and the connections among the ports in their cell boundaries.
