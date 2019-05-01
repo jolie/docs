@@ -43,7 +43,7 @@ During a conversation between a client and a service, the set of available opera
 A service is always willing to serve requests for its available API.
 
 ### Behaviour
-The definition of a logic to be executed at runtime for implementing a service's API. Behaviours can send and/or receive messages, and perform internal computation.
+The definition of some communication and/or computation logic to be executed at runtime for implementing a service's API.
 
 ### Process
 A running instance of a behaviour, equipped with its own private state and message queues.
