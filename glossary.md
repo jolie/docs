@@ -71,4 +71,4 @@ Given a service network, we call its _boundary_ the set of:
 
 ### Cell
 
-A software artifact that, when run, executes a group of service networks.
+A group of service networks in execution.
