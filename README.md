@@ -2,8 +2,6 @@
 
 This [book](https://jolielang.gitbooks.io/docs/content/) is the reference documentation for the [Jolie](http://jolie-lang.org) programming language.
 
-To download the PDF, Mobi and ePub versions of the Jolie documentation, please refer to the related [GitBook page](https://www.gitbook.com/book/jolielang/docs/details).
-
 ## How to contribute to the Jolie Documentation
 
 This GitBook is linked to the GitHub repository at [https://github.com/jolie/docs](https://github.com/jolie/docs).
