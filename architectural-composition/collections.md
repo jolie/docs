@@ -1,10 +1,5 @@
 # Collections
-
-## Collections
-
-[Courier Sessions](couriers.md#courier-sessions) can be used in combination with _collections_ of output ports in order to forward them according to a specific rule.
-
-A collection is a set of output ports that share the same interface.
+A collection is a set of output ports that share the same interface. They can be used in combination with [Aggregation](aggreation.md) and [Couriers](couriers.md#courier-sessions) in order to public their interface into an aggregator and then forward the message to an output port of the collection depending on a specific rule.
 
 ## Smart Aggregations
 
