@@ -35,7 +35,7 @@ The resource name must be specified into the location of service to invoke withi
 * `socket://200.200.200.200:19000/!/MyService`: where `socket://200.200.200.200:19000` is the base location of the redirector port and `MyService` is the resource name of the target service.
 
 ## Example
-In the following example we show a simple redirection scenario where a proxy provides a common endpoint for two services, _Sum_ and _Sub_, which performrs addiction and substraction respecitvely. At this [link](https://github.com/jolie/examples/tree/master/04_architectural_composition/07_redirection/01_static_redirection) it is possible to check the complete code.
+In the following example we show a simple redirection scenario where a proxy provides a common endpoint for two services, _Sum_ and _Sub_, which performs addiction and substraction respecitvely. At this [link](https://github.com/jolie/examples/tree/master/04_architectural_composition/07_redirection/01_static_redirection) it is possible to check the complete code.
 
 ![](../.gitbook/assets/redirection_example.png)
 
@@ -76,7 +76,7 @@ outputPort Sum {
   Interfaces: SumInterface
 }
 ```
-From an architectural point of view redirection and aggregation are very different, even if the seem to behave similarly. The most important difference is what the client is able to see on the input port of the aggregator and redirector. On the former case, the client is not aware of the services handled by the aggregator because it just sees a unique service which exposes all the operations, whereas in the latter case, the client is aware of the target services and it needs to treat them as separate entities with different output ports.
+From an architectural point of view redirection and aggregation are very different. The most important difference is what the client is able to see on the input port of the aggregator and on the input port of the redirector. On the former case, the client is not aware of the services handled by the aggregator because it just sees a unique service which exposes all the operations, whereas in the latter case, the client is aware of the target services and it needs to treat them as separate entities with different output ports.
 
 ## Dynamic Redirection
 
