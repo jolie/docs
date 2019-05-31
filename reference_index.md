@@ -52,6 +52,7 @@ This reference index is still under construction. If you spot something missing,
 - `outputPort`: output port statement. [Go to section: Ports](basics/communication-ports/ports)
 - `Protocol`: port protocol. [Go to section: Protocol](basics/communication-ports/protocol)
 - `provide [] until []`: provide until statement. [Go to section: Sessions](basics/sessions.md#the-provide-until-statement)
+- `Redirects`: redirection statement. [Go to section: Redirection](architectural-composition/redirection.md)
 - `RequestResponse`: request response operation definition. [Go to section: Interfaces](basics/communication-ports/interfaces.md)
 - `service`: internal service definition. [Go to section: Internal Services](architectural-composition/internal_services.md)
 - `scope(){}`: scope definition. [Go to section: Scopes and Faults](fault-handling/basics.md)
