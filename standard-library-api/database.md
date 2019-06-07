@@ -12,7 +12,7 @@ Inclusion code: <pre>include "database.iol"</pre>
       <th>Interfaces</th>
     </tr>
   </thead>
-  <tbody>
+  <tbody><tr><td>Database documentation: </td></tr>
     <tr>
       <td>Database</td>
       <td>-</td>
@@ -25,6 +25,8 @@ Inclusion code: <pre>include "database.iol"</pre>
 <h3>List of Available Interfaces</h3>
 
 <h3 id="DatabaseInterface">DatabaseInterface</h3>
+
+Interface documentation: 
 
 <table>
   <thead>
@@ -109,7 +111,10 @@ Invocation template:
 
 Type: void
 
-Type documentation: no documentation provided 
+
+
+
+<code>void : void</code> 
 
 
 
@@ -117,13 +122,15 @@ Type documentation: no documentation provided
 
 Type: void
 
-Type documentation: no documentation provided 
+
+
+
+<code>void : void</code> 
 
 
 
 
 <h4>Possible faults thrown</h4>
-
 
 
 Fault <code>ConnectionError</code> with type <code>undefined</code>
@@ -182,30 +189,41 @@ Invocation template:
 
 Type: QueryRequest
 
-Type documentation: no documentation provided 
+
 <pre>type QueryRequest: undefined</pre>
+
+<code>QueryRequest : string</code> 
+
 
 
 <h4 id="QueryResult">Response type</h4>
 
 Type: QueryResult
 
-Type documentation: no documentation provided 
+
 <pre>type QueryResult: void {
 	.row*: undefined
 }</pre>
+
+<code>QueryResult : void</code> 
+
+<ul>
+
+  <li><code>row : void</code> 
+</li>
+
+</ul>
+
 
 
 
 <h4>Possible faults thrown</h4>
 
 
-
 Fault <code>SQLException</code> with type <code>undefined</code>
 
 Fault-handling install template: 
 <pre>install ( SQLException => /* error-handling code */ )</pre>
-
 
 
 
@@ -231,32 +249,50 @@ Invocation template:
 
 Type: DatabaseTransactionRequest
 
-Type documentation: no documentation provided 
+
 <pre>type DatabaseTransactionRequest: void {
 	.statement[1,2147483647]: undefined
 }</pre>
+
+<code>DatabaseTransactionRequest : void</code> 
+
+<ul>
+
+  <li><code>statement : string</code> 
+</li>
+
+</ul>
+
 
 
 <h4 id="DatabaseTransactionResult">Response type</h4>
 
 Type: DatabaseTransactionResult
 
-Type documentation: no documentation provided 
+
 <pre>type DatabaseTransactionResult: void {
 	.result*: TransactionQueryResult
 }</pre>
+
+<code>DatabaseTransactionResult : void</code> 
+
+<ul>
+
+  <li><code>result : int</code> 
+</li>
+
+</ul>
+
 
 
 
 <h4>Possible faults thrown</h4>
 
 
-
 Fault <code>SQLException</code> with type <code>undefined</code>
 
 Fault-handling install template: 
 <pre>install ( SQLException => /* error-handling code */ )</pre>
-
 
 
 
@@ -291,15 +327,21 @@ Invocation template:
 
 Type: UpdateRequest
 
-Type documentation: no documentation provided 
+
 <pre>type UpdateRequest: undefined</pre>
+
+<code>UpdateRequest : string</code> 
+
 
 
 <h4>Response type</h4>
 
 Type: int
 
-Type documentation: no documentation provided 
+
+
+
+<code>int : int</code> 
 
 
 
@@ -307,12 +349,10 @@ Type documentation: no documentation provided
 <h4>Possible faults thrown</h4>
 
 
-
 Fault <code>SQLException</code> with type <code>undefined</code>
 
 Fault-handling install template: 
 <pre>install ( SQLException => /* error-handling code */ )</pre>
-
 
 
 
@@ -340,7 +380,10 @@ Invocation template:
 
 Type: void
 
-Type documentation: no documentation provided 
+
+
+
+<code>void : void</code> 
 
 
 
@@ -348,7 +391,10 @@ Type documentation: no documentation provided
 
 Type: void
 
-Type documentation: no documentation provided 
+
+
+
+<code>void : void</code> 
 
 
 
@@ -381,7 +427,7 @@ Invocation template:
 
 Type: ConnectionInfo
 
-Type documentation: no documentation provided 
+
 <pre>type ConnectionInfo: void {
 	.database: string
 	.password: string
@@ -395,12 +441,52 @@ Type documentation: no documentation provided
 	.username: string
 }</pre>
 
+<code>ConnectionInfo : void</code> 
+
+<ul>
+
+  <li><code>database : string</code> 
+</li>
+
+  <li><code>password : string</code> 
+</li>
+
+  <li><code>checkConnection : int</code> 
+</li>
+
+  <li><code>driver : string</code> 
+</li>
+
+  <li><code>port : int</code> 
+</li>
+
+  <li><code>toLowerCase : bool</code> 
+</li>
+
+  <li><code>host : string</code> 
+</li>
+
+  <li><code>toUpperCase : bool</code> 
+</li>
+
+  <li><code>attributes : string</code> 
+</li>
+
+  <li><code>username : string</code> 
+</li>
+
+</ul>
+
+
 
 <h4>Response type</h4>
 
 Type: void
 
-Type documentation: no documentation provided 
+
+
+
+<code>void : void</code> 
 
 
 
@@ -408,12 +494,10 @@ Type documentation: no documentation provided
 <h4>Possible faults thrown</h4>
 
 
-
 Fault <code>InvalidDriver</code> with type <code>undefined</code>
 
 Fault-handling install template: 
 <pre>install ( InvalidDriver => /* error-handling code */ )</pre>
-
 
 
 
@@ -424,13 +508,25 @@ Fault-handling install template:
 
 
 
-
 Fault <code>DriverClassNotFound</code> with type <code>undefined</code>
 
 Fault-handling install template: 
 <pre>install ( DriverClassNotFound => /* error-handling code */ )</pre>
 
 
+
+
+<h3>Subtypes</h3>
+
+
+<h4 id="TransactionQueryResult">TransactionQueryResult</h4>
+
+
+
+<pre>type TransactionQueryResult: int {
+	.row*: undefined
+}</pre>
+<code>TransactionQueryResult : int</code> 
 
 
 

@@ -12,7 +12,7 @@ Inclusion code: <pre>include "xml_utils.iol"</pre>
       <th>Interfaces</th>
     </tr>
   </thead>
-  <tbody>
+  <tbody><tr><td>XmlUtils documentation: </td></tr>
     <tr>
       <td>XmlUtils</td>
       <td>-</td>
@@ -25,6 +25,8 @@ Inclusion code: <pre>include "xml_utils.iol"</pre>
 <h3>List of Available Interfaces</h3>
 
 <h3 id="XmlUtilsInterface">XmlUtilsInterface</h3>
+
+Interface documentation: 
 
 <table>
   <thead>
@@ -84,7 +86,7 @@ Invocation template:
 
 Type: XMLToValueRequest
 
-Type documentation: no documentation provided 
+
 <pre>type XMLToValueRequest: any {
 	.options?: void {
 		.skipMixedText?: bool
@@ -97,18 +99,55 @@ Type documentation: no documentation provided
 	.isXmlStore?: bool
 }</pre>
 
+<code>XMLToValueRequest : any</code> 
+
+<ul>
+
+  <li><code>options : void</code> 
+
+<ul>
+
+  <li><code>skipMixedText : bool</code> 
+</li>
+
+  <li><code>charset : string</code> 
+</li>
+
+  <li><code>includeAttributes : bool</code> 
+</li>
+
+  <li><code>schemaLanguage : string</code> 
+</li>
+
+  <li><code>includeRoot : bool</code> 
+</li>
+
+  <li><code>schemaUrl : string</code> 
+</li>
+
+</ul>
+</li>
+
+  <li><code>isXmlStore : bool</code> 
+</li>
+
+</ul>
+
+
 
 <h4>Response type</h4>
 
 Type: undefined
 
-Type documentation: no documentation provided 
+
+
+
+<code>undefined : any</code> 
 
 
 
 
 <h4>Possible faults thrown</h4>
-
 
 
 Fault <code>IOException</code> with type <code>IOExceptionType</code>
@@ -121,6 +160,8 @@ Fault-handling install template:
 
 <h3 id="transform">transform</h3>
 
+Operation documentation: 
+
 
 Invocation template: 
 <pre>transform@XmlUtils( request )( response )</pre>
@@ -129,24 +170,39 @@ Invocation template:
 
 Type: XMLTransformationRequest
 
-Type documentation: no documentation provided 
+
 <pre>type XMLTransformationRequest: void {
 	.source: string
 	.xslt: string
 }</pre>
+
+<code>XMLTransformationRequest : void</code> 
+
+<ul>
+
+  <li><code>source : string</code> 
+</li>
+
+  <li><code>xslt : string</code> 
+</li>
+
+</ul>
+
 
 
 <h4>Response type</h4>
 
 Type: string
 
-Type documentation: no documentation provided 
+
+
+
+<code>string : string</code> 
 
 
 
 
 <h4>Possible faults thrown</h4>
-
 
 
 Fault <code>TransformerException</code> with type <code>JavaExceptionType</code>
@@ -175,7 +231,7 @@ Invocation template:
 
 Type: ValueToXmlRequest
 
-Type documentation: no documentation provided 
+
 <pre>type ValueToXmlRequest: void {
 	.omitXmlDeclaration?: bool
 	.indent?: bool
@@ -190,12 +246,56 @@ Type documentation: no documentation provided
 	}
 }</pre>
 
+<code>ValueToXmlRequest : void</code> 
+
+<ul>
+
+  <li><code>omitXmlDeclaration : bool</code> 
+</li>
+
+  <li><code>indent : bool</code> 
+</li>
+
+  <li><code>plain : bool</code> 
+</li>
+
+  <li><code>root : any</code> 
+</li>
+
+  <li><code>rootNodeName : string</code> 
+</li>
+
+  <li><code>isXmlStore : bool</code> 
+</li>
+
+  <li><code>applySchema : void</code> 
+
+<ul>
+
+  <li><code>schema : string</code> 
+</li>
+
+  <li><code>doctypeSystem : string</code> 
+</li>
+
+  <li><code>encoding : string</code> 
+</li>
+
+</ul>
+</li>
+
+</ul>
+
+
 
 <h4>Response type</h4>
 
 Type: string
 
-Type documentation: no documentation provided 
+
+
+
+<code>string : string</code> 
 
 
 
@@ -203,13 +303,11 @@ Type documentation: no documentation provided
 <h4>Possible faults thrown</h4>
 
 
-
 Fault <code>IOException</code> with type <code>IOExceptionType</code>
 
 Fault-handling install template: 
 <pre>install ( IOException => /* error-handling code */ )</pre>
 <pre>type IOExceptionType: JavaExceptionType</pre>
-
 
 
 Fault <code>IllegalArgumentException</code> with type <code>string</code>
@@ -223,9 +321,15 @@ Fault-handling install template:
 <h3>Subtypes</h3>
 
 
-<h4 id="IOExceptionType">IOExceptionType</h4>
+<h4 id="JavaExceptionType">JavaExceptionType</h4>
 
-<pre>type IOExceptionType: JavaExceptionType</pre>
+
+
+<pre>type JavaExceptionType: string {
+	.stackTrace: string
+}</pre>
+<code>JavaExceptionType : string</code> 
+
 
 
 

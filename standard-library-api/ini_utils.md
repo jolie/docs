@@ -12,7 +12,7 @@ Inclusion code: <pre>include "ini_utils.iol"</pre>
       <th>Interfaces</th>
     </tr>
   </thead>
-  <tbody>
+  <tbody><tr><td>IniUtils documentation: </td></tr>
     <tr>
       <td>IniUtils</td>
       <td>-</td>
@@ -25,6 +25,8 @@ Inclusion code: <pre>include "ini_utils.iol"</pre>
 <h3>List of Available Interfaces</h3>
 
 <h3 id="IniUtilsInterface">IniUtilsInterface</h3>
+
+Interface documentation: 
 
 <table>
   <thead>
@@ -52,6 +54,8 @@ Inclusion code: <pre>include "ini_utils.iol"</pre>
 
 <h3 id="parseIniFile">parseIniFile</h3>
 
+Operation documentation: 
+
 
 Invocation template: 
 <pre>parseIniFile@IniUtils( request )( response )</pre>
@@ -60,18 +64,31 @@ Invocation template:
 
 Type: parseIniFileRequest
 
-Type documentation: no documentation provided 
+
 <pre>type parseIniFileRequest: string {
 	.charset?: string
 }</pre>
+
+<code>parseIniFileRequest : string</code> 
+
+<ul>
+
+  <li><code>charset : string</code> 
+</li>
+
+</ul>
+
 
 
 <h4 id="IniData">Response type</h4>
 
 Type: IniData
 
-Type documentation: no documentation provided 
+
 <pre>type IniData: undefined</pre>
+
+<code>IniData : void</code> 
+
 
 
 

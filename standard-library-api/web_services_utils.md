@@ -12,7 +12,7 @@ Inclusion code: <pre>include "web_services_utils.iol"</pre>
       <th>Interfaces</th>
     </tr>
   </thead>
-  <tbody>
+  <tbody><tr><td>WebServicesUtils documentation: </td></tr>
     <tr>
       <td>WebServicesUtils</td>
       <td>-</td>
@@ -25,6 +25,8 @@ Inclusion code: <pre>include "web_services_utils.iol"</pre>
 <h3>List of Available Interfaces</h3>
 
 <h3 id="WebServicesUtilsInterface">WebServicesUtilsInterface</h3>
+
+Interface documentation: 
 
 <table>
   <thead>
@@ -53,6 +55,8 @@ Inclusion code: <pre>include "web_services_utils.iol"</pre>
 
 <h3 id="wsdlToJolie">wsdlToJolie</h3>
 
+Operation documentation: 
+
 
 Invocation template: 
 <pre>wsdlToJolie@WebServicesUtils( request )( response )</pre>
@@ -61,7 +65,10 @@ Invocation template:
 
 Type: string
 
-Type documentation: no documentation provided 
+
+
+
+<code>string : string</code> 
 
 
 
@@ -69,13 +76,15 @@ Type documentation: no documentation provided
 
 Type: string
 
-Type documentation: no documentation provided 
+
+
+
+<code>string : string</code> 
 
 
 
 
 <h4>Possible faults thrown</h4>
-
 
 
 Fault <code>IOException</code> with type <code>IOExceptionType</code>
@@ -89,9 +98,15 @@ Fault-handling install template:
 <h3>Subtypes</h3>
 
 
-<h4 id="IOExceptionType">IOExceptionType</h4>
+<h4 id="JavaExceptionType">JavaExceptionType</h4>
 
-<pre>type IOExceptionType: JavaExceptionType</pre>
+
+
+<pre>type JavaExceptionType: string {
+	.stackTrace: string
+}</pre>
+<code>JavaExceptionType : string</code> 
+
 
 
 

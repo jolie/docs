@@ -12,7 +12,7 @@ Inclusion code: <pre>include "smtp.iol"</pre>
       <th>Interfaces</th>
     </tr>
   </thead>
-  <tbody>
+  <tbody><tr><td>SMTP documentation: </td></tr>
     <tr>
       <td>SMTP</td>
       <td>-</td>
@@ -25,6 +25,8 @@ Inclusion code: <pre>include "smtp.iol"</pre>
 <h3>List of Available Interfaces</h3>
 
 <h3 id="SMTPInterface">SMTPInterface</h3>
+
+Interface documentation: 
 
 <table>
   <thead>
@@ -53,6 +55,8 @@ Inclusion code: <pre>include "smtp.iol"</pre>
 
 <h3 id="sendMail">sendMail</h3>
 
+Operation documentation: 
+
 
 Invocation template: 
 <pre>sendMail@SMTP( request )( response )</pre>
@@ -61,7 +65,7 @@ Invocation template:
 
 Type: SendMailRequest
 
-Type documentation: no documentation provided 
+
 <pre>type SendMailRequest: void {
 	.cc*: string
 	.authenticate?: void {
@@ -69,6 +73,11 @@ Type documentation: no documentation provided
 		.username: string
 	}
 	.bcc*: string
+	.attachment*: void {
+		.filename: string
+		.contentType: string
+		.content: raw
+	}
 	.subject: string
 	.host: string
 	.replyTo*: string
@@ -78,18 +87,83 @@ Type documentation: no documentation provided
 	.content: string
 }</pre>
 
+<code>SendMailRequest : void</code> 
+
+<ul>
+
+  <li><code>cc : string</code> 
+</li>
+
+  <li><code>authenticate : void</code> 
+
+<ul>
+
+  <li><code>password : string</code> 
+</li>
+
+  <li><code>username : string</code> 
+</li>
+
+</ul>
+</li>
+
+  <li><code>bcc : string</code> 
+</li>
+
+  <li><code>attachment : void</code> 
+
+<ul>
+
+  <li><code>filename : string</code> 
+</li>
+
+  <li><code>contentType : string</code> 
+</li>
+
+  <li><code>content : raw</code> 
+</li>
+
+</ul>
+</li>
+
+  <li><code>subject : string</code> 
+</li>
+
+  <li><code>host : string</code> 
+</li>
+
+  <li><code>replyTo : string</code> 
+</li>
+
+  <li><code>from : string</code> 
+</li>
+
+  <li><code>to : string</code> 
+</li>
+
+  <li><code>contentType : string</code> 
+</li>
+
+  <li><code>content : string</code> 
+</li>
+
+</ul>
+
+
 
 <h4>Response type</h4>
 
 Type: void
 
-Type documentation: no documentation provided 
+
+
+
+<code>void : void</code> 
 
 
 
 
 <h4>Possible faults thrown</h4>
-
 
 
 Fault <code>SMTPFault</code> with type <code>undefined</code>

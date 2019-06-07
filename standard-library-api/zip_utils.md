@@ -12,7 +12,7 @@ Inclusion code: <pre>include "zip_utils.iol"</pre>
       <th>Interfaces</th>
     </tr>
   </thead>
-  <tbody>
+  <tbody><tr><td>ZipUtils documentation: </td></tr>
     <tr>
       <td>ZipUtils</td>
       <td>-</td>
@@ -25,6 +25,8 @@ Inclusion code: <pre>include "zip_utils.iol"</pre>
 <h3>List of Available Interfaces</h3>
 
 <h3 id="ZipUtilsInterface">ZipUtilsInterface</h3>
+
+Interface documentation: 
 
 <table>
   <thead>
@@ -67,6 +69,14 @@ Inclusion code: <pre>include "zip_utils.iol"</pre>
         IOException( <a href="#IOExceptionType">IOExceptionType</a> )
       </td>
     </tr>
+    <tr>
+      <td><a href="#listEntries">listEntries</a></td>
+      <td><a href="#ListEntriesRequest">ListEntriesRequest</a></td>
+      <td><a href="#ListEntriesResponse">ListEntriesResponse</a></td>
+      <td>
+        IOException( <a href="#IOExceptionType">IOExceptionType</a> )
+      </td>
+    </tr>
   </tbody>
 </table>
 
@@ -76,6 +86,8 @@ Inclusion code: <pre>include "zip_utils.iol"</pre>
 
 <h3 id="zip">zip</h3>
 
+Operation documentation: 
+
 
 Invocation template: 
 <pre>zip@ZipUtils( request )( response )</pre>
@@ -84,21 +96,26 @@ Invocation template:
 
 Type: ZipRequest
 
-Type documentation: no documentation provided 
+
 <pre>type ZipRequest: undefined</pre>
+
+<code>ZipRequest : void</code> 
+
 
 
 <h4>Response type</h4>
 
 Type: raw
 
-Type documentation: no documentation provided 
+
+
+
+<code>raw : raw</code> 
 
 
 
 
 <h4>Possible faults thrown</h4>
-
 
 
 Fault <code>IOException</code> with type <code>IOExceptionType</code>
@@ -111,6 +128,8 @@ Fault-handling install template:
 
 <h3 id="IOException">IOException</h3>
 
+Operation documentation: 
+
 
 Invocation template: 
 <pre>IOException@ZipUtils( request )( response )</pre>
@@ -119,7 +138,10 @@ Invocation template:
 
 Type: undefined
 
-Type documentation: no documentation provided 
+
+
+
+<code>undefined : any</code> 
 
 
 
@@ -127,7 +149,10 @@ Type documentation: no documentation provided
 
 Type: undefined
 
-Type documentation: no documentation provided 
+
+
+
+<code>undefined : any</code> 
 
 
 
@@ -138,6 +163,8 @@ Type documentation: no documentation provided
 
 <h3 id="unzip">unzip</h3>
 
+Operation documentation: 
+
 
 Invocation template: 
 <pre>unzip@ZipUtils( request )( response )</pre>
@@ -146,26 +173,48 @@ Invocation template:
 
 Type: UnzipRequest
 
-Type documentation: no documentation provided 
+
 <pre>type UnzipRequest: void {
 	.filename: string
 	.targetPath: string
 }</pre>
+
+<code>UnzipRequest : void</code> 
+
+<ul>
+
+  <li><code>filename : string</code> 
+</li>
+
+  <li><code>targetPath : string</code> 
+</li>
+
+</ul>
+
 
 
 <h4 id="UnzipResponse">Response type</h4>
 
 Type: UnzipResponse
 
-Type documentation: no documentation provided 
+
 <pre>type UnzipResponse: void {
 	.entry*: string
 }</pre>
 
+<code>UnzipResponse : void</code> 
+
+<ul>
+
+  <li><code>entry : string</code> 
+</li>
+
+</ul>
+
+
 
 
 <h4>Possible faults thrown</h4>
-
 
 
 Fault <code>FileNotFound</code> with type <code>undefined</code>
@@ -178,6 +227,8 @@ Fault-handling install template:
 
 <h3 id="readEntry">readEntry</h3>
 
+Operation documentation: 
+
 
 Invocation template: 
 <pre>readEntry@ZipUtils( request )( response )</pre>
@@ -186,24 +237,107 @@ Invocation template:
 
 Type: ReadEntryRequest
 
-Type documentation: no documentation provided 
+
 <pre>type ReadEntryRequest: void {
 	.entry: string
-	.filename: string
+	.filename?: string
+	.archive?: raw
 }</pre>
+
+<code>ReadEntryRequest : void</code> 
+
+<ul>
+
+  <li><code>entry : string</code> 
+</li>
+
+  <li><code>filename : string</code> 
+</li>
+
+  <li><code>archive : raw</code> 
+</li>
+
+</ul>
+
 
 
 <h4>Response type</h4>
 
 Type: any
 
-Type documentation: no documentation provided 
+
+
+
+<code>any : any</code> 
 
 
 
 
 <h4>Possible faults thrown</h4>
 
+
+Fault <code>IOException</code> with type <code>IOExceptionType</code>
+
+Fault-handling install template: 
+<pre>install ( IOException => /* error-handling code */ )</pre>
+<pre>type IOExceptionType: JavaExceptionType</pre>
+
+
+
+<h3 id="listEntries">listEntries</h3>
+
+Operation documentation: 
+
+
+Invocation template: 
+<pre>listEntries@ZipUtils( request )( response )</pre>
+
+<h4 id="ListEntriesRequest">Request type</h4>
+
+Type: ListEntriesRequest
+
+
+<pre>type ListEntriesRequest: void {
+	.filename?: string
+	.archive?: raw
+}</pre>
+
+<code>ListEntriesRequest : void</code> 
+
+<ul>
+
+  <li><code>filename : string</code> 
+</li>
+
+  <li><code>archive : raw</code> 
+</li>
+
+</ul>
+
+
+
+<h4 id="ListEntriesResponse">Response type</h4>
+
+Type: ListEntriesResponse
+
+
+<pre>type ListEntriesResponse: void {
+	.entry*: string
+}</pre>
+
+<code>ListEntriesResponse : void</code> 
+
+<ul>
+
+  <li><code>entry : string</code> 
+</li>
+
+</ul>
+
+
+
+
+<h4>Possible faults thrown</h4>
 
 
 Fault <code>IOException</code> with type <code>IOExceptionType</code>
@@ -217,9 +351,15 @@ Fault-handling install template:
 <h3>Subtypes</h3>
 
 
-<h4 id="IOExceptionType">IOExceptionType</h4>
+<h4 id="JavaExceptionType">JavaExceptionType</h4>
 
-<pre>type IOExceptionType: JavaExceptionType</pre>
+
+
+<pre>type JavaExceptionType: string {
+	.stackTrace: string
+}</pre>
+<code>JavaExceptionType : string</code> 
+
 
 
 

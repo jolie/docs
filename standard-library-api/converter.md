@@ -12,7 +12,7 @@ Inclusion code: <pre>include "converter.iol"</pre>
       <th>Interfaces</th>
     </tr>
   </thead>
-  <tbody>
+  <tbody><tr><td>Converter documentation: </td></tr>
     <tr>
       <td>Converter</td>
       <td>-</td>
@@ -25,6 +25,8 @@ Inclusion code: <pre>include "converter.iol"</pre>
 <h3>List of Available Interfaces</h3>
 
 <h3 id="ConverterInterface">ConverterInterface</h3>
+
+Interface documentation: 
 
 <table>
   <thead>
@@ -76,6 +78,8 @@ Inclusion code: <pre>include "converter.iol"</pre>
 
 <h3 id="stringToRaw">stringToRaw</h3>
 
+Operation documentation:  string <-> raw (byte arrays) conversion methods 
+
 
 Invocation template: 
 <pre>stringToRaw@Converter( request )( response )</pre>
@@ -84,23 +88,35 @@ Invocation template:
 
 Type: StringToRawRequest
 
-Type documentation: no documentation provided 
+
 <pre>type StringToRawRequest: string {
 	.charset?: string
 }</pre>
+
+<code>StringToRawRequest : string</code> 
+
+<ul>
+
+  <li><code>charset : string</code> :  set the encoding. Default: system (eg. for Unix-like OS UTF-8) 
+</li>
+
+</ul>
+
 
 
 <h4>Response type</h4>
 
 Type: raw
 
-Type documentation: no documentation provided 
+
+
+
+<code>raw : raw</code> 
 
 
 
 
 <h4>Possible faults thrown</h4>
-
 
 
 Fault <code>IOException</code> with type <code>IOExceptionType</code>
@@ -113,6 +129,8 @@ Fault-handling install template:
 
 <h3 id="base64ToRaw">base64ToRaw</h3>
 
+Operation documentation: 
+
 
 Invocation template: 
 <pre>base64ToRaw@Converter( request )( response )</pre>
@@ -121,7 +139,10 @@ Invocation template:
 
 Type: string
 
-Type documentation: no documentation provided 
+
+
+
+<code>string : string</code> 
 
 
 
@@ -129,13 +150,15 @@ Type documentation: no documentation provided
 
 Type: raw
 
-Type documentation: no documentation provided 
+
+
+
+<code>raw : raw</code> 
 
 
 
 
 <h4>Possible faults thrown</h4>
-
 
 
 Fault <code>IOException</code> with type <code>IOExceptionType</code>
@@ -148,6 +171,8 @@ Fault-handling install template:
 
 <h3 id="rawToBase64">rawToBase64</h3>
 
+Operation documentation: 
+
 
 Invocation template: 
 <pre>rawToBase64@Converter( request )( response )</pre>
@@ -156,7 +181,10 @@ Invocation template:
 
 Type: raw
 
-Type documentation: no documentation provided 
+
+
+
+<code>raw : raw</code> 
 
 
 
@@ -164,7 +192,10 @@ Type documentation: no documentation provided
 
 Type: string
 
-Type documentation: no documentation provided 
+
+
+
+<code>string : string</code> 
 
 
 
@@ -175,6 +206,8 @@ Type documentation: no documentation provided
 
 <h3 id="rawToString">rawToString</h3>
 
+Operation documentation:  string <-> raw (byte arrays) conversion methods 
+
 
 Invocation template: 
 <pre>rawToString@Converter( request )( response )</pre>
@@ -183,23 +216,35 @@ Invocation template:
 
 Type: RawToStringRequest
 
-Type documentation: no documentation provided 
+
 <pre>type RawToStringRequest: raw {
 	.charset?: string
 }</pre>
+
+<code>RawToStringRequest : raw</code> :  The byte array to be converted  
+
+<ul>
+
+  <li><code>charset : string</code> :  set the encoding. Default: system (eg. for Unix-like OS UTF-8) 
+</li>
+
+</ul>
+
 
 
 <h4>Response type</h4>
 
 Type: string
 
-Type documentation: no documentation provided 
+
+
+
+<code>string : string</code> 
 
 
 
 
 <h4>Possible faults thrown</h4>
-
 
 
 Fault <code>IOException</code> with type <code>IOExceptionType</code>
@@ -213,9 +258,15 @@ Fault-handling install template:
 <h3>Subtypes</h3>
 
 
-<h4 id="IOExceptionType">IOExceptionType</h4>
+<h4 id="JavaExceptionType">JavaExceptionType</h4>
 
-<pre>type IOExceptionType: JavaExceptionType</pre>
+
+
+<pre>type JavaExceptionType: string {
+	.stackTrace: string
+}</pre>
+<code>JavaExceptionType : string</code> 
+
 
 
 

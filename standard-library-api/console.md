@@ -18,7 +18,7 @@ Inclusion code: <pre>include "console.iol"</pre>
       <td>local</td>
       <td>-</td>
       <td><a href="#ConsoleInputInterface">ConsoleInputInterface</a></td>
-    </tr>
+    </tr><tr><td>Console documentation: </td></tr>
     <tr>
       <td>Console</td>
       <td>-</td>
@@ -31,6 +31,8 @@ Inclusion code: <pre>include "console.iol"</pre>
 <h3>List of Available Interfaces</h3>
 
 <h3 id="ConsoleInputInterface">ConsoleInputInterface</h3>
+
+Interface documentation: 
 
 <table>
   <thead>
@@ -58,6 +60,8 @@ Inclusion code: <pre>include "console.iol"</pre>
 
 <h3 id="in">in</h3>
 
+Operation documentation: 
+
 
 Invocation template: 
 <pre>in( request )</pre>
@@ -66,10 +70,20 @@ Invocation template:
 
 Type: InRequest
 
-Type documentation: no documentation provided 
+
 <pre>type InRequest: string {
 	.token?: string
 }</pre>
+
+<code>InRequest : string</code> 
+
+<ul>
+
+  <li><code>token : string</code> 
+</li>
+
+</ul>
+
 
 
 
@@ -81,6 +95,8 @@ Type documentation: no documentation provided
 
 
 <h3 id="ConsoleInterface">ConsoleInterface</h3>
+
+Interface documentation: 
 
 <table>
   <thead>
@@ -143,6 +159,8 @@ Type documentation: no documentation provided
 
 <h3 id="print">print</h3>
 
+Operation documentation: 
+
 
 Invocation template: 
 <pre>print@Console( request )( response )</pre>
@@ -151,7 +169,10 @@ Invocation template:
 
 Type: undefined
 
-Type documentation: no documentation provided 
+
+
+
+<code>undefined : any</code> 
 
 
 
@@ -159,7 +180,10 @@ Type documentation: no documentation provided
 
 Type: void
 
-Type documentation: no documentation provided 
+
+
+
+<code>void : void</code> 
 
 
 
@@ -170,6 +194,8 @@ Type documentation: no documentation provided
 
 <h3 id="println">println</h3>
 
+Operation documentation: 
+
 
 Invocation template: 
 <pre>println@Console( request )( response )</pre>
@@ -178,7 +204,10 @@ Invocation template:
 
 Type: undefined
 
-Type documentation: no documentation provided 
+
+
+
+<code>undefined : any</code> 
 
 
 
@@ -186,7 +215,10 @@ Type documentation: no documentation provided
 
 Type: void
 
-Type documentation: no documentation provided 
+
+
+
+<code>void : void</code> 
 
 
 
@@ -210,17 +242,30 @@ Invocation template:
 
 Type: RegisterForInputRequest
 
-Type documentation: no documentation provided 
+
 <pre>type RegisterForInputRequest: void {
 	.enableSessionListener?: bool
 }</pre>
+
+<code>RegisterForInputRequest : void</code> 
+
+<ul>
+
+  <li><code>enableSessionListener : bool</code> 
+</li>
+
+</ul>
+
 
 
 <h4>Response type</h4>
 
 Type: void
 
-Type documentation: no documentation provided 
+
+
+
+<code>void : void</code> 
 
 
 
@@ -243,17 +288,30 @@ Invocation template:
 
 Type: UnsubscribeSessionListener
 
-Type documentation: no documentation provided 
+
 <pre>type UnsubscribeSessionListener: void {
 	.token: string
 }</pre>
+
+<code>UnsubscribeSessionListener : void</code> 
+
+<ul>
+
+  <li><code>token : string</code> 
+</li>
+
+</ul>
+
 
 
 <h4>Response type</h4>
 
 Type: void
 
-Type documentation: no documentation provided 
+
+
+
+<code>void : void</code> 
 
 
 
@@ -277,17 +335,30 @@ Invocation template:
 
 Type: SubscribeSessionListener
 
-Type documentation: no documentation provided 
+
 <pre>type SubscribeSessionListener: void {
 	.token: string
 }</pre>
+
+<code>SubscribeSessionListener : void</code> 
+
+<ul>
+
+  <li><code>token : string</code> 
+</li>
+
+</ul>
+
 
 
 <h4>Response type</h4>
 
 Type: void
 
-Type documentation: no documentation provided 
+
+
+
+<code>void : void</code> 
 
 
 
@@ -311,17 +382,30 @@ Invocation template:
 
 Type: EnableTimestampRequest
 
-Type documentation: no documentation provided 
+
 <pre>type EnableTimestampRequest: bool {
 	.format?: string
 }</pre>
+
+<code>EnableTimestampRequest : bool</code> 
+
+<ul>
+
+  <li><code>format : string</code> 
+</li>
+
+</ul>
+
 
 
 <h4>Response type</h4>
 
 Type: void
 
-Type documentation: no documentation provided 
+
+
+
+<code>void : void</code> 
 
 
 

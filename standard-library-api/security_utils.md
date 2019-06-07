@@ -12,7 +12,7 @@ Inclusion code: <pre>include "security_utils.iol"</pre>
       <th>Interfaces</th>
     </tr>
   </thead>
-  <tbody>
+  <tbody><tr><td>SecurityUtils documentation: </td></tr>
     <tr>
       <td>SecurityUtils</td>
       <td>-</td>
@@ -25,6 +25,8 @@ Inclusion code: <pre>include "security_utils.iol"</pre>
 <h3>List of Available Interfaces</h3>
 
 <h3 id="SecurityUtilsInterface">SecurityUtilsInterface</h3>
+
+Interface documentation: 
 
 <table>
   <thead>
@@ -59,6 +61,8 @@ Inclusion code: <pre>include "security_utils.iol"</pre>
 
 <h3 id="secureRandom">secureRandom</h3>
 
+Operation documentation: 
+
 
 Invocation template: 
 <pre>secureRandom@SecurityUtils( request )( response )</pre>
@@ -67,17 +71,30 @@ Invocation template:
 
 Type: SecureRandomRequest
 
-Type documentation: no documentation provided 
+
 <pre>type SecureRandomRequest: void {
 	.size: int
 }</pre>
+
+<code>SecureRandomRequest : void</code> 
+
+<ul>
+
+  <li><code>size : int</code> 
+</li>
+
+</ul>
+
 
 
 <h4>Response type</h4>
 
 Type: raw
 
-Type documentation: no documentation provided 
+
+
+
+<code>raw : raw</code> 
 
 
 
@@ -88,6 +105,8 @@ Type documentation: no documentation provided
 
 <h3 id="createSecureToken">createSecureToken</h3>
 
+Operation documentation: 
+
 
 Invocation template: 
 <pre>createSecureToken@SecurityUtils( request )( response )</pre>
@@ -96,7 +115,10 @@ Invocation template:
 
 Type: void
 
-Type documentation: no documentation provided 
+
+
+
+<code>void : void</code> 
 
 
 
@@ -104,7 +126,10 @@ Type documentation: no documentation provided
 
 Type: string
 
-Type documentation: no documentation provided 
+
+
+
+<code>string : string</code> 
 
 
 

@@ -12,7 +12,7 @@ Inclusion code: <pre>include "string_utils.iol"</pre>
       <th>Interfaces</th>
     </tr>
   </thead>
-  <tbody>
+  <tbody><tr><td>StringUtils documentation: </td></tr>
     <tr>
       <td>StringUtils</td>
       <td>-</td>
@@ -176,7 +176,7 @@ Interface documentation:
     <tr>
       <td><a href="#indexOf">indexOf</a></td>
       <td><a href="#IndexOfRequest">IndexOfRequest</a></td>
-      <td><a href="#IndexOfResponse">IndexOfResponse</a></td>
+      <td>IndexOfResponse</td>
       <td>
       </td>
     </tr>
@@ -196,6 +196,10 @@ Interface documentation:
 
 <h3 id="leftPad">leftPad</h3>
 
+Operation documentation: 
+	  Returns true if the string contains .substring
+	 
+
 
 Invocation template: 
 <pre>leftPad@StringUtils( request )( response )</pre>
@@ -204,18 +208,34 @@ Invocation template:
 
 Type: PadRequest
 
-Type documentation: no documentation provided 
+
 <pre>type PadRequest: string {
 	.length: int
 	.char: string
 }</pre>
+
+<code>PadRequest : string</code> 
+
+<ul>
+
+  <li><code>length : int</code> 
+</li>
+
+  <li><code>char : string</code> 
+</li>
+
+</ul>
+
 
 
 <h4>Response type</h4>
 
 Type: string
 
-Type documentation: no documentation provided 
+
+
+
+<code>string : string</code> 
 
 
 
@@ -226,6 +246,10 @@ Type documentation: no documentation provided
 
 <h3 id="valueToPrettyString">valueToPrettyString</h3>
 
+Operation documentation: 
+	 checks if the passed string starts with a given prefix
+	
+
 
 Invocation template: 
 <pre>valueToPrettyString@StringUtils( request )( response )</pre>
@@ -234,7 +258,10 @@ Invocation template:
 
 Type: undefined
 
-Type documentation: no documentation provided 
+
+
+
+<code>undefined : any</code> 
 
 
 
@@ -242,7 +269,10 @@ Type documentation: no documentation provided
 
 Type: string
 
-Type documentation: no documentation provided 
+
+
+
+<code>string : string</code> 
 
 
 
@@ -253,6 +283,10 @@ Type documentation: no documentation provided
 
 <h3 id="toLowerCase">toLowerCase</h3>
 
+Operation documentation: 
+	  Returns true if the string contains .substring
+	 
+
 
 Invocation template: 
 <pre>toLowerCase@StringUtils( request )( response )</pre>
@@ -261,7 +295,10 @@ Invocation template:
 
 Type: string
 
-Type documentation: no documentation provided 
+
+
+
+<code>string : string</code> 
 
 
 
@@ -269,7 +306,10 @@ Type documentation: no documentation provided
 
 Type: string
 
-Type documentation: no documentation provided 
+
+
+
+<code>string : string</code> 
 
 
 
@@ -280,6 +320,10 @@ Type documentation: no documentation provided
 
 <h3 id="length">length</h3>
 
+Operation documentation: 
+	  Returns true if the string contains .substring
+	 
+
 
 Invocation template: 
 <pre>length@StringUtils( request )( response )</pre>
@@ -288,7 +332,10 @@ Invocation template:
 
 Type: string
 
-Type documentation: no documentation provided 
+
+
+
+<code>string : string</code> 
 
 
 
@@ -296,7 +343,10 @@ Type documentation: no documentation provided
 
 Type: int
 
-Type documentation: no documentation provided 
+
+
+
+<code>int : int</code> 
 
 
 
@@ -307,6 +357,10 @@ Type documentation: no documentation provided
 
 <h3 id="match">match</h3>
 
+Operation documentation: 
+	  Returns true if the string contains .substring
+	 
+
 
 Invocation template: 
 <pre>match@StringUtils( request )( response )</pre>
@@ -315,20 +369,40 @@ Invocation template:
 
 Type: MatchRequest
 
-Type documentation: no documentation provided 
+
 <pre>type MatchRequest: string {
 	.regex: string
 }</pre>
+
+<code>MatchRequest : string</code> 
+
+<ul>
+
+  <li><code>regex : string</code> 
+</li>
+
+</ul>
+
 
 
 <h4 id="MatchResult">Response type</h4>
 
 Type: MatchResult
 
-Type documentation: no documentation provided 
+
 <pre>type MatchResult: int {
 	.group*: string
 }</pre>
+
+<code>MatchResult : int</code> 
+
+<ul>
+
+  <li><code>group : string</code> 
+</li>
+
+</ul>
+
 
 
 
@@ -338,6 +412,10 @@ Type documentation: no documentation provided
 
 <h3 id="replaceFirst">replaceFirst</h3>
 
+Operation documentation: 
+	  Returns true if the string contains .substring
+	 
+
 
 Invocation template: 
 <pre>replaceFirst@StringUtils( request )( response )</pre>
@@ -346,18 +424,34 @@ Invocation template:
 
 Type: ReplaceRequest
 
-Type documentation: no documentation provided 
+
 <pre>type ReplaceRequest: string {
 	.regex: string
 	.replacement: string
 }</pre>
+
+<code>ReplaceRequest : string</code> 
+
+<ul>
+
+  <li><code>regex : string</code> 
+</li>
+
+  <li><code>replacement : string</code> 
+</li>
+
+</ul>
+
 
 
 <h4>Response type</h4>
 
 Type: string
 
-Type documentation: no documentation provided 
+
+
+
+<code>string : string</code> 
 
 
 
@@ -368,6 +462,10 @@ Type documentation: no documentation provided
 
 <h3 id="sort">sort</h3>
 
+Operation documentation: 
+	  Returns true if the string contains .substring
+	 
+
 
 Invocation template: 
 <pre>sort@StringUtils( request )( response )</pre>
@@ -376,20 +474,40 @@ Invocation template:
 
 Type: StringItemList
 
-Type documentation: no documentation provided 
+
 <pre>type StringItemList: void {
 	.item*: string
 }</pre>
+
+<code>StringItemList : void</code> 
+
+<ul>
+
+  <li><code>item : string</code> 
+</li>
+
+</ul>
+
 
 
 <h4 id="StringItemList">Response type</h4>
 
 Type: StringItemList
 
-Type documentation: no documentation provided 
+
 <pre>type StringItemList: void {
 	.item*: string
 }</pre>
+
+<code>StringItemList : void</code> 
+
+<ul>
+
+  <li><code>item : string</code> 
+</li>
+
+</ul>
+
 
 
 
@@ -399,6 +517,10 @@ Type documentation: no documentation provided
 
 <h3 id="replaceAll">replaceAll</h3>
 
+Operation documentation: 
+	  Returns true if the string contains .substring
+	 
+
 
 Invocation template: 
 <pre>replaceAll@StringUtils( request )( response )</pre>
@@ -407,18 +529,34 @@ Invocation template:
 
 Type: ReplaceRequest
 
-Type documentation: no documentation provided 
+
 <pre>type ReplaceRequest: string {
 	.regex: string
 	.replacement: string
 }</pre>
+
+<code>ReplaceRequest : string</code> 
+
+<ul>
+
+  <li><code>regex : string</code> 
+</li>
+
+  <li><code>replacement : string</code> 
+</li>
+
+</ul>
+
 
 
 <h4>Response type</h4>
 
 Type: string
 
-Type documentation: no documentation provided 
+
+
+
+<code>string : string</code> 
 
 
 
@@ -429,6 +567,10 @@ Type documentation: no documentation provided
 
 <h3 id="substring">substring</h3>
 
+Operation documentation: 
+	  Returns true if the string contains .substring
+	 
+
 
 Invocation template: 
 <pre>substring@StringUtils( request )( response )</pre>
@@ -437,18 +579,34 @@ Invocation template:
 
 Type: SubStringRequest
 
-Type documentation: no documentation provided 
+
 <pre>type SubStringRequest: string {
 	.end: int
 	.begin: int
 }</pre>
+
+<code>SubStringRequest : string</code> 
+
+<ul>
+
+  <li><code>end : int</code> 
+</li>
+
+  <li><code>begin : int</code> 
+</li>
+
+</ul>
+
 
 
 <h4>Response type</h4>
 
 Type: string
 
-Type documentation: no documentation provided 
+
+
+
+<code>string : string</code> 
 
 
 
@@ -471,7 +629,10 @@ Invocation template:
 
 Type: void
 
-Type documentation: no documentation provided 
+
+
+
+<code>void : void</code> 
 
 
 
@@ -479,7 +640,10 @@ Type documentation: no documentation provided
 
 Type: string
 
-Type documentation: no documentation provided 
+
+
+
+<code>string : string</code> 
 
 
 
@@ -490,6 +654,10 @@ Type documentation: no documentation provided
 
 <h3 id="rightPad">rightPad</h3>
 
+Operation documentation: 
+	  Returns true if the string contains .substring
+	 
+
 
 Invocation template: 
 <pre>rightPad@StringUtils( request )( response )</pre>
@@ -498,18 +666,34 @@ Invocation template:
 
 Type: PadRequest
 
-Type documentation: no documentation provided 
+
 <pre>type PadRequest: string {
 	.length: int
 	.char: string
 }</pre>
+
+<code>PadRequest : string</code> 
+
+<ul>
+
+  <li><code>length : int</code> 
+</li>
+
+  <li><code>char : string</code> 
+</li>
+
+</ul>
+
 
 
 <h4>Response type</h4>
 
 Type: string
 
-Type documentation: no documentation provided 
+
+
+
+<code>string : string</code> 
 
 
 
@@ -532,17 +716,30 @@ Invocation template:
 
 Type: ContainsRequest
 
-Type documentation: no documentation provided 
+
 <pre>type ContainsRequest: string {
 	.substring: string
 }</pre>
+
+<code>ContainsRequest : string</code> 
+
+<ul>
+
+  <li><code>substring : string</code> 
+</li>
+
+</ul>
+
 
 
 <h4>Response type</h4>
 
 Type: bool
 
-Type documentation: no documentation provided 
+
+
+
+<code>bool : bool</code> 
 
 
 
@@ -553,6 +750,10 @@ Type documentation: no documentation provided
 
 <h3 id="split">split</h3>
 
+Operation documentation: 
+	  Returns true if the string contains .substring
+	 
+
 
 Invocation template: 
 <pre>split@StringUtils( request )( response )</pre>
@@ -561,21 +762,44 @@ Invocation template:
 
 Type: SplitRequest
 
-Type documentation: no documentation provided 
+
 <pre>type SplitRequest: string {
 	.regex: string
 	.limit?: int
 }</pre>
+
+<code>SplitRequest : string</code> 
+
+<ul>
+
+  <li><code>regex : string</code> 
+</li>
+
+  <li><code>limit : int</code> 
+</li>
+
+</ul>
+
 
 
 <h4 id="SplitResult">Response type</h4>
 
 Type: SplitResult
 
-Type documentation: no documentation provided 
+
 <pre>type SplitResult: void {
 	.result*: string
 }</pre>
+
+<code>SplitResult : void</code> 
+
+<ul>
+
+  <li><code>result : string</code> 
+</li>
+
+</ul>
+
 
 
 
@@ -585,6 +809,10 @@ Type documentation: no documentation provided
 
 <h3 id="splitByLength">splitByLength</h3>
 
+Operation documentation: 
+	  Returns true if the string contains .substring
+	 
+
 
 Invocation template: 
 <pre>splitByLength@StringUtils( request )( response )</pre>
@@ -593,20 +821,40 @@ Invocation template:
 
 Type: SplitByLengthRequest
 
-Type documentation: no documentation provided 
+
 <pre>type SplitByLengthRequest: string {
 	.length: int
 }</pre>
+
+<code>SplitByLengthRequest : string</code> 
+
+<ul>
+
+  <li><code>length : int</code> 
+</li>
+
+</ul>
+
 
 
 <h4 id="SplitResult">Response type</h4>
 
 Type: SplitResult
 
-Type documentation: no documentation provided 
+
 <pre>type SplitResult: void {
 	.result*: string
 }</pre>
+
+<code>SplitResult : void</code> 
+
+<ul>
+
+  <li><code>result : string</code> 
+</li>
+
+</ul>
+
 
 
 
@@ -616,6 +864,10 @@ Type documentation: no documentation provided
 
 <h3 id="trim">trim</h3>
 
+Operation documentation: 
+	  Returns true if the string contains .substring
+	 
+
 
 Invocation template: 
 <pre>trim@StringUtils( request )( response )</pre>
@@ -624,7 +876,10 @@ Invocation template:
 
 Type: string
 
-Type documentation: no documentation provided 
+
+
+
+<code>string : string</code> 
 
 
 
@@ -632,7 +887,10 @@ Type documentation: no documentation provided
 
 Type: string
 
-Type documentation: no documentation provided 
+
+
+
+<code>string : string</code> 
 
 
 
@@ -643,6 +901,10 @@ Type documentation: no documentation provided
 
 <h3 id="find">find</h3>
 
+Operation documentation: 
+	  Returns true if the string contains .substring
+	 
+
 
 Invocation template: 
 <pre>find@StringUtils( request )( response )</pre>
@@ -651,20 +913,40 @@ Invocation template:
 
 Type: MatchRequest
 
-Type documentation: no documentation provided 
+
 <pre>type MatchRequest: string {
 	.regex: string
 }</pre>
+
+<code>MatchRequest : string</code> 
+
+<ul>
+
+  <li><code>regex : string</code> 
+</li>
+
+</ul>
+
 
 
 <h4 id="MatchResult">Response type</h4>
 
 Type: MatchResult
 
-Type documentation: no documentation provided 
+
 <pre>type MatchResult: int {
 	.group*: string
 }</pre>
+
+<code>MatchResult : int</code> 
+
+<ul>
+
+  <li><code>group : string</code> 
+</li>
+
+</ul>
+
 
 
 
@@ -686,17 +968,30 @@ Invocation template:
 
 Type: EndsWithRequest
 
-Type documentation: no documentation provided 
+
 <pre>type EndsWithRequest: string {
 	.suffix: string
 }</pre>
+
+<code>EndsWithRequest : string</code> 
+
+<ul>
+
+  <li><code>suffix : string</code> 
+</li>
+
+</ul>
+
 
 
 <h4>Response type</h4>
 
 Type: bool
 
-Type documentation: no documentation provided 
+
+
+
+<code>bool : bool</code> 
 
 
 
@@ -707,6 +1002,10 @@ Type documentation: no documentation provided
 
 <h3 id="toUpperCase">toUpperCase</h3>
 
+Operation documentation: 
+	  Returns true if the string contains .substring
+	 
+
 
 Invocation template: 
 <pre>toUpperCase@StringUtils( request )( response )</pre>
@@ -715,7 +1014,10 @@ Invocation template:
 
 Type: string
 
-Type documentation: no documentation provided 
+
+
+
+<code>string : string</code> 
 
 
 
@@ -723,7 +1025,10 @@ Type documentation: no documentation provided
 
 Type: string
 
-Type documentation: no documentation provided 
+
+
+
+<code>string : string</code> 
 
 
 
@@ -734,6 +1039,10 @@ Type documentation: no documentation provided
 
 <h3 id="join">join</h3>
 
+Operation documentation: 
+	  Returns true if the string contains .substring
+	 
+
 
 Invocation template: 
 <pre>join@StringUtils( request )( response )</pre>
@@ -742,18 +1051,34 @@ Invocation template:
 
 Type: JoinRequest
 
-Type documentation: no documentation provided 
+
 <pre>type JoinRequest: void {
 	.piece*: string
 	.delimiter: string
 }</pre>
+
+<code>JoinRequest : void</code> 
+
+<ul>
+
+  <li><code>piece : string</code> 
+</li>
+
+  <li><code>delimiter : string</code> 
+</li>
+
+</ul>
+
 
 
 <h4>Response type</h4>
 
 Type: string
 
-Type documentation: no documentation provided 
+
+
+
+<code>string : string</code> 
 
 
 
@@ -764,6 +1089,10 @@ Type documentation: no documentation provided
 
 <h3 id="indexOf">indexOf</h3>
 
+Operation documentation: 
+	  Returns true if the string contains .substring
+	 
+
 
 Invocation template: 
 <pre>indexOf@StringUtils( request )( response )</pre>
@@ -772,18 +1101,31 @@ Invocation template:
 
 Type: IndexOfRequest
 
-Type documentation: no documentation provided 
+
 <pre>type IndexOfRequest: string {
 	.word: string
 }</pre>
 
+<code>IndexOfRequest : string</code> 
 
-<h4 id="IndexOfResponse">Response type</h4>
+<ul>
+
+  <li><code>word : string</code> 
+</li>
+
+</ul>
+
+
+
+<h4>Response type</h4>
 
 Type: IndexOfResponse
 
-Type documentation: no documentation provided 
-<pre>type IndexOfResponse: int</pre>
+
+
+
+<code>IndexOfResponse : int</code> 
+
 
 
 
@@ -805,17 +1147,30 @@ Invocation template:
 
 Type: StartsWithRequest
 
-Type documentation: no documentation provided 
+
 <pre>type StartsWithRequest: string {
 	.prefix: string
 }</pre>
+
+<code>StartsWithRequest : string</code> 
+
+<ul>
+
+  <li><code>prefix : string</code> 
+</li>
+
+</ul>
+
 
 
 <h4>Response type</h4>
 
 Type: bool
 
-Type documentation: no documentation provided 
+
+
+
+<code>bool : bool</code> 
 
 
 

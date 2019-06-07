@@ -18,7 +18,7 @@ Inclusion code: <pre>include "monitors/standard_monitor.iol"</pre>
       <td>local</td>
       <td>-</td>
       <td><a href="#StandardMonitorInputInterface">StandardMonitorInputInterface</a></td>
-    </tr>
+    </tr><tr><td>Monitor documentation: </td></tr>
     <tr>
       <td>Monitor</td>
       <td>-</td>
@@ -31,6 +31,8 @@ Inclusion code: <pre>include "monitors/standard_monitor.iol"</pre>
 <h3>List of Available Interfaces</h3>
 
 <h3 id="StandardMonitorInputInterface">StandardMonitorInputInterface</h3>
+
+Interface documentation: 
 
 <table>
   <thead>
@@ -58,6 +60,8 @@ Inclusion code: <pre>include "monitors/standard_monitor.iol"</pre>
 
 <h3 id="monitorAlert">monitorAlert</h3>
 
+Operation documentation: 
+
 
 Invocation template: 
 <pre>monitorAlert( request )</pre>
@@ -66,7 +70,10 @@ Invocation template:
 
 Type: void
 
-Type documentation: no documentation provided 
+
+
+
+<code>void : void</code> 
 
 
 
@@ -79,6 +86,8 @@ Type documentation: no documentation provided
 
 
 <h3 id="MonitorInterface">MonitorInterface</h3>
+
+Interface documentation: 
 
 <table>
   <thead>
@@ -106,6 +115,8 @@ Type documentation: no documentation provided
 
 <h3 id="pushEvent">pushEvent</h3>
 
+Operation documentation: 
+
 
 Invocation template: 
 <pre>pushEvent@Monitor( request )</pre>
@@ -114,18 +125,39 @@ Invocation template:
 
 Type: undefined
 
-Type documentation: no documentation provided 
+
+
+
+<code>undefined : any</code> 
 
 
 
 
 
 
+
+
+<h3>Subtypes</h3>
+
+
+<h4 id="MonitorEvent">MonitorEvent</h4>
+
+
+
+<pre>type MonitorEvent: void {
+	.memory: long
+	.data?: undefined
+	.type: string
+	.timestamp: long
+}</pre>
+<code>MonitorEvent : void</code> 
 
 
 
 
 <h3 id="StandardMonitorInterface">StandardMonitorInterface</h3>
+
+Interface documentation: 
 
 <table>
   <thead>
@@ -160,6 +192,8 @@ Type documentation: no documentation provided
 
 <h3 id="flush">flush</h3>
 
+Operation documentation: 
+
 
 Invocation template: 
 <pre>flush@Monitor( request )( response )</pre>
@@ -168,7 +202,10 @@ Invocation template:
 
 Type: void
 
-Type documentation: no documentation provided 
+
+
+
+<code>void : void</code> 
 
 
 
@@ -176,10 +213,20 @@ Type documentation: no documentation provided
 
 Type: FlushResponse
 
-Type documentation: no documentation provided 
+
 <pre>type FlushResponse: void {
 	.events*: MonitorEvent
 }</pre>
+
+<code>FlushResponse : void</code> 
+
+<ul>
+
+  <li><code>events : void</code> 
+</li>
+
+</ul>
+
 
 
 
@@ -189,6 +236,8 @@ Type documentation: no documentation provided
 
 <h3 id="setMonitor">setMonitor</h3>
 
+Operation documentation: 
+
 
 Invocation template: 
 <pre>setMonitor@Monitor( request )( response )</pre>
@@ -197,25 +246,60 @@ Invocation template:
 
 Type: SetStandardMonitorRequest
 
-Type documentation: no documentation provided 
+
 <pre>type SetStandardMonitorRequest: void {
 	.queueMax?: int
 	.triggeredEnabled?: bool
 	.triggerThreshold?: int
 }</pre>
 
+<code>SetStandardMonitorRequest : void</code> 
+
+<ul>
+
+  <li><code>queueMax : int</code> 
+</li>
+
+  <li><code>triggeredEnabled : bool</code> 
+</li>
+
+  <li><code>triggerThreshold : int</code> 
+</li>
+
+</ul>
+
+
 
 <h4>Response type</h4>
 
 Type: void
 
-Type documentation: no documentation provided 
+
+
+
+<code>void : void</code> 
 
 
 
 
 
 
+
+
+<h3>Subtypes</h3>
+
+
+<h4 id="MonitorEvent">MonitorEvent</h4>
+
+
+
+<pre>type MonitorEvent: void {
+	.memory: long
+	.data?: undefined
+	.type: string
+	.timestamp: long
+}</pre>
+<code>MonitorEvent : void</code> 
 
 
 

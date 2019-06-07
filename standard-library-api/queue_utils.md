@@ -12,7 +12,7 @@ Inclusion code: <pre>include "queue_utils.iol"</pre>
       <th>Interfaces</th>
     </tr>
   </thead>
-  <tbody>
+  <tbody><tr><td>QueueUtils documentation: </td></tr>
     <tr>
       <td>QueueUtils</td>
       <td>-</td>
@@ -25,6 +25,8 @@ Inclusion code: <pre>include "queue_utils.iol"</pre>
 <h3>List of Available Interfaces</h3>
 
 <h3 id="QueueUtilsInterface">QueueUtilsInterface</h3>
+
+Interface documentation: 
 
 <table>
   <thead>
@@ -87,6 +89,8 @@ Inclusion code: <pre>include "queue_utils.iol"</pre>
 
 <h3 id="size">size</h3>
 
+Operation documentation: Returns the size of an existing queue, null otherwise
+
 
 Invocation template: 
 <pre>size@QueueUtils( request )( response )</pre>
@@ -95,7 +99,10 @@ Invocation template:
 
 Type: string
 
-Type documentation: no documentation provided 
+
+
+
+<code>string : string</code> 
 
 
 
@@ -103,7 +110,10 @@ Type documentation: no documentation provided
 
 Type: int
 
-Type documentation: no documentation provided 
+
+
+
+<code>int : int</code> 
 
 
 
@@ -114,6 +124,8 @@ Type documentation: no documentation provided
 
 <h3 id="poll">poll</h3>
 
+Operation documentation: Removes and returns the head of the queue
+
 
 Invocation template: 
 <pre>poll@QueueUtils( request )( response )</pre>
@@ -122,7 +134,10 @@ Invocation template:
 
 Type: string
 
-Type documentation: no documentation provided 
+
+
+
+<code>string : string</code> 
 
 
 
@@ -130,7 +145,10 @@ Type documentation: no documentation provided
 
 Type: undefined
 
-Type documentation: no documentation provided 
+
+
+
+<code>undefined : any</code> 
 
 
 
@@ -141,6 +159,8 @@ Type documentation: no documentation provided
 
 <h3 id="new_queue">new_queue</h3>
 
+Operation documentation: Creates a new queue with queue_name as key
+
 
 Invocation template: 
 <pre>new_queue@QueueUtils( request )( response )</pre>
@@ -149,7 +169,10 @@ Invocation template:
 
 Type: string
 
-Type documentation: no documentation provided 
+
+
+
+<code>string : string</code> 
 
 
 
@@ -157,7 +180,10 @@ Type documentation: no documentation provided
 
 Type: bool
 
-Type documentation: no documentation provided 
+
+
+
+<code>bool : bool</code> 
 
 
 
@@ -168,6 +194,8 @@ Type documentation: no documentation provided
 
 <h3 id="delete_queue">delete_queue</h3>
 
+Operation documentation: Removes an existing queue
+
 
 Invocation template: 
 <pre>delete_queue@QueueUtils( request )( response )</pre>
@@ -176,7 +204,10 @@ Invocation template:
 
 Type: string
 
-Type documentation: no documentation provided 
+
+
+
+<code>string : string</code> 
 
 
 
@@ -184,7 +215,10 @@ Type documentation: no documentation provided
 
 Type: bool
 
-Type documentation: no documentation provided 
+
+
+
+<code>bool : bool</code> 
 
 
 
@@ -195,6 +229,8 @@ Type documentation: no documentation provided
 
 <h3 id="push">push</h3>
 
+Operation documentation: Pushes an element at the end of an existing queue
+
 
 Invocation template: 
 <pre>push@QueueUtils( request )( response )</pre>
@@ -203,18 +239,34 @@ Invocation template:
 
 Type: QueueRequest
 
-Type documentation: no documentation provided 
+
 <pre>type QueueRequest: void {
 	.queue_name: string
 	.element: undefined
 }</pre>
+
+<code>QueueRequest : void</code> 
+
+<ul>
+
+  <li><code>queue_name : string</code> 
+</li>
+
+  <li><code>element : any</code> 
+</li>
+
+</ul>
+
 
 
 <h4>Response type</h4>
 
 Type: bool
 
-Type documentation: no documentation provided 
+
+
+
+<code>bool : bool</code> 
 
 
 
@@ -225,6 +277,8 @@ Type documentation: no documentation provided
 
 <h3 id="peek">peek</h3>
 
+Operation documentation: Retrieves, but does not remove, the head of the queue
+
 
 Invocation template: 
 <pre>peek@QueueUtils( request )( response )</pre>
@@ -233,7 +287,10 @@ Invocation template:
 
 Type: string
 
-Type documentation: no documentation provided 
+
+
+
+<code>string : string</code> 
 
 
 
@@ -241,7 +298,10 @@ Type documentation: no documentation provided
 
 Type: undefined
 
-Type documentation: no documentation provided 
+
+
+
+<code>undefined : any</code> 
 
 
 

@@ -12,7 +12,7 @@ Inclusion code: <pre>include "xmpp.iol"</pre>
       <th>Interfaces</th>
     </tr>
   </thead>
-  <tbody>
+  <tbody><tr><td>XMPP documentation: </td></tr>
     <tr>
       <td>XMPP</td>
       <td>-</td>
@@ -25,6 +25,8 @@ Inclusion code: <pre>include "xmpp.iol"</pre>
 <h3>List of Available Interfaces</h3>
 
 <h3 id="XMPPInterface">XMPPInterface</h3>
+
+Interface documentation: 
 
 <table>
   <thead>
@@ -61,6 +63,8 @@ Inclusion code: <pre>include "xmpp.iol"</pre>
 
 <h3 id="sendMessage">sendMessage</h3>
 
+Operation documentation: 
+
 
 Invocation template: 
 <pre>sendMessage@XMPP( request )( response )</pre>
@@ -69,23 +73,35 @@ Invocation template:
 
 Type: SendMessageRequest
 
-Type documentation: no documentation provided 
+
 <pre>type SendMessageRequest: string {
 	.to: string
 }</pre>
+
+<code>SendMessageRequest : string</code> 
+
+<ul>
+
+  <li><code>to : string</code> 
+</li>
+
+</ul>
+
 
 
 <h4>Response type</h4>
 
 Type: void
 
-Type documentation: no documentation provided 
+
+
+
+<code>void : void</code> 
 
 
 
 
 <h4>Possible faults thrown</h4>
-
 
 
 Fault <code>XMPPException</code> with type <code>undefined</code>
@@ -98,6 +114,8 @@ Fault-handling install template:
 
 <h3 id="connect">connect</h3>
 
+Operation documentation: 
+
 
 Invocation template: 
 <pre>connect@XMPP( request )( response )</pre>
@@ -106,7 +124,7 @@ Invocation template:
 
 Type: ConnectionRequest
 
-Type documentation: no documentation provided 
+
 <pre>type ConnectionRequest: void {
 	.password: string
 	.port?: int
@@ -116,18 +134,45 @@ Type documentation: no documentation provided
 	.username: string
 }</pre>
 
+<code>ConnectionRequest : void</code> 
+
+<ul>
+
+  <li><code>password : string</code> 
+</li>
+
+  <li><code>port : int</code> 
+</li>
+
+  <li><code>resource : string</code> 
+</li>
+
+  <li><code>host : string</code> 
+</li>
+
+  <li><code>serviceName : string</code> 
+</li>
+
+  <li><code>username : string</code> 
+</li>
+
+</ul>
+
+
 
 <h4>Response type</h4>
 
 Type: void
 
-Type documentation: no documentation provided 
+
+
+
+<code>void : void</code> 
 
 
 
 
 <h4>Possible faults thrown</h4>
-
 
 
 Fault <code>XMPPException</code> with type <code>undefined</code>

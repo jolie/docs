@@ -12,7 +12,7 @@ Inclusion code: <pre>include "bluetooth.iol"</pre>
       <th>Interfaces</th>
     </tr>
   </thead>
-  <tbody>
+  <tbody><tr><td>Bluetooth documentation: </td></tr>
     <tr>
       <td>Bluetooth</td>
       <td>-</td>
@@ -25,6 +25,8 @@ Inclusion code: <pre>include "bluetooth.iol"</pre>
 <h3>List of Available Interfaces</h3>
 
 <h3 id="BluetoothInterface">BluetoothInterface</h3>
+
+Interface documentation: 
 
 <table>
   <thead>
@@ -59,6 +61,11 @@ Inclusion code: <pre>include "bluetooth.iol"</pre>
 
 <h3 id="inquire">inquire</h3>
 
+Operation documentation: 
+	  Sets the current Bluetooth device as discoverable or not discoverable
+	  @request: 0 if the device has to be set not discoverable, 1 if the device has to be set discoverable.
+	 
+
 
 Invocation template: 
 <pre>inquire@Bluetooth( request )( response )</pre>
@@ -67,7 +74,10 @@ Invocation template:
 
 Type: void
 
-Type documentation: no documentation provided 
+
+
+
+<code>void : void</code> 
 
 
 
@@ -75,7 +85,7 @@ Type documentation: no documentation provided
 
 Type: BluetoothInquiryResponse
 
-Type documentation: no documentation provided 
+
 <pre>type BluetoothInquiryResponse: void {
 	.service*: void {
 		.location: string
@@ -85,6 +95,36 @@ Type documentation: no documentation provided
 		.name: string
 	}
 }</pre>
+
+<code>BluetoothInquiryResponse : void</code> 
+
+<ul>
+
+  <li><code>service : void</code> 
+
+<ul>
+
+  <li><code>location : string</code> 
+</li>
+
+</ul>
+</li>
+
+  <li><code>device : void</code> 
+
+<ul>
+
+  <li><code>address : string</code> 
+</li>
+
+  <li><code>name : string</code> 
+</li>
+
+</ul>
+</li>
+
+</ul>
+
 
 
 
@@ -107,7 +147,10 @@ Invocation template:
 
 Type: int
 
-Type documentation: no documentation provided 
+
+
+
+<code>int : int</code> 
 
 
 
@@ -115,7 +158,10 @@ Type documentation: no documentation provided
 
 Type: int
 
-Type documentation: no documentation provided 
+
+
+
+<code>int : int</code> 
 
 
 

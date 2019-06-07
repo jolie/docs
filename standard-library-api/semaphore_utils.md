@@ -12,7 +12,7 @@ Inclusion code: <pre>include "semaphore_utils.iol"</pre>
       <th>Interfaces</th>
     </tr>
   </thead>
-  <tbody>
+  <tbody><tr><td>SemaphoreUtils documentation: </td></tr>
     <tr>
       <td>SemaphoreUtils</td>
       <td>-</td>
@@ -25,6 +25,8 @@ Inclusion code: <pre>include "semaphore_utils.iol"</pre>
 <h3>List of Available Interfaces</h3>
 
 <h3 id="SemaphoreUtilsInterface">SemaphoreUtilsInterface</h3>
+
+Interface documentation: 
 
 <table>
   <thead>
@@ -74,18 +76,34 @@ Invocation template:
 
 Type: SemaphoreRequest
 
-Type documentation: no documentation provided 
+
 <pre>type SemaphoreRequest: void {
 	.permits?: int
 	.name: string
 }</pre>
+
+<code>SemaphoreRequest : void</code> 
+
+<ul>
+
+  <li><code>permits : int</code> :  the optional number of permits to release/acquire 
+</li>
+
+  <li><code>name : string</code> 
+</li>
+
+</ul>
+
 
 
 <h4>Response type</h4>
 
 Type: bool
 
-Type documentation: no documentation provided 
+
+
+
+<code>bool : bool</code> 
 
 
 
@@ -112,18 +130,34 @@ Invocation template:
 
 Type: SemaphoreRequest
 
-Type documentation: no documentation provided 
+
 <pre>type SemaphoreRequest: void {
 	.permits?: int
 	.name: string
 }</pre>
+
+<code>SemaphoreRequest : void</code> 
+
+<ul>
+
+  <li><code>permits : int</code> :  the optional number of permits to release/acquire 
+</li>
+
+  <li><code>name : string</code> 
+</li>
+
+</ul>
+
 
 
 <h4>Response type</h4>
 
 Type: bool
 
-Type documentation: no documentation provided 
+
+
+
+<code>bool : bool</code> 
 
 
 

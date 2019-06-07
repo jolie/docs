@@ -12,7 +12,7 @@ Inclusion code: <pre>include "json_utils.iol"</pre>
       <th>Interfaces</th>
     </tr>
   </thead>
-  <tbody>
+  <tbody><tr><td>JsonUtils documentation: </td></tr>
     <tr>
       <td>JsonUtils</td>
       <td>-</td>
@@ -25,6 +25,8 @@ Inclusion code: <pre>include "json_utils.iol"</pre>
 <h3>List of Available Interfaces</h3>
 
 <h3 id="JsonUtilsInterface">JsonUtilsInterface</h3>
+
+Interface documentation: 
 
 <table>
   <thead>
@@ -39,7 +41,7 @@ Inclusion code: <pre>include "json_utils.iol"</pre>
     <tr>
       <td><a href="#getJsonString">getJsonString</a></td>
       <td><a href="#GetJsonStringRequest">GetJsonStringRequest</a></td>
-      <td><a href="#GetJsonStringResponse">GetJsonStringResponse</a></td>
+      <td>GetJsonStringResponse</td>
       <td>
         JSONCreationError( undefined )
       </td>
@@ -75,21 +77,26 @@ Invocation template:
 
 Type: GetJsonStringRequest
 
-Type documentation: no documentation provided 
+
 <pre>type GetJsonStringRequest: undefined</pre>
 
+<code>GetJsonStringRequest : any</code> 
 
-<h4 id="GetJsonStringResponse">Response type</h4>
+
+
+<h4>Response type</h4>
 
 Type: GetJsonStringResponse
 
-Type documentation: no documentation provided 
-<pre>type GetJsonStringResponse: string</pre>
+
+
+
+<code>GetJsonStringResponse : string</code> 
+
 
 
 
 <h4>Possible faults thrown</h4>
-
 
 
 Fault <code>JSONCreationError</code> with type <code>undefined</code>
@@ -116,24 +123,39 @@ Invocation template:
 
 Type: GetJsonValueRequest
 
-Type documentation: no documentation provided 
+
 <pre>type GetJsonValueRequest: any {
 	.strictEncoding?: bool
 	.charset?: string
 }</pre>
+
+<code>GetJsonValueRequest : any</code> 
+
+<ul>
+
+  <li><code>strictEncoding : bool</code> 
+</li>
+
+  <li><code>charset : string</code> 
+</li>
+
+</ul>
+
 
 
 <h4 id="GetJsonValueResponse">Response type</h4>
 
 Type: GetJsonValueResponse
 
-Type documentation: no documentation provided 
+
 <pre>type GetJsonValueResponse: undefined</pre>
+
+<code>GetJsonValueResponse : any</code> 
+
 
 
 
 <h4>Possible faults thrown</h4>
-
 
 
 Fault <code>JSONCreationError</code> with type <code>undefined</code>
@@ -143,17 +165,6 @@ Fault-handling install template:
 
 
 
-
-<h3>Subtypes</h3>
-
-
-<h4 id="GetJsonStringRequest">GetJsonStringRequest</h4>
-
-<pre>type GetJsonStringRequest: undefined</pre>
-
-<h4 id="GetJsonValueResponse">GetJsonValueResponse</h4>
-
-<pre>type GetJsonValueResponse: undefined</pre>
 
 
 

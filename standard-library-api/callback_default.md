@@ -26,6 +26,8 @@ Inclusion code: <pre>include "scheduler/callback_default.iol"</pre>
 
 <h3 id="SchedulerCallBackInterface">SchedulerCallBackInterface</h3>
 
+Interface documentation: 
+
 <table>
   <thead>
     <tr>
@@ -52,6 +54,8 @@ Inclusion code: <pre>include "scheduler/callback_default.iol"</pre>
 
 <h3 id="schedulerCallback">schedulerCallback</h3>
 
+Operation documentation: 
+
 
 Invocation template: 
 <pre>schedulerCallback( request )</pre>
@@ -60,11 +64,24 @@ Invocation template:
 
 Type: SchedulerCallBackRequest
 
-Type documentation: no documentation provided 
+
 <pre>type SchedulerCallBackRequest: void {
 	.jobName: string
 	.groupName: string
 }</pre>
+
+<code>SchedulerCallBackRequest : void</code> 
+
+<ul>
+
+  <li><code>jobName : string</code> 
+</li>
+
+  <li><code>groupName : string</code> 
+</li>
+
+</ul>
+
 
 
 

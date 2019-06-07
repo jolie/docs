@@ -12,7 +12,7 @@ Inclusion code: <pre>include "html_utils.iol"</pre>
       <th>Interfaces</th>
     </tr>
   </thead>
-  <tbody>
+  <tbody><tr><td>HTMLUtils documentation: </td></tr>
     <tr>
       <td>HTMLUtils</td>
       <td>-</td>
@@ -25,6 +25,8 @@ Inclusion code: <pre>include "html_utils.iol"</pre>
 <h3>List of Available Interfaces</h3>
 
 <h3 id="HTMLUtilsInterface">HTMLUtilsInterface</h3>
+
+Interface documentation: 
 
 <table>
   <thead>
@@ -59,6 +61,8 @@ Inclusion code: <pre>include "html_utils.iol"</pre>
 
 <h3 id="escapeHTML">escapeHTML</h3>
 
+Operation documentation: 
+
 
 Invocation template: 
 <pre>escapeHTML@HTMLUtils( request )( response )</pre>
@@ -67,7 +71,10 @@ Invocation template:
 
 Type: string
 
-Type documentation: no documentation provided 
+
+
+
+<code>string : string</code> 
 
 
 
@@ -75,7 +82,10 @@ Type documentation: no documentation provided
 
 Type: string
 
-Type documentation: no documentation provided 
+
+
+
+<code>string : string</code> 
 
 
 
@@ -86,6 +96,8 @@ Type documentation: no documentation provided
 
 <h3 id="unescapeHTML">unescapeHTML</h3>
 
+Operation documentation: 
+
 
 Invocation template: 
 <pre>unescapeHTML@HTMLUtils( request )( response )</pre>
@@ -94,7 +106,10 @@ Invocation template:
 
 Type: string
 
-Type documentation: no documentation provided 
+
+
+
+<code>string : string</code> 
 
 
 
@@ -102,7 +117,10 @@ Type documentation: no documentation provided
 
 Type: string
 
-Type documentation: no documentation provided 
+
+
+
+<code>string : string</code> 
 
 
 

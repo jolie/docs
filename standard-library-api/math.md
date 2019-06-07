@@ -12,7 +12,7 @@ Inclusion code: <pre>include "math.iol"</pre>
       <th>Interfaces</th>
     </tr>
   </thead>
-  <tbody>
+  <tbody><tr><td>Math documentation: </td></tr>
     <tr>
       <td>Math</td>
       <td>-</td>
@@ -25,6 +25,8 @@ Inclusion code: <pre>include "math.iol"</pre>
 <h3>List of Available Interfaces</h3>
 
 <h3 id="MathInterface">MathInterface</h3>
+
+Interface documentation: 
 
 <table>
   <thead>
@@ -97,7 +99,10 @@ Invocation template:
 
 Type: void
 
-Type documentation: no documentation provided 
+
+
+
+<code>void : void</code> 
 
 
 
@@ -105,7 +110,10 @@ Type documentation: no documentation provided
 
 Type: double
 
-Type documentation: no documentation provided 
+
+
+
+<code>double : double</code> 
 
 
 
@@ -126,7 +134,10 @@ Invocation template:
 
 Type: int
 
-Type documentation: no documentation provided 
+
+
+
+<code>int : int</code> 
 
 
 
@@ -134,7 +145,10 @@ Type documentation: no documentation provided
 
 Type: int
 
-Type documentation: no documentation provided 
+
+
+
+<code>int : int</code> 
 
 
 
@@ -145,6 +159,8 @@ Type documentation: no documentation provided
 
 <h3 id="round">round</h3>
 
+Operation documentation:  Returns the PI constant 
+
 
 Invocation template: 
 <pre>round@Math( request )( response )</pre>
@@ -153,17 +169,30 @@ Invocation template:
 
 Type: RoundRequestType
 
-Type documentation: no documentation provided 
+
 <pre>type RoundRequestType: double {
 	.decimals?: int
 }</pre>
+
+<code>RoundRequestType : double</code> 
+
+<ul>
+
+  <li><code>decimals : int</code> 
+</li>
+
+</ul>
+
 
 
 <h4>Response type</h4>
 
 Type: double
 
-Type documentation: no documentation provided 
+
+
+
+<code>double : double</code> 
 
 
 
@@ -184,7 +213,10 @@ Invocation template:
 
 Type: void
 
-Type documentation: no documentation provided 
+
+
+
+<code>void : void</code> 
 
 
 
@@ -192,7 +224,10 @@ Type documentation: no documentation provided
 
 Type: double
 
-Type documentation: no documentation provided 
+
+
+
+<code>double : double</code> 
 
 
 
@@ -213,18 +248,34 @@ Invocation template:
 
 Type: PowRequest
 
-Type documentation: no documentation provided 
+
 <pre>type PowRequest: void {
 	.base: double
 	.exponent: double
 }</pre>
+
+<code>PowRequest : void</code> 
+
+<ul>
+
+  <li><code>base : double</code> 
+</li>
+
+  <li><code>exponent : double</code> 
+</li>
+
+</ul>
+
 
 
 <h4>Response type</h4>
 
 Type: double
 
-Type documentation: no documentation provided 
+
+
+
+<code>double : double</code> 
 
 
 
@@ -245,18 +296,34 @@ Invocation template:
 
 Type: SummationRequest
 
-Type documentation: no documentation provided 
+
 <pre>type SummationRequest: void {
 	.from: int
 	.to: int
 }</pre>
+
+<code>SummationRequest : void</code> 
+
+<ul>
+
+  <li><code>from : int</code> 
+</li>
+
+  <li><code>to : int</code> 
+</li>
+
+</ul>
+
 
 
 <h4>Response type</h4>
 
 Type: int
 
-Type documentation: no documentation provided 
+
+
+
+<code>int : int</code> 
 
 
 

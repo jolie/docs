@@ -12,7 +12,7 @@ Inclusion code: <pre>include "network_service.iol"</pre>
       <th>Interfaces</th>
     </tr>
   </thead>
-  <tbody>
+  <tbody><tr><td>NetworkService documentation: </td></tr>
     <tr>
       <td>NetworkService</td>
       <td>-</td>
@@ -26,6 +26,8 @@ Inclusion code: <pre>include "network_service.iol"</pre>
 
 <h3 id="NetworkServiceInterface">NetworkServiceInterface</h3>
 
+Interface documentation: 
+
 <table>
   <thead>
     <tr>
@@ -38,7 +40,7 @@ Inclusion code: <pre>include "network_service.iol"</pre>
   <tbody>
     <tr>
       <td><a href="#getNetworkInterfaceNames">getNetworkInterfaceNames</a></td>
-      <td><a href="#GetNetworkInterfaceNamesRequest">GetNetworkInterfaceNamesRequest</a></td>
+      <td>GetNetworkInterfaceNamesRequest</td>
       <td><a href="#GetNetworkInterfaceNamesResponse">GetNetworkInterfaceNamesResponse</a></td>
       <td>
       </td>
@@ -60,28 +62,50 @@ Inclusion code: <pre>include "network_service.iol"</pre>
 
 <h3 id="getNetworkInterfaceNames">getNetworkInterfaceNames</h3>
 
+Operation documentation: 
+
 
 Invocation template: 
 <pre>getNetworkInterfaceNames@NetworkService( request )( response )</pre>
 
-<h4 id="GetNetworkInterfaceNamesRequest">Request type</h4>
+<h4>Request type</h4>
 
 Type: GetNetworkInterfaceNamesRequest
 
-Type documentation: no documentation provided 
-<pre>type GetNetworkInterfaceNamesRequest: void</pre>
+
+
+
+<code>GetNetworkInterfaceNamesRequest : void</code> 
+
 
 
 <h4 id="GetNetworkInterfaceNamesResponse">Response type</h4>
 
 Type: GetNetworkInterfaceNamesResponse
 
-Type documentation: no documentation provided 
+
 <pre>type GetNetworkInterfaceNamesResponse: void {
 	.interfaceName*: string {
 		.displayName: string
 	}
 }</pre>
+
+<code>GetNetworkInterfaceNamesResponse : void</code> 
+
+<ul>
+
+  <li><code>interfaceName : string</code> 
+
+<ul>
+
+  <li><code>displayName : string</code> 
+</li>
+
+</ul>
+</li>
+
+</ul>
+
 
 
 
@@ -91,6 +115,8 @@ Type documentation: no documentation provided
 
 <h3 id="getIPAddresses">getIPAddresses</h3>
 
+Operation documentation: 
+
 
 Invocation template: 
 <pre>getIPAddresses@NetworkService( request )( response )</pre>
@@ -99,26 +125,48 @@ Invocation template:
 
 Type: GetIPAddressesRequest
 
-Type documentation: no documentation provided 
+
 <pre>type GetIPAddressesRequest: void {
 	.interfaceName: string
 }</pre>
+
+<code>GetIPAddressesRequest : void</code> 
+
+<ul>
+
+  <li><code>interfaceName : string</code> 
+</li>
+
+</ul>
+
 
 
 <h4 id="GetIPAddressesResponse">Response type</h4>
 
 Type: GetIPAddressesResponse
 
-Type documentation: no documentation provided 
+
 <pre>type GetIPAddressesResponse: void {
 	.ip4?: string
 	.ip6?: string
 }</pre>
 
+<code>GetIPAddressesResponse : void</code> 
+
+<ul>
+
+  <li><code>ip4 : string</code> 
+</li>
+
+  <li><code>ip6 : string</code> 
+</li>
+
+</ul>
+
+
 
 
 <h4>Possible faults thrown</h4>
-
 
 
 Fault <code>InterfaceNotFound</code> with type <code>undefined</code>

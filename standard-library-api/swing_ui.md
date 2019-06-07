@@ -12,7 +12,7 @@ Inclusion code: <pre>include "ui/swing_ui.iol"</pre>
       <th>Interfaces</th>
     </tr>
   </thead>
-  <tbody>
+  <tbody><tr><td>SwingUI documentation: </td></tr>
     <tr>
       <td>SwingUI</td>
       <td>-</td>
@@ -25,6 +25,8 @@ Inclusion code: <pre>include "ui/swing_ui.iol"</pre>
 <h3>List of Available Interfaces</h3>
 
 <h3 id="UserInterface">UserInterface</h3>
+
+Interface documentation: 
 
 <table>
   <thead>
@@ -66,6 +68,8 @@ Inclusion code: <pre>include "ui/swing_ui.iol"</pre>
 
 <h3 id="showMessageDialog">showMessageDialog</h3>
 
+Operation documentation: 
+
 
 Invocation template: 
 <pre>showMessageDialog@SwingUI( request )( response )</pre>
@@ -74,7 +78,10 @@ Invocation template:
 
 Type: string
 
-Type documentation: no documentation provided 
+
+
+
+<code>string : string</code> 
 
 
 
@@ -82,7 +89,10 @@ Type documentation: no documentation provided
 
 Type: void
 
-Type documentation: no documentation provided 
+
+
+
+<code>void : void</code> 
 
 
 
@@ -93,6 +103,8 @@ Type documentation: no documentation provided
 
 <h3 id="showYesNoQuestionDialog">showYesNoQuestionDialog</h3>
 
+Operation documentation: 
+
 
 Invocation template: 
 <pre>showYesNoQuestionDialog@SwingUI( request )( response )</pre>
@@ -101,7 +113,10 @@ Invocation template:
 
 Type: string
 
-Type documentation: no documentation provided 
+
+
+
+<code>string : string</code> 
 
 
 
@@ -109,7 +124,10 @@ Type documentation: no documentation provided
 
 Type: int
 
-Type documentation: no documentation provided 
+
+
+
+<code>int : int</code> 
 
 
 
@@ -120,6 +138,8 @@ Type documentation: no documentation provided
 
 <h3 id="showInputDialog">showInputDialog</h3>
 
+Operation documentation: 
+
 
 Invocation template: 
 <pre>showInputDialog@SwingUI( request )( response )</pre>
@@ -128,7 +148,10 @@ Invocation template:
 
 Type: string
 
-Type documentation: no documentation provided 
+
+
+
+<code>string : string</code> 
 
 
 
@@ -136,7 +159,10 @@ Type documentation: no documentation provided
 
 Type: string
 
-Type documentation: no documentation provided 
+
+
+
+<code>string : string</code> 
 
 
 

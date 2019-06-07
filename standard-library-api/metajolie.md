@@ -12,7 +12,7 @@ Inclusion code: <pre>include "metajolie.iol"</pre>
       <th>Interfaces</th>
     </tr>
   </thead>
-  <tbody>
+  <tbody><tr><td>MetaJolie documentation: </td></tr>
     <tr>
       <td>MetaJolie</td>
       <td>-</td>
@@ -27,8 +27,6 @@ Inclusion code: <pre>include "metajolie.iol"</pre>
 <h3 id="MetaJolieInterface">MetaJolieInterface</h3>
 
 Interface documentation: 
-WARNING: the API of this service is experimental. Use it at your own risk.
-
 
 <table>
   <thead>
@@ -48,13 +46,6 @@ WARNING: the API of this service is experimental. Use it at your own risk.
         ParserException( <a href="#ParserExceptionType">ParserExceptionType</a> ) <br> 
         InputPortMetaDataFault( undefined ) <br> 
         SemanticException( <a href="#SemanticExceptionType">SemanticExceptionType</a> )
-      </td>
-    </tr>
-    <tr>
-      <td><a href="#parseRoles">parseRoles</a></td>
-      <td><a href="#ParseRoleRequest">ParseRoleRequest</a></td>
-      <td><a href="#Role">Role</a></td>
-      <td>
       </td>
     </tr>
     <tr>
@@ -90,6 +81,8 @@ WARNING: the API of this service is experimental. Use it at your own risk.
 
 <h3 id="getInputPortMetaData">getInputPortMetaData</h3>
 
+Operation documentation: 
+
 
 Invocation template: 
 <pre>getInputPortMetaData@MetaJolie( request )( response )</pre>
@@ -98,26 +91,48 @@ Invocation template:
 
 Type: GetInputPortMetaDataRequest
 
-Type documentation: no documentation provided 
+
 <pre>type GetInputPortMetaDataRequest: void {
 	.filename: string
-	.name: Name
+	.name?: Name
 }</pre>
+
+<code>GetInputPortMetaDataRequest : void</code> 
+
+<ul>
+
+  <li><code>filename : string</code> :  the filename where the service definition is 
+</li>
+
+  <li><code>name : void</code> :  the absolute name to give to the resource. in this operation only .domain will be used. default .domain = "". 
+</li>
+
+</ul>
+
 
 
 <h4 id="GetInputPortMetaDataResponse">Response type</h4>
 
 Type: GetInputPortMetaDataResponse
 
-Type documentation: no documentation provided 
+
 <pre>type GetInputPortMetaDataResponse: void {
-	.input*: Participant
+	.input*: Port
 }</pre>
+
+<code>GetInputPortMetaDataResponse : void</code> 
+
+<ul>
+
+  <li><code>input : void</code> :  the full description of each input port of the service definition 
+</li>
+
+</ul>
+
 
 
 
 <h4>Possible faults thrown</h4>
-
 
 
 Fault <code>ParserException</code> with type <code>ParserExceptionType</code>
@@ -131,12 +146,10 @@ Fault-handling install template:
 }</pre>
 
 
-
 Fault <code>InputPortMetaDataFault</code> with type <code>undefined</code>
 
 Fault-handling install template: 
 <pre>install ( InputPortMetaDataFault => /* error-handling code */ )</pre>
-
 
 
 
@@ -154,42 +167,9 @@ Fault-handling install template:
 
 
 
-<h3 id="parseRoles">parseRoles</h3>
-
-
-Invocation template: 
-<pre>parseRoles@MetaJolie( request )( response )</pre>
-
-<h4 id="ParseRoleRequest">Request type</h4>
-
-Type: ParseRoleRequest
-
-Type documentation: no documentation provided 
-<pre>type ParseRoleRequest: void {
-	.filename: string
-	.rolename: Name
-}</pre>
-
-
-<h4 id="Role">Response type</h4>
-
-Type: Role
-
-Type documentation: no documentation provided 
-<pre>type Role: void {
-	.output?: Participant
-	.input: Participant
-	.name: Name
-	.conversation*: Conversation
-}</pre>
-
-
-
-
-
-
-
 <h3 id="getMetaData">getMetaData</h3>
+
+Operation documentation: 
 
 
 Invocation template: 
@@ -199,21 +179,34 @@ Invocation template:
 
 Type: GetMetaDataRequest
 
-Type documentation: no documentation provided 
+
 <pre>type GetMetaDataRequest: void {
 	.filename: string
 	.name: Name
 }</pre>
+
+<code>GetMetaDataRequest : void</code> 
+
+<ul>
+
+  <li><code>filename : string</code> :  the filename where the service definition is 
+</li>
+
+  <li><code>name : void</code> :  the name and the domain name to give to the service 
+</li>
+
+</ul>
+
 
 
 <h4 id="GetMetaDataResponse">Response type</h4>
 
 Type: GetMetaDataResponse
 
-Type documentation: no documentation provided 
+
 <pre>type GetMetaDataResponse: void {
-	.output*: Participant
-	.input*: Participant
+	.output*: Port
+	.input*: Port
 	.interfaces*: Interface
 	.types*: Type
 	.service: Service
@@ -224,10 +217,47 @@ Type documentation: no documentation provided
 	}
 }</pre>
 
+<code>GetMetaDataResponse : void</code> 
+
+<ul>
+
+  <li><code>output : void</code> :  the definitions of all the output ports 
+</li>
+
+  <li><code>input : void</code> :  the definitions of all the input ports 
+</li>
+
+  <li><code>interfaces : void</code> :  the definitions of all the interfaces 
+</li>
+
+  <li><code>types : void</code> :  the definitions of all the types 
+</li>
+
+  <li><code>service : void</code> :  the definition of the service 
+</li>
+
+  <li><code>embeddedServices : void</code> :  the definitions of all the embedded services 
+
+<ul>
+
+  <li><code>servicepath : string</code> :  path where the service can be found 
+</li>
+
+  <li><code>type : string</code> :  type of the embedded service 
+</li>
+
+  <li><code>portId : string</code> :  target output port where the embedded service is bound 
+</li>
+
+</ul>
+</li>
+
+</ul>
+
+
 
 
 <h4>Possible faults thrown</h4>
-
 
 
 Fault <code>ParserException</code> with type <code>ParserExceptionType</code>
@@ -239,7 +269,6 @@ Fault-handling install template:
 	.sourceName: string
 	.message: string
 }</pre>
-
 
 
 Fault <code>SemanticException</code> with type <code>SemanticExceptionType</code>
@@ -258,6 +287,8 @@ Fault-handling install template:
 
 <h3 id="messageTypeCast">messageTypeCast</h3>
 
+Operation documentation: 
+
 
 Invocation template: 
 <pre>messageTypeCast@MetaJolie( request )( response )</pre>
@@ -266,7 +297,7 @@ Invocation template:
 
 Type: MessageTypeCastRequest
 
-Type documentation: no documentation provided 
+
 <pre>type MessageTypeCastRequest: void {
 	.types: void {
 		.types*: Type
@@ -275,20 +306,52 @@ Type documentation: no documentation provided
 	.message: undefined
 }</pre>
 
+<code>MessageTypeCastRequest : void</code> 
+
+<ul>
+
+  <li><code>types : void</code> :  the types to use for casting the message 
+
+<ul>
+
+  <li><code>types : void</code> :  list of all the required types 
+</li>
+
+  <li><code>messageTypeName : void</code> :  starting type to user for casting 
+</li>
+
+</ul>
+</li>
+
+  <li><code>message : any</code> :  the message to be cast 
+</li>
+
+</ul>
+
+
 
 <h4 id="MessageTypeCastResponse">Response type</h4>
 
 Type: MessageTypeCastResponse
 
-Type documentation: no documentation provided 
+
 <pre>type MessageTypeCastResponse: void {
 	.message: undefined
 }</pre>
 
+<code>MessageTypeCastResponse : void</code> 
+
+<ul>
+
+  <li><code>message : any</code> :  casted message 
+</li>
+
+</ul>
+
+
 
 
 <h4>Possible faults thrown</h4>
-
 
 
 Fault <code>TypeMismatch</code> with type <code>undefined</code>
@@ -301,6 +364,8 @@ Fault-handling install template:
 
 <h3 id="checkNativeType">checkNativeType</h3>
 
+Operation documentation: 
+
 
 Invocation template: 
 <pre>checkNativeType@MetaJolie( request )( response )</pre>
@@ -309,25 +374,183 @@ Invocation template:
 
 Type: CheckNativeTypeRequest
 
-Type documentation: no documentation provided 
+
 <pre>type CheckNativeTypeRequest: void {
 	.type_name: string
 }</pre>
+
+<code>CheckNativeTypeRequest : void</code> 
+
+<ul>
+
+  <li><code>type_name : string</code> :  the type name to check it is native 
+</li>
+
+</ul>
+
 
 
 <h4 id="CheckNativeTypeResponse">Response type</h4>
 
 Type: CheckNativeTypeResponse
 
-Type documentation: no documentation provided 
+
 <pre>type CheckNativeTypeResponse: void {
 	.result: bool
 }</pre>
 
+<code>CheckNativeTypeResponse : void</code> 
+
+<ul>
+
+  <li><code>result : bool</code> 
+</li>
+
+</ul>
 
 
 
 
+
+
+
+
+<h3>Subtypes</h3>
+
+
+<h4 id="Name">Name</h4>
+
+
+
+<pre>type Name: void {
+	.registry?: string
+	.domain?: string
+	.name: string
+}</pre>
+<code>Name : void</code> 
+
+
+<h4 id="Port">Port</h4>
+
+
+
+<pre>type Port: void {
+	.protocol: string
+	.interfaces*: Interface
+	.name: Name
+	.location: any
+}</pre>
+<code>Port : void</code> 
+
+
+<h4 id="Interface">Interface</h4>
+
+
+
+<pre>type Interface: void {
+	.types*: Type
+	.operations*: Operation
+	.name: Name
+}</pre>
+<code>Interface : void</code> 
+
+
+<h4 id="Type">Type</h4>
+
+
+
+<pre>type Type: void {
+	.root_type: NativeType
+	.sub_type*: SubType
+	.name: Name
+}</pre>
+<code>Type : void</code> 
+
+
+<h4 id="NativeType">NativeType</h4>
+
+
+
+<pre>type NativeType: void {
+	.string_type?: bool
+	.void_type?: bool
+	.raw_type?: bool
+	.int_type?: bool
+	.any_type?: bool
+	.link?: void {
+		.domain?: string
+		.name: string
+	}
+	.bool_type?: bool
+	.double_type?: bool
+	.long_type?: bool
+}</pre>
+<code>NativeType : void</code> 
+
+
+<h4 id="SubType">SubType</h4>
+
+
+
+<pre>type SubType: void {
+	.type_inline?: Type
+	.name: string
+	.cardinality: Cardinality
+	.type_link?: Name
+}</pre>
+<code>SubType : void</code> 
+
+
+<h4 id="Cardinality">Cardinality</h4>
+
+
+
+<pre>type Cardinality: void {
+	.min: int
+	.max?: int
+	.infinite?: int
+}</pre>
+<code>Cardinality : void</code> 
+
+
+<h4 id="Operation">Operation</h4>
+
+
+
+<pre>type Operation: void {
+	.operation_name: string
+	.output?: Name
+	.input: Name
+	.documentation?: any
+	.fault*: Fault
+}</pre>
+<code>Operation : void</code> 
+
+
+<h4 id="Fault">Fault</h4>
+
+
+
+<pre>type Fault: void {
+	.type_name?: Name
+	.name: Name
+}</pre>
+<code>Fault : void</code> 
+
+
+<h4 id="Service">Service</h4>
+
+
+
+<pre>type Service: void {
+	.output*: Name
+	.input*: void {
+		.domain: string
+		.name: string
+	}
+	.name: Name
+}</pre>
+<code>Service : void</code> 
 
 
 

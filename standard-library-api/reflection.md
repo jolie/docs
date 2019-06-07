@@ -12,7 +12,7 @@ Inclusion code: <pre>include "reflection.iol"</pre>
       <th>Interfaces</th>
     </tr>
   </thead>
-  <tbody>
+  <tbody><tr><td>Reflection documentation: </td></tr>
     <tr>
       <td>Reflection</td>
       <td>-</td>
@@ -71,7 +71,7 @@ Invocation template:
 
 Type: InvokeRequest
 
-Type documentation: no documentation provided 
+
 <pre>type InvokeRequest: void {
 	.outputPort: string
 	.data?: undefined
@@ -79,12 +79,34 @@ Type documentation: no documentation provided
 	.operation: string
 }</pre>
 
+<code>InvokeRequest : void</code> 
+
+<ul>
+
+  <li><code>outputPort : string</code> 
+</li>
+
+  <li><code>data : any</code> 
+</li>
+
+  <li><code>resourcePath : string</code> 
+</li>
+
+  <li><code>operation : string</code> 
+</li>
+
+</ul>
+
+
 
 <h4>Response type</h4>
 
 Type: undefined
 
-Type documentation: no documentation provided 
+
+
+
+<code>undefined : any</code> 
 
 
 
@@ -92,12 +114,10 @@ Type documentation: no documentation provided
 <h4>Possible faults thrown</h4>
 
 
-
 Fault <code>OperationNotFound</code> with type <code>string</code>
 
 Fault-handling install template: 
 <pre>install ( OperationNotFound => /* error-handling code */ )</pre>
-
 
 
 

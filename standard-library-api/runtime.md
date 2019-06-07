@@ -12,7 +12,7 @@ Inclusion code: <pre>include "runtime.iol"</pre>
       <th>Interfaces</th>
     </tr>
   </thead>
-  <tbody>
+  <tbody><tr><td>Runtime documentation: </td></tr>
     <tr>
       <td>Runtime</td>
       <td>-</td>
@@ -26,6 +26,8 @@ Inclusion code: <pre>include "runtime.iol"</pre>
 
 <h3 id="RuntimeInterface">RuntimeInterface</h3>
 
+Interface documentation: 
+
 <table>
   <thead>
     <tr>
@@ -36,6 +38,13 @@ Inclusion code: <pre>include "runtime.iol"</pre>
     </tr>
   </thead>
   <tbody>
+    <tr>
+      <td><a href="#getVersion">getVersion</a></td>
+      <td>void</td>
+      <td>string</td>
+      <td>
+      </td>
+    </tr>
     <tr>
       <td><a href="#loadLibrary">loadLibrary</a></td>
       <td>string</td>
@@ -99,7 +108,7 @@ Inclusion code: <pre>include "runtime.iol"</pre>
     <tr>
       <td><a href="#getRedirection">getRedirection</a></td>
       <td><a href="#GetRedirectionRequest">GetRedirectionRequest</a></td>
-      <td>any</td>
+      <td><a href="#MaybeString">MaybeString</a></td>
       <td>
       </td>
     </tr>
@@ -174,7 +183,44 @@ Inclusion code: <pre>include "runtime.iol"</pre>
 
 
 
+<h3 id="getVersion">getVersion</h3>
+
+Operation documentation:  Returns the version of the Jolie interpreter running this service.
+
+
+Invocation template: 
+<pre>getVersion@Runtime( request )( response )</pre>
+
+<h4>Request type</h4>
+
+Type: void
+
+
+
+
+<code>void : void</code> 
+
+
+
+<h4>Response type</h4>
+
+Type: string
+
+
+
+
+<code>string : string</code> 
+
+
+
+
+
+
+
+
 <h3 id="loadLibrary">loadLibrary</h3>
+
+Operation documentation:  Dynamically loads an external (jar) library.
 
 
 Invocation template: 
@@ -184,7 +230,10 @@ Invocation template:
 
 Type: string
 
-Type documentation: no documentation provided 
+
+
+
+<code>string : string</code> 
 
 
 
@@ -192,13 +241,15 @@ Type documentation: no documentation provided
 
 Type: void
 
-Type documentation: no documentation provided 
+
+
+
+<code>void : void</code> 
 
 
 
 
 <h4>Possible faults thrown</h4>
-
 
 
 Fault <code>IOException</code> with type <code>IOExceptionType</code>
@@ -211,6 +262,8 @@ Fault-handling install template:
 
 <h3 id="removeOutputPort">removeOutputPort</h3>
 
+Operation documentation:  Removes the output port with the requested name.
+
 
 Invocation template: 
 <pre>removeOutputPort@Runtime( request )( response )</pre>
@@ -219,7 +272,10 @@ Invocation template:
 
 Type: string
 
-Type documentation: no documentation provided 
+
+
+
+<code>string : string</code> 
 
 
 
@@ -227,7 +283,10 @@ Type documentation: no documentation provided
 
 Type: void
 
-Type documentation: no documentation provided 
+
+
+
+<code>void : void</code> 
 
 
 
@@ -238,6 +297,12 @@ Type documentation: no documentation provided
 
 <h3 id="setRedirection">setRedirection</h3>
 
+Operation documentation:  Set a redirection at an input port.
+	  If the redirection with this name does not exist already,
+	  this operation creates it.
+	  Otherwise, the redirection is replaced with this one.
+	 
+
 
 Invocation template: 
 <pre>setRedirection@Runtime( request )( response )</pre>
@@ -246,25 +311,43 @@ Invocation template:
 
 Type: SetRedirectionRequest
 
-Type documentation: no documentation provided 
+
 <pre>type SetRedirectionRequest: void {
 	.inputPortName: string
 	.outputPortName: string
 	.resourceName: string
 }</pre>
 
+<code>SetRedirectionRequest : void</code> 
+
+<ul>
+
+  <li><code>inputPortName : string</code> :  The target input port 
+</li>
+
+  <li><code>outputPortName : string</code> :  The target output port 
+</li>
+
+  <li><code>resourceName : string</code> :  The target resource name 
+</li>
+
+</ul>
+
+
 
 <h4>Response type</h4>
 
 Type: void
 
-Type documentation: no documentation provided 
+
+
+
+<code>void : void</code> 
 
 
 
 
 <h4>Possible faults thrown</h4>
-
 
 
 Fault <code>RuntimeException</code> with type <code>RuntimeExceptionType</code>
@@ -277,9 +360,7 @@ Fault-handling install template:
 
 <h3 id="getOutputPorts">getOutputPorts</h3>
 
-Operation documentation: 
-		it returns the list of definitions of all the available outputPorts of the service
-	
+Operation documentation:  Returns all the output ports used by this service.
 
 
 Invocation template: 
@@ -289,7 +370,10 @@ Invocation template:
 
 Type: void
 
-Type documentation: no documentation provided 
+
+
+
+<code>void : void</code> 
 
 
 
@@ -297,7 +381,7 @@ Type documentation: no documentation provided
 
 Type: GetOutputPortsResponse
 
-Type documentation: no documentation provided 
+
 <pre>type GetOutputPortsResponse: void {
 	.port*: void {
 		.protocol: string
@@ -305,6 +389,29 @@ Type documentation: no documentation provided
 		.location: string
 	}
 }</pre>
+
+<code>GetOutputPortsResponse : void</code> 
+
+<ul>
+
+  <li><code>port : void</code> :  The output ports used by this interpreter 
+
+<ul>
+
+  <li><code>protocol : string</code> :  The protocol name of the output port 
+</li>
+
+  <li><code>name : string</code> :  The name of the output port 
+</li>
+
+  <li><code>location : string</code> :  The location of the output port 
+</li>
+
+</ul>
+</li>
+
+</ul>
+
 
 
 
@@ -314,6 +421,8 @@ Type documentation: no documentation provided
 
 <h3 id="loadEmbeddedService">loadEmbeddedService</h3>
 
+Operation documentation:  Load an embedded service.
+
 
 Invocation template: 
 <pre>loadEmbeddedService@Runtime( request )( response )</pre>
@@ -322,24 +431,39 @@ Invocation template:
 
 Type: LoadEmbeddedServiceRequest
 
-Type documentation: no documentation provided 
+
 <pre>type LoadEmbeddedServiceRequest: void {
 	.filepath: string
 	.type: string
 }</pre>
+
+<code>LoadEmbeddedServiceRequest : void</code> 
+
+<ul>
+
+  <li><code>filepath : string</code> :  The path to the service to load 
+</li>
+
+  <li><code>type : string</code> :  The type of the service, e.g., Jolie, Java, or JavaScript 
+</li>
+
+</ul>
+
 
 
 <h4>Response type</h4>
 
 Type: any
 
-Type documentation: no documentation provided 
+
+
+
+<code>any : any</code> 
 
 
 
 
 <h4>Possible faults thrown</h4>
-
 
 
 Fault <code>RuntimeException</code> with type <code>RuntimeExceptionType</code>
@@ -352,9 +476,9 @@ Fault-handling install template:
 
 <h3 id="getOutputPort">getOutputPort</h3>
 
-Operation documentation: 
-		it returns a port definition if it exists, OuputPortDoesNotExist fault otherwise
-	
+Operation documentation:  Returns the definition of output port definition.
+	  @throws OutputPortDoesNotExist if the requested output port does not exist.
+	 
 
 
 Invocation template: 
@@ -364,27 +488,52 @@ Invocation template:
 
 Type: GetOutputPortRequest
 
-Type documentation: no documentation provided 
+
 <pre>type GetOutputPortRequest: void {
 	.name: string
 }</pre>
+
+<code>GetOutputPortRequest : void</code> 
+
+<ul>
+
+  <li><code>name : string</code> :  The name of the output port 
+</li>
+
+</ul>
+
 
 
 <h4 id="GetOutputPortResponse">Response type</h4>
 
 Type: GetOutputPortResponse
 
-Type documentation: no documentation provided 
+
 <pre>type GetOutputPortResponse: void {
 	.protocol: string
 	.name: string
 	.location: string
 }</pre>
 
+<code>GetOutputPortResponse : void</code> 
+
+<ul>
+
+  <li><code>protocol : string</code> :  The protocol name of the output port 
+</li>
+
+  <li><code>name : string</code> :  The name of the output port 
+</li>
+
+  <li><code>location : string</code> :  The location of the output port 
+</li>
+
+</ul>
+
+
 
 
 <h4>Possible faults thrown</h4>
-
 
 
 Fault <code>OutputPortDoesNotExist</code> with type <code>undefined</code>
@@ -397,6 +546,11 @@ Fault-handling install template:
 
 <h3 id="dumpState">dumpState</h3>
 
+Operation documentation:  Returns a pretty-printed string representation of
+	  the local state of the invoking Jolie process and
+	  the global state of this service.
+	 
+
 
 Invocation template: 
 <pre>dumpState@Runtime( request )( response )</pre>
@@ -405,7 +559,10 @@ Invocation template:
 
 Type: void
 
-Type documentation: no documentation provided 
+
+
+
+<code>void : void</code> 
 
 
 
@@ -413,7 +570,10 @@ Type documentation: no documentation provided
 
 Type: string
 
-Type documentation: no documentation provided 
+
+
+
+<code>string : string</code> 
 
 
 
@@ -424,6 +584,8 @@ Type documentation: no documentation provided
 
 <h3 id="getLocalLocation">getLocalLocation</h3>
 
+Operation documentation:  Get the local in-memory location of this service.
+
 
 Invocation template: 
 <pre>getLocalLocation@Runtime( request )( response )</pre>
@@ -432,7 +594,10 @@ Invocation template:
 
 Type: void
 
-Type documentation: no documentation provided 
+
+
+
+<code>void : void</code> 
 
 
 
@@ -440,7 +605,10 @@ Type documentation: no documentation provided
 
 Type: any
 
-Type documentation: no documentation provided 
+
+
+
+<code>any : any</code> 
 
 
 
@@ -451,6 +619,8 @@ Type documentation: no documentation provided
 
 <h3 id="getRedirection">getRedirection</h3>
 
+Operation documentation:  Get the output port name that a redirection points to.
+
 
 Invocation template: 
 <pre>getRedirection@Runtime( request )( response )</pre>
@@ -459,18 +629,44 @@ Invocation template:
 
 Type: GetRedirectionRequest
 
-Type documentation: no documentation provided 
+
 <pre>type GetRedirectionRequest: void {
 	.inputPortName: string
 	.resourceName: string
 }</pre>
 
+<code>GetRedirectionRequest : void</code> 
 
-<h4>Response type</h4>
+<ul>
 
-Type: any
+  <li><code>inputPortName : string</code> :  The target input port 
+</li>
 
-Type documentation: no documentation provided 
+  <li><code>resourceName : string</code> :  The resource name of the redirection to get 
+</li>
+
+</ul>
+
+
+
+<h4 id="MaybeString">Response type</h4>
+
+Type: MaybeString
+
+
+<pre>type MaybeString: void | string</pre>
+
+<code>MaybeString : </code> 
+
+<ul>
+
+  <li><code> : void</code> 
+</li>
+
+  <li><code> : string</code> 
+</li>
+
+</ul>
 
 
 
@@ -481,6 +677,12 @@ Type documentation: no documentation provided
 
 <h3 id="setOutputPort">setOutputPort</h3>
 
+Operation documentation:  Set an output port.
+	  If an output port with this name does not exist already,
+	  this operation creates it.
+	  Otherwise, the output port is replaced with this one.
+	 
+
 
 Invocation template: 
 <pre>setOutputPort@Runtime( request )( response )</pre>
@@ -489,19 +691,38 @@ Invocation template:
 
 Type: SetOutputPortRequest
 
-Type documentation: no documentation provided 
+
 <pre>type SetOutputPortRequest: void {
 	.protocol?: undefined
 	.name: string
 	.location: any
 }</pre>
 
+<code>SetOutputPortRequest : void</code> 
+
+<ul>
+
+  <li><code>protocol : string</code> :  The name of the protocol (e.g., sodep, http) 
+</li>
+
+  <li><code>name : string</code> :  The name of the output port 
+</li>
+
+  <li><code>location : any</code> :  The location of the output port 
+</li>
+
+</ul>
+
+
 
 <h4>Response type</h4>
 
 Type: void
 
-Type documentation: no documentation provided 
+
+
+
+<code>void : void</code> 
 
 
 
@@ -512,6 +733,8 @@ Type documentation: no documentation provided
 
 <h3 id="halt">halt</h3>
 
+Operation documentation:  Halts non-gracefully the execution of this service.
+
 
 Invocation template: 
 <pre>halt@Runtime( request )( response )</pre>
@@ -520,17 +743,30 @@ Invocation template:
 
 Type: HaltRequest
 
-Type documentation: no documentation provided 
+
 <pre>type HaltRequest: void {
 	.status?: int
 }</pre>
+
+<code>HaltRequest : void</code> 
+
+<ul>
+
+  <li><code>status : int</code> :  The status code to return to the execution environment 
+</li>
+
+</ul>
+
 
 
 <h4>Response type</h4>
 
 Type: void
 
-Type documentation: no documentation provided 
+
+
+
+<code>void : void</code> 
 
 
 
@@ -541,6 +777,10 @@ Type documentation: no documentation provided
 
 <h3 id="callExit">callExit</h3>
 
+Operation documentation:  Stops gracefully the execution of this service.
+	  Calling this operation is equivalent to invoking the exit statement.
+	 
+
 
 Invocation template: 
 <pre>callExit@Runtime( request )( response )</pre>
@@ -549,7 +789,10 @@ Invocation template:
 
 Type: any
 
-Type documentation: no documentation provided 
+
+
+
+<code>any : any</code> 
 
 
 
@@ -557,7 +800,10 @@ Type documentation: no documentation provided
 
 Type: void
 
-Type documentation: no documentation provided 
+
+
+
+<code>void : void</code> 
 
 
 
@@ -568,9 +814,7 @@ Type documentation: no documentation provided
 
 <h3 id="stats">stats</h3>
 
-Operation documentation: 
-	  Get information about the runtime state of the Jolie interpreter.
-	 
+Operation documentation:  Returns information on the runtime state of the VM.
 
 
 Invocation template: 
@@ -580,7 +824,10 @@ Invocation template:
 
 Type: void
 
-Type documentation: no documentation provided 
+
+
+
+<code>void : void</code> 
 
 
 
@@ -588,7 +835,7 @@ Type documentation: no documentation provided
 
 Type: Stats
 
-Type documentation: no documentation provided 
+
 <pre>type Stats: void {
 	.os: void {
 		.availableProcessors: int
@@ -603,6 +850,48 @@ Type documentation: no documentation provided
 	}
 }</pre>
 
+<code>Stats : void</code> :  Information on the interpreter execution so far 
+
+<ul>
+
+  <li><code>os : void</code> :  OS-related information 
+
+<ul>
+
+  <li><code>availableProcessors : int</code> :  Number of available processors 
+</li>
+
+  <li><code>systemLoadAverage : double</code> :  System load average 
+</li>
+
+  <li><code>name : string</code> :  Name of the OS 
+</li>
+
+  <li><code>arch : string</code> :  Architecture 
+</li>
+
+  <li><code>version : string</code> :  OS version 
+</li>
+
+</ul>
+</li>
+
+  <li><code>files : void</code> :  Information on file descriptors 
+
+<ul>
+
+  <li><code>openCount : long</code> :  Number of open files 
+</li>
+
+  <li><code>maxCount : long</code> :  Maximum number of open files allowed for this VM 
+</li>
+
+</ul>
+</li>
+
+</ul>
+
+
 
 
 
@@ -610,6 +899,8 @@ Type documentation: no documentation provided
 
 
 <h3 id="removeRedirection">removeRedirection</h3>
+
+Operation documentation:  Remove a redirection at an input port
 
 
 Invocation template: 
@@ -619,24 +910,39 @@ Invocation template:
 
 Type: GetRedirectionRequest
 
-Type documentation: no documentation provided 
+
 <pre>type GetRedirectionRequest: void {
 	.inputPortName: string
 	.resourceName: string
 }</pre>
+
+<code>GetRedirectionRequest : void</code> 
+
+<ul>
+
+  <li><code>inputPortName : string</code> :  The target input port 
+</li>
+
+  <li><code>resourceName : string</code> :  The resource name of the redirection to get 
+</li>
+
+</ul>
+
 
 
 <h4>Response type</h4>
 
 Type: void
 
-Type documentation: no documentation provided 
+
+
+
+<code>void : void</code> 
 
 
 
 
 <h4>Possible faults thrown</h4>
-
 
 
 Fault <code>RuntimeException</code> with type <code>RuntimeExceptionType</code>
@@ -649,6 +955,8 @@ Fault-handling install template:
 
 <h3 id="setMonitor">setMonitor</h3>
 
+Operation documentation:  Set the monitor for this service.
+
 
 Invocation template: 
 <pre>setMonitor@Runtime( request )( response )</pre>
@@ -657,18 +965,34 @@ Invocation template:
 
 Type: SetMonitorRequest
 
-Type documentation: no documentation provided 
+
 <pre>type SetMonitorRequest: void {
 	.protocol?: undefined
 	.location: any
 }</pre>
+
+<code>SetMonitorRequest : void</code> 
+
+<ul>
+
+  <li><code>protocol : string</code> :  The protocol configuration for the monitor 
+</li>
+
+  <li><code>location : any</code> :  The location of the monitor 
+</li>
+
+</ul>
+
 
 
 <h4>Response type</h4>
 
 Type: void
 
-Type documentation: no documentation provided 
+
+
+
+<code>void : void</code> 
 
 
 
@@ -679,6 +1003,8 @@ Type documentation: no documentation provided
 
 <h3 id="getProcessId">getProcessId</h3>
 
+Operation documentation:  Returns the internal identifier of the executing Jolie process.
+
 
 Invocation template: 
 <pre>getProcessId@Runtime( request )( response )</pre>
@@ -687,7 +1013,10 @@ Invocation template:
 
 Type: void
 
-Type documentation: no documentation provided 
+
+
+
+<code>void : void</code> 
 
 
 
@@ -695,7 +1024,10 @@ Type documentation: no documentation provided
 
 Type: string
 
-Type documentation: no documentation provided 
+
+
+
+<code>string : string</code> 
 
 
 
@@ -706,6 +1038,8 @@ Type documentation: no documentation provided
 
 <h3 id="getIncludePaths">getIncludePaths</h3>
 
+Operation documentation:  Get the include paths used by this interpreter
+
 
 Invocation template: 
 <pre>getIncludePaths@Runtime( request )( response )</pre>
@@ -714,7 +1048,10 @@ Invocation template:
 
 Type: void
 
-Type documentation: no documentation provided 
+
+
+
+<code>void : void</code> 
 
 
 
@@ -722,10 +1059,20 @@ Type documentation: no documentation provided
 
 Type: GetIncludePathResponse
 
-Type documentation: no documentation provided 
+
 <pre>type GetIncludePathResponse: void {
 	.path*: string
 }</pre>
+
+<code>GetIncludePathResponse : void</code> 
+
+<ul>
+
+  <li><code>path : string</code> :  The include paths of the interpreter 
+</li>
+
+</ul>
+
 
 
 
@@ -735,7 +1082,7 @@ Type documentation: no documentation provided
 
 <h3 id="getenv">getenv</h3>
 
-Operation documentation:  Get the value of an environment variable 
+Operation documentation:  Returns the value of an environment variable.
 
 
 Invocation template: 
@@ -745,7 +1092,10 @@ Invocation template:
 
 Type: string
 
-Type documentation: no documentation provided 
+
+
+
+<code>string : string</code> 
 
 
 
@@ -753,8 +1103,21 @@ Type documentation: no documentation provided
 
 Type: MaybeString
 
-Type documentation: no documentation provided 
-<pre>type MaybeString: type MaybeString: void|type MaybeString: string</pre>
+
+<pre>type MaybeString: void | string</pre>
+
+<code>MaybeString : </code> 
+
+<ul>
+
+  <li><code> : void</code> 
+</li>
+
+  <li><code> : string</code> 
+</li>
+
+</ul>
+
 
 
 
@@ -765,13 +1128,15 @@ Type documentation: no documentation provided
 <h3>Subtypes</h3>
 
 
-<h4 id="IOExceptionType">IOExceptionType</h4>
+<h4 id="JavaExceptionType">JavaExceptionType</h4>
 
-<pre>type IOExceptionType: JavaExceptionType</pre>
 
-<h4 id="RuntimeExceptionType">RuntimeExceptionType</h4>
 
-<pre>type RuntimeExceptionType: JavaExceptionType</pre>
+<pre>type JavaExceptionType: string {
+	.stackTrace: string
+}</pre>
+<code>JavaExceptionType : string</code> 
+
 
 
 

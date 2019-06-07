@@ -12,7 +12,7 @@ Inclusion code: <pre>include "exec.iol"</pre>
       <th>Interfaces</th>
     </tr>
   </thead>
-  <tbody>
+  <tbody><tr><td>Exec documentation: </td></tr>
     <tr>
       <td>Exec</td>
       <td>-</td>
@@ -25,6 +25,8 @@ Inclusion code: <pre>include "exec.iol"</pre>
 <h3>List of Available Interfaces</h3>
 
 <h3 id="ExecInterface">ExecInterface</h3>
+
+Interface documentation: 
 
 <table>
   <thead>
@@ -52,6 +54,8 @@ Inclusion code: <pre>include "exec.iol"</pre>
 
 <h3 id="exec">exec</h3>
 
+Operation documentation: 
+
 
 Invocation template: 
 <pre>exec@Exec( request )( response )</pre>
@@ -60,7 +64,7 @@ Invocation template:
 
 Type: CommandExecutionRequest
 
-Type documentation: no documentation provided 
+
 <pre>type CommandExecutionRequest: string {
 	.args*: string
 	.workingDirectory?: string
@@ -68,16 +72,48 @@ Type documentation: no documentation provided
 	.waitFor?: int
 }</pre>
 
+<code>CommandExecutionRequest : string</code> 
+
+<ul>
+
+  <li><code>args : string</code> 
+</li>
+
+  <li><code>workingDirectory : string</code> 
+</li>
+
+  <li><code>stdOutConsoleEnable : bool</code> 
+</li>
+
+  <li><code>waitFor : int</code> 
+</li>
+
+</ul>
+
+
 
 <h4 id="CommandExecutionResult">Response type</h4>
 
 Type: CommandExecutionResult
 
-Type documentation: no documentation provided 
+
 <pre>type CommandExecutionResult: any {
 	.exitCode?: int
 	.stderr?: string
 }</pre>
+
+<code>CommandExecutionResult : any</code> 
+
+<ul>
+
+  <li><code>exitCode : int</code> 
+</li>
+
+  <li><code>stderr : string</code> 
+</li>
+
+</ul>
+
 
 
 

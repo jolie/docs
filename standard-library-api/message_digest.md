@@ -12,7 +12,7 @@ Inclusion code: <pre>include "message_digest.iol"</pre>
       <th>Interfaces</th>
     </tr>
   </thead>
-  <tbody>
+  <tbody><tr><td>MessageDigest documentation: </td></tr>
     <tr>
       <td>MessageDigest</td>
       <td>-</td>
@@ -25,6 +25,8 @@ Inclusion code: <pre>include "message_digest.iol"</pre>
 <h3>List of Available Interfaces</h3>
 
 <h3 id="MessageDigestInterface">MessageDigestInterface</h3>
+
+Interface documentation: 
 
 <table>
   <thead>
@@ -53,6 +55,8 @@ Inclusion code: <pre>include "message_digest.iol"</pre>
 
 <h3 id="md5">md5</h3>
 
+Operation documentation: 
+
 
 Invocation template: 
 <pre>md5@MessageDigest( request )( response )</pre>
@@ -61,23 +65,54 @@ Invocation template:
 
 Type: MD5Request
 
-Type documentation: no documentation provided 
+
 <pre>type MD5Request: string {
 	.radix?: int
+} | raw {
+	.radix?: int
 }</pre>
+
+<code>MD5Request : </code> 
+
+<ul>
+
+  <li><code> : string</code> 
+
+<ul>
+
+  <li><code>radix : int</code> 
+</li>
+
+</ul>
+</li>
+
+  <li><code> : raw</code> 
+
+<ul>
+
+  <li><code>radix : int</code> 
+</li>
+
+</ul>
+</li>
+
+</ul>
+
 
 
 <h4>Response type</h4>
 
 Type: string
 
-Type documentation: no documentation provided 
+
+
+
+<code>string : string</code> 
 
 
 
 
 <h4>Possible faults thrown</h4>
-
 
 
 Fault <code>UnsupportedOperation</code> with type <code>JavaExceptionType</code>

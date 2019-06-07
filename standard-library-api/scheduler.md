@@ -12,7 +12,7 @@ Inclusion code: <pre>include "scheduler.iol"</pre>
       <th>Interfaces</th>
     </tr>
   </thead>
-  <tbody>
+  <tbody><tr><td>Scheduler documentation: </td></tr>
     <tr>
       <td>Scheduler</td>
       <td>-</td>
@@ -25,6 +25,8 @@ Inclusion code: <pre>include "scheduler.iol"</pre>
 <h3>List of Available Interfaces</h3>
 
 <h3 id="SchedulerInterface">SchedulerInterface</h3>
+
+Interface documentation: 
 
 <table>
   <thead>
@@ -67,6 +69,8 @@ Inclusion code: <pre>include "scheduler.iol"</pre>
 
 <h3 id="setCronJob">setCronJob</h3>
 
+Operation documentation: 
+
 
 Invocation template: 
 <pre>setCronJob@Scheduler( request )( response )</pre>
@@ -75,7 +79,7 @@ Invocation template:
 
 Type: SetCronJobRequest
 
-Type documentation: no documentation provided 
+
 <pre>type SetCronJobRequest: void {
 	.jobName: string
 	.cronSpecs: void {
@@ -90,18 +94,61 @@ Type documentation: no documentation provided
 	.groupName: string
 }</pre>
 
+<code>SetCronJobRequest : void</code> 
+
+<ul>
+
+  <li><code>jobName : string</code> 
+</li>
+
+  <li><code>cronSpecs : void</code> 
+
+<ul>
+
+  <li><code>dayOfWeek : string</code> 
+</li>
+
+  <li><code>hour : string</code> 
+</li>
+
+  <li><code>month : string</code> 
+</li>
+
+  <li><code>dayOfMonth : string</code> 
+</li>
+
+  <li><code>year : string</code> 
+</li>
+
+  <li><code>second : string</code> 
+</li>
+
+  <li><code>minute : string</code> 
+</li>
+
+</ul>
+</li>
+
+  <li><code>groupName : string</code> 
+</li>
+
+</ul>
+
+
 
 <h4>Response type</h4>
 
 Type: void
 
-Type documentation: no documentation provided 
+
+
+
+<code>void : void</code> 
 
 
 
 
 <h4>Possible faults thrown</h4>
-
 
 
 Fault <code>JobAlreadyExists</code> with type <code>void</code>
@@ -114,6 +161,8 @@ Fault-handling install template:
 
 <h3 id="deleteCronJob">deleteCronJob</h3>
 
+Operation documentation: 
+
 
 Invocation template: 
 <pre>deleteCronJob@Scheduler( request )( response )</pre>
@@ -122,18 +171,34 @@ Invocation template:
 
 Type: DeleteCronJobRequest
 
-Type documentation: no documentation provided 
+
 <pre>type DeleteCronJobRequest: void {
 	.jobName: string
 	.groupName: string
 }</pre>
+
+<code>DeleteCronJobRequest : void</code> 
+
+<ul>
+
+  <li><code>jobName : string</code> 
+</li>
+
+  <li><code>groupName : string</code> 
+</li>
+
+</ul>
+
 
 
 <h4>Response type</h4>
 
 Type: void
 
-Type documentation: no documentation provided 
+
+
+
+<code>void : void</code> 
 
 
 
@@ -144,6 +209,8 @@ Type documentation: no documentation provided
 
 <h3 id="setCallbackOperation">setCallbackOperation</h3>
 
+Operation documentation: 
+
 
 Invocation template: 
 <pre>setCallbackOperation@Scheduler( request )</pre>
@@ -152,10 +219,20 @@ Invocation template:
 
 Type: SetCallBackOperationRequest
 
-Type documentation: no documentation provided 
+
 <pre>type SetCallBackOperationRequest: void {
 	.operationName: string
 }</pre>
+
+<code>SetCallBackOperationRequest : void</code> 
+
+<ul>
+
+  <li><code>operationName : string</code> 
+</li>
+
+</ul>
+
 
 
 

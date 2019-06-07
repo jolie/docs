@@ -12,7 +12,7 @@ Inclusion code: <pre>include "uri_templates.iol"</pre>
       <th>Interfaces</th>
     </tr>
   </thead>
-  <tbody>
+  <tbody><tr><td>UriTemplates documentation: </td></tr>
     <tr>
       <td>UriTemplates</td>
       <td>-</td>
@@ -63,6 +63,8 @@ WARNING: the API of this service is experimental. Use it at your own risk.
 
 <h3 id="expand">expand</h3>
 
+Operation documentation: 
+
 
 Invocation template: 
 <pre>expand@UriTemplates( request )( response )</pre>
@@ -71,18 +73,34 @@ Invocation template:
 
 Type: ExpandRequest
 
-Type documentation: no documentation provided 
+
 <pre>type ExpandRequest: void {
 	.template: string
 	.params?: undefined
 }</pre>
+
+<code>ExpandRequest : void</code> 
+
+<ul>
+
+  <li><code>template : string</code> 
+</li>
+
+  <li><code>params : any</code> 
+</li>
+
+</ul>
+
 
 
 <h4>Response type</h4>
 
 Type: string
 
-Type documentation: no documentation provided 
+
+
+
+<code>string : string</code> 
 
 
 
@@ -93,6 +111,8 @@ Type documentation: no documentation provided
 
 <h3 id="match">match</h3>
 
+Operation documentation: 
+
 
 Invocation template: 
 <pre>match@UriTemplates( request )( response )</pre>
@@ -101,19 +121,35 @@ Invocation template:
 
 Type: UriMatchRequest
 
-Type documentation: no documentation provided 
+
 <pre>type UriMatchRequest: void {
 	.template: string
 	.uri: string
 }</pre>
+
+<code>UriMatchRequest : void</code> 
+
+<ul>
+
+  <li><code>template : string</code> 
+</li>
+
+  <li><code>uri : string</code> 
+</li>
+
+</ul>
+
 
 
 <h4 id="MatchResponse">Response type</h4>
 
 Type: MatchResponse
 
-Type documentation: no documentation provided 
+
 <pre>type MatchResponse: undefined</pre>
+
+<code>MatchResponse : bool</code> 
+
 
 
 

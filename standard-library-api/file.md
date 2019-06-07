@@ -12,7 +12,7 @@ Inclusion code: <pre>include "file.iol"</pre>
       <th>Interfaces</th>
     </tr>
   </thead>
-  <tbody>
+  <tbody><tr><td>File documentation: </td></tr>
     <tr>
       <td>File</td>
       <td>-</td>
@@ -27,9 +27,6 @@ Inclusion code: <pre>include "file.iol"</pre>
 <h3 id="FileInterface">FileInterface</h3>
 
 Interface documentation: 
-from: the source directory to copy
-to: the target directory to copy into
-
 
 <table>
   <thead>
@@ -85,6 +82,7 @@ to: the target directory to copy into
       <td><a href="#ListRequest">ListRequest</a></td>
       <td><a href="#ListResponse">ListResponse</a></td>
       <td>
+        IOException( <a href="#IOExceptionType">IOExceptionType</a> )
       </td>
     </tr>
     <tr>
@@ -210,7 +208,10 @@ Invocation template:
 
 Type: string
 
-Type documentation: no documentation provided 
+
+
+
+<code>string : string</code> 
 
 
 
@@ -218,13 +219,15 @@ Type documentation: no documentation provided
 
 Type: raw
 
-Type documentation: no documentation provided 
+
+
+
+<code>raw : raw</code> 
 
 
 
 
 <h4>Possible faults thrown</h4>
-
 
 
 Fault <code>IOException</code> with type <code>IOExceptionType</code>
@@ -237,6 +240,10 @@ Fault-handling install template:
 
 <h3 id="getMimeType">getMimeType</h3>
 
+Operation documentation: 
+	 it tests if the specified file or directory exists or not.
+	
+
 
 Invocation template: 
 <pre>getMimeType@File( request )( response )</pre>
@@ -245,7 +252,10 @@ Invocation template:
 
 Type: string
 
-Type documentation: no documentation provided 
+
+
+
+<code>string : string</code> 
 
 
 
@@ -253,13 +263,15 @@ Type documentation: no documentation provided
 
 Type: string
 
-Type documentation: no documentation provided 
+
+
+
+<code>string : string</code> 
 
 
 
 
 <h4>Possible faults thrown</h4>
-
 
 
 Fault <code>FileNotFound</code> with type <code>FileNotFoundType</code>
@@ -282,7 +294,10 @@ Invocation template:
 
 Type: raw
 
-Type documentation: no documentation provided 
+
+
+
+<code>raw : raw</code> 
 
 
 
@@ -290,7 +305,10 @@ Type documentation: no documentation provided
 
 Type: string
 
-Type documentation: no documentation provided 
+
+
+
+<code>string : string</code> 
 
 
 
@@ -315,7 +333,10 @@ Invocation template:
 
 Type: string
 
-Type documentation: no documentation provided 
+
+
+
+<code>string : string</code> 
 
 
 
@@ -323,13 +344,15 @@ Type documentation: no documentation provided
 
 Type: string
 
-Type documentation: no documentation provided 
+
+
+
+<code>string : string</code> 
 
 
 
 
 <h4>Possible faults thrown</h4>
-
 
 
 Fault <code>InvalidPathException</code> with type <code>JavaExceptionType</code>
@@ -358,7 +381,10 @@ Invocation template:
 
 Type: string
 
-Type documentation: no documentation provided 
+
+
+
+<code>string : string</code> 
 
 
 
@@ -366,13 +392,15 @@ Type documentation: no documentation provided
 
 Type: string
 
-Type documentation: no documentation provided 
+
+
+
+<code>string : string</code> 
 
 
 
 
 <h4>Possible faults thrown</h4>
-
 
 
 Fault <code>InvalidPathException</code> with type <code>JavaExceptionType</code>
@@ -387,6 +415,17 @@ Fault-handling install template:
 
 <h3 id="list">list</h3>
 
+Operation documentation: 
+	  The size of any basic type variable.
+	  - raw: buffer size
+	  - void: 0
+	  - boolean: 1
+	  - integer types: int 4, long 8
+	  - double: 8
+	  - string: size in the respective platform encoding, on ASCII and latin1
+	    equal to the string's length, on Unicode (UTF-8 etc.) >= string's length
+	 
+
 
 Invocation template: 
 <pre>list@File( request )( response )</pre>
@@ -395,23 +434,56 @@ Invocation template:
 
 Type: ListRequest
 
-Type documentation: no documentation provided 
+
 <pre>type ListRequest: void {
 	.regex?: string
 	.dirsOnly?: bool
 	.directory: string
+	.recursive?: bool
 	.order?: void {
 		.byname?: bool
 	}
 	.info?: bool
 }</pre>
 
+<code>ListRequest : void</code> 
+
+<ul>
+
+  <li><code>regex : string</code> 
+</li>
+
+  <li><code>dirsOnly : bool</code> 
+</li>
+
+  <li><code>directory : string</code> 
+</li>
+
+  <li><code>recursive : bool</code> 
+</li>
+
+  <li><code>order : void</code> 
+
+<ul>
+
+  <li><code>byname : bool</code> 
+</li>
+
+</ul>
+</li>
+
+  <li><code>info : bool</code> 
+</li>
+
+</ul>
+
+
 
 <h4 id="ListResponse">Response type</h4>
 
 Type: ListResponse
 
-Type documentation: no documentation provided 
+
 <pre>type ListResponse: void {
 	.result*: string {
 		.info?: void {
@@ -424,9 +496,52 @@ Type documentation: no documentation provided
 	}
 }</pre>
 
+<code>ListResponse : void</code> 
+
+<ul>
+
+  <li><code>result : string</code> 
+
+<ul>
+
+  <li><code>info : void</code> 
+
+<ul>
+
+  <li><code>size : long</code> 
+</li>
+
+  <li><code>absolutePath : string</code> 
+</li>
+
+  <li><code>lastModified : long</code> 
+</li>
+
+  <li><code>isDirectory : bool</code> 
+</li>
+
+  <li><code>isHidden : bool</code> 
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+
+</ul>
 
 
 
+
+<h4>Possible faults thrown</h4>
+
+
+Fault <code>IOException</code> with type <code>IOExceptionType</code>
+
+Fault-handling install template: 
+<pre>install ( IOException => /* error-handling code */ )</pre>
+<pre>type IOExceptionType: JavaExceptionType</pre>
 
 
 
@@ -444,18 +559,37 @@ Invocation template:
 
 Type: CopyDirRequest
 
-Type documentation: no documentation provided 
+
 <pre>type CopyDirRequest: void {
 	.from: string
 	.to: string
 }</pre>
+
+<code>CopyDirRequest : void</code> : 
+from: the source directory to copy
+to: the target directory to copy into
+ 
+
+<ul>
+
+  <li><code>from : string</code> 
+</li>
+
+  <li><code>to : string</code> 
+</li>
+
+</ul>
+
 
 
 <h4>Response type</h4>
 
 Type: bool
 
-Type documentation: no documentation provided 
+
+
+
+<code>bool : bool</code> 
 
 
 
@@ -463,12 +597,10 @@ Type documentation: no documentation provided
 <h4>Possible faults thrown</h4>
 
 
-
 Fault <code>FileNotFound</code> with type <code>undefined</code>
 
 Fault-handling install template: 
 <pre>install ( FileNotFound => /* error-handling code */ )</pre>
-
 
 
 
@@ -482,6 +614,10 @@ Fault-handling install template:
 
 <h3 id="delete">delete</h3>
 
+Operation documentation: 
+	  it copies a source directory into a destination one
+	
+
 
 Invocation template: 
 <pre>delete@File( request )( response )</pre>
@@ -490,23 +626,35 @@ Invocation template:
 
 Type: DeleteRequest
 
-Type documentation: no documentation provided 
+
 <pre>type DeleteRequest: string {
 	.isRegex?: int
 }</pre>
+
+<code>DeleteRequest : string</code> 
+
+<ul>
+
+  <li><code>isRegex : int</code> 
+</li>
+
+</ul>
+
 
 
 <h4>Response type</h4>
 
 Type: bool
 
-Type documentation: no documentation provided 
+
+
+
+<code>bool : bool</code> 
 
 
 
 
 <h4>Possible faults thrown</h4>
-
 
 
 Fault <code>IOException</code> with type <code>IOExceptionType</code>
@@ -538,7 +686,10 @@ Invocation template:
 
 Type: any
 
-Type documentation: no documentation provided 
+
+
+
+<code>any : any</code> 
 
 
 
@@ -546,7 +697,10 @@ Type documentation: no documentation provided
 
 Type: int
 
-Type documentation: no documentation provided 
+
+
+
+<code>int : int</code> 
 
 
 
@@ -557,6 +711,10 @@ Type documentation: no documentation provided
 
 <h3 id="getFileSeparator">getFileSeparator</h3>
 
+Operation documentation: 
+	 it tests if the specified file or directory exists or not.
+	
+
 
 Invocation template: 
 <pre>getFileSeparator@File( request )( response )</pre>
@@ -565,7 +723,10 @@ Invocation template:
 
 Type: void
 
-Type documentation: no documentation provided 
+
+
+
+<code>void : void</code> 
 
 
 
@@ -573,7 +734,10 @@ Type documentation: no documentation provided
 
 Type: string
 
-Type documentation: no documentation provided 
+
+
+
+<code>string : string</code> 
 
 
 
@@ -584,6 +748,17 @@ Type documentation: no documentation provided
 
 <h3 id="rename">rename</h3>
 
+Operation documentation: 
+	  The size of any basic type variable.
+	  - raw: buffer size
+	  - void: 0
+	  - boolean: 1
+	  - integer types: int 4, long 8
+	  - double: 8
+	  - string: size in the respective platform encoding, on ASCII and latin1
+	    equal to the string's length, on Unicode (UTF-8 etc.) >= string's length
+	 
+
 
 Invocation template: 
 <pre>rename@File( request )( response )</pre>
@@ -592,24 +767,39 @@ Invocation template:
 
 Type: RenameRequest
 
-Type documentation: no documentation provided 
+
 <pre>type RenameRequest: void {
 	.filename: string
 	.to: string
 }</pre>
+
+<code>RenameRequest : void</code> 
+
+<ul>
+
+  <li><code>filename : string</code> 
+</li>
+
+  <li><code>to : string</code> 
+</li>
+
+</ul>
+
 
 
 <h4>Response type</h4>
 
 Type: void
 
-Type documentation: no documentation provided 
+
+
+
+<code>void : void</code> 
 
 
 
 
 <h4>Possible faults thrown</h4>
-
 
 
 Fault <code>IOException</code> with type <code>IOExceptionType</code>
@@ -648,7 +838,7 @@ Invocation template:
 
 Type: ReadFileRequest
 
-Type documentation: no documentation provided 
+
 <pre>type ReadFileRequest: void {
 	.filename: string
 	.format?: string {
@@ -657,12 +847,38 @@ Type documentation: no documentation provided
 	}
 }</pre>
 
+<code>ReadFileRequest : void</code> 
+
+<ul>
+
+  <li><code>filename : string</code> 
+</li>
+
+  <li><code>format : string</code> 
+
+<ul>
+
+  <li><code>skipMixedText : bool</code> 
+</li>
+
+  <li><code>charset : string</code> 
+</li>
+
+</ul>
+</li>
+
+</ul>
+
+
 
 <h4>Response type</h4>
 
 Type: undefined
 
-Type documentation: no documentation provided 
+
+
+
+<code>undefined : any</code> 
 
 
 
@@ -670,13 +886,11 @@ Type documentation: no documentation provided
 <h4>Possible faults thrown</h4>
 
 
-
 Fault <code>FileNotFound</code> with type <code>FileNotFoundType</code>
 
 Fault-handling install template: 
 <pre>install ( FileNotFound => /* error-handling code */ )</pre>
 <pre>type FileNotFoundType: WeakJavaExceptionType</pre>
-
 
 
 Fault <code>IOException</code> with type <code>IOExceptionType</code>
@@ -701,7 +915,10 @@ Invocation template:
 
 Type: string
 
-Type documentation: no documentation provided 
+
+
+
+<code>string : string</code> 
 
 
 
@@ -709,7 +926,10 @@ Type documentation: no documentation provided
 
 Type: bool
 
-Type documentation: no documentation provided 
+
+
+
+<code>bool : bool</code> 
 
 
 
@@ -720,6 +940,10 @@ Type documentation: no documentation provided
 
 <h3 id="setMimeTypeFile">setMimeTypeFile</h3>
 
+Operation documentation: 
+	 it tests if the specified file or directory exists or not.
+	
+
 
 Invocation template: 
 <pre>setMimeTypeFile@File( request )( response )</pre>
@@ -728,7 +952,10 @@ Invocation template:
 
 Type: string
 
-Type documentation: no documentation provided 
+
+
+
+<code>string : string</code> 
 
 
 
@@ -736,13 +963,15 @@ Type documentation: no documentation provided
 
 Type: void
 
-Type documentation: no documentation provided 
+
+
+
+<code>void : void</code> 
 
 
 
 
 <h4>Possible faults thrown</h4>
-
 
 
 Fault <code>IOException</code> with type <code>IOExceptionType</code>
@@ -767,7 +996,10 @@ Invocation template:
 
 Type: string
 
-Type documentation: no documentation provided 
+
+
+
+<code>string : string</code> 
 
 
 
@@ -775,13 +1007,15 @@ Type documentation: no documentation provided
 
 Type: bool
 
-Type documentation: no documentation provided 
+
+
+
+<code>bool : bool</code> 
 
 
 
 
 <h4>Possible faults thrown</h4>
-
 
 
 Fault <code>IOException</code> with type <code>IOExceptionType</code>
@@ -794,6 +1028,10 @@ Fault-handling install template:
 
 <h3 id="getServiceDirectory">getServiceDirectory</h3>
 
+Operation documentation: 
+	 it tests if the specified file or directory exists or not.
+	
+
 
 Invocation template: 
 <pre>getServiceDirectory@File( request )( response )</pre>
@@ -802,7 +1040,10 @@ Invocation template:
 
 Type: void
 
-Type documentation: no documentation provided 
+
+
+
+<code>void : void</code> 
 
 
 
@@ -810,13 +1051,15 @@ Type documentation: no documentation provided
 
 Type: string
 
-Type documentation: no documentation provided 
+
+
+
+<code>string : string</code> 
 
 
 
 
 <h4>Possible faults thrown</h4>
-
 
 
 Fault <code>IOException</code> with type <code>IOExceptionType</code>
@@ -858,7 +1101,7 @@ Invocation template:
 
 Type: WriteFileRequest
 
-Type documentation: no documentation provided 
+
 <pre>type WriteFileRequest: void {
 	.filename: string
 	.format?: string {
@@ -871,12 +1114,50 @@ Type documentation: no documentation provided
 	.append?: int
 }</pre>
 
+<code>WriteFileRequest : void</code> 
+
+<ul>
+
+  <li><code>filename : string</code> 
+</li>
+
+  <li><code>format : string</code> 
+
+<ul>
+
+  <li><code>schema : string</code> 
+</li>
+
+  <li><code>indent : bool</code> 
+</li>
+
+  <li><code>doctype_system : string</code> 
+</li>
+
+  <li><code>encoding : string</code> 
+</li>
+
+</ul>
+</li>
+
+  <li><code>content : any</code> 
+</li>
+
+  <li><code>append : int</code> 
+</li>
+
+</ul>
+
+
 
 <h4>Response type</h4>
 
 Type: void
 
-Type documentation: no documentation provided 
+
+
+
+<code>void : void</code> 
 
 
 
@@ -884,13 +1165,11 @@ Type documentation: no documentation provided
 <h4>Possible faults thrown</h4>
 
 
-
 Fault <code>FileNotFound</code> with type <code>FileNotFoundType</code>
 
 Fault-handling install template: 
 <pre>install ( FileNotFound => /* error-handling code */ )</pre>
 <pre>type FileNotFoundType: WeakJavaExceptionType</pre>
-
 
 
 Fault <code>IOException</code> with type <code>IOExceptionType</code>
@@ -917,7 +1196,10 @@ Invocation template:
 
 Type: string
 
-Type documentation: no documentation provided 
+
+
+
+<code>string : string</code> 
 
 
 
@@ -925,7 +1207,10 @@ Type documentation: no documentation provided
 
 Type: bool
 
-Type documentation: no documentation provided 
+
+
+
+<code>bool : bool</code> 
 
 
 
@@ -948,7 +1233,10 @@ Invocation template:
 
 Type: string
 
-Type documentation: no documentation provided 
+
+
+
+<code>string : string</code> 
 
 
 
@@ -956,7 +1244,10 @@ Type documentation: no documentation provided
 
 Type: bool
 
-Type documentation: no documentation provided 
+
+
+
+<code>bool : bool</code> 
 
 
 
@@ -964,13 +1255,11 @@ Type documentation: no documentation provided
 <h4>Possible faults thrown</h4>
 
 
-
 Fault <code>FileNotFound</code> with type <code>FileNotFoundType</code>
 
 Fault-handling install template: 
 <pre>install ( FileNotFound => /* error-handling code */ )</pre>
 <pre>type FileNotFoundType: WeakJavaExceptionType</pre>
-
 
 
 Fault <code>IOException</code> with type <code>IOExceptionType</code>
@@ -984,13 +1273,25 @@ Fault-handling install template:
 <h3>Subtypes</h3>
 
 
-<h4 id="IOExceptionType">IOExceptionType</h4>
+<h4 id="JavaExceptionType">JavaExceptionType</h4>
 
-<pre>type IOExceptionType: JavaExceptionType</pre>
 
-<h4 id="FileNotFoundType">FileNotFoundType</h4>
 
-<pre>type FileNotFoundType: WeakJavaExceptionType</pre>
+<pre>type JavaExceptionType: string {
+	.stackTrace: string
+}</pre>
+<code>JavaExceptionType : string</code> 
+
+
+<h4 id="WeakJavaExceptionType">WeakJavaExceptionType</h4>
+
+
+
+<pre>type WeakJavaExceptionType: any {
+	.stackTrace?: string
+}</pre>
+<code>WeakJavaExceptionType : any</code> 
+
 
 
 

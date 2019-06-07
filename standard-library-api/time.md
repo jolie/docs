@@ -12,7 +12,7 @@ Inclusion code: <pre>include "time.iol"</pre>
       <th>Interfaces</th>
     </tr>
   </thead>
-  <tbody>
+  <tbody><tr><td>Time documentation: </td></tr>
     <tr>
       <td>Time</td>
       <td>-</td>
@@ -25,6 +25,8 @@ Inclusion code: <pre>include "time.iol"</pre>
 <h3>List of Available Interfaces</h3>
 
 <h3 id="TimeInterface">TimeInterface</h3>
+
+Interface documentation: 
 
 <table>
   <thead>
@@ -180,25 +182,43 @@ Invocation template:
 
 Type: ScheduleTimeOutRequest
 
-Type documentation: no documentation provided 
+
 <pre>type ScheduleTimeOutRequest: int {
 	.message?: undefined
 	.operation?: string
 	.timeunit?: string
 }</pre>
 
+<code>ScheduleTimeOutRequest : int</code> 
+
+<ul>
+
+  <li><code>message : any</code> 
+</li>
+
+  <li><code>operation : string</code> 
+</li>
+
+  <li><code>timeunit : string</code> 
+</li>
+
+</ul>
+
+
 
 <h4>Response type</h4>
 
 Type: long
 
-Type documentation: no documentation provided 
+
+
+
+<code>long : long</code> 
 
 
 
 
 <h4>Possible faults thrown</h4>
-
 
 
 Fault <code>InvalidTimeUnit</code> with type <code>undefined</code>
@@ -225,27 +245,54 @@ Invocation template:
 
 Type: DateValuesRequestType
 
-Type documentation: no documentation provided 
+
 <pre>type DateValuesRequestType: string {
 	.format?: string
 }</pre>
+
+<code>DateValuesRequestType : string</code> 
+
+<ul>
+
+  <li><code>format : string</code> 
+</li>
+
+</ul>
+
 
 
 <h4 id="DateValuesType">Response type</h4>
 
 Type: DateValuesType
 
-Type documentation: no documentation provided 
+
 <pre>type DateValuesType: void {
 	.month: int
 	.year: int
 	.day: int
 }</pre>
 
+<code>DateValuesType : void</code> : 
+WARNING: work in progress, the API is unstable.
+ 
+
+<ul>
+
+  <li><code>month : int</code> 
+</li>
+
+  <li><code>year : int</code> 
+</li>
+
+  <li><code>day : int</code> 
+</li>
+
+</ul>
+
+
 
 
 <h4>Possible faults thrown</h4>
-
 
 
 Fault <code>InvalidDate</code> with type <code>undefined</code>
@@ -270,17 +317,27 @@ Invocation template:
 
 Type: GetDateTimeRequest
 
-Type documentation: no documentation provided 
+
 <pre>type GetDateTimeRequest: long {
 	.format?: string
 }</pre>
+
+<code>GetDateTimeRequest : long</code> 
+
+<ul>
+
+  <li><code>format : string</code> 
+</li>
+
+</ul>
+
 
 
 <h4 id="GetDateTimeResponse">Response type</h4>
 
 Type: GetDateTimeResponse
 
-Type documentation: no documentation provided 
+
 <pre>type GetDateTimeResponse: string {
 	.month: int
 	.hour: int
@@ -289,6 +346,31 @@ Type documentation: no documentation provided
 	.minute: int
 	.second: int
 }</pre>
+
+<code>GetDateTimeResponse : string</code> 
+
+<ul>
+
+  <li><code>month : int</code> 
+</li>
+
+  <li><code>hour : int</code> 
+</li>
+
+  <li><code>year : int</code> 
+</li>
+
+  <li><code>day : int</code> 
+</li>
+
+  <li><code>minute : int</code> 
+</li>
+
+  <li><code>second : int</code> 
+</li>
+
+</ul>
+
 
 
 
@@ -310,7 +392,10 @@ Invocation template:
 
 Type: void
 
-Type documentation: no documentation provided 
+
+
+
+<code>void : void</code> 
 
 
 
@@ -318,7 +403,10 @@ Type documentation: no documentation provided
 
 Type: long
 
-Type documentation: no documentation provided 
+
+
+
+<code>long : long</code> 
 
 
 
@@ -329,6 +417,10 @@ Type documentation: no documentation provided
 
 <h3 id="getDateDiff">getDateDiff</h3>
 
+Operation documentation: 
+		 Returns the current date split in three fields: day, month and year
+		
+
 
 Invocation template: 
 <pre>getDateDiff@Time( request )( response )</pre>
@@ -337,19 +429,38 @@ Invocation template:
 
 Type: DiffDateRequestType
 
-Type documentation: no documentation provided 
+
 <pre>type DiffDateRequestType: void {
 	.format?: string
 	.date2: string
 	.date1: string
 }</pre>
 
+<code>DiffDateRequestType : void</code> 
+
+<ul>
+
+  <li><code>format : string</code> 
+</li>
+
+  <li><code>date2 : string</code> 
+</li>
+
+  <li><code>date1 : string</code> 
+</li>
+
+</ul>
+
+
 
 <h4>Response type</h4>
 
 Type: int
 
-Type documentation: no documentation provided 
+
+
+
+<code>int : int</code> 
 
 
 
@@ -360,6 +471,10 @@ Type documentation: no documentation provided
 
 <h3 id="getTimeDiff">getTimeDiff</h3>
 
+Operation documentation: 
+		 Warning: this is temporary and subject to future change as soon as long is supported by Jolie.
+		
+
 
 Invocation template: 
 <pre>getTimeDiff@Time( request )( response )</pre>
@@ -368,18 +483,34 @@ Invocation template:
 
 Type: GetTimeDiffRequest
 
-Type documentation: no documentation provided 
+
 <pre>type GetTimeDiffRequest: void {
 	.time1: string
 	.time2: string
 }</pre>
+
+<code>GetTimeDiffRequest : void</code> 
+
+<ul>
+
+  <li><code>time1 : string</code> 
+</li>
+
+  <li><code>time2 : string</code> 
+</li>
+
+</ul>
+
 
 
 <h4>Response type</h4>
 
 Type: int
 
-Type documentation: no documentation provided 
+
+
+
+<code>int : int</code> 
 
 
 
@@ -390,6 +521,10 @@ Type documentation: no documentation provided
 
 <h3 id="getTimestampFromString">getTimestampFromString</h3>
 
+Operation documentation: 
+		 Warning: this is temporary and subject to future change as soon as long is supported by Jolie.
+		
+
 
 Invocation template: 
 <pre>getTimestampFromString@Time( request )( response )</pre>
@@ -398,24 +533,39 @@ Invocation template:
 
 Type: GetTimestampFromStringRequest
 
-Type documentation: no documentation provided 
+
 <pre>type GetTimestampFromStringRequest: string {
 	.format?: string
 	.language?: string
 }</pre>
+
+<code>GetTimestampFromStringRequest : string</code> 
+
+<ul>
+
+  <li><code>format : string</code> 
+</li>
+
+  <li><code>language : string</code> 
+</li>
+
+</ul>
+
 
 
 <h4>Response type</h4>
 
 Type: long
 
-Type documentation: no documentation provided 
+
+
+
+<code>long : long</code> 
 
 
 
 
 <h4>Possible faults thrown</h4>
-
 
 
 Fault <code>InvalidTimestamp</code> with type <code>undefined</code>
@@ -440,7 +590,10 @@ Invocation template:
 
 Type: long
 
-Type documentation: no documentation provided 
+
+
+
+<code>long : long</code> 
 
 
 
@@ -448,7 +601,10 @@ Type documentation: no documentation provided
 
 Type: bool
 
-Type documentation: no documentation provided 
+
+
+
+<code>bool : bool</code> 
 
 
 
@@ -459,6 +615,12 @@ Type documentation: no documentation provided
 
 <h3 id="setNextTimeoutByTime">setNextTimeoutByTime</h3>
 
+Operation documentation: 
+		  it sets a timeout whose duration is in milliseconds and it is represented by the root value of the message
+		  When the alarm is triggered a message whose content is defined in .message is sent to operation defined in .operation
+		  ( default: timeout )
+		
+
 
 Invocation template: 
 <pre>setNextTimeoutByTime@Time( request )</pre>
@@ -467,7 +629,10 @@ Invocation template:
 
 Type: undefined
 
-Type documentation: no documentation provided 
+
+
+
+<code>undefined : any</code> 
 
 
 
@@ -478,6 +643,8 @@ Type documentation: no documentation provided
 
 <h3 id="getCurrentDateTime">getCurrentDateTime</h3>
 
+Operation documentation: 
+
 
 Invocation template: 
 <pre>getCurrentDateTime@Time( request )( response )</pre>
@@ -486,17 +653,30 @@ Invocation template:
 
 Type: CurrentDateTimeRequestType
 
-Type documentation: no documentation provided 
+
 <pre>type CurrentDateTimeRequestType: void {
 	.format?: string
 }</pre>
+
+<code>CurrentDateTimeRequestType : void</code> 
+
+<ul>
+
+  <li><code>format : string</code> 
+</li>
+
+</ul>
+
 
 
 <h4>Response type</h4>
 
 Type: string
 
-Type documentation: no documentation provided 
+
+
+
+<code>string : string</code> 
 
 
 
@@ -507,6 +687,8 @@ Type documentation: no documentation provided
 
 <h3 id="sleep">sleep</h3>
 
+Operation documentation: 
+
 
 Invocation template: 
 <pre>sleep@Time( request )( response )</pre>
@@ -515,7 +697,10 @@ Invocation template:
 
 Type: undefined
 
-Type documentation: no documentation provided 
+
+
+
+<code>undefined : any</code> 
 
 
 
@@ -523,7 +708,10 @@ Type documentation: no documentation provided
 
 Type: undefined
 
-Type documentation: no documentation provided 
+
+
+
+<code>undefined : any</code> 
 
 
 
@@ -548,11 +736,24 @@ Invocation template:
 
 Type: SetNextTimeOutRequest
 
-Type documentation: no documentation provided 
+
 <pre>type SetNextTimeOutRequest: int {
 	.message?: undefined
 	.operation?: string
 }</pre>
+
+<code>SetNextTimeOutRequest : int</code> 
+
+<ul>
+
+  <li><code>message : any</code> 
+</li>
+
+  <li><code>operation : string</code> 
+</li>
+
+</ul>
+
 
 
 
@@ -562,6 +763,10 @@ Type documentation: no documentation provided
 
 <h3 id="getTimeFromMilliSeconds">getTimeFromMilliSeconds</h3>
 
+Operation documentation: 
+		 Warning: this is temporary and subject to future change as soon as long is supported by Jolie.
+		
+
 
 Invocation template: 
 <pre>getTimeFromMilliSeconds@Time( request )( response )</pre>
@@ -570,7 +775,10 @@ Invocation template:
 
 Type: int
 
-Type documentation: no documentation provided 
+
+
+
+<code>int : int</code> 
 
 
 
@@ -578,12 +786,28 @@ Type documentation: no documentation provided
 
 Type: TimeValuesType
 
-Type documentation: no documentation provided 
+
 <pre>type TimeValuesType: void {
 	.hour: int
 	.minute: int
 	.second: int
 }</pre>
+
+<code>TimeValuesType : void</code> 
+
+<ul>
+
+  <li><code>hour : int</code> 
+</li>
+
+  <li><code>minute : int</code> 
+</li>
+
+  <li><code>second : int</code> 
+</li>
+
+</ul>
+
 
 
 
@@ -593,6 +817,10 @@ Type documentation: no documentation provided
 
 <h3 id="getDateTimeValues">getDateTimeValues</h3>
 
+Operation documentation: 
+		 Warning: this is temporary and subject to future change as soon as long is supported by Jolie.
+		
+
 
 Invocation template: 
 <pre>getDateTimeValues@Time( request )( response )</pre>
@@ -601,18 +829,31 @@ Invocation template:
 
 Type: GetTimestampFromStringRequest
 
-Type documentation: no documentation provided 
+
 <pre>type GetTimestampFromStringRequest: string {
 	.format?: string
 	.language?: string
 }</pre>
+
+<code>GetTimestampFromStringRequest : string</code> 
+
+<ul>
+
+  <li><code>format : string</code> 
+</li>
+
+  <li><code>language : string</code> 
+</li>
+
+</ul>
+
 
 
 <h4 id="DateTimeType">Response type</h4>
 
 Type: DateTimeType
 
-Type documentation: no documentation provided 
+
 <pre>type DateTimeType: void {
 	.month: int
 	.hour: int
@@ -622,10 +863,34 @@ Type documentation: no documentation provided
 	.second: int
 }</pre>
 
+<code>DateTimeType : void</code> 
+
+<ul>
+
+  <li><code>month : int</code> 
+</li>
+
+  <li><code>hour : int</code> 
+</li>
+
+  <li><code>year : int</code> 
+</li>
+
+  <li><code>day : int</code> 
+</li>
+
+  <li><code>minute : int</code> 
+</li>
+
+  <li><code>second : int</code> 
+</li>
+
+</ul>
+
+
 
 
 <h4>Possible faults thrown</h4>
-
 
 
 Fault <code>InvalidDate</code> with type <code>undefined</code>
@@ -638,6 +903,12 @@ Fault-handling install template:
 
 <h3 id="setNextTimeoutByDateTime">setNextTimeoutByDateTime</h3>
 
+Operation documentation: 
+		  it sets a timeout whose duration is in milliseconds and it is represented by the root value of the message
+		  When the alarm is triggered a message whose content is defined in .message is sent to operation defined in .operation
+		  ( default: timeout )
+		
+
 
 Invocation template: 
 <pre>setNextTimeoutByDateTime@Time( request )</pre>
@@ -646,7 +917,10 @@ Invocation template:
 
 Type: undefined
 
-Type documentation: no documentation provided 
+
+
+
+<code>undefined : any</code> 
 
 
 
@@ -669,7 +943,10 @@ Invocation template:
 
 Type: void
 
-Type documentation: no documentation provided 
+
+
+
+<code>void : void</code> 
 
 
 
@@ -677,12 +954,30 @@ Type documentation: no documentation provided
 
 Type: DateValuesType
 
-Type documentation: no documentation provided 
+
 <pre>type DateValuesType: void {
 	.month: int
 	.year: int
 	.day: int
 }</pre>
+
+<code>DateValuesType : void</code> : 
+WARNING: work in progress, the API is unstable.
+ 
+
+<ul>
+
+  <li><code>month : int</code> 
+</li>
+
+  <li><code>year : int</code> 
+</li>
+
+  <li><code>day : int</code> 
+</li>
+
+</ul>
+
 
 
 
@@ -692,6 +987,10 @@ Type documentation: no documentation provided
 
 <h3 id="getTimeValues">getTimeValues</h3>
 
+Operation documentation: 
+		 Warning: this is temporary and subject to future change as soon as long is supported by Jolie.
+		
+
 
 Invocation template: 
 <pre>getTimeValues@Time( request )( response )</pre>
@@ -700,7 +999,10 @@ Invocation template:
 
 Type: string
 
-Type documentation: no documentation provided 
+
+
+
+<code>string : string</code> 
 
 
 
@@ -708,12 +1010,28 @@ Type documentation: no documentation provided
 
 Type: TimeValuesType
 
-Type documentation: no documentation provided 
+
 <pre>type TimeValuesType: void {
 	.hour: int
 	.minute: int
 	.second: int
 }</pre>
+
+<code>TimeValuesType : void</code> 
+
+<ul>
+
+  <li><code>hour : int</code> 
+</li>
+
+  <li><code>minute : int</code> 
+</li>
+
+  <li><code>second : int</code> 
+</li>
+
+</ul>
+
 
 
 
