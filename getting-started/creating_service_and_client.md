@@ -1,4 +1,4 @@
-# Creating a Server and a Client
+# Creating a Service and a Client
 
 Now we want to create a server that provides a service to double a number. We also create a client for that service.
 
@@ -6,7 +6,7 @@ Now we want to create a server that provides a service to double a number. We al
 
 ## Server's code
 
-```jolie
+```text
 inputPort TwiceService {
     Location: "socket://localhost:8000"
     Protocol: sodep
@@ -25,7 +25,7 @@ The behaviour of the server starts with an input on operation `twice`, storing t
 
 ## Client's code
 
-```jolie
+```text
 include "console.iol"
 
 outputPort TwiceService {
@@ -53,7 +53,7 @@ To enable a communication between a server and a client, we need to specify the 
 
 ### Service inputPort
 
-```jolie
+```text
 inputPort TwiceService {
     Location: "socket://localhost:8000"
     Protocol: sodep
@@ -63,7 +63,7 @@ inputPort TwiceService {
 
 ### Client outputPort
 
-```jolie
+```text
 outputPort TwiceService {
     Location: "socket://localhost:8000"
     Protocol: sodep
@@ -74,3 +74,4 @@ outputPort TwiceService {
 Ports are based upon the three fundamental concepts of _location_, _protocol_, and _supported operations_. The former two define the concrete binding information between a Jolie program and other services. The last, instead, defines the list of the available operations at the given port.
 
 In particular, a location, e.g. a TCP/IP address, expresses the communication medium that a service uses for exposing its interface or contacting another service. A protocol defines how data to be sent or received should be encoded \(output\) or decoded \(input\).
+

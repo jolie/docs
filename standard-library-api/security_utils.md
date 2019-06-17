@@ -1,142 +1,75 @@
-# Include library: security_utils.iol
+# SecurityUtils
 
-Inclusion code: <pre>include "security_utils.iol"</pre>
+Inclusion code: 
 
-<table>
-  <caption>Service Deployment</caption>
-  <thead>
-    <tr>
-      <th>Port Name</th>
-      <th>Location</th>
-      <th>Protocol</th>
-      <th>Interfaces</th>
-    </tr>
-  </thead>
-  <tbody><tr><td>SecurityUtils documentation: </td></tr>
-    <tr>
-      <td>SecurityUtils</td>
-      <td>-</td>
-      <td>-</td>
-      <td><a href="#SecurityUtilsInterface">SecurityUtilsInterface</a></td>
-    </tr>
-  </tbody>
-</table>
+| Service Deployment |  |  |  |
+| :--- | :--- | :--- | :--- |
+| Port Name | Location | Protocol | Interfaces |
+| SecurityUtils documentation: |  |  |  |
+| SecurityUtils | - | - | [SecurityUtilsInterface](security_utils.md#SecurityUtilsInterface) |
 
-<h3>List of Available Interfaces</h3>
+### List of Available Interfaces
 
-<h3 id="SecurityUtilsInterface">SecurityUtilsInterface</h3>
+### SecurityUtilsInterface <a id="SecurityUtilsInterface"></a>
 
-Interface documentation: 
+Interface documentation:
 
-<table>
-  <thead>
-    <tr>
-      <th>Operation Name</th>
-      <th>Input Type</th>
-      <th>Output Type</th>
-      <th>Faults</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><a href="#secureRandom">secureRandom</a></td>
-      <td><a href="#SecureRandomRequest">SecureRandomRequest</a></td>
-      <td>raw</td>
-      <td>
-      </td>
-    </tr>
-    <tr>
-      <td><a href="#createSecureToken">createSecureToken</a></td>
-      <td>void</td>
-      <td>string</td>
-      <td>
-      </td>
-    </tr>
-  </tbody>
-</table>
+| Operation Name | Input Type | Output Type | Faults |
+| :--- | :--- | :--- | :--- |
+| [secureRandom](security_utils.md#secureRandom) | [SecureRandomRequest](security_utils.md#SecureRandomRequest) | raw |  |
+| [createSecureToken](security_utils.md#createSecureToken) | void | string |  |
 
-<h2>Operation Description</h2>
+## Operation Description
 
+### secureRandom <a id="secureRandom"></a>
 
+Operation documentation:
 
-<h3 id="secureRandom">secureRandom</h3>
+Invocation template:
 
-Operation documentation: 
+```text
+secureRandom@SecurityUtils( request )( response )
+```
 
-
-Invocation template: 
-<pre>secureRandom@SecurityUtils( request )( response )</pre>
-
-<h4 id="SecureRandomRequest">Request type</h4>
+#### Request type <a id="SecureRandomRequest"></a>
 
 Type: SecureRandomRequest
 
+```text
+type SecureRandomRequest: void {
+    .size: int
+}
+```
 
-<pre>type SecureRandomRequest: void {
-	.size: int
-}</pre>
+`SecureRandomRequest : void`
 
-<code>SecureRandomRequest : void</code> 
+* `size : int`
 
-<ul>
-
-  <li><code>size : int</code> 
-</li>
-
-</ul>
-
-
-
-<h4>Response type</h4>
+#### Response type
 
 Type: raw
 
+`raw : raw`
 
+### createSecureToken <a id="createSecureToken"></a>
 
+Operation documentation:
 
-<code>raw : raw</code> 
+Invocation template:
 
+```text
+createSecureToken@SecurityUtils( request )( response )
+```
 
-
-
-
-
-
-
-<h3 id="createSecureToken">createSecureToken</h3>
-
-Operation documentation: 
-
-
-Invocation template: 
-<pre>createSecureToken@SecurityUtils( request )( response )</pre>
-
-<h4>Request type</h4>
+#### Request type
 
 Type: void
 
+`void : void`
 
-
-
-<code>void : void</code> 
-
-
-
-<h4>Response type</h4>
+#### Response type
 
 Type: string
 
-
-
-
-<code>string : string</code> 
-
-
-
-
-
-
-
-
-
+`string : string`
 

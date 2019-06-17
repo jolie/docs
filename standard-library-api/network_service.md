@@ -1,181 +1,106 @@
-# Include library: network_service.iol
+# NetworkService
 
-Inclusion code: <pre>include "network_service.iol"</pre>
+Inclusion code: 
 
-<table>
-  <caption>Service Deployment</caption>
-  <thead>
-    <tr>
-      <th>Port Name</th>
-      <th>Location</th>
-      <th>Protocol</th>
-      <th>Interfaces</th>
-    </tr>
-  </thead>
-  <tbody><tr><td>NetworkService documentation: </td></tr>
-    <tr>
-      <td>NetworkService</td>
-      <td>-</td>
-      <td>-</td>
-      <td><a href="#NetworkServiceInterface">NetworkServiceInterface</a></td>
-    </tr>
-  </tbody>
-</table>
+| Service Deployment |  |  |  |
+| :--- | :--- | :--- | :--- |
+| Port Name | Location | Protocol | Interfaces |
+| NetworkService documentation: |  |  |  |
+| NetworkService | - | - | [NetworkServiceInterface](network_service.md#NetworkServiceInterface) |
 
-<h3>List of Available Interfaces</h3>
+### List of Available Interfaces
 
-<h3 id="NetworkServiceInterface">NetworkServiceInterface</h3>
+### NetworkServiceInterface <a id="NetworkServiceInterface"></a>
 
-Interface documentation: 
+Interface documentation:
 
-<table>
-  <thead>
-    <tr>
-      <th>Operation Name</th>
-      <th>Input Type</th>
-      <th>Output Type</th>
-      <th>Faults</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><a href="#getNetworkInterfaceNames">getNetworkInterfaceNames</a></td>
-      <td>GetNetworkInterfaceNamesRequest</td>
-      <td><a href="#GetNetworkInterfaceNamesResponse">GetNetworkInterfaceNamesResponse</a></td>
-      <td>
-      </td>
-    </tr>
-    <tr>
-      <td><a href="#getIPAddresses">getIPAddresses</a></td>
-      <td><a href="#GetIPAddressesRequest">GetIPAddressesRequest</a></td>
-      <td><a href="#GetIPAddressesResponse">GetIPAddressesResponse</a></td>
-      <td>
-        InterfaceNotFound( undefined )
-      </td>
-    </tr>
-  </tbody>
-</table>
+| Operation Name | Input Type | Output Type | Faults |
+| :--- | :--- | :--- | :--- |
+| [getNetworkInterfaceNames](network_service.md#getNetworkInterfaceNames) | GetNetworkInterfaceNamesRequest | [GetNetworkInterfaceNamesResponse](network_service.md#GetNetworkInterfaceNamesResponse) |  |
+| [getIPAddresses](network_service.md#getIPAddresses) | [GetIPAddressesRequest](network_service.md#GetIPAddressesRequest) | [GetIPAddressesResponse](network_service.md#GetIPAddressesResponse) |  InterfaceNotFound\( undefined \) |
 
-<h2>Operation Description</h2>
+## Operation Description
 
+### getNetworkInterfaceNames <a id="getNetworkInterfaceNames"></a>
 
+Operation documentation:
 
-<h3 id="getNetworkInterfaceNames">getNetworkInterfaceNames</h3>
+Invocation template:
 
-Operation documentation: 
+```text
+getNetworkInterfaceNames@NetworkService( request )( response )
+```
 
-
-Invocation template: 
-<pre>getNetworkInterfaceNames@NetworkService( request )( response )</pre>
-
-<h4>Request type</h4>
+#### Request type
 
 Type: GetNetworkInterfaceNamesRequest
 
+`GetNetworkInterfaceNamesRequest : void`
 
-
-
-<code>GetNetworkInterfaceNamesRequest : void</code> 
-
-
-
-<h4 id="GetNetworkInterfaceNamesResponse">Response type</h4>
+#### Response type <a id="GetNetworkInterfaceNamesResponse"></a>
 
 Type: GetNetworkInterfaceNamesResponse
 
+```text
+type GetNetworkInterfaceNamesResponse: void {
+    .interfaceName*: string {
+        .displayName: string
+    }
+}
+```
 
-<pre>type GetNetworkInterfaceNamesResponse: void {
-	.interfaceName*: string {
-		.displayName: string
-	}
-}</pre>
+`GetNetworkInterfaceNamesResponse : void`
 
-<code>GetNetworkInterfaceNamesResponse : void</code> 
+* `interfaceName : string`
+  * `displayName : string`
 
-<ul>
+### getIPAddresses <a id="getIPAddresses"></a>
 
-  <li><code>interfaceName : string</code> 
+Operation documentation:
 
-<ul>
+Invocation template:
 
-  <li><code>displayName : string</code> 
-</li>
+```text
+getIPAddresses@NetworkService( request )( response )
+```
 
-</ul>
-</li>
-
-</ul>
-
-
-
-
-
-
-
-
-<h3 id="getIPAddresses">getIPAddresses</h3>
-
-Operation documentation: 
-
-
-Invocation template: 
-<pre>getIPAddresses@NetworkService( request )( response )</pre>
-
-<h4 id="GetIPAddressesRequest">Request type</h4>
+#### Request type <a id="GetIPAddressesRequest"></a>
 
 Type: GetIPAddressesRequest
 
+```text
+type GetIPAddressesRequest: void {
+    .interfaceName: string
+}
+```
 
-<pre>type GetIPAddressesRequest: void {
-	.interfaceName: string
-}</pre>
+`GetIPAddressesRequest : void`
 
-<code>GetIPAddressesRequest : void</code> 
+* `interfaceName : string`
 
-<ul>
-
-  <li><code>interfaceName : string</code> 
-</li>
-
-</ul>
-
-
-
-<h4 id="GetIPAddressesResponse">Response type</h4>
+#### Response type <a id="GetIPAddressesResponse"></a>
 
 Type: GetIPAddressesResponse
 
+```text
+type GetIPAddressesResponse: void {
+    .ip4?: string
+    .ip6?: string
+}
+```
 
-<pre>type GetIPAddressesResponse: void {
-	.ip4?: string
-	.ip6?: string
-}</pre>
+`GetIPAddressesResponse : void`
 
-<code>GetIPAddressesResponse : void</code> 
+* `ip4 : string`
+* `ip6 : string`
 
-<ul>
+#### Possible faults thrown
 
-  <li><code>ip4 : string</code> 
-</li>
+Fault `InterfaceNotFound` with type `undefined`
 
-  <li><code>ip6 : string</code> 
-</li>
+Fault-handling install template:
 
-</ul>
-
-
-
-
-<h4>Possible faults thrown</h4>
-
-
-Fault <code>InterfaceNotFound</code> with type <code>undefined</code>
-
-Fault-handling install template: 
-<pre>install ( InterfaceNotFound => /* error-handling code */ )</pre>
-
-
-
-
-
+```text
+install ( InterfaceNotFound => /* error-handling code */ )
+```
 

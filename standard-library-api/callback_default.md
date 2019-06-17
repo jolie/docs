@@ -1,93 +1,47 @@
-# Include library: scheduler/callback_default.iol
+# CallbackDefault
 
-Inclusion code: <pre>include "scheduler/callback_default.iol"</pre>
+Inclusion code: 
 
-<table>
-  <caption>Service Deployment</caption>
-  <thead>
-    <tr>
-      <th>Port Name</th>
-      <th>Location</th>
-      <th>Protocol</th>
-      <th>Interfaces</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>SchedulerCallBack</td>
-      <td>local</td>
-      <td>-</td>
-      <td><a href="#SchedulerCallBackInterface">SchedulerCallBackInterface</a></td>
-    </tr>
-  </tbody>
-</table>
+| Service Deployment |  |  |  |
+| :--- | :--- | :--- | :--- |
+| Port Name | Location | Protocol | Interfaces |
+| SchedulerCallBack | local | - | [SchedulerCallBackInterface](callback_default.md#SchedulerCallBackInterface) |
 
-<h3>List of Available Interfaces</h3>
+### List of Available Interfaces
 
-<h3 id="SchedulerCallBackInterface">SchedulerCallBackInterface</h3>
+### SchedulerCallBackInterface <a id="SchedulerCallBackInterface"></a>
 
-Interface documentation: 
+Interface documentation:
 
-<table>
-  <thead>
-    <tr>
-      <th>Operation Name</th>
-      <th>Input Type</th>
-      <th>Output Type</th>
-      <th>Faults</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><a href="#schedulerCallback">schedulerCallback</a></td>
-      <td><a href="#SchedulerCallBackRequest">SchedulerCallBackRequest</a></td>
-      <td> - </td>
-      <td>
-      </td>
-    </tr>
-  </tbody>
-</table>
+| Operation Name | Input Type | Output Type | Faults |
+| :--- | :--- | :--- | :--- |
+| [schedulerCallback](callback_default.md#schedulerCallback) | [SchedulerCallBackRequest](callback_default.md#SchedulerCallBackRequest) |  - |  |
 
-<h2>Operation Description</h2>
+## Operation Description
 
+### schedulerCallback <a id="schedulerCallback"></a>
 
+Operation documentation:
 
-<h3 id="schedulerCallback">schedulerCallback</h3>
+Invocation template:
 
-Operation documentation: 
+```text
+schedulerCallback( request )
+```
 
-
-Invocation template: 
-<pre>schedulerCallback( request )</pre>
-
-<h4 id="SchedulerCallBackRequest">Request type</h4>
+#### Request type <a id="SchedulerCallBackRequest"></a>
 
 Type: SchedulerCallBackRequest
 
+```text
+type SchedulerCallBackRequest: void {
+    .jobName: string
+    .groupName: string
+}
+```
 
-<pre>type SchedulerCallBackRequest: void {
-	.jobName: string
-	.groupName: string
-}</pre>
+`SchedulerCallBackRequest : void`
 
-<code>SchedulerCallBackRequest : void</code> 
-
-<ul>
-
-  <li><code>jobName : string</code> 
-</li>
-
-  <li><code>groupName : string</code> 
-</li>
-
-</ul>
-
-
-
-
-
-
-
-
-
+* `jobName : string`
+* `groupName : string`
 

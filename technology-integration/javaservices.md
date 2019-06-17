@@ -1,4 +1,4 @@
-# Integrating Java code
+# Java
 
 ## Embedding a Java service
 
@@ -209,7 +209,6 @@ After receiving the response, the service prints at console the subnodes of the 
 The comprehensive code of this example can be downloaded here:
 
 [Embedding Java Code Example](https://github.com/jolie/docs/blob/master/files/architectural-composition/code/embedding_java_code.zip)
-
 
 ## Creating a JavaService
 
@@ -957,3 +956,4 @@ Received counter 1
 ```
 
 Such a result means that for each session enabled on the embedder, a new JavaService object is instantiated and executed, thus the counter will start from zero every invocation.
+

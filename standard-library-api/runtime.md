@@ -1,1142 +1,687 @@
-# Include library: runtime.iol
+# Runtime
 
-Inclusion code: <pre>include "runtime.iol"</pre>
+Inclusion code: 
 
-<table>
-  <caption>Service Deployment</caption>
-  <thead>
-    <tr>
-      <th>Port Name</th>
-      <th>Location</th>
-      <th>Protocol</th>
-      <th>Interfaces</th>
-    </tr>
-  </thead>
-  <tbody><tr><td>Runtime documentation: </td></tr>
-    <tr>
-      <td>Runtime</td>
-      <td>-</td>
-      <td>-</td>
-      <td><a href="#RuntimeInterface">RuntimeInterface</a></td>
-    </tr>
-  </tbody>
-</table>
+| Service Deployment |  |  |  |
+| :--- | :--- | :--- | :--- |
+| Port Name | Location | Protocol | Interfaces |
+| Runtime documentation: |  |  |  |
+| Runtime | - | - | [RuntimeInterface](runtime.md#RuntimeInterface) |
 
-<h3>List of Available Interfaces</h3>
+### List of Available Interfaces
 
-<h3 id="RuntimeInterface">RuntimeInterface</h3>
+### RuntimeInterface <a id="RuntimeInterface"></a>
 
-Interface documentation: 
+Interface documentation:
 
-<table>
-  <thead>
-    <tr>
-      <th>Operation Name</th>
-      <th>Input Type</th>
-      <th>Output Type</th>
-      <th>Faults</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><a href="#getVersion">getVersion</a></td>
-      <td>void</td>
-      <td>string</td>
-      <td>
-      </td>
-    </tr>
-    <tr>
-      <td><a href="#loadLibrary">loadLibrary</a></td>
-      <td>string</td>
-      <td>void</td>
-      <td>
-        IOException( <a href="#IOExceptionType">IOExceptionType</a> )
-      </td>
-    </tr>
-    <tr>
-      <td><a href="#removeOutputPort">removeOutputPort</a></td>
-      <td>string</td>
-      <td>void</td>
-      <td>
-      </td>
-    </tr>
-    <tr>
-      <td><a href="#setRedirection">setRedirection</a></td>
-      <td><a href="#SetRedirectionRequest">SetRedirectionRequest</a></td>
-      <td>void</td>
-      <td>
-        RuntimeException( <a href="#RuntimeExceptionType">RuntimeExceptionType</a> )
-      </td>
-    </tr>
-    <tr>
-      <td><a href="#getOutputPorts">getOutputPorts</a></td>
-      <td>void</td>
-      <td><a href="#GetOutputPortsResponse">GetOutputPortsResponse</a></td>
-      <td>
-      </td>
-    </tr>
-    <tr>
-      <td><a href="#loadEmbeddedService">loadEmbeddedService</a></td>
-      <td><a href="#LoadEmbeddedServiceRequest">LoadEmbeddedServiceRequest</a></td>
-      <td>any</td>
-      <td>
-        RuntimeException( <a href="#RuntimeExceptionType">RuntimeExceptionType</a> )
-      </td>
-    </tr>
-    <tr>
-      <td><a href="#getOutputPort">getOutputPort</a></td>
-      <td><a href="#GetOutputPortRequest">GetOutputPortRequest</a></td>
-      <td><a href="#GetOutputPortResponse">GetOutputPortResponse</a></td>
-      <td>
-        OutputPortDoesNotExist( undefined )
-      </td>
-    </tr>
-    <tr>
-      <td><a href="#dumpState">dumpState</a></td>
-      <td>void</td>
-      <td>string</td>
-      <td>
-      </td>
-    </tr>
-    <tr>
-      <td><a href="#getLocalLocation">getLocalLocation</a></td>
-      <td>void</td>
-      <td>any</td>
-      <td>
-      </td>
-    </tr>
-    <tr>
-      <td><a href="#getRedirection">getRedirection</a></td>
-      <td><a href="#GetRedirectionRequest">GetRedirectionRequest</a></td>
-      <td><a href="#MaybeString">MaybeString</a></td>
-      <td>
-      </td>
-    </tr>
-    <tr>
-      <td><a href="#setOutputPort">setOutputPort</a></td>
-      <td><a href="#SetOutputPortRequest">SetOutputPortRequest</a></td>
-      <td>void</td>
-      <td>
-      </td>
-    </tr>
-    <tr>
-      <td><a href="#halt">halt</a></td>
-      <td><a href="#HaltRequest">HaltRequest</a></td>
-      <td>void</td>
-      <td>
-      </td>
-    </tr>
-    <tr>
-      <td><a href="#callExit">callExit</a></td>
-      <td>any</td>
-      <td>void</td>
-      <td>
-      </td>
-    </tr>
-    <tr>
-      <td><a href="#stats">stats</a></td>
-      <td>void</td>
-      <td><a href="#Stats">Stats</a></td>
-      <td>
-      </td>
-    </tr>
-    <tr>
-      <td><a href="#removeRedirection">removeRedirection</a></td>
-      <td><a href="#GetRedirectionRequest">GetRedirectionRequest</a></td>
-      <td>void</td>
-      <td>
-        RuntimeException( <a href="#RuntimeExceptionType">RuntimeExceptionType</a> )
-      </td>
-    </tr>
-    <tr>
-      <td><a href="#setMonitor">setMonitor</a></td>
-      <td><a href="#SetMonitorRequest">SetMonitorRequest</a></td>
-      <td>void</td>
-      <td>
-      </td>
-    </tr>
-    <tr>
-      <td><a href="#getProcessId">getProcessId</a></td>
-      <td>void</td>
-      <td>string</td>
-      <td>
-      </td>
-    </tr>
-    <tr>
-      <td><a href="#getIncludePaths">getIncludePaths</a></td>
-      <td>void</td>
-      <td><a href="#GetIncludePathResponse">GetIncludePathResponse</a></td>
-      <td>
-      </td>
-    </tr>
-    <tr>
-      <td><a href="#getenv">getenv</a></td>
-      <td>string</td>
-      <td><a href="#MaybeString">MaybeString</a></td>
-      <td>
-      </td>
-    </tr>
-  </tbody>
-</table>
+| Operation Name | Input Type | Output Type | Faults |
+| :--- | :--- | :--- | :--- |
+| [getVersion](runtime.md#getVersion) | void | string |  |
+| [loadLibrary](runtime.md#loadLibrary) | string | void |  IOException\( [IOExceptionType](runtime.md#IOExceptionType) \) |
+| [removeOutputPort](runtime.md#removeOutputPort) | string | void |  |
+| [setRedirection](runtime.md#setRedirection) | [SetRedirectionRequest](runtime.md#SetRedirectionRequest) | void |  RuntimeException\( [RuntimeExceptionType](runtime.md#RuntimeExceptionType) \) |
+| [getOutputPorts](runtime.md#getOutputPorts) | void | [GetOutputPortsResponse](runtime.md#GetOutputPortsResponse) |  |
+| [loadEmbeddedService](runtime.md#loadEmbeddedService) | [LoadEmbeddedServiceRequest](runtime.md#LoadEmbeddedServiceRequest) | any |  RuntimeException\( [RuntimeExceptionType](runtime.md#RuntimeExceptionType) \) |
+| [getOutputPort](runtime.md#getOutputPort) | [GetOutputPortRequest](runtime.md#GetOutputPortRequest) | [GetOutputPortResponse](runtime.md#GetOutputPortResponse) |  OutputPortDoesNotExist\( undefined \) |
+| [dumpState](runtime.md#dumpState) | void | string |  |
+| [getLocalLocation](runtime.md#getLocalLocation) | void | any |  |
+| [getRedirection](runtime.md#getRedirection) | [GetRedirectionRequest](runtime.md#GetRedirectionRequest) | [MaybeString](runtime.md#MaybeString) |  |
+| [setOutputPort](runtime.md#setOutputPort) | [SetOutputPortRequest](runtime.md#SetOutputPortRequest) | void |  |
+| [halt](runtime.md#halt) | [HaltRequest](runtime.md#HaltRequest) | void |  |
+| [callExit](runtime.md#callExit) | any | void |  |
+| [stats](runtime.md#stats) | void | [Stats](runtime.md#Stats) |  |
+| [removeRedirection](runtime.md#removeRedirection) | [GetRedirectionRequest](runtime.md#GetRedirectionRequest) | void |  RuntimeException\( [RuntimeExceptionType](runtime.md#RuntimeExceptionType) \) |
+| [setMonitor](runtime.md#setMonitor) | [SetMonitorRequest](runtime.md#SetMonitorRequest) | void |  |
+| [getProcessId](runtime.md#getProcessId) | void | string |  |
+| [getIncludePaths](runtime.md#getIncludePaths) | void | [GetIncludePathResponse](runtime.md#GetIncludePathResponse) |  |
+| [getenv](runtime.md#getenv) | string | [MaybeString](runtime.md#MaybeString) |  |
 
-<h2>Operation Description</h2>
+## Operation Description
 
+### getVersion <a id="getVersion"></a>
 
+Operation documentation: Returns the version of the Jolie interpreter running this service.
 
-<h3 id="getVersion">getVersion</h3>
+Invocation template:
 
-Operation documentation:  Returns the version of the Jolie interpreter running this service.
+```text
+getVersion@Runtime( request )( response )
+```
 
-
-Invocation template: 
-<pre>getVersion@Runtime( request )( response )</pre>
-
-<h4>Request type</h4>
+#### Request type
 
 Type: void
 
+`void : void`
 
-
-
-<code>void : void</code> 
-
-
-
-<h4>Response type</h4>
+#### Response type
 
 Type: string
 
+`string : string`
 
+### loadLibrary <a id="loadLibrary"></a>
 
+Operation documentation: Dynamically loads an external \(jar\) library.
 
-<code>string : string</code> 
+Invocation template:
 
+```text
+loadLibrary@Runtime( request )( response )
+```
 
-
-
-
-
-
-
-<h3 id="loadLibrary">loadLibrary</h3>
-
-Operation documentation:  Dynamically loads an external (jar) library.
-
-
-Invocation template: 
-<pre>loadLibrary@Runtime( request )( response )</pre>
-
-<h4>Request type</h4>
+#### Request type
 
 Type: string
 
+`string : string`
 
-
-
-<code>string : string</code> 
-
-
-
-<h4>Response type</h4>
+#### Response type
 
 Type: void
 
+`void : void`
 
+#### Possible faults thrown
 
+Fault `IOException` with type `IOExceptionType`
 
-<code>void : void</code> 
+Fault-handling install template:
 
+```text
+install ( IOException => /* error-handling code */ )
+```
 
+```text
+type IOExceptionType: JavaExceptionType
+```
 
+### removeOutputPort <a id="removeOutputPort"></a>
 
-<h4>Possible faults thrown</h4>
+Operation documentation: Removes the output port with the requested name.
 
+Invocation template:
 
-Fault <code>IOException</code> with type <code>IOExceptionType</code>
+```text
+removeOutputPort@Runtime( request )( response )
+```
 
-Fault-handling install template: 
-<pre>install ( IOException => /* error-handling code */ )</pre>
-<pre>type IOExceptionType: JavaExceptionType</pre>
-
-
-
-<h3 id="removeOutputPort">removeOutputPort</h3>
-
-Operation documentation:  Removes the output port with the requested name.
-
-
-Invocation template: 
-<pre>removeOutputPort@Runtime( request )( response )</pre>
-
-<h4>Request type</h4>
+#### Request type
 
 Type: string
 
+`string : string`
 
-
-
-<code>string : string</code> 
-
-
-
-<h4>Response type</h4>
+#### Response type
 
 Type: void
 
+`void : void`
 
+### setRedirection <a id="setRedirection"></a>
 
+Operation documentation: Set a redirection at an input port. If the redirection with this name does not exist already, this operation creates it. Otherwise, the redirection is replaced with this one.
 
-<code>void : void</code> 
+Invocation template:
 
+```text
+setRedirection@Runtime( request )( response )
+```
 
-
-
-
-
-
-
-<h3 id="setRedirection">setRedirection</h3>
-
-Operation documentation:  Set a redirection at an input port.
-	  If the redirection with this name does not exist already,
-	  this operation creates it.
-	  Otherwise, the redirection is replaced with this one.
-	 
-
-
-Invocation template: 
-<pre>setRedirection@Runtime( request )( response )</pre>
-
-<h4 id="SetRedirectionRequest">Request type</h4>
+#### Request type <a id="SetRedirectionRequest"></a>
 
 Type: SetRedirectionRequest
 
+```text
+type SetRedirectionRequest: void {
+    .inputPortName: string
+    .outputPortName: string
+    .resourceName: string
+}
+```
 
-<pre>type SetRedirectionRequest: void {
-	.inputPortName: string
-	.outputPortName: string
-	.resourceName: string
-}</pre>
+`SetRedirectionRequest : void`
 
-<code>SetRedirectionRequest : void</code> 
+* `inputPortName : string` : The target input port
+* `outputPortName : string` : The target output port
+* `resourceName : string` : The target resource name
 
-<ul>
-
-  <li><code>inputPortName : string</code> :  The target input port 
-</li>
-
-  <li><code>outputPortName : string</code> :  The target output port 
-</li>
-
-  <li><code>resourceName : string</code> :  The target resource name 
-</li>
-
-</ul>
-
-
-
-<h4>Response type</h4>
+#### Response type
 
 Type: void
 
+`void : void`
 
+#### Possible faults thrown
 
+Fault `RuntimeException` with type `RuntimeExceptionType`
 
-<code>void : void</code> 
+Fault-handling install template:
 
+```text
+install ( RuntimeException => /* error-handling code */ )
+```
 
+```text
+type RuntimeExceptionType: JavaExceptionType
+```
 
+### getOutputPorts <a id="getOutputPorts"></a>
 
-<h4>Possible faults thrown</h4>
+Operation documentation: Returns all the output ports used by this service.
 
+Invocation template:
 
-Fault <code>RuntimeException</code> with type <code>RuntimeExceptionType</code>
+```text
+getOutputPorts@Runtime( request )( response )
+```
 
-Fault-handling install template: 
-<pre>install ( RuntimeException => /* error-handling code */ )</pre>
-<pre>type RuntimeExceptionType: JavaExceptionType</pre>
-
-
-
-<h3 id="getOutputPorts">getOutputPorts</h3>
-
-Operation documentation:  Returns all the output ports used by this service.
-
-
-Invocation template: 
-<pre>getOutputPorts@Runtime( request )( response )</pre>
-
-<h4>Request type</h4>
+#### Request type
 
 Type: void
 
+`void : void`
 
-
-
-<code>void : void</code> 
-
-
-
-<h4 id="GetOutputPortsResponse">Response type</h4>
+#### Response type <a id="GetOutputPortsResponse"></a>
 
 Type: GetOutputPortsResponse
 
+```text
+type GetOutputPortsResponse: void {
+    .port*: void {
+        .protocol: string
+        .name: string
+        .location: string
+    }
+}
+```
 
-<pre>type GetOutputPortsResponse: void {
-	.port*: void {
-		.protocol: string
-		.name: string
-		.location: string
-	}
-}</pre>
+`GetOutputPortsResponse : void`
 
-<code>GetOutputPortsResponse : void</code> 
+* `port : void` : The output ports used by this interpreter
+  * `protocol : string` : The protocol name of the output port
+  * `name : string` : The name of the output port
+  * `location : string` : The location of the output port
 
-<ul>
+### loadEmbeddedService <a id="loadEmbeddedService"></a>
 
-  <li><code>port : void</code> :  The output ports used by this interpreter 
+Operation documentation: Load an embedded service.
 
-<ul>
+Invocation template:
 
-  <li><code>protocol : string</code> :  The protocol name of the output port 
-</li>
+```text
+loadEmbeddedService@Runtime( request )( response )
+```
 
-  <li><code>name : string</code> :  The name of the output port 
-</li>
-
-  <li><code>location : string</code> :  The location of the output port 
-</li>
-
-</ul>
-</li>
-
-</ul>
-
-
-
-
-
-
-
-
-<h3 id="loadEmbeddedService">loadEmbeddedService</h3>
-
-Operation documentation:  Load an embedded service.
-
-
-Invocation template: 
-<pre>loadEmbeddedService@Runtime( request )( response )</pre>
-
-<h4 id="LoadEmbeddedServiceRequest">Request type</h4>
+#### Request type <a id="LoadEmbeddedServiceRequest"></a>
 
 Type: LoadEmbeddedServiceRequest
 
+```text
+type LoadEmbeddedServiceRequest: void {
+    .filepath: string
+    .type: string
+}
+```
 
-<pre>type LoadEmbeddedServiceRequest: void {
-	.filepath: string
-	.type: string
-}</pre>
+`LoadEmbeddedServiceRequest : void`
 
-<code>LoadEmbeddedServiceRequest : void</code> 
+* `filepath : string` : The path to the service to load
+* `type : string` : The type of the service, e.g., Jolie, Java, or JavaScript
 
-<ul>
-
-  <li><code>filepath : string</code> :  The path to the service to load 
-</li>
-
-  <li><code>type : string</code> :  The type of the service, e.g., Jolie, Java, or JavaScript 
-</li>
-
-</ul>
-
-
-
-<h4>Response type</h4>
+#### Response type
 
 Type: any
 
+`any : any`
 
+#### Possible faults thrown
 
+Fault `RuntimeException` with type `RuntimeExceptionType`
 
-<code>any : any</code> 
+Fault-handling install template:
 
+```text
+install ( RuntimeException => /* error-handling code */ )
+```
 
+```text
+type RuntimeExceptionType: JavaExceptionType
+```
 
+### getOutputPort <a id="getOutputPort"></a>
 
-<h4>Possible faults thrown</h4>
+Operation documentation: Returns the definition of output port definition. @throws OutputPortDoesNotExist if the requested output port does not exist.
 
+Invocation template:
 
-Fault <code>RuntimeException</code> with type <code>RuntimeExceptionType</code>
+```text
+getOutputPort@Runtime( request )( response )
+```
 
-Fault-handling install template: 
-<pre>install ( RuntimeException => /* error-handling code */ )</pre>
-<pre>type RuntimeExceptionType: JavaExceptionType</pre>
-
-
-
-<h3 id="getOutputPort">getOutputPort</h3>
-
-Operation documentation:  Returns the definition of output port definition.
-	  @throws OutputPortDoesNotExist if the requested output port does not exist.
-	 
-
-
-Invocation template: 
-<pre>getOutputPort@Runtime( request )( response )</pre>
-
-<h4 id="GetOutputPortRequest">Request type</h4>
+#### Request type <a id="GetOutputPortRequest"></a>
 
 Type: GetOutputPortRequest
 
+```text
+type GetOutputPortRequest: void {
+    .name: string
+}
+```
 
-<pre>type GetOutputPortRequest: void {
-	.name: string
-}</pre>
+`GetOutputPortRequest : void`
 
-<code>GetOutputPortRequest : void</code> 
+* `name : string` : The name of the output port
 
-<ul>
-
-  <li><code>name : string</code> :  The name of the output port 
-</li>
-
-</ul>
-
-
-
-<h4 id="GetOutputPortResponse">Response type</h4>
+#### Response type <a id="GetOutputPortResponse"></a>
 
 Type: GetOutputPortResponse
 
+```text
+type GetOutputPortResponse: void {
+    .protocol: string
+    .name: string
+    .location: string
+}
+```
 
-<pre>type GetOutputPortResponse: void {
-	.protocol: string
-	.name: string
-	.location: string
-}</pre>
+`GetOutputPortResponse : void`
 
-<code>GetOutputPortResponse : void</code> 
+* `protocol : string` : The protocol name of the output port
+* `name : string` : The name of the output port
+* `location : string` : The location of the output port
 
-<ul>
+#### Possible faults thrown
 
-  <li><code>protocol : string</code> :  The protocol name of the output port 
-</li>
+Fault `OutputPortDoesNotExist` with type `undefined`
 
-  <li><code>name : string</code> :  The name of the output port 
-</li>
+Fault-handling install template:
 
-  <li><code>location : string</code> :  The location of the output port 
-</li>
+```text
+install ( OutputPortDoesNotExist => /* error-handling code */ )
+```
 
-</ul>
+### dumpState <a id="dumpState"></a>
 
+Operation documentation: Returns a pretty-printed string representation of the local state of the invoking Jolie process and the global state of this service.
 
+Invocation template:
 
+```text
+dumpState@Runtime( request )( response )
+```
 
-<h4>Possible faults thrown</h4>
-
-
-Fault <code>OutputPortDoesNotExist</code> with type <code>undefined</code>
-
-Fault-handling install template: 
-<pre>install ( OutputPortDoesNotExist => /* error-handling code */ )</pre>
-
-
-
-
-<h3 id="dumpState">dumpState</h3>
-
-Operation documentation:  Returns a pretty-printed string representation of
-	  the local state of the invoking Jolie process and
-	  the global state of this service.
-	 
-
-
-Invocation template: 
-<pre>dumpState@Runtime( request )( response )</pre>
-
-<h4>Request type</h4>
+#### Request type
 
 Type: void
 
+`void : void`
 
-
-
-<code>void : void</code> 
-
-
-
-<h4>Response type</h4>
+#### Response type
 
 Type: string
 
+`string : string`
 
+### getLocalLocation <a id="getLocalLocation"></a>
 
+Operation documentation: Get the local in-memory location of this service.
 
-<code>string : string</code> 
+Invocation template:
 
+```text
+getLocalLocation@Runtime( request )( response )
+```
 
-
-
-
-
-
-
-<h3 id="getLocalLocation">getLocalLocation</h3>
-
-Operation documentation:  Get the local in-memory location of this service.
-
-
-Invocation template: 
-<pre>getLocalLocation@Runtime( request )( response )</pre>
-
-<h4>Request type</h4>
+#### Request type
 
 Type: void
 
+`void : void`
 
-
-
-<code>void : void</code> 
-
-
-
-<h4>Response type</h4>
+#### Response type
 
 Type: any
 
+`any : any`
 
+### getRedirection <a id="getRedirection"></a>
 
+Operation documentation: Get the output port name that a redirection points to.
 
-<code>any : any</code> 
+Invocation template:
 
+```text
+getRedirection@Runtime( request )( response )
+```
 
-
-
-
-
-
-
-<h3 id="getRedirection">getRedirection</h3>
-
-Operation documentation:  Get the output port name that a redirection points to.
-
-
-Invocation template: 
-<pre>getRedirection@Runtime( request )( response )</pre>
-
-<h4 id="GetRedirectionRequest">Request type</h4>
+#### Request type <a id="GetRedirectionRequest"></a>
 
 Type: GetRedirectionRequest
 
+```text
+type GetRedirectionRequest: void {
+    .inputPortName: string
+    .resourceName: string
+}
+```
 
-<pre>type GetRedirectionRequest: void {
-	.inputPortName: string
-	.resourceName: string
-}</pre>
+`GetRedirectionRequest : void`
 
-<code>GetRedirectionRequest : void</code> 
+* `inputPortName : string` : The target input port
+* `resourceName : string` : The resource name of the redirection to get
 
-<ul>
-
-  <li><code>inputPortName : string</code> :  The target input port 
-</li>
-
-  <li><code>resourceName : string</code> :  The resource name of the redirection to get 
-</li>
-
-</ul>
-
-
-
-<h4 id="MaybeString">Response type</h4>
+#### Response type <a id="MaybeString"></a>
 
 Type: MaybeString
 
+```text
+type MaybeString: void | string
+```
 
-<pre>type MaybeString: void | string</pre>
+`MaybeString :`
 
-<code>MaybeString : </code> 
+*  `: void`
+*  `: string`
 
-<ul>
+### setOutputPort <a id="setOutputPort"></a>
 
-  <li><code> : void</code> 
-</li>
+Operation documentation: Set an output port. If an output port with this name does not exist already, this operation creates it. Otherwise, the output port is replaced with this one.
 
-  <li><code> : string</code> 
-</li>
+Invocation template:
 
-</ul>
+```text
+setOutputPort@Runtime( request )( response )
+```
 
-
-
-
-
-
-
-
-<h3 id="setOutputPort">setOutputPort</h3>
-
-Operation documentation:  Set an output port.
-	  If an output port with this name does not exist already,
-	  this operation creates it.
-	  Otherwise, the output port is replaced with this one.
-	 
-
-
-Invocation template: 
-<pre>setOutputPort@Runtime( request )( response )</pre>
-
-<h4 id="SetOutputPortRequest">Request type</h4>
+#### Request type <a id="SetOutputPortRequest"></a>
 
 Type: SetOutputPortRequest
 
+```text
+type SetOutputPortRequest: void {
+    .protocol?: undefined
+    .name: string
+    .location: any
+}
+```
 
-<pre>type SetOutputPortRequest: void {
-	.protocol?: undefined
-	.name: string
-	.location: any
-}</pre>
+`SetOutputPortRequest : void`
 
-<code>SetOutputPortRequest : void</code> 
+* `protocol : string` : The name of the protocol \(e.g., sodep, http\)
+* `name : string` : The name of the output port
+* `location : any` : The location of the output port
 
-<ul>
-
-  <li><code>protocol : string</code> :  The name of the protocol (e.g., sodep, http) 
-</li>
-
-  <li><code>name : string</code> :  The name of the output port 
-</li>
-
-  <li><code>location : any</code> :  The location of the output port 
-</li>
-
-</ul>
-
-
-
-<h4>Response type</h4>
+#### Response type
 
 Type: void
 
+`void : void`
 
+### halt <a id="halt"></a>
 
+Operation documentation: Halts non-gracefully the execution of this service.
 
-<code>void : void</code> 
+Invocation template:
 
+```text
+halt@Runtime( request )( response )
+```
 
-
-
-
-
-
-
-<h3 id="halt">halt</h3>
-
-Operation documentation:  Halts non-gracefully the execution of this service.
-
-
-Invocation template: 
-<pre>halt@Runtime( request )( response )</pre>
-
-<h4 id="HaltRequest">Request type</h4>
+#### Request type <a id="HaltRequest"></a>
 
 Type: HaltRequest
 
+```text
+type HaltRequest: void {
+    .status?: int
+}
+```
 
-<pre>type HaltRequest: void {
-	.status?: int
-}</pre>
+`HaltRequest : void`
 
-<code>HaltRequest : void</code> 
+* `status : int` : The status code to return to the execution environment
 
-<ul>
-
-  <li><code>status : int</code> :  The status code to return to the execution environment 
-</li>
-
-</ul>
-
-
-
-<h4>Response type</h4>
+#### Response type
 
 Type: void
 
+`void : void`
 
+### callExit <a id="callExit"></a>
 
+Operation documentation: Stops gracefully the execution of this service. Calling this operation is equivalent to invoking the exit statement.
 
-<code>void : void</code> 
+Invocation template:
 
+```text
+callExit@Runtime( request )( response )
+```
 
-
-
-
-
-
-
-<h3 id="callExit">callExit</h3>
-
-Operation documentation:  Stops gracefully the execution of this service.
-	  Calling this operation is equivalent to invoking the exit statement.
-	 
-
-
-Invocation template: 
-<pre>callExit@Runtime( request )( response )</pre>
-
-<h4>Request type</h4>
+#### Request type
 
 Type: any
 
+`any : any`
 
-
-
-<code>any : any</code> 
-
-
-
-<h4>Response type</h4>
+#### Response type
 
 Type: void
 
+`void : void`
 
+### stats <a id="stats"></a>
 
+Operation documentation: Returns information on the runtime state of the VM.
 
-<code>void : void</code> 
+Invocation template:
 
+```text
+stats@Runtime( request )( response )
+```
 
-
-
-
-
-
-
-<h3 id="stats">stats</h3>
-
-Operation documentation:  Returns information on the runtime state of the VM.
-
-
-Invocation template: 
-<pre>stats@Runtime( request )( response )</pre>
-
-<h4>Request type</h4>
+#### Request type
 
 Type: void
 
+`void : void`
 
-
-
-<code>void : void</code> 
-
-
-
-<h4 id="Stats">Response type</h4>
+#### Response type <a id="Stats"></a>
 
 Type: Stats
 
+```text
+type Stats: void {
+    .os: void {
+        .availableProcessors: int
+        .systemLoadAverage: double
+        .name: string
+        .arch: string
+        .version: string
+    }
+    .files: void {
+        .openCount?: long
+        .maxCount?: long
+    }
+}
+```
 
-<pre>type Stats: void {
-	.os: void {
-		.availableProcessors: int
-		.systemLoadAverage: double
-		.name: string
-		.arch: string
-		.version: string
-	}
-	.files: void {
-		.openCount?: long
-		.maxCount?: long
-	}
-}</pre>
+`Stats : void` : Information on the interpreter execution so far
 
-<code>Stats : void</code> :  Information on the interpreter execution so far 
+* `os : void` : OS-related information
+  * `availableProcessors : int` : Number of available processors
+  * `systemLoadAverage : double` : System load average
+  * `name : string` : Name of the OS
+  * `arch : string` : Architecture
+  * `version : string` : OS version
+* `files : void` : Information on file descriptors
+  * `openCount : long` : Number of open files
+  * `maxCount : long` : Maximum number of open files allowed for this VM
 
-<ul>
+### removeRedirection <a id="removeRedirection"></a>
 
-  <li><code>os : void</code> :  OS-related information 
+Operation documentation: Remove a redirection at an input port
 
-<ul>
+Invocation template:
 
-  <li><code>availableProcessors : int</code> :  Number of available processors 
-</li>
+```text
+removeRedirection@Runtime( request )( response )
+```
 
-  <li><code>systemLoadAverage : double</code> :  System load average 
-</li>
-
-  <li><code>name : string</code> :  Name of the OS 
-</li>
-
-  <li><code>arch : string</code> :  Architecture 
-</li>
-
-  <li><code>version : string</code> :  OS version 
-</li>
-
-</ul>
-</li>
-
-  <li><code>files : void</code> :  Information on file descriptors 
-
-<ul>
-
-  <li><code>openCount : long</code> :  Number of open files 
-</li>
-
-  <li><code>maxCount : long</code> :  Maximum number of open files allowed for this VM 
-</li>
-
-</ul>
-</li>
-
-</ul>
-
-
-
-
-
-
-
-
-<h3 id="removeRedirection">removeRedirection</h3>
-
-Operation documentation:  Remove a redirection at an input port
-
-
-Invocation template: 
-<pre>removeRedirection@Runtime( request )( response )</pre>
-
-<h4 id="GetRedirectionRequest">Request type</h4>
+#### Request type <a id="GetRedirectionRequest"></a>
 
 Type: GetRedirectionRequest
 
+```text
+type GetRedirectionRequest: void {
+    .inputPortName: string
+    .resourceName: string
+}
+```
 
-<pre>type GetRedirectionRequest: void {
-	.inputPortName: string
-	.resourceName: string
-}</pre>
+`GetRedirectionRequest : void`
 
-<code>GetRedirectionRequest : void</code> 
+* `inputPortName : string` : The target input port
+* `resourceName : string` : The resource name of the redirection to get
 
-<ul>
-
-  <li><code>inputPortName : string</code> :  The target input port 
-</li>
-
-  <li><code>resourceName : string</code> :  The resource name of the redirection to get 
-</li>
-
-</ul>
-
-
-
-<h4>Response type</h4>
+#### Response type
 
 Type: void
 
+`void : void`
 
+#### Possible faults thrown
 
+Fault `RuntimeException` with type `RuntimeExceptionType`
 
-<code>void : void</code> 
+Fault-handling install template:
 
+```text
+install ( RuntimeException => /* error-handling code */ )
+```
 
+```text
+type RuntimeExceptionType: JavaExceptionType
+```
 
+### setMonitor <a id="setMonitor"></a>
 
-<h4>Possible faults thrown</h4>
+Operation documentation: Set the monitor for this service.
 
+Invocation template:
 
-Fault <code>RuntimeException</code> with type <code>RuntimeExceptionType</code>
+```text
+setMonitor@Runtime( request )( response )
+```
 
-Fault-handling install template: 
-<pre>install ( RuntimeException => /* error-handling code */ )</pre>
-<pre>type RuntimeExceptionType: JavaExceptionType</pre>
-
-
-
-<h3 id="setMonitor">setMonitor</h3>
-
-Operation documentation:  Set the monitor for this service.
-
-
-Invocation template: 
-<pre>setMonitor@Runtime( request )( response )</pre>
-
-<h4 id="SetMonitorRequest">Request type</h4>
+#### Request type <a id="SetMonitorRequest"></a>
 
 Type: SetMonitorRequest
 
+```text
+type SetMonitorRequest: void {
+    .protocol?: undefined
+    .location: any
+}
+```
 
-<pre>type SetMonitorRequest: void {
-	.protocol?: undefined
-	.location: any
-}</pre>
+`SetMonitorRequest : void`
 
-<code>SetMonitorRequest : void</code> 
+* `protocol : string` : The protocol configuration for the monitor
+* `location : any` : The location of the monitor
 
-<ul>
-
-  <li><code>protocol : string</code> :  The protocol configuration for the monitor 
-</li>
-
-  <li><code>location : any</code> :  The location of the monitor 
-</li>
-
-</ul>
-
-
-
-<h4>Response type</h4>
+#### Response type
 
 Type: void
 
+`void : void`
 
+### getProcessId <a id="getProcessId"></a>
 
+Operation documentation: Returns the internal identifier of the executing Jolie process.
 
-<code>void : void</code> 
+Invocation template:
 
+```text
+getProcessId@Runtime( request )( response )
+```
 
-
-
-
-
-
-
-<h3 id="getProcessId">getProcessId</h3>
-
-Operation documentation:  Returns the internal identifier of the executing Jolie process.
-
-
-Invocation template: 
-<pre>getProcessId@Runtime( request )( response )</pre>
-
-<h4>Request type</h4>
+#### Request type
 
 Type: void
 
+`void : void`
 
-
-
-<code>void : void</code> 
-
-
-
-<h4>Response type</h4>
+#### Response type
 
 Type: string
 
+`string : string`
 
+### getIncludePaths <a id="getIncludePaths"></a>
 
+Operation documentation: Get the include paths used by this interpreter
 
-<code>string : string</code> 
+Invocation template:
 
+```text
+getIncludePaths@Runtime( request )( response )
+```
 
-
-
-
-
-
-
-<h3 id="getIncludePaths">getIncludePaths</h3>
-
-Operation documentation:  Get the include paths used by this interpreter
-
-
-Invocation template: 
-<pre>getIncludePaths@Runtime( request )( response )</pre>
-
-<h4>Request type</h4>
+#### Request type
 
 Type: void
 
+`void : void`
 
-
-
-<code>void : void</code> 
-
-
-
-<h4 id="GetIncludePathResponse">Response type</h4>
+#### Response type <a id="GetIncludePathResponse"></a>
 
 Type: GetIncludePathResponse
 
+```text
+type GetIncludePathResponse: void {
+    .path*: string
+}
+```
 
-<pre>type GetIncludePathResponse: void {
-	.path*: string
-}</pre>
+`GetIncludePathResponse : void`
 
-<code>GetIncludePathResponse : void</code> 
+* `path : string` : The include paths of the interpreter
 
-<ul>
+### getenv <a id="getenv"></a>
 
-  <li><code>path : string</code> :  The include paths of the interpreter 
-</li>
+Operation documentation: Returns the value of an environment variable.
 
-</ul>
+Invocation template:
 
+```text
+getenv@Runtime( request )( response )
+```
 
-
-
-
-
-
-
-<h3 id="getenv">getenv</h3>
-
-Operation documentation:  Returns the value of an environment variable.
-
-
-Invocation template: 
-<pre>getenv@Runtime( request )( response )</pre>
-
-<h4>Request type</h4>
+#### Request type
 
 Type: string
 
+`string : string`
 
-
-
-<code>string : string</code> 
-
-
-
-<h4 id="MaybeString">Response type</h4>
+#### Response type <a id="MaybeString"></a>
 
 Type: MaybeString
 
+```text
+type MaybeString: void | string
+```
 
-<pre>type MaybeString: void | string</pre>
+`MaybeString :`
 
-<code>MaybeString : </code> 
+*  `: void`
+*  `: string`
 
-<ul>
+### Subtypes
 
-  <li><code> : void</code> 
-</li>
+#### JavaExceptionType <a id="JavaExceptionType"></a>
 
-  <li><code> : string</code> 
-</li>
-
-</ul>
-
-
-
-
-
-
-
-
-<h3>Subtypes</h3>
-
-
-<h4 id="JavaExceptionType">JavaExceptionType</h4>
-
-
-
-<pre>type JavaExceptionType: string {
-	.stackTrace: string
-}</pre>
-<code>JavaExceptionType : string</code> 
-
-
-
+```
+type JavaExceptionType: string { .stackTrace: string }
+```
 

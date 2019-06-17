@@ -1,175 +1,90 @@
-# Include library: ui/swing_ui.iol
+# SwingUI
 
-Inclusion code: <pre>include "ui/swing_ui.iol"</pre>
+Inclusion code: 
 
-<table>
-  <caption>Service Deployment</caption>
-  <thead>
-    <tr>
-      <th>Port Name</th>
-      <th>Location</th>
-      <th>Protocol</th>
-      <th>Interfaces</th>
-    </tr>
-  </thead>
-  <tbody><tr><td>SwingUI documentation: </td></tr>
-    <tr>
-      <td>SwingUI</td>
-      <td>-</td>
-      <td>-</td>
-      <td><a href="#UserInterface">UserInterface</a></td>
-    </tr>
-  </tbody>
-</table>
+| Service Deployment |  |  |  |
+| :--- | :--- | :--- | :--- |
+| Port Name | Location | Protocol | Interfaces |
+| SwingUI documentation: |  |  |  |
+| SwingUI | - | - | [UserInterface](swing_ui.md#UserInterface) |
 
-<h3>List of Available Interfaces</h3>
+### List of Available Interfaces
 
-<h3 id="UserInterface">UserInterface</h3>
+### UserInterface <a id="UserInterface"></a>
 
-Interface documentation: 
+Interface documentation:
 
-<table>
-  <thead>
-    <tr>
-      <th>Operation Name</th>
-      <th>Input Type</th>
-      <th>Output Type</th>
-      <th>Faults</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><a href="#showMessageDialog">showMessageDialog</a></td>
-      <td>string</td>
-      <td>void</td>
-      <td>
-      </td>
-    </tr>
-    <tr>
-      <td><a href="#showYesNoQuestionDialog">showYesNoQuestionDialog</a></td>
-      <td>string</td>
-      <td>int</td>
-      <td>
-      </td>
-    </tr>
-    <tr>
-      <td><a href="#showInputDialog">showInputDialog</a></td>
-      <td>string</td>
-      <td>string</td>
-      <td>
-      </td>
-    </tr>
-  </tbody>
-</table>
+| Operation Name | Input Type | Output Type | Faults |
+| :--- | :--- | :--- | :--- |
+| [showMessageDialog](swing_ui.md#showMessageDialog) | string | void |  |
+| [showYesNoQuestionDialog](swing_ui.md#showYesNoQuestionDialog) | string | int |  |
+| [showInputDialog](swing_ui.md#showInputDialog) | string | string |  |
 
-<h2>Operation Description</h2>
+## Operation Description
 
+### showMessageDialog <a id="showMessageDialog"></a>
 
+Operation documentation:
 
-<h3 id="showMessageDialog">showMessageDialog</h3>
+Invocation template:
 
-Operation documentation: 
+```text
+showMessageDialog@SwingUI( request )( response )
+```
 
-
-Invocation template: 
-<pre>showMessageDialog@SwingUI( request )( response )</pre>
-
-<h4>Request type</h4>
+#### Request type
 
 Type: string
 
+`string : string`
 
-
-
-<code>string : string</code> 
-
-
-
-<h4>Response type</h4>
+#### Response type
 
 Type: void
 
+`void : void`
 
+### showYesNoQuestionDialog <a id="showYesNoQuestionDialog"></a>
 
+Operation documentation:
 
-<code>void : void</code> 
+Invocation template:
 
+```text
+showYesNoQuestionDialog@SwingUI( request )( response )
+```
 
-
-
-
-
-
-
-<h3 id="showYesNoQuestionDialog">showYesNoQuestionDialog</h3>
-
-Operation documentation: 
-
-
-Invocation template: 
-<pre>showYesNoQuestionDialog@SwingUI( request )( response )</pre>
-
-<h4>Request type</h4>
+#### Request type
 
 Type: string
 
+`string : string`
 
-
-
-<code>string : string</code> 
-
-
-
-<h4>Response type</h4>
+#### Response type
 
 Type: int
 
+`int : int`
 
+### showInputDialog <a id="showInputDialog"></a>
 
+Operation documentation:
 
-<code>int : int</code> 
+Invocation template:
 
+```text
+showInputDialog@SwingUI( request )( response )
+```
 
-
-
-
-
-
-
-<h3 id="showInputDialog">showInputDialog</h3>
-
-Operation documentation: 
-
-
-Invocation template: 
-<pre>showInputDialog@SwingUI( request )( response )</pre>
-
-<h4>Request type</h4>
+#### Request type
 
 Type: string
 
+`string : string`
 
-
-
-<code>string : string</code> 
-
-
-
-<h4>Response type</h4>
+#### Response type
 
 Type: string
 
-
-
-
-<code>string : string</code> 
-
-
-
-
-
-
-
-
-
+`string : string`
 

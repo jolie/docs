@@ -1,125 +1,68 @@
-# Include library: exec.iol
+# Exec
 
-Inclusion code: <pre>include "exec.iol"</pre>
+Inclusion code: 
 
-<table>
-  <caption>Service Deployment</caption>
-  <thead>
-    <tr>
-      <th>Port Name</th>
-      <th>Location</th>
-      <th>Protocol</th>
-      <th>Interfaces</th>
-    </tr>
-  </thead>
-  <tbody><tr><td>Exec documentation: </td></tr>
-    <tr>
-      <td>Exec</td>
-      <td>-</td>
-      <td>-</td>
-      <td><a href="#ExecInterface">ExecInterface</a></td>
-    </tr>
-  </tbody>
-</table>
+| Service Deployment |  |  |  |
+| :--- | :--- | :--- | :--- |
+| Port Name | Location | Protocol | Interfaces |
+| Exec documentation: |  |  |  |
+| Exec | - | - | [ExecInterface](exec.md#ExecInterface) |
 
-<h3>List of Available Interfaces</h3>
+### List of Available Interfaces
 
-<h3 id="ExecInterface">ExecInterface</h3>
+### ExecInterface <a id="ExecInterface"></a>
 
-Interface documentation: 
+Interface documentation:
 
-<table>
-  <thead>
-    <tr>
-      <th>Operation Name</th>
-      <th>Input Type</th>
-      <th>Output Type</th>
-      <th>Faults</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><a href="#exec">exec</a></td>
-      <td><a href="#CommandExecutionRequest">CommandExecutionRequest</a></td>
-      <td><a href="#CommandExecutionResult">CommandExecutionResult</a></td>
-      <td>
-      </td>
-    </tr>
-  </tbody>
-</table>
+| Operation Name | Input Type | Output Type | Faults |
+| :--- | :--- | :--- | :--- |
+| [exec](exec.md#exec) | [CommandExecutionRequest](exec.md#CommandExecutionRequest) | [CommandExecutionResult](exec.md#CommandExecutionResult) |  |
 
-<h2>Operation Description</h2>
+## Operation Description
 
+### exec <a id="exec"></a>
 
+Operation documentation:
 
-<h3 id="exec">exec</h3>
+Invocation template:
 
-Operation documentation: 
+```text
+exec@Exec( request )( response )
+```
 
-
-Invocation template: 
-<pre>exec@Exec( request )( response )</pre>
-
-<h4 id="CommandExecutionRequest">Request type</h4>
+#### Request type <a id="CommandExecutionRequest"></a>
 
 Type: CommandExecutionRequest
 
+```text
+type CommandExecutionRequest: string {
+    .args*: string
+    .workingDirectory?: string
+    .stdOutConsoleEnable?: bool
+    .waitFor?: int
+}
+```
 
-<pre>type CommandExecutionRequest: string {
-	.args*: string
-	.workingDirectory?: string
-	.stdOutConsoleEnable?: bool
-	.waitFor?: int
-}</pre>
+`CommandExecutionRequest : string`
 
-<code>CommandExecutionRequest : string</code> 
+* `args : string`
+* `workingDirectory : string`
+* `stdOutConsoleEnable : bool`
+* `waitFor : int`
 
-<ul>
-
-  <li><code>args : string</code> 
-</li>
-
-  <li><code>workingDirectory : string</code> 
-</li>
-
-  <li><code>stdOutConsoleEnable : bool</code> 
-</li>
-
-  <li><code>waitFor : int</code> 
-</li>
-
-</ul>
-
-
-
-<h4 id="CommandExecutionResult">Response type</h4>
+#### Response type <a id="CommandExecutionResult"></a>
 
 Type: CommandExecutionResult
 
+```text
+type CommandExecutionResult: any {
+    .exitCode?: int
+    .stderr?: string
+}
+```
 
-<pre>type CommandExecutionResult: any {
-	.exitCode?: int
-	.stderr?: string
-}</pre>
+`CommandExecutionResult : any`
 
-<code>CommandExecutionResult : any</code> 
-
-<ul>
-
-  <li><code>exitCode : int</code> 
-</li>
-
-  <li><code>stderr : string</code> 
-</li>
-
-</ul>
-
-
-
-
-
-
-
-
-
+* `exitCode : int`
+* `stderr : string`
 

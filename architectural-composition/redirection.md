@@ -10,10 +10,10 @@ The main advantages of redirection are:
 * the possibility to provide transparent communication protocol transformations between the invoker and the master and the master and the rest of the system;
 
 ## The syntax
+
 The syntax of redirection is:
 
 ```text
-
 inputPort id {
     Location: URI
     Protocol: p
@@ -29,12 +29,14 @@ inputPort id {
 where `sid_i => OP_id_i` associates a resource name `sid_i` to an output port identifier `OP_id_i`.
 
 ### How to add a resource name to a location
+
 The resource name must be specified into the location of service to invoke within the output port. The syntax os very simple, it i sufficient to put the token `/!/` between the redirector location and the resource name. As an example let us consider the following locations:
 
 * `socket://localhost:9000/!/A`: where `socket://localhost:9000` is the base location of the redirector port and `A` is the resource name of the target service.
 * `socket://200.200.200.200:19000/!/MyService`: where `socket://200.200.200.200:19000` is the base location of the redirector port and `MyService` is the resource name of the target service.
 
 ## Example
+
 In the following example we show a simple redirection scenario where a proxy provides a common endpoint for two services, _Sum_ and _Sub_, which performs addiction and substraction respecitvely. At this [link](https://github.com/jolie/examples/tree/master/04_architectural_composition/07_redirection/01_static_redirection) it is possible to check the complete code.
 
 ![](../.gitbook/assets/redirection_example.png)
@@ -56,8 +58,8 @@ inputPort Redirector {
 Location: Location_Redirector
 Protocol: sodep
 Redirects:
-	Sub => SubService,
-	Sum => SumService
+    Sub => SubService,
+    Sum => SumService
 }
 ```
 
@@ -76,6 +78,6 @@ outputPort Sum {
   Interfaces: SumInterface
 }
 ```
-From an architectural point of view redirection and aggregation are very different. The most important difference is what the client is able to see on the input port of the aggregator and on the input port of the redirector. On the former case, the client is not aware of the services handled by the aggregator because it just sees a unique service which exposes all the operations, whereas in the latter case, the client is aware of the target services and it needs to treat them as separate entities with different output ports.
 
+From an architectural point of view redirection and aggregation are very different. The most important difference is what the client is able to see on the input port of the aggregator and on the input port of the redirector. On the former case, the client is not aware of the services handled by the aggregator because it just sees a unique service which exposes all the operations, whereas in the latter case, the client is aware of the target services and it needs to treat them as separate entities with different output ports.
 

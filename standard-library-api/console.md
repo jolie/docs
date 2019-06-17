@@ -1,418 +1,226 @@
-# Include library: console.iol
+# Console
 
-Inclusion code: <pre>include "console.iol"</pre>
+Inclusion code: 
 
-<table>
-  <caption>Service Deployment</caption>
-  <thead>
-    <tr>
-      <th>Port Name</th>
-      <th>Location</th>
-      <th>Protocol</th>
-      <th>Interfaces</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>ConsoleInputPort</td>
-      <td>local</td>
-      <td>-</td>
-      <td><a href="#ConsoleInputInterface">ConsoleInputInterface</a></td>
-    </tr><tr><td>Console documentation: </td></tr>
-    <tr>
-      <td>Console</td>
-      <td>-</td>
-      <td>-</td>
-      <td><a href="#ConsoleInterface">ConsoleInterface</a></td>
-    </tr>
-  </tbody>
-</table>
+| Service Deployment |  |  |  |
+| :--- | :--- | :--- | :--- |
+| Port Name | Location | Protocol | Interfaces |
+| ConsoleInputPort | local | - | [ConsoleInputInterface](console.md#ConsoleInputInterface) |
+| Console documentation: |  |  |  |
+| Console | - | - | [ConsoleInterface](console.md#ConsoleInterface) |
 
-<h3>List of Available Interfaces</h3>
+### List of Available Interfaces
 
-<h3 id="ConsoleInputInterface">ConsoleInputInterface</h3>
+### ConsoleInputInterface <a id="ConsoleInputInterface"></a>
 
-Interface documentation: 
+Interface documentation:
 
-<table>
-  <thead>
-    <tr>
-      <th>Operation Name</th>
-      <th>Input Type</th>
-      <th>Output Type</th>
-      <th>Faults</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><a href="#in">in</a></td>
-      <td><a href="#InRequest">InRequest</a></td>
-      <td> - </td>
-      <td>
-      </td>
-    </tr>
-  </tbody>
-</table>
+| Operation Name | Input Type | Output Type | Faults |
+| :--- | :--- | :--- | :--- |
+| [in](console.md#in) | [InRequest](console.md#InRequest) |  - |  |
 
-<h2>Operation Description</h2>
+## Operation Description
 
+### in <a id="in"></a>
 
+Operation documentation:
 
-<h3 id="in">in</h3>
+Invocation template:
 
-Operation documentation: 
+```text
+in( request )
+```
 
-
-Invocation template: 
-<pre>in( request )</pre>
-
-<h4 id="InRequest">Request type</h4>
+#### Request type <a id="InRequest"></a>
 
 Type: InRequest
 
+```text
+type InRequest: string {
+    .token?: string
+}
+```
 
-<pre>type InRequest: string {
-	.token?: string
-}</pre>
+`InRequest : string`
 
-<code>InRequest : string</code> 
+* `token : string`
 
-<ul>
+### ConsoleInterface <a id="ConsoleInterface"></a>
 
-  <li><code>token : string</code> 
-</li>
+Interface documentation:
 
-</ul>
+| Operation Name | Input Type | Output Type | Faults |
+| :--- | :--- | :--- | :--- |
+| [print](console.md#print) | undefined | void |  |
+| [println](console.md#println) | undefined | void |  |
+| [registerForInput](console.md#registerForInput) | [RegisterForInputRequest](console.md#RegisterForInputRequest) | void |  |
+| [unsubscribeSessionListener](console.md#unsubscribeSessionListener) | [UnsubscribeSessionListener](console.md#UnsubscribeSessionListener) | void |  |
+| [subscribeSessionListener](console.md#subscribeSessionListener) | [SubscribeSessionListener](console.md#SubscribeSessionListener) | void |  |
+| [enableTimestamp](console.md#enableTimestamp) | [EnableTimestampRequest](console.md#EnableTimestampRequest) | void |  |
 
+## Operation Description
 
+### print <a id="print"></a>
 
+Operation documentation:
 
+Invocation template:
 
+```text
+print@Console( request )( response )
+```
 
-
-
-
-
-
-<h3 id="ConsoleInterface">ConsoleInterface</h3>
-
-Interface documentation: 
-
-<table>
-  <thead>
-    <tr>
-      <th>Operation Name</th>
-      <th>Input Type</th>
-      <th>Output Type</th>
-      <th>Faults</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><a href="#print">print</a></td>
-      <td>undefined</a></td>
-      <td>void</td>
-      <td>
-      </td>
-    </tr>
-    <tr>
-      <td><a href="#println">println</a></td>
-      <td>undefined</a></td>
-      <td>void</td>
-      <td>
-      </td>
-    </tr>
-    <tr>
-      <td><a href="#registerForInput">registerForInput</a></td>
-      <td><a href="#RegisterForInputRequest">RegisterForInputRequest</a></td>
-      <td>void</td>
-      <td>
-      </td>
-    </tr>
-    <tr>
-      <td><a href="#unsubscribeSessionListener">unsubscribeSessionListener</a></td>
-      <td><a href="#UnsubscribeSessionListener">UnsubscribeSessionListener</a></td>
-      <td>void</td>
-      <td>
-      </td>
-    </tr>
-    <tr>
-      <td><a href="#subscribeSessionListener">subscribeSessionListener</a></td>
-      <td><a href="#SubscribeSessionListener">SubscribeSessionListener</a></td>
-      <td>void</td>
-      <td>
-      </td>
-    </tr>
-    <tr>
-      <td><a href="#enableTimestamp">enableTimestamp</a></td>
-      <td><a href="#EnableTimestampRequest">EnableTimestampRequest</a></td>
-      <td>void</td>
-      <td>
-      </td>
-    </tr>
-  </tbody>
-</table>
-
-<h2>Operation Description</h2>
-
-
-
-<h3 id="print">print</h3>
-
-Operation documentation: 
-
-
-Invocation template: 
-<pre>print@Console( request )( response )</pre>
-
-<h4>Request type</h4>
+#### Request type
 
 Type: undefined
 
+`undefined : any`
 
-
-
-<code>undefined : any</code> 
-
-
-
-<h4>Response type</h4>
+#### Response type
 
 Type: void
 
+`void : void`
 
+### println <a id="println"></a>
 
+Operation documentation:
 
-<code>void : void</code> 
+Invocation template:
 
+```text
+println@Console( request )( response )
+```
 
-
-
-
-
-
-
-<h3 id="println">println</h3>
-
-Operation documentation: 
-
-
-Invocation template: 
-<pre>println@Console( request )( response )</pre>
-
-<h4>Request type</h4>
+#### Request type
 
 Type: undefined
 
+`undefined : any`
 
-
-
-<code>undefined : any</code> 
-
-
-
-<h4>Response type</h4>
+#### Response type
 
 Type: void
 
+`void : void`
 
+### registerForInput <a id="registerForInput"></a>
 
+Operation documentation: it enables the console for input listening parameter enableSessionListener enables console input listening for more than one service session \(default=false\)
 
-<code>void : void</code> 
+Invocation template:
 
+```text
+registerForInput@Console( request )( response )
+```
 
-
-
-
-
-
-
-<h3 id="registerForInput">registerForInput</h3>
-
-Operation documentation: 
-	  it enables the console for input listening
-	  parameter enableSessionListener enables console input listening for more than one service session (default=false)
-	
-
-
-Invocation template: 
-<pre>registerForInput@Console( request )( response )</pre>
-
-<h4 id="RegisterForInputRequest">Request type</h4>
+#### Request type <a id="RegisterForInputRequest"></a>
 
 Type: RegisterForInputRequest
 
+```text
+type RegisterForInputRequest: void {
+    .enableSessionListener?: bool
+}
+```
 
-<pre>type RegisterForInputRequest: void {
-	.enableSessionListener?: bool
-}</pre>
+`RegisterForInputRequest : void`
 
-<code>RegisterForInputRequest : void</code> 
+* `enableSessionListener : bool`
 
-<ul>
-
-  <li><code>enableSessionListener : bool</code> 
-</li>
-
-</ul>
-
-
-
-<h4>Response type</h4>
+#### Response type
 
 Type: void
 
+`void : void`
 
+### unsubscribeSessionListener <a id="unsubscribeSessionListener"></a>
 
+Operation documentation: it disables a session to receive inputs from the console, previously registered with subscribeSessionListener operation
 
-<code>void : void</code> 
+Invocation template:
 
+```text
+unsubscribeSessionListener@Console( request )( response )
+```
 
-
-
-
-
-
-
-<h3 id="unsubscribeSessionListener">unsubscribeSessionListener</h3>
-
-Operation documentation: 
-	 it disables a session to receive inputs from the console, previously registered with subscribeSessionListener operation
-	
-
-
-Invocation template: 
-<pre>unsubscribeSessionListener@Console( request )( response )</pre>
-
-<h4 id="UnsubscribeSessionListener">Request type</h4>
+#### Request type <a id="UnsubscribeSessionListener"></a>
 
 Type: UnsubscribeSessionListener
 
+```text
+type UnsubscribeSessionListener: void {
+    .token: string
+}
+```
 
-<pre>type UnsubscribeSessionListener: void {
-	.token: string
-}</pre>
+`UnsubscribeSessionListener : void`
 
-<code>UnsubscribeSessionListener : void</code> 
+* `token : string`
 
-<ul>
-
-  <li><code>token : string</code> 
-</li>
-
-</ul>
-
-
-
-<h4>Response type</h4>
+#### Response type
 
 Type: void
 
+`void : void`
 
+### subscribeSessionListener <a id="subscribeSessionListener"></a>
 
+Operation documentation: it receives a token string which identifies a service session. it enables the session to receive inputs from the console
 
-<code>void : void</code> 
+Invocation template:
 
+```text
+subscribeSessionListener@Console( request )( response )
+```
 
-
-
-
-
-
-
-<h3 id="subscribeSessionListener">subscribeSessionListener</h3>
-
-Operation documentation: 
-	 it receives a token string which identifies a service session.
-	 it enables the session to receive inputs from the console
-	
-
-
-Invocation template: 
-<pre>subscribeSessionListener@Console( request )( response )</pre>
-
-<h4 id="SubscribeSessionListener">Request type</h4>
+#### Request type <a id="SubscribeSessionListener"></a>
 
 Type: SubscribeSessionListener
 
+```text
+type SubscribeSessionListener: void {
+    .token: string
+}
+```
 
-<pre>type SubscribeSessionListener: void {
-	.token: string
-}</pre>
+`SubscribeSessionListener : void`
 
-<code>SubscribeSessionListener : void</code> 
+* `token : string`
 
-<ul>
-
-  <li><code>token : string</code> 
-</li>
-
-</ul>
-
-
-
-<h4>Response type</h4>
+#### Response type
 
 Type: void
 
+`void : void`
 
+### enableTimestamp <a id="enableTimestamp"></a>
 
+Operation documentation: It enables timestamp inline printing for each console output operation call: print, println Parameter format allows to specifiy the timestamp output format. Bad Format will be printed out if format value is not allowed.
 
-<code>void : void</code> 
+Invocation template:
 
+```text
+enableTimestamp@Console( request )( response )
+```
 
-
-
-
-
-
-
-<h3 id="enableTimestamp">enableTimestamp</h3>
-
-Operation documentation: 
-		It enables timestamp inline printing for each console output operation call: print, println
-		Parameter format allows to specifiy the timestamp output format. Bad Format will be printed out if format value is not allowed.
-	
-
-
-Invocation template: 
-<pre>enableTimestamp@Console( request )( response )</pre>
-
-<h4 id="EnableTimestampRequest">Request type</h4>
+#### Request type <a id="EnableTimestampRequest"></a>
 
 Type: EnableTimestampRequest
 
+```text
+type EnableTimestampRequest: bool {
+    .format?: string
+}
+```
 
-<pre>type EnableTimestampRequest: bool {
-	.format?: string
-}</pre>
+`EnableTimestampRequest : bool`
 
-<code>EnableTimestampRequest : bool</code> 
+* `format : string`
 
-<ul>
-
-  <li><code>format : string</code> 
-</li>
-
-</ul>
-
-
-
-<h4>Response type</h4>
+#### Response type
 
 Type: void
 
-
-
-
-<code>void : void</code> 
-
-
-
-
-
-
-
-
-
+`void : void`
 

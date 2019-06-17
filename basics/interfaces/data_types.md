@@ -81,12 +81,14 @@ type ShoppingList: void {
 }
 ```
 
-
 ### Subnodes with cardinality
-Since each node of a tree in Jolie is a vector, in a type declaration each node requires a cardinality to be specified. The cardinality espresses the minimum and the maximum occurencies for that node (`[min, max]`). Cardinality is always expressed in the form:
-* `[min, max]` - an interval from `min` to `max` \(both integers\), where `max` can be equal to `*` for defining an unlimited number of occurencies (`[min, *]`).
+
+Since each node of a tree in Jolie is a vector, in a type declaration each node requires a cardinality to be specified. The cardinality espresses the minimum and the maximum occurencies for that node \(`[min, max]`\). Cardinality is always expressed in the form:
+
+* `[min, max]` - an interval from `min` to `max` \(both integers\), where `max` can be equal to `*` for defining an unlimited number of occurencies \(`[min, *]`\).
 
 Some special shortcuts can be used for expressing cardinality easily instead of the ordinary syntax with square brackets:
+
 * `*` - meaning any number of occurrences, a shortcut for `[0, *]`.
 * `?` - meaning non or one occurrence, a shortcut for `[0, 1]`.
 * when no cardinality is defined, it is defaulted to the value `[1,1]`, meaning that one and only one occurrence of that subnode can be contained in the node.
@@ -113,7 +115,7 @@ type CustomType: T {
 }
 ```
 
-*Example*. In this case cardinalities are defined by occurrences where minimal occurrence of `aSubNode` of type `T` is one and maximum occurrences of the same node are five.
+_Example_. In this case cardinalities are defined by occurrences where minimal occurrence of `aSubNode` of type `T` is one and maximum occurrences of the same node are five.
 
 ```text
 type CustomType: T {
@@ -133,7 +135,8 @@ type CustomType: T {
 
 The above example shows that `*` is a shortcut for `[0,*]` and hence the cardinality of `aSubNode` and `anotherSubNode` are the same.
 
-##Undefined set of subnodes##
+## Undefined set of subnodes
+
 Jolie provides the term `any { ? }` to capture the type of a tree with any type for the root and an undefined set of subnodes. Jolie also provides a shortcut to `any { ? }` which is the type `undefined`. Hence the two writings below are equal
 
 ```text
@@ -186,7 +189,7 @@ type TestType: void {
 
 You can access these nodes with special characters by using dynamic look-up, for example x.\("@node"\). This is explained more in detail in [data structures](https://jolielang.gitbook.io/docs/basic/data_structures).
 
-*Attention: This feature is available from Jolie 1.6.2.*
+_Attention: This feature is available from Jolie 1.6.2._
 
 ### Data types choice \(sum types\)
 

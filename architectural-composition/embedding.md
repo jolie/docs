@@ -5,7 +5,6 @@ Embedding is a mechanism for executing multiple services within the same executi
 The syntax for embedding is:
 
 ```text
-
 embedded {
     Language : path [ in OutputPort ]
 }
@@ -24,6 +23,7 @@ Embedding produces a hierarchy of services where the embedder is the parent serv
 Command line parameters can also be passed within the embedding path.
 
 ## Macroservices
+
 Here we introduce the concept of _macroservice_ as a unique execution context for a set of microservices. One or more microservices can be executed within the same execution context. When there is only one microservice, the definition of a macroservice corresponds with the same of microservice. A macroservice exhibit only the public available ports of the inner microservices. The ports that are not reachable by external invokers are considered internal ports and they are hidden from the point of view of a macroservice. Operationally, a macroservice can be obtained by exploiting the embedding primitive.
 
 ![](../.gitbook/assets/macroservices.png)
@@ -34,9 +34,9 @@ Graphically they are represented with a orange exagon.
 
 Embedding Jolie services is very simple. In order to show how it works, let us consider a simple example whose executable code can be found [here](https://github.com/jolie/examples/tree/master/04_architectural_composition/01_embedding_jolie/01_embedding).
 
-In this example we want to implement a service which is able to clean a html string from the tags `<div>`,  `</div>`, `<br>` and `</br>` replacing the br ones with a line feed and a carriage return. In order to do this, we implement a parent service called _clean_div.ol_ which is in charge to clean the div tags and another service called _clean_br.ol_ in charge to clean the br tags. The service _clean_div.ol_ embeds the service _clean_br.ol_:
+In this example we want to implement a service which is able to clean a html string from the tags `<div>`, `</div>`, `<br>` and `</br>` replacing the br ones with a line feed and a carriage return. In order to do this, we implement a parent service called _clean\_div.ol_ which is in charge to clean the div tags and another service called _clean\_br.ol_ in charge to clean the br tags. The service _clean\_div.ol_ embeds the service _clean\_br.ol_:
 
-```jolie
+```text
 include "CleanBrInterface.iol"
 include "CleanDivInterface.iol"
 
@@ -66,62 +66,62 @@ main {
         cleanBr@CleanBr( request )( response )
     }
 }
-
 ```
+
 ![](../.gitbook/assets/embedding.png)
 
 It is worth noting that:
-* the outputPort _CleanBr_ does not define nor the location and the procolo because they are set by the embedding primitive with localtion "local" and inner memory protocol.
-* the embedding primitive specifies the language "Jolie" because the service _clean_br.ol_ is written in Jolie
-* the embedding primitive joins the service _clean_br.ol_ with the outputPort _CleanBr_ thus implying that each time we use port CleanBr inside the behaviour we will invoke the embedded service:
 
-```jolie
+* the outputPort _CleanBr_ does not define nor the location and the procolo because they are set by the embedding primitive with localtion "local" and inner memory protocol.
+* the embedding primitive specifies the language "Jolie" because the service _clean\_br.ol_ is written in Jolie
+* the embedding primitive joins the service _clean\_br.ol_ with the outputPort _CleanBr_ thus implying that each time we use port CleanBr inside the behaviour we will invoke the embedded service:
+
+```text
 cleanBr@CleanBr( request )( response )
 ```
 
 ### Hiding connections
 
-Note that the embedding primitive, together with the usage of in-memory communication, allows for hiding connections among embedded microservices. In the example above the connection between the service _clean_div.ol_ and _clean_br.ol_ is hidden by the embedding and no external microservices can call the inputPort of the microservice _clean_br.ol_.
+Note that the embedding primitive, together with the usage of in-memory communication, allows for hiding connections among embedded microservices. In the example above the connection between the service _clean\_div.ol_ and _clean\_br.ol_ is hidden by the embedding and no external microservices can call the inputPort of the microservice _clean\_br.ol_.
 
 ![](../.gitbook/assets/embedding2.png)
 
 ### Creating a script from a service architecture
 
-Afterwards, we can write a modified version of the client program of the previous example, in order to directly embed the service _clean_dv.ol_ thus **transforming the service architecture into a single script**. The code of this example can be found [here](https://github.com/jolie/examples/tree/master/04_architectural_composition/01_embedding_jolie/02_script). Here we report the code of the script:
+Afterwards, we can write a modified version of the client program of the previous example, in order to directly embed the service _clean\_dv.ol_ thus **transforming the service architecture into a single script**. The code of this example can be found [here](https://github.com/jolie/examples/tree/master/04_architectural_composition/01_embedding_jolie/02_script). Here we report the code of the script:
 
 ```text
 include "CleanDivInterface.iol"
 include "console.iol"
 
 outputPort CleanDiv {
-	Interfaces: CleanDivInterface
+    Interfaces: CleanDivInterface
 }
 
 embedded {
 Jolie:
-	"clean_div.ol" in CleanDiv
+    "clean_div.ol" in CleanDiv
 }
 
 main
 {
-	div = "<div>This is an example of embedding<br>try to run the encoding_div.ol<br>and watch the result.</div>";
-	println@Console("String to be cleaned:" + div )();
-	cleanDiv@CleanDiv( div )( clean_string );
-	println@Console()();
-	println@Console( "String cleaned:" + clean_string )()
+    div = "<div>This is an example of embedding<br>try to run the encoding_div.ol<br>and watch the result.</div>";
+    println@Console("String to be cleaned:" + div )();
+    cleanDiv@CleanDiv( div )( clean_string );
+    println@Console()();
+    println@Console( "String cleaned:" + clean_string )()
 }
-
 ```
 
-It is worth noting that now the file _script.ol_ embeds the service _clean_div.ol_ which embeds the service _clean_br.ol_. Since _script.ol_ does not implement any inputPort but it just executes a script, when it reach the ends all the embedded services are automatically shut down.
+It is worth noting that now the file _script.ol_ embeds the service _clean\_div.ol_ which embeds the service _clean\_br.ol_. Since _script.ol_ does not implement any inputPort but it just executes a script, when it reach the ends all the embedded services are automatically shut down.
 
 ## Dynamic Embedding
 
-Dynamic embedding makes possible to associate a unique embedded instance to a single process of the embedder, thus allowing only that specific process to invoke the operations of the embedded service. Such a feature can be obtained by exploiting the API of the [runtime service](../standard-library-api/runtime), in particular we will use operation _loadEmbeddedService_.
+Dynamic embedding makes possible to associate a unique embedded instance to a single process of the embedder, thus allowing only that specific process to invoke the operations of the embedded service. Such a feature can be obtained by exploiting the API of the [runtime service](https://github.com/jolie/docs/tree/587adabef2f2169959f76fa242c1696673e54617/standard-library-api/runtime/README.md), in particular we will use operation _loadEmbeddedService_.
 
 As an example let us consider the case of a calculator which offers the four arithmetic operators but it loads the implementation of them at runtime depending on the request selection. If the client specifies to perform a sum, the calculator will load the service which implements the sum and it will call it on the same operation _run_. The full code of the example can be found [here](https://github.com/jolie/examples/tree/master/04_architectural_composition/05_dynamic_embedding/calculator), in the following we report the code of the calculator:
 
-```jolie
+```text
 include "runtime.iol"
 
 include "OperationInterface.iol"
@@ -175,9 +175,10 @@ main {
   }]
 }
 ```
-The definition _embed_service_ it is called within each operation offered by the calculator (_sum_, _sub_, _mul_, _div_) and it loads the specific service dynamically. Note that in this example the service files are named with the same name of the operations, thus there are the following files in the same folder of _calculator.ol_: _sum.ol_, _sub.ol_, _mul.ol_, _div.ol_. Each of them implement the same interface with different logics, thus they are polymorphic with respect the following interface:
 
-```jolie
+The definition _embed\_service_ it is called within each operation offered by the calculator \(_sum_, _sub_, _mul_, _div_\) and it loads the specific service dynamically. Note that in this example the service files are named with the same name of the operations, thus there are the following files in the same folder of _calculator.ol_: _sum.ol_, _sub.ol_, _mul.ol_, _div.ol_. Each of them implement the same interface with different logics, thus they are polymorphic with respect the following interface:
+
+```text
 type RequestType: void {
   .x: double
   .y: double
@@ -189,5 +190,5 @@ interface OperationInterface {
 }
 ```
 
-It is worth noting that the embedded service is running once for each enabled session then it expires.
-Thus each call produce a new specific embedding for that call.
+It is worth noting that the embedded service is running once for each enabled session then it expires. Thus each call produce a new specific embedding for that call.
+

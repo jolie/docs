@@ -1,1183 +1,678 @@
-# Include library: string_utils.iol
+# StringUtils
 
-Inclusion code: <pre>include "string_utils.iol"</pre>
+Inclusion code: 
 
-<table>
-  <caption>Service Deployment</caption>
-  <thead>
-    <tr>
-      <th>Port Name</th>
-      <th>Location</th>
-      <th>Protocol</th>
-      <th>Interfaces</th>
-    </tr>
-  </thead>
-  <tbody><tr><td>StringUtils documentation: </td></tr>
-    <tr>
-      <td>StringUtils</td>
-      <td>-</td>
-      <td>-</td>
-      <td><a href="#StringUtilsInterface">StringUtilsInterface</a></td>
-    </tr>
-  </tbody>
-</table>
+| Service Deployment |  |  |  |
+| :--- | :--- | :--- | :--- |
+| Port Name | Location | Protocol | Interfaces |
+| StringUtils documentation: |  |  |  |
+| StringUtils | - | - | [StringUtilsInterface](string_utils.md#StringUtilsInterface) |
 
-<h3>List of Available Interfaces</h3>
+### List of Available Interfaces
 
-<h3 id="StringUtilsInterface">StringUtilsInterface</h3>
+### StringUtilsInterface <a id="StringUtilsInterface"></a>
 
-Interface documentation: 
-  An interface for supporting string manipulation operations.
- 
+Interface documentation: An interface for supporting string manipulation operations.
 
-<table>
-  <thead>
-    <tr>
-      <th>Operation Name</th>
-      <th>Input Type</th>
-      <th>Output Type</th>
-      <th>Faults</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><a href="#leftPad">leftPad</a></td>
-      <td><a href="#PadRequest">PadRequest</a></td>
-      <td>string</td>
-      <td>
-      </td>
-    </tr>
-    <tr>
-      <td><a href="#valueToPrettyString">valueToPrettyString</a></td>
-      <td>undefined</a></td>
-      <td>string</td>
-      <td>
-      </td>
-    </tr>
-    <tr>
-      <td><a href="#toLowerCase">toLowerCase</a></td>
-      <td>string</td>
-      <td>string</td>
-      <td>
-      </td>
-    </tr>
-    <tr>
-      <td><a href="#length">length</a></td>
-      <td>string</td>
-      <td>int</td>
-      <td>
-      </td>
-    </tr>
-    <tr>
-      <td><a href="#match">match</a></td>
-      <td><a href="#MatchRequest">MatchRequest</a></td>
-      <td><a href="#MatchResult">MatchResult</a></td>
-      <td>
-      </td>
-    </tr>
-    <tr>
-      <td><a href="#replaceFirst">replaceFirst</a></td>
-      <td><a href="#ReplaceRequest">ReplaceRequest</a></td>
-      <td>string</td>
-      <td>
-      </td>
-    </tr>
-    <tr>
-      <td><a href="#sort">sort</a></td>
-      <td><a href="#StringItemList">StringItemList</a></td>
-      <td><a href="#StringItemList">StringItemList</a></td>
-      <td>
-      </td>
-    </tr>
-    <tr>
-      <td><a href="#replaceAll">replaceAll</a></td>
-      <td><a href="#ReplaceRequest">ReplaceRequest</a></td>
-      <td>string</td>
-      <td>
-      </td>
-    </tr>
-    <tr>
-      <td><a href="#substring">substring</a></td>
-      <td><a href="#SubStringRequest">SubStringRequest</a></td>
-      <td>string</td>
-      <td>
-      </td>
-    </tr>
-    <tr>
-      <td><a href="#getRandomUUID">getRandomUUID</a></td>
-      <td>void</td>
-      <td>string</td>
-      <td>
-      </td>
-    </tr>
-    <tr>
-      <td><a href="#rightPad">rightPad</a></td>
-      <td><a href="#PadRequest">PadRequest</a></td>
-      <td>string</td>
-      <td>
-      </td>
-    </tr>
-    <tr>
-      <td><a href="#contains">contains</a></td>
-      <td><a href="#ContainsRequest">ContainsRequest</a></td>
-      <td>bool</td>
-      <td>
-      </td>
-    </tr>
-    <tr>
-      <td><a href="#split">split</a></td>
-      <td><a href="#SplitRequest">SplitRequest</a></td>
-      <td><a href="#SplitResult">SplitResult</a></td>
-      <td>
-      </td>
-    </tr>
-    <tr>
-      <td><a href="#splitByLength">splitByLength</a></td>
-      <td><a href="#SplitByLengthRequest">SplitByLengthRequest</a></td>
-      <td><a href="#SplitResult">SplitResult</a></td>
-      <td>
-      </td>
-    </tr>
-    <tr>
-      <td><a href="#trim">trim</a></td>
-      <td>string</td>
-      <td>string</td>
-      <td>
-      </td>
-    </tr>
-    <tr>
-      <td><a href="#find">find</a></td>
-      <td><a href="#MatchRequest">MatchRequest</a></td>
-      <td><a href="#MatchResult">MatchResult</a></td>
-      <td>
-      </td>
-    </tr>
-    <tr>
-      <td><a href="#endsWith">endsWith</a></td>
-      <td><a href="#EndsWithRequest">EndsWithRequest</a></td>
-      <td>bool</td>
-      <td>
-      </td>
-    </tr>
-    <tr>
-      <td><a href="#toUpperCase">toUpperCase</a></td>
-      <td>string</td>
-      <td>string</td>
-      <td>
-      </td>
-    </tr>
-    <tr>
-      <td><a href="#join">join</a></td>
-      <td><a href="#JoinRequest">JoinRequest</a></td>
-      <td>string</td>
-      <td>
-      </td>
-    </tr>
-    <tr>
-      <td><a href="#indexOf">indexOf</a></td>
-      <td><a href="#IndexOfRequest">IndexOfRequest</a></td>
-      <td>IndexOfResponse</td>
-      <td>
-      </td>
-    </tr>
-    <tr>
-      <td><a href="#startsWith">startsWith</a></td>
-      <td><a href="#StartsWithRequest">StartsWithRequest</a></td>
-      <td>bool</td>
-      <td>
-      </td>
-    </tr>
-  </tbody>
-</table>
+| Operation Name | Input Type | Output Type | Faults |
+| :--- | :--- | :--- | :--- |
+| [leftPad](string_utils.md#leftPad) | [PadRequest](string_utils.md#PadRequest) | string |  |
+| [valueToPrettyString](string_utils.md#valueToPrettyString) | undefined | string |  |
+| [toLowerCase](string_utils.md#toLowerCase) | string | string |  |
+| [length](string_utils.md#length) | string | int |  |
+| [match](string_utils.md#match) | [MatchRequest](string_utils.md#MatchRequest) | [MatchResult](string_utils.md#MatchResult) |  |
+| [replaceFirst](string_utils.md#replaceFirst) | [ReplaceRequest](string_utils.md#ReplaceRequest) | string |  |
+| [sort](string_utils.md#sort) | [StringItemList](string_utils.md#StringItemList) | [StringItemList](string_utils.md#StringItemList) |  |
+| [replaceAll](string_utils.md#replaceAll) | [ReplaceRequest](string_utils.md#ReplaceRequest) | string |  |
+| [substring](string_utils.md#substring) | [SubStringRequest](string_utils.md#SubStringRequest) | string |  |
+| [getRandomUUID](string_utils.md#getRandomUUID) | void | string |  |
+| [rightPad](string_utils.md#rightPad) | [PadRequest](string_utils.md#PadRequest) | string |  |
+| [contains](string_utils.md#contains) | [ContainsRequest](string_utils.md#ContainsRequest) | bool |  |
+| [split](string_utils.md#split) | [SplitRequest](string_utils.md#SplitRequest) | [SplitResult](string_utils.md#SplitResult) |  |
+| [splitByLength](string_utils.md#splitByLength) | [SplitByLengthRequest](string_utils.md#SplitByLengthRequest) | [SplitResult](string_utils.md#SplitResult) |  |
+| [trim](string_utils.md#trim) | string | string |  |
+| [find](string_utils.md#find) | [MatchRequest](string_utils.md#MatchRequest) | [MatchResult](string_utils.md#MatchResult) |  |
+| [endsWith](string_utils.md#endsWith) | [EndsWithRequest](string_utils.md#EndsWithRequest) | bool |  |
+| [toUpperCase](string_utils.md#toUpperCase) | string | string |  |
+| [join](string_utils.md#join) | [JoinRequest](string_utils.md#JoinRequest) | string |  |
+| [indexOf](string_utils.md#indexOf) | [IndexOfRequest](string_utils.md#IndexOfRequest) | IndexOfResponse |  |
+| [startsWith](string_utils.md#startsWith) | [StartsWithRequest](string_utils.md#StartsWithRequest) | bool |  |
 
-<h2>Operation Description</h2>
+## Operation Description
 
+### leftPad <a id="leftPad"></a>
 
+Operation documentation: Returns true if the string contains .substring
 
-<h3 id="leftPad">leftPad</h3>
+Invocation template:
 
-Operation documentation: 
-	  Returns true if the string contains .substring
-	 
+```text
+leftPad@StringUtils( request )( response )
+```
 
-
-Invocation template: 
-<pre>leftPad@StringUtils( request )( response )</pre>
-
-<h4 id="PadRequest">Request type</h4>
+#### Request type <a id="PadRequest"></a>
 
 Type: PadRequest
 
+```text
+type PadRequest: string {
+    .length: int
+    .char: string
+}
+```
 
-<pre>type PadRequest: string {
-	.length: int
-	.char: string
-}</pre>
+`PadRequest : string`
 
-<code>PadRequest : string</code> 
+* `length : int`
+* `char : string`
 
-<ul>
-
-  <li><code>length : int</code> 
-</li>
-
-  <li><code>char : string</code> 
-</li>
-
-</ul>
-
-
-
-<h4>Response type</h4>
+#### Response type
 
 Type: string
 
+`string : string`
 
+### valueToPrettyString <a id="valueToPrettyString"></a>
 
+Operation documentation: checks if the passed string starts with a given prefix
 
-<code>string : string</code> 
+Invocation template:
 
+```text
+valueToPrettyString@StringUtils( request )( response )
+```
 
-
-
-
-
-
-
-<h3 id="valueToPrettyString">valueToPrettyString</h3>
-
-Operation documentation: 
-	 checks if the passed string starts with a given prefix
-	
-
-
-Invocation template: 
-<pre>valueToPrettyString@StringUtils( request )( response )</pre>
-
-<h4>Request type</h4>
+#### Request type
 
 Type: undefined
 
+`undefined : any`
 
-
-
-<code>undefined : any</code> 
-
-
-
-<h4>Response type</h4>
+#### Response type
 
 Type: string
 
+`string : string`
 
+### toLowerCase <a id="toLowerCase"></a>
 
+Operation documentation: Returns true if the string contains .substring
 
-<code>string : string</code> 
+Invocation template:
 
+```text
+toLowerCase@StringUtils( request )( response )
+```
 
-
-
-
-
-
-
-<h3 id="toLowerCase">toLowerCase</h3>
-
-Operation documentation: 
-	  Returns true if the string contains .substring
-	 
-
-
-Invocation template: 
-<pre>toLowerCase@StringUtils( request )( response )</pre>
-
-<h4>Request type</h4>
+#### Request type
 
 Type: string
 
+`string : string`
 
-
-
-<code>string : string</code> 
-
-
-
-<h4>Response type</h4>
+#### Response type
 
 Type: string
 
+`string : string`
 
+### length <a id="length"></a>
 
+Operation documentation: Returns true if the string contains .substring
 
-<code>string : string</code> 
+Invocation template:
 
+```text
+length@StringUtils( request )( response )
+```
 
-
-
-
-
-
-
-<h3 id="length">length</h3>
-
-Operation documentation: 
-	  Returns true if the string contains .substring
-	 
-
-
-Invocation template: 
-<pre>length@StringUtils( request )( response )</pre>
-
-<h4>Request type</h4>
+#### Request type
 
 Type: string
 
+`string : string`
 
-
-
-<code>string : string</code> 
-
-
-
-<h4>Response type</h4>
+#### Response type
 
 Type: int
 
+`int : int`
 
+### match <a id="match"></a>
 
+Operation documentation: Returns true if the string contains .substring
 
-<code>int : int</code> 
+Invocation template:
 
+```text
+match@StringUtils( request )( response )
+```
 
-
-
-
-
-
-
-<h3 id="match">match</h3>
-
-Operation documentation: 
-	  Returns true if the string contains .substring
-	 
-
-
-Invocation template: 
-<pre>match@StringUtils( request )( response )</pre>
-
-<h4 id="MatchRequest">Request type</h4>
+#### Request type <a id="MatchRequest"></a>
 
 Type: MatchRequest
 
+```text
+type MatchRequest: string {
+    .regex: string
+}
+```
 
-<pre>type MatchRequest: string {
-	.regex: string
-}</pre>
+`MatchRequest : string`
 
-<code>MatchRequest : string</code> 
+* `regex : string`
 
-<ul>
-
-  <li><code>regex : string</code> 
-</li>
-
-</ul>
-
-
-
-<h4 id="MatchResult">Response type</h4>
+#### Response type <a id="MatchResult"></a>
 
 Type: MatchResult
 
+```text
+type MatchResult: int {
+    .group*: string
+}
+```
 
-<pre>type MatchResult: int {
-	.group*: string
-}</pre>
+`MatchResult : int`
 
-<code>MatchResult : int</code> 
+* `group : string`
 
-<ul>
+### replaceFirst <a id="replaceFirst"></a>
 
-  <li><code>group : string</code> 
-</li>
+Operation documentation: Returns true if the string contains .substring
 
-</ul>
+Invocation template:
 
+```text
+replaceFirst@StringUtils( request )( response )
+```
 
-
-
-
-
-
-
-<h3 id="replaceFirst">replaceFirst</h3>
-
-Operation documentation: 
-	  Returns true if the string contains .substring
-	 
-
-
-Invocation template: 
-<pre>replaceFirst@StringUtils( request )( response )</pre>
-
-<h4 id="ReplaceRequest">Request type</h4>
+#### Request type <a id="ReplaceRequest"></a>
 
 Type: ReplaceRequest
 
+```text
+type ReplaceRequest: string {
+    .regex: string
+    .replacement: string
+}
+```
 
-<pre>type ReplaceRequest: string {
-	.regex: string
-	.replacement: string
-}</pre>
+`ReplaceRequest : string`
 
-<code>ReplaceRequest : string</code> 
+* `regex : string`
+* `replacement : string`
 
-<ul>
-
-  <li><code>regex : string</code> 
-</li>
-
-  <li><code>replacement : string</code> 
-</li>
-
-</ul>
-
-
-
-<h4>Response type</h4>
+#### Response type
 
 Type: string
 
+`string : string`
 
+### sort <a id="sort"></a>
 
+Operation documentation: Returns true if the string contains .substring
 
-<code>string : string</code> 
+Invocation template:
 
+```text
+sort@StringUtils( request )( response )
+```
 
-
-
-
-
-
-
-<h3 id="sort">sort</h3>
-
-Operation documentation: 
-	  Returns true if the string contains .substring
-	 
-
-
-Invocation template: 
-<pre>sort@StringUtils( request )( response )</pre>
-
-<h4 id="StringItemList">Request type</h4>
+#### Request type <a id="StringItemList"></a>
 
 Type: StringItemList
 
+```text
+type StringItemList: void {
+    .item*: string
+}
+```
 
-<pre>type StringItemList: void {
-	.item*: string
-}</pre>
+`StringItemList : void`
 
-<code>StringItemList : void</code> 
+* `item : string`
 
-<ul>
-
-  <li><code>item : string</code> 
-</li>
-
-</ul>
-
-
-
-<h4 id="StringItemList">Response type</h4>
+#### Response type <a id="StringItemList"></a>
 
 Type: StringItemList
 
+```text
+type StringItemList: void {
+    .item*: string
+}
+```
 
-<pre>type StringItemList: void {
-	.item*: string
-}</pre>
+`StringItemList : void`
 
-<code>StringItemList : void</code> 
+* `item : string`
 
-<ul>
+### replaceAll <a id="replaceAll"></a>
 
-  <li><code>item : string</code> 
-</li>
+Operation documentation: Returns true if the string contains .substring
 
-</ul>
+Invocation template:
 
+```text
+replaceAll@StringUtils( request )( response )
+```
 
-
-
-
-
-
-
-<h3 id="replaceAll">replaceAll</h3>
-
-Operation documentation: 
-	  Returns true if the string contains .substring
-	 
-
-
-Invocation template: 
-<pre>replaceAll@StringUtils( request )( response )</pre>
-
-<h4 id="ReplaceRequest">Request type</h4>
+#### Request type <a id="ReplaceRequest"></a>
 
 Type: ReplaceRequest
 
+```text
+type ReplaceRequest: string {
+    .regex: string
+    .replacement: string
+}
+```
 
-<pre>type ReplaceRequest: string {
-	.regex: string
-	.replacement: string
-}</pre>
+`ReplaceRequest : string`
 
-<code>ReplaceRequest : string</code> 
+* `regex : string`
+* `replacement : string`
 
-<ul>
-
-  <li><code>regex : string</code> 
-</li>
-
-  <li><code>replacement : string</code> 
-</li>
-
-</ul>
-
-
-
-<h4>Response type</h4>
+#### Response type
 
 Type: string
 
+`string : string`
 
+### substring <a id="substring"></a>
 
+Operation documentation: Returns true if the string contains .substring
 
-<code>string : string</code> 
+Invocation template:
 
+```text
+substring@StringUtils( request )( response )
+```
 
-
-
-
-
-
-
-<h3 id="substring">substring</h3>
-
-Operation documentation: 
-	  Returns true if the string contains .substring
-	 
-
-
-Invocation template: 
-<pre>substring@StringUtils( request )( response )</pre>
-
-<h4 id="SubStringRequest">Request type</h4>
+#### Request type <a id="SubStringRequest"></a>
 
 Type: SubStringRequest
 
+```text
+type SubStringRequest: string {
+    .end: int
+    .begin: int
+}
+```
 
-<pre>type SubStringRequest: string {
-	.end: int
-	.begin: int
-}</pre>
+`SubStringRequest : string`
 
-<code>SubStringRequest : string</code> 
+* `end : int`
+* `begin : int`
 
-<ul>
-
-  <li><code>end : int</code> 
-</li>
-
-  <li><code>begin : int</code> 
-</li>
-
-</ul>
-
-
-
-<h4>Response type</h4>
+#### Response type
 
 Type: string
 
+`string : string`
 
+### getRandomUUID <a id="getRandomUUID"></a>
 
+Operation documentation: it returns a random UUID
 
-<code>string : string</code> 
+Invocation template:
 
+```text
+getRandomUUID@StringUtils( request )( response )
+```
 
-
-
-
-
-
-
-<h3 id="getRandomUUID">getRandomUUID</h3>
-
-Operation documentation: 
-	 it returns a random UUID
-	
-
-
-Invocation template: 
-<pre>getRandomUUID@StringUtils( request )( response )</pre>
-
-<h4>Request type</h4>
+#### Request type
 
 Type: void
 
+`void : void`
 
-
-
-<code>void : void</code> 
-
-
-
-<h4>Response type</h4>
+#### Response type
 
 Type: string
 
+`string : string`
 
+### rightPad <a id="rightPad"></a>
 
+Operation documentation: Returns true if the string contains .substring
 
-<code>string : string</code> 
+Invocation template:
 
+```text
+rightPad@StringUtils( request )( response )
+```
 
-
-
-
-
-
-
-<h3 id="rightPad">rightPad</h3>
-
-Operation documentation: 
-	  Returns true if the string contains .substring
-	 
-
-
-Invocation template: 
-<pre>rightPad@StringUtils( request )( response )</pre>
-
-<h4 id="PadRequest">Request type</h4>
+#### Request type <a id="PadRequest"></a>
 
 Type: PadRequest
 
+```text
+type PadRequest: string {
+    .length: int
+    .char: string
+}
+```
 
-<pre>type PadRequest: string {
-	.length: int
-	.char: string
-}</pre>
+`PadRequest : string`
 
-<code>PadRequest : string</code> 
+* `length : int`
+* `char : string`
 
-<ul>
-
-  <li><code>length : int</code> 
-</li>
-
-  <li><code>char : string</code> 
-</li>
-
-</ul>
-
-
-
-<h4>Response type</h4>
+#### Response type
 
 Type: string
 
+`string : string`
 
+### contains <a id="contains"></a>
 
+Operation documentation: Returns true if the string contains .substring
 
-<code>string : string</code> 
+Invocation template:
 
+```text
+contains@StringUtils( request )( response )
+```
 
-
-
-
-
-
-
-<h3 id="contains">contains</h3>
-
-Operation documentation: 
-	  Returns true if the string contains .substring
-	 
-
-
-Invocation template: 
-<pre>contains@StringUtils( request )( response )</pre>
-
-<h4 id="ContainsRequest">Request type</h4>
+#### Request type <a id="ContainsRequest"></a>
 
 Type: ContainsRequest
 
+```text
+type ContainsRequest: string {
+    .substring: string
+}
+```
 
-<pre>type ContainsRequest: string {
-	.substring: string
-}</pre>
+`ContainsRequest : string`
 
-<code>ContainsRequest : string</code> 
+* `substring : string`
 
-<ul>
-
-  <li><code>substring : string</code> 
-</li>
-
-</ul>
-
-
-
-<h4>Response type</h4>
+#### Response type
 
 Type: bool
 
+`bool : bool`
 
+### split <a id="split"></a>
 
+Operation documentation: Returns true if the string contains .substring
 
-<code>bool : bool</code> 
+Invocation template:
 
+```text
+split@StringUtils( request )( response )
+```
 
-
-
-
-
-
-
-<h3 id="split">split</h3>
-
-Operation documentation: 
-	  Returns true if the string contains .substring
-	 
-
-
-Invocation template: 
-<pre>split@StringUtils( request )( response )</pre>
-
-<h4 id="SplitRequest">Request type</h4>
+#### Request type <a id="SplitRequest"></a>
 
 Type: SplitRequest
 
+```text
+type SplitRequest: string {
+    .regex: string
+    .limit?: int
+}
+```
 
-<pre>type SplitRequest: string {
-	.regex: string
-	.limit?: int
-}</pre>
+`SplitRequest : string`
 
-<code>SplitRequest : string</code> 
+* `regex : string`
+* `limit : int`
 
-<ul>
-
-  <li><code>regex : string</code> 
-</li>
-
-  <li><code>limit : int</code> 
-</li>
-
-</ul>
-
-
-
-<h4 id="SplitResult">Response type</h4>
+#### Response type <a id="SplitResult"></a>
 
 Type: SplitResult
 
+```text
+type SplitResult: void {
+    .result*: string
+}
+```
 
-<pre>type SplitResult: void {
-	.result*: string
-}</pre>
+`SplitResult : void`
 
-<code>SplitResult : void</code> 
+* `result : string`
 
-<ul>
+### splitByLength <a id="splitByLength"></a>
 
-  <li><code>result : string</code> 
-</li>
+Operation documentation: Returns true if the string contains .substring
 
-</ul>
+Invocation template:
 
+```text
+splitByLength@StringUtils( request )( response )
+```
 
-
-
-
-
-
-
-<h3 id="splitByLength">splitByLength</h3>
-
-Operation documentation: 
-	  Returns true if the string contains .substring
-	 
-
-
-Invocation template: 
-<pre>splitByLength@StringUtils( request )( response )</pre>
-
-<h4 id="SplitByLengthRequest">Request type</h4>
+#### Request type <a id="SplitByLengthRequest"></a>
 
 Type: SplitByLengthRequest
 
+```text
+type SplitByLengthRequest: string {
+    .length: int
+}
+```
 
-<pre>type SplitByLengthRequest: string {
-	.length: int
-}</pre>
+`SplitByLengthRequest : string`
 
-<code>SplitByLengthRequest : string</code> 
+* `length : int`
 
-<ul>
-
-  <li><code>length : int</code> 
-</li>
-
-</ul>
-
-
-
-<h4 id="SplitResult">Response type</h4>
+#### Response type <a id="SplitResult"></a>
 
 Type: SplitResult
 
+```text
+type SplitResult: void {
+    .result*: string
+}
+```
 
-<pre>type SplitResult: void {
-	.result*: string
-}</pre>
+`SplitResult : void`
 
-<code>SplitResult : void</code> 
+* `result : string`
 
-<ul>
+### trim <a id="trim"></a>
 
-  <li><code>result : string</code> 
-</li>
+Operation documentation: Returns true if the string contains .substring
 
-</ul>
+Invocation template:
 
+```text
+trim@StringUtils( request )( response )
+```
 
-
-
-
-
-
-
-<h3 id="trim">trim</h3>
-
-Operation documentation: 
-	  Returns true if the string contains .substring
-	 
-
-
-Invocation template: 
-<pre>trim@StringUtils( request )( response )</pre>
-
-<h4>Request type</h4>
+#### Request type
 
 Type: string
 
+`string : string`
 
-
-
-<code>string : string</code> 
-
-
-
-<h4>Response type</h4>
+#### Response type
 
 Type: string
 
+`string : string`
 
+### find <a id="find"></a>
 
+Operation documentation: Returns true if the string contains .substring
 
-<code>string : string</code> 
+Invocation template:
 
+```text
+find@StringUtils( request )( response )
+```
 
-
-
-
-
-
-
-<h3 id="find">find</h3>
-
-Operation documentation: 
-	  Returns true if the string contains .substring
-	 
-
-
-Invocation template: 
-<pre>find@StringUtils( request )( response )</pre>
-
-<h4 id="MatchRequest">Request type</h4>
+#### Request type <a id="MatchRequest"></a>
 
 Type: MatchRequest
 
+```text
+type MatchRequest: string {
+    .regex: string
+}
+```
 
-<pre>type MatchRequest: string {
-	.regex: string
-}</pre>
+`MatchRequest : string`
 
-<code>MatchRequest : string</code> 
+* `regex : string`
 
-<ul>
-
-  <li><code>regex : string</code> 
-</li>
-
-</ul>
-
-
-
-<h4 id="MatchResult">Response type</h4>
+#### Response type <a id="MatchResult"></a>
 
 Type: MatchResult
 
+```text
+type MatchResult: int {
+    .group*: string
+}
+```
 
-<pre>type MatchResult: int {
-	.group*: string
-}</pre>
+`MatchResult : int`
 
-<code>MatchResult : int</code> 
+* `group : string`
 
-<ul>
+### endsWith <a id="endsWith"></a>
 
-  <li><code>group : string</code> 
-</li>
+Operation documentation: checks if a string ends with a given suffix
 
-</ul>
+Invocation template:
 
+```text
+endsWith@StringUtils( request )( response )
+```
 
-
-
-
-
-
-
-<h3 id="endsWith">endsWith</h3>
-
-Operation documentation: 
-	  checks if a string ends with a given suffix
-	
-
-
-Invocation template: 
-<pre>endsWith@StringUtils( request )( response )</pre>
-
-<h4 id="EndsWithRequest">Request type</h4>
+#### Request type <a id="EndsWithRequest"></a>
 
 Type: EndsWithRequest
 
+```text
+type EndsWithRequest: string {
+    .suffix: string
+}
+```
 
-<pre>type EndsWithRequest: string {
-	.suffix: string
-}</pre>
+`EndsWithRequest : string`
 
-<code>EndsWithRequest : string</code> 
+* `suffix : string`
 
-<ul>
-
-  <li><code>suffix : string</code> 
-</li>
-
-</ul>
-
-
-
-<h4>Response type</h4>
+#### Response type
 
 Type: bool
 
+`bool : bool`
 
+### toUpperCase <a id="toUpperCase"></a>
 
+Operation documentation: Returns true if the string contains .substring
 
-<code>bool : bool</code> 
+Invocation template:
 
+```text
+toUpperCase@StringUtils( request )( response )
+```
 
-
-
-
-
-
-
-<h3 id="toUpperCase">toUpperCase</h3>
-
-Operation documentation: 
-	  Returns true if the string contains .substring
-	 
-
-
-Invocation template: 
-<pre>toUpperCase@StringUtils( request )( response )</pre>
-
-<h4>Request type</h4>
+#### Request type
 
 Type: string
 
+`string : string`
 
-
-
-<code>string : string</code> 
-
-
-
-<h4>Response type</h4>
+#### Response type
 
 Type: string
 
+`string : string`
 
+### join <a id="join"></a>
 
+Operation documentation: Returns true if the string contains .substring
 
-<code>string : string</code> 
+Invocation template:
 
+```text
+join@StringUtils( request )( response )
+```
 
-
-
-
-
-
-
-<h3 id="join">join</h3>
-
-Operation documentation: 
-	  Returns true if the string contains .substring
-	 
-
-
-Invocation template: 
-<pre>join@StringUtils( request )( response )</pre>
-
-<h4 id="JoinRequest">Request type</h4>
+#### Request type <a id="JoinRequest"></a>
 
 Type: JoinRequest
 
+```text
+type JoinRequest: void {
+    .piece*: string
+    .delimiter: string
+}
+```
 
-<pre>type JoinRequest: void {
-	.piece*: string
-	.delimiter: string
-}</pre>
+`JoinRequest : void`
 
-<code>JoinRequest : void</code> 
+* `piece : string`
+* `delimiter : string`
 
-<ul>
-
-  <li><code>piece : string</code> 
-</li>
-
-  <li><code>delimiter : string</code> 
-</li>
-
-</ul>
-
-
-
-<h4>Response type</h4>
+#### Response type
 
 Type: string
 
+`string : string`
 
+### indexOf <a id="indexOf"></a>
 
+Operation documentation: Returns true if the string contains .substring
 
-<code>string : string</code> 
+Invocation template:
 
+```text
+indexOf@StringUtils( request )( response )
+```
 
-
-
-
-
-
-
-<h3 id="indexOf">indexOf</h3>
-
-Operation documentation: 
-	  Returns true if the string contains .substring
-	 
-
-
-Invocation template: 
-<pre>indexOf@StringUtils( request )( response )</pre>
-
-<h4 id="IndexOfRequest">Request type</h4>
+#### Request type <a id="IndexOfRequest"></a>
 
 Type: IndexOfRequest
 
+```text
+type IndexOfRequest: string {
+    .word: string
+}
+```
 
-<pre>type IndexOfRequest: string {
-	.word: string
-}</pre>
+`IndexOfRequest : string`
 
-<code>IndexOfRequest : string</code> 
+* `word : string`
 
-<ul>
-
-  <li><code>word : string</code> 
-</li>
-
-</ul>
-
-
-
-<h4>Response type</h4>
+#### Response type
 
 Type: IndexOfResponse
 
+`IndexOfResponse : int`
 
+### startsWith <a id="startsWith"></a>
 
+Operation documentation: checks if the passed string starts with a given prefix
 
-<code>IndexOfResponse : int</code> 
+Invocation template:
 
+```text
+startsWith@StringUtils( request )( response )
+```
 
-
-
-
-
-
-
-<h3 id="startsWith">startsWith</h3>
-
-Operation documentation: 
-	 checks if the passed string starts with a given prefix
-	
-
-
-Invocation template: 
-<pre>startsWith@StringUtils( request )( response )</pre>
-
-<h4 id="StartsWithRequest">Request type</h4>
+#### Request type <a id="StartsWithRequest"></a>
 
 Type: StartsWithRequest
 
+```text
+type StartsWithRequest: string {
+    .prefix: string
+}
+```
 
-<pre>type StartsWithRequest: string {
-	.prefix: string
-}</pre>
+`StartsWithRequest : string`
 
-<code>StartsWithRequest : string</code> 
+* `prefix : string`
 
-<ul>
-
-  <li><code>prefix : string</code> 
-</li>
-
-</ul>
-
-
-
-<h4>Response type</h4>
+#### Response type
 
 Type: bool
 
-
-
-
-<code>bool : bool</code> 
-
-
-
-
-
-
-
-
-
+`bool : bool`
 

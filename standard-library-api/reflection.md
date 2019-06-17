@@ -1,136 +1,83 @@
-# Include library: reflection.iol
+# Reflection
 
-Inclusion code: <pre>include "reflection.iol"</pre>
+Inclusion code: 
 
-<table>
-  <caption>Service Deployment</caption>
-  <thead>
-    <tr>
-      <th>Port Name</th>
-      <th>Location</th>
-      <th>Protocol</th>
-      <th>Interfaces</th>
-    </tr>
-  </thead>
-  <tbody><tr><td>Reflection documentation: </td></tr>
-    <tr>
-      <td>Reflection</td>
-      <td>-</td>
-      <td>-</td>
-      <td><a href="#ReflectionIface">ReflectionIface</a></td>
-    </tr>
-  </tbody>
-</table>
+| Service Deployment |  |  |  |
+| :--- | :--- | :--- | :--- |
+| Port Name | Location | Protocol | Interfaces |
+| Reflection documentation: |  |  |  |
+| Reflection | - | - | [ReflectionIface](reflection.md#ReflectionIface) |
 
-<h3>List of Available Interfaces</h3>
+### List of Available Interfaces
 
-<h3 id="ReflectionIface">ReflectionIface</h3>
+### ReflectionIface <a id="ReflectionIface"></a>
 
-Interface documentation: 
-WARNING: the API of this service is experimental. Use it at your own risk.
+Interface documentation: WARNING: the API of this service is experimental. Use it at your own risk.
 
+| Operation Name | Input Type | Output Type | Faults |
+| :--- | :--- | :--- | :--- |
+| [invoke](reflection.md#invoke) | [InvokeRequest](reflection.md#InvokeRequest) | undefined |  OperationNotFound\( string \)  InvocationFault\( [InvocationFaultType](reflection.md#InvocationFaultType) \) |
 
-<table>
-  <thead>
-    <tr>
-      <th>Operation Name</th>
-      <th>Input Type</th>
-      <th>Output Type</th>
-      <th>Faults</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><a href="#invoke">invoke</a></td>
-      <td><a href="#InvokeRequest">InvokeRequest</a></td>
-      <td>undefined</td>
-      <td>
-        OperationNotFound( string ) <br> 
-        InvocationFault( <a href="#InvocationFaultType">InvocationFaultType</a> )
-      </td>
-    </tr>
-  </tbody>
-</table>
+## Operation Description
 
-<h2>Operation Description</h2>
+### invoke <a id="invoke"></a>
 
+Operation documentation: Invokes the specified .operation at .outputPort. If the operation is a OneWay, the invocation returns no value.
 
+Invocation template:
 
-<h3 id="invoke">invoke</h3>
+```text
+invoke@Reflection( request )( response )
+```
 
-Operation documentation: 
-	Invokes the specified .operation at .outputPort.
-	If the operation is a OneWay, the invocation returns no value.
-	
-
-
-Invocation template: 
-<pre>invoke@Reflection( request )( response )</pre>
-
-<h4 id="InvokeRequest">Request type</h4>
+#### Request type <a id="InvokeRequest"></a>
 
 Type: InvokeRequest
 
+```text
+type InvokeRequest: void {
+    .outputPort: string
+    .data?: undefined
+    .resourcePath?: string
+    .operation: string
+}
+```
 
-<pre>type InvokeRequest: void {
-	.outputPort: string
-	.data?: undefined
-	.resourcePath?: string
-	.operation: string
-}</pre>
+`InvokeRequest : void`
 
-<code>InvokeRequest : void</code> 
+* `outputPort : string`
+* `data : any`
+* `resourcePath : string`
+* `operation : string`
 
-<ul>
-
-  <li><code>outputPort : string</code> 
-</li>
-
-  <li><code>data : any</code> 
-</li>
-
-  <li><code>resourcePath : string</code> 
-</li>
-
-  <li><code>operation : string</code> 
-</li>
-
-</ul>
-
-
-
-<h4>Response type</h4>
+#### Response type
 
 Type: undefined
 
+`undefined : any`
 
+#### Possible faults thrown
 
+Fault `OperationNotFound` with type `string`
 
-<code>undefined : any</code> 
+Fault-handling install template:
 
+```text
+install ( OperationNotFound => /* error-handling code */ )
+```
 
+Fault `InvocationFault` with type `InvocationFaultType`
 
+Fault-handling install template:
 
-<h4>Possible faults thrown</h4>
+```text
+install ( InvocationFault => /* error-handling code */ )
+```
 
-
-Fault <code>OperationNotFound</code> with type <code>string</code>
-
-Fault-handling install template: 
-<pre>install ( OperationNotFound => /* error-handling code */ )</pre>
-
-
-
-Fault <code>InvocationFault</code> with type <code>InvocationFaultType</code>
-
-Fault-handling install template: 
-<pre>install ( InvocationFault => /* error-handling code */ )</pre>
-<pre>type InvocationFaultType: void {
-	.data: string
-	.name: string
-}</pre>
-
-
-
-
+```text
+type InvocationFaultType: void {
+    .data: string
+    .name: string
+}
+```
 

@@ -1,100 +1,56 @@
-# Include library: ini_utils.iol
+# IniUtils
 
-Inclusion code: <pre>include "ini_utils.iol"</pre>
+Inclusion code: 
 
-<table>
-  <caption>Service Deployment</caption>
-  <thead>
-    <tr>
-      <th>Port Name</th>
-      <th>Location</th>
-      <th>Protocol</th>
-      <th>Interfaces</th>
-    </tr>
-  </thead>
-  <tbody><tr><td>IniUtils documentation: </td></tr>
-    <tr>
-      <td>IniUtils</td>
-      <td>-</td>
-      <td>-</td>
-      <td><a href="#IniUtilsInterface">IniUtilsInterface</a></td>
-    </tr>
-  </tbody>
-</table>
+| Service Deployment |  |  |  |
+| :--- | :--- | :--- | :--- |
+| Port Name | Location | Protocol | Interfaces |
+| IniUtils documentation: |  |  |  |
+| IniUtils | - | - | [IniUtilsInterface](ini_utils.md#IniUtilsInterface) |
 
-<h3>List of Available Interfaces</h3>
+### List of Available Interfaces
 
-<h3 id="IniUtilsInterface">IniUtilsInterface</h3>
+### IniUtilsInterface <a id="IniUtilsInterface"></a>
 
-Interface documentation: 
+Interface documentation:
 
-<table>
-  <thead>
-    <tr>
-      <th>Operation Name</th>
-      <th>Input Type</th>
-      <th>Output Type</th>
-      <th>Faults</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><a href="#parseIniFile">parseIniFile</a></td>
-      <td><a href="#parseIniFileRequest">parseIniFileRequest</a></td>
-      <td><a href="#IniData">IniData</a></td>
-      <td>
-      </td>
-    </tr>
-  </tbody>
-</table>
+| Operation Name | Input Type | Output Type | Faults |
+| :--- | :--- | :--- | :--- |
+| [parseIniFile](ini_utils.md#parseIniFile) | [parseIniFileRequest](ini_utils.md#parseIniFileRequest) | [IniData](ini_utils.md#IniData) |  |
 
-<h2>Operation Description</h2>
+## Operation Description
 
+### parseIniFile <a id="parseIniFile"></a>
 
+Operation documentation:
 
-<h3 id="parseIniFile">parseIniFile</h3>
+Invocation template:
 
-Operation documentation: 
+```text
+parseIniFile@IniUtils( request )( response )
+```
 
-
-Invocation template: 
-<pre>parseIniFile@IniUtils( request )( response )</pre>
-
-<h4 id="parseIniFileRequest">Request type</h4>
+#### Request type <a id="parseIniFileRequest"></a>
 
 Type: parseIniFileRequest
 
+```text
+type parseIniFileRequest: string {
+    .charset?: string
+}
+```
 
-<pre>type parseIniFileRequest: string {
-	.charset?: string
-}</pre>
+`parseIniFileRequest : string`
 
-<code>parseIniFileRequest : string</code> 
+* `charset : string`
 
-<ul>
-
-  <li><code>charset : string</code> 
-</li>
-
-</ul>
-
-
-
-<h4 id="IniData">Response type</h4>
+#### Response type <a id="IniData"></a>
 
 Type: IniData
 
+```text
+type IniData: undefined
+```
 
-<pre>type IniData: undefined</pre>
-
-<code>IniData : void</code> 
-
-
-
-
-
-
-
-
-
+`IniData : void`
 

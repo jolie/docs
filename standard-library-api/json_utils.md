@@ -1,170 +1,113 @@
-# Include library: json_utils.iol
+# JsonUtils
 
-Inclusion code: <pre>include "json_utils.iol"</pre>
+Inclusion code: 
 
-<table>
-  <caption>Service Deployment</caption>
-  <thead>
-    <tr>
-      <th>Port Name</th>
-      <th>Location</th>
-      <th>Protocol</th>
-      <th>Interfaces</th>
-    </tr>
-  </thead>
-  <tbody><tr><td>JsonUtils documentation: </td></tr>
-    <tr>
-      <td>JsonUtils</td>
-      <td>-</td>
-      <td>-</td>
-      <td><a href="#JsonUtilsInterface">JsonUtilsInterface</a></td>
-    </tr>
-  </tbody>
-</table>
+| Service Deployment |  |  |  |
+| :--- | :--- | :--- | :--- |
+| Port Name | Location | Protocol | Interfaces |
+| JsonUtils documentation: |  |  |  |
+| JsonUtils | - | - | [JsonUtilsInterface](json_utils.md#JsonUtilsInterface) |
 
-<h3>List of Available Interfaces</h3>
+### List of Available Interfaces
 
-<h3 id="JsonUtilsInterface">JsonUtilsInterface</h3>
+### JsonUtilsInterface <a id="JsonUtilsInterface"></a>
 
-Interface documentation: 
+Interface documentation:
 
-<table>
-  <thead>
-    <tr>
-      <th>Operation Name</th>
-      <th>Input Type</th>
-      <th>Output Type</th>
-      <th>Faults</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><a href="#getJsonString">getJsonString</a></td>
-      <td><a href="#GetJsonStringRequest">GetJsonStringRequest</a></td>
-      <td>GetJsonStringResponse</td>
-      <td>
-        JSONCreationError( undefined )
-      </td>
-    </tr>
-    <tr>
-      <td><a href="#getJsonValue">getJsonValue</a></td>
-      <td><a href="#GetJsonValueRequest">GetJsonValueRequest</a></td>
-      <td><a href="#GetJsonValueResponse">GetJsonValueResponse</a></td>
-      <td>
-        JSONCreationError( undefined )
-      </td>
-    </tr>
-  </tbody>
-</table>
+| Operation Name | Input Type | Output Type | Faults |
+| :--- | :--- | :--- | :--- |
+| [getJsonString](json_utils.md#getJsonString) | [GetJsonStringRequest](json_utils.md#GetJsonStringRequest) | GetJsonStringResponse |  JSONCreationError\( undefined \) |
+| [getJsonValue](json_utils.md#getJsonValue) | [GetJsonValueRequest](json_utils.md#GetJsonValueRequest) | [GetJsonValueResponse](json_utils.md#GetJsonValueResponse) |  JSONCreationError\( undefined \) |
 
-<h2>Operation Description</h2>
+## Operation Description
 
+### getJsonString <a id="getJsonString"></a>
 
+Operation documentation: Returns the value converted into a JSON string
 
-<h3 id="getJsonString">getJsonString</h3>
+```text
+  Each child value corresponds to an attribute, the base values are saved as the default values (attribute "$" or singular value), the "_" helper childs disappear (e.g. a._[i]._[j] -> a[i][j]), the rest gets converted recursively
+```
 
-Operation documentation: 
-	  Returns the value converted into a JSON string
-	 
-	  Each child value corresponds to an attribute, the base values are saved as the default values (attribute "$" or singular value), the "_" helper childs disappear (e.g. a._[i]._[j] -> a[i][j]), the rest gets converted recursively
-	 
+Invocation template:
 
+```text
+getJsonString@JsonUtils( request )( response )
+```
 
-Invocation template: 
-<pre>getJsonString@JsonUtils( request )( response )</pre>
-
-<h4 id="GetJsonStringRequest">Request type</h4>
+#### Request type <a id="GetJsonStringRequest"></a>
 
 Type: GetJsonStringRequest
 
+```text
+type GetJsonStringRequest: undefined
+```
 
-<pre>type GetJsonStringRequest: undefined</pre>
+`GetJsonStringRequest : any`
 
-<code>GetJsonStringRequest : any</code> 
-
-
-
-<h4>Response type</h4>
+#### Response type
 
 Type: GetJsonStringResponse
 
+`GetJsonStringResponse : string`
 
+#### Possible faults thrown
 
+Fault `JSONCreationError` with type `undefined`
 
-<code>GetJsonStringResponse : string</code> 
+Fault-handling install template:
 
+```text
+install ( JSONCreationError => /* error-handling code */ )
+```
 
+### getJsonValue <a id="getJsonValue"></a>
 
+Operation documentation: Returns the JSON string converted into a value
 
-<h4>Possible faults thrown</h4>
+```text
+  Each attribute corresponds to a child value, the default values (attribute "$" or singular value) are saved as the base values, nested arrays get mapped with the "_" helper childs (e.g. a[i][j] -> a._[i]._[j]), the rest gets converted recursively
+```
 
+Invocation template:
 
-Fault <code>JSONCreationError</code> with type <code>undefined</code>
+```text
+getJsonValue@JsonUtils( request )( response )
+```
 
-Fault-handling install template: 
-<pre>install ( JSONCreationError => /* error-handling code */ )</pre>
-
-
-
-
-<h3 id="getJsonValue">getJsonValue</h3>
-
-Operation documentation: 
-	  Returns the JSON string converted into a value
-	 
-	  Each attribute corresponds to a child value, the default values (attribute "$" or singular value) are saved as the base values, nested arrays get mapped with the "_" helper childs (e.g. a[i][j] -> a._[i]._[j]), the rest gets converted recursively
-	 
-
-
-Invocation template: 
-<pre>getJsonValue@JsonUtils( request )( response )</pre>
-
-<h4 id="GetJsonValueRequest">Request type</h4>
+#### Request type <a id="GetJsonValueRequest"></a>
 
 Type: GetJsonValueRequest
 
+```text
+type GetJsonValueRequest: any {
+    .strictEncoding?: bool
+    .charset?: string
+}
+```
 
-<pre>type GetJsonValueRequest: any {
-	.strictEncoding?: bool
-	.charset?: string
-}</pre>
+`GetJsonValueRequest : any`
 
-<code>GetJsonValueRequest : any</code> 
+* `strictEncoding : bool`
+* `charset : string`
 
-<ul>
-
-  <li><code>strictEncoding : bool</code> 
-</li>
-
-  <li><code>charset : string</code> 
-</li>
-
-</ul>
-
-
-
-<h4 id="GetJsonValueResponse">Response type</h4>
+#### Response type <a id="GetJsonValueResponse"></a>
 
 Type: GetJsonValueResponse
 
+```text
+type GetJsonValueResponse: undefined
+```
 
-<pre>type GetJsonValueResponse: undefined</pre>
+`GetJsonValueResponse : any`
 
-<code>GetJsonValueResponse : any</code> 
+#### Possible faults thrown
 
+Fault `JSONCreationError` with type `undefined`
 
+Fault-handling install template:
 
-
-<h4>Possible faults thrown</h4>
-
-
-Fault <code>JSONCreationError</code> with type <code>undefined</code>
-
-Fault-handling install template: 
-<pre>install ( JSONCreationError => /* error-handling code */ )</pre>
-
-
-
-
-
+```text
+install ( JSONCreationError => /* error-handling code */ )
+```
 

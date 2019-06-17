@@ -1,533 +1,374 @@
-# Include library: database.iol
+# Database
 
-Inclusion code: <pre>include "database.iol"</pre>
+Inclusion code: 
 
-<table>
-  <caption>Service Deployment</caption>
-  <thead>
-    <tr>
-      <th>Port Name</th>
-      <th>Location</th>
-      <th>Protocol</th>
-      <th>Interfaces</th>
-    </tr>
-  </thead>
-  <tbody><tr><td>Database documentation: </td></tr>
-    <tr>
-      <td>Database</td>
-      <td>-</td>
-      <td>-</td>
-      <td><a href="#DatabaseInterface">DatabaseInterface</a></td>
-    </tr>
-  </tbody>
-</table>
+| Service Deployment |  |  |  |
+| :--- | :--- | :--- | :--- |
+| Port Name | Location | Protocol | Interfaces |
+| Database documentation: |  |  |  |
+| Database | - | - | [DatabaseInterface](database.md#DatabaseInterface) |
 
-<h3>List of Available Interfaces</h3>
+### List of Available Interfaces
 
-<h3 id="DatabaseInterface">DatabaseInterface</h3>
+### DatabaseInterface <a id="DatabaseInterface"></a>
 
-Interface documentation: 
+Interface documentation:
 
-<table>
-  <thead>
-    <tr>
-      <th>Operation Name</th>
-      <th>Input Type</th>
-      <th>Output Type</th>
-      <th>Faults</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><a href="#checkConnection">checkConnection</a></td>
-      <td>void</td>
-      <td>void</td>
-      <td>
-        ConnectionError( undefined )
-      </td>
-    </tr>
-    <tr>
-      <td><a href="#query">query</a></td>
-      <td><a href="#QueryRequest">QueryRequest</a></td>
-      <td><a href="#QueryResult">QueryResult</a></td>
-      <td>
-        SQLException( undefined ) <br> 
-        ConnectionError( undefined )
-      </td>
-    </tr>
-    <tr>
-      <td><a href="#executeTransaction">executeTransaction</a></td>
-      <td><a href="#DatabaseTransactionRequest">DatabaseTransactionRequest</a></td>
-      <td><a href="#DatabaseTransactionResult">DatabaseTransactionResult</a></td>
-      <td>
-        SQLException( undefined ) <br> 
-        ConnectionError( undefined )
-      </td>
-    </tr>
-    <tr>
-      <td><a href="#update">update</a></td>
-      <td><a href="#UpdateRequest">UpdateRequest</a></td>
-      <td>int</td>
-      <td>
-        SQLException( undefined ) <br> 
-        ConnectionError( undefined )
-      </td>
-    </tr>
-    <tr>
-      <td><a href="#close">close</a></td>
-      <td>void</td>
-      <td>void</td>
-      <td>
-      </td>
-    </tr>
-    <tr>
-      <td><a href="#connect">connect</a></td>
-      <td><a href="#ConnectionInfo">ConnectionInfo</a></td>
-      <td>void</td>
-      <td>
-        InvalidDriver( undefined ) <br> 
-        ConnectionError( undefined ) <br> 
-        DriverClassNotFound( undefined )
-      </td>
-    </tr>
-  </tbody>
-</table>
+| Operation Name | Input Type | Output Type | Faults |
+| :--- | :--- | :--- | :--- |
+| [checkConnection](database.md#checkConnection) | void | void |  ConnectionError\( undefined \) |
+| [query](database.md#query) | [QueryRequest](database.md#QueryRequest) | [QueryResult](database.md#QueryResult) |  SQLException\( undefined \)  ConnectionError\( undefined \) |
+| [executeTransaction](database.md#executeTransaction) | [DatabaseTransactionRequest](database.md#DatabaseTransactionRequest) | [DatabaseTransactionResult](database.md#DatabaseTransactionResult) |  SQLException\( undefined \)  ConnectionError\( undefined \) |
+| [update](database.md#update) | [UpdateRequest](database.md#UpdateRequest) | int |  SQLException\( undefined \)  ConnectionError\( undefined \) |
+| [close](database.md#close) | void | void |  |
+| [connect](database.md#connect) | [ConnectionInfo](database.md#ConnectionInfo) | void |  InvalidDriver\( undefined \)  ConnectionError\( undefined \)  DriverClassNotFound\( undefined \) |
 
-<h2>Operation Description</h2>
+## Operation Description
 
+### checkConnection <a id="checkConnection"></a>
 
+Operation documentation: Checks the connection with the database. Throws ConnectionError if the connection is not functioning properly.
 
-<h3 id="checkConnection">checkConnection</h3>
+Invocation template:
 
-Operation documentation: 
-	  Checks the connection with the database. Throws ConnectionError if the connection is not functioning properly.
-	 
+```text
+checkConnection@Database( request )( response )
+```
 
-
-Invocation template: 
-<pre>checkConnection@Database( request )( response )</pre>
-
-<h4>Request type</h4>
+#### Request type
 
 Type: void
 
+`void : void`
 
-
-
-<code>void : void</code> 
-
-
-
-<h4>Response type</h4>
+#### Response type
 
 Type: void
 
+`void : void`
 
+#### Possible faults thrown
 
+Fault `ConnectionError` with type `undefined`
 
-<code>void : void</code> 
+Fault-handling install template:
 
+```text
+install ( ConnectionError => /* error-handling code */ )
+```
 
+### query <a id="query"></a>
 
+Operation documentation: Queries the database and returns a result set
 
-<h4>Possible faults thrown</h4>
+```text
+  Example with SQL parameters:
+  queryRequest =
+      "SELECT city, country, data FROM weather " +
+      "WHERE city=:city AND country=:country";
+  queryRequest.city = City;
+  queryRequest.country = Country;
+  query@Database( queryRequest )( queryResponse );
 
+  _template:
+  Field _template allows for the definition of a specific output template.
+  Assume, e.g., to have a table with the following columns:
+  | col1 | col2 | col3 | col4 |
+  If _template is not used the output will be rows with the following format:
+  row
+   |-col1
+   |-col2
+   |-col3
+   |-col4
+  Now let us suppose we would like to have the following structure for each row:
+  row
+    |-mycol1            contains content of col1
+        |-mycol2        contains content of col2
+       |-mycol3        contains content of col3
+    |-mycol4            contains content of col4
 
-Fault <code>ConnectionError</code> with type <code>undefined</code>
+  In order to achieve this, we can use field _template as it follows:
+    with( query_request._template ) {
+      .mycol1 = "col1";
+      .mycol1.mycol2 = "col2";
+      .mycol1.mycol2.mycol3 = "col3";
+      .mycol4 = "col4"
+    }
+  _template does not currently support vectors.
+```
 
-Fault-handling install template: 
-<pre>install ( ConnectionError => /* error-handling code */ )</pre>
+Invocation template:
 
+```text
+query@Database( request )( response )
+```
 
-
-
-<h3 id="query">query</h3>
-
-Operation documentation: 
-	  Queries the database and returns a result set
-	 
-	  Example with SQL parameters:
-	  queryRequest =
-	      "SELECT city, country, data FROM weather " +
-	      "WHERE city=:city AND country=:country";
-	  queryRequest.city = City;
-	  queryRequest.country = Country;
-	  query@Database( queryRequest )( queryResponse );
-	 
-	  _template:
-	  Field _template allows for the definition of a specific output template.
-	  Assume, e.g., to have a table with the following columns:
-	  | col1 | col2 | col3 | col4 |
-	  If _template is not used the output will be rows with the following format:
-	  row
-	   |-col1
-	   |-col2
-	   |-col3
-	   |-col4
-	  Now let us suppose we would like to have the following structure for each row:
-	  row
-	    |-mycol1			contains content of col1
-	        |-mycol2		contains content of col2
-	  	 |-mycol3		contains content of col3
-	    |-mycol4			contains content of col4
-	 
-	  In order to achieve this, we can use field _template as it follows:
-	    with( query_request._template ) {
-	      .mycol1 = "col1";
-	      .mycol1.mycol2 = "col2";
-	      .mycol1.mycol2.mycol3 = "col3";
-	      .mycol4 = "col4"
-	    }
-	  _template does not currently support vectors.
-	 
-
-
-Invocation template: 
-<pre>query@Database( request )( response )</pre>
-
-<h4 id="QueryRequest">Request type</h4>
+#### Request type <a id="QueryRequest"></a>
 
 Type: QueryRequest
 
+```text
+type QueryRequest: undefined
+```
 
-<pre>type QueryRequest: undefined</pre>
+`QueryRequest : string`
 
-<code>QueryRequest : string</code> 
-
-
-
-<h4 id="QueryResult">Response type</h4>
+#### Response type <a id="QueryResult"></a>
 
 Type: QueryResult
 
+```text
+type QueryResult: void {
+    .row*: undefined
+}
+```
 
-<pre>type QueryResult: void {
-	.row*: undefined
-}</pre>
+`QueryResult : void`
 
-<code>QueryResult : void</code> 
+* `row : void`
 
-<ul>
+#### Possible faults thrown
 
-  <li><code>row : void</code> 
-</li>
+Fault `SQLException` with type `undefined`
 
-</ul>
+Fault-handling install template:
 
+```text
+install ( SQLException => /* error-handling code */ )
+```
 
+Fault `ConnectionError` with type `undefined`
 
+Fault-handling install template:
 
-<h4>Possible faults thrown</h4>
+```text
+install ( ConnectionError => /* error-handling code */ )
+```
 
+### executeTransaction <a id="executeTransaction"></a>
 
-Fault <code>SQLException</code> with type <code>undefined</code>
+Operation documentation: Executes more than one database command in a single transaction
 
-Fault-handling install template: 
-<pre>install ( SQLException => /* error-handling code */ )</pre>
+Invocation template:
 
+```text
+executeTransaction@Database( request )( response )
+```
 
-
-Fault <code>ConnectionError</code> with type <code>undefined</code>
-
-Fault-handling install template: 
-<pre>install ( ConnectionError => /* error-handling code */ )</pre>
-
-
-
-
-<h3 id="executeTransaction">executeTransaction</h3>
-
-Operation documentation: 
-	  Executes more than one database command in a single transaction
-	 
-
-
-Invocation template: 
-<pre>executeTransaction@Database( request )( response )</pre>
-
-<h4 id="DatabaseTransactionRequest">Request type</h4>
+#### Request type <a id="DatabaseTransactionRequest"></a>
 
 Type: DatabaseTransactionRequest
 
+```text
+type DatabaseTransactionRequest: void {
+    .statement[1,2147483647]: undefined
+}
+```
 
-<pre>type DatabaseTransactionRequest: void {
-	.statement[1,2147483647]: undefined
-}</pre>
+`DatabaseTransactionRequest : void`
 
-<code>DatabaseTransactionRequest : void</code> 
+* `statement : string`
 
-<ul>
-
-  <li><code>statement : string</code> 
-</li>
-
-</ul>
-
-
-
-<h4 id="DatabaseTransactionResult">Response type</h4>
+#### Response type <a id="DatabaseTransactionResult"></a>
 
 Type: DatabaseTransactionResult
 
+```text
+type DatabaseTransactionResult: void {
+    .result*: TransactionQueryResult
+}
+```
 
-<pre>type DatabaseTransactionResult: void {
-	.result*: TransactionQueryResult
-}</pre>
+`DatabaseTransactionResult : void`
 
-<code>DatabaseTransactionResult : void</code> 
+* `result : int`
 
-<ul>
+#### Possible faults thrown
 
-  <li><code>result : int</code> 
-</li>
+Fault `SQLException` with type `undefined`
 
-</ul>
+Fault-handling install template:
 
+```text
+install ( SQLException => /* error-handling code */ )
+```
 
+Fault `ConnectionError` with type `undefined`
 
+Fault-handling install template:
 
-<h4>Possible faults thrown</h4>
+```text
+install ( ConnectionError => /* error-handling code */ )
+```
 
+### update <a id="update"></a>
 
-Fault <code>SQLException</code> with type <code>undefined</code>
+Operation documentation: Updates the database and returns a single status code
 
-Fault-handling install template: 
-<pre>install ( SQLException => /* error-handling code */ )</pre>
+```text
+  Example with SQL parameters:
+  updateRequest =
+      "INSERT INTO weather(city, country, data) " +
+      "VALUES (:city, :country, :data)";
+  updateRequest.city = City;
+  updateRequest.country = Country;
+  updateRequest.data = r;
+  update@Database( updateRequest )( ret )
+```
 
+Invocation template:
 
+```text
+update@Database( request )( response )
+```
 
-Fault <code>ConnectionError</code> with type <code>undefined</code>
-
-Fault-handling install template: 
-<pre>install ( ConnectionError => /* error-handling code */ )</pre>
-
-
-
-
-<h3 id="update">update</h3>
-
-Operation documentation: 
-	  Updates the database and returns a single status code
-	 
-	  Example with SQL parameters:
-	  updateRequest =
-	      "INSERT INTO weather(city, country, data) " +
-	      "VALUES (:city, :country, :data)";
-	  updateRequest.city = City;
-	  updateRequest.country = Country;
-	  updateRequest.data = r;
-	  update@Database( updateRequest )( ret )
-	 
-
-
-Invocation template: 
-<pre>update@Database( request )( response )</pre>
-
-<h4 id="UpdateRequest">Request type</h4>
+#### Request type <a id="UpdateRequest"></a>
 
 Type: UpdateRequest
 
+```text
+type UpdateRequest: undefined
+```
 
-<pre>type UpdateRequest: undefined</pre>
+`UpdateRequest : string`
 
-<code>UpdateRequest : string</code> 
-
-
-
-<h4>Response type</h4>
+#### Response type
 
 Type: int
 
+`int : int`
 
+#### Possible faults thrown
 
+Fault `SQLException` with type `undefined`
 
-<code>int : int</code> 
+Fault-handling install template:
 
+```text
+install ( SQLException => /* error-handling code */ )
+```
 
+Fault `ConnectionError` with type `undefined`
 
+Fault-handling install template:
 
-<h4>Possible faults thrown</h4>
+```text
+install ( ConnectionError => /* error-handling code */ )
+```
 
+### close <a id="close"></a>
 
-Fault <code>SQLException</code> with type <code>undefined</code>
+Operation documentation: Explicitly closes a database connection Per default the close happens on reconnect or on termination of the Database service, eg. when the enclosing program finishes.
 
-Fault-handling install template: 
-<pre>install ( SQLException => /* error-handling code */ )</pre>
+Invocation template:
 
+```text
+close@Database( request )( response )
+```
 
-
-Fault <code>ConnectionError</code> with type <code>undefined</code>
-
-Fault-handling install template: 
-<pre>install ( ConnectionError => /* error-handling code */ )</pre>
-
-
-
-
-<h3 id="close">close</h3>
-
-Operation documentation: 
-	  Explicitly closes a database connection
-	  Per default the close happens on reconnect or on termination of the
-	  Database service, eg. when the enclosing program finishes.
-	 
-
-
-Invocation template: 
-<pre>close@Database( request )( response )</pre>
-
-<h4>Request type</h4>
+#### Request type
 
 Type: void
 
+`void : void`
 
-
-
-<code>void : void</code> 
-
-
-
-<h4>Response type</h4>
+#### Response type
 
 Type: void
 
+`void : void`
 
+### connect <a id="connect"></a>
 
+Operation documentation: Connects to a database and eventually closes a previous connection
 
-<code>void : void</code> 
+```text
+  Example with HSQLDB:
+  with ( connectionInfo ) {
+      .username = "sa";
+      .password = "";
+      .host = "";
+      .database = "file:weatherdb/weatherdb"; // "." for memory-only
+      .driver = "hsqldb_embedded"
+  };
+  connect@Database( connectionInfo )( void );
+```
 
+Invocation template:
 
+```text
+connect@Database( request )( response )
+```
 
-
-
-
-
-
-<h3 id="connect">connect</h3>
-
-Operation documentation: 
-	  Connects to a database and eventually closes a previous connection
-	 
-	  Example with HSQLDB:
-	  with ( connectionInfo ) {
-	      .username = "sa";
-	      .password = "";
-	      .host = "";
-	      .database = "file:weatherdb/weatherdb"; // "." for memory-only
-	      .driver = "hsqldb_embedded"
-	  };
-	  connect@Database( connectionInfo )( void );
-	 
-
-
-Invocation template: 
-<pre>connect@Database( request )( response )</pre>
-
-<h4 id="ConnectionInfo">Request type</h4>
+#### Request type <a id="ConnectionInfo"></a>
 
 Type: ConnectionInfo
 
+```text
+type ConnectionInfo: void {
+    .database: string
+    .password: string
+    .checkConnection?: int
+    .driver: string
+    .port?: int
+    .toLowerCase?: bool
+    .host: string
+    .toUpperCase?: bool
+    .attributes?: string
+    .username: string
+}
+```
 
-<pre>type ConnectionInfo: void {
-	.database: string
-	.password: string
-	.checkConnection?: int
-	.driver: string
-	.port?: int
-	.toLowerCase?: bool
-	.host: string
-	.toUpperCase?: bool
-	.attributes?: string
-	.username: string
-}</pre>
+`ConnectionInfo : void`
 
-<code>ConnectionInfo : void</code> 
+* `database : string`
+* `password : string`
+* `checkConnection : int`
+* `driver : string`
+* `port : int`
+* `toLowerCase : bool`
+* `host : string`
+* `toUpperCase : bool`
+* `attributes : string`
+* `username : string`
 
-<ul>
-
-  <li><code>database : string</code> 
-</li>
-
-  <li><code>password : string</code> 
-</li>
-
-  <li><code>checkConnection : int</code> 
-</li>
-
-  <li><code>driver : string</code> 
-</li>
-
-  <li><code>port : int</code> 
-</li>
-
-  <li><code>toLowerCase : bool</code> 
-</li>
-
-  <li><code>host : string</code> 
-</li>
-
-  <li><code>toUpperCase : bool</code> 
-</li>
-
-  <li><code>attributes : string</code> 
-</li>
-
-  <li><code>username : string</code> 
-</li>
-
-</ul>
-
-
-
-<h4>Response type</h4>
+#### Response type
 
 Type: void
 
+`void : void`
 
+#### Possible faults thrown
 
+Fault `InvalidDriver` with type `undefined`
 
-<code>void : void</code> 
+Fault-handling install template:
 
+```text
+install ( InvalidDriver => /* error-handling code */ )
+```
 
+Fault `ConnectionError` with type `undefined`
 
+Fault-handling install template:
 
-<h4>Possible faults thrown</h4>
+```text
+install ( ConnectionError => /* error-handling code */ )
+```
 
+Fault `DriverClassNotFound` with type `undefined`
 
-Fault <code>InvalidDriver</code> with type <code>undefined</code>
+Fault-handling install template:
 
-Fault-handling install template: 
-<pre>install ( InvalidDriver => /* error-handling code */ )</pre>
+```text
+install ( DriverClassNotFound => /* error-handling code */ )
+```
 
+### Subtypes
 
+#### TransactionQueryResult <a id="TransactionQueryResult"></a>
 
-Fault <code>ConnectionError</code> with type <code>undefined</code>
-
-Fault-handling install template: 
-<pre>install ( ConnectionError => /* error-handling code */ )</pre>
-
-
-
-Fault <code>DriverClassNotFound</code> with type <code>undefined</code>
-
-Fault-handling install template: 
-<pre>install ( DriverClassNotFound => /* error-handling code */ )</pre>
-
-
-
-
-<h3>Subtypes</h3>
-
-
-<h4 id="TransactionQueryResult">TransactionQueryResult</h4>
-
-
-
-<pre>type TransactionQueryResult: int {
-	.row*: undefined
-}</pre>
-<code>TransactionQueryResult : int</code> 
-
-
-
+```
+type TransactionQueryResult: int { .row*: undefined }
+```
 

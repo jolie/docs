@@ -1,306 +1,161 @@
-# Include library: monitors/standard_monitor.iol
+# StandardMonitor
 
-Inclusion code: <pre>include "monitors/standard_monitor.iol"</pre>
+Inclusion code: 
 
-<table>
-  <caption>Service Deployment</caption>
-  <thead>
-    <tr>
-      <th>Port Name</th>
-      <th>Location</th>
-      <th>Protocol</th>
-      <th>Interfaces</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>MonitorInput</td>
-      <td>local</td>
-      <td>-</td>
-      <td><a href="#StandardMonitorInputInterface">StandardMonitorInputInterface</a></td>
-    </tr><tr><td>Monitor documentation: </td></tr>
-    <tr>
-      <td>Monitor</td>
-      <td>-</td>
-      <td>-</td>
-      <td><a href="#MonitorInterface">MonitorInterface</a><a href="#StandardMonitorInterface">StandardMonitorInterface</a></td>
-    </tr>
-  </tbody>
-</table>
+| Service Deployment |  |  |  |
+| :--- | :--- | :--- | :--- |
+| Port Name | Location | Protocol | Interfaces |
+| MonitorInput | local | - | [StandardMonitorInputInterface](standard_monitor.md#StandardMonitorInputInterface) |
+| Monitor documentation: |  |  |  |
+| Monitor | - | - | [MonitorInterface](standard_monitor.md#MonitorInterface)[StandardMonitorInterface](standard_monitor.md#StandardMonitorInterface) |
 
-<h3>List of Available Interfaces</h3>
+### List of Available Interfaces
 
-<h3 id="StandardMonitorInputInterface">StandardMonitorInputInterface</h3>
+### StandardMonitorInputInterface <a id="StandardMonitorInputInterface"></a>
 
-Interface documentation: 
+Interface documentation:
 
-<table>
-  <thead>
-    <tr>
-      <th>Operation Name</th>
-      <th>Input Type</th>
-      <th>Output Type</th>
-      <th>Faults</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><a href="#monitorAlert">monitorAlert</a></td>
-      <td>void</td>
-      <td> - </td>
-      <td>
-      </td>
-    </tr>
-  </tbody>
-</table>
+| Operation Name | Input Type | Output Type | Faults |
+| :--- | :--- | :--- | :--- |
+| [monitorAlert](standard_monitor.md#monitorAlert) | void |  - |  |
 
-<h2>Operation Description</h2>
+## Operation Description
 
+### monitorAlert <a id="monitorAlert"></a>
 
+Operation documentation:
 
-<h3 id="monitorAlert">monitorAlert</h3>
+Invocation template:
 
-Operation documentation: 
+```text
+monitorAlert( request )
+```
 
-
-Invocation template: 
-<pre>monitorAlert( request )</pre>
-
-<h4>Request type</h4>
+#### Request type
 
 Type: void
 
+`void : void`
 
+### MonitorInterface <a id="MonitorInterface"></a>
 
+Interface documentation:
 
-<code>void : void</code> 
+| Operation Name | Input Type | Output Type | Faults |
+| :--- | :--- | :--- | :--- |
+| [pushEvent](standard_monitor.md#pushEvent) | undefined |  - |  |
 
+## Operation Description
 
+### pushEvent <a id="pushEvent"></a>
 
+Operation documentation:
 
+Invocation template:
 
+```text
+pushEvent@Monitor( request )
+```
 
-
-
-
-
-
-<h3 id="MonitorInterface">MonitorInterface</h3>
-
-Interface documentation: 
-
-<table>
-  <thead>
-    <tr>
-      <th>Operation Name</th>
-      <th>Input Type</th>
-      <th>Output Type</th>
-      <th>Faults</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><a href="#pushEvent">pushEvent</a></td>
-      <td>undefined</a></td>
-      <td> - </td>
-      <td>
-      </td>
-    </tr>
-  </tbody>
-</table>
-
-<h2>Operation Description</h2>
-
-
-
-<h3 id="pushEvent">pushEvent</h3>
-
-Operation documentation: 
-
-
-Invocation template: 
-<pre>pushEvent@Monitor( request )</pre>
-
-<h4>Request type</h4>
+#### Request type
 
 Type: undefined
 
+`undefined : any`
 
+### Subtypes
 
+#### MonitorEvent <a id="MonitorEvent"></a>
 
-<code>undefined : any</code> 
+```text
+type MonitorEvent: void {
+    .memory: long
+    .data?: undefined
+    .type: string
+    .timestamp: long
+}
+```
 
+ `MonitorEvent : void`
 
+### StandardMonitorInterface <a id="StandardMonitorInterface"></a>
 
+ Interface documentation:
 
+| Operation Name | Input Type | Output Type | Faults |
+| :--- | :--- | :--- | :--- |
+| [flush](standard_monitor.md#flush) | void | [FlushResponse](standard_monitor.md#FlushResponse) |  |
+| [setMonitor](standard_monitor.md#setMonitor) | [SetStandardMonitorRequest](standard_monitor.md#SetStandardMonitorRequest) | void |  |
 
+## Operation Description
 
+### flush <a id="flush"></a>
 
+ Operation documentation: Invocation template:
 
-<h3>Subtypes</h3>
+```text
+flush@Monitor( request )( response )
+```
 
-
-<h4 id="MonitorEvent">MonitorEvent</h4>
-
-
-
-<pre>type MonitorEvent: void {
-	.memory: long
-	.data?: undefined
-	.type: string
-	.timestamp: long
-}</pre>
-<code>MonitorEvent : void</code> 
-
-
-
-
-<h3 id="StandardMonitorInterface">StandardMonitorInterface</h3>
-
-Interface documentation: 
-
-<table>
-  <thead>
-    <tr>
-      <th>Operation Name</th>
-      <th>Input Type</th>
-      <th>Output Type</th>
-      <th>Faults</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><a href="#flush">flush</a></td>
-      <td>void</td>
-      <td><a href="#FlushResponse">FlushResponse</a></td>
-      <td>
-      </td>
-    </tr>
-    <tr>
-      <td><a href="#setMonitor">setMonitor</a></td>
-      <td><a href="#SetStandardMonitorRequest">SetStandardMonitorRequest</a></td>
-      <td>void</td>
-      <td>
-      </td>
-    </tr>
-  </tbody>
-</table>
-
-<h2>Operation Description</h2>
-
-
-
-<h3 id="flush">flush</h3>
-
-Operation documentation: 
-
-
-Invocation template: 
-<pre>flush@Monitor( request )( response )</pre>
-
-<h4>Request type</h4>
+#### Request type
 
 Type: void
 
+`void : void`
 
-
-
-<code>void : void</code> 
-
-
-
-<h4 id="FlushResponse">Response type</h4>
+#### Response type <a id="FlushResponse"></a>
 
 Type: FlushResponse
 
+```text
+type FlushResponse: void {
+    .events*: MonitorEvent
+}
+```
 
-<pre>type FlushResponse: void {
-	.events*: MonitorEvent
-}</pre>
+`FlushResponse : void`
 
-<code>FlushResponse : void</code> 
+* `events : void`
 
-<ul>
+### setMonitor <a id="setMonitor"></a>
 
-  <li><code>events : void</code> 
-</li>
+Operation documentation:
 
-</ul>
+Invocation template:
 
+```text
+setMonitor@Monitor( request )( response )
+```
 
-
-
-
-
-
-
-<h3 id="setMonitor">setMonitor</h3>
-
-Operation documentation: 
-
-
-Invocation template: 
-<pre>setMonitor@Monitor( request )( response )</pre>
-
-<h4 id="SetStandardMonitorRequest">Request type</h4>
+#### Request type <a id="SetStandardMonitorRequest"></a>
 
 Type: SetStandardMonitorRequest
 
+```text
+type SetStandardMonitorRequest: void {
+    .queueMax?: int
+    .triggeredEnabled?: bool
+    .triggerThreshold?: int
+}
+```
 
-<pre>type SetStandardMonitorRequest: void {
-	.queueMax?: int
-	.triggeredEnabled?: bool
-	.triggerThreshold?: int
-}</pre>
+`SetStandardMonitorRequest : void`
 
-<code>SetStandardMonitorRequest : void</code> 
+* `queueMax : int`
+* `triggeredEnabled : bool`
+* `triggerThreshold : int`
 
-<ul>
-
-  <li><code>queueMax : int</code> 
-</li>
-
-  <li><code>triggeredEnabled : bool</code> 
-</li>
-
-  <li><code>triggerThreshold : int</code> 
-</li>
-
-</ul>
-
-
-
-<h4>Response type</h4>
+#### Response type
 
 Type: void
 
+`void : void`
 
+### Subtypes
 
+#### MonitorEvent <a id="MonitorEvent"></a>
 
-<code>void : void</code> 
-
-
-
-
-
-
-
-
-<h3>Subtypes</h3>
-
-
-<h4 id="MonitorEvent">MonitorEvent</h4>
-
-
-
-<pre>type MonitorEvent: void {
-	.memory: long
-	.data?: undefined
-	.type: string
-	.timestamp: long
-}</pre>
-<code>MonitorEvent : void</code> 
-
-
-
+```
+type MonitorEvent: void { .memory: long .data?: undefined .type: string .timestamp: long }
+```
 

@@ -1,129 +1,73 @@
-# Include library: message_digest.iol
+# MessageDigest
 
-Inclusion code: <pre>include "message_digest.iol"</pre>
+Inclusion code: 
 
-<table>
-  <caption>Service Deployment</caption>
-  <thead>
-    <tr>
-      <th>Port Name</th>
-      <th>Location</th>
-      <th>Protocol</th>
-      <th>Interfaces</th>
-    </tr>
-  </thead>
-  <tbody><tr><td>MessageDigest documentation: </td></tr>
-    <tr>
-      <td>MessageDigest</td>
-      <td>-</td>
-      <td>-</td>
-      <td><a href="#MessageDigestInterface">MessageDigestInterface</a></td>
-    </tr>
-  </tbody>
-</table>
+| Service Deployment |  |  |  |
+| :--- | :--- | :--- | :--- |
+| Port Name | Location | Protocol | Interfaces |
+| MessageDigest documentation: |  |  |  |
+| MessageDigest | - | - | [MessageDigestInterface](message_digest.md#MessageDigestInterface) |
 
-<h3>List of Available Interfaces</h3>
+### List of Available Interfaces
 
-<h3 id="MessageDigestInterface">MessageDigestInterface</h3>
+### MessageDigestInterface <a id="MessageDigestInterface"></a>
 
-Interface documentation: 
+Interface documentation:
 
-<table>
-  <thead>
-    <tr>
-      <th>Operation Name</th>
-      <th>Input Type</th>
-      <th>Output Type</th>
-      <th>Faults</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><a href="#md5">md5</a></td>
-      <td><a href="#MD5Request">MD5Request</a></td>
-      <td>string</td>
-      <td>
-        UnsupportedOperation( <a href="#JavaExceptionType">JavaExceptionType</a> )
-      </td>
-    </tr>
-  </tbody>
-</table>
+| Operation Name | Input Type | Output Type | Faults |
+| :--- | :--- | :--- | :--- |
+| [md5](message_digest.md#md5) | [MD5Request](message_digest.md#MD5Request) | string |  UnsupportedOperation\( [JavaExceptionType](message_digest.md#JavaExceptionType) \) |
 
-<h2>Operation Description</h2>
+## Operation Description
 
+### md5 <a id="md5"></a>
 
+Operation documentation:
 
-<h3 id="md5">md5</h3>
+Invocation template:
 
-Operation documentation: 
+```text
+md5@MessageDigest( request )( response )
+```
 
-
-Invocation template: 
-<pre>md5@MessageDigest( request )( response )</pre>
-
-<h4 id="MD5Request">Request type</h4>
+#### Request type <a id="MD5Request"></a>
 
 Type: MD5Request
 
-
-<pre>type MD5Request: string {
-	.radix?: int
+```text
+type MD5Request: string {
+    .radix?: int
 } | raw {
-	.radix?: int
-}</pre>
+    .radix?: int
+}
+```
 
-<code>MD5Request : </code> 
+`MD5Request :`
 
-<ul>
+*  `: string`
+  * `radix : int`
+*  `: raw`
+  * `radix : int`
 
-  <li><code> : string</code> 
-
-<ul>
-
-  <li><code>radix : int</code> 
-</li>
-
-</ul>
-</li>
-
-  <li><code> : raw</code> 
-
-<ul>
-
-  <li><code>radix : int</code> 
-</li>
-
-</ul>
-</li>
-
-</ul>
-
-
-
-<h4>Response type</h4>
+#### Response type
 
 Type: string
 
+`string : string`
 
+#### Possible faults thrown
 
+Fault `UnsupportedOperation` with type `JavaExceptionType`
 
-<code>string : string</code> 
+Fault-handling install template:
 
+```text
+install ( UnsupportedOperation => /* error-handling code */ )
+```
 
-
-
-<h4>Possible faults thrown</h4>
-
-
-Fault <code>UnsupportedOperation</code> with type <code>JavaExceptionType</code>
-
-Fault-handling install template: 
-<pre>install ( UnsupportedOperation => /* error-handling code */ )</pre>
-<pre>type JavaExceptionType: string {
-	.stackTrace: string
-}</pre>
-
-
-
-
+```text
+type JavaExceptionType: string {
+    .stackTrace: string
+}
+```
 

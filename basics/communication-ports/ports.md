@@ -1,15 +1,17 @@
 # Ports
 
 In Jolie there are two kinds of ports:
-- _input ports_: which expose input operations to other services;
-- _output ports_: which define how to invoke the operations of other services.
 
-Within each port, both input and output, it is possible to define three elements: 
-- _Location_; 
-- _Protocol_;
-- _Interfaces_.
+* _input ports_: which expose input operations to other services;
+* _output ports_: which define how to invoke the operations of other services.
 
-The Location defines _where_ the service is listening for a message (in the case of input ports) or where the message has to be sent (in the case of output ports). The Protocol defines _how_ Jolie will send or receive a message. It could defines both the transportation protocol (e.g. http) and the message format (e.g. json). Finally, Interfaces specify the list of the available operations and the related message types information. In particular, in case of an input port, an interfaces specifies the operation exhibited by the current service, whereas in the case of an output port it defines the operations which can be invoked by that service.
+Within each port, both input and output, it is possible to define three elements:
+
+* _Location_; 
+* _Protocol_;
+* _Interfaces_.
+
+The Location defines _where_ the service is listening for a message \(in the case of input ports\) or where the message has to be sent \(in the case of output ports\). The Protocol defines _how_ Jolie will send or receive a message. It could defines both the transportation protocol \(e.g. http\) and the message format \(e.g. json\). Finally, Interfaces specify the list of the available operations and the related message types information. In particular, in case of an input port, an interfaces specifies the operation exhibited by the current service, whereas in the case of an output port it defines the operations which can be invoked by that service.
 
 Usually we graphically represent outputPorts with red triangles and inputPort with yellow squares. As an example, in the diagram below we represent a client connected to a server by means of an outputPort defined in the client and an inputPort defined in the server.
 
@@ -45,8 +47,7 @@ where `URI` is a [URI](http://en.wikipedia.org/wiki/Uniform_resource_identifier)
 
 A location expresses the communication medium and the address a service uses for exposing its interface \(input port\) or invoking another service \(output port\).
 
-A location must indicate the communication medium the port has to use and its related parameters in this form: `medium[:parameters]`
-where _medium_ is a medium identifier and the optional _parameters_ is a medium-specific string. Usually the medium parameters define the address where the service is actually located.
+A location must indicate the communication medium the port has to use and its related parameters in this form: `medium[:parameters]` where _medium_ is a medium identifier and the optional _parameters_ is a medium-specific string. Usually the medium parameters define the address where the service is actually located.
 
 Jolie currently supports four media:
 
@@ -97,6 +98,7 @@ outputPort SumServ {
 ```
 
 ## Multiple ports
+
 More than one input and one output ports can be defined into a service thus, enabling a service to receive messages from different location and different protocols.
 
 ![](../../.gitbook/assets/multipleports.png)
@@ -145,6 +147,4 @@ main {
 ...
 }
 ```
-
-
 

@@ -1,335 +1,218 @@
-# Include library: xml_utils.iol
+# XmlUtils
 
-Inclusion code: <pre>include "xml_utils.iol"</pre>
+Inclusion code: 
 
-<table>
-  <caption>Service Deployment</caption>
-  <thead>
-    <tr>
-      <th>Port Name</th>
-      <th>Location</th>
-      <th>Protocol</th>
-      <th>Interfaces</th>
-    </tr>
-  </thead>
-  <tbody><tr><td>XmlUtils documentation: </td></tr>
-    <tr>
-      <td>XmlUtils</td>
-      <td>-</td>
-      <td>-</td>
-      <td><a href="#XmlUtilsInterface">XmlUtilsInterface</a></td>
-    </tr>
-  </tbody>
-</table>
+| Service Deployment |  |  |  |
+| :--- | :--- | :--- | :--- |
+| Port Name | Location | Protocol | Interfaces |
+| XmlUtils documentation: |  |  |  |
+| XmlUtils | - | - | [XmlUtilsInterface](xml_utils.md#XmlUtilsInterface) |
 
-<h3>List of Available Interfaces</h3>
+### List of Available Interfaces
 
-<h3 id="XmlUtilsInterface">XmlUtilsInterface</h3>
+### XmlUtilsInterface <a id="XmlUtilsInterface"></a>
 
-Interface documentation: 
+Interface documentation:
 
-<table>
-  <thead>
-    <tr>
-      <th>Operation Name</th>
-      <th>Input Type</th>
-      <th>Output Type</th>
-      <th>Faults</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><a href="#xmlToValue">xmlToValue</a></td>
-      <td><a href="#XMLToValueRequest">XMLToValueRequest</a></td>
-      <td>undefined</td>
-      <td>
-        IOException( <a href="#IOExceptionType">IOExceptionType</a> )
-      </td>
-    </tr>
-    <tr>
-      <td><a href="#transform">transform</a></td>
-      <td><a href="#XMLTransformationRequest">XMLTransformationRequest</a></td>
-      <td>string</td>
-      <td>
-        TransformerException( <a href="#JavaExceptionType">JavaExceptionType</a> )
-      </td>
-    </tr>
-    <tr>
-      <td><a href="#valueToXml">valueToXml</a></td>
-      <td><a href="#ValueToXmlRequest">ValueToXmlRequest</a></td>
-      <td>string</td>
-      <td>
-        IOException( <a href="#IOExceptionType">IOExceptionType</a> ) <br> 
-        IllegalArgumentException( string )
-      </td>
-    </tr>
-  </tbody>
-</table>
+| Operation Name | Input Type | Output Type | Faults |
+| :--- | :--- | :--- | :--- |
+| [xmlToValue](xml_utils.md#xmlToValue) | [XMLToValueRequest](xml_utils.md#XMLToValueRequest) | undefined |  IOException\( [IOExceptionType](xml_utils.md#IOExceptionType) \) |
+| [transform](xml_utils.md#transform) | [XMLTransformationRequest](xml_utils.md#XMLTransformationRequest) | string |  TransformerException\( [JavaExceptionType](xml_utils.md#JavaExceptionType) \) |
+| [valueToXml](xml_utils.md#valueToXml) | [ValueToXmlRequest](xml_utils.md#ValueToXmlRequest) | string |  IOException\( [IOExceptionType](xml_utils.md#IOExceptionType) \)  IllegalArgumentException\( string \) |
 
-<h2>Operation Description</h2>
+## Operation Description
 
+### xmlToValue <a id="xmlToValue"></a>
 
+Operation documentation: Transforms the base value in XML format \(data types string, raw\) into a Jolie value
 
-<h3 id="xmlToValue">xmlToValue</h3>
+```text
+      The XML root node will be discarded, the rest gets converted recursively
+```
 
-Operation documentation: 
-		  Transforms the base value in XML format (data types string, raw) into a Jolie value
-		 
-		  The XML root node will be discarded, the rest gets converted recursively
-		 
+Invocation template:
 
+```text
+xmlToValue@XmlUtils( request )( response )
+```
 
-Invocation template: 
-<pre>xmlToValue@XmlUtils( request )( response )</pre>
-
-<h4 id="XMLToValueRequest">Request type</h4>
+#### Request type <a id="XMLToValueRequest"></a>
 
 Type: XMLToValueRequest
 
+```text
+type XMLToValueRequest: any {
+    .options?: void {
+        .skipMixedText?: bool
+        .charset?: string
+        .includeAttributes?: bool
+        .schemaLanguage?: string
+        .includeRoot?: bool
+        .schemaUrl?: string
+    }
+    .isXmlStore?: bool
+}
+```
 
-<pre>type XMLToValueRequest: any {
-	.options?: void {
-		.skipMixedText?: bool
-		.charset?: string
-		.includeAttributes?: bool
-		.schemaLanguage?: string
-		.includeRoot?: bool
-		.schemaUrl?: string
-	}
-	.isXmlStore?: bool
-}</pre>
+`XMLToValueRequest : any`
 
-<code>XMLToValueRequest : any</code> 
+* `options : void`
+  * `skipMixedText : bool`
+  * `charset : string`
+  * `includeAttributes : bool`
+  * `schemaLanguage : string`
+  * `includeRoot : bool`
+  * `schemaUrl : string`
+* `isXmlStore : bool`
 
-<ul>
-
-  <li><code>options : void</code> 
-
-<ul>
-
-  <li><code>skipMixedText : bool</code> 
-</li>
-
-  <li><code>charset : string</code> 
-</li>
-
-  <li><code>includeAttributes : bool</code> 
-</li>
-
-  <li><code>schemaLanguage : string</code> 
-</li>
-
-  <li><code>includeRoot : bool</code> 
-</li>
-
-  <li><code>schemaUrl : string</code> 
-</li>
-
-</ul>
-</li>
-
-  <li><code>isXmlStore : bool</code> 
-</li>
-
-</ul>
-
-
-
-<h4>Response type</h4>
+#### Response type
 
 Type: undefined
 
+`undefined : any`
 
+#### Possible faults thrown
 
+Fault `IOException` with type `IOExceptionType`
 
-<code>undefined : any</code> 
+Fault-handling install template:
 
+```text
+install ( IOException => /* error-handling code */ )
+```
 
+```text
+type IOExceptionType: JavaExceptionType
+```
 
+### transform <a id="transform"></a>
 
-<h4>Possible faults thrown</h4>
+Operation documentation:
 
+Invocation template:
 
-Fault <code>IOException</code> with type <code>IOExceptionType</code>
+```text
+transform@XmlUtils( request )( response )
+```
 
-Fault-handling install template: 
-<pre>install ( IOException => /* error-handling code */ )</pre>
-<pre>type IOExceptionType: JavaExceptionType</pre>
-
-
-
-<h3 id="transform">transform</h3>
-
-Operation documentation: 
-
-
-Invocation template: 
-<pre>transform@XmlUtils( request )( response )</pre>
-
-<h4 id="XMLTransformationRequest">Request type</h4>
+#### Request type <a id="XMLTransformationRequest"></a>
 
 Type: XMLTransformationRequest
 
+```text
+type XMLTransformationRequest: void {
+    .source: string
+    .xslt: string
+}
+```
 
-<pre>type XMLTransformationRequest: void {
-	.source: string
-	.xslt: string
-}</pre>
+`XMLTransformationRequest : void`
 
-<code>XMLTransformationRequest : void</code> 
+* `source : string`
+* `xslt : string`
 
-<ul>
-
-  <li><code>source : string</code> 
-</li>
-
-  <li><code>xslt : string</code> 
-</li>
-
-</ul>
-
-
-
-<h4>Response type</h4>
+#### Response type
 
 Type: string
 
+`string : string`
 
+#### Possible faults thrown
 
+Fault `TransformerException` with type `JavaExceptionType`
 
-<code>string : string</code> 
+Fault-handling install template:
 
+```text
+install ( TransformerException => /* error-handling code */ )
+```
 
+```text
+type JavaExceptionType: string {
+    .stackTrace: string
+}
+```
 
+### valueToXml <a id="valueToXml"></a>
 
-<h4>Possible faults thrown</h4>
+Operation documentation: Transforms the value contained within the root node into an xml string.
 
+```text
+      The base value of ValueToXmlRequest.root will be discarded, the rest gets converted recursively
+```
 
-Fault <code>TransformerException</code> with type <code>JavaExceptionType</code>
+Invocation template:
 
-Fault-handling install template: 
-<pre>install ( TransformerException => /* error-handling code */ )</pre>
-<pre>type JavaExceptionType: string {
-	.stackTrace: string
-}</pre>
+```text
+valueToXml@XmlUtils( request )( response )
+```
 
-
-
-<h3 id="valueToXml">valueToXml</h3>
-
-Operation documentation: 
-		  Transforms the value contained within the root node into an xml string.
-		 
-		  The base value of ValueToXmlRequest.root will be discarded, the rest gets converted recursively
-		 
-
-
-Invocation template: 
-<pre>valueToXml@XmlUtils( request )( response )</pre>
-
-<h4 id="ValueToXmlRequest">Request type</h4>
+#### Request type <a id="ValueToXmlRequest"></a>
 
 Type: ValueToXmlRequest
 
+```text
+type ValueToXmlRequest: void {
+    .omitXmlDeclaration?: bool
+    .indent?: bool
+    .plain?: bool
+    .root: undefined
+    .rootNodeName?: string
+    .isXmlStore?: bool
+    .applySchema?: void {
+        .schema: string
+        .doctypeSystem?: string
+        .encoding?: string
+    }
+}
+```
 
-<pre>type ValueToXmlRequest: void {
-	.omitXmlDeclaration?: bool
-	.indent?: bool
-	.plain?: bool
-	.root: undefined
-	.rootNodeName?: string
-	.isXmlStore?: bool
-	.applySchema?: void {
-		.schema: string
-		.doctypeSystem?: string
-		.encoding?: string
-	}
-}</pre>
+`ValueToXmlRequest : void`
 
-<code>ValueToXmlRequest : void</code> 
+* `omitXmlDeclaration : bool`
+* `indent : bool`
+* `plain : bool`
+* `root : any`
+* `rootNodeName : string`
+* `isXmlStore : bool`
+* `applySchema : void`
+  * `schema : string`
+  * `doctypeSystem : string`
+  * `encoding : string`
 
-<ul>
-
-  <li><code>omitXmlDeclaration : bool</code> 
-</li>
-
-  <li><code>indent : bool</code> 
-</li>
-
-  <li><code>plain : bool</code> 
-</li>
-
-  <li><code>root : any</code> 
-</li>
-
-  <li><code>rootNodeName : string</code> 
-</li>
-
-  <li><code>isXmlStore : bool</code> 
-</li>
-
-  <li><code>applySchema : void</code> 
-
-<ul>
-
-  <li><code>schema : string</code> 
-</li>
-
-  <li><code>doctypeSystem : string</code> 
-</li>
-
-  <li><code>encoding : string</code> 
-</li>
-
-</ul>
-</li>
-
-</ul>
-
-
-
-<h4>Response type</h4>
+#### Response type
 
 Type: string
 
+`string : string`
 
+#### Possible faults thrown
 
+Fault `IOException` with type `IOExceptionType`
 
-<code>string : string</code> 
+Fault-handling install template:
 
+```text
+install ( IOException => /* error-handling code */ )
+```
 
+```text
+type IOExceptionType: JavaExceptionType
+```
 
+Fault `IllegalArgumentException` with type `string`
 
-<h4>Possible faults thrown</h4>
+Fault-handling install template:
 
+```text
+install ( IllegalArgumentException => /* error-handling code */ )
+```
 
-Fault <code>IOException</code> with type <code>IOExceptionType</code>
+### Subtypes
 
-Fault-handling install template: 
-<pre>install ( IOException => /* error-handling code */ )</pre>
-<pre>type IOExceptionType: JavaExceptionType</pre>
+#### JavaExceptionType <a id="JavaExceptionType"></a>
 
-
-Fault <code>IllegalArgumentException</code> with type <code>string</code>
-
-Fault-handling install template: 
-<pre>install ( IllegalArgumentException => /* error-handling code */ )</pre>
-
-
-
-
-<h3>Subtypes</h3>
-
-
-<h4 id="JavaExceptionType">JavaExceptionType</h4>
-
-
-
-<pre>type JavaExceptionType: string {
-	.stackTrace: string
-}</pre>
-<code>JavaExceptionType : string</code> 
-
-
-
+```
+type JavaExceptionType: string { .stackTrace: string }
+```
 

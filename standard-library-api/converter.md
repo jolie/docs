@@ -1,272 +1,179 @@
-# Include library: converter.iol
+# Converter
 
-Inclusion code: <pre>include "converter.iol"</pre>
+Inclusion code: 
 
-<table>
-  <caption>Service Deployment</caption>
-  <thead>
-    <tr>
-      <th>Port Name</th>
-      <th>Location</th>
-      <th>Protocol</th>
-      <th>Interfaces</th>
-    </tr>
-  </thead>
-  <tbody><tr><td>Converter documentation: </td></tr>
-    <tr>
-      <td>Converter</td>
-      <td>-</td>
-      <td>-</td>
-      <td><a href="#ConverterInterface">ConverterInterface</a></td>
-    </tr>
-  </tbody>
-</table>
+| Service Deployment |  |  |  |
+| :--- | :--- | :--- | :--- |
+| Port Name | Location | Protocol | Interfaces |
+| Converter documentation: |  |  |  |
+| Converter | - | - | [ConverterInterface](converter.md#ConverterInterface) |
 
-<h3>List of Available Interfaces</h3>
+### List of Available Interfaces
 
-<h3 id="ConverterInterface">ConverterInterface</h3>
+### ConverterInterface <a id="ConverterInterface"></a>
 
-Interface documentation: 
+Interface documentation:
 
-<table>
-  <thead>
-    <tr>
-      <th>Operation Name</th>
-      <th>Input Type</th>
-      <th>Output Type</th>
-      <th>Faults</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><a href="#stringToRaw">stringToRaw</a></td>
-      <td><a href="#StringToRawRequest">StringToRawRequest</a></td>
-      <td>raw</td>
-      <td>
-        IOException( <a href="#IOExceptionType">IOExceptionType</a> )
-      </td>
-    </tr>
-    <tr>
-      <td><a href="#base64ToRaw">base64ToRaw</a></td>
-      <td>string</td>
-      <td>raw</td>
-      <td>
-        IOException( <a href="#IOExceptionType">IOExceptionType</a> )
-      </td>
-    </tr>
-    <tr>
-      <td><a href="#rawToBase64">rawToBase64</a></td>
-      <td>raw</td>
-      <td>string</td>
-      <td>
-      </td>
-    </tr>
-    <tr>
-      <td><a href="#rawToString">rawToString</a></td>
-      <td><a href="#RawToStringRequest">RawToStringRequest</a></td>
-      <td>string</td>
-      <td>
-        IOException( <a href="#IOExceptionType">IOExceptionType</a> )
-      </td>
-    </tr>
-  </tbody>
-</table>
+| Operation Name | Input Type | Output Type | Faults |
+| :--- | :--- | :--- | :--- |
+| [stringToRaw](converter.md#stringToRaw) | [StringToRawRequest](converter.md#StringToRawRequest) | raw |  IOException\( [IOExceptionType](converter.md#IOExceptionType) \) |
+| [base64ToRaw](converter.md#base64ToRaw) | string | raw |  IOException\( [IOExceptionType](converter.md#IOExceptionType) \) |
+| [rawToBase64](converter.md#rawToBase64) | raw | string |  |
+| [rawToString](converter.md#rawToString) | [RawToStringRequest](converter.md#RawToStringRequest) | string |  IOException\( [IOExceptionType](converter.md#IOExceptionType) \) |
 
-<h2>Operation Description</h2>
+## Operation Description
 
+### stringToRaw <a id="stringToRaw"></a>
 
+Operation documentation: string &lt;-&gt; raw \(byte arrays\) conversion methods
 
-<h3 id="stringToRaw">stringToRaw</h3>
+Invocation template:
 
-Operation documentation:  string <-> raw (byte arrays) conversion methods 
+```text
+stringToRaw@Converter( request )( response )
+```
 
-
-Invocation template: 
-<pre>stringToRaw@Converter( request )( response )</pre>
-
-<h4 id="StringToRawRequest">Request type</h4>
+#### Request type <a id="StringToRawRequest"></a>
 
 Type: StringToRawRequest
 
+```text
+type StringToRawRequest: string {
+    .charset?: string
+}
+```
 
-<pre>type StringToRawRequest: string {
-	.charset?: string
-}</pre>
+`StringToRawRequest : string`
 
-<code>StringToRawRequest : string</code> 
+* `charset : string` : set the encoding. Default: system \(eg. for Unix-like OS UTF-8\)
 
-<ul>
-
-  <li><code>charset : string</code> :  set the encoding. Default: system (eg. for Unix-like OS UTF-8) 
-</li>
-
-</ul>
-
-
-
-<h4>Response type</h4>
+#### Response type
 
 Type: raw
 
+`raw : raw`
 
+#### Possible faults thrown
 
+Fault `IOException` with type `IOExceptionType`
 
-<code>raw : raw</code> 
+Fault-handling install template:
 
+```text
+install ( IOException => /* error-handling code */ )
+```
 
+```text
+type IOExceptionType: JavaExceptionType
+```
 
+### base64ToRaw <a id="base64ToRaw"></a>
 
-<h4>Possible faults thrown</h4>
+Operation documentation:
 
+Invocation template:
 
-Fault <code>IOException</code> with type <code>IOExceptionType</code>
+```text
+base64ToRaw@Converter( request )( response )
+```
 
-Fault-handling install template: 
-<pre>install ( IOException => /* error-handling code */ )</pre>
-<pre>type IOExceptionType: JavaExceptionType</pre>
-
-
-
-<h3 id="base64ToRaw">base64ToRaw</h3>
-
-Operation documentation: 
-
-
-Invocation template: 
-<pre>base64ToRaw@Converter( request )( response )</pre>
-
-<h4>Request type</h4>
+#### Request type
 
 Type: string
 
+`string : string`
 
-
-
-<code>string : string</code> 
-
-
-
-<h4>Response type</h4>
+#### Response type
 
 Type: raw
 
+`raw : raw`
 
+#### Possible faults thrown
 
+Fault `IOException` with type `IOExceptionType`
 
-<code>raw : raw</code> 
+Fault-handling install template:
 
+```text
+install ( IOException => /* error-handling code */ )
+```
 
+```text
+type IOExceptionType: JavaExceptionType
+```
 
+### rawToBase64 <a id="rawToBase64"></a>
 
-<h4>Possible faults thrown</h4>
+Operation documentation:
 
+Invocation template:
 
-Fault <code>IOException</code> with type <code>IOExceptionType</code>
+```text
+rawToBase64@Converter( request )( response )
+```
 
-Fault-handling install template: 
-<pre>install ( IOException => /* error-handling code */ )</pre>
-<pre>type IOExceptionType: JavaExceptionType</pre>
-
-
-
-<h3 id="rawToBase64">rawToBase64</h3>
-
-Operation documentation: 
-
-
-Invocation template: 
-<pre>rawToBase64@Converter( request )( response )</pre>
-
-<h4>Request type</h4>
+#### Request type
 
 Type: raw
 
+`raw : raw`
 
-
-
-<code>raw : raw</code> 
-
-
-
-<h4>Response type</h4>
+#### Response type
 
 Type: string
 
+`string : string`
 
+### rawToString <a id="rawToString"></a>
 
+Operation documentation: string &lt;-&gt; raw \(byte arrays\) conversion methods
 
-<code>string : string</code> 
+Invocation template:
 
+```text
+rawToString@Converter( request )( response )
+```
 
-
-
-
-
-
-
-<h3 id="rawToString">rawToString</h3>
-
-Operation documentation:  string <-> raw (byte arrays) conversion methods 
-
-
-Invocation template: 
-<pre>rawToString@Converter( request )( response )</pre>
-
-<h4 id="RawToStringRequest">Request type</h4>
+#### Request type <a id="RawToStringRequest"></a>
 
 Type: RawToStringRequest
 
+```text
+type RawToStringRequest: raw {
+    .charset?: string
+}
+```
 
-<pre>type RawToStringRequest: raw {
-	.charset?: string
-}</pre>
+`RawToStringRequest : raw` : The byte array to be converted
 
-<code>RawToStringRequest : raw</code> :  The byte array to be converted  
+* `charset : string` : set the encoding. Default: system \(eg. for Unix-like OS UTF-8\)
 
-<ul>
-
-  <li><code>charset : string</code> :  set the encoding. Default: system (eg. for Unix-like OS UTF-8) 
-</li>
-
-</ul>
-
-
-
-<h4>Response type</h4>
+#### Response type
 
 Type: string
 
+`string : string`
 
+#### Possible faults thrown
 
+Fault `IOException` with type `IOExceptionType`
 
-<code>string : string</code> 
+Fault-handling install template:
 
+```text
+install ( IOException => /* error-handling code */ )
+```
 
+```text
+type IOExceptionType: JavaExceptionType
+```
 
+### Subtypes
 
-<h4>Possible faults thrown</h4>
+#### JavaExceptionType <a id="JavaExceptionType"></a>
 
-
-Fault <code>IOException</code> with type <code>IOExceptionType</code>
-
-Fault-handling install template: 
-<pre>install ( IOException => /* error-handling code */ )</pre>
-<pre>type IOExceptionType: JavaExceptionType</pre>
-
-
-
-<h3>Subtypes</h3>
-
-
-<h4 id="JavaExceptionType">JavaExceptionType</h4>
-
-
-
-<pre>type JavaExceptionType: string {
-	.stackTrace: string
-}</pre>
-<code>JavaExceptionType : string</code> 
-
-
-
+```
+type JavaExceptionType: string { .stackTrace: string }
+```
 

@@ -25,7 +25,7 @@ a = 5;
 a = "Hello"
 ```
 
-Jolie supports some basic arithmetic operators: 
+Jolie supports some basic arithmetic operators:
 
 * add \(`+`\)
 * subtract \(`-`\)

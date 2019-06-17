@@ -1,336 +1,187 @@
-# Include library: math.iol
+# Math
 
-Inclusion code: <pre>include "math.iol"</pre>
+Inclusion code: 
 
-<table>
-  <caption>Service Deployment</caption>
-  <thead>
-    <tr>
-      <th>Port Name</th>
-      <th>Location</th>
-      <th>Protocol</th>
-      <th>Interfaces</th>
-    </tr>
-  </thead>
-  <tbody><tr><td>Math documentation: </td></tr>
-    <tr>
-      <td>Math</td>
-      <td>-</td>
-      <td>-</td>
-      <td><a href="#MathInterface">MathInterface</a></td>
-    </tr>
-  </tbody>
-</table>
+| Service Deployment |  |  |  |
+| :--- | :--- | :--- | :--- |
+| Port Name | Location | Protocol | Interfaces |
+| Math documentation: |  |  |  |
+| Math | - | - | [MathInterface](math.md#MathInterface) |
 
-<h3>List of Available Interfaces</h3>
+### List of Available Interfaces
 
-<h3 id="MathInterface">MathInterface</h3>
+### MathInterface <a id="MathInterface"></a>
 
-Interface documentation: 
+Interface documentation:
 
-<table>
-  <thead>
-    <tr>
-      <th>Operation Name</th>
-      <th>Input Type</th>
-      <th>Output Type</th>
-      <th>Faults</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><a href="#random">random</a></td>
-      <td>void</td>
-      <td>double</td>
-      <td>
-      </td>
-    </tr>
-    <tr>
-      <td><a href="#abs">abs</a></td>
-      <td>int</td>
-      <td>int</td>
-      <td>
-      </td>
-    </tr>
-    <tr>
-      <td><a href="#round">round</a></td>
-      <td><a href="#RoundRequestType">RoundRequestType</a></td>
-      <td>double</td>
-      <td>
-      </td>
-    </tr>
-    <tr>
-      <td><a href="#pi">pi</a></td>
-      <td>void</td>
-      <td>double</td>
-      <td>
-      </td>
-    </tr>
-    <tr>
-      <td><a href="#pow">pow</a></td>
-      <td><a href="#PowRequest">PowRequest</a></td>
-      <td>double</td>
-      <td>
-      </td>
-    </tr>
-    <tr>
-      <td><a href="#summation">summation</a></td>
-      <td><a href="#SummationRequest">SummationRequest</a></td>
-      <td>int</td>
-      <td>
-      </td>
-    </tr>
-  </tbody>
-</table>
+| Operation Name | Input Type | Output Type | Faults |
+| :--- | :--- | :--- | :--- |
+| [random](math.md#random) | void | double |  |
+| [abs](math.md#abs) | int | int |  |
+| [round](math.md#round) | [RoundRequestType](math.md#RoundRequestType) | double |  |
+| [pi](math.md#pi) | void | double |  |
+| [pow](math.md#pow) | [PowRequest](math.md#PowRequest) | double |  |
+| [summation](math.md#summation) | [SummationRequest](math.md#SummationRequest) | int |  |
 
-<h2>Operation Description</h2>
+## Operation Description
 
+### random <a id="random"></a>
 
+Operation documentation: Returns a random number d such that 0.0 &lt;= d &lt; 1.0.
 
-<h3 id="random">random</h3>
+Invocation template:
 
-Operation documentation:  Returns a random number d such that 0.0 <= d < 1.0. 
+```text
+random@Math( request )( response )
+```
 
-
-Invocation template: 
-<pre>random@Math( request )( response )</pre>
-
-<h4>Request type</h4>
+#### Request type
 
 Type: void
 
+`void : void`
 
-
-
-<code>void : void</code> 
-
-
-
-<h4>Response type</h4>
+#### Response type
 
 Type: double
 
+`double : double`
 
+### abs <a id="abs"></a>
 
+Operation documentation: Returns the absolute value of the input integer.
 
-<code>double : double</code> 
+Invocation template:
 
+```text
+abs@Math( request )( response )
+```
 
-
-
-
-
-
-
-<h3 id="abs">abs</h3>
-
-Operation documentation:  Returns the absolute value of the input integer. 
-
-
-Invocation template: 
-<pre>abs@Math( request )( response )</pre>
-
-<h4>Request type</h4>
+#### Request type
 
 Type: int
 
+`int : int`
 
-
-
-<code>int : int</code> 
-
-
-
-<h4>Response type</h4>
+#### Response type
 
 Type: int
 
+`int : int`
 
+### round <a id="round"></a>
 
+Operation documentation: Returns the PI constant
 
-<code>int : int</code> 
+Invocation template:
 
+```text
+round@Math( request )( response )
+```
 
-
-
-
-
-
-
-<h3 id="round">round</h3>
-
-Operation documentation:  Returns the PI constant 
-
-
-Invocation template: 
-<pre>round@Math( request )( response )</pre>
-
-<h4 id="RoundRequestType">Request type</h4>
+#### Request type <a id="RoundRequestType"></a>
 
 Type: RoundRequestType
 
+```text
+type RoundRequestType: double {
+    .decimals?: int
+}
+```
 
-<pre>type RoundRequestType: double {
-	.decimals?: int
-}</pre>
+`RoundRequestType : double`
 
-<code>RoundRequestType : double</code> 
+* `decimals : int`
 
-<ul>
-
-  <li><code>decimals : int</code> 
-</li>
-
-</ul>
-
-
-
-<h4>Response type</h4>
+#### Response type
 
 Type: double
 
+`double : double`
 
+### pi <a id="pi"></a>
 
+Operation documentation: Returns the PI constant
 
-<code>double : double</code> 
+Invocation template:
 
+```text
+pi@Math( request )( response )
+```
 
-
-
-
-
-
-
-<h3 id="pi">pi</h3>
-
-Operation documentation:  Returns the PI constant 
-
-
-Invocation template: 
-<pre>pi@Math( request )( response )</pre>
-
-<h4>Request type</h4>
+#### Request type
 
 Type: void
 
+`void : void`
 
-
-
-<code>void : void</code> 
-
-
-
-<h4>Response type</h4>
+#### Response type
 
 Type: double
 
+`double : double`
 
+### pow <a id="pow"></a>
 
+Operation documentation: Returns the result of .base to the power of .exponent \(see request data type\).
 
-<code>double : double</code> 
+Invocation template:
 
+```text
+pow@Math( request )( response )
+```
 
-
-
-
-
-
-
-<h3 id="pow">pow</h3>
-
-Operation documentation:  Returns the result of .base to the power of .exponent (see request data type). 
-
-
-Invocation template: 
-<pre>pow@Math( request )( response )</pre>
-
-<h4 id="PowRequest">Request type</h4>
+#### Request type <a id="PowRequest"></a>
 
 Type: PowRequest
 
+```text
+type PowRequest: void {
+    .base: double
+    .exponent: double
+}
+```
 
-<pre>type PowRequest: void {
-	.base: double
-	.exponent: double
-}</pre>
+`PowRequest : void`
 
-<code>PowRequest : void</code> 
+* `base : double`
+* `exponent : double`
 
-<ul>
-
-  <li><code>base : double</code> 
-</li>
-
-  <li><code>exponent : double</code> 
-</li>
-
-</ul>
-
-
-
-<h4>Response type</h4>
+#### Response type
 
 Type: double
 
+`double : double`
 
+### summation <a id="summation"></a>
 
+Operation documentation: Returns the summation of values from .from to .to \(see request data type\). For example, .from=2 and .to=5 would produce a return value of 2+3+4+5=14.
 
-<code>double : double</code> 
+Invocation template:
 
+```text
+summation@Math( request )( response )
+```
 
-
-
-
-
-
-
-<h3 id="summation">summation</h3>
-
-Operation documentation:  Returns the summation of values from .from to .to (see request data type). For example, .from=2 and .to=5 would produce a return value of 2+3+4+5=14. 
-
-
-Invocation template: 
-<pre>summation@Math( request )( response )</pre>
-
-<h4 id="SummationRequest">Request type</h4>
+#### Request type <a id="SummationRequest"></a>
 
 Type: SummationRequest
 
+```text
+type SummationRequest: void {
+    .from: int
+    .to: int
+}
+```
 
-<pre>type SummationRequest: void {
-	.from: int
-	.to: int
-}</pre>
+`SummationRequest : void`
 
-<code>SummationRequest : void</code> 
+* `from : int`
+* `to : int`
 
-<ul>
-
-  <li><code>from : int</code> 
-</li>
-
-  <li><code>to : int</code> 
-</li>
-
-</ul>
-
-
-
-<h4>Response type</h4>
+#### Response type
 
 Type: int
 
-
-
-
-<code>int : int</code> 
-
-
-
-
-
-
-
-
-
+`int : int`
 

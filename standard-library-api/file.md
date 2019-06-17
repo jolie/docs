@@ -1,1297 +1,888 @@
-# Include library: file.iol
+# File
 
-Inclusion code: <pre>include "file.iol"</pre>
+Inclusion code: 
 
-<table>
-  <caption>Service Deployment</caption>
-  <thead>
-    <tr>
-      <th>Port Name</th>
-      <th>Location</th>
-      <th>Protocol</th>
-      <th>Interfaces</th>
-    </tr>
-  </thead>
-  <tbody><tr><td>File documentation: </td></tr>
-    <tr>
-      <td>File</td>
-      <td>-</td>
-      <td>-</td>
-      <td><a href="#FileInterface">FileInterface</a></td>
-    </tr>
-  </tbody>
-</table>
+| Service Deployment |  |  |  |
+| :--- | :--- | :--- | :--- |
+| Port Name | Location | Protocol | Interfaces |
+| File documentation: |  |  |  |
+| File | - | - | [FileInterface](file.md#FileInterface) |
 
-<h3>List of Available Interfaces</h3>
+### List of Available Interfaces
 
-<h3 id="FileInterface">FileInterface</h3>
+### FileInterface <a id="FileInterface"></a>
 
-Interface documentation: 
+Interface documentation:
 
-<table>
-  <thead>
-    <tr>
-      <th>Operation Name</th>
-      <th>Input Type</th>
-      <th>Output Type</th>
-      <th>Faults</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><a href="#convertFromBase64ToBinaryValue">convertFromBase64ToBinaryValue</a></td>
-      <td>string</td>
-      <td>raw</td>
-      <td>
-        IOException( <a href="#IOExceptionType">IOExceptionType</a> )
-      </td>
-    </tr>
-    <tr>
-      <td><a href="#getMimeType">getMimeType</a></td>
-      <td>string</td>
-      <td>string</td>
-      <td>
-        FileNotFound( <a href="#FileNotFoundType">FileNotFoundType</a> )
-      </td>
-    </tr>
-    <tr>
-      <td><a href="#convertFromBinaryToBase64Value">convertFromBinaryToBase64Value</a></td>
-      <td>raw</td>
-      <td>string</td>
-      <td>
-      </td>
-    </tr>
-    <tr>
-      <td><a href="#toAbsolutePath">toAbsolutePath</a></td>
-      <td>string</td>
-      <td>string</td>
-      <td>
-        InvalidPathException( <a href="#JavaExceptionType">JavaExceptionType</a> )
-      </td>
-    </tr>
-    <tr>
-      <td><a href="#getParentPath">getParentPath</a></td>
-      <td>string</td>
-      <td>string</td>
-      <td>
-        InvalidPathException( <a href="#JavaExceptionType">JavaExceptionType</a> )
-      </td>
-    </tr>
-    <tr>
-      <td><a href="#list">list</a></td>
-      <td><a href="#ListRequest">ListRequest</a></td>
-      <td><a href="#ListResponse">ListResponse</a></td>
-      <td>
-        IOException( <a href="#IOExceptionType">IOExceptionType</a> )
-      </td>
-    </tr>
-    <tr>
-      <td><a href="#copyDir">copyDir</a></td>
-      <td><a href="#CopyDirRequest">CopyDirRequest</a></td>
-      <td>bool</td>
-      <td>
-        FileNotFound( undefined ) <br> 
-        IOException( undefined )
-      </td>
-    </tr>
-    <tr>
-      <td><a href="#delete">delete</a></td>
-      <td><a href="#DeleteRequest">DeleteRequest</a></td>
-      <td>bool</td>
-      <td>
-        IOException( <a href="#IOExceptionType">IOExceptionType</a> )
-      </td>
-    </tr>
-    <tr>
-      <td><a href="#getSize">getSize</a></td>
-      <td>any</td>
-      <td>int</td>
-      <td>
-      </td>
-    </tr>
-    <tr>
-      <td><a href="#getFileSeparator">getFileSeparator</a></td>
-      <td>void</td>
-      <td>string</td>
-      <td>
-      </td>
-    </tr>
-    <tr>
-      <td><a href="#rename">rename</a></td>
-      <td><a href="#RenameRequest">RenameRequest</a></td>
-      <td>void</td>
-      <td>
-        IOException( <a href="#IOExceptionType">IOExceptionType</a> )
-      </td>
-    </tr>
-    <tr>
-      <td><a href="#readFile">readFile</a></td>
-      <td><a href="#ReadFileRequest">ReadFileRequest</a></td>
-      <td>undefined</td>
-      <td>
-        FileNotFound( <a href="#FileNotFoundType">FileNotFoundType</a> ) <br> 
-        IOException( <a href="#IOExceptionType">IOExceptionType</a> )
-      </td>
-    </tr>
-    <tr>
-      <td><a href="#exists">exists</a></td>
-      <td>string</td>
-      <td>bool</td>
-      <td>
-      </td>
-    </tr>
-    <tr>
-      <td><a href="#setMimeTypeFile">setMimeTypeFile</a></td>
-      <td>string</td>
-      <td>void</td>
-      <td>
-        IOException( <a href="#IOExceptionType">IOExceptionType</a> )
-      </td>
-    </tr>
-    <tr>
-      <td><a href="#deleteDir">deleteDir</a></td>
-      <td>string</td>
-      <td>bool</td>
-      <td>
-        IOException( <a href="#IOExceptionType">IOExceptionType</a> )
-      </td>
-    </tr>
-    <tr>
-      <td><a href="#getServiceDirectory">getServiceDirectory</a></td>
-      <td>void</td>
-      <td>string</td>
-      <td>
-        IOException( <a href="#IOExceptionType">IOExceptionType</a> )
-      </td>
-    </tr>
-    <tr>
-      <td><a href="#writeFile">writeFile</a></td>
-      <td><a href="#WriteFileRequest">WriteFileRequest</a></td>
-      <td>void</td>
-      <td>
-        FileNotFound( <a href="#FileNotFoundType">FileNotFoundType</a> ) <br> 
-        IOException( <a href="#IOExceptionType">IOExceptionType</a> )
-      </td>
-    </tr>
-    <tr>
-      <td><a href="#mkdir">mkdir</a></td>
-      <td>string</td>
-      <td>bool</td>
-      <td>
-      </td>
-    </tr>
-    <tr>
-      <td><a href="#isDirectory">isDirectory</a></td>
-      <td>string</td>
-      <td>bool</td>
-      <td>
-        FileNotFound( <a href="#FileNotFoundType">FileNotFoundType</a> ) <br> 
-        IOException( <a href="#IOExceptionType">IOExceptionType</a> )
-      </td>
-    </tr>
-  </tbody>
-</table>
+| Operation Name | Input Type | Output Type | Faults |
+| :--- | :--- | :--- | :--- |
+| [convertFromBase64ToBinaryValue](file.md#convertFromBase64ToBinaryValue) | string | raw |  IOException\( [IOExceptionType](file.md#IOExceptionType) \) |
+| [getMimeType](file.md#getMimeType) | string | string |  FileNotFound\( [FileNotFoundType](file.md#FileNotFoundType) \) |
+| [convertFromBinaryToBase64Value](file.md#convertFromBinaryToBase64Value) | raw | string |  |
+| [toAbsolutePath](file.md#toAbsolutePath) | string | string |  InvalidPathException\( [JavaExceptionType](file.md#JavaExceptionType) \) |
+| [getParentPath](file.md#getParentPath) | string | string |  InvalidPathException\( [JavaExceptionType](file.md#JavaExceptionType) \) |
+| [list](file.md#list) | [ListRequest](file.md#ListRequest) | [ListResponse](file.md#ListResponse) |  IOException\( [IOExceptionType](file.md#IOExceptionType) \) |
+| [copyDir](file.md#copyDir) | [CopyDirRequest](file.md#CopyDirRequest) | bool |  FileNotFound\( undefined \)  IOException\( undefined \) |
+| [delete](file.md#delete) | [DeleteRequest](file.md#DeleteRequest) | bool |  IOException\( [IOExceptionType](file.md#IOExceptionType) \) |
+| [getSize](file.md#getSize) | any | int |  |
+| [getFileSeparator](file.md#getFileSeparator) | void | string |  |
+| [rename](file.md#rename) | [RenameRequest](file.md#RenameRequest) | void |  IOException\( [IOExceptionType](file.md#IOExceptionType) \) |
+| [readFile](file.md#readFile) | [ReadFileRequest](file.md#ReadFileRequest) | undefined |  FileNotFound\( [FileNotFoundType](file.md#FileNotFoundType) \)  IOException\( [IOExceptionType](file.md#IOExceptionType) \) |
+| [exists](file.md#exists) | string | bool |  |
+| [setMimeTypeFile](file.md#setMimeTypeFile) | string | void |  IOException\( [IOExceptionType](file.md#IOExceptionType) \) |
+| [deleteDir](file.md#deleteDir) | string | bool |  IOException\( [IOExceptionType](file.md#IOExceptionType) \) |
+| [getServiceDirectory](file.md#getServiceDirectory) | void | string |  IOException\( [IOExceptionType](file.md#IOExceptionType) \) |
+| [writeFile](file.md#writeFile) | [WriteFileRequest](file.md#WriteFileRequest) | void |  FileNotFound\( [FileNotFoundType](file.md#FileNotFoundType) \)  IOException\( [IOExceptionType](file.md#IOExceptionType) \) |
+| [mkdir](file.md#mkdir) | string | bool |  |
+| [isDirectory](file.md#isDirectory) | string | bool |  FileNotFound\( [FileNotFoundType](file.md#FileNotFoundType) \)  IOException\( [IOExceptionType](file.md#IOExceptionType) \) |
 
-<h2>Operation Description</h2>
+## Operation Description
 
+### convertFromBase64ToBinaryValue <a id="convertFromBase64ToBinaryValue"></a>
 
+Operation documentation: deprecated, please use base64ToRaw@Converter\(\)\(\) from converter.iol
 
-<h3 id="convertFromBase64ToBinaryValue">convertFromBase64ToBinaryValue</h3>
+Invocation template:
 
-Operation documentation:  deprecated, please use base64ToRaw@Converter()() from converter.iol 
+```text
+convertFromBase64ToBinaryValue@File( request )( response )
+```
 
-
-Invocation template: 
-<pre>convertFromBase64ToBinaryValue@File( request )( response )</pre>
-
-<h4>Request type</h4>
+#### Request type
 
 Type: string
 
+`string : string`
 
-
-
-<code>string : string</code> 
-
-
-
-<h4>Response type</h4>
+#### Response type
 
 Type: raw
 
+`raw : raw`
 
+#### Possible faults thrown
 
+Fault `IOException` with type `IOExceptionType`
 
-<code>raw : raw</code> 
+Fault-handling install template:
 
+```text
+install ( IOException => /* error-handling code */ )
+```
 
+```text
+type IOExceptionType: JavaExceptionType
+```
 
+### getMimeType <a id="getMimeType"></a>
 
-<h4>Possible faults thrown</h4>
+Operation documentation: it tests if the specified file or directory exists or not.
 
+Invocation template:
 
-Fault <code>IOException</code> with type <code>IOExceptionType</code>
+```text
+getMimeType@File( request )( response )
+```
 
-Fault-handling install template: 
-<pre>install ( IOException => /* error-handling code */ )</pre>
-<pre>type IOExceptionType: JavaExceptionType</pre>
-
-
-
-<h3 id="getMimeType">getMimeType</h3>
-
-Operation documentation: 
-	 it tests if the specified file or directory exists or not.
-	
-
-
-Invocation template: 
-<pre>getMimeType@File( request )( response )</pre>
-
-<h4>Request type</h4>
+#### Request type
 
 Type: string
 
+`string : string`
 
-
-
-<code>string : string</code> 
-
-
-
-<h4>Response type</h4>
+#### Response type
 
 Type: string
 
+`string : string`
 
+#### Possible faults thrown
 
+Fault `FileNotFound` with type `FileNotFoundType`
 
-<code>string : string</code> 
+Fault-handling install template:
 
+```text
+install ( FileNotFound => /* error-handling code */ )
+```
 
+```text
+type FileNotFoundType: WeakJavaExceptionType
+```
 
+### convertFromBinaryToBase64Value <a id="convertFromBinaryToBase64Value"></a>
 
-<h4>Possible faults thrown</h4>
+Operation documentation: deprecated, please use rawToBase64@Converter\(\)\(\) from converter.iol
 
+Invocation template:
 
-Fault <code>FileNotFound</code> with type <code>FileNotFoundType</code>
+```text
+convertFromBinaryToBase64Value@File( request )( response )
+```
 
-Fault-handling install template: 
-<pre>install ( FileNotFound => /* error-handling code */ )</pre>
-<pre>type FileNotFoundType: WeakJavaExceptionType</pre>
-
-
-
-<h3 id="convertFromBinaryToBase64Value">convertFromBinaryToBase64Value</h3>
-
-Operation documentation:  deprecated, please use rawToBase64@Converter()() from converter.iol 
-
-
-Invocation template: 
-<pre>convertFromBinaryToBase64Value@File( request )( response )</pre>
-
-<h4>Request type</h4>
+#### Request type
 
 Type: raw
 
+`raw : raw`
 
-
-
-<code>raw : raw</code> 
-
-
-
-<h4>Response type</h4>
+#### Response type
 
 Type: string
 
+`string : string`
 
+### toAbsolutePath <a id="toAbsolutePath"></a>
 
+Operation documentation: Constructs an absolute path to the target file or directory. Can be used to construct an absolute path for new files that does not exist yet. Throws a InvalidPathException fault if input is a relative path is not system recognized path.
 
-<code>string : string</code> 
+Invocation template:
 
+```text
+toAbsolutePath@File( request )( response )
+```
 
-
-
-
-
-
-
-<h3 id="toAbsolutePath">toAbsolutePath</h3>
-
-Operation documentation: 
-	  Constructs an absolute path to the target file or directory.
-	  Can be used to construct an absolute path for new files that does not exist yet.
-	  Throws a InvalidPathException fault if input is a relative path is not system recognized path.
-	 
-
-
-Invocation template: 
-<pre>toAbsolutePath@File( request )( response )</pre>
-
-<h4>Request type</h4>
+#### Request type
 
 Type: string
 
+`string : string`
 
-
-
-<code>string : string</code> 
-
-
-
-<h4>Response type</h4>
+#### Response type
 
 Type: string
 
+`string : string`
 
+#### Possible faults thrown
 
+Fault `InvalidPathException` with type `JavaExceptionType`
 
-<code>string : string</code> 
+Fault-handling install template:
 
+```text
+install ( InvalidPathException => /* error-handling code */ )
+```
 
+```text
+type JavaExceptionType: string {
+    .stackTrace: string
+}
+```
 
+### getParentPath <a id="getParentPath"></a>
 
-<h4>Possible faults thrown</h4>
+Operation documentation: Constructs the path to the parent directory. Can be used to construct paths that does not exist so long as the path uses the system's filesystem path conventions. Throws a InvalidPathException fault if input path is not a recognized system path or if the parent has no parent.
 
+Invocation template:
 
-Fault <code>InvalidPathException</code> with type <code>JavaExceptionType</code>
+```text
+getParentPath@File( request )( response )
+```
 
-Fault-handling install template: 
-<pre>install ( InvalidPathException => /* error-handling code */ )</pre>
-<pre>type JavaExceptionType: string {
-	.stackTrace: string
-}</pre>
-
-
-
-<h3 id="getParentPath">getParentPath</h3>
-
-Operation documentation: 
-	  Constructs the path to the parent directory.
-	  Can be used to construct paths that does not exist so long as the path uses the system's filesystem path conventions.
-	  Throws a InvalidPathException fault if input path is not a recognized system path or if the parent has no parent.
-	 
-
-
-Invocation template: 
-<pre>getParentPath@File( request )( response )</pre>
-
-<h4>Request type</h4>
+#### Request type
 
 Type: string
 
+`string : string`
 
-
-
-<code>string : string</code> 
-
-
-
-<h4>Response type</h4>
+#### Response type
 
 Type: string
 
+`string : string`
 
+#### Possible faults thrown
 
+Fault `InvalidPathException` with type `JavaExceptionType`
 
-<code>string : string</code> 
+Fault-handling install template:
 
+```text
+install ( InvalidPathException => /* error-handling code */ )
+```
 
+```text
+type JavaExceptionType: string {
+    .stackTrace: string
+}
+```
 
+### list <a id="list"></a>
 
-<h4>Possible faults thrown</h4>
+Operation documentation: The size of any basic type variable.
 
+* raw: buffer size
+* void: 0
+* boolean: 1
+* integer types: int 4, long 8
+* double: 8
+* string: size in the respective platform encoding, on ASCII and latin1
 
-Fault <code>InvalidPathException</code> with type <code>JavaExceptionType</code>
+  equal to the string's length, on Unicode \(UTF-8 etc.\) &gt;= string's length
 
-Fault-handling install template: 
-<pre>install ( InvalidPathException => /* error-handling code */ )</pre>
-<pre>type JavaExceptionType: string {
-	.stackTrace: string
-}</pre>
+Invocation template:
 
+```text
+list@File( request )( response )
+```
 
-
-<h3 id="list">list</h3>
-
-Operation documentation: 
-	  The size of any basic type variable.
-	  - raw: buffer size
-	  - void: 0
-	  - boolean: 1
-	  - integer types: int 4, long 8
-	  - double: 8
-	  - string: size in the respective platform encoding, on ASCII and latin1
-	    equal to the string's length, on Unicode (UTF-8 etc.) >= string's length
-	 
-
-
-Invocation template: 
-<pre>list@File( request )( response )</pre>
-
-<h4 id="ListRequest">Request type</h4>
+#### Request type <a id="ListRequest"></a>
 
 Type: ListRequest
 
+```text
+type ListRequest: void {
+    .regex?: string
+    .dirsOnly?: bool
+    .directory: string
+    .recursive?: bool
+    .order?: void {
+        .byname?: bool
+    }
+    .info?: bool
+}
+```
 
-<pre>type ListRequest: void {
-	.regex?: string
-	.dirsOnly?: bool
-	.directory: string
-	.recursive?: bool
-	.order?: void {
-		.byname?: bool
-	}
-	.info?: bool
-}</pre>
+`ListRequest : void`
 
-<code>ListRequest : void</code> 
+* `regex : string`
+* `dirsOnly : bool`
+* `directory : string`
+* `recursive : bool`
+* `order : void`
+  * `byname : bool`
+* `info : bool`
 
-<ul>
-
-  <li><code>regex : string</code> 
-</li>
-
-  <li><code>dirsOnly : bool</code> 
-</li>
-
-  <li><code>directory : string</code> 
-</li>
-
-  <li><code>recursive : bool</code> 
-</li>
-
-  <li><code>order : void</code> 
-
-<ul>
-
-  <li><code>byname : bool</code> 
-</li>
-
-</ul>
-</li>
-
-  <li><code>info : bool</code> 
-</li>
-
-</ul>
-
-
-
-<h4 id="ListResponse">Response type</h4>
+#### Response type <a id="ListResponse"></a>
 
 Type: ListResponse
 
+```text
+type ListResponse: void {
+    .result*: string {
+        .info?: void {
+            .size: long
+            .absolutePath: string
+            .lastModified: long
+            .isDirectory: bool
+            .isHidden: bool
+        }
+    }
+}
+```
 
-<pre>type ListResponse: void {
-	.result*: string {
-		.info?: void {
-			.size: long
-			.absolutePath: string
-			.lastModified: long
-			.isDirectory: bool
-			.isHidden: bool
-		}
-	}
-}</pre>
+`ListResponse : void`
 
-<code>ListResponse : void</code> 
+* `result : string`
+  * `info : void`
+    * `size : long`
+    * `absolutePath : string`
+    * `lastModified : long`
+    * `isDirectory : bool`
+    * `isHidden : bool`
 
-<ul>
+#### Possible faults thrown
 
-  <li><code>result : string</code> 
+Fault `IOException` with type `IOExceptionType`
 
-<ul>
+Fault-handling install template:
 
-  <li><code>info : void</code> 
+```text
+install ( IOException => /* error-handling code */ )
+```
 
-<ul>
+```text
+type IOExceptionType: JavaExceptionType
+```
 
-  <li><code>size : long</code> 
-</li>
+### copyDir <a id="copyDir"></a>
 
-  <li><code>absolutePath : string</code> 
-</li>
+Operation documentation: it copies a source directory into a destination one
 
-  <li><code>lastModified : long</code> 
-</li>
+Invocation template:
 
-  <li><code>isDirectory : bool</code> 
-</li>
+```text
+copyDir@File( request )( response )
+```
 
-  <li><code>isHidden : bool</code> 
-</li>
-
-</ul>
-</li>
-
-</ul>
-</li>
-
-</ul>
-
-
-
-
-<h4>Possible faults thrown</h4>
-
-
-Fault <code>IOException</code> with type <code>IOExceptionType</code>
-
-Fault-handling install template: 
-<pre>install ( IOException => /* error-handling code */ )</pre>
-<pre>type IOExceptionType: JavaExceptionType</pre>
-
-
-
-<h3 id="copyDir">copyDir</h3>
-
-Operation documentation: 
-	  it copies a source directory into a destination one
-	
-
-
-Invocation template: 
-<pre>copyDir@File( request )( response )</pre>
-
-<h4 id="CopyDirRequest">Request type</h4>
+#### Request type <a id="CopyDirRequest"></a>
 
 Type: CopyDirRequest
 
+```text
+type CopyDirRequest: void {
+    .from: string
+    .to: string
+}
+```
 
-<pre>type CopyDirRequest: void {
-	.from: string
-	.to: string
-}</pre>
+`CopyDirRequest : void` : from: the source directory to copy to: the target directory to copy into
 
-<code>CopyDirRequest : void</code> : 
-from: the source directory to copy
-to: the target directory to copy into
- 
+* `from : string`
+* `to : string`
 
-<ul>
-
-  <li><code>from : string</code> 
-</li>
-
-  <li><code>to : string</code> 
-</li>
-
-</ul>
-
-
-
-<h4>Response type</h4>
+#### Response type
 
 Type: bool
 
+`bool : bool`
 
+#### Possible faults thrown
 
+Fault `FileNotFound` with type `undefined`
 
-<code>bool : bool</code> 
+Fault-handling install template:
 
+```text
+install ( FileNotFound => /* error-handling code */ )
+```
 
+Fault `IOException` with type `undefined`
 
+Fault-handling install template:
 
-<h4>Possible faults thrown</h4>
+```text
+install ( IOException => /* error-handling code */ )
+```
 
+### delete <a id="delete"></a>
 
-Fault <code>FileNotFound</code> with type <code>undefined</code>
+Operation documentation: it copies a source directory into a destination one
 
-Fault-handling install template: 
-<pre>install ( FileNotFound => /* error-handling code */ )</pre>
+Invocation template:
 
+```text
+delete@File( request )( response )
+```
 
-
-Fault <code>IOException</code> with type <code>undefined</code>
-
-Fault-handling install template: 
-<pre>install ( IOException => /* error-handling code */ )</pre>
-
-
-
-
-<h3 id="delete">delete</h3>
-
-Operation documentation: 
-	  it copies a source directory into a destination one
-	
-
-
-Invocation template: 
-<pre>delete@File( request )( response )</pre>
-
-<h4 id="DeleteRequest">Request type</h4>
+#### Request type <a id="DeleteRequest"></a>
 
 Type: DeleteRequest
 
+```text
+type DeleteRequest: string {
+    .isRegex?: int
+}
+```
 
-<pre>type DeleteRequest: string {
-	.isRegex?: int
-}</pre>
+`DeleteRequest : string`
 
-<code>DeleteRequest : string</code> 
+* `isRegex : int`
 
-<ul>
-
-  <li><code>isRegex : int</code> 
-</li>
-
-</ul>
-
-
-
-<h4>Response type</h4>
+#### Response type
 
 Type: bool
 
+`bool : bool`
 
+#### Possible faults thrown
 
+Fault `IOException` with type `IOExceptionType`
 
-<code>bool : bool</code> 
+Fault-handling install template:
 
+```text
+install ( IOException => /* error-handling code */ )
+```
 
+```text
+type IOExceptionType: JavaExceptionType
+```
 
+### getSize <a id="getSize"></a>
 
-<h4>Possible faults thrown</h4>
+Operation documentation: The size of any basic type variable.
 
+* raw: buffer size
+* void: 0
+* boolean: 1
+* integer types: int 4, long 8
+* double: 8
+* string: size in the respective platform encoding, on ASCII and latin1
 
-Fault <code>IOException</code> with type <code>IOExceptionType</code>
+  equal to the string's length, on Unicode \(UTF-8 etc.\) &gt;= string's length
 
-Fault-handling install template: 
-<pre>install ( IOException => /* error-handling code */ )</pre>
-<pre>type IOExceptionType: JavaExceptionType</pre>
+Invocation template:
 
+```text
+getSize@File( request )( response )
+```
 
-
-<h3 id="getSize">getSize</h3>
-
-Operation documentation: 
-	  The size of any basic type variable.
-	  - raw: buffer size
-	  - void: 0
-	  - boolean: 1
-	  - integer types: int 4, long 8
-	  - double: 8
-	  - string: size in the respective platform encoding, on ASCII and latin1
-	    equal to the string's length, on Unicode (UTF-8 etc.) >= string's length
-	 
-
-
-Invocation template: 
-<pre>getSize@File( request )( response )</pre>
-
-<h4>Request type</h4>
+#### Request type
 
 Type: any
 
+`any : any`
 
-
-
-<code>any : any</code> 
-
-
-
-<h4>Response type</h4>
+#### Response type
 
 Type: int
 
+`int : int`
 
+### getFileSeparator <a id="getFileSeparator"></a>
 
+Operation documentation: it tests if the specified file or directory exists or not.
 
-<code>int : int</code> 
+Invocation template:
 
+```text
+getFileSeparator@File( request )( response )
+```
 
-
-
-
-
-
-
-<h3 id="getFileSeparator">getFileSeparator</h3>
-
-Operation documentation: 
-	 it tests if the specified file or directory exists or not.
-	
-
-
-Invocation template: 
-<pre>getFileSeparator@File( request )( response )</pre>
-
-<h4>Request type</h4>
+#### Request type
 
 Type: void
 
+`void : void`
 
-
-
-<code>void : void</code> 
-
-
-
-<h4>Response type</h4>
+#### Response type
 
 Type: string
 
+`string : string`
 
+### rename <a id="rename"></a>
 
+Operation documentation: The size of any basic type variable.
 
-<code>string : string</code> 
+* raw: buffer size
+* void: 0
+* boolean: 1
+* integer types: int 4, long 8
+* double: 8
+* string: size in the respective platform encoding, on ASCII and latin1
 
+  equal to the string's length, on Unicode \(UTF-8 etc.\) &gt;= string's length
 
+Invocation template:
 
+```text
+rename@File( request )( response )
+```
 
-
-
-
-
-<h3 id="rename">rename</h3>
-
-Operation documentation: 
-	  The size of any basic type variable.
-	  - raw: buffer size
-	  - void: 0
-	  - boolean: 1
-	  - integer types: int 4, long 8
-	  - double: 8
-	  - string: size in the respective platform encoding, on ASCII and latin1
-	    equal to the string's length, on Unicode (UTF-8 etc.) >= string's length
-	 
-
-
-Invocation template: 
-<pre>rename@File( request )( response )</pre>
-
-<h4 id="RenameRequest">Request type</h4>
+#### Request type <a id="RenameRequest"></a>
 
 Type: RenameRequest
 
+```text
+type RenameRequest: void {
+    .filename: string
+    .to: string
+}
+```
 
-<pre>type RenameRequest: void {
-	.filename: string
-	.to: string
-}</pre>
+`RenameRequest : void`
 
-<code>RenameRequest : void</code> 
+* `filename : string`
+* `to : string`
 
-<ul>
-
-  <li><code>filename : string</code> 
-</li>
-
-  <li><code>to : string</code> 
-</li>
-
-</ul>
-
-
-
-<h4>Response type</h4>
+#### Response type
 
 Type: void
 
+`void : void`
 
+#### Possible faults thrown
 
+Fault `IOException` with type `IOExceptionType`
 
-<code>void : void</code> 
+Fault-handling install template:
 
+```text
+install ( IOException => /* error-handling code */ )
+```
 
+```text
+type IOExceptionType: JavaExceptionType
+```
 
+### readFile <a id="readFile"></a>
 
-<h4>Possible faults thrown</h4>
+Operation documentation: Reads some file's content into a Jolie structure
 
+```text
+  Supported formats (ReadFileRequest.format):
+  - text (the default)
+  - base64 (same as binary but afterwards base64-encoded)
+  - binary
+  - xml
+  - xml_store (a type-annotated XML format)
+  - properties (Java properties file)
+  - json
 
-Fault <code>IOException</code> with type <code>IOExceptionType</code>
+  Child values: text, base64 and binary only populate the return's base value, the other formats fill in the child values as well.
+  - xml, xml_store: the XML root node will costitute a return's child value, the rest is filled in recursively
+  - properties: each property is represented by a child value
+  - json: each attribute corresponds to a child value, the default values (attribute "$" or singular value) are saved as the base values, nested arrays get mapped with the "_" helper childs (e.g. a[i][j] -> a._[i]._[j]), the rest is filled in recursively
+```
 
-Fault-handling install template: 
-<pre>install ( IOException => /* error-handling code */ )</pre>
-<pre>type IOExceptionType: JavaExceptionType</pre>
+Invocation template:
 
+```text
+readFile@File( request )( response )
+```
 
-
-<h3 id="readFile">readFile</h3>
-
-Operation documentation: 
-	  Reads some file's content into a Jolie structure
-	 
-	  Supported formats (ReadFileRequest.format):
-	  - text (the default)
-	  - base64 (same as binary but afterwards base64-encoded)
-	  - binary
-	  - xml
-	  - xml_store (a type-annotated XML format)
-	  - properties (Java properties file)
-	  - json
-	 
-	  Child values: text, base64 and binary only populate the return's base value, the other formats fill in the child values as well.
-	  - xml, xml_store: the XML root node will costitute a return's child value, the rest is filled in recursively
-	  - properties: each property is represented by a child value
-	  - json: each attribute corresponds to a child value, the default values (attribute "$" or singular value) are saved as the base values, nested arrays get mapped with the "_" helper childs (e.g. a[i][j] -> a._[i]._[j]), the rest is filled in recursively
-	 
-
-
-Invocation template: 
-<pre>readFile@File( request )( response )</pre>
-
-<h4 id="ReadFileRequest">Request type</h4>
+#### Request type <a id="ReadFileRequest"></a>
 
 Type: ReadFileRequest
 
+```text
+type ReadFileRequest: void {
+    .filename: string
+    .format?: string {
+        .skipMixedText?: bool
+        .charset?: string
+    }
+}
+```
 
-<pre>type ReadFileRequest: void {
-	.filename: string
-	.format?: string {
-		.skipMixedText?: bool
-		.charset?: string
-	}
-}</pre>
+`ReadFileRequest : void`
 
-<code>ReadFileRequest : void</code> 
+* `filename : string`
+* `format : string`
+  * `skipMixedText : bool`
+  * `charset : string`
 
-<ul>
-
-  <li><code>filename : string</code> 
-</li>
-
-  <li><code>format : string</code> 
-
-<ul>
-
-  <li><code>skipMixedText : bool</code> 
-</li>
-
-  <li><code>charset : string</code> 
-</li>
-
-</ul>
-</li>
-
-</ul>
-
-
-
-<h4>Response type</h4>
+#### Response type
 
 Type: undefined
 
+`undefined : any`
 
+#### Possible faults thrown
 
+Fault `FileNotFound` with type `FileNotFoundType`
 
-<code>undefined : any</code> 
+Fault-handling install template:
 
+```text
+install ( FileNotFound => /* error-handling code */ )
+```
 
+```text
+type FileNotFoundType: WeakJavaExceptionType
+```
 
+Fault `IOException` with type `IOExceptionType`
 
-<h4>Possible faults thrown</h4>
+Fault-handling install template:
 
+```text
+install ( IOException => /* error-handling code */ )
+```
 
-Fault <code>FileNotFound</code> with type <code>FileNotFoundType</code>
+```text
+type IOExceptionType: JavaExceptionType
+```
 
-Fault-handling install template: 
-<pre>install ( FileNotFound => /* error-handling code */ )</pre>
-<pre>type FileNotFoundType: WeakJavaExceptionType</pre>
+### exists <a id="exists"></a>
 
+Operation documentation: it tests if the specified file or directory exists or not.
 
-Fault <code>IOException</code> with type <code>IOExceptionType</code>
+Invocation template:
 
-Fault-handling install template: 
-<pre>install ( IOException => /* error-handling code */ )</pre>
-<pre>type IOExceptionType: JavaExceptionType</pre>
+```text
+exists@File( request )( response )
+```
 
-
-
-<h3 id="exists">exists</h3>
-
-Operation documentation: 
-	 it tests if the specified file or directory exists or not.
-	
-
-
-Invocation template: 
-<pre>exists@File( request )( response )</pre>
-
-<h4>Request type</h4>
+#### Request type
 
 Type: string
 
+`string : string`
 
-
-
-<code>string : string</code> 
-
-
-
-<h4>Response type</h4>
+#### Response type
 
 Type: bool
 
+`bool : bool`
 
+### setMimeTypeFile <a id="setMimeTypeFile"></a>
 
+Operation documentation: it tests if the specified file or directory exists or not.
 
-<code>bool : bool</code> 
+Invocation template:
 
+```text
+setMimeTypeFile@File( request )( response )
+```
 
-
-
-
-
-
-
-<h3 id="setMimeTypeFile">setMimeTypeFile</h3>
-
-Operation documentation: 
-	 it tests if the specified file or directory exists or not.
-	
-
-
-Invocation template: 
-<pre>setMimeTypeFile@File( request )( response )</pre>
-
-<h4>Request type</h4>
+#### Request type
 
 Type: string
 
+`string : string`
 
-
-
-<code>string : string</code> 
-
-
-
-<h4>Response type</h4>
+#### Response type
 
 Type: void
 
+`void : void`
 
+#### Possible faults thrown
 
+Fault `IOException` with type `IOExceptionType`
 
-<code>void : void</code> 
+Fault-handling install template:
 
+```text
+install ( IOException => /* error-handling code */ )
+```
 
+```text
+type IOExceptionType: JavaExceptionType
+```
 
+### deleteDir <a id="deleteDir"></a>
 
-<h4>Possible faults thrown</h4>
+Operation documentation: it deletes a directory recursively removing all its contents
 
+Invocation template:
 
-Fault <code>IOException</code> with type <code>IOExceptionType</code>
+```text
+deleteDir@File( request )( response )
+```
 
-Fault-handling install template: 
-<pre>install ( IOException => /* error-handling code */ )</pre>
-<pre>type IOExceptionType: JavaExceptionType</pre>
-
-
-
-<h3 id="deleteDir">deleteDir</h3>
-
-Operation documentation: 
-	   it deletes a directory recursively removing all its contents
-	
-
-
-Invocation template: 
-<pre>deleteDir@File( request )( response )</pre>
-
-<h4>Request type</h4>
+#### Request type
 
 Type: string
 
+`string : string`
 
-
-
-<code>string : string</code> 
-
-
-
-<h4>Response type</h4>
+#### Response type
 
 Type: bool
 
+`bool : bool`
 
+#### Possible faults thrown
 
+Fault `IOException` with type `IOExceptionType`
 
-<code>bool : bool</code> 
+Fault-handling install template:
 
+```text
+install ( IOException => /* error-handling code */ )
+```
 
+```text
+type IOExceptionType: JavaExceptionType
+```
 
+### getServiceDirectory <a id="getServiceDirectory"></a>
 
-<h4>Possible faults thrown</h4>
+Operation documentation: it tests if the specified file or directory exists or not.
 
+Invocation template:
 
-Fault <code>IOException</code> with type <code>IOExceptionType</code>
+```text
+getServiceDirectory@File( request )( response )
+```
 
-Fault-handling install template: 
-<pre>install ( IOException => /* error-handling code */ )</pre>
-<pre>type IOExceptionType: JavaExceptionType</pre>
-
-
-
-<h3 id="getServiceDirectory">getServiceDirectory</h3>
-
-Operation documentation: 
-	 it tests if the specified file or directory exists or not.
-	
-
-
-Invocation template: 
-<pre>getServiceDirectory@File( request )( response )</pre>
-
-<h4>Request type</h4>
+#### Request type
 
 Type: void
 
+`void : void`
 
-
-
-<code>void : void</code> 
-
-
-
-<h4>Response type</h4>
+#### Response type
 
 Type: string
 
+`string : string`
+
+#### Possible faults thrown
+
+Fault `IOException` with type `IOExceptionType`
+
+Fault-handling install template:
+
+```text
+install ( IOException => /* error-handling code */ )
+```
+
+```text
+type IOExceptionType: JavaExceptionType
+```
+
+### writeFile <a id="writeFile"></a>
+
+Operation documentation: Writes a Jolie structure out to an external file
+
+```text
+  Supported formats (WriteFileRequest.format):
+  - text (the default if base value not of type raw)
+  - binary (the default if base value of type raw)
+  - xml
+  - xml_store (a type-annotated XML format)
+  - json
 
 
+  Child values: text and binary only consider the content's (WriteFileRequest.content) base value, the other formats look at the child values as well.
+  - xml, xml_store: the XML root node will costitute the content's only child value, the rest gets read out recursively
+  - json: each child value corresponds to an attribute, the base values are saved as the default values (attribute "$" or singular value), the "_" helper childs disappear (e.g. a._[i]._[j] -> a[i][j]), the rest gets read out recursively
 
-<code>string : string</code> 
+     when format is xml and a schema is defined, the resulting xml follows the schema constraints.
+   Use "@NameSpace" in order to enable root element identification in the schema by specifing the namespace of the root.
+   Use "@Prefix" for forcing a prefix in an element.
+   Use "@ForceAttribute" for forcing an attribute in an element even if it is not defined in the corresponding schema
+```
 
+Invocation template:
 
+```text
+writeFile@File( request )( response )
+```
 
-
-<h4>Possible faults thrown</h4>
-
-
-Fault <code>IOException</code> with type <code>IOExceptionType</code>
-
-Fault-handling install template: 
-<pre>install ( IOException => /* error-handling code */ )</pre>
-<pre>type IOExceptionType: JavaExceptionType</pre>
-
-
-
-<h3 id="writeFile">writeFile</h3>
-
-Operation documentation: 
-	  Writes a Jolie structure out to an external file
-	 
-	  Supported formats (WriteFileRequest.format):
-	  - text (the default if base value not of type raw)
-	  - binary (the default if base value of type raw)
-	  - xml
-	  - xml_store (a type-annotated XML format)
-	  - json
-	 
-	 
-	  Child values: text and binary only consider the content's (WriteFileRequest.content) base value, the other formats look at the child values as well.
-	  - xml, xml_store: the XML root node will costitute the content's only child value, the rest gets read out recursively
-	  - json: each child value corresponds to an attribute, the base values are saved as the default values (attribute "$" or singular value), the "_" helper childs disappear (e.g. a._[i]._[j] -> a[i][j]), the rest gets read out recursively
-	 
-	 	when format is xml and a schema is defined, the resulting xml follows the schema constraints.
-	   Use "@NameSpace" in order to enable root element identification in the schema by specifing the namespace of the root.
-	   Use "@Prefix" for forcing a prefix in an element.
-	   Use "@ForceAttribute" for forcing an attribute in an element even if it is not defined in the corresponding schema
-	 
-
-
-Invocation template: 
-<pre>writeFile@File( request )( response )</pre>
-
-<h4 id="WriteFileRequest">Request type</h4>
+#### Request type <a id="WriteFileRequest"></a>
 
 Type: WriteFileRequest
 
+```text
+type WriteFileRequest: void {
+    .filename: string
+    .format?: string {
+        .schema*: string
+        .indent?: bool
+        .doctype_system?: string
+        .encoding?: string
+    }
+    .content: undefined
+    .append?: int
+}
+```
 
-<pre>type WriteFileRequest: void {
-	.filename: string
-	.format?: string {
-		.schema*: string
-		.indent?: bool
-		.doctype_system?: string
-		.encoding?: string
-	}
-	.content: undefined
-	.append?: int
-}</pre>
+`WriteFileRequest : void`
 
-<code>WriteFileRequest : void</code> 
+* `filename : string`
+* `format : string`
+  * `schema : string`
+  * `indent : bool`
+  * `doctype_system : string`
+  * `encoding : string`
+* `content : any`
+* `append : int`
 
-<ul>
-
-  <li><code>filename : string</code> 
-</li>
-
-  <li><code>format : string</code> 
-
-<ul>
-
-  <li><code>schema : string</code> 
-</li>
-
-  <li><code>indent : bool</code> 
-</li>
-
-  <li><code>doctype_system : string</code> 
-</li>
-
-  <li><code>encoding : string</code> 
-</li>
-
-</ul>
-</li>
-
-  <li><code>content : any</code> 
-</li>
-
-  <li><code>append : int</code> 
-</li>
-
-</ul>
-
-
-
-<h4>Response type</h4>
+#### Response type
 
 Type: void
 
+`void : void`
 
+#### Possible faults thrown
 
+Fault `FileNotFound` with type `FileNotFoundType`
 
-<code>void : void</code> 
+Fault-handling install template:
 
+```text
+install ( FileNotFound => /* error-handling code */ )
+```
 
+```text
+type FileNotFoundType: WeakJavaExceptionType
+```
 
+Fault `IOException` with type `IOExceptionType`
 
-<h4>Possible faults thrown</h4>
+Fault-handling install template:
 
+```text
+install ( IOException => /* error-handling code */ )
+```
 
-Fault <code>FileNotFound</code> with type <code>FileNotFoundType</code>
+```text
+type IOExceptionType: JavaExceptionType
+```
 
-Fault-handling install template: 
-<pre>install ( FileNotFound => /* error-handling code */ )</pre>
-<pre>type FileNotFoundType: WeakJavaExceptionType</pre>
+### mkdir <a id="mkdir"></a>
 
+Operation documentation:
 
-Fault <code>IOException</code> with type <code>IOExceptionType</code>
+```text
+ it creates the directory specified in the request root. Returns true if the directory has been
+ created with success, false otherwise
+```
 
-Fault-handling install template: 
-<pre>install ( IOException => /* error-handling code */ )</pre>
-<pre>type IOExceptionType: JavaExceptionType</pre>
+Invocation template:
 
+```text
+mkdir@File( request )( response )
+```
 
-
-<h3 id="mkdir">mkdir</h3>
-
-Operation documentation: 
-	
-	 it creates the directory specified in the request root. Returns true if the directory has been
-	 created with success, false otherwise
-	
-
-
-Invocation template: 
-<pre>mkdir@File( request )( response )</pre>
-
-<h4>Request type</h4>
-
-Type: string
-
-
-
-
-<code>string : string</code> 
-
-
-
-<h4>Response type</h4>
-
-Type: bool
-
-
-
-
-<code>bool : bool</code> 
-
-
-
-
-
-
-
-
-<h3 id="isDirectory">isDirectory</h3>
-
-Operation documentation: 
-	  it returns if a filename is a directory or not. False if the file does not exist.
-	
-
-
-Invocation template: 
-<pre>isDirectory@File( request )( response )</pre>
-
-<h4>Request type</h4>
+#### Request type
 
 Type: string
 
+`string : string`
 
-
-
-<code>string : string</code> 
-
-
-
-<h4>Response type</h4>
+#### Response type
 
 Type: bool
 
+`bool : bool`
 
+### isDirectory <a id="isDirectory"></a>
 
+Operation documentation: it returns if a filename is a directory or not. False if the file does not exist.
 
-<code>bool : bool</code> 
+Invocation template:
 
+```text
+isDirectory@File( request )( response )
+```
 
+#### Request type
 
+Type: string
 
-<h4>Possible faults thrown</h4>
+`string : string`
 
+#### Response type
 
-Fault <code>FileNotFound</code> with type <code>FileNotFoundType</code>
+Type: bool
 
-Fault-handling install template: 
-<pre>install ( FileNotFound => /* error-handling code */ )</pre>
-<pre>type FileNotFoundType: WeakJavaExceptionType</pre>
+`bool : bool`
 
+#### Possible faults thrown
 
-Fault <code>IOException</code> with type <code>IOExceptionType</code>
+Fault `FileNotFound` with type `FileNotFoundType`
 
-Fault-handling install template: 
-<pre>install ( IOException => /* error-handling code */ )</pre>
-<pre>type IOExceptionType: JavaExceptionType</pre>
+Fault-handling install template:
 
+```text
+install ( FileNotFound => /* error-handling code */ )
+```
 
+```text
+type FileNotFoundType: WeakJavaExceptionType
+```
 
-<h3>Subtypes</h3>
+Fault `IOException` with type `IOExceptionType`
 
+Fault-handling install template:
 
-<h4 id="JavaExceptionType">JavaExceptionType</h4>
+```text
+install ( IOException => /* error-handling code */ )
+```
 
+```text
+type IOExceptionType: JavaExceptionType
+```
 
+### Subtypes
 
-<pre>type JavaExceptionType: string {
-	.stackTrace: string
-}</pre>
-<code>JavaExceptionType : string</code> 
+#### JavaExceptionType <a id="JavaExceptionType"></a>
 
+```
+type JavaExceptionType: string { .stackTrace: string }
+```
 
-<h4 id="WeakJavaExceptionType">WeakJavaExceptionType</h4>
+#### WeakJavaExceptionType <a id="WeakJavaExceptionType"></a>
 
-
-
-<pre>type WeakJavaExceptionType: any {
-	.stackTrace?: string
-}</pre>
-<code>WeakJavaExceptionType : any</code> 
-
-
-
+```
+type WeakJavaExceptionType: any { .stackTrace?: string }
+```
 

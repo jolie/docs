@@ -1,365 +1,248 @@
-# Include library: zip_utils.iol
+# ZipUtils
 
-Inclusion code: <pre>include "zip_utils.iol"</pre>
+Inclusion code: 
 
-<table>
-  <caption>Service Deployment</caption>
-  <thead>
-    <tr>
-      <th>Port Name</th>
-      <th>Location</th>
-      <th>Protocol</th>
-      <th>Interfaces</th>
-    </tr>
-  </thead>
-  <tbody><tr><td>ZipUtils documentation: </td></tr>
-    <tr>
-      <td>ZipUtils</td>
-      <td>-</td>
-      <td>-</td>
-      <td><a href="#ZipUtilsInterface">ZipUtilsInterface</a></td>
-    </tr>
-  </tbody>
-</table>
+| Service Deployment |  |  |  |
+| :--- | :--- | :--- | :--- |
+| Port Name | Location | Protocol | Interfaces |
+| ZipUtils documentation: |  |  |  |
+| ZipUtils | - | - | [ZipUtilsInterface](zip_utils.md#ZipUtilsInterface) |
 
-<h3>List of Available Interfaces</h3>
+### List of Available Interfaces
 
-<h3 id="ZipUtilsInterface">ZipUtilsInterface</h3>
+### ZipUtilsInterface <a id="ZipUtilsInterface"></a>
 
-Interface documentation: 
+Interface documentation:
 
-<table>
-  <thead>
-    <tr>
-      <th>Operation Name</th>
-      <th>Input Type</th>
-      <th>Output Type</th>
-      <th>Faults</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><a href="#zip">zip</a></td>
-      <td><a href="#ZipRequest">ZipRequest</a></td>
-      <td>raw</td>
-      <td>
-        IOException( <a href="#IOExceptionType">IOExceptionType</a> )
-      </td>
-    </tr>
-    <tr>
-      <td><a href="#IOException">IOException</a></td>
-      <td>undefined</a></td>
-      <td>undefined</td>
-      <td>
-      </td>
-    </tr>
-    <tr>
-      <td><a href="#unzip">unzip</a></td>
-      <td><a href="#UnzipRequest">UnzipRequest</a></td>
-      <td><a href="#UnzipResponse">UnzipResponse</a></td>
-      <td>
-        FileNotFound( undefined )
-      </td>
-    </tr>
-    <tr>
-      <td><a href="#readEntry">readEntry</a></td>
-      <td><a href="#ReadEntryRequest">ReadEntryRequest</a></td>
-      <td>any</td>
-      <td>
-        IOException( <a href="#IOExceptionType">IOExceptionType</a> )
-      </td>
-    </tr>
-    <tr>
-      <td><a href="#listEntries">listEntries</a></td>
-      <td><a href="#ListEntriesRequest">ListEntriesRequest</a></td>
-      <td><a href="#ListEntriesResponse">ListEntriesResponse</a></td>
-      <td>
-        IOException( <a href="#IOExceptionType">IOExceptionType</a> )
-      </td>
-    </tr>
-  </tbody>
-</table>
+| Operation Name | Input Type | Output Type | Faults |
+| :--- | :--- | :--- | :--- |
+| [zip](zip_utils.md#zip) | [ZipRequest](zip_utils.md#ZipRequest) | raw |  IOException\( [IOExceptionType](zip_utils.md#IOExceptionType) \) |
+| [IOException](zip_utils.md#IOException) | undefined | undefined |  |
+| [unzip](zip_utils.md#unzip) | [UnzipRequest](zip_utils.md#UnzipRequest) | [UnzipResponse](zip_utils.md#UnzipResponse) |  FileNotFound\( undefined \) |
+| [readEntry](zip_utils.md#readEntry) | [ReadEntryRequest](zip_utils.md#ReadEntryRequest) | any |  IOException\( [IOExceptionType](zip_utils.md#IOExceptionType) \) |
+| [listEntries](zip_utils.md#listEntries) | [ListEntriesRequest](zip_utils.md#ListEntriesRequest) | [ListEntriesResponse](zip_utils.md#ListEntriesResponse) |  IOException\( [IOExceptionType](zip_utils.md#IOExceptionType) \) |
 
-<h2>Operation Description</h2>
+## Operation Description
 
+### zip <a id="zip"></a>
 
+Operation documentation:
 
-<h3 id="zip">zip</h3>
+Invocation template:
 
-Operation documentation: 
+```text
+zip@ZipUtils( request )( response )
+```
 
-
-Invocation template: 
-<pre>zip@ZipUtils( request )( response )</pre>
-
-<h4 id="ZipRequest">Request type</h4>
+#### Request type <a id="ZipRequest"></a>
 
 Type: ZipRequest
 
+```text
+type ZipRequest: undefined
+```
 
-<pre>type ZipRequest: undefined</pre>
+`ZipRequest : void`
 
-<code>ZipRequest : void</code> 
-
-
-
-<h4>Response type</h4>
+#### Response type
 
 Type: raw
 
+`raw : raw`
 
+#### Possible faults thrown
 
+Fault `IOException` with type `IOExceptionType`
 
-<code>raw : raw</code> 
+Fault-handling install template:
 
+```text
+install ( IOException => /* error-handling code */ )
+```
 
+```text
+type IOExceptionType: JavaExceptionType
+```
 
+### IOException <a id="IOException"></a>
 
-<h4>Possible faults thrown</h4>
+Operation documentation:
 
+Invocation template:
 
-Fault <code>IOException</code> with type <code>IOExceptionType</code>
+```text
+IOException@ZipUtils( request )( response )
+```
 
-Fault-handling install template: 
-<pre>install ( IOException => /* error-handling code */ )</pre>
-<pre>type IOExceptionType: JavaExceptionType</pre>
-
-
-
-<h3 id="IOException">IOException</h3>
-
-Operation documentation: 
-
-
-Invocation template: 
-<pre>IOException@ZipUtils( request )( response )</pre>
-
-<h4>Request type</h4>
-
-Type: undefined
-
-
-
-
-<code>undefined : any</code> 
-
-
-
-<h4>Response type</h4>
+#### Request type
 
 Type: undefined
 
+`undefined : any`
 
+#### Response type
 
+Type: undefined
 
-<code>undefined : any</code> 
+`undefined : any`
 
+### unzip <a id="unzip"></a>
 
+Operation documentation:
 
+Invocation template:
 
+```text
+unzip@ZipUtils( request )( response )
+```
 
-
-
-
-<h3 id="unzip">unzip</h3>
-
-Operation documentation: 
-
-
-Invocation template: 
-<pre>unzip@ZipUtils( request )( response )</pre>
-
-<h4 id="UnzipRequest">Request type</h4>
+#### Request type <a id="UnzipRequest"></a>
 
 Type: UnzipRequest
 
+```text
+type UnzipRequest: void {
+    .filename: string
+    .targetPath: string
+}
+```
 
-<pre>type UnzipRequest: void {
-	.filename: string
-	.targetPath: string
-}</pre>
+`UnzipRequest : void`
 
-<code>UnzipRequest : void</code> 
+* `filename : string`
+* `targetPath : string`
 
-<ul>
-
-  <li><code>filename : string</code> 
-</li>
-
-  <li><code>targetPath : string</code> 
-</li>
-
-</ul>
-
-
-
-<h4 id="UnzipResponse">Response type</h4>
+#### Response type <a id="UnzipResponse"></a>
 
 Type: UnzipResponse
 
+```text
+type UnzipResponse: void {
+    .entry*: string
+}
+```
 
-<pre>type UnzipResponse: void {
-	.entry*: string
-}</pre>
+`UnzipResponse : void`
 
-<code>UnzipResponse : void</code> 
+* `entry : string`
 
-<ul>
+#### Possible faults thrown
 
-  <li><code>entry : string</code> 
-</li>
+Fault `FileNotFound` with type `undefined`
 
-</ul>
+Fault-handling install template:
 
+```text
+install ( FileNotFound => /* error-handling code */ )
+```
 
+### readEntry <a id="readEntry"></a>
 
+Operation documentation:
 
-<h4>Possible faults thrown</h4>
+Invocation template:
 
+```text
+readEntry@ZipUtils( request )( response )
+```
 
-Fault <code>FileNotFound</code> with type <code>undefined</code>
-
-Fault-handling install template: 
-<pre>install ( FileNotFound => /* error-handling code */ )</pre>
-
-
-
-
-<h3 id="readEntry">readEntry</h3>
-
-Operation documentation: 
-
-
-Invocation template: 
-<pre>readEntry@ZipUtils( request )( response )</pre>
-
-<h4 id="ReadEntryRequest">Request type</h4>
+#### Request type <a id="ReadEntryRequest"></a>
 
 Type: ReadEntryRequest
 
+```text
+type ReadEntryRequest: void {
+    .entry: string
+    .filename?: string
+    .archive?: raw
+}
+```
 
-<pre>type ReadEntryRequest: void {
-	.entry: string
-	.filename?: string
-	.archive?: raw
-}</pre>
+`ReadEntryRequest : void`
 
-<code>ReadEntryRequest : void</code> 
+* `entry : string`
+* `filename : string`
+* `archive : raw`
 
-<ul>
-
-  <li><code>entry : string</code> 
-</li>
-
-  <li><code>filename : string</code> 
-</li>
-
-  <li><code>archive : raw</code> 
-</li>
-
-</ul>
-
-
-
-<h4>Response type</h4>
+#### Response type
 
 Type: any
 
+`any : any`
 
+#### Possible faults thrown
 
+Fault `IOException` with type `IOExceptionType`
 
-<code>any : any</code> 
+Fault-handling install template:
 
+```text
+install ( IOException => /* error-handling code */ )
+```
 
+```text
+type IOExceptionType: JavaExceptionType
+```
 
+### listEntries <a id="listEntries"></a>
 
-<h4>Possible faults thrown</h4>
+Operation documentation:
 
+Invocation template:
 
-Fault <code>IOException</code> with type <code>IOExceptionType</code>
+```text
+listEntries@ZipUtils( request )( response )
+```
 
-Fault-handling install template: 
-<pre>install ( IOException => /* error-handling code */ )</pre>
-<pre>type IOExceptionType: JavaExceptionType</pre>
-
-
-
-<h3 id="listEntries">listEntries</h3>
-
-Operation documentation: 
-
-
-Invocation template: 
-<pre>listEntries@ZipUtils( request )( response )</pre>
-
-<h4 id="ListEntriesRequest">Request type</h4>
+#### Request type <a id="ListEntriesRequest"></a>
 
 Type: ListEntriesRequest
 
+```text
+type ListEntriesRequest: void {
+    .filename?: string
+    .archive?: raw
+}
+```
 
-<pre>type ListEntriesRequest: void {
-	.filename?: string
-	.archive?: raw
-}</pre>
+`ListEntriesRequest : void`
 
-<code>ListEntriesRequest : void</code> 
+* `filename : string`
+* `archive : raw`
 
-<ul>
-
-  <li><code>filename : string</code> 
-</li>
-
-  <li><code>archive : raw</code> 
-</li>
-
-</ul>
-
-
-
-<h4 id="ListEntriesResponse">Response type</h4>
+#### Response type <a id="ListEntriesResponse"></a>
 
 Type: ListEntriesResponse
 
+```text
+type ListEntriesResponse: void {
+    .entry*: string
+}
+```
 
-<pre>type ListEntriesResponse: void {
-	.entry*: string
-}</pre>
+`ListEntriesResponse : void`
 
-<code>ListEntriesResponse : void</code> 
+* `entry : string`
 
-<ul>
+#### Possible faults thrown
 
-  <li><code>entry : string</code> 
-</li>
+Fault `IOException` with type `IOExceptionType`
 
-</ul>
+Fault-handling install template:
 
+```text
+install ( IOException => /* error-handling code */ )
+```
 
+```text
+type IOExceptionType: JavaExceptionType
+```
 
+### Subtypes
 
-<h4>Possible faults thrown</h4>
+#### JavaExceptionType <a id="JavaExceptionType"></a>
 
-
-Fault <code>IOException</code> with type <code>IOExceptionType</code>
-
-Fault-handling install template: 
-<pre>install ( IOException => /* error-handling code */ )</pre>
-<pre>type IOExceptionType: JavaExceptionType</pre>
-
-
-
-<h3>Subtypes</h3>
-
-
-<h4 id="JavaExceptionType">JavaExceptionType</h4>
-
-
-
-<pre>type JavaExceptionType: string {
-	.stackTrace: string
-}</pre>
-<code>JavaExceptionType : string</code> 
-
-
-
+```
+type JavaExceptionType: string { .stackTrace: string }
+```
 

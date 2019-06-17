@@ -2,22 +2,24 @@
 
 ## Stateful sessions
 
-Usually a service provides *loosely coupled* operations, which means that there is no correlation among the different invocations of different operatons. Each invocation can be considered as independent from the others. Neverthless, it could happen that we need to design sessions which can receive messages more than once from external invokers. In these cases, we need to correctly route the incoming messages to the right session. 
+Usually a service provides _loosely coupled_ operations, which means that there is no correlation among the different invocations of different operatons. Each invocation can be considered as independent from the others. Neverthless, it could happen that we need to design sessions which can receive messages more than once from external invokers. In these cases, we need to correctly route the incoming messages to the right session.
 
-Let us clarify with an example. Assume a scenario where there is a service which allows two users for playing tris game. The tris game service will keep each game into a specific session. A user can participate to different games, thus it needs to send its move to the right session for correctly playing the game. 
+Let us clarify with an example. Assume a scenario where there is a service which allows two users for playing tris game. The tris game service will keep each game into a specific session. A user can participate to different games, thus it needs to send its move to the right session for correctly playing the game.
 
-![](../../.gitbook/assets/tris.png)
+![](../.gitbook/assets/tris.png)
 
 If you are curious on seeing how a tris game can be implemented in Jolie, you can find the code at this [link](https://github.com/jolie/examples/tree/master/02_basics/5_sessions/tris)
 
 In this case, we need to route each user message to the right session it is involved in. Such an issue is solved by sending for each message an extra information, usually a session identifier, for correctly routing the message on the server side. We call these kind of information _correlation sets_.
 
 ## Correlation sets
-Jolie supports incoming message routing to behaviour instances by means of _correlation sets_. Correlation sets are a generalisation of session identifiers: instead of referring to a single variable for identifying behaviour instances, a correlation set allows the programmer to refer to the combination of multiple variables, called _correlation variables_. In common web application frameworks this issue is covered by _sid_ session identifier, a unique key usually stored as a browser cookie. 
+
+Jolie supports incoming message routing to behaviour instances by means of _correlation sets_. Correlation sets are a generalisation of session identifiers: instead of referring to a single variable for identifying behaviour instances, a correlation set allows the programmer to refer to the combination of multiple variables, called _correlation variables_. In common web application frameworks this issue is covered by _sid_ session identifier, a unique key usually stored as a browser cookie.
 
 Correlation set programming deals both with the deployment and behavioural parts. In particular, the former must declare the correlation sets, instructing the interpreter on how to relate incoming messages to internal behaviour instances. The latter instead has to assign the concrete values to the correlation variables.
 
 In the deployment part the cset is defined as it follows:
+
 ```text
 cset {
    <variable name>: <List of type paths coupled with the correlation variable>
@@ -25,24 +27,29 @@ cset {
 ```
 
 In the behaviural part, the cset is initialized as it follows:
+
 ```text
    csets.<variable name> = <variable value>
 ```
-A precise definition of the syntax can be found in the [section below](#correlation-sets-syntax) 
 
-![](../../.gitbook/assets/cset.png)
+A precise definition of the syntax can be found in the [section below](sessions.md#correlation-sets-syntax)
+
+![](../.gitbook/assets/cset.png)
 
 When a message is received, the intepreter looks into the message for finding the node which contains the value to be compared with the correlation values. In the diagram above, the variable _x_ is correlation variable and it can be found in the message of type _MyRequest_ in the subnode _x_.
 
-![](../../.gitbook/assets/cset_messages.png)
+![](../.gitbook/assets/cset_messages.png)
 
 In the example of the tris game, the cset is defined in file _tris.ol_ as it follows:
+
 ```text
 cset {
     token: MoveRequest.game_token
 }
 ```
+
 where _MoveRequest_ is a message type related to operation _move_ defined in the interface _TrisGameInterface_.
+
 ```text
  type MoveRequest: void {
     .game_token: string
@@ -50,7 +57,8 @@ where _MoveRequest_ is a message type related to operation _move_ defined in the
     .place: int
 }
 ```
-It is worth noting that the correlation variable is named _token_ but it can be found in node _game_token_ within the type _MoveRequest_. Let us now commenting the behavioural part of the example: a game is started by means of operation _startGame_ sent from a user to the tris service. If the startGame message does not contain any token, a new game token is generated by means of the primitive _new_ together a a specific token for each participant, that which plays with circles and that which plays with crosses.
+
+It is worth noting that the correlation variable is named _token_ but it can be found in node _game\_token_ within the type _MoveRequest_. Let us now commenting the behavioural part of the example: a game is started by means of operation _startGame_ sent from a user to the tris service. If the startGame message does not contain any token, a new game token is generated by means of the primitive _new_ together a a specific token for each participant, that which plays with circles and that which plays with crosses.
 
 ```text
 token = new;
@@ -59,17 +67,21 @@ global.games.( token ).circle_participant = new;
 ...
 global.games.( token ).cross_participant = new;
 ```
-All these token are stored into an hashmap at the level of a global variable. The circle and the game token are returned to the caller which starts to wait for a contender. When a second user calls the operation _startGame_ by specifying a game token of an existing pending game (retrieved thanks to the operation _listOpenGames_), the game can be initiated and the second user receives the token for playing with the cross and the game token. At this point, the server calls itself on the operation _initiateGame_ sending all the tokens.
+
+All these token are stored into an hashmap at the level of a global variable. The circle and the game token are returned to the caller which starts to wait for a contender. When a second user calls the operation _startGame_ by specifying a game token of an existing pending game \(retrieved thanks to the operation _listOpenGames_\), the game can be initiated and the second user receives the token for playing with the cross and the game token. At this point, the server calls itself on the operation _initiateGame_ sending all the tokens.
 
 The session started by the invocation of operation _iniateGame_ is actually the game session to which the players must send their moves. Indeed, the fist action performed by such a session is the initialization of the correlation variable _token_ with the actual token of the game:
 
 ```text
 csets.token = request.game_token;
 ```
-Then a loop is started for managing the right moves from the players. Each of them receives the actual status of the game on the operation _syncPlaces_ and they will send their moves using the operation _move_. As we shown before, the message of operation _move_ contains the node _game_token_ which brings the actual token to be correlated with the variable _token_.
+
+Then a loop is started for managing the right moves from the players. Each of them receives the actual status of the game on the operation _syncPlaces_ and they will send their moves using the operation _move_. As we shown before, the message of operation _move_ contains the node _game\_token_ which brings the actual token to be correlated with the variable _token_.
 
 ## The primitive `new`
+
 Jolie provides the primitive `new` which returns a _fresh_ value to a correlation variable. `new` guarantees to return a value never returned by one of its previous calls. Its usage is very simple, it is sufficient to assign a variable with the value _new_:
+
 ```text
 x = new
 ```
@@ -212,13 +224,13 @@ It is worth noting that the correlation variable `sid` is linked to aliases `Sub
 
 Multiple correlation sets can be used in order to manage distributed scenarios. In the [authentication example](https://github.com/jolie/examples/tree/master/02_basics/5_sessions/authentication) we model the case of an application which delegates the authentication phase to an external _identity provider_.
 
-![](../../.gitbook/assets/authentication.png)
+![](../.gitbook/assets/authentication.png)
 
 The sequence chart of the exchanged messages follows:
 
-![](../../.gitbook/assets/auth_sequence_chart.svg)
+![](../.gitbook/assets/auth_sequence_chart.svg)
 
-First of all the _user_ call the _application_ for requesting a login and it is redirected to the _identity provider_. Before replying to the user, the _application_ opens an authentication session on the identity provider (calling the operation _openAuthentication_) which returns a correlation identifier called _auth_token_. The _auth_token_ is sent also to the user. At this point, the user can sends its credential to the _identity_provider_ together with the _auth_token_ in order to be authenticated. If the authentication has success, the _identity_provider_ sends a success to the _application_, a _failure_ otherwise. Finally, the user can check if it has access to the application calling the operation _getResult_, together with the _session_id_, on the _application_. The _session_id_ is generated by the _application_ after receiving the reply from the _identity_provider_.
+First of all the _user_ call the _application_ for requesting a login and it is redirected to the _identity provider_. Before replying to the user, the _application_ opens an authentication session on the identity provider \(calling the operation _openAuthentication_\) which returns a correlation identifier called _auth\_token_. The _auth\_token_ is sent also to the user. At this point, the user can sends its credential to the _identity\_provider_ together with the _auth\_token_ in order to be authenticated. If the authentication has success, the _identity\_provider_ sends a success to the _application_, a _failure_ otherwise. Finally, the user can check if it has access to the application calling the operation _getResult_, together with the _session\_id_, on the _application_. The _session\_id_ is generated by the _application_ after receiving the reply from the _identity\_provider_.
 
 It is worth noting that the in the application we define two correlation sets:
 
@@ -234,7 +246,8 @@ cset {
               ExitApplicationRequest.session_id
 }
 ```
-The former permits to identify the session thanks to _auth_token_ whereas the latter exploits the _session_id_. Both of them identify the same session, but the token _auth_token_ is used for identifying the messages related to the _identity_provider_ whereas the _session_id_ it is used for identifying the session initiated by the user into the application. Once logged indeed, the _auth_token_ is not used anymore, whereas the _session_id_ can be used by the user for accessing the application. It is worth noting that, after the reception of a success or a failure by the application, the _auth_token_ is still available as a variable inside the session. But, since there are no more operations correlated with it in the behaviour (only the operations _getResult_, _printMessage_ and _exitApplication_ can be used), it is not possible that the _auth_token_ can be used again for correlating the session.
+
+The former permits to identify the session thanks to _auth\_token_ whereas the latter exploits the _session\_id_. Both of them identify the same session, but the token _auth\_token_ is used for identifying the messages related to the _identity\_provider_ whereas the _session\_id_ it is used for identifying the session initiated by the user into the application. Once logged indeed, the _auth\_token_ is not used anymore, whereas the _session\_id_ can be used by the user for accessing the application. It is worth noting that, after the reception of a success or a failure by the application, the _auth\_token_ is still available as a variable inside the session. But, since there are no more operations correlated with it in the behaviour \(only the operations _getResult_, _printMessage_ and _exitApplication_ can be used\), it is not possible that the _auth\_token_ can be used again for correlating the session.
 
 ## The provide-until statement
 

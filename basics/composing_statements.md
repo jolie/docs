@@ -1,16 +1,18 @@
 # Composing Statements
 
-## Defining a Jolie application behaviour
+## Composing Statements
+
+### Defining a Jolie application behaviour
 
 The behaviour of a Jolie application is defined by conditions, loops, and statement execution rules.
 
 Whilst conditions and loops implement the standard conditional and iteration constructs, execution rules defines the priority among code blocks.
 
-# Behavioural operators
+## Behavioural operators
 
 Jolie offers three kinds of operators to compose statements in sequence, parallel, or as a set of input choices.
 
-## Sequence
+### Sequence
 
 The sequence operator `;` denotes that the left operand of the statement is executed _before_ the one on the right. The sequence operator syntax is:
 
@@ -28,8 +30,7 @@ main
 }
 ```
 
-**Attention.**
-Keep in mind that, in Jolie, `;` is NOT the "end of statement" marker. For the sake of clarity, let us consider an INVALID use of the sequence operator:
+**Attention.** Keep in mind that, in Jolie, `;` is NOT the "end of statement" marker. For the sake of clarity, let us consider an INVALID use of the sequence operator:
 
 ```text
 main
@@ -38,7 +39,7 @@ main
     println@Console( "world!" )(); //
 ```
 
-## Parallel
+### Parallel
 
 The parallel operator `|` states that both left and right operands are executed _concurrently_. The syntax of the parallel operator is:
 
@@ -66,10 +67,11 @@ A ; B | C ; D
 
 Parallel execution is especially useful when dealing with multiple services, in order to minimize waiting times by managing multiple communications at once.
 
-In this example we consider the scenario where there are three services: 
-- trafficService: it provides information about traffic for a given city
-- forecastServyce: it provides information about forecasts for a given city (in the specific case it just provides the current temperature)
-- infoService: it concurrently retrieves information from both the forecast and the  traffic service:
+In this example we consider the scenario where there are three services:
+
+* trafficService: it provides information about traffic for a given city
+* forecastServyce: it provides information about forecasts for a given city \(in the specific case it just provides the current temperature\)
+* infoService: it concurrently retrieves information from both the forecast and the  traffic service:
 
 ![](../.gitbook/assets/arch_parallel_example.png)
 
@@ -90,9 +92,9 @@ main {
 
 Concurrent access to shared variables can be restricted through [synchronized](https://jolielang.gitbook.io/docs/basics/processes) blocks.
 
-# Statements
+## Statements
 
-## Input choice
+### Input choice
 
 The input choice implements **input-guarded choice**. Namely, it supports the receiving of a message for any of the statements in the choice. When a message for an input statement `IS_i` can be received, then all the other branches are deactivated and `IS_i` is executed. Afterwards, the related branch behaviour `branch_code_1` is executed. A static check enforces all the input choices to have different operations, so to avoid ambiguity.
 
@@ -116,11 +118,9 @@ Let us consider the example below in which only `buy` or `sell` operation can ex
 }] { println@Console( "Sell order forwarded" )() }
 ```
 
-Note that input choice are used also as the first statement of the behaviour in order to specify all the available operations for that service. In this case all the operations are available to be called from external clients.
-In the link below we modified the example presented in the previous section (Parallel) where in the forecast service we specify two operations inside a input choice.
-[Click here to get the example code.](https://github.com/jolie/examples/tree/master/02_basics/2_input_choice)
+Note that input choice are used also as the first statement of the behaviour in order to specify all the available operations for that service. In this case all the operations are available to be called from external clients. In the link below we modified the example presented in the previous section \(Parallel\) where in the forecast service we specify two operations inside a input choice. [Click here to get the example code.](https://github.com/jolie/examples/tree/master/02_basics/2_input_choice)
 
-## Conditions and conditional statement
+### Conditions and conditional statement
 
 Conditions are used in control flow statements in order to check a boolean expression. Conditions can use the following relational operators:
 
@@ -168,7 +168,7 @@ if ( !is_int( a ) ) {
 }
 ```
 
-## for and while
+### for and while
 
 The `while` statement executes a code block as long as its condition is true.
 
@@ -198,7 +198,7 @@ main {
 }
 ```
 
-### Iterating over arrays
+#### Iterating over arrays
 
 **Attention.** Arrays and the `#` operator are explained in detail in the [Data Structures](https://jolielang.gitbook.io/docs/basics/data_structures) section.
 

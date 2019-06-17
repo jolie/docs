@@ -1,17 +1,15 @@
 # Example
 
-Here we discuss a simple example where both OneWay/Notification and RequestResponse/SolicitResponse primitives are used.
-The complete code can be checked and downloaded at this [link](https://github.com/jolie/examples/tree/master/02_basics/1_ports/newspaper).
+Here we discuss a simple example where both OneWay/Notification and RequestResponse/SolicitResponse primitives are used. The complete code can be checked and downloaded at this [link](https://github.com/jolie/examples/tree/master/02_basics/1_ports/newspaper).
 
 The example's architecture is reported below.
 
 ![](../../.gitbook/assets/newspaper.png)
 
-A newspaper service collects news sent by authors, users can get all the registered news into the newspaper.
-The interface of the newspaper service defines two operations: 
+A newspaper service collects news sent by authors, users can get all the registered news into the newspaper. The interface of the newspaper service defines two operations:
 
-* *sendNews* which is a OneWay operation used by authors for sending news to the newspaper service
-* *getNews* which is a RequestResponse operation used by users for getting the list of the registered news
+* _sendNews_ which is a OneWay operation used by authors for sending news to the newspaper service
+* _getNews_ which is a RequestResponse operation used by users for getting the list of the registered news
 
 ```text
 type News: void {
@@ -35,8 +33,8 @@ interface NewsPaperInterface {
       sendNews( SendNewsRequest )
 }
 ```
-The implementation of the two operations is very simple; we exploit a global variable for storing all the incoming news. When the *getNews* is invoked, we just return the list of the stored news.
-Details about the global variables can be found in section [Processes](../../basics/processes.md).
+
+The implementation of the two operations is very simple; we exploit a global variable for storing all the incoming news. When the _getNews_ is invoked, we just return the list of the stored news. Details about the global variables can be found in section [Processes](../processes.md).
 
 ```text
 include "NewsPaperInterface.iol"
@@ -58,9 +56,7 @@ main {
 }
 ```
 
-The author and the user can invoke the *NewsPaper* by exploiting two jolie scripts, *author.ol* and *user.ol* respectively.
-The two scripts can be run in a separate shell with respect to the newspaper one.
-In the following we report the code of the twi scripts:
+The author and the user can invoke the _NewsPaper_ by exploiting two jolie scripts, _author.ol_ and _user.ol_ respectively. The two scripts can be run in a separate shell with respect to the newspaper one. In the following we report the code of the twi scripts:
 
 ```text
 //author.ol
@@ -88,8 +84,6 @@ main {
 }
 ```
 
-
-
 ```text
 //user.ol
 
@@ -113,5 +107,4 @@ main {
     }
 }
 ```
-
 

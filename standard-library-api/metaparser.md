@@ -1,806 +1,448 @@
-# Include library: metaparser.iol
+# MetaParser
 
-Inclusion code: <pre>include "metaparser.iol"</pre>
+Inclusion code: 
 
-<table>
-  <caption>Service Deployment</caption>
-  <thead>
-    <tr>
-      <th>Port Name</th>
-      <th>Location</th>
-      <th>Protocol</th>
-      <th>Interfaces</th>
-    </tr>
-  </thead>
-  <tbody><tr><td>Parser documentation: </td></tr>
-    <tr>
-      <td>Parser</td>
-      <td>-</td>
-      <td>-</td>
-      <td><a href="#ParserInterface">ParserInterface</a></td>
-    </tr>
-  </tbody>
-</table>
+| Service Deployment |  |  |  |
+| :--- | :--- | :--- | :--- |
+| Port Name | Location | Protocol | Interfaces |
+| Parser documentation: |  |  |  |
+| Parser | - | - | [ParserInterface](metaparser.md#ParserInterface) |
 
-<h3>List of Available Interfaces</h3>
+### List of Available Interfaces
 
-<h3 id="ParserInterface">ParserInterface</h3>
+### ParserInterface <a id="ParserInterface"></a>
 
-Interface documentation: 
+Interface documentation:
 
-<table>
-  <thead>
-    <tr>
-      <th>Operation Name</th>
-      <th>Input Type</th>
-      <th>Output Type</th>
-      <th>Faults</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><a href="#getSurface">getSurface</a></td>
-      <td><a href="#Port">Port</a></td>
-      <td>string</td>
-      <td>
-      </td>
-    </tr>
-    <tr>
-      <td><a href="#getNativeType">getNativeType</a></td>
-      <td><a href="#NativeType">NativeType</a></td>
-      <td>string</td>
-      <td>
-      </td>
-    </tr>
-    <tr>
-      <td><a href="#getInterface">getInterface</a></td>
-      <td><a href="#Interface">Interface</a></td>
-      <td>string</td>
-      <td>
-      </td>
-    </tr>
-    <tr>
-      <td><a href="#getTypeInLine">getTypeInLine</a></td>
-      <td><a href="#Type">Type</a></td>
-      <td>string</td>
-      <td>
-      </td>
-    </tr>
-    <tr>
-      <td><a href="#getSurfaceWithoutOutputPort">getSurfaceWithoutOutputPort</a></td>
-      <td><a href="#Port">Port</a></td>
-      <td>string</td>
-      <td>
-      </td>
-    </tr>
-    <tr>
-      <td><a href="#getType">getType</a></td>
-      <td><a href="#Type">Type</a></td>
-      <td>string</td>
-      <td>
-      </td>
-    </tr>
-    <tr>
-      <td><a href="#getOutputPort">getOutputPort</a></td>
-      <td><a href="#Port">Port</a></td>
-      <td>string</td>
-      <td>
-      </td>
-    </tr>
-    <tr>
-      <td><a href="#getSubType">getSubType</a></td>
-      <td><a href="#SubType">SubType</a></td>
-      <td>string</td>
-      <td>
-      </td>
-    </tr>
-    <tr>
-      <td><a href="#getInputPort">getInputPort</a></td>
-      <td><a href="#Port">Port</a></td>
-      <td>string</td>
-      <td>
-      </td>
-    </tr>
-    <tr>
-      <td><a href="#getCardinality">getCardinality</a></td>
-      <td><a href="#Cardinality">Cardinality</a></td>
-      <td>string</td>
-      <td>
-      </td>
-    </tr>
-  </tbody>
-</table>
+| Operation Name | Input Type | Output Type | Faults |
+| :--- | :--- | :--- | :--- |
+| [getSurface](metaparser.md#getSurface) | [Port](metaparser.md#Port) | string |  |
+| [getNativeType](metaparser.md#getNativeType) | [NativeType](metaparser.md#NativeType) | string |  |
+| [getInterface](metaparser.md#getInterface) | [Interface](metaparser.md#Interface) | string |  |
+| [getTypeInLine](metaparser.md#getTypeInLine) | [Type](metaparser.md#Type) | string |  |
+| [getSurfaceWithoutOutputPort](metaparser.md#getSurfaceWithoutOutputPort) | [Port](metaparser.md#Port) | string |  |
+| [getType](metaparser.md#getType) | [Type](metaparser.md#Type) | string |  |
+| [getOutputPort](metaparser.md#getOutputPort) | [Port](metaparser.md#Port) | string |  |
+| [getSubType](metaparser.md#getSubType) | [SubType](metaparser.md#SubType) | string |  |
+| [getInputPort](metaparser.md#getInputPort) | [Port](metaparser.md#Port) | string |  |
+| [getCardinality](metaparser.md#getCardinality) | [Cardinality](metaparser.md#Cardinality) | string |  |
 
-<h2>Operation Description</h2>
+## Operation Description
 
+### getSurface <a id="getSurface"></a>
 
+Operation documentation:
 
-<h3 id="getSurface">getSurface</h3>
+Invocation template:
 
-Operation documentation: 
+```text
+getSurface@Parser( request )( response )
+```
 
-
-Invocation template: 
-<pre>getSurface@Parser( request )( response )</pre>
-
-<h4 id="Port">Request type</h4>
+#### Request type <a id="Port"></a>
 
 Type: Port
 
+```text
+type Port: void {
+    .protocol: string
+    .interfaces*: Interface
+    .name: Name
+    .location: any
+}
+```
 
-<pre>type Port: void {
-	.protocol: string
-	.interfaces*: Interface
-	.name: Name
-	.location: any
-}</pre>
+`Port : void`
 
-<code>Port : void</code> 
+* `protocol : string`
+* `interfaces : void`
+* `name : void`
+* `location : any`
 
-<ul>
-
-  <li><code>protocol : string</code> 
-</li>
-
-  <li><code>interfaces : void</code> 
-</li>
-
-  <li><code>name : void</code> 
-</li>
-
-  <li><code>location : any</code> 
-</li>
-
-</ul>
-
-
-
-<h4>Response type</h4>
+#### Response type
 
 Type: string
 
+`string : string`
 
+### getNativeType <a id="getNativeType"></a>
 
+Operation documentation:
 
-<code>string : string</code> 
+Invocation template:
 
+```text
+getNativeType@Parser( request )( response )
+```
 
-
-
-
-
-
-
-<h3 id="getNativeType">getNativeType</h3>
-
-Operation documentation: 
-
-
-Invocation template: 
-<pre>getNativeType@Parser( request )( response )</pre>
-
-<h4 id="NativeType">Request type</h4>
+#### Request type <a id="NativeType"></a>
 
 Type: NativeType
 
+```text
+type NativeType: void {
+    .string_type?: bool
+    .void_type?: bool
+    .raw_type?: bool
+    .int_type?: bool
+    .any_type?: bool
+    .link?: void {
+        .domain?: string
+        .name: string
+    }
+    .bool_type?: bool
+    .double_type?: bool
+    .long_type?: bool
+}
+```
 
-<pre>type NativeType: void {
-	.string_type?: bool
-	.void_type?: bool
-	.raw_type?: bool
-	.int_type?: bool
-	.any_type?: bool
-	.link?: void {
-		.domain?: string
-		.name: string
-	}
-	.bool_type?: bool
-	.double_type?: bool
-	.long_type?: bool
-}</pre>
+`NativeType : void`
 
-<code>NativeType : void</code> 
+* `string_type : bool`
+* `void_type : bool`
+* `raw_type : bool`
+* `int_type : bool`
+* `any_type : bool`
+* `link : void`
+  * `domain : string`
+  * `name : string`
+* `bool_type : bool`
+* `double_type : bool`
+* `long_type : bool`
 
-<ul>
-
-  <li><code>string_type : bool</code> 
-</li>
-
-  <li><code>void_type : bool</code> 
-</li>
-
-  <li><code>raw_type : bool</code> 
-</li>
-
-  <li><code>int_type : bool</code> 
-</li>
-
-  <li><code>any_type : bool</code> 
-</li>
-
-  <li><code>link : void</code> 
-
-<ul>
-
-  <li><code>domain : string</code> 
-</li>
-
-  <li><code>name : string</code> 
-</li>
-
-</ul>
-</li>
-
-  <li><code>bool_type : bool</code> 
-</li>
-
-  <li><code>double_type : bool</code> 
-</li>
-
-  <li><code>long_type : bool</code> 
-</li>
-
-</ul>
-
-
-
-<h4>Response type</h4>
+#### Response type
 
 Type: string
 
+`string : string`
 
+### getInterface <a id="getInterface"></a>
 
+Operation documentation:
 
-<code>string : string</code> 
+Invocation template:
 
+```text
+getInterface@Parser( request )( response )
+```
 
-
-
-
-
-
-
-<h3 id="getInterface">getInterface</h3>
-
-Operation documentation: 
-
-
-Invocation template: 
-<pre>getInterface@Parser( request )( response )</pre>
-
-<h4 id="Interface">Request type</h4>
+#### Request type <a id="Interface"></a>
 
 Type: Interface
 
+```text
+type Interface: void {
+    .types*: Type
+    .operations*: Operation
+    .name: Name
+}
+```
 
-<pre>type Interface: void {
-	.types*: Type
-	.operations*: Operation
-	.name: Name
-}</pre>
+`Interface : void`
 
-<code>Interface : void</code> 
+* `types : void`
+* `operations : void`
+* `name : void`
 
-<ul>
-
-  <li><code>types : void</code> 
-</li>
-
-  <li><code>operations : void</code> 
-</li>
-
-  <li><code>name : void</code> 
-</li>
-
-</ul>
-
-
-
-<h4>Response type</h4>
+#### Response type
 
 Type: string
 
+`string : string`
 
+### getTypeInLine <a id="getTypeInLine"></a>
 
+Operation documentation:
 
-<code>string : string</code> 
+Invocation template:
 
+```text
+getTypeInLine@Parser( request )( response )
+```
 
-
-
-
-
-
-
-<h3 id="getTypeInLine">getTypeInLine</h3>
-
-Operation documentation: 
-
-
-Invocation template: 
-<pre>getTypeInLine@Parser( request )( response )</pre>
-
-<h4 id="Type">Request type</h4>
+#### Request type <a id="Type"></a>
 
 Type: Type
 
+```text
+type Type: void {
+    .root_type: NativeType
+    .sub_type*: SubType
+    .name: Name
+}
+```
 
-<pre>type Type: void {
-	.root_type: NativeType
-	.sub_type*: SubType
-	.name: Name
-}</pre>
+`Type : void`
 
-<code>Type : void</code> 
+* `root_type : void`
+* `sub_type : void`
+* `name : void`
 
-<ul>
-
-  <li><code>root_type : void</code> 
-</li>
-
-  <li><code>sub_type : void</code> 
-</li>
-
-  <li><code>name : void</code> 
-</li>
-
-</ul>
-
-
-
-<h4>Response type</h4>
+#### Response type
 
 Type: string
 
+`string : string`
 
+### getSurfaceWithoutOutputPort <a id="getSurfaceWithoutOutputPort"></a>
 
+Operation documentation:
 
-<code>string : string</code> 
+Invocation template:
 
+```text
+getSurfaceWithoutOutputPort@Parser( request )( response )
+```
 
-
-
-
-
-
-
-<h3 id="getSurfaceWithoutOutputPort">getSurfaceWithoutOutputPort</h3>
-
-Operation documentation: 
-
-
-Invocation template: 
-<pre>getSurfaceWithoutOutputPort@Parser( request )( response )</pre>
-
-<h4 id="Port">Request type</h4>
+#### Request type <a id="Port"></a>
 
 Type: Port
 
+```text
+type Port: void {
+    .protocol: string
+    .interfaces*: Interface
+    .name: Name
+    .location: any
+}
+```
 
-<pre>type Port: void {
-	.protocol: string
-	.interfaces*: Interface
-	.name: Name
-	.location: any
-}</pre>
+`Port : void`
 
-<code>Port : void</code> 
+* `protocol : string`
+* `interfaces : void`
+* `name : void`
+* `location : any`
 
-<ul>
-
-  <li><code>protocol : string</code> 
-</li>
-
-  <li><code>interfaces : void</code> 
-</li>
-
-  <li><code>name : void</code> 
-</li>
-
-  <li><code>location : any</code> 
-</li>
-
-</ul>
-
-
-
-<h4>Response type</h4>
+#### Response type
 
 Type: string
 
+`string : string`
 
+### getType <a id="getType"></a>
 
+Operation documentation:
 
-<code>string : string</code> 
+Invocation template:
 
+```text
+getType@Parser( request )( response )
+```
 
-
-
-
-
-
-
-<h3 id="getType">getType</h3>
-
-Operation documentation: 
-
-
-Invocation template: 
-<pre>getType@Parser( request )( response )</pre>
-
-<h4 id="Type">Request type</h4>
+#### Request type <a id="Type"></a>
 
 Type: Type
 
+```text
+type Type: void {
+    .root_type: NativeType
+    .sub_type*: SubType
+    .name: Name
+}
+```
 
-<pre>type Type: void {
-	.root_type: NativeType
-	.sub_type*: SubType
-	.name: Name
-}</pre>
+`Type : void`
 
-<code>Type : void</code> 
+* `root_type : void`
+* `sub_type : void`
+* `name : void`
 
-<ul>
-
-  <li><code>root_type : void</code> 
-</li>
-
-  <li><code>sub_type : void</code> 
-</li>
-
-  <li><code>name : void</code> 
-</li>
-
-</ul>
-
-
-
-<h4>Response type</h4>
+#### Response type
 
 Type: string
 
+`string : string`
 
+### getOutputPort <a id="getOutputPort"></a>
 
+Operation documentation:
 
-<code>string : string</code> 
+Invocation template:
 
+```text
+getOutputPort@Parser( request )( response )
+```
 
-
-
-
-
-
-
-<h3 id="getOutputPort">getOutputPort</h3>
-
-Operation documentation: 
-
-
-Invocation template: 
-<pre>getOutputPort@Parser( request )( response )</pre>
-
-<h4 id="Port">Request type</h4>
+#### Request type <a id="Port"></a>
 
 Type: Port
 
+```text
+type Port: void {
+    .protocol: string
+    .interfaces*: Interface
+    .name: Name
+    .location: any
+}
+```
 
-<pre>type Port: void {
-	.protocol: string
-	.interfaces*: Interface
-	.name: Name
-	.location: any
-}</pre>
+`Port : void`
 
-<code>Port : void</code> 
+* `protocol : string`
+* `interfaces : void`
+* `name : void`
+* `location : any`
 
-<ul>
-
-  <li><code>protocol : string</code> 
-</li>
-
-  <li><code>interfaces : void</code> 
-</li>
-
-  <li><code>name : void</code> 
-</li>
-
-  <li><code>location : any</code> 
-</li>
-
-</ul>
-
-
-
-<h4>Response type</h4>
+#### Response type
 
 Type: string
 
+`string : string`
 
+### getSubType <a id="getSubType"></a>
 
+Operation documentation:
 
-<code>string : string</code> 
+Invocation template:
 
+```text
+getSubType@Parser( request )( response )
+```
 
-
-
-
-
-
-
-<h3 id="getSubType">getSubType</h3>
-
-Operation documentation: 
-
-
-Invocation template: 
-<pre>getSubType@Parser( request )( response )</pre>
-
-<h4 id="SubType">Request type</h4>
+#### Request type <a id="SubType"></a>
 
 Type: SubType
 
+```text
+type SubType: void {
+    .type_inline?: Type
+    .name: string
+    .cardinality: Cardinality
+    .type_link?: Name
+}
+```
 
-<pre>type SubType: void {
-	.type_inline?: Type
-	.name: string
-	.cardinality: Cardinality
-	.type_link?: Name
-}</pre>
+`SubType : void`
 
-<code>SubType : void</code> 
+* `type_inline : void`
+* `name : string`
+* `cardinality : void`
+* `type_link : void`
 
-<ul>
-
-  <li><code>type_inline : void</code> 
-</li>
-
-  <li><code>name : string</code> 
-</li>
-
-  <li><code>cardinality : void</code> 
-</li>
-
-  <li><code>type_link : void</code> 
-</li>
-
-</ul>
-
-
-
-<h4>Response type</h4>
+#### Response type
 
 Type: string
 
+`string : string`
 
+### getInputPort <a id="getInputPort"></a>
 
+Operation documentation:
 
-<code>string : string</code> 
+Invocation template:
 
+```text
+getInputPort@Parser( request )( response )
+```
 
-
-
-
-
-
-
-<h3 id="getInputPort">getInputPort</h3>
-
-Operation documentation: 
-
-
-Invocation template: 
-<pre>getInputPort@Parser( request )( response )</pre>
-
-<h4 id="Port">Request type</h4>
+#### Request type <a id="Port"></a>
 
 Type: Port
 
+```text
+type Port: void {
+    .protocol: string
+    .interfaces*: Interface
+    .name: Name
+    .location: any
+}
+```
 
-<pre>type Port: void {
-	.protocol: string
-	.interfaces*: Interface
-	.name: Name
-	.location: any
-}</pre>
+`Port : void`
 
-<code>Port : void</code> 
+* `protocol : string`
+* `interfaces : void`
+* `name : void`
+* `location : any`
 
-<ul>
-
-  <li><code>protocol : string</code> 
-</li>
-
-  <li><code>interfaces : void</code> 
-</li>
-
-  <li><code>name : void</code> 
-</li>
-
-  <li><code>location : any</code> 
-</li>
-
-</ul>
-
-
-
-<h4>Response type</h4>
+#### Response type
 
 Type: string
 
+`string : string`
 
+### getCardinality <a id="getCardinality"></a>
 
+Operation documentation:
 
-<code>string : string</code> 
+Invocation template:
 
+```text
+getCardinality@Parser( request )( response )
+```
 
-
-
-
-
-
-
-<h3 id="getCardinality">getCardinality</h3>
-
-Operation documentation: 
-
-
-Invocation template: 
-<pre>getCardinality@Parser( request )( response )</pre>
-
-<h4 id="Cardinality">Request type</h4>
+#### Request type <a id="Cardinality"></a>
 
 Type: Cardinality
 
+```text
+type Cardinality: void {
+    .min: int
+    .max?: int
+    .infinite?: int
+}
+```
 
-<pre>type Cardinality: void {
-	.min: int
-	.max?: int
-	.infinite?: int
-}</pre>
+`Cardinality : void`
 
-<code>Cardinality : void</code> 
+* `min : int`
+* `max : int`
+* `infinite : int`
 
-<ul>
-
-  <li><code>min : int</code> 
-</li>
-
-  <li><code>max : int</code> 
-</li>
-
-  <li><code>infinite : int</code> 
-</li>
-
-</ul>
-
-
-
-<h4>Response type</h4>
+#### Response type
 
 Type: string
 
+`string : string`
 
+### Subtypes
 
+#### Interface <a id="Interface"></a>
 
-<code>string : string</code> 
+```
+type Interface: void { .types*: Type .operations*: Operation .name: Name }
+```
 
+#### Type <a id="Type"></a>
 
+```
+type Type: void { .root_type: NativeType .sub_type*: SubType .name: Name }
+```
 
+#### NativeType <a id="NativeType"></a>
 
+```
+type NativeType: void { .string_type?: bool .void_type?: bool .raw_type?: bool .int_type?: bool .any_type?: bool .link?: void { .domain?: string .name: string } .bool_type?: bool .double_type?: bool .long_type?: bool }
+```
 
+#### SubType <a id="SubType"></a>
 
+```
+type SubType: void { .type_inline?: Type .name: string .cardinality: Cardinality .type_link?: Name }
+```
 
+#### Cardinality <a id="Cardinality"></a>
 
-<h3>Subtypes</h3>
+```
+type Cardinality: void { .min: int .max?: int .infinite?: int }
+```
 
+#### Name <a id="Name"></a>
 
-<h4 id="Interface">Interface</h4>
+```
+type Name: void { .registry?: string .domain?: string .name: string }
+```
 
+#### Operation <a id="Operation"></a>
 
+```
+type Operation: void { .operation_name: string .output?: Name .input: Name .documentation?: any .fault*: Fault }
+```
 
-<pre>type Interface: void {
-	.types*: Type
-	.operations*: Operation
-	.name: Name
-}</pre>
-<code>Interface : void</code> 
+#### Fault <a id="Fault"></a>
 
-
-<h4 id="Type">Type</h4>
-
-
-
-<pre>type Type: void {
-	.root_type: NativeType
-	.sub_type*: SubType
-	.name: Name
-}</pre>
-<code>Type : void</code> 
-
-
-<h4 id="NativeType">NativeType</h4>
-
-
-
-<pre>type NativeType: void {
-	.string_type?: bool
-	.void_type?: bool
-	.raw_type?: bool
-	.int_type?: bool
-	.any_type?: bool
-	.link?: void {
-		.domain?: string
-		.name: string
-	}
-	.bool_type?: bool
-	.double_type?: bool
-	.long_type?: bool
-}</pre>
-<code>NativeType : void</code> 
-
-
-<h4 id="SubType">SubType</h4>
-
-
-
-<pre>type SubType: void {
-	.type_inline?: Type
-	.name: string
-	.cardinality: Cardinality
-	.type_link?: Name
-}</pre>
-<code>SubType : void</code> 
-
-
-<h4 id="Cardinality">Cardinality</h4>
-
-
-
-<pre>type Cardinality: void {
-	.min: int
-	.max?: int
-	.infinite?: int
-}</pre>
-<code>Cardinality : void</code> 
-
-
-<h4 id="Name">Name</h4>
-
-
-
-<pre>type Name: void {
-	.registry?: string
-	.domain?: string
-	.name: string
-}</pre>
-<code>Name : void</code> 
-
-
-<h4 id="Operation">Operation</h4>
-
-
-
-<pre>type Operation: void {
-	.operation_name: string
-	.output?: Name
-	.input: Name
-	.documentation?: any
-	.fault*: Fault
-}</pre>
-<code>Operation : void</code> 
-
-
-<h4 id="Fault">Fault</h4>
-
-
-
-<pre>type Fault: void {
-	.type_name?: Name
-	.name: Name
-}</pre>
-<code>Fault : void</code> 
-
-
-
+```
+type Fault: void { .type_name?: Name .name: Name }
+```
 

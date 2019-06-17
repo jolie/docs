@@ -1,4 +1,4 @@
-# Embedding JavaScript Services
+# Javascript
 
 Embedding a JavaScript Service enables to use both the JavaScript language and Java methods by importing their classes.
 

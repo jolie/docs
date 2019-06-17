@@ -1,5 +1,6 @@
 # Collections
-A collection is a set of output ports that share the same interface. They can be used in combination with [Aggregation](aggreation.md) and [Couriers](couriers.md#courier-sessions) in order to public their interface into an aggregator and then forward the message to an output port of the collection depending on a specific rule.
+
+A collection is a set of output ports that share the same interface. They can be used in combination with [Aggregation](https://github.com/jolie/docs/tree/f7380de3b4b0fc6b938ca43b657f4f0485963fdb/architectural-composition/aggreation.md) and [Couriers](couriers.md#courier-sessions) in order to public their interface into an aggregator and then forward the message to an output port of the collection depending on a specific rule.
 
 ## Smart Aggregations
 

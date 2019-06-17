@@ -1,174 +1,85 @@
-# Include library: bluetooth.iol
+# Bluetooth
 
-Inclusion code: <pre>include "bluetooth.iol"</pre>
+Inclusion code: 
 
-<table>
-  <caption>Service Deployment</caption>
-  <thead>
-    <tr>
-      <th>Port Name</th>
-      <th>Location</th>
-      <th>Protocol</th>
-      <th>Interfaces</th>
-    </tr>
-  </thead>
-  <tbody><tr><td>Bluetooth documentation: </td></tr>
-    <tr>
-      <td>Bluetooth</td>
-      <td>-</td>
-      <td>-</td>
-      <td><a href="#BluetoothInterface">BluetoothInterface</a></td>
-    </tr>
-  </tbody>
-</table>
+| Service Deployment |  |  |  |
+| :--- | :--- | :--- | :--- |
+| Port Name | Location | Protocol | Interfaces |
+| Bluetooth documentation: |  |  |  |
+| Bluetooth | - | - | [BluetoothInterface](bluetooth.md#BluetoothInterface) |
 
-<h3>List of Available Interfaces</h3>
+### List of Available Interfaces
 
-<h3 id="BluetoothInterface">BluetoothInterface</h3>
+### BluetoothInterface <a id="BluetoothInterface"></a>
 
-Interface documentation: 
+Interface documentation:
 
-<table>
-  <thead>
-    <tr>
-      <th>Operation Name</th>
-      <th>Input Type</th>
-      <th>Output Type</th>
-      <th>Faults</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><a href="#inquire">inquire</a></td>
-      <td>void</td>
-      <td><a href="#BluetoothInquiryResponse">BluetoothInquiryResponse</a></td>
-      <td>
-      </td>
-    </tr>
-    <tr>
-      <td><a href="#setDiscoverable">setDiscoverable</a></td>
-      <td>int</td>
-      <td>int</td>
-      <td>
-      </td>
-    </tr>
-  </tbody>
-</table>
+| Operation Name | Input Type | Output Type | Faults |
+| :--- | :--- | :--- | :--- |
+| [inquire](bluetooth.md#inquire) | void | [BluetoothInquiryResponse](bluetooth.md#BluetoothInquiryResponse) |  |
+| [setDiscoverable](bluetooth.md#setDiscoverable) | int | int |  |
 
-<h2>Operation Description</h2>
+## Operation Description
 
+### inquire <a id="inquire"></a>
 
+Operation documentation: Sets the current Bluetooth device as discoverable or not discoverable @request: 0 if the device has to be set not discoverable, 1 if the device has to be set discoverable.
 
-<h3 id="inquire">inquire</h3>
+Invocation template:
 
-Operation documentation: 
-	  Sets the current Bluetooth device as discoverable or not discoverable
-	  @request: 0 if the device has to be set not discoverable, 1 if the device has to be set discoverable.
-	 
+```text
+inquire@Bluetooth( request )( response )
+```
 
-
-Invocation template: 
-<pre>inquire@Bluetooth( request )( response )</pre>
-
-<h4>Request type</h4>
+#### Request type
 
 Type: void
 
+`void : void`
 
-
-
-<code>void : void</code> 
-
-
-
-<h4 id="BluetoothInquiryResponse">Response type</h4>
+#### Response type <a id="BluetoothInquiryResponse"></a>
 
 Type: BluetoothInquiryResponse
 
+```text
+type BluetoothInquiryResponse: void {
+    .service*: void {
+        .location: string
+    }
+    .device*: void {
+        .address: string
+        .name: string
+    }
+}
+```
 
-<pre>type BluetoothInquiryResponse: void {
-	.service*: void {
-		.location: string
-	}
-	.device*: void {
-		.address: string
-		.name: string
-	}
-}</pre>
+`BluetoothInquiryResponse : void`
 
-<code>BluetoothInquiryResponse : void</code> 
+* `service : void`
+  * `location : string`
+* `device : void`
+  * `address : string`
+  * `name : string`
 
-<ul>
+### setDiscoverable <a id="setDiscoverable"></a>
 
-  <li><code>service : void</code> 
+Operation documentation: Sets the current Bluetooth device as discoverable or not discoverable @request: 0 if the device has to be set not discoverable, 1 if the device has to be set discoverable.
 
-<ul>
+Invocation template:
 
-  <li><code>location : string</code> 
-</li>
+```text
+setDiscoverable@Bluetooth( request )( response )
+```
 
-</ul>
-</li>
-
-  <li><code>device : void</code> 
-
-<ul>
-
-  <li><code>address : string</code> 
-</li>
-
-  <li><code>name : string</code> 
-</li>
-
-</ul>
-</li>
-
-</ul>
-
-
-
-
-
-
-
-
-<h3 id="setDiscoverable">setDiscoverable</h3>
-
-Operation documentation: 
-	  Sets the current Bluetooth device as discoverable or not discoverable
-	  @request: 0 if the device has to be set not discoverable, 1 if the device has to be set discoverable.
-	 
-
-
-Invocation template: 
-<pre>setDiscoverable@Bluetooth( request )( response )</pre>
-
-<h4>Request type</h4>
+#### Request type
 
 Type: int
 
+`int : int`
 
-
-
-<code>int : int</code> 
-
-
-
-<h4>Response type</h4>
+#### Response type
 
 Type: int
 
-
-
-
-<code>int : int</code> 
-
-
-
-
-
-
-
-
-
+`int : int`
 

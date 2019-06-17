@@ -1,133 +1,67 @@
-# Include library: html_utils.iol
+# HTMLUtils
 
-Inclusion code: <pre>include "html_utils.iol"</pre>
+Inclusion code: 
 
-<table>
-  <caption>Service Deployment</caption>
-  <thead>
-    <tr>
-      <th>Port Name</th>
-      <th>Location</th>
-      <th>Protocol</th>
-      <th>Interfaces</th>
-    </tr>
-  </thead>
-  <tbody><tr><td>HTMLUtils documentation: </td></tr>
-    <tr>
-      <td>HTMLUtils</td>
-      <td>-</td>
-      <td>-</td>
-      <td><a href="#HTMLUtilsInterface">HTMLUtilsInterface</a></td>
-    </tr>
-  </tbody>
-</table>
+| Service Deployment |  |  |  |
+| :--- | :--- | :--- | :--- |
+| Port Name | Location | Protocol | Interfaces |
+| HTMLUtils documentation: |  |  |  |
+| HTMLUtils | - | - | [HTMLUtilsInterface](html_utils.md#HTMLUtilsInterface) |
 
-<h3>List of Available Interfaces</h3>
+### List of Available Interfaces
 
-<h3 id="HTMLUtilsInterface">HTMLUtilsInterface</h3>
+### HTMLUtilsInterface <a id="HTMLUtilsInterface"></a>
 
-Interface documentation: 
+Interface documentation:
 
-<table>
-  <thead>
-    <tr>
-      <th>Operation Name</th>
-      <th>Input Type</th>
-      <th>Output Type</th>
-      <th>Faults</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><a href="#escapeHTML">escapeHTML</a></td>
-      <td>string</td>
-      <td>string</td>
-      <td>
-      </td>
-    </tr>
-    <tr>
-      <td><a href="#unescapeHTML">unescapeHTML</a></td>
-      <td>string</td>
-      <td>string</td>
-      <td>
-      </td>
-    </tr>
-  </tbody>
-</table>
+| Operation Name | Input Type | Output Type | Faults |
+| :--- | :--- | :--- | :--- |
+| [escapeHTML](html_utils.md#escapeHTML) | string | string |  |
+| [unescapeHTML](html_utils.md#unescapeHTML) | string | string |  |
 
-<h2>Operation Description</h2>
+## Operation Description
 
+### escapeHTML <a id="escapeHTML"></a>
 
+Operation documentation:
 
-<h3 id="escapeHTML">escapeHTML</h3>
+Invocation template:
 
-Operation documentation: 
+```text
+escapeHTML@HTMLUtils( request )( response )
+```
 
-
-Invocation template: 
-<pre>escapeHTML@HTMLUtils( request )( response )</pre>
-
-<h4>Request type</h4>
+#### Request type
 
 Type: string
 
+`string : string`
 
-
-
-<code>string : string</code> 
-
-
-
-<h4>Response type</h4>
+#### Response type
 
 Type: string
 
+`string : string`
 
+### unescapeHTML <a id="unescapeHTML"></a>
 
+Operation documentation:
 
-<code>string : string</code> 
+Invocation template:
 
+```text
+unescapeHTML@HTMLUtils( request )( response )
+```
 
-
-
-
-
-
-
-<h3 id="unescapeHTML">unescapeHTML</h3>
-
-Operation documentation: 
-
-
-Invocation template: 
-<pre>unescapeHTML@HTMLUtils( request )( response )</pre>
-
-<h4>Request type</h4>
+#### Request type
 
 Type: string
 
+`string : string`
 
-
-
-<code>string : string</code> 
-
-
-
-<h4>Response type</h4>
+#### Response type
 
 Type: string
 
-
-
-
-<code>string : string</code> 
-
-
-
-
-
-
-
-
-
+`string : string`
 

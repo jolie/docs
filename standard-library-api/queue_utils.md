@@ -1,314 +1,169 @@
-# Include library: queue_utils.iol
+# QueueUtils
 
-Inclusion code: <pre>include "queue_utils.iol"</pre>
+Inclusion code: 
 
-<table>
-  <caption>Service Deployment</caption>
-  <thead>
-    <tr>
-      <th>Port Name</th>
-      <th>Location</th>
-      <th>Protocol</th>
-      <th>Interfaces</th>
-    </tr>
-  </thead>
-  <tbody><tr><td>QueueUtils documentation: </td></tr>
-    <tr>
-      <td>QueueUtils</td>
-      <td>-</td>
-      <td>-</td>
-      <td><a href="#QueueUtilsInterface">QueueUtilsInterface</a></td>
-    </tr>
-  </tbody>
-</table>
+| Service Deployment |  |  |  |
+| :--- | :--- | :--- | :--- |
+| Port Name | Location | Protocol | Interfaces |
+| QueueUtils documentation: |  |  |  |
+| QueueUtils | - | - | [QueueUtilsInterface](queue_utils.md#QueueUtilsInterface) |
 
-<h3>List of Available Interfaces</h3>
+### List of Available Interfaces
 
-<h3 id="QueueUtilsInterface">QueueUtilsInterface</h3>
+### QueueUtilsInterface <a id="QueueUtilsInterface"></a>
 
-Interface documentation: 
+Interface documentation:
 
-<table>
-  <thead>
-    <tr>
-      <th>Operation Name</th>
-      <th>Input Type</th>
-      <th>Output Type</th>
-      <th>Faults</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><a href="#size">size</a></td>
-      <td>string</td>
-      <td>int</td>
-      <td>
-      </td>
-    </tr>
-    <tr>
-      <td><a href="#poll">poll</a></td>
-      <td>string</td>
-      <td>undefined</td>
-      <td>
-      </td>
-    </tr>
-    <tr>
-      <td><a href="#new_queue">new_queue</a></td>
-      <td>string</td>
-      <td>bool</td>
-      <td>
-      </td>
-    </tr>
-    <tr>
-      <td><a href="#delete_queue">delete_queue</a></td>
-      <td>string</td>
-      <td>bool</td>
-      <td>
-      </td>
-    </tr>
-    <tr>
-      <td><a href="#push">push</a></td>
-      <td><a href="#QueueRequest">QueueRequest</a></td>
-      <td>bool</td>
-      <td>
-      </td>
-    </tr>
-    <tr>
-      <td><a href="#peek">peek</a></td>
-      <td>string</td>
-      <td>undefined</td>
-      <td>
-      </td>
-    </tr>
-  </tbody>
-</table>
+| Operation Name | Input Type | Output Type | Faults |
+| :--- | :--- | :--- | :--- |
+| [size](queue_utils.md#size) | string | int |  |
+| [poll](queue_utils.md#poll) | string | undefined |  |
+| [new\_queue](queue_utils.md#new_queue) | string | bool |  |
+| [delete\_queue](queue_utils.md#delete_queue) | string | bool |  |
+| [push](queue_utils.md#push) | [QueueRequest](queue_utils.md#QueueRequest) | bool |  |
+| [peek](queue_utils.md#peek) | string | undefined |  |
 
-<h2>Operation Description</h2>
+## Operation Description
 
-
-
-<h3 id="size">size</h3>
+### size <a id="size"></a>
 
 Operation documentation: Returns the size of an existing queue, null otherwise
 
+Invocation template:
 
-Invocation template: 
-<pre>size@QueueUtils( request )( response )</pre>
+```text
+size@QueueUtils( request )( response )
+```
 
-<h4>Request type</h4>
+#### Request type
 
 Type: string
 
+`string : string`
 
-
-
-<code>string : string</code> 
-
-
-
-<h4>Response type</h4>
+#### Response type
 
 Type: int
 
+`int : int`
 
-
-
-<code>int : int</code> 
-
-
-
-
-
-
-
-
-<h3 id="poll">poll</h3>
+### poll <a id="poll"></a>
 
 Operation documentation: Removes and returns the head of the queue
 
+Invocation template:
 
-Invocation template: 
-<pre>poll@QueueUtils( request )( response )</pre>
+```text
+poll@QueueUtils( request )( response )
+```
 
-<h4>Request type</h4>
+#### Request type
 
 Type: string
 
+`string : string`
 
-
-
-<code>string : string</code> 
-
-
-
-<h4>Response type</h4>
+#### Response type
 
 Type: undefined
 
+`undefined : any`
 
+### new\_queue <a id="new_queue"></a>
 
+Operation documentation: Creates a new queue with queue\_name as key
 
-<code>undefined : any</code> 
+Invocation template:
 
+```text
+new_queue@QueueUtils( request )( response )
+```
 
-
-
-
-
-
-
-<h3 id="new_queue">new_queue</h3>
-
-Operation documentation: Creates a new queue with queue_name as key
-
-
-Invocation template: 
-<pre>new_queue@QueueUtils( request )( response )</pre>
-
-<h4>Request type</h4>
+#### Request type
 
 Type: string
 
+`string : string`
 
-
-
-<code>string : string</code> 
-
-
-
-<h4>Response type</h4>
+#### Response type
 
 Type: bool
 
+`bool : bool`
 
-
-
-<code>bool : bool</code> 
-
-
-
-
-
-
-
-
-<h3 id="delete_queue">delete_queue</h3>
+### delete\_queue <a id="delete_queue"></a>
 
 Operation documentation: Removes an existing queue
 
+Invocation template:
 
-Invocation template: 
-<pre>delete_queue@QueueUtils( request )( response )</pre>
+```text
+delete_queue@QueueUtils( request )( response )
+```
 
-<h4>Request type</h4>
+#### Request type
 
 Type: string
 
+`string : string`
 
-
-
-<code>string : string</code> 
-
-
-
-<h4>Response type</h4>
+#### Response type
 
 Type: bool
 
+`bool : bool`
 
-
-
-<code>bool : bool</code> 
-
-
-
-
-
-
-
-
-<h3 id="push">push</h3>
+### push <a id="push"></a>
 
 Operation documentation: Pushes an element at the end of an existing queue
 
+Invocation template:
 
-Invocation template: 
-<pre>push@QueueUtils( request )( response )</pre>
+```text
+push@QueueUtils( request )( response )
+```
 
-<h4 id="QueueRequest">Request type</h4>
+#### Request type <a id="QueueRequest"></a>
 
 Type: QueueRequest
 
+```text
+type QueueRequest: void {
+    .queue_name: string
+    .element: undefined
+}
+```
 
-<pre>type QueueRequest: void {
-	.queue_name: string
-	.element: undefined
-}</pre>
+`QueueRequest : void`
 
-<code>QueueRequest : void</code> 
+* `queue_name : string`
+* `element : any`
 
-<ul>
-
-  <li><code>queue_name : string</code> 
-</li>
-
-  <li><code>element : any</code> 
-</li>
-
-</ul>
-
-
-
-<h4>Response type</h4>
+#### Response type
 
 Type: bool
 
+`bool : bool`
 
-
-
-<code>bool : bool</code> 
-
-
-
-
-
-
-
-
-<h3 id="peek">peek</h3>
+### peek <a id="peek"></a>
 
 Operation documentation: Retrieves, but does not remove, the head of the queue
 
+Invocation template:
 
-Invocation template: 
-<pre>peek@QueueUtils( request )( response )</pre>
+```text
+peek@QueueUtils( request )( response )
+```
 
-<h4>Request type</h4>
+#### Request type
 
 Type: string
 
+`string : string`
 
-
-
-<code>string : string</code> 
-
-
-
-<h4>Response type</h4>
+#### Response type
 
 Type: undefined
 
-
-
-
-<code>undefined : any</code> 
-
-
-
-
-
-
-
-
-
+`undefined : any`
 

@@ -1,187 +1,113 @@
-# Include library: xmpp.iol
+# XMPP
 
-Inclusion code: <pre>include "xmpp.iol"</pre>
+Inclusion code: 
 
-<table>
-  <caption>Service Deployment</caption>
-  <thead>
-    <tr>
-      <th>Port Name</th>
-      <th>Location</th>
-      <th>Protocol</th>
-      <th>Interfaces</th>
-    </tr>
-  </thead>
-  <tbody><tr><td>XMPP documentation: </td></tr>
-    <tr>
-      <td>XMPP</td>
-      <td>-</td>
-      <td>-</td>
-      <td><a href="#XMPPInterface">XMPPInterface</a></td>
-    </tr>
-  </tbody>
-</table>
+| Service Deployment |  |  |  |
+| :--- | :--- | :--- | :--- |
+| Port Name | Location | Protocol | Interfaces |
+| XMPP documentation: |  |  |  |
+| XMPP | - | - | [XMPPInterface](xmpp.md#XMPPInterface) |
 
-<h3>List of Available Interfaces</h3>
+### List of Available Interfaces
 
-<h3 id="XMPPInterface">XMPPInterface</h3>
+### XMPPInterface <a id="XMPPInterface"></a>
 
-Interface documentation: 
+Interface documentation:
 
-<table>
-  <thead>
-    <tr>
-      <th>Operation Name</th>
-      <th>Input Type</th>
-      <th>Output Type</th>
-      <th>Faults</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><a href="#sendMessage">sendMessage</a></td>
-      <td><a href="#SendMessageRequest">SendMessageRequest</a></td>
-      <td>void</td>
-      <td>
-        XMPPException( undefined )
-      </td>
-    </tr>
-    <tr>
-      <td><a href="#connect">connect</a></td>
-      <td><a href="#ConnectionRequest">ConnectionRequest</a></td>
-      <td>void</td>
-      <td>
-        XMPPException( undefined )
-      </td>
-    </tr>
-  </tbody>
-</table>
+| Operation Name | Input Type | Output Type | Faults |
+| :--- | :--- | :--- | :--- |
+| [sendMessage](xmpp.md#sendMessage) | [SendMessageRequest](xmpp.md#SendMessageRequest) | void |  XMPPException\( undefined \) |
+| [connect](xmpp.md#connect) | [ConnectionRequest](xmpp.md#ConnectionRequest) | void |  XMPPException\( undefined \) |
 
-<h2>Operation Description</h2>
+## Operation Description
 
+### sendMessage <a id="sendMessage"></a>
 
+Operation documentation:
 
-<h3 id="sendMessage">sendMessage</h3>
+Invocation template:
 
-Operation documentation: 
+```text
+sendMessage@XMPP( request )( response )
+```
 
-
-Invocation template: 
-<pre>sendMessage@XMPP( request )( response )</pre>
-
-<h4 id="SendMessageRequest">Request type</h4>
+#### Request type <a id="SendMessageRequest"></a>
 
 Type: SendMessageRequest
 
+```text
+type SendMessageRequest: string {
+    .to: string
+}
+```
 
-<pre>type SendMessageRequest: string {
-	.to: string
-}</pre>
+`SendMessageRequest : string`
 
-<code>SendMessageRequest : string</code> 
+* `to : string`
 
-<ul>
-
-  <li><code>to : string</code> 
-</li>
-
-</ul>
-
-
-
-<h4>Response type</h4>
+#### Response type
 
 Type: void
 
+`void : void`
 
+#### Possible faults thrown
 
+Fault `XMPPException` with type `undefined`
 
-<code>void : void</code> 
+Fault-handling install template:
 
+```text
+install ( XMPPException => /* error-handling code */ )
+```
 
+### connect <a id="connect"></a>
 
+Operation documentation:
 
-<h4>Possible faults thrown</h4>
+Invocation template:
 
+```text
+connect@XMPP( request )( response )
+```
 
-Fault <code>XMPPException</code> with type <code>undefined</code>
-
-Fault-handling install template: 
-<pre>install ( XMPPException => /* error-handling code */ )</pre>
-
-
-
-
-<h3 id="connect">connect</h3>
-
-Operation documentation: 
-
-
-Invocation template: 
-<pre>connect@XMPP( request )( response )</pre>
-
-<h4 id="ConnectionRequest">Request type</h4>
+#### Request type <a id="ConnectionRequest"></a>
 
 Type: ConnectionRequest
 
+```text
+type ConnectionRequest: void {
+    .password: string
+    .port?: int
+    .resource?: string
+    .host?: string
+    .serviceName: string
+    .username: string
+}
+```
 
-<pre>type ConnectionRequest: void {
-	.password: string
-	.port?: int
-	.resource?: string
-	.host?: string
-	.serviceName: string
-	.username: string
-}</pre>
+`ConnectionRequest : void`
 
-<code>ConnectionRequest : void</code> 
+* `password : string`
+* `port : int`
+* `resource : string`
+* `host : string`
+* `serviceName : string`
+* `username : string`
 
-<ul>
-
-  <li><code>password : string</code> 
-</li>
-
-  <li><code>port : int</code> 
-</li>
-
-  <li><code>resource : string</code> 
-</li>
-
-  <li><code>host : string</code> 
-</li>
-
-  <li><code>serviceName : string</code> 
-</li>
-
-  <li><code>username : string</code> 
-</li>
-
-</ul>
-
-
-
-<h4>Response type</h4>
+#### Response type
 
 Type: void
 
+`void : void`
 
+#### Possible faults thrown
 
+Fault `XMPPException` with type `undefined`
 
-<code>void : void</code> 
+Fault-handling install template:
 
-
-
-
-<h4>Possible faults thrown</h4>
-
-
-Fault <code>XMPPException</code> with type <code>undefined</code>
-
-Fault-handling install template: 
-<pre>install ( XMPPException => /* error-handling code */ )</pre>
-
-
-
-
-
+```text
+install ( XMPPException => /* error-handling code */ )
+```
 

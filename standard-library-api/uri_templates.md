@@ -1,161 +1,91 @@
-# Include library: uri_templates.iol
+# UriTemplates
 
-Inclusion code: <pre>include "uri_templates.iol"</pre>
+Inclusion code: 
 
-<table>
-  <caption>Service Deployment</caption>
-  <thead>
-    <tr>
-      <th>Port Name</th>
-      <th>Location</th>
-      <th>Protocol</th>
-      <th>Interfaces</th>
-    </tr>
-  </thead>
-  <tbody><tr><td>UriTemplates documentation: </td></tr>
-    <tr>
-      <td>UriTemplates</td>
-      <td>-</td>
-      <td>-</td>
-      <td><a href="#UriTemplatesIface">UriTemplatesIface</a></td>
-    </tr>
-  </tbody>
-</table>
+| Service Deployment |  |  |  |
+| :--- | :--- | :--- | :--- |
+| Port Name | Location | Protocol | Interfaces |
+| UriTemplates documentation: |  |  |  |
+| UriTemplates | - | - | [UriTemplatesIface](uri_templates.md#UriTemplatesIface) |
 
-<h3>List of Available Interfaces</h3>
+### List of Available Interfaces
 
-<h3 id="UriTemplatesIface">UriTemplatesIface</h3>
+### UriTemplatesIface <a id="UriTemplatesIface"></a>
 
-Interface documentation: 
-WARNING: the API of this service is experimental. Use it at your own risk.
+Interface documentation: WARNING: the API of this service is experimental. Use it at your own risk.
 
+| Operation Name | Input Type | Output Type | Faults |
+| :--- | :--- | :--- | :--- |
+| [expand](uri_templates.md#expand) | [ExpandRequest](uri_templates.md#ExpandRequest) | string |  |
+| [match](uri_templates.md#match) | [UriMatchRequest](uri_templates.md#UriMatchRequest) | [MatchResponse](uri_templates.md#MatchResponse) |  |
 
-<table>
-  <thead>
-    <tr>
-      <th>Operation Name</th>
-      <th>Input Type</th>
-      <th>Output Type</th>
-      <th>Faults</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><a href="#expand">expand</a></td>
-      <td><a href="#ExpandRequest">ExpandRequest</a></td>
-      <td>string</td>
-      <td>
-      </td>
-    </tr>
-    <tr>
-      <td><a href="#match">match</a></td>
-      <td><a href="#UriMatchRequest">UriMatchRequest</a></td>
-      <td><a href="#MatchResponse">MatchResponse</a></td>
-      <td>
-      </td>
-    </tr>
-  </tbody>
-</table>
+## Operation Description
 
-<h2>Operation Description</h2>
+### expand <a id="expand"></a>
 
+Operation documentation:
 
+Invocation template:
 
-<h3 id="expand">expand</h3>
+```text
+expand@UriTemplates( request )( response )
+```
 
-Operation documentation: 
-
-
-Invocation template: 
-<pre>expand@UriTemplates( request )( response )</pre>
-
-<h4 id="ExpandRequest">Request type</h4>
+#### Request type <a id="ExpandRequest"></a>
 
 Type: ExpandRequest
 
+```text
+type ExpandRequest: void {
+    .template: string
+    .params?: undefined
+}
+```
 
-<pre>type ExpandRequest: void {
-	.template: string
-	.params?: undefined
-}</pre>
+`ExpandRequest : void`
 
-<code>ExpandRequest : void</code> 
+* `template : string`
+* `params : any`
 
-<ul>
-
-  <li><code>template : string</code> 
-</li>
-
-  <li><code>params : any</code> 
-</li>
-
-</ul>
-
-
-
-<h4>Response type</h4>
+#### Response type
 
 Type: string
 
+`string : string`
 
+### match <a id="match"></a>
 
+Operation documentation:
 
-<code>string : string</code> 
+Invocation template:
 
+```text
+match@UriTemplates( request )( response )
+```
 
-
-
-
-
-
-
-<h3 id="match">match</h3>
-
-Operation documentation: 
-
-
-Invocation template: 
-<pre>match@UriTemplates( request )( response )</pre>
-
-<h4 id="UriMatchRequest">Request type</h4>
+#### Request type <a id="UriMatchRequest"></a>
 
 Type: UriMatchRequest
 
+```text
+type UriMatchRequest: void {
+    .template: string
+    .uri: string
+}
+```
 
-<pre>type UriMatchRequest: void {
-	.template: string
-	.uri: string
-}</pre>
+`UriMatchRequest : void`
 
-<code>UriMatchRequest : void</code> 
+* `template : string`
+* `uri : string`
 
-<ul>
-
-  <li><code>template : string</code> 
-</li>
-
-  <li><code>uri : string</code> 
-</li>
-
-</ul>
-
-
-
-<h4 id="MatchResponse">Response type</h4>
+#### Response type <a id="MatchResponse"></a>
 
 Type: MatchResponse
 
+```text
+type MatchResponse: undefined
+```
 
-<pre>type MatchResponse: undefined</pre>
-
-<code>MatchResponse : bool</code> 
-
-
-
-
-
-
-
-
-
+`MatchResponse : bool`
 

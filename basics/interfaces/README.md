@@ -10,7 +10,6 @@ Thus an interface is a collection of operation types, a list of One-Way and Requ
 The basic declaration of an interface lists all the names of the its operations, grouped by type:
 
 ```text
-
 interface identifier {
     OneWay: 
         ow_name1( t1 ), 
@@ -41,6 +40,7 @@ interface SumInterface {
 The type declarations of both request and response messages are explained further in the data types subsection below.
 
 ## Declarations of Faults: the statement `throws`
+
 The operations of type _RequestResponse_ can reply with a fault instead of the response message. In such a case, we need to specify into the interface declaration that a request-response operation can raise a fault. In order to do that it is sufficient to list the faults after the usage of the statement _throws_ as it is shown here in the complete syntax:
 
 ```text
@@ -51,4 +51,6 @@ interface IfaceName {
       OpN( ReqTypeN )( ResTypeN ) throws ErrW( MsgTypeW ) ... ErrZ( MsgTypeZ )
 }
 ```
-where _ErrX_, _ErrY_, _ErrW_, ..., _ErrZ_ are the fault names and _MsgTypeX_, ..., _MsgTypeZ_ are the types of the messages. Examples of its usage can be found in Section [Fault Handling](../../fault-handling).
+
+where _ErrX_, _ErrY_, _ErrW_, ..., _ErrZ_ are the fault names and _MsgTypeX_, ..., _MsgTypeZ_ are the types of the messages. Examples of its usage can be found in Section [Fault Handling](../fault-handling/).
+

@@ -11,6 +11,7 @@ Compensation deals with the recovery of an activity that has successfully comple
 Each scope can be equipped with an error handler that contains the code to be executed for its recovery. As for fault handlers, recovery handlers can be dynamically installed by means of the `install` statement. Besides using a specific fault name, which installs the handler as a _fault handler_, the handler can refer to `this`. The term `this` refers to a _termination_ or a _recovery handler_ for the enclosing scope.
 
 ## Termination and Compensation: concepts
+
 Each scope is equipped with a termination handler and a compensation handler by default. If no code is joint with these handlers they will never be executed. The termination handler permits to finalize a scope when it is interrupted during its execution, whereas a compensation handler permits to recover a scope which successfully finished its activities. A termination handler is automatically executed when the related scope is interrupted by a parallel activity. A compensation handler is always executed by a fault handler of the parent scope which receives that handler from the child scope when successfully finishes. The most important fact is that in Jolie, a termination handler and a compensation handler are the same with the exception that: a termination becomes a compensation handler when the related scope finishes with success.
 
 Let us clarify a little but more these concepts with the help of Fig 1. The diagram displays a scenario in which a scope A contains an activity that executes:
@@ -23,7 +24,7 @@ Let us suppose that _C_ finishes its execution. As a result, its compensation ha
 
 Fault handlers can execute compensations by invoking the compensation handlers loaded within the corresponding scope, e.g., in the previous scenario the fault handler of A invokes the compensation handler of C.
 
-![](../.gitbook/assets/termination_and_compensation.jpg)
+![](../../.gitbook/assets/termination_and_compensation.jpg)
 
 **Fig.1** Code _P_ is executed in parallel with scopes _B_ and _C_ within scope _A_. _C_ is supposed to be successfully ended, whereas _B_ is terminated during its execution by the fault _f_ raised by _P_. The fault handler of _A_ can execute the compensation handler loaded by _C_.
 
@@ -202,14 +203,14 @@ main
 When scope `example_scope` ends with success, its current recovery handler is promoted to the parent scope \(`main`\) in order to be available for compensation. At the end of the program, the `a_fault` is raised, triggering the execution of its fault handler, defined at Lines 5-8. At Line 7 the compensation of scope `example_scope` is executed, triggering the execution of the corresponding recovery handler \(in this case, the one at Line 15, including the first at Line 11\).
 
 ### The electronic purchase example
-Here we consider a simplified scenario of an electronic purchase where termination and compensation handlers are used.
-The full code can be checked [here](https://github.com/jolie/examples/tree/master/03_fault_handling/12_transaction_example) whereas the reference architecture of the example follows:
 
-![](../.gitbook/assets/transactions.png)
+Here we consider a simplified scenario of an electronic purchase where termination and compensation handlers are used. The full code can be checked [here](https://github.com/jolie/examples/tree/master/03_fault_handling/12_transaction_example) whereas the reference architecture of the example follows:
+
+![](../../.gitbook/assets/transactions.png)
 
 In this example a user wants to electronically buy ten beers invoking the transaction service which is in charge to contact the product store service, the logistics service and the bank account service. It is clearly an over simplification w.r.t. a real scenario, but it is useful to our end for showing how termination and compensation work. In the following we report the implementation of the operation _buy_ of the transaction service:
 
-```jolie
+```text
 [ buy( request )( response ) {
           getProductDetails@ProductStore({ .product = request.product })( product_details );
           scope( locks ) {
@@ -275,12 +276,15 @@ In this example a user wants to electronically buy ten beers invoking the transa
           response.delivery_date = log_res.actual_delivery_date
     }]
 ```
+
 Here the transaction service starts two parallel activities:
+
 * contact the product store and the logistics for booking the product and the transportation service. In particular it executes a sequence of two calls: _lockProduct@ProductStore_ and _bookTransportation_. The former locks the requested product on the Product Store whereas the latter books the transportation service. 
 * contact the bank account for locking the neccesary amount
 
 Note that in the former activity, after each invocation a termination handler is installed:
-```jolie
+
+```text
   with( pr_req ) {
       .product = request.product;
       .quantity = request.quantity
@@ -306,9 +310,10 @@ Note that in the former activity, after each invocation a termination handler is
       println@Console("cancelling logistics booking done")()
   )
 ```
+
 In particular, in the second one, the termination handler is installed as an update of the previous one thanks to the usage of the keyword `cH`. Indeed, after the second installation the handler will appear as it follows:
 
-```jolie
+```text
 println@Console("unlocking product...")();
 unlockProduct@ProductStore( { .token = pr_res.token })();
 println@Console("product unlocking done")();
@@ -316,13 +321,15 @@ println@Console("cancelling logistics booking..." )();
 cancelBooking@Logistics({ .reservation_id = log_res.reservation_id } )();
 println@Console("cancelling logistics booking done")()
 ```
+
 On the other hand a termination is installed for unlocking the amount of money. All these termination handlers are promoted at the parent scope, and in case of fault, they will be compensated:
 
-```jolie
+```text
   install( default =>
                         { comp( lock_product ) | comp( account ) }
                         ...
 ```
+
 If we simulate that the user has not enough money into the bank account, teh fault _CreditNotPresent_ is raised by the bank account service. In this case, the compensation handlers of the sibling activities are executed by rolling back the lock of the product and the book of the transportation service.
 
 In case there are no faults, all the activities are finalized in the last parallel of the operation _buy_ where all the involved services are called for commiting the previous lock of resources.
@@ -358,9 +365,9 @@ main
 
 The install primitive contained in the `while` loop updates the scope recovery handler at each iteration. In the process the value of the variable `i` is frozen within the handler.
 
-At this [link](https://github.com/jolie/examples/tree/master/03_fault_handling/13_transaction_example_multiple_products) we modified the electronic purchase example described above, introducing the possibility to buy a set of products instead of a single one. In such a case, the transaction service performs a locking call to the store service for each received product and, for each of these calls, it installs a related termination handler. In the termination handler, we exploits the freeze operator for freezing variables _i_, _token_ and _reservation_id_ at the values they have in the moment of the installation:
+At this [link](https://github.com/jolie/examples/tree/master/03_fault_handling/13_transaction_example_multiple_products) we modified the electronic purchase example described above, introducing the possibility to buy a set of products instead of a single one. In such a case, the transaction service performs a locking call to the store service for each received product and, for each of these calls, it installs a related termination handler. In the termination handler, we exploits the freeze operator for freezing variables _i_, _token_ and _reservation\_id_ at the values they have in the moment of the installation:
 
-```jolie
+```text
 scope( locks ) {
   install( default =>
         { comp( lock_product ) | comp( account ) }
@@ -419,21 +426,23 @@ scope( locks ) {
       )
   }
 }
-  ```
-At lines 22-23 and 36-37 it is possible to find the usage of the freeze operator. Note that the operator `cH` allows for queueing all the installed handlers. 
+```
+
+At lines 22-23 and 36-37 it is possible to find the usage of the freeze operator. Note that the operator `cH` allows for queueing all the installed handlers.
 
 ## Solicit-Response handler installation
 
 Solicit-Responses communication primitives allow for synchrnously sending a request and receiving a reply. Since the sending and the receiving are performed atomically in the same primitive, apparently it is not possible to install a handler after the request sending and before the reply reception. In Jolie it is possible to program such a behaviour using the following syntax:
 
-```jolie
+```text
 operation_name@Port_name( request )( response ) [ this => handler code here ]
 ```
+
 between the square brackets it is possible to install a termination handler which is installed after the sending of the request and before receiving a reply. **Note that the handler is installed only in case of a successfull reply, not in the case of a fault one**.
 
 At this [link](https://github.com/jolie/examples/tree/master/03_fault_handling/13_transaction_example_multiple_products) we report an executable example where a client calls a server with a solicit-response operation named _hello_. In particular, we install a _println_ command after sending the request message:
 
-```jolie
+```text
 scope( calling ) {
     install( this => println@Console( "Before calling" )() );
     hello@Server("hello")( response )
@@ -443,8 +452,5 @@ scope( calling ) {
 }
 ```
 
-In the same example the solicit-response is programmed with a fake activity which raises a fault thus trigerring the termination handler of the Solicit-Response. It is woth noting how the solicit-response handler is installed before executing the termination trigerred by the parallel fault. 
-
-
-
+In the same example the solicit-response is programmed with a fake activity which raises a fault thus trigerring the termination handler of the Solicit-Response. It is woth noting how the solicit-response handler is installed before executing the termination trigerred by the parallel fault.
 

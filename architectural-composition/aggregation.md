@@ -5,7 +5,6 @@ The _Aggregation_ is an architectural operator between an inputPort and a set of
 The syntax for aggregation extends that given for input ports.
 
 ```text
-
 inputPort id {
     Location: URI
     Protocol: p
@@ -18,9 +17,10 @@ Where the `Aggregates` primitive expects a list of output port names.
 
 ![](../.gitbook/assets/aggregation.png)
 
-If we observe the list of the operations available at the inputPort of the aggregator, we will see the list of all the aggregated operations together with those of the aggregator. 
+If we observe the list of the operations available at the inputPort of the aggregator, we will see the list of all the aggregated operations together with those of the aggregator.
 
 ## How Aggregation works
+
 We can now define how aggregation works. Given IP as an input port, whenever a message for operation OP is received through IP, we have three scenarios:
 
 * OP is an operation declared in one of the interfaces of IP. In this case, the message is normally received by the program.
@@ -37,18 +37,18 @@ As an example let us consider the case of two services, the printer and fax, agg
 
 The service _printer_ offers two operations called _print_ and _del_. The former allows for the printing of a document whereas the latter allows for its deletion from the queue. On the other hand the service _fax_ offers just one operation called _fax_. The aggregator, aggregates on its inputPort called _Aggregator_ both the printer and fax services as it is shown below where we report the ports declaration of the aggregator service:
 
-```jolie
+```text
 include "printer.iol"
 include "fax.iol"
 
 type FaxAndPrintRequest: void {
-	.fax: FaxRequest
-	.print: PrintRequest
+    .fax: FaxRequest
+    .print: PrintRequest
 }
 
 interface AggregatorInterface {
-	RequestResponse:
-		faxAndPrint( FaxAndPrintRequest )( void ) throws Aborted
+    RequestResponse:
+        faxAndPrint( FaxAndPrintRequest )( void ) throws Aborted
 }
 
 
@@ -71,6 +71,7 @@ Interfaces: AggregatorInterface
 Aggregates: Printer, Fax
 }
 ```
+
 It is worth noting that the inputPort _Aggregator_ actually offers all the operations available at outputPorts _Printer_ and _Fax_ which are connected with service _printer_ and _fax_ respectively. Moreover, the same inputPort declares also to make available the operations defined into interface _AggregatorInterface_ where one operation is defined: _faxAndPrint_. As a result, the following operations are available at the inputPort _Aggregator_:
 
 * _print_: which is executed by service _printer_;
@@ -78,10 +79,11 @@ It is worth noting that the inputPort _Aggregator_ actually offers all the opera
 * _fax_: which is executed by service _fax_;
 * _faxAndPrint_: which is executed by the aggregator
 
-In particular, let us notice that the operation _faxAndPrint_ actually orchestrates the operations _print_ and _fax_ in order to provide a unique operation which executes both of them. 
+In particular, let us notice that the operation _faxAndPrint_ actually orchestrates the operations _print_ and _fax_ in order to provide a unique operation which executes both of them.
 
 ## The Surface
-Here we introduce the concept of surface that is quite similar to that of _interface_ but with some important differences. 
+
+Here we introduce the concept of surface that is quite similar to that of _interface_ but with some important differences.
 
 A _surface_ is the resulting interface available at a given input port.
 
@@ -106,71 +108,76 @@ inputPort MyInput {
     Aggregates: Aport, Bport
 }
 ```
+
 In this example there are four interfaces declared: interface _A_, interface _B_, interface _C_ and interface _D_ and there are two outputPorts _Aport_ and _Bport_. The former exploits interface _A_ whereas the latter interface _B_. There is only one inputPort called _MyInput_ which aggregated both the output ports and also offers interfaces _A_ and _B_.
 
-In this case the surface at input port _MyInput_ is the resulting interface of the composition of interfaces _A_, _B_, _C_ and _D_. 
+In this case the surface at input port _MyInput_ is the resulting interface of the composition of interfaces _A_, _B_, _C_ and _D_.
 
 A surface is always obtained by listing all the available operations and types of all the interfaces available at a given input port. Thus if we calculate the surface of the port _Aggregator_ dicussed in the previous section we will obtain the following one:
 
-```jolie
+```text
 type JobID:void{
-	.jobId:string
+    .jobId:string
 }
 
 type FaxAndPrintRequest:void{
-	.print:PrintRequest
-	.fax:FaxRequest
+    .print:PrintRequest
+    .fax:FaxRequest
 }
 type PrintRequest:void{
-	.content:string
+    .content:string
 }
 type PrintResponse:JobID
 type FaxRequest:void{
-	.destination:string
-	.content:string
+    .destination:string
+    .content:string
 }
 
 
 interface AggregatorSurface {
 OneWay:
-	del( JobID )
+    del( JobID )
 RequestResponse:
-	faxAndPrint( FaxAndPrintRequest )( void ) throws Aborted( undefined ),
-	print( PrintRequest )( PrintResponse ),
-	fax( FaxRequest )( void )
+    faxAndPrint( FaxAndPrintRequest )( void ) throws Aborted( undefined ),
+    print( PrintRequest )( PrintResponse ),
+    fax( FaxRequest )( void )
 }
 ```
-The surface can be included by an invoker service for getting all the available operations for invoking the port _Aggregator_. 
+
+The surface can be included by an invoker service for getting all the available operations for invoking the port _Aggregator_.
 
 ### jolie2surface
+
 One important characteristic of the surface is that it actually does not exist as a software artifact until it is automatically derived and created from an input port declaration. So, how could we create a surface?
 
 The Jolie installation is equipped with a tool called _jolie2surface_ which allows for the creation of a surface starting from a service definition. Its usage is very simple, it is sufficient to run the following command:
 
-```jolie
+```text
 jolie2surface <filename.ol> <name of the port>
 ```
 
 in order to obtain the surface of port _Aggregator_ discussed in the previous section, the command is:
 
-```jolie
+```text
 jolie2surface aggregator.ol Aggregator
 ```
 
 if you need to save it into a file, just redirects the standard output:
 
-```jolie
+```text
 jolie2surface aggregator.ol Aggregator > surface.iol
 ```
+
 Note that the tool _jolie2surface_ also adds the outputPort declaration connected to the input port.
 
 ### Extracting surface programmatically
+
 The surface can be extracted in a programmatic way too by exploiting the standard library of Jolie. In particular, we can use the services [MetaJolie](https://jolielang.gitbook.io/docs/standard-library-api/metajolie) and [MetaParser](https://jolielang.gitbook.io/docs/standard-library-api/metaparser) for getting the surface of a an input port of a service.  
-The service _MetaJolie_ provides a set of functionalities for getting important meta information about a service whereas the service _MetaParser_ provides for transforming these information into a syntactically correct Jolie definition. If we want to extract the surface of an input port we can use the operation _getInputPortMetaData@MetaJolie_ which returns a complete description of the input port of a service definition. Then, with the operation _getSurface@Parser_ we can extract the surface by passing the definition of the input port obtained from the previous operation. 
+The service _MetaJolie_ provides a set of functionalities for getting important meta information about a service whereas the service _MetaParser_ provides for transforming these information into a syntactically correct Jolie definition. If we want to extract the surface of an input port we can use the operation _getInputPortMetaData@MetaJolie_ which returns a complete description of the input port of a service definition. Then, with the operation _getSurface@Parser_ we can extract the surface by passing the definition of the input port obtained from the previous operation.
 
 In the following you can find the example of the programmatic surface extraction of service _aggregator.ol_.
 
-```jolie
+```text
 include "metajolie.iol"
 include "metaparser.iol"
 include "console.iol"
@@ -184,8 +191,6 @@ main {
 
 The executable code can be found at this [link](https://github.com/jolie/examples/tree/master/04_architectural_composition/06_aggregation/06_surface_extraction)
 
-
-
 ## Protocol Transformation
 
 Aggregation can be used for system integration, e.g., bridging services that use different communication technologies or protocols. As an example, let us consider the system discussed in the previous section but considering that the aggregated services offers they operation using different protocols like http/json and http/soap as depicted in the following picture:
@@ -194,7 +199,7 @@ Aggregation can be used for system integration, e.g., bridging services that use
 
 In this case the aggregator automatically transforms the messages thus enabling a transparent composition of services which exploit different protocols.
 
-The full executable example can be found [here](https://github.com/jolie/examples/tree/master/04_architectural_composition/06_aggregation/07_protocol_transformation). Here  we report the input ports of both the fax and the printer services, and the output ports of the aggregator together with its main input port.
+The full executable example can be found [here](https://github.com/jolie/examples/tree/master/04_architectural_composition/06_aggregation/07_protocol_transformation). Here we report the input ports of both the fax and the printer services, and the output ports of the aggregator together with its main input port.
 
 ```text
 // Fax Service
@@ -230,8 +235,5 @@ Protocol: sodep
 Interfaces: AggregatorInterface
 Aggregates: Printer, Fax
 }
-
 ```
-
- 
 

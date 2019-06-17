@@ -1,112 +1,66 @@
-# Include library: web_services_utils.iol
+# WebServicesUtils
 
-Inclusion code: <pre>include "web_services_utils.iol"</pre>
+Inclusion code: 
 
-<table>
-  <caption>Service Deployment</caption>
-  <thead>
-    <tr>
-      <th>Port Name</th>
-      <th>Location</th>
-      <th>Protocol</th>
-      <th>Interfaces</th>
-    </tr>
-  </thead>
-  <tbody><tr><td>WebServicesUtils documentation: </td></tr>
-    <tr>
-      <td>WebServicesUtils</td>
-      <td>-</td>
-      <td>-</td>
-      <td><a href="#WebServicesUtilsInterface">WebServicesUtilsInterface</a></td>
-    </tr>
-  </tbody>
-</table>
+| Service Deployment |  |  |  |
+| :--- | :--- | :--- | :--- |
+| Port Name | Location | Protocol | Interfaces |
+| WebServicesUtils documentation: |  |  |  |
+| WebServicesUtils | - | - | [WebServicesUtilsInterface](web_services_utils.md#WebServicesUtilsInterface) |
 
-<h3>List of Available Interfaces</h3>
+### List of Available Interfaces
 
-<h3 id="WebServicesUtilsInterface">WebServicesUtilsInterface</h3>
+### WebServicesUtilsInterface <a id="WebServicesUtilsInterface"></a>
 
-Interface documentation: 
+Interface documentation:
 
-<table>
-  <thead>
-    <tr>
-      <th>Operation Name</th>
-      <th>Input Type</th>
-      <th>Output Type</th>
-      <th>Faults</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><a href="#wsdlToJolie">wsdlToJolie</a></td>
-      <td>string</td>
-      <td>string</td>
-      <td>
-        IOException( <a href="#IOExceptionType">IOExceptionType</a> )
-      </td>
-    </tr>
-  </tbody>
-</table>
+| Operation Name | Input Type | Output Type | Faults |
+| :--- | :--- | :--- | :--- |
+| [wsdlToJolie](web_services_utils.md#wsdlToJolie) | string | string |  IOException\( [IOExceptionType](web_services_utils.md#IOExceptionType) \) |
 
-<h2>Operation Description</h2>
+## Operation Description
 
+### wsdlToJolie <a id="wsdlToJolie"></a>
 
+Operation documentation:
 
-<h3 id="wsdlToJolie">wsdlToJolie</h3>
+Invocation template:
 
-Operation documentation: 
+```text
+wsdlToJolie@WebServicesUtils( request )( response )
+```
 
-
-Invocation template: 
-<pre>wsdlToJolie@WebServicesUtils( request )( response )</pre>
-
-<h4>Request type</h4>
+#### Request type
 
 Type: string
 
+`string : string`
 
-
-
-<code>string : string</code> 
-
-
-
-<h4>Response type</h4>
+#### Response type
 
 Type: string
 
+`string : string`
 
+#### Possible faults thrown
 
+Fault `IOException` with type `IOExceptionType`
 
-<code>string : string</code> 
+Fault-handling install template:
 
+```text
+install ( IOException => /* error-handling code */ )
+```
 
+```text
+type IOExceptionType: JavaExceptionType
+```
 
+### Subtypes
 
-<h4>Possible faults thrown</h4>
+#### JavaExceptionType <a id="JavaExceptionType"></a>
 
-
-Fault <code>IOException</code> with type <code>IOExceptionType</code>
-
-Fault-handling install template: 
-<pre>install ( IOException => /* error-handling code */ )</pre>
-<pre>type IOExceptionType: JavaExceptionType</pre>
-
-
-
-<h3>Subtypes</h3>
-
-
-<h4 id="JavaExceptionType">JavaExceptionType</h4>
-
-
-
-<pre>type JavaExceptionType: string {
-	.stackTrace: string
-}</pre>
-<code>JavaExceptionType : string</code> 
-
-
-
+```
+type JavaExceptionType: string { .stackTrace: string }
+```
 
