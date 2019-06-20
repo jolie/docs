@@ -3,7 +3,32 @@
 A collection is a set of output ports that share the same interface. They can be used in combination with [Aggregation](https://github.com/jolie/docs/tree/f7380de3b4b0fc6b938ca43b657f4f0485963fdb/architectural-composition/aggreation.md) and [Couriers](couriers.md#courier-sessions) in order to public their interface into an aggregator and then forward the message to an output port of the collection depending on a specific rule.
 
 ## Smart Aggregations
+Smart Aggregation allows to collectively aggregate outputPorts which share the same interface. Its syntax is very simple, it is sufficient to group the output ports with the same interface within curly brackets:
 
+```text
+inputPort AggregatorPort {
+    Location: ...
+    Protocol: ...
+    Aggregates: 
+        { outputPort_11, outputPort_12, ... },
+        //  ...
+        { outputPort_n1, outputPort_n2, ... },
+}
+
+/*
+where outputPort_11 and outputPort_12 share the same interface and, 
+outputPort_n1 and outputPort_n2 share another interface */
+```
+
+Once a message is received on the shared interface, a courier process can be executed for running specific logics for the message delivery. As an example let us consider the case of an aggregator which receives messages for two printers and it delivers the message by following a cyclic approach. In the following picture we report the architecture of the example, whereas the code can be found [here](https://github.com/jolie/examples/tree/master/04_architectural_composition/08_collection/01_smart_aggregation)
+
+![](../.gitbook/assets/smart_aggregation.png)
+
+
+
+
+
+# Interface extension
 Collections extend the Courier Sessions syntax by allowing a set of output ports that share the same interface to be extended by the same `interface_extender`,
 
 ```text
