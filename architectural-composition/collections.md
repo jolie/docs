@@ -79,7 +79,22 @@ Note that here we use the parallel composition of the primitive `forward`.
 A complete example of message broadcasting thprugh the usage of smart aggregation can be found [here](https://github.com/jolie/examples/tree/master/04_architectural_composition/08_collection/02_broadcasting).
 
 # Interface extension
-Collections extend the Courier Sessions syntax by allowing a set of output ports that share the same interface to be extended by the same `interface_extender`,
+When using collections it is also possible to extend the interface of the collected output ports in order to add some extra data that are managed only by the aggregator. Such an interface extension indeed, is completely transparent with respect to the target services. The aggregator will automatically remove the extended data before forwarding the messages to the target services. The extra data can be used withing the courier process for implementing specific logics at the level of the aggregator. 
+
+In order to extend an interface it is necessary to define an interface extender by using the following syntax:
+```text
+interface extender AuthInterfaceExtender {
+    RequestResponse:
+        *(ExtendedRequestType)(void)
+    OneWay:
+        *(ExtendedRequestType)
+}
+
+/* where the ExtendedRequestType is a simple decalartion of type */
+```
+It is worth noting that the character `*` is a shortcut for addressing the extension to all the operations of an interface.
+
+Once defined an extender, it must be applied to the interface of the target service. This can be done directly in the collection declaration as it follows:
 
 ```text
 inputPort AggregatorPort {
@@ -91,20 +106,7 @@ inputPort AggregatorPort {
         { outputPort_n1, outputPort_n2, ... } with extender_idn
 }
 ```
-
-then, in the courier definition, the forward statement specifies the corresponding output port to forward the message to.
-
-```text
-courier AggregatorPort {
-    interface interface_id( request )[( response )] {
-        // some code, if necessary
-        // and eventually
-        forward (outputPort_name( request ) | outputPort_name( request )( response ))
-    }
-}
-```
-
-Courier Sessions that use collections of output ports are called "smart aggregations".
+Note that the token `with` here denotes the application of the extender `extender_id1` and `extender_idn` to the interfaces of the output ports in the related collections.
 
 ## A comprehensive example
 
