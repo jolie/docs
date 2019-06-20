@@ -78,35 +78,8 @@ courier AggregatorInput {
 Note that here we use the parallel composition of the primitive `forward`. 
 A complete example of message broadcasting thprugh the usage of smart aggregation can be found [here](https://github.com/jolie/examples/tree/master/04_architectural_composition/08_collection/02_broadcasting).
 
-# Interface extension
-When using collections it is also possible to extend the interface of the collected output ports in order to add some extra data that are managed only by the aggregator. Such an interface extension indeed, is completely transparent with respect to the target services. The aggregator will automatically remove the extended data before forwarding the messages to the target services. The extra data can be used withing the courier process for implementing specific logics at the level of the aggregator. 
-
-In order to extend an interface it is necessary to define an interface extender by using the following syntax:
-```text
-interface extender AuthInterfaceExtender {
-    RequestResponse:
-        *(ExtendedRequestType)(void)
-    OneWay:
-        *(ExtendedRequestType)
-}
-
-/* where the ExtendedRequestType is a simple decalartion of type */
-```
-It is worth noting that the character `*` is a shortcut for addressing the extension to all the operations of an interface.
-
-Once defined an extender, it must be applied to the interface of the target service. This can be done directly in the collection declaration as it follows:
-
-```text
-inputPort AggregatorPort {
-    // Location definition
-    // Protocol definition
-    Aggregates: 
-        { outputPort_11, outputPort_12, ... } with extender_id1,
-        //  ...
-        { outputPort_n1, outputPort_n2, ... } with extender_idn
-}
-```
-Note that the token `with` here denotes the application of the extender `extender_id1` and `extender_idn` to the interfaces of the output ports in the related collections.
+# Collection and Interface extension
+When using collections it is also possible to extend the interface of the collected output ports in order to add some extra data that are managed only by the aggregator. [Interface extension](architectural-composition/couriers#interface-extension) can be applied to all the output ports of a collection.
 
 ## A comprehensive example
 Here we present a comprehensive example which includes interface extensionby modifying the example described in the sections above. In this new scenario we have two printer services `Printer1` and `Printer2`, the fax service `Fax` and the service `Logger` which are all part of our trusted intranet. The full code of the example can be found [here](https://github.com/jolie/examples/tree/master/04_architectural_composition/08_collection/03_comprehensive_example).
