@@ -113,7 +113,7 @@ Here we present a comprehensive example which includes interface extensionby mod
 
 ![](../.gitbook/assets/collection_comprehensive_example.png)
 
-We deploy a service that aggregates Printer1, Printer2, and Fax to accept requests from external networks \(e.g., the Internet\), but we want to authenticate the external users that use Printer1's and Printer2's service.
+Our aim is to deploy a service that aggregates Printer1, Printer2, and Fax to accept requests from external networks \(e.g., the Internet\), but we want to authenticate the external users that use Printer1's and Printer2's service. In particular, we with the operation `get_key` provided by the aggregator, we allow the user to get the service key to use for accessing the target service. Here, for the sake of brevity, we just simulate the authentication. Once obtained the key, the client can add it to the request directed to the target service. It is worth noting that the key is an extra data added by means of the interface extender, thus when the message is forwarded to the target service, it will be erased. Such a fact implies that the target services are not aware of the authentication logics which is totally in charge to the aggregator.
 
 ```text
 include "locations.iol"
