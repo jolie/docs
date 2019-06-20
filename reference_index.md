@@ -47,7 +47,7 @@ This reference index is still under construction. If you spot something missing,
 * `init{}`: init scope. [Go to section: Processes and Sessions](basics/processes.md)
 * `inputPort`: input port statement. [Go to section: Ports](basics/communication-ports/ports.md)
 * `interface`: interface definition. [Go to section: Interfaces](basics/interfaces/)
-* `interface extender`: interface extension. [Go to section: Collection](architectural-composition/collections.md#interface-extension)
+* `interface extender`: interface extension. [Go to section: Couriers](architectural-composition/couriers#interface-extension)
 * `Interfaces`: port interfaces. [Go to section: Interfaces](basics/interfaces/)
 * `install()`: handler installation. [Go to section: Scopes and Faults](basics/fault-handling/basics.md)
 * `Location`: port location. [Go to section: Locations](https://github.com/jolie/docs/tree/b09339d5f67a4343dbdab600b5ea7903dd9f1e1d/basics/communication-ports/locations.md)
@@ -69,7 +69,7 @@ This reference index is still under construction. If you spot something missing,
 * `type`: type definition. [Go to section: Data Types](https://github.com/jolie/docs/tree/b09339d5f67a4343dbdab600b5ea7903dd9f1e1d/basics/communication-ports/data_types/README.md)
 * `undef()`: undefines a variable. [Go to section: Undef](basics/data_structures.md#undef-erasing-tree-structures)
 * `while(){}`: conditional loop. [Go to section: for and while](basics/composing_statements.md#for-and-while)
-* `with`: interface extender operator. [Go to section: Collection](architectural-composition/collections.md#interface-extension)
+* `with`: interface extender operator. [Go to section: Couriers](architectural-composition/couriers#interface-extension)
 * `with(:){}`: shortcut to repetitive variable paths. [Go to section: with](basics/data_structures.md#with-a-shortcut-to-repetitive-variable-paths)
 
 ## Tools and related projects
