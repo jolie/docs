@@ -109,11 +109,13 @@ inputPort AggregatorPort {
 Note that the token `with` here denotes the application of the extender `extender_id1` and `extender_idn` to the interfaces of the output ports in the related collections.
 
 ## A comprehensive example
-Here we present a comprehensive example which includes interface extensionby modifying the example described in the sections above. In this new scenario we have two printer services `Printer1` and `Printer2`, the fax service `Fax` and the service `Logger` which are all part of our trusted intranet.
+Here we present a comprehensive example which includes interface extensionby modifying the example described in the sections above. In this new scenario we have two printer services `Printer1` and `Printer2`, the fax service `Fax` and the service `Logger` which are all part of our trusted intranet. The full code of the example can be found [here](https://github.com/jolie/examples/tree/master/04_architectural_composition/08_collection/03_comprehensive_example).
 
 ![](../.gitbook/assets/collection_comprehensive_example.png)
 
 Our aim is to deploy a service that aggregates Printer1, Printer2, and Fax to accept requests from external networks \(e.g., the Internet\), but we want to authenticate the external users that use Printer1's and Printer2's service. In particular, we with the operation `get_key` provided by the aggregator, we allow the user to get the service key to use for accessing the target service. Here, for the sake of brevity, we just simulate the authentication. Once obtained the key, the client can add it to the request directed to the target service. It is worth noting that the key is an extra data added by means of the interface extender, thus when the message is forwarded to the target service, it will be erased. Such a fact implies that the target services are not aware of the authentication logics which is totally in charge to the aggregator.
+
+In the following the code of the aggregator:
 
 ```text
 include "locations.iol"
@@ -211,8 +213,4 @@ main
 ```
 
 Above, the aggregator exposes the inputPort `AggregatorInput` that aggregates the `Fax` service \(as is\) and `Printer1` and `Printer2` services. `Printer1`'s and `Printer2`'s operations types are extended by the `AuthInterfaceExtender`.
-
-The comprehensive files of the example above can be downloaded from the following link:
-
-[Aggregation and interface extender Code Example](https://github.com/jolie/docs/blob/master/files/architectural-composition/code/aggregation_code.zip)
 
