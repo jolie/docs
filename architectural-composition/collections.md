@@ -79,7 +79,7 @@ Note that here we use the parallel composition of the primitive `forward`.
 A complete example of message broadcasting thprugh the usage of smart aggregation can be found [here](https://github.com/jolie/examples/tree/master/04_architectural_composition/08_collection/02_broadcasting).
 
 # Collection and Interface extension
-When using collections it is also possible to extend the interface of the collected output ports in order to add some extra data that are managed only by the aggregator. [Interface extension](../couriers#interface-extension) can be applied to all the output ports of a collection.
+When using collections it is also possible to extend the interface of the collected output ports in order to add some extra data that are managed only by the aggregator. [Interface extension](../couriers.md#interface-extension) can be applied to all the output ports of a collection.
 
 ## A comprehensive example
 Here we present a comprehensive example which includes interface extensionby modifying the example described in the sections above. In this new scenario we have two printer services `Printer1` and `Printer2`, the fax service `Fax` and the service `Logger` which are all part of our trusted intranet. The full code of the example can be found [here](https://github.com/jolie/examples/tree/master/04_architectural_composition/08_collection/03_comprehensive_example).
