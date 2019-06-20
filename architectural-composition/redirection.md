@@ -81,3 +81,11 @@ outputPort Sum {
 
 From an architectural point of view, redirection and aggregation are different. The most important element to be kept in mind is what the client is able to see on the input port of the aggregator and on the input port of the redirector. On the former case, the client is not aware of the services handled by the aggregator because it just sees a unique service which exposes all the operations, whereas in the latter case, the client is aware of the target services and it needs to treat them as separate entities with different output ports.
 
+# Exploiting redirection for a transparent protocol transformation
+Redirection can be used for transparently transforming messages from a protocol to another. As an example let us consider the scenario discussed in the previous section where the redirector exposes a port using protocol `sodep` and but it internally communicates with the redirected services using protocol `http`. The complete code of the example can be found [here](https://github.com/jolie/examples/tree/master/04_architectural_composition/07_redirection/02_redirection_change_protocol).
+
+![](../.gitbook/assets/redirection_example_protocol_sodep.png)
+
+
+
+
