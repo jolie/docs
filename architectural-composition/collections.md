@@ -109,32 +109,9 @@ inputPort AggregatorPort {
 Note that the token `with` here denotes the application of the extender `extender_id1` and `extender_idn` to the interfaces of the output ports in the related collections.
 
 ## A comprehensive example
+Here we present a comprehensive example which includes interface extensionby modifying the example described in the sections above. In this new scenario we have two printer services `Printer1` and `Printer2`, the fax service `Fax` and the service `Logger` which are all part of our trusted intranet.
 
-Let us modify the example shown in Couriers subsection. In this new scenario we have two printer services Printer1 and Printer2, and the fax service Fax which are part of our trusted intranet.
-
-```text
-// printer.iol
-type PrintRequest:void {
-    .job:int
-    .content:string
-}
-
-interface PrinterInterface {
-OneWay:
-    print(PrintRequest), del(int)
-}
-
-// fax.iol
-type FaxRequest:void {
-    .destination:string
-    .content:string
-}
-
-interface FaxInterface {
-OneWay:
-    fax(FaxRequest)
-}
-```
+![](../.gitbook/assets/collection_comprehensive_example.png)
 
 We deploy a service that aggregates Printer1, Printer2, and Fax to accept requests from external networks \(e.g., the Internet\), but we want to authenticate the external users that use Printer1's and Printer2's service.
 
