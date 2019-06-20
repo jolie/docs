@@ -24,6 +24,47 @@ Once a message is received on the shared interface, a courier process can be exe
 
 ![](../.gitbook/assets/smart_aggregation.png)
 
+Note that at the input port of the Aggregator and the corresponding output ports of the two aggregated services appear as it follows:
+```text
+outputPort Printer1 {
+Location: ...
+Protocol: sodep
+Interfaces: PrinterInterface
+}
+
+outputPort Printer2 {
+Location: ...
+Protocol: sodep
+Interfaces: PrinterInterface
+}
+
+inputPort AggregatorInput {
+Location: Location_Aggregator
+Protocol: sodep
+Aggregates: { Printer1, Printer2 }
+Interfaces: AggregatorInterface
+}
+```
+Then, in the courier process a simple algorithm which cyclically delivers the messages to the two interfaces, is defined as it follows:
+
+```text
+courier AggregatorInput {
+	[ interface PrinterInterface( request ) ] {
+		/* depending on the key the message will be forwared to Printer1 or Printer2 */
+		println@Console( ">>" + global.printer_counter )();
+		if ( (global.printer_counter % 2) == 0 ) {
+				forward Printer1( request )
+		} else {
+				forward Printer2( request )
+		}
+		;
+		synchronized( printer_count_write ) {
+				global.printer_counter++
+		}
+	}
+}
+```
+Note that the variable `global.printer_counter` is counting the message received for operations of interface `PrinterInterface`.
 
 
 
