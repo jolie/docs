@@ -66,7 +66,7 @@ courier AggregatorInput {
 ```
 Note that the variable `global.printer_counter` is counting the message received for operations of interface `PrinterInterface`.
 
-### Broadcasting messages
+## Broadcasting messages
 The smart aggregation can be easily used for broadcasting messages to output ports with the same interface. In this case it is sufficient to modify the courier process by forwarding the messages to all the target service as it is shown below:
 ```text
 courier AggregatorInput {
