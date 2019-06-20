@@ -76,6 +76,7 @@ courier AggregatorInput {
 }
 ```
 Note that here we use the parallel composition of the primitive `forward`. 
+A complete example of message broadcasting thprugh the usage of smart aggregation can be found [here](https://github.com/jolie/examples/tree/master/04_architectural_composition/08_collection/02_broadcasting).
 
 # Interface extension
 Collections extend the Courier Sessions syntax by allowing a set of output ports that share the same interface to be extended by the same `interface_extender`,
