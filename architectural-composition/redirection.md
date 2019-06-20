@@ -79,5 +79,5 @@ outputPort Sum {
 }
 ```
 
-From an architectural point of view redirection and aggregation are very different. The most important difference is what the client is able to see on the input port of the aggregator and on the input port of the redirector. On the former case, the client is not aware of the services handled by the aggregator because it just sees a unique service which exposes all the operations, whereas in the latter case, the client is aware of the target services and it needs to treat them as separate entities with different output ports.
+From an architectural point of view, redirection and aggregation are different. The most important element to be kept in mind is what the client is able to see on the input port of the aggregator and on the input port of the redirector. On the former case, the client is not aware of the services handled by the aggregator because it just sees a unique service which exposes all the operations, whereas in the latter case, the client is aware of the target services and it needs to treat them as separate entities with different output ports.
 
