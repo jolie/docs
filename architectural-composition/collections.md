@@ -66,8 +66,16 @@ courier AggregatorInput {
 ```
 Note that the variable `global.printer_counter` is counting the message received for operations of interface `PrinterInterface`.
 
-
-
+### Broadcasting messages
+The smart aggregation can be easily used for broadcasting messages to output ports with the same interface. In this case it is sufficient to modify the courier process by forwarding the messages to all the target service as it is shown below:
+```text
+courier AggregatorInput {
+	[ interface PrinterInterface( request ) ] {
+		forward Printer1( request ) | forward Printer2( request )
+	}
+}
+```
+Note that here we use the parallel composition of the primitive `forward`. 
 
 # Interface extension
 Collections extend the Courier Sessions syntax by allowing a set of output ports that share the same interface to be extended by the same `interface_extender`,
