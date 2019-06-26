@@ -36,7 +36,7 @@
   * [Couriers](architectural-composition/couriers.md)
   * [Redirection](architectural-composition/redirection.md)
   * [Collections](architectural-composition/collections.md)
-* [Integration with other technologies](technology-integration/README.md)
+* [Integration with other programming languages](technology-integration/README.md)
   * [Java](technology-integration/javaservices.md)
   * [Javascript](technology-integration/javascript.md)
 * [Web Services](web-services/README.md)
