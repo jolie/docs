@@ -1,3 +1,3 @@
-.#jolie2java
+# jolie2java
 
 ..working in progress
