@@ -12,7 +12,7 @@ This reference index is still under construction. If you spot something missing,
 * `raw`: byte arrays;
 * `void`: the empty type.
 
-[Go to section: Handling Simple Data](https://github.com/jolie/docs/tree/b09339d5f67a4343dbdab600b5ea7903dd9f1e1d/basics/handling_simple_data/README.md)
+[Go to section: Handling Simple Data](basics/handling_simple_data/README.md)
 
 ## Tree operators
 
