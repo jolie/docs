@@ -23,12 +23,14 @@ You will see the following message on the console:
 Usage: jolie2java --format [java|gwt] --packageName package_namespace [--targetPort outputPort_to_be_encoded] [ --outputDirectory outputDirectory ] [--buildXml true|false] [--addSource true|false] file.ol
 ```
 where all the possible arguments to the tool are specified. They are:
-* `--format`: it can be `java` or `gwt` depending on the target technology. The default is `java`. *Note that the generation of the gwt classes is deprecated*
+* `--format`: it can be `java` or `gwt` depending on the target technology. The default is `java`. **Note that the generation of the gwt classes is deprecated**
 * `--packageName`: it is the name of the package which will contain all the generated classes. It is a mandatory argument.
 * `--targetPort`: it is the name of the outputPort to be converted. It could be usedful where the jolie file containes more than one outputPort and we just need to convert one of them. If it is not specified all the output ports will be converted.
 * `--outputDirectory`: it is the name of the output directory where the generated files will be stored. The default value is `./generated`
 * `--buildXml`: it specifies if the tool must generate also the file `build.xml` which can be used by *ant* for building the generated classes and provide a unique library file in the form of a jar file. The default is `true`.
 * `--addSource`: when the generation of the file `build.xml` is enabled it specifies if adding also the sources (files .java) to the jar. The default is `false`. In case the argument `buildXml` is set to `false` it is ignored.
+
+Let us now try with a simple example. we 
 
 ## jolie2java-maven-plugin
 
