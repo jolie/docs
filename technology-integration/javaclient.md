@@ -7,7 +7,16 @@ In the following picture we briefly represent how the final architecture of the 
 
 The Java client for a Jolie service can be automatically built starting from a Jolie outputPort declaration. In particular, the client takes the form of a package of classes where all the Jolie types declared in the interfaces used at the input port, are converted into classes in Java. Moreover, all the Jolie interfaces available at the given port are converted into one Java interface. An implementation of the Java interface is provided in order to easily call the Jolie service by exploiting the Jolie Java client.
 
-##jolie2java
+There are two possible ways for generating the Java client starting from an outputPort:
+
+* Using the tool jolie2java from command line
+* Using the jolie2java-maven-plugin
+
+## jolie2java
+
+
+## jolie2java-maven-plugin
+
 
 
 
