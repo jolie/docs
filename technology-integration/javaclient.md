@@ -5,7 +5,10 @@ In the following picture we briefly represent how the final architecture of the 
 
 ![](../.gitbook/assets/jolie_client.png)
 
-The Java client for a Jolie service can be automatically built starting from a Jolie outputPort declaration. In particular, the client takes the form of a package of classes where all the Jolie types declared in the interfaces used at the input port, are converted into classes in Java. Moreover, all the Jolie interfaces available at the given port are converted into corresponding Java interfaces and an implementation of them is provided in order to be used for calling the related Jolie service.
+The Java client for a Jolie service can be automatically built starting from a Jolie outputPort declaration. In particular, the client takes the form of a package of classes where all the Jolie types declared in the interfaces used at the input port, are converted into classes in Java. Moreover, all the Jolie interfaces available at the given port are converted into one Java interface. An implementation of the Java interface is provided in order to easily call the Jolie service by exploiting the Jolie Java client.
+
+##jolie2java
+
 
 
 
