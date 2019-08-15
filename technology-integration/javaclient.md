@@ -30,9 +30,6 @@ where all the possible arguments to the tool are specified. They are:
 * `--buildXml`: it specifies if the tool must generate also the file `build.xml` which can be used by *ant* for building the generated classes and provide a unique library file in the form of a jar file. The default is `true`.
 * `--addSource`: when the generation of the file `build.xml` is enabled it specifies if adding also the sources (files .java) to the jar. The default is `false`. In case the argument `buildXml` is set to `false` it is ignored.
 
-Let us now try with a simple example. we 
-
-## jolie2java-maven-plugin
 
 
 
