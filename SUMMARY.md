@@ -38,7 +38,7 @@
   * [Collections](architectural-composition/collections.md)
 * [Integration with other programming languages](technology-integration/README.md)
   * [Java](technology-integration/java.md)
-    * [jolie2java](technology-integration/jolie2java.md)
+    * [Java Client](technology-integration/javaclient.md)
     * [Javaservices](technology-integration/javaservices.md)
     * [Java clients](technology-integration/javaclients.md)
   * [Javascript](technology-integration/javascript.md)
