@@ -133,6 +133,57 @@ The command generates three folders:
 * `dist`: it contains the distributable jar of the Jolie Java client
 * `lib`: it contains all the jar dependencies of the Jolie Java client
 
+### Using the Jolie Java client in a project
+Let us now to show how to use the generated client into a Java project. First of all, include the following jar files in the classpath of your project:
+
+* `jolie.jar`: 
+* `libjolie.jar`
+* `sodep.jar`
+* `jolie-java.jar`
+* `JolieClient.jar`: it is the distributable jar of the client obtained compiling the sources with ant as described in the previous section.
+
+In the following we show the code necessary to invoke the Jolie service of the example presented above. Here we assume that such a service is running on localhost at port 8000.
+
+```
+import com.test.jolie.ForecastImpl;
+import com.test.jolie.JolieClient;
+import com.test.jolie.types.GetTemperatureRequest;
+import java.io.IOException;
+
+public class JavaApplication11
+{
+	public static void main( String[] args ) throws IOException, InterruptedException, Exception
+	{
+		JolieClient.init( "localhost", 8000 );
+		ForecastImpl forecast = new ForecastImpl();
+		GetTemperatureRequest request = new GetTemperatureRequest();
+		request.setRootValue( "Cesena" );
+		System.out.println( forecast.getTemperature( request ));
+	}	
+}
+```
+* before using the client, it is necessary to initialize the location and the port of the service to invoke. The first row of the main does this: 
+
+`JolieClient.init( "localhost", 8000 );` 
+
+* then it is necessary to instantiate the object which implements the Java interface of the service:
+
+`ForecastImpl forecast = new ForecastImpl();`
+
+* now it is possible to prepare the request message:
+
+`
+GetTemperatureRequest request = new GetTemperatureRequest();
+request.setRootValue( "Cesena" );
+`
+
+* finally, it is possible to perform the invocation:
+
+`
+forecast.getTemperature( request )
+`
+
+
 
 
 
