@@ -30,6 +30,29 @@ where all the possible arguments to the tool are specified. They are:
 * `--buildXml`: it specifies if the tool must generate also the file `build.xml` which can be used by *ant* for building the generated classes and provide a unique library file in the form of a jar file. The default is `true`.
 * `--addSource`: when the generation of the file `build.xml` is enabled it specifies if adding also the sources (files .java) to the jar. The default is `false`. In case the argument `buildXml` is set to `false` it is ignored.
 
+Let us now try to apply the tool `jolie2java` to the simple example at this [link](https://github.com/jolie/examples/tree/master/05_other_tools/02_jolie2java/01_jolie2java). Here there is a Jolie service which implements two operations `getTemperature` and `getWind`. The interface which describes them follows:
+```
+type GetTemperatureRequest: void {
+  .city: string
+}
+
+type GetWindRequest: void {
+  .city: string
+}
+
+interface ForecastInterface {
+RequestResponse:
+  getTemperature( GetTemperatureRequest )( double ),
+  getWind( GetWindRequest )( double )
+}
+```
+So, download in a folder both the `main.ol` and the `ForecastInterface.iol` file and run the following command from it.
+
+```
+jolie2java --packageName com.test.jolie main.ol
+```
+
+
 
 
 
