@@ -32,8 +32,11 @@ where all the possible arguments to the tool are specified. They are:
 
 Let us now try to apply the tool `jolie2java` to the simple example at this [link](https://github.com/jolie/examples/tree/master/05_other_tools/02_jolie2java/01_jolie2java). Here there is a Jolie service which implements two operations `getTemperature` and `getWind`. The interface which describes them follows:
 ```
-type GetTemperatureRequest: void {
-  .city: string
+type GetTemperatureRequest: string {
+    .place?: void {
+        .longitude: string 
+        .latittude: string
+    }
 }
 
 type GetWindRequest: void {
@@ -77,13 +80,40 @@ As a result you will find a folder called `generated` whose content is:
 --------types
 ----------|
 ----------GetTemperatureRequest.java
-----------GetWindRequest.java
+----------c.java
 --------Controller.java
 --------ForecastImpl.java
 --------ForecastInterface.java
 --------JolieClient.java
 ```
-The file `build.xml` can be used under [ant](https://ant.apache.org/) for building a distributable jar file. See the subsection [below](#create-a-distributable-jar-with-ant) for more details.
+The file `build.xml` can be used under [ant](https://ant.apache.org/) for building a distributable jar file. See the subsection [below](#create-a-distributable-jar-with-ant) for more details. The structure of the directories `com/test/jolie` corresponds to the package name given as argument to `jolie2java`.
+
+Files `Controller.java` and `JolieClient.java` actually implement the client for sending requests to a Jolie service. The file `ForecastInterface.java` is the Java interface which corresponds to the Jolie ones available at the converted outputPort. The file `ForecastImpl.java` is the actual implementation of the `ForecastInterface.java` and it exploits the `JolieClient` class for directly invoking the operations of the Jolie service. The folder `types` contains all the classes which represent the types declared in the Jolie interface. In this example there are only two types: `GetTemperatureRequest` and `GetTemperatureRequest`.
+
+### Some important notes to the type conversion
+**Native types** are converted into Java classes as it is described below:
+
+* int -> Integer
+* string -> String
+* double -> Double
+* long -> Long 
+* bool -> Booelan
+* raw -> ByteArray _(it is an class available from the jolie.jar library)_
+* undefined -> Value _(it is an class available from the jolie.jar library)_
+* any -> Object
+
+**Structured types** are converted by introducing inner classes inside the main one. For example, the type `GetTemperatureRequest` contains a subnode `place` which is mapped with an internal class called `placeType` as it is shown below where we report the first lines of the `GetTemperatureRequest.java`.
+```
+public class GetTemperatureRequest implements Jolie2JavaInterface {
+	public class placeType {
+		private String latittude;
+		private String longitude;
+
+		public placeType( Value v ) throws TypeCheckingException {
+    ...
+```
+
+**Root values**. When a Jolie type requires a root value like in type `GetTemperatureRequest` where a `string` is requested as root type, in Java it is converted introducing a private filed called `rootValue` which can be accessed by using methods `getRootValue` and `setRootValue`.
 
 ### Create a distributable jar with ant
 
