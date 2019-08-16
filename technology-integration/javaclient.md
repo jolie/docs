@@ -83,6 +83,9 @@ As a result you will find a folder called `generated` whose content is:
 --------ForecastInterface.java
 --------JolieClient.java
 ```
+The file `build.xml` can be used under [ant](https://ant.apache.org/) for building a distributable jar file. See the subsection [below]() for more details.
+
+### Create a distributable jar with ant
 
 
 
