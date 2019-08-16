@@ -46,15 +46,43 @@ RequestResponse:
   getWind( GetWindRequest )( double )
 }
 ```
-So, download in a folder both the `main.ol` and the `ForecastInterface.iol` file and run the following command from the same folder.
+The client declaration we want to convert in a Java Client is defined within the file `client.ol` which is reported below:
+```
+include "ForecastInterface.iol"
+
+outputPort Forecast {
+Interfaces: ForecastInterface
+}
+
+main {
+    nullProcess
+}
+```
+It is worth noting that the minimal definition we require in order to generate a Java Client is the declaration of an outputPort and its related interfaces. The main scope is defined but it is empty (`nullProcess`) just because we need to respect the minimal requirements for a service definition, otherwise a syntax error would be triggered by the tool.
+
+Download in a folder both the `main.ol` and the `ForecastInterface.iol` file and run the following command from the same folder.
 
 ```
-jolie2java --packageName com.test.jolie main.ol
+jolie2java --packageName com.test.jolie client.ol
 ```
 As a result you will find a folder called `generated` whose content is:
+```
 -- build.xml
 -- com
----- 
+----| 
+----test
+------|
+------jolie
+--------|
+--------types
+----------|
+----------GetTemperatureRequest.java
+----------GetWindRequest.java
+--------Controller.java
+--------ForecastImpl.java
+--------ForecastInterface.java
+--------JolieClient.java
+```
 
 
 
