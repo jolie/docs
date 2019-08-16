@@ -129,9 +129,9 @@ Alternatively, if you are confindent with [ant](https://ant.apache.org/) you can
 ant dist
 ```
 The command generates three folders:
-* built: it containes the compiled Java classes
-* dist: it contains the distributable jar of the Jolie Java client
-* lib: it contains all the jar dependencies of the Jolie Java client
+* `built`: it contains the compiled Java classes
+* `dist`: it contains the distributable jar of the Jolie Java client
+* `lib`: it contains all the jar dependencies of the Jolie Java client
 
 
 
