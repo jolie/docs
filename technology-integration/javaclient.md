@@ -46,11 +46,15 @@ RequestResponse:
   getWind( GetWindRequest )( double )
 }
 ```
-So, download in a folder both the `main.ol` and the `ForecastInterface.iol` file and run the following command from it.
+So, download in a folder both the `main.ol` and the `ForecastInterface.iol` file and run the following command from the same folder.
 
 ```
 jolie2java --packageName com.test.jolie main.ol
 ```
+As a result you will find a folder called `generated` whose content is:
+-- build.xml
+-- com
+---- 
 
 
 
