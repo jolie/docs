@@ -150,7 +150,7 @@ import com.test.jolie.JolieClient;
 import com.test.jolie.types.GetTemperatureRequest;
 import java.io.IOException;
 
-public class JavaApplication11
+public class JavaApplication
 {
 	public static void main( String[] args ) throws IOException, InterruptedException, Exception
 	{
@@ -183,8 +183,61 @@ request.setRootValue( "Cesena" );
 forecast.getTemperature( request )
 `
 
+### Using the jolie2java-maven-plugin
+For those who are using [maven](https://maven.apache.org/) for managing their Java projecs, it is possible to use `jolie2java` within a specific maven plugin: `jolie2java-maven-plugin`. Just add the following lines to the pom of your project and the `jolie2java` tool can be used within the maven Lifecycle:
 
+```
+<!--dependencies-->
+<dependency>
+  <groupId>jolie</groupId>
+  <artifactId>jolie</artifactId>
+  <version>1.8.1</version>
+</dependency>
+<dependency>
+  <groupId>jolie</groupId>
+  <artifactId>libjolie</artifactId>
+  <version>1.8.1</version>
+</dependency>
+<dependency>
+  <groupId>jolie</groupId>
+  <artifactId>jolie-java</artifactId>
+  <version>1.8.1</version>
+</dependency>
+<dependency>
+  <groupId>jolie</groupId>
+  <artifactId>sodep</artifactId>
+  <version>1.8.1</version>
+</dependency>
 
+<!-- maven plugin -->
+<build>
+      <plugins>
+          <plugin>
+              <groupId>jolie</groupId>
+              <artifactId>jolie2java-maven-plugin</artifactId>
+              <version>1.0.0</version>
+              <configuration>
+                  <joliePath>...</joliePath>
+                  <outputDirectory>...</outputDirectory>
+                  <packageName>...</packageName>
+              </configuration>
+              <executions>
+                  <execution>
+                      <goals>
+                          <goal>joliegen</goal>
+                      </goals>
+                  </execution>
+              </executions>
+          </plugin>
+      </plugins>
+  </build>
+```
+where the configuration parameters are:
+* _joliePath_: the path where the jolie files which describe the client can be found by maven
+* _outputDirectory_: the outputDirectory where the generated classes must be copied
+* _packageName_: the name of the package to be used in the generated classes
+
+Note that the `jolie2java-maven-plugin` will be run during the `generated-sources` phase di maven, thus before the compilation one. So, take care to specify an outputDirectory inside your project which can be accessed by maven during the compilation.
 
 
 
