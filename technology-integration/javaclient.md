@@ -80,7 +80,7 @@ As a result you will find a folder called `generated` whose content is:
 --------types
 ----------|
 ----------GetTemperatureRequest.java
-----------c.java
+----------GetWindRequest.java
 --------Controller.java
 --------ForecastImpl.java
 --------ForecastInterface.java
@@ -116,6 +116,17 @@ public class GetTemperatureRequest implements Jolie2JavaInterface {
 **Root values**. When a Jolie type requires a root value like in type `GetTemperatureRequest` where a `string` is requested as root type, in Java it is converted introducing a private filed called `rootValue` which can be accessed by using methods `getRootValue` and `setRootValue`.
 
 ### Create a distributable jar with ant
+In order to use the generated classes in a Java project it is possible to copy them by hand and then compile them. Note that you need to import also the directories which define the package name given as argument `com/test/jolie`. It is worth noting that you need to add the following libraries to your project in order to satisfy the dependencies:
+* `jolie.jar`: 
+* `libjolie.jar`
+* `sodep.jar`
+* `jolie-java.jar`
+It is possible to retrieve all of them in the installation folder of Jolie. In particular, `jolie.jar` is in the installation folder, `libjolie.jar` and `jolie-java.jar` are in the folder `lib` and, finally, `sodep.jar` is in the folder `extensions`.
+
+Alternatively,if you are confindent with [ant](https://ant.apache.org/) you can directly compile a distributable jar by exploiting the generated file `build.xml`. In this case it is sufficient to run the following command on the console from the same folder where the file `build.xml` is:
+```
+ant dist
+```
 
 
 
