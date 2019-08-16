@@ -123,10 +123,15 @@ In order to use the generated classes in a Java project it is possible to copy t
 * `jolie-java.jar`
 It is possible to retrieve all of them in the installation folder of Jolie. In particular, `jolie.jar` is in the installation folder, `libjolie.jar` and `jolie-java.jar` are in the folder `lib` and, finally, `sodep.jar` is in the folder `extensions`.
 
-Alternatively,if you are confindent with [ant](https://ant.apache.org/) you can directly compile a distributable jar by exploiting the generated file `build.xml`. In this case it is sufficient to run the following command on the console from the same folder where the file `build.xml` is:
+Alternatively, if you are confindent with [ant](https://ant.apache.org/) you can directly compile a distributable jar by exploiting the generated file `build.xml`. In this case it is sufficient to run the following command on the console from the same folder where the file `build.xml` is:
 ```
 ant dist
 ```
+The command generates three folders:
+* built: it containes the compiled Java classes
+* dist: it contains the distributable jar of the Jolie Java client
+* lib: it contains all the jar dependencies of the Jolie Java client
+
 
 
 
