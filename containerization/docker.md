@@ -48,3 +48,25 @@ A complete list of all the available command for teh Dockerfile script can be fo
 3. `EXPOSE 8000`: it exposes the port `8000` to be used by external invokers. Note that the service `helloservice.ol` is programmed to listen to the location `socket://localhost:8000`. This means that the jolie microservice always listens on this port **within** the container.
 4. `COPY helloservice.ol main.ol`: it copied the file `helloservice.ol` within the image renaming it into `main.ol`. Note that in case a microservice requires more than one file to work, all the files must be copied into the image by respecting the folder structure of the project.
 5. `CMD jolie main.ol`: this is the command to be executed by Docker when a container will be start from the image described by this Dockerfile.
+
+Once the Dockerfile is ready, we need to run docker for actually creating the container image. Such a task can be achieved by typing the following command on the console:
+
+```
+docker build -t hello .
+```
+where `docker build` is the docker command which builds a docker image starting from a Dockerfile and `hello` is the name of the image to be created. Once executed, it is possible to check if docker has created it by simply running the command which lists all the available images locally:
+
+```
+docker images
+```
+### Running the docker container starting from the image
+Once the image is created, the container is ready to be run. Just execute the following command for starting it:
+
+```
+docker run -d --name hello-cnt -p 8000:8000 hello
+```
+where `-d` runs the container detached from the shell, `hello-cnt` is the name of the container and `-p 8000:8000` maps the internal port of the container to the hosting machine port. In this particular case the port is always `8000`. Finally, `hello` is the name of the image.
+
+
+
+
