@@ -199,8 +199,12 @@ docker run -d --name hello-cnt -p 8000:8000 -v <Host Path>:/var/temp hello
 
 The parameter `-v` allows for specifying the volume mapping. The `<Host Path>` token must be replaced with your local path where the file `config.json` is stored, whereas the path `/var/temp` specifies where mapping the volume inside the container.
 
-## Configuring outputPorts locations 
+## Configuring locations of outputPorts 
 Finally, let us point out the last issue you could encounter when deploying a jolie microservice within a docker container: the configuration of the outputPort locations. outputPorts often represent dependencies of the given microservice from other microservices. Dynamic binding can always be done from a programatic point of view as we it is described [here](https://jolielang.gitbook.io/docs/basics/dynamic_binding), but it could be useful to have a clean way for configuring these outputPorts at the startup of the service.
+
+In order to show how to solve such an issue, we try to dockerize the example described in section [Parallel](https://jolielang.gitbook.io/docs/basics/composing_statements#parallel). In particular, in this example there is an orchestrator which collects information from two microservices: _TrafficService_ and _ForecastService_ as depicted in the picture below.
+
+![](../.gitbook/assets/arch_parallel_example.png)
 
 
 
