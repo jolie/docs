@@ -197,7 +197,12 @@ If we build the new image using the same Dockerfile as before, the service won't
 docker run -d --name hello-cnt -p 8000:8000 -v <Host Path>:/var/temp hello
 ```
 
-The parameter `-v` allows for specifying the volume mapping. The `<Host Path>` token must be replaced with your local path where the file `config.json` is stored, whereas the path `/var/temp` specifies where mapping the volume inside the container. 
+The parameter `-v` allows for specifying the volume mapping. The `<Host Path>` token must be replaced with your local path where the file `config.json` is stored, whereas the path `/var/temp` specifies where mapping the volume inside the container.
+
+## Configuring outputPorts locations 
+Finally, let us point out the last issue you could encounter when deploying a jolie microservice within a docker container: the configuration of the outputPort locations. outputPorts often represent dependencies of the given microservice from other microservices. Dynamic binding can always be done from a programatic point of view as we it is described [here](https://jolielang.gitbook.io/docs/basics/dynamic_binding), but it could be useful to have a clean way for configuring these outputPorts at the startup of the service.
+
+
 
 
 
