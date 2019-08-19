@@ -88,8 +88,15 @@ main {
   hello@Hello( "hello" )( response );
   println@Console( response )()
 }
+```
+
+The container can be start and stop using the start and stop commands of docker:
 
 ```
+docker stop hello-cnt
+docker start hello-cnt
+```
+
 
 
 
