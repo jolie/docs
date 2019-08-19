@@ -237,7 +237,7 @@ where the configuration parameters are:
 * _outputDirectory_: the outputDirectory where the generated classes must be copied
 * _packageName_: the name of the package to be used in the generated classes
 
-Note that the `jolie2java-maven-plugin` will be run during the `generated-sources` phase di maven, thus before the compilation one. So, take care to specify an outputDirectory inside your project which can be accessed by maven during the compilation.
+Note that the `jolie2java-maven-plugin` will be run during the `generated-sources` phase of maven, thus before the compilation one. So, take care to specify an outputDirectory inside your project which can be accessed by maven during the compilation.
 
 
 
