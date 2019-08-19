@@ -31,7 +31,7 @@ main {
 ```
 The complete code of this example can be found [at this link](https://github.com/jolie/examples/tree/master/06_containers/01_deployment_with_docker).
 
-### Creating a docker image
+## Creating a docker image
 In order to create a docker image of this microservice, it is necessary to wrte down a Dockerfile. Thus, just open a text file in the same folder and name it __Dockerfile__. Then, edit it with ascript like the following one:
 
 ```
@@ -59,7 +59,7 @@ where `docker build` is the docker command which builds a docker image starting 
 ```
 docker images
 ```
-### Running the docker container starting from the image
+## Running the docker container starting from the image
 Once the image is created, the container is ready to be run. Just execute the following command for starting it:
 
 ```
@@ -96,7 +96,7 @@ The container can be start and stop using the start and stop commands of docker:
 docker stop hello-cnt
 docker start hello-cnt
 ```
-### Passing parameters to the jolie microservices using environment variables
+## Passing parameters to the jolie microservices using environment variables
 A microservice which is more complicated with respect to the service `helloservice.ol` discussed in the previous section, could require to be initialized with some parameters before being started. A possible solution to this issue is usually passing the parameters using the environment variables of the container. The command `run` of docker indeed, allows for specifying the environment variable of the container. As an example the command `run` presented in the previous section could be re-written as it follows:
 
 ```
