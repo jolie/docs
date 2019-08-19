@@ -96,7 +96,52 @@ The container can be start and stop using the start and stop commands of docker:
 docker stop hello-cnt
 docker start hello-cnt
 ```
+### Passing parameters to the jolie microservices using environment variables
+A microservice which is more complicated with respect to the service `helloservice.ol` discussed in the previous section, could require to be initialized with some parameters before being started. A possible solution to this issue is usually passing the parameters using the environment variables of the container. The command `run` of docker indeed, allows for specifying the environment variable of the container. As an example the command `run` presented in the previous section could be re-written as it follows:
 
+```
+docker run -d --name hello-cnt -p 8000:8000 -e TESTVAR=spiderman hello
+```
+where we added the parameter `-e TESTVAR=spiderman` which initializes the environment variable `TESTVAR` with the value `spiderman`. Once executed, the container will be started with variable `TESTVAR` correctly initialized with the parameter value we want.
+
+But how could we read it from a jolie service?
+
+Reading an environment variable from a Jolie service is very simple. It is sufficient to exploit the standard library, in particular the [Runtime service](https://jolielang.gitbook.io/docs/standard-library-api/runtime). In this case we can use the operation `getEnv` which allows for reading the value of an environment variable and we could modify the previous example as it follows:
+
+```
+
+interface HelloInterface {
+
+RequestResponse:
+     hello( string )( string )
+}
+
+execution{ concurrent }
+
+
+inputPort Hello {
+Location: "socket://localhost:8000"
+Protocol: sodep
+Interfaces: HelloInterface
+}
+
+init {
+  getenv@Runtime( "TESTVAR" )( TESTVAR )
+}
+
+main {
+  hello( request )( response ) {
+        response = TESTVAR + ":" + request + ":" + args[0]
+  }
+}
+```
+The full code of this example can be consulted [here](https://github.com/jolie/examples/tree/master/06_containers/02_passing_parameters). Note that in the scope [init](https://jolielang.gitbook.io/docs/basics/processes#main-and-init) the service reads the environment variable `TESTVAR` and save it in the jolie variable with the same name `TESTVAR`. The variable `TESTVAR` is then used in the body of the operation `hello` for creating the response message. It is worth noting that at the beginning we need to include the `runtime.iol` service.
+
+In order to try this example, just repeat the steps described at the previous section:
+
+1. build the image with command `docker build -t hello .`. Note that the Dockerfile has not been modified.
+2. run the container specifying the environment variable as specified before: `docker run -d --name hello-cnt -p 8000:8000 -e TESTVAR=spiderman hello`
+3. try to run the same client for checking how the response appears.
 
 
 
