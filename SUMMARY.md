@@ -40,7 +40,6 @@
   * [Java](technology-integration/java.md)
     * [Java Client](technology-integration/javaclient.md)
     * [Javaservices](technology-integration/javaservices.md)
-    * [Java clients](technology-integration/javaclients.md)
   * [Javascript](technology-integration/javascript.md)
 * [Web Services](web-services/README.md)
   * [Web Services](web-services/web_services.md)
