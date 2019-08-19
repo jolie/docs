@@ -140,9 +140,65 @@ The full code of this example can be consulted [here](https://github.com/jolie/e
 
 In order to try this example, just repeat the steps described at the previous section:
 
-1. build the image with command `docker build -t hello .`. Note that the Dockerfile has not been modified.
+1. build the image with command `docker build -t hello .`. Note that the Dockerfile has not been modified. Remember to delete the previous container and image with commands: `docker rm hello-cnt` and `docker rmi hello`.
 2. run the container specifying the environment variable as specified before: `docker run -d --name hello-cnt -p 8000:8000 -e TESTVAR=spiderman hello`
 3. try to run the same client for checking how the response appears.
+
+## Passing parameters by using a json configuration file
+At this [link](https://github.com/jolie/examples/tree/master/06_containers/03_passing_configuration_file) we modified the previous example in order to show how it is possible to pass parameters through a json configuration file. In particular, we imagine to pass two parameters by using a file called `config.json` which is reported below:
+
+```
+{
+    "repeat":1,
+    "welcome_message":"welcome!"
+}
+```
+The service `helloservice.ol` has been modified for reading the parameters from this file in the scope `init` instead of reading from the environment variables. Here we report the code of the modified service:
+
+```
+include "file.iol"
+
+interface HelloInterface {
+
+RequestResponse:
+     hello( string )( string )
+}
+
+execution{ concurrent }
+
+
+inputPort Hello {
+Location: "socket://localhost:8000"
+Protocol: sodep
+Interfaces: HelloInterface
+}
+
+init {
+  file.filename = "/var/temp/config.json";
+  file.format = "json";
+  readFile@File( file )( config )
+}
+
+main {
+  hello( request )( response ) {
+        /*  dummy usage of the parameters for building a response string which depends from them */
+        response = config.welcome_message + "\n";
+        for ( i = 0, i < config.repeat, i++ ) {
+          response = response + request + " "
+        }
+  }
+}
+```
+Note that here we exploit the standar API of [File](https://jolielang.gitbook.io/docs/standard-library-api/file). In particular, we exploit the operation `readFile@File` where we specify to read from file `/var/temp/config.json`. It is worth noting that in this case the path `/var/temp/` must be considered as an internal path of the container. Thus, when the service will be executed inside the container, it will try to read from its internal path `/var/temp/config.json`.
+
+If we build the new image using the same Dockerfile as before, the service won't found the file `cofig.json` for sure because it is not contained inside the image. In order to solve such an issue we need to map the internal path `/var/temp` to a path of the host machine. The command `run` of docker allows to do such a map by using volume definition. Thus the run command will be like the following one:
+
+```
+docker run -d --name hello-cnt -p 8000:8000 -v <Host Path>:/var/temp hello
+```
+
+The parameter `-v` allows for specifying the volume mapping. The `<Host Path>` token must be replaced with your local path where the file `config.json` is stored, whereas the path `/var/temp` specifies where mapping the volume inside the container. 
+
 
 
 
