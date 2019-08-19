@@ -109,6 +109,7 @@ But how could we read it from a jolie service?
 Reading an environment variable from a Jolie service is very simple. It is sufficient to exploit the standard library, in particular the [Runtime service](https://jolielang.gitbook.io/docs/standard-library-api/runtime). In this case we can use the operation `getEnv` which allows for reading the value of an environment variable and we could modify the previous example as it follows:
 
 ```
+include "runtime.iol"
 
 interface HelloInterface {
 
