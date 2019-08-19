@@ -3,7 +3,6 @@ but it layers upon other technology frameworks in order to deploy jolie microser
 At the present, we only investigated the integration with [Docker](https://www.docker.com/). In particular,
 we investigated the integration with Docker following two different approaches:
 
-* Deploying a Jolie microservice as a Docker container.
-* Using Jolie as orchestration language for controlling Docker. To this end we developed a Jolie wrapper 
-for the Docker API which is called _Jocker_. Thanks to Jocker it is possible to call the Docker APIs using sodep protocol.
+* **Deploying a Jolie microservice as a Docker container**.
+* **Using Jolie as orchestration language for controlling Docker**. To this end we developed a Jolie wrapper for the Docker API which is called _Jocker_. Thanks to Jocker it is possible to call the Docker APIs using sodep protocol.
 
