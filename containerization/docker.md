@@ -206,8 +206,53 @@ In order to show how to solve such an issue, we try to dockerize the example des
 
 ![](../.gitbook/assets/arch_parallel_example.png)
 
-The full code of the example can be found [here](https://github.com/jolie/examples/tree/master/06_containers/04_configuring_outputports).
-Here we are in the case where an orchestrator has dependencies with services _ForecastService_ and _TrafficService_. Thus we need to create three different containers, one for each service. In the example there are three different Dockerfiles for each service: [DockerfileForecastService](https://github.com/jolie/examples/blob/master/06_containers/04_configuring_outputports/DockerfileForecastService), [DockerfileTrafficService](https://github.com/jolie/examples/blob/master/06_containers/04_configuring_outputports/DockerfileTrafficService) and [DockerfileInfoService](https://github.com/jolie/examples/blob/master/06_containers/04_configuring_outputports/DockerfileInfoService)
+The full code of the example can be found [at this link](https://github.com/jolie/examples/tree/master/06_containers/04_configuring_outputports).
+Here we are in the case where an orchestrator (`infoService.ol`) has dependencies with other services: _ForecastService_ and _TrafficService_. Thus, we need to create three different containers, one for each service. In the example there are three different Dockerfiles for each service: [DockerfileForecastService](https://github.com/jolie/examples/blob/master/06_containers/04_configuring_outputports/DockerfileForecastService), [DockerfileTrafficService](https://github.com/jolie/examples/blob/master/06_containers/04_configuring_outputports/DockerfileTrafficService) and [DockerfileInfoService](https://github.com/jolie/examples/blob/master/06_containers/04_configuring_outputports/DockerfileInfoService). 
+
+The images can be created using the docker build command as explained in the previous sections:
+- `docker build -t forecast_img -f DockerfileForecastService .`
+- `docker build -t traffic_img -f DockerfileTrafficService .`
+- `docker build -t info_img -f DockerfileInfoService .`
+
+Before creating the related containers, we need to consider the architectural composition of the services and noting that the orchestrator requires the location of both the forecast service and the traffic one in order to invoke them. Indeed, if we inspect its definition [here](https://github.com/jolie/examples/blob/master/06_containers/04_configuring_outputports/infoService.ol) we can note that there are two outputPorts declared: `Forecast` and `Traffic`. Here the issue, is to pass the correct locations to the two outputPorts before knowing their actual location provided by Docker.
+
+In order to solve such a puzzle, we exploit one of the feature of Docker that is the possibility to define a virtual network where all the services can be identified by an abstract name. Thus we create a network called `testnet`:
+```
+docker create network testnet
+```
+All the containers we are going to create will have to be connected to network `testnet`. Here we report the three commands to execute for creating the containers starting from the previous docker images:
+- `docker run -it -d --name forecast --network testnet forecast_img`
+- `docker run -it -d --name traffic --network testnet traffic_img`
+- `docker run -it -d --name info -p 8002:8000 -v <PATH TO config.ini>:/var/temp --network testnet info_img`
+
+Note that the parameter `--network testnet` is used for connecting the container to the netwrok `testnet`. Thanks to this parameter the containers can be identified by using their name withint `testnet`.
+
+Now, the last step: passing the correct locations to the outputPorts of the service `infoService`. Here we can exploit the extension [auto](https://jolielang.gitbook.io/docs/locations#automatic-configuration-of-a-location-using-extension-auto) which allows for automatic defining a location of a port getting the value from an external file. In particular, in the example, we use a `ini` file for achieving such a result:
+
+```
+outputPort Forecast {
+Location: "auto:ini:/Location/Forecast:file:/var/temp/config.ini"
+Protocol: sodep
+Interfaces: ForecastInterface
+}
+
+outputPort Traffic {
+Location: "auto:ini:/Location/Traffic:file:/var/temp/config.ini"
+Protocol: sodep
+Interfaces: TrafficInterface
+}
+```
+where the file `ini` is configured in this way:
+
+```
+[Location]
+Traffic=socket://traffic:8000
+Forecast=socket://forecast:8000
+```
+
+
+
+
 
 
 
