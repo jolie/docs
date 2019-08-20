@@ -206,6 +206,9 @@ In order to show how to solve such an issue, we try to dockerize the example des
 
 ![](../.gitbook/assets/arch_parallel_example.png)
 
+The full code of the example can be found [here](https://github.com/jolie/examples/tree/master/06_containers/04_configuring_outputports).
+Here we are in the case where an orchestrator has dependencies with services _ForecastService_ and _TrafficService_. Thus we need to create three different containers, one for each service. In the example there are three different Dockerfiles for each service: [DockerfileForecastService](https://github.com/jolie/examples/blob/master/06_containers/04_configuring_outputports/DockerfileForecastService), [DockerfileTrafficService](https://github.com/jolie/examples/blob/master/06_containers/04_configuring_outputports/DockerfileTrafficService) and [DockerfileInfoService](https://github.com/jolie/examples/blob/master/06_containers/04_configuring_outputports/DockerfileInfoService)
+
 
 
 
