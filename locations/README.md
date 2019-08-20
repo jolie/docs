@@ -14,3 +14,71 @@ Jolie natively supports five media:
 
 In the following sections we explain the medium-specific properties of the locations provided by Jolie.
 
+## Automatic configuration of a location using extension `auto`
+Both inputPort locations and outputPort locations cna be automatically set from an external file by using the extension `auto`. `auto` is a special extension which can be defined instead of a usual location. When using `auto` two different kind of external files can be exploited for defining the locations: `ini` and `json`.
+
+The form of the extension string for auto is:
+```
+auto:<file format ini|json>:<variable path>:file:<path to file>
+```
+
+### `ini` file
+Here we show an example of port definition which exploits the extension `auto` together with a file `ini`.
+```
+inputPort MyInput {
+location: "auto:ini:/Location/MyInput:file:config.ini"
+protocol: sodep
+interfaces: DummyInterface
+}
+
+outputPort MyOutput {
+location: "auto:ini:/Location/MyOutput:file:config.ini"
+protocol: sodep
+interfaces: DummyInterface
+}
+```
+where the `ini` file is:
+```
+[Location]
+MyInput=socket://localhost:8000
+MyOutput=socket://100.100.100.100:8000
+```
+Note that the `<variable path>` take the following forms:
+```
+/Location/MyInput
+/Location/MyOutput
+```
+where `Location` is the name of the section inside the `ini` file.
+
+### `json` file
+Here we show an example of port definition which exploits the extension `auto` together with a file `json`.
+```
+inputPort MyInput {
+location: "auto:json:MyInput.location:file:config.json"
+protocol: sodep
+interfaces: DummyInterface
+}
+
+outputPort MyOutput {
+location: "auto:json:MyOutput.location:file:config.json"
+protocol: sodep
+interfaces: DummyInterface
+}
+```
+where the `json` file is:
+```
+{
+  "MyInput": {
+    "location":"socket://localhost:8000"
+  },
+  "MyOutput": {
+    "location":"socket://100.100.100.100:8000"
+  }
+}
+```
+Note that the `<variable path>` take the following forms:
+```
+MyInput.location
+MyOutput.location
+```
+
