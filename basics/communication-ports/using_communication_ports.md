@@ -103,4 +103,6 @@ main {
     println@Console( response )()
 }
 ```
+### Solicit-Response timeout
+It is possible to set the response timeout of a solicit-response by specifying the engine argument `responseTimeout` when running Jolie. Details can be found at page [Basics/Engine Argument](engine_arguments.md).
 
