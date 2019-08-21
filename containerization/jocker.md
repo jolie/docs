@@ -6,6 +6,8 @@ Jocker is available as a docker container, just type the following commands for 
 docker pull jolielang/jocker
 docker run -it -p 8008:8008 --name jocker -v /var/run:/var/run jolielang/jocker
 ```
-Note that Jocker is listening on the container internal port `8008`, thus if you need to change it, just configure properly the container when running it using the parameter `-p 8008:8008`.
+**Important notes**
+* Jocker is listening on the container internal port `8008`, thus if you need to change it, just configure properly the container when running it using the parameter `-p 8008:8008`.
+* Jocker communicates with the docker server using the localsocket `/var/run/docker.sock` as it is suggested by docker documentation. Thus, pay attention when creating the jocker container to share the host volume where such a socket is available with parameter `-v /var/run:/var/run`.
 
-Once installed, it is possible to call it as a usual Jolie service.
+Once installed, it is possible to call Jocker as a usual Jolie service.
