@@ -29,8 +29,10 @@ The code of the orchestrator can be evaluated [here](https://github.com/jolie/ex
 3. Creation of the three containers
 4. Attaching each container to the network `testnet`
 5. Starting of each container
+
 **Testing the system**
 6. Invoking of the `infoService` for testing if it is working
+
 **Disposing the system**
 7. Stopping all the containers
 8. Removing all containers
