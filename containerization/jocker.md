@@ -24,19 +24,58 @@ In this example we aim at deploying the same system commented at section [Basics
 The code of the orchestrator can be evaluated [here](https://github.com/jolie/examples/blob/master/06_containers/05_jocker/jockerOrchestrator.ol). The steps it implements are:
 
 **Creation of the system**
+
 1. Creation of the docker images of the three services
+```
+build@Jocker(rqImg)(response);
+```
 2. Creation of the network `testnet` where connecting the containers 
+```
+createNetwork@Jocker( ntwCreate_rq )( ntwCreate_rs );
+```
 3. Creation of the three containers
+```
+createContainer@Jocker( cntCreate_rq )( cntCreate_rs );
+```
 4. Attaching each container to the network `testnet`
+```
+attachContainerToNetwork@Jocker( attachCnt2Ntw_rq )();
+```
 5. Starting of each container
+```
+startContainer@Jocker( startCnt_rq )();
+```
+6. Inspecting the container for checking it is running
+```
+inspectContainer@Jocker( inspect_rq )( inspect_rs );
+```
 
 **Testing the system**
-6. Invoking of the `infoService` for testing if it is working
+
+7. Invoking of the `infoService` for testing if it is working
+```
+getInfo@InfoService( { .city = "Rome" } )( info )
+```
 
 **Disposing the system**
-7. Stopping all the containers
-8. Removing all containers
-9. Removing the network `testnet`
-10. Removing all the images
+
+8. Stopping all the containers
+```
+stopContainer@Jocker( stopCnt_rq )();
+```
+9. Removing all containers
+```
+removeContainer@Jocker( stopCnt_rq )( );
+```
+
+10. Removing the network `testnet`
+```
+removeNetwork@Jocker( ntwRemove_rq )();
+```
+11. Removing all the images
+```
+removeImage@Jocker( rmImage_rq )();
+```
+
 
 
