@@ -21,4 +21,20 @@ The full code of the example can be checked [here](https://github.com/jolie/exam
 
 In this example we aim at deploying the same system commented at section [Basics/Composing Statements/Parallel](https://jolielang.gitbook.io/docs/basics/composing_statements#parallel) alltogether just executing a single orchestration jolie script. For the sake of brevity we grouped the three services into three different folders. At [this link](https://github.com/jolie/examples/tree/master/06_containers/05_jocker/services) it is possible to navigate the three folders. Each folder contains all th enecessary files for executing each single service, moreover it also contains the Dockerfile which defines how to deploy that specific service into docker as we exaplined in section [Containerization/Docker/Create an image](https://jolielang.gitbook.io/docs/containerization/docker#creating-a-docker-image).
 
+The code of the orchestrator can be evaluated [here](https://github.com/jolie/examples/blob/master/06_containers/05_jocker/jockerOrchestrator.ol). The steps it implements are:
+
+**Creation of the system**
+1. Creation of the docker images of the three services
+2. Creation of the network `testnet` where connecting the containers 
+3. Creation of the three containers
+4. Attaching each container to the network `testnet`
+5. Starting of each container
+**Testing the system**
+6. Invoking of the `infoService` for testing if it is working
+**Disposing the system**
+7. Stopping all the containers
+8. Removing all containers
+9. Removing the network `testnet`
+10. Removing all the images
+
 
