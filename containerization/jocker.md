@@ -18,3 +18,7 @@ Once installed, it is possible to call Jocker as a usual Jolie service.
 ## Example: creating a Jolie orchestrator for deploying a Jolie system into docker
 In this example we show how to build a Jolie orchestrator which is able to deploy a Jolie system by exploiting the Jocker APIs.
 The full code of the example can be checked [here](https://github.com/jolie/examples/tree/master/06_containers/05_jocker).
+
+In this example we aim at deploying the same system commented at section [Basics/Composing Statements/Parallel](https://jolielang.gitbook.io/docs/basics/composing_statements#parallel) alltogether just executing a single orchestration jolie script. For the sake of brevity we grouped the three services into three different folders. At [this link](https://github.com/jolie/examples/tree/master/06_containers/05_jocker/services) it is possible to navigate the three folders. Each folder contains all th enecessary files for executing each single service, moreover it also contains the Dockerfile which defines how to deploy that specific service into docker as we exaplined in section [Containerization/Docker/Create an image](https://jolielang.gitbook.io/docs/containerization/docker#creating-a-docker-image).
+
+
