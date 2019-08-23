@@ -60,7 +60,7 @@ d = "1.3";
 n = double( d ); // n = 1.3
 n = int ( n ) // n = 1
 ```
-
+## Runtime type checking of a variable: `instanceof`
 A variable type can be checked at runtime by means of the `instanceof` operator, whose syntax is:
 
 ```text
