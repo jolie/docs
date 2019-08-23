@@ -177,7 +177,7 @@ Let us focus on the cardinality. To be valid, the node `myType` must declare:
 
 Referring to the previous example, `x` requires the definition of both nodes `value` and `comment`, while `y` requires only the definition the node `comment`, since none or an infinite number of nodes `myType.y.value` can be defined. The subnode `z` can be present or not, and can contain any kind of subnode \(`{ ? }`\).
 
-### Defining type nodes with reserved characters
+## Defining type nodes with reserved characters
 
 Sometimes you may need to define node names that contain special characters, such as @. In these cases, you need to put your node name between double quotes, as in the following example.
 
@@ -191,7 +191,7 @@ You can access these nodes with special characters by using dynamic look-up, for
 
 _Attention: This feature is available from Jolie 1.6.2._
 
-### Data types choice \(sum types\)
+## Data types choice \(sum types\)
 
 Given `Ti` in `{T1, ..., Tn}` nested nodes data types can have any type belonging to `T` \(data types in `T` are mutually exclusive\). Let us show one possible example of such property.
 
@@ -204,4 +204,7 @@ The same stands between nested data types.
 ```text
 type CustomType: any | any { .subNode: T } | any { .subNode[2,3]: T }
 ```
+
+## Checking types at runtime: `istanceof`
+See section [Handling Simple Data/Rutime type checking of a variable](https://jolielang.gitbook.io/docs/basics/handling_simple_data#runtime-type-checking-of-a-variable-instanceof) for getting details about pritimive `instanceof`
 
