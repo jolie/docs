@@ -46,6 +46,7 @@ This reference index is still under construction. If you spot something missing,
 * `if (..) {..} else {..}`: conditional statement. [Go to section: Conditions and conditional statement](basics/composing_statements.md#conditions-and-conditional-statement)
 * `init{}`: init scope. [Go to section: Processes and Sessions](basics/processes.md)
 * `inputPort`: input port statement. [Go to section: Ports](basics/communication-ports/ports.md)
+* `istanceof`: variable type checking. [Go to section: Handle Simple Data](https://jolielang.gitbook.io/docs/basics/handling_simple_data#runtime-type-checking-of-a-variable-instanceof)
 * `interface`: interface definition. [Go to section: Interfaces](basics/interfaces/)
 * `interface extender`: interface extension. [Go to section: Couriers](architectural-composition/couriers#interface-extension)
 * `Interfaces`: port interfaces. [Go to section: Interfaces](basics/interfaces/)
