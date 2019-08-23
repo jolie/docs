@@ -67,7 +67,7 @@ A variable type can be checked at runtime by means of the `instanceof` operator,
 expression instanceof (native_type | custom_type)
 ```
 
-`instanceof` operator can be used to check variable typing with both native types and custom ones \(see type subsection in [Communication Ports](https://jolielang.gitbook.io/docs/basics/communication-ports) section\). Example:
+`instanceof` operator can be used to check variable typing with both native types and custom ones \(see type subsection in [Data Types](https://jolielang.gitbook.io/docs/basics/interfaces/data_types) section\). Example:
 
 ```text
 s = "10";
