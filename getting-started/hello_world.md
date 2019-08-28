@@ -4,7 +4,7 @@
 
 A Jolie program defines a service. A service achieves complex tasks by composing other services. An example of a very simple service is the following:
 
-```text
+```jolie
 include "console.iol"
 
 main
