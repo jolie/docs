@@ -26,7 +26,7 @@ This reference index is still under construction. If you spot something missing,
 
 ## Statements
 
-* `^`: "freezing" operator. [Go to section: Termination and Compeonsation](https://jolielang.gitbook.io/docs/basicsfault-handling/termination_and_compensation#installation-time-variable-evaluation)
+* `^`: "freezing" operator. [Go to section: Termination and Compeonsation](basics/fault-handling/termination_and_compensation#installation-time-variable-evaluation)
 * `[..]{..}`: input choice. [Go to section: Input Choice](basics/composing_statements.md#input-choice)
 * `Aggregates`: aggregation statement. [Go to section: Aggregation](architectural-composition/aggregation.md)
 * `cH`: handler placeholder. [Go to section: Termination and Compeonsation](https://jolielang.gitbook.io/docs/basics/fault-handling/termination_and_compensation)
