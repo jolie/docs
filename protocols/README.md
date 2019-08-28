@@ -61,7 +61,7 @@ Besides defining a parameter as a static value, which remains the same during th
 
 Protocol's parameters can be set dynamically using the alias `->` operator.
 
-To exemplify how to dynamically set the parameters of a protocol, we refer to the [Leonardo](https://jolielang.gitbook.io/docs/web_applications/leonardo)'s inputPort definition:
+To exemplify how to dynamically set the parameters of a protocol, we refer to the [Leonardo](web_applications/leonardo)'s inputPort definition:
 
 ```text
 inputPort HTTPInput {
