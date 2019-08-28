@@ -57,7 +57,7 @@ The embedder construct, at Line 10, declares the type keyword as `Java` and defi
 
 ## Using a request-response operation in Java services
 
-To practice on request-response operations between embedded and embedder, let us rewrite the _twice_ service used in the section [Embedding Jolie Services](https://jolielang.gitbook.io/docs/architectural-composition/embedding_jolie).
+To practice on request-response operations between embedded and embedder, let us rewrite the _twice_ service used in the section [Embedding Jolie Services](architectural-composition/embedding#embedding-jolie-services).
 
 We use the previously written Java Service `MyConsole` to print the result and show how to embed multiple classes.
 
