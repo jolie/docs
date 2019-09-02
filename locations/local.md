@@ -4,6 +4,12 @@ An embedded service in Jolie can communicate with its embedder exploiting the `l
 
 The `local` medium needs no protocol when used into a port definition and it could be followed by an internal local label which univocally identifies the service within the embedded group.
 
+The `local` medium can be defined in mainly two ways: statically or dynamically.
+
+In the first case, the user can define a static location identified by a name, like "local://Calculator", "local://MyService". This is similar to e.g., traditional sockets, where a static address (e.g., localhost) is used to identify the location of the service.
+
+In the second case, the user does not define a static location but only the usage of the `local` medium. At runtime, the Jolie interpreter assigns to inputPorts using that medium a unique name. To bind outputPorts, the user can use the operation as it follows, where MyOutputPort is the name of the outputPort to be bound `getLocalLocation@Runtime()( MyOutputPort.location )`.
+
 An example using this medium can be found in part "Handling structured messages and embedder's operations invocation" of [Embedding Java Services](architectural-composition/embedding_java) subsection.
 
 The `local` medium can be used for service internal self communications, as shown in the example below:
