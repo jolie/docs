@@ -45,6 +45,7 @@
 * [Containerization](containerization/README.md)
   * [Docker](containerization/docker.md) 
     * [Jocker](containerization/jocker.md)
+* [Rest Services](rest/README.md)
 * [Web Services](web-services/README.md)
   * [Web Services](web-services/web_services.md)
   * [WSDL2jolie](web-services/wsdl2jolie.md)
