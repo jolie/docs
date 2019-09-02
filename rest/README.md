@@ -1,1 +1,1 @@
-# Creating a Rest service with Jolie
+# Creating Rest services with Jolie
