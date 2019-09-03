@@ -6,8 +6,21 @@ Usage: jolier <service_filename> <input_port> <router_host> [-easyInterface] [-d
 
 The required parameters are:
 * **service_filename**: it is the path to the target service to be executed as a REST service
-* **input_port**: it is the input port of the target service which must be exposted as a REST service
+* **input_port**: it is the input port of the target service which must be exposted as a REST service. It is important to note that the location of the target port must be set to **`"local"`**.
 * **router_host**: it is the location where _jester_ will listen for incoming requests
 * **[-easyInterface]**: it specifies if skipping the _rest_template.json_ file and creating a standard map of the target operations
 * **[-debug]**: it enables debug messages for _jester_ in order to facilitate error identification
+
+## Example
+At this [link](https://github.com/jolie/examples/tree/master/05_other_tools/03_jolier) it is possible to find a simple jolie service which can be deployed as a rest service. As it is possible to note, the jolie service called, `demo.ol` is a standard jolie service without any particular change or addition. It has an input port called `DEMO` where the interface `DemoInterface` is available. Four operations are defined in the interface: `getOrders`, `getOrdersByIItem`, `putOrder` and `deleteOrder`.
+
+The mapping of the rest templates is defined within file `rest_templates.json` whose content is:
+```
+{
+    "getOrders":"method=get, template=/orders/{userId}?maxItems={maxItems}",
+    "getOrdersByIItem":"method=post",
+    "putOrder":"method=put",
+    "deleteOrder":"method=delete"
+}
+```
 
