@@ -25,6 +25,12 @@ In the example above, the operation `getOrders` of the target service will be in
 
 It is worth noting that when we define a rest mapping, some restrictions to the target message types must be considered.
 
+**NOTE**: the public URL where _jester_ will serve the request is composed as it follows:
+```
+http://<router_host>/<input_port>/<template>|<operation_name>
+```
+where the `operation_name` is used when no template is given.
+
 ## Restrictions on rest calls mapping
 * when method `get` is specified, all the parameters of the request must be specified within the url. Thus the target request message type cannot have structured type defined, but it can only be defined as a flat list of nodes. As an example the follwong type is sound with the template above: 
 ```
@@ -48,14 +54,25 @@ type GetOrdersType: void {
 When defined, the rest call mapping file is not necessary but all the operations will be converted into methods post and the request types will be reported in the body as they are defined in the target jolie interface.
 
 ## Example
-At this [link](https://github.com/jolie/examples/tree/master/05_other_tools/03_jolier) it is possible to find a simple jolie service which can be deployed as a rest service. As it is possible to note, the jolie service called, `demo.ol` is a standard jolie service without any particular change or addition. It has an input port called `DEMO` where the interface `DemoInterface` is available. Four operations are defined in the interface: `getOrders`, `getOrdersByIItem`, `putOrder` and `deleteOrder`.
+At this [link](https://github.com/jolie/examples/tree/master/05_other_tools/03_jolier) it is possible to find a simple jolie service which can be deployed as a rest service. As it is possible to note, the jolie service called, `demo.ol` is a standard jolie service without any particular change or addition. It has an input port called `DEMO` configured with _Location_ `"local"` and with interface `DemoInterface`. Four operations are defined in the interface: `getOrders`, `getOrdersByItem`, `putOrder` and `deleteOrder`.
+
+The mapping file is defined as it follows where the operation `getOrders` is mapped on a specific url, whereas the others are mapped without specifying any template.
 
 ```
 {
     "getOrders":"method=get, template=/orders/{userId}?maxItems={maxItems}",
-    "getOrdersByIItem":"method=post",
+    "getOrdersByItem":"method=post",
     "putOrder":"method=put",
     "deleteOrder":"method=delete"
 }
 ```
+It is sufficient to run the following command for deploying the jolie service `demo.ol` as a rest service:
+```
+jolier demo.ol DEMO localhost:8000
+```
+Once run, it is possible to try to invoke it using a common tool for sending REST messages. In particular it is possible to make a simple test invoking the `getOrders` by simply using a web browser. Put the following url in your web browser and look at the result:
+```
+http://localhost:8000/DEMO/orders/myuser?maxItems=0
+```
+
 
