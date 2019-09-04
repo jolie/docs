@@ -79,4 +79,6 @@ This reference index is still under construction. If you spot something missing,
 * `jolie2java`: java client generation tool. [Go to section: Java Client/jolie2java](https://jolielang.gitbook.io/docs/technology-integration/java/javaclient#jolie-2-java)
 * `jocker`: docker integration container. [Go to section: Docker/Jocker](https://jolielang.gitbook.io/docs/containerization/docker/jocker)
 * `jolier`: running a jolie service as a REST service. [Go to section: Rest Services/jolier](https://jolielang.gitbook.io/docs/rest/jolier)
+* `jolie2openapi`: it generates an openapi 2.0 definition starting from a jolie interface. [Go to section: Rest Services/jolie2openapi](https://jolielang.gitbook.io/docs/rest/jolie2openapi)
+* `openapi2jolie`: it generates a jolie client starting from an openapi 2.0 definition. [Go to section: Rest Services/openapi2jolie](https://jolielang.gitbook.io/docs/rest/openapi2jolie)
 
