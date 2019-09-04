@@ -23,6 +23,25 @@ The mapping of the rest templates is defined within file `rest_templates.json`. 
 
 In the example above, the operation `getOrders` of the target service will be invoked using a method `get` and finding the parameters `userId` and `maxItems` within the url. The parameter `userId` will be placed as part of the path, whereas the parameter `maxItems` as a parameter of the query.
 
+It is worth noting that when we define a rest mapping, some restrictions to the target message types must be considered.
+
+### Restrictions on rest calls mapping
+* when method `get` is specified, all the parameters of the request must be specified within the url. Thus the target request message type cannot have structured type defined, but it can only be defined as a flat list of nodes. As an example the follwoing type is sound with the template above:
+```
+type GetOrdersType: void {
+    .userId: string
+    .maxItems: int
+}
+```
+whereas the following one is not correct w.r.t. template `/orders/{userId}?maxItems={maxItems}`
+```
+type GetOrdersType: void {
+    .userId: string {
+        .maxItems: int
+   }
+}
+```
+
 ## Example
 At this [link](https://github.com/jolie/examples/tree/master/05_other_tools/03_jolier) it is possible to find a simple jolie service which can be deployed as a rest service. As it is possible to note, the jolie service called, `demo.ol` is a standard jolie service without any particular change or addition. It has an input port called `DEMO` where the interface `DemoInterface` is available. Four operations are defined in the interface: `getOrders`, `getOrdersByIItem`, `putOrder` and `deleteOrder`.
 
