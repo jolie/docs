@@ -14,4 +14,10 @@ where:
 
 As it happens for the tool [jolier](jolier.md), also the tool `jolie2openapi` requires to read rest calls mapping from an external file. The name of the mapping file is the same and it is `rest_templates.json`, its configuration rules can be consulted at the [related section of the tool jolier](https://jolielang.gitbook.io/docs/rest/jolier#defining-the-rest-calls-mapping)
 
+# Example
+As an example, let us consider the service demo at this [link](https://github.com/jolie/examples/tree/master/05_other_tools/03_jolier). It is sufficient to run the following command for producing the openapi specification related to interface `DemoInterface`.
+```
+jolie2openapi demo.ol DEMO localhost:8000 .
+```
+The tool will generate a file called `DEMO.json` which contains the openapi 2.0 specification. The file can be importend in tools enabled for processing openapi specifications.
 
