@@ -47,7 +47,6 @@
     * [Jocker](containerization/jocker.md)
 * [Rest Services](rest/README.md)
   * [jolier](rest/jolier.md)
-    * [Jester: the jolie router](rest/jester.md)
   * [jolie2openapi](rest/jolie2openapi.md)
   * [openapi2jolie](rest/openapi2jolie.md)
 * [Web Services](web-services/README.md)
