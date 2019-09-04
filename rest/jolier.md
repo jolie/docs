@@ -26,13 +26,11 @@ In the example above, the operation `getOrders` of the target service will be in
 It is worth noting that when we define a rest mapping, some restrictions to the target message types must be considered.
 
 ### Restrictions on rest calls mapping
-* when method `get` is specified, all the parameters of the request must be specified within the url. Thus the target request message type cannot have structured type defined, but it can only be defined as a flat list of nodes. As an example the follwoing type is sound with the template above:
-```
+* when method `get` is specified, all the parameters of the request must be specified within the url. Thus the target request message type cannot have structured type defined, but it can only be defined as a flat list of nodes. As an example the follwoing type is sound with the template above: ```
 type GetOrdersType: void {
     .userId: string
     .maxItems: int
-}
-```
+} ```
 whereas the following one is not correct w.r.t. template `/orders/{userId}?maxItems={maxItems}`
 ```
 type GetOrdersType: void {
