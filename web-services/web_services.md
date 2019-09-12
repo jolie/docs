@@ -139,3 +139,5 @@ inputPort MyServiceSOAPPort {
 }
 ```
 
+**NOTE:** Take care to follow the [interface guidelines](https://jolielang.gitbook.io/docs/web-services/jolie2wsdl#jolie-interface-guidelines) described in section _jolie2wsdl_ in order to properly design jolie interfaces which can be easily converted into a wsdl definition
+
