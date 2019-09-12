@@ -45,10 +45,7 @@ RequestResponse:
 
 inputPort MyServiceSOAPPort {
     Location: "socket://localhost:8001"
-    Protocol: soap {
-        .wsdl = "./MyWsdlDocument.wsdl";
-        .wsdl.port = "MyServiceSOAPPortServicePort"
-    }
+    Protocol: soap 
     Interfaces: MyServiceInterface
 }
 
@@ -73,8 +70,23 @@ main {
     }
 }
 ```
-where the in the input port `MyServiceSOAPPort` we use protocol `soap`. Note that as protocol parameters we specify `.wsdl` adn `.wsdl.port` where the former defines the wsdl file to be used for interpreting the incoming soap messages, and the latter specifies the port inside the wsdl file to be joint to the jolie one. 
+Once run, the service above is able to receive and send back SOAP messages but there is not any wsdl definition which can be shared with another web service client. The tool [jolie2wsdl](./jolie2wsdl.md) can be used for automatically generating a wsdl file starting from a jolie service.
 
+It is worth noting that once generated, the wsdl file must be explicitly attached to the jolie input port using protocol parameters `.wsdl` and `.wsdl.port` where the former specifies the path to the wsdl definition file and the latter defines the port into the wsdl definition to be mapped with the jolie one.
+
+The final definition of the input port should look like the following one:
+
+```
+inputPort MyServiceSOAPPort {
+    Location: "socket://localhost:8001"
+    Protocol: soap {
+        .wsdl = "MyWsdl.wsdl";
+        .wsdl.port = "MyServiceSOAPPortServicePort"
+    }
+    Interfaces: MyServiceInterface
+}
+```
+where `MyWsdl.wsdl` is the file where the wsdl definition has been stored and `MyServiceSOAPPortServicePort` is the name of the port inside the wsdl definition to be joint with jolie input port `MyServiceSOAPPort`.
 
 
 
