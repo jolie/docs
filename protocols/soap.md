@@ -1,6 +1,4 @@
-# SOAP
-
-## SOAP Protocol
+# SOAP Protocol
 
 SOAP \(Simple Object Access Protocol\) is a protocol for exchanging structured information among Web Services. It relies on XML for its message format.
 
@@ -8,7 +6,7 @@ Protocol name in port definition: `soap`.
 
 ## SOAP Transport
 
-To adhere to the WSDL specification, simple call signatures like `test( string )( int )` should be omitted. Input and output values should be passed by apposite compound structures with a `void` root value, as shown [here](https://jolielang.gitbook.io/docs/web-services/web_services).
+To adhere to the WSDL specification, simple call signatures like `test( string )( int )` should be omitted. Input and output values should be passed by apposite compound structures with a `void` root value, as shown [here](https://jolielang.gitbook.io/docs/web-services/jolie2wsdl#jolie-interface-guidelines).
 
 ## SOAP Parameters
 
