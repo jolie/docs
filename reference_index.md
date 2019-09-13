@@ -81,6 +81,6 @@ This reference index is still under construction. If you spot something missing,
 * `jolier`: running a jolie service as a REST service. [Go to section: Rest Services/jolier](https://jolielang.gitbook.io/docs/rest/jolier)
 * `jolie2openapi`: it generates an openapi 2.0 definition starting from a jolie interface. [Go to section: Rest Services/jolie2openapi](https://jolielang.gitbook.io/docs/rest/jolie2openapi)
 * `openapi2jolie`: it generates a jolie client starting from an openapi 2.0 definition. [Go to section: Rest Services/openapi2jolie](https://jolielang.gitbook.io/docs/rest/openapi2jolie)
-* `jolie2wsdl`: it generates a wsdl definition starting from an jolie input port. [Go to section: jolie2wsdl](https://jolielang.gitbook.io/docs/web-services/jolie2wsdl.md)
+* `jolie2wsdl`: it generates a wsdl definition starting from an jolie input port. [Go to section: jolie2wsdl](https://jolielang.gitbook.io/docs/web-services/jolie2wsdl)
 * `wsdl2jolie`: it generates a jolie interface starting from a web service wsdl definition. [Go to section: wsdl2jolie](https://jolielang.gitbook.io/docs/web-services/wsdl2jolie)
 
