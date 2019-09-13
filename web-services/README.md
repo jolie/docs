@@ -88,6 +88,23 @@ inputPort MyServiceSOAPPort {
 ```
 where `MyWsdl.wsdl` is the file where the wsdl definition has been stored and `MyServiceSOAPPortServicePort` is the name of the port inside the wsdl definition to be joint with jolie input port `MyServiceSOAPPort`.
 
+## Invoking a web service
+A web service can be easily invoked as a standard jolie service by simply defining an output port with protocol soap. We just need to generate the corresponding jolie interface from the wsdl definition of the web service to be invoked and then use it within the caller.
+
+As an example, let us extract the jolie interface from the wsdl definition of the example described in the section above using the tool [wsdl2jolie](https://jolielang.gitbook.io/docs/web-services/wsdl2jolie). The tool generates a `.iol` file which contains both the interface and the output port configured for interacting with the web service to be invoked. It is sufficient to import the file and invoking the web service as a standard jolie service. In the following example, where we suppose to name the generated file as `generated_interface.iol`, we show how to invoke the web service.
+
+```
+include "generated_interface.iol"
+
+main {
+    with( request.person ) {
+        .name = "Homer";
+        .surname = "Simpsons"
+    }
+    getAddress@MyServiceSOAPPortServicePort( request )( response )
+}
+```
+As it is possible to note, within a jolie service the the web service just appears as a simple output port called `MyServiceSOAPPortServicePort` and it can be invoked as a standard jolie service.
 
 
 
