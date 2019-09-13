@@ -55,7 +55,6 @@
 * [Web Applications](web-applications/README.md)
   * [Leonardo: the Jolie Web Server](web-applications/leonardo.md)
   * [HTTP GET/POST Requests](web-applications/web_get_post.md)
-  * [REST APIs, Publication and Integration](web-applications/rest-apis-publication-and-integration.md)
 * [Protocols](protocols/README.md)
   * [HTTP](protocols/http.md)
   * [JSON/RPC](protocols/jsonrpc.md)
