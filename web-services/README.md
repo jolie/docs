@@ -4,7 +4,7 @@ Web Services represent a special category of services. They are characterized by
 ![](../.gitbook/assets/webservices.png)
 
 ## Exposing a web service
-In order to show how to expose a jolie service as a web service, let us consider the following Jolie service example which returns the address of a person identified by his name and his surname:
+In order to show how to expose a jolie service as a web service, let us consider the following Jolie service example which returns the address of a person identified by his name and his surname. The example may be consulted also at this [link](https://github.com/jolie/examples/tree/master/08_web_services/01_exposing_a_web_service)
 
 ```text
 include "console.iol"
@@ -104,7 +104,7 @@ main {
     getAddress@MyServiceSOAPPortServicePort( request )( response )
 }
 ```
-As it is possible to note, within a jolie service the the web service just appears as a simple output port called `MyServiceSOAPPortServicePort` and it can be invoked as a standard jolie service.
+As it is possible to note, within a jolie service the the web service just appears as a simple output port called `MyServiceSOAPPortServicePort` and it can be invoked as a standard jolie service. The complete code of the example may be consulted at this [link](https://github.com/jolie/examples/tree/master/08_web_services/02_invoking_a_web_service)
 
 
 
