@@ -31,3 +31,44 @@ main {
 }
 ```
 Note that the operation `writeFile@File` requires at least two parameters: the filename and the content of the file.
+
+## Communicating the content of a file
+Now, let's step forward creating a simple system where a server receives the content from a source file read by the client, and appends it to a receiving file. The full example can be checked [at this link](https://github.com/jolie/examples/tree/master/Tutorials/using-files/communicating-file-content). 
+
+The interface of the server follows:
+```
+interface ServerInterface {
+    RequestResponse:
+        setFileContent( string )( void )
+}
+```
+Note that it is very simple and it just defines a single operation which is able to receive a string.
+The code of the server is:
+```
+include "ServerInterface.iol"
+include "file.iol"
+
+execution{ concurrent }
+
+inputPort Server {
+    Location: "socket://localhost:9000"
+    Protocol: sodep
+    Interfaces: ServerInterface
+}
+
+constants {
+    FILENAME = "received.txt"
+}
+
+main {
+    setFileContent( request )( response ) {
+        with( rq_w ) {
+            .filename = FILENAME;
+            .content = request;
+            .append = 1
+        }
+        writeFile@File( rq_w )()
+    }
+}
+```
+The server is waiting to receive a message on operation `setFileContent`, once received it appends the message into the file `received.txt`. Note that the appending capability is enabled setting the parameter `append` of the operation `writeFile@File` to `1`.
