@@ -90,3 +90,69 @@ main {
     setFileContent@Server( content )()
 }
 ```
+
+## Communicating raw contents
+Let's now concluding this tutorial showing how to manage also binary files. So far indeed, we dealt only with text files where their content is always managed as a string. In general, we could require to manage any kind of files. In the following we show hot to read, communicate and write the binary content of a file. We propose the same scenario of the section above where there is a client which reads from a file and sends its content to a server, but we show how to deal with binary files. The full code of the example may be consulted [at this link](https://github.com/jolie/examples/tree/master/Tutorials/using-files/communicating-raw-files). The interface of the server changes as it follows:
+
+```
+type SetFileRequest: void {
+    .content: raw
+}
+
+interface ServerInterface {
+    RequestResponse:
+        setFile( SetFileRequest )( void )
+}
+```
+Note that the request type of operation `setFile` has a subnode called `.content` whose native type is set to `raw`. `raw` is the native typed used in jolie messages for sending binaries. Let us now see how the client works:
+```
+include "ServerInterface.iol"
+include "file.iol"
+
+outputPort Server {
+    Location: "socket://localhost:9000"
+    Protocol: sodep
+    Interfaces: ServerInterface
+}
+
+main {
+    with( f ) {
+        .filename = "source.pdf";
+        .format = "binary"
+    }
+    readFile@File( f )( rq.content )
+    setFile@Server( rq )()
+}
+```
+Note that the approach is the same of that we used for string contents with the difference that we specify also the parameter `format="binary"` for the operation `readFile@File`. Such a parameter enables jolie to intepreting the content of the file as a stream fo bytes which are represented as the native type `raw`. It is worth noting that the content of the reading is directly stored into the variable `rq.content`, this is why we just send variable `rq` with operation `setFile`.
+
+On the server side the code is:
+```
+include "ServerInterface.iol"
+include "file.iol"
+
+execution{ concurrent }
+
+inputPort Server {
+    Location: "socket://localhost:9000"
+    Protocol: sodep
+    Interfaces: ServerInterface
+}
+
+constants {
+    FILENAME = "received.pdf"
+}
+
+main {
+    setFile( request )( response ) {
+        with( rq_w ) {
+            .filename = FILENAME;
+            .content = request.content;
+            .format = "binary"
+        }
+        writeFile@File( rq_w )()
+    }
+}
+```
+Also in this case we enable the usage of binaries setting the parameter `format="binary"` for operation `writeFile`. Note that in this example the file read is a pdf file.
+
