@@ -72,3 +72,21 @@ main {
 }
 ```
 The server is waiting to receive a message on operation `setFileContent`, once received it appends the message into the file `received.txt`. Note that the appending capability is enabled setting the parameter `append` of the operation `writeFile@File` to `1`.
+
+On the other hand, the client reads a content from a file and sends it to the server:
+```
+include "ServerInterface.iol"
+include "file.iol"
+
+outputPort Server {
+    Location: "socket://localhost:9000"
+    Protocol: sodep
+    Interfaces: ServerInterface
+}
+
+main {
+    f.filename = "source.txt"
+    readFile@File( f )( content )
+    setFileContent@Server( content )()
+}
+```
