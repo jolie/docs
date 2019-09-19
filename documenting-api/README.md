@@ -101,3 +101,7 @@ main {
         { println@Console( request )() }
 }
 ```
+Save it into a file called `test.ol` and try to generate the documentation with the default settings:
+```
+joliedoc test.ol
+```
