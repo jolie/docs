@@ -2,6 +2,17 @@
 
 This [book](https://jolielang.gitbooks.io/docs/content/) is the reference documentation for the [Jolie](http://jolie-lang.org) programming language.
 
+![](./gitbook/assets/jolielogo.png)
+
+Jolie is programming language which provides a full service oriented programming paradigm within a unique linguistic domain. Jolie aims at briging a structured programming approach to service oriented programming. Jolie provides some core features like port declaration, interface definition and behavioural workflows which are some of the core features of service oriented programming. For each of them, there is a corresponding linguistic structure into the language. This is why se defined Jolie as the _first language for microservices_. Because it is the first language which natively provides primitives for directly deal with service oriented communication paradigms instead of exploiting external libraries or frameworks. The aim of the Jolie Team is to provide a new tool for developers which can fasting the development and the management of service oriented distributed systems. 
+
+Take a time for navigating this book and let us know your opinions about the language.
+Enjoy Jolie!
+
+_The Jolie Team_
+
+
+
 ## How to contribute to the Jolie Documentation
 
 This GitBook is linked to the GitHub repository at [https://github.com/jolie/docs](https://github.com/jolie/docs).
