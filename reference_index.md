@@ -83,4 +83,5 @@ This reference index is still under construction. If you spot something missing,
 * `openapi2jolie`: it generates a jolie client starting from an openapi 2.0 definition. [Go to section: Rest Services/openapi2jolie](https://jolielang.gitbook.io/docs/rest/openapi2jolie)
 * `jolie2wsdl`: it generates a wsdl definition starting from an jolie input port. [Go to section: jolie2wsdl](https://jolielang.gitbook.io/docs/web-services/jolie2wsdl)
 * `wsdl2jolie`: it generates a jolie interface starting from a web service wsdl definition. [Go to section: wsdl2jolie](https://jolielang.gitbook.io/docs/web-services/wsdl2jolie)
+* `joliedoc`: it automatically generates documentation for a service. [Go to section: Documenting API](https://jolielang.gitbook.io/docs/documenting-api#joliedoc)
 
