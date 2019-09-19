@@ -105,3 +105,13 @@ Save it into a file called `test.ol` and try to generate the documentation with 
 ```
 joliedoc test.ol
 ```
+The tool generates a folder called `joliedoc` which contains html files. Open file `index.html` with a common browser. The result should look like the following one:
+![](../gitbook/assets/joliedoc-overview.png)
+This is the overview of the service where all the internals ports are hidden. If you click on a port on the left menu, it is possible to navigate the api available at that port like in the following picture:
+![](../gitbook/assets/joliedoc-ip.png)
+
+Finally, try to run the command specifying you want to add the internals:
+```
+joliedoc test.ol --internals
+```
+The resul should look like the previous one but port `Console` also appears as output console and the usage of `println@Console` operation appears as communication dependencies in the dependency map.
