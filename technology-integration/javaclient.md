@@ -220,6 +220,7 @@ For those who are using [maven](https://maven.apache.org/) for managing their Ja
                   <joliePath>...</joliePath>
                   <outputDirectory>...</outputDirectory>
                   <packageName>...</packageName>
+		  <includePath>...</includePath>
               </configuration>
               <executions>
                   <execution>
@@ -236,6 +237,7 @@ where the configuration parameters are:
 * _joliePath_: the path where the jolie files which describe the client can be found by maven
 * _outputDirectory_: the outputDirectory where the generated classes must be copied
 * _packageName_: the name of the package to be used in the generated classes
+* _includePath_: the path where the jolie standard library include files are stored. Default `/usr/lib/jolie/include`.
 
 Note that the `jolie2java-maven-plugin` will be run during the `generated-sources` phase of maven, thus before the compilation one. So, take care to specify an outputDirectory inside your project which can be accessed by maven during the compilation.
 
