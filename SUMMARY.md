@@ -67,6 +67,7 @@
   * [Security with SSL](protocols/ssl/README.md)
     * [SODEPs](protocols/ssl/sodeps.md)
     * [HTTPs](protocols/ssl/https.md)
+    * [SOAPs](protocols/ssl/soaps.md)
 * [Locations](locations/README.md)
   * [Socket](locations/socket.md)
   * [Local](locations/local.md)
