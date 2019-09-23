@@ -4,7 +4,7 @@
 
 Jolie services can read arguments from the command line. Arguments are stored in a vector called `args`, where the first argument can be retrieved at index 0, the second argument at index 1 and so on.
 
-```text
+```jolie
 include "console.iol"
 
 main
