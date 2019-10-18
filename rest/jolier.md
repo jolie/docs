@@ -72,7 +72,7 @@ jolier demo.ol DEMO localhost:8000
 ```
 Once run, it is possible to try to invoke it using a common tool for sending REST messages. In particular it is possible to make a simple test invoking the `getOrders` by simply using a web browser. Put the following url in your web browser and look at the result:
 ```
-http://localhost:8000/DEMO/orders/myuser?maxItems=0
+http://localhost:8000/orders/myuser?maxItems=0
 ```
 
 
