@@ -24,6 +24,7 @@ Usage: jolier <service_filename> <input_port> <router_host> [-easyInterface] [-d
 * **[-sslProtocol]**: sets the ssl protocol
 
 to generate the ssl certificate you can use the [keytool](https://docs.oracle.com/javase/6/docs/technotes/tools/windows/keytool.html) or indicate the location of your preexisting java supported keystore file.
+
 **NOTE**: You need to pay particular attention on key file location parameters if you are deploying your REST service with a Docker image.  
 
 
