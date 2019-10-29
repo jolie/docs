@@ -16,7 +16,7 @@ The required parameters are:
 `jolier` is also able to publish your REST service using Https protocol by using the ssl command parameters
 
 ```
-Usage: jolier <service_filename> <input_port> <router_host> [-easyInterface] [-debug] [-keyStore] [filePath] [-keyStorePassword] [password] [-trustStore] [filename] [-trustStorePassword] [password] [-sslProtocol] [[protocol](https://github.com/jolie/docs/tree/master/protocols/ssl)]
+Usage: jolier <service_filename> <input_port> <router_host> [-easyInterface] [-debug] [-keyStore] [filePath] [-keyStorePassword] [password] [-trustStore] [filename] [-trustStorePassword] [password] [-sslProtocol] [ [protocol](https://github.com/jolie/docs/tree/master/protocols/ssl) ]
 ```
 
 * **[-keyStore]**: sets the keyStore file location
