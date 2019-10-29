@@ -15,7 +15,9 @@ The required parameters are:
 
 `jolier` is also able to publish your REST service using Https protocol by using the ssl command parameters
 
+```
 Usage: jolier <service_filename> <input_port> <router_host> [-easyInterface] [-debug] [-keyStore] [filePath] [-keyStorePassword] [password] [-trustStore] [filename] [-trustStorePassword] [password] [-sslProtocol] [[protocol](https://github.com/jolie/docs/tree/master/protocols/ssl)]
+```
 
 * **[-keyStore]**: sets the keyStore file location
 * **[-keyStorePassword]**: sets the keyStore password
@@ -23,7 +25,7 @@ Usage: jolier <service_filename> <input_port> <router_host> [-easyInterface] [-d
 * **[-trustStorePassword]**: sets the trustStore password
 * **[-sslProtocol]**: sets the ssl protocol
 
-to generate the ssl certificate you can use the [keytool](https://docs.oracle.com/javase/6/docs/technotes/tools/windows/keytool.html) or indicate the location of your preexisting java supported keystore file.
+To generate the ssl certificate you can use the [keytool](https://docs.oracle.com/javase/6/docs/technotes/tools/windows/keytool.html) or indicate the location of your preexisting java supported keystore file.
 
 **NOTE**: You need to pay particular attention on key file location parameters if you are deploying your REST service with a Docker image.  
 
