@@ -1,7 +1,7 @@
 # jolier
 `jolier` is a tool distributed with jolie which permits to easily deploy a jolie microservice as a REST service. jolier requires three parameters to work together with two other optional parameters. Morevoer, it requires a mapping file called _rest_template.json_ to be read at the boot for creating the mapping between the rest calls and the target operations. If you type the command in a shell without any argument, the following message will be prompt to the console:
 ```
-Usage: jolier <service_filename> <input_port> <router_host> [-easyInterface] [-debug]
+Usage: jolier <service_filename> <input_port> <router_host> [-easyInterface] [-debug] 
 ```
 
 The required parameters are:
@@ -10,6 +10,22 @@ The required parameters are:
 * **router_host**: it is the location where _jester_ will listen for incoming requests;
 * **[-easyInterface]**: it specifies if skipping the _rest_template.json_ file and creating a standard map of the target operations. See the section below for details;
 * **[-debug]**: it enables debug messages for _jester_ in order to facilitate error identification.
+
+## Publishing your REST Service with SSL support
+
+`jolier` is also able to publish your REST service using Https protocol by using the ssl command parameters
+
+Usage: jolier <service_filename> <input_port> <router_host> [-easyInterface] [-debug] [-keyStore] [filePath] [-keyStorePassword] [password] [-trustStore] [filename] [-trustStorePassword] [password] [-sslProtocol] [[protocol](https://github.com/jolie/docs/tree/master/protocols/ssl)]
+
+* **[-keyStore]**: sets the keyStore file location
+* **[-keyStorePassword]**: sets the keyStore password
+* **[-trustStore]**: sets the trustStore file  location
+* **[-trustStorePassword]**: sets the trustStore password
+* **[-sslProtocol]**: sets the ssl protocol
+
+to generate the ssl certificate you can use the [keytool](https://docs.oracle.com/javase/6/docs/technotes/tools/windows/keytool.html) or indicate the location of your preexisting java supported keystore file.
+**NOTE**: You need to pay particular attention on key file location parameters if you are deploying your REST service with a Docker image.  
+
 
 ## Defining the rest calls mapping
 The mapping of the rest templates is defined within file `rest_templates.json`. It is a json file structured as key value map, where the key reports the name of the target operation whereas the value reports the related call information to be used in the rest call. Here we presen an example of a key value pair:
@@ -27,7 +43,7 @@ It is worth noting that when we define a rest mapping, some restrictions to the 
 
 **NOTE**: the public URL where _jester_ will serve the request is composed as it follows:
 ```
-http://<router_host>/<input_port>/<template>|<operation_name>
+http://<router_host>/<template>|<operation_name>
 ```
 where the `operation_name` is used when no template is given.
 
