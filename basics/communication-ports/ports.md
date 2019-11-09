@@ -72,6 +72,7 @@ Protocols are referred by name. Examples of valid \(supported\) protocol names a
 * `soap`
 * `sodep` \(a binary protocol specifically developed for Jolie\)
 * `xmlrpc`
+* `jsonrpc`
 
 For a thorough description of the protocols supported by Jolie and their parameters see [Protocols](protocols/introduction) section.
 
