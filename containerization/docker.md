@@ -7,7 +7,7 @@ Before starting to show how to deploy a jolie microservice within a container do
 ## Deploying a jolie service in a container Docker
 Let us now consider an example of a very simple jolie service to be deployed into a docker container, the `helloservice.ol`:
 
-```
+```jolie
 interface HelloInterface {
 
 RequestResponse:
