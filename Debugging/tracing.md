@@ -36,4 +36,9 @@ Thus, just open your brower at `http://localhost:8000` and navigate through the 
 By default `jolietraceviewer` runs on port 8000 but it is possible to change it by specifying a different port as an argument. In the following example we run `jolietraceviewer` on port 8001.
 `jolietraceviewer 8001`
 
-
+## Defining the tracer level
+By default the tracer just traces everything both communication and computation actions. It is possible to restricts the tracing only to communication actions or computation actions. Use the parameter `---traceLevel [ALL|COMP|COMM]` for specifying the level. As an example let us consider the following:
+```
+jolie --trace file --traceLevel comm myFirstJolieService.ol
+```
+It just traces only the communication actions. Use `comp` for tracing only the computation ones.
