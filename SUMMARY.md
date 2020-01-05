@@ -40,6 +40,7 @@
   * [Redirection](architectural-composition/redirection.md)
   * [Collections](architectural-composition/collections.md)
 * [Documenting API](documenting-api/README.md)
+* [Denugging](Debugging/tracing.md)
 * [Integration with other programming languages](technology-integration/README.md)
   * [Java](technology-integration/java.md)
     * [Java Client](technology-integration/javaclient.md)
