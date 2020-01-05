@@ -17,6 +17,7 @@ Available options:
 	--typecheck [true|false]		                  Check for correlation and other data related typing errors (default: false)
 	--check		                                    Check for syntactic and semantic errors.
 	--trace		                                    Activate tracer
+	--traceLevel [all|comm|comp]			    Defines tracer level: all - all the traces; comm - only communication traces; comp - only computation traces. Default is all.
 	--charset [character encoding, e.g., UTF-8]		Character encoding of the source *.ol/*.iol (default: system-dependent, on GNU/Linux UTF-8)
 	--version		                                  Display this program version information
 ```
