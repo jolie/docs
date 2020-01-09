@@ -2,7 +2,7 @@
 
 Now we want to create a server that provides a service to double a number. We also create a client for that service.
 
-![](https://github.com/jolie/docs/.gitbook/assets/creating_service_and_client.png)
+![](../../.gitbook/assets/creating_service_and_client.png)
 
 ## Server's code
 
