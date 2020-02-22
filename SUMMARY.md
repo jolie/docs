@@ -10,7 +10,7 @@
     * [Adding Interfaces](tutorials/getting-started/adding_interface.md)
     * [Setting the execution modality](tutorials/getting-started/set_execution_modality.md)
   * [Using files](tutorials/using-files/README.md)
-  * [Advanced Programming]
+  * Advanced Programming
     * [Supporting new protocols in Jolie](tutorials/supporting-new-protocols-in-jolie.md)
 * [Basics](basics/README.md)
   * [Handling Simple Data](basics/handling_simple_data.md)
