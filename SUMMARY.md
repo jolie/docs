@@ -3,7 +3,6 @@
 * [Introduction](README.md)
 * [Reference Index](reference_index.md)
 * [Tutorials](tutorials/README.md)
-  * [Supporting new protocols in Jolie](tutorials/supporting-new-protocols-in-jolie.md)
   * [Getting started](tutorials/getting-started/README.md)
     * [Hello, World!](tutorials/getting-started/hello_world.md)
     * [Running a Jolie service with arguments](tutorials/getting-started/running_a_jolie_service_with_arguments.md)
@@ -11,6 +10,8 @@
     * [Adding Interfaces](tutorials/getting-started/adding_interface.md)
     * [Setting the execution modality](tutorials/getting-started/set_execution_modality.md)
   * [Using files](tutorials/using-files/README.md)
+  * [Advanced Programming]
+    * [Supporting new protocols in Jolie](tutorials/supporting-new-protocols-in-jolie.md)
 * [Basics](basics/README.md)
   * [Handling Simple Data](basics/handling_simple_data.md)
   * [Composing Statements](basics/composing_statements.md)
