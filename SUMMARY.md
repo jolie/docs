@@ -51,6 +51,7 @@
 * [Containerization](containerization/README.md)
   * [Docker](containerization/docker.md)
     * [Jocker](containerization/jocker.md)
+  * [Kubernetes](containerization/kubernetes.md)
 * [Rest Services](rest/README.md)
   * [jolier](rest/jolier.md)
   * [jolie2openapi](rest/jolie2openapi.md)
