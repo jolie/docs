@@ -1,11 +1,11 @@
 # Kubernetes
 [Kubernetes](https://kubernetes.io/) is an open-source system for automating deployment, scaling, and management of containerized applications.
 Jolie microservices deployed inside a Docker container can be managed by Kubernetes as well.
-We are going to use what learnt in Docker [section](containerization/docker.md) to deploy a easily scalable application, with multiple containers running the same service behind a load balancer.
+We are going to use what learnt in Docker [section](containerization/docker.md) to deploy an easily-scalable application, with multiple containers running the same service behind a load balancer.
 To run the example a Kubernetes environment is needed, the easiest way to get it is to install [Minikube](https://kubernetes.io/docs/tasks/tools/install-minikube/).
 
 ## Deploying "Hello" Jolie service in a container Docker
-Let's make some modifications to `helloservice.ol` used in previous Docker example:
+Let's make some modifications to `helloservice.ol` used in the previous Docker example:
 
 ```jolie
 include "runtime.iol"
@@ -17,7 +17,6 @@ RequestResponse:
 }
 
 execution{ concurrent }
-
 
 inputPort Hello {
 Location: "socket://localhost:8000"
@@ -38,7 +37,7 @@ main {
 The HOSTNAME environment variable is set by Kubernetes itself and it's printed out to show what microservice instance is answering the request. 
 
 ## Creating a docker image
-Dockerfile needed to create a docker image of this microservice is the same seen in Docker section:
+The Dockerfile needed to create a docker image of this microservice is the same seen in the Docker section:
 
 ```
 FROM jolielang/jolie
@@ -46,11 +45,13 @@ EXPOSE 8000
 COPY helloservice.ol main.ol
 CMD jolie main.ol
 ```
-Typing the following command on the console actually creates the image:
+
+Typing the following command in the console actually creates the image:
 
 ```
 docker build -t hello .
 ```
+
 ## Creating a Kubernetes Deployment 
 This image can now be wrapped in [__Pods__](https://kubernetes.io/docs/concepts/workloads/pods/pod/), the smallest deployable units of computing that can be created and managed in Kubernetes.
 A [__Deployment__](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/) describes in a declarative way the desired state of a __ReplicaSet__ having the purpose to maintain a stable set of replica Pods running at any given time:
@@ -87,12 +88,13 @@ After a few seconds you can see your pods up and running using this command:
 ```
 kubectl get pods
 ```
+
 ## Exposing Deployment by a Service
 Now we have 2 running Pods, each one listening on port 8000, but with 2 issues: 
-1. they're reachable only from the internal Kubernetes cluster network,
+1. they're reachable only from the internal Kubernetes cluster network;
 2. they're ephemeral.
-As explained [here](https://kubernetes.io/docs/concepts/services-networking/connect-applications-service/) a [__Service__](https://kubernetes.io/docs/concepts/services-networking/service/) is needed to expose the application in the right way.
-Following [Minikube tutorial](https://kubernetes.io/docs/tutorials/hello-minikube/#create-a-service) just type:
+As explained [here](https://kubernetes.io/docs/concepts/services-networking/connect-applications-service/), a [__Service__](https://kubernetes.io/docs/concepts/services-networking/service/) is needed to expose the application in the right way.
+Following the [Minikube tutorial](https://kubernetes.io/docs/tutorials/hello-minikube/#create-a-service), just type:
 ```
 kubectl expose deployment jolie-sample-deployment --type=LoadBalancer --port=8000
 ```
