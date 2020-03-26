@@ -15,7 +15,7 @@ Specifically, Jolie supports two kinds of documentation comments: forward and ba
     - `/*< ... */` : multiline comment
     - `//< ...` : inline comment
    
-Note that documentation comments (forward and backward) in types are always associated to a node.
+Note that documentation comments (forward and backward) in types are always attributed to a node and not to their associated type.
 
 ## joliedoc
 Joliedoc is very easy to use, it is sufficient to run the command `joliedoc` followed by the file name of the service to be documented.
