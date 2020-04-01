@@ -1,6 +1,6 @@
 # Introduction
 
-This [book](https://jolielang.gitbooks.io/docs/content/) is the reference documentation for the [Jolie](http://jolie-lang.org) programming language.
+Welcome to the reference documentation for the [Jolie programming language](https://jolie-lang.org).
 
 ![](./.gitbook/assets/jolielogo.png)
 

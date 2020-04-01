@@ -2,7 +2,7 @@
 
 ## Basic data types
 
-Jolie is a dynamically typed language. It means that no type declaration is needed when assigning values to variables, which do not need to be declared in advance. Variables do not have a type associated with them and the type of their value is check at runtime.
+Jolie is a dynamically typed language: variables do not need to be declared, and they do not need to be assigned a type in advance by the programmer. The value of a variable is type checked at runtime, whenever messages are sent or received to/from other services.
 
 Jolie supports seven basic data types:
 
@@ -14,14 +14,14 @@ Jolie supports seven basic data types:
 * `raw`: byte arrays;
 * `void`: the empty type.
 
-Although being a basic type, `raw` values cannot be created directly by the programmer, but are supported natively for data-passing purposes.
+Values of type `raw` cannot be created directly by the programmer, but are supported natively for data-passing purposes.
 
-Furthermore, Jolie supports the `any` basic type, which means a value that can be any basic type.
+Furthermore, Jolie supports the `any` basic type, which means a value that can be of any basic type.
 
-Let us consider the following example in which differently typed values are passed into the same variable:
+In the following example, differently typed values are passed into the same variable:
 
 ```text
-a = 5;
+a = 5
 a = "Hello"
 ```
 
@@ -38,11 +38,11 @@ Their behaviour is the same as in other classical programming languages. The lan
 An example of the aforementioned operators follows:
 
 ```text
-a = 1;
-b = 4;
+a = 1
+b = 4
 
-n = a + b/2; // n = 3
-n++; // n = 4
+n = a + b/2 // n = 3
+n++ // n = 4
 n = ++a + (b++)/2 // n = 4
 ```
 
@@ -100,24 +100,24 @@ JOLIE preserves formatting.
 "
 ```
 
-## Undefining variables
+## Undefined variables
 
-A variable is undefined until a value is assigned to it. In this state it is set to `undefined` which is equivalent to `null`, `NULL` or `nil` in other programming languages.
+All variables start as undefined; that is, they are not part of the state of the program.
+A variable becomes defined when a value is assigned to it.
 
-For checking the definition of a variable the `is_defined` predicate should be used, e.g.:
+To check whether a variable is defined, you can use the primitive predicate `is_defined`:
 
 ```text
-a = 1;
-if ( is_defined( a ) ) {
-    println@Console( "a is defined" )()
-}
+a = 1
+c1 = is_defined( a ) // c1 is true
+c2 = is_defined( b ) // c2 is false
 ```
 
-Sometimes it is useful to undefine a variable, i.e. to remove its value and make it undefined again. Undefining a variable is done by using the `undef` statement, as shown in the example below.
+Sometimes it is useful to undefine a variable, i.e., to remove its value and make it undefined again. Undefining a variable is done by using the `undef` statement, as shown in the example below.
 
 ```text
-a = 1;
-undef( a );
+a = 1
+undef( a )
 if ( is_defined( a ) ) {
     println@Console( "a is defined" )()
 } else {
@@ -125,7 +125,7 @@ if ( is_defined( a ) ) {
 }
 ```
 
-The operators do behave like this:
+The operators behave like this:
 
 * `undefined + var = var`
 * `undefined - var = -var` \(negation of numbers and booleans\)
@@ -146,14 +146,12 @@ a[ 2 ] = "Hello";
 a[ 3 ] = 2.5
 ```
 
-A key point for understanding and programming services in Jolie is that,
-
-in JOLIE every variable is a dynamic array.
+A key point for understanding and programming services in Jolie is that every variable is actually a dynamic array.
 
 Jolie handles dynamic array creation and packing. This makes dealing with complex data easier, although Jolie hides this mechanism when the programmer does not need it. Whenever an array index is not specified, the implicit index for that variable is set by default to 0 \(zero\), like shown in the example below.
 
 ```text
-a = 1; // JOLIE interprets this as a[0] = 1
+a = 1 // Jolie interprets this as a[0] = 1
 println@Console( a[ 0 ] )() // Will print 1
 ```
 
