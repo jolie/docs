@@ -2,16 +2,24 @@
 
 * [Introduction](README.md)
 * [Reference Index](reference_index.md)
-* [Tutorials](tutorials/README.md)
-  * [Getting started](tutorials/getting-started/README.md)
-    * [Hello, World!](tutorials/getting-started/hello_world.md)
-    * [Running a Jolie service with arguments](tutorials/getting-started/running_a_jolie_service_with_arguments.md)
-    * [Creating a Service and a Client](tutorials/getting-started/creating_service_and_client.md)
-    * [Adding Interfaces](tutorials/getting-started/adding_interface.md)
-    * [Setting the execution modality](tutorials/getting-started/set_execution_modality.md)
-  * [Using files](tutorials/using-files/README.md)
-  * Advanced Programming
-    * [Supporting new protocols in Jolie](tutorials/supporting-new-protocols-in-jolie.md)
+
+## Getting started
+<!-- * [Getting started](tutorials/getting-started/README.md) -->
+* [Hello, World!](tutorials/getting-started/hello_world.md)
+* [Running a Jolie service with arguments](tutorials/getting-started/running_a_jolie_service_with_arguments.md)
+* [Creating a Service and a Client](tutorials/getting-started/creating_service_and_client.md)
+* [Adding Interfaces](tutorials/getting-started/adding_interface.md)
+* [Setting the execution modality](tutorials/getting-started/set_execution_modality.md)
+
+## Tutorials
+
+<!-- * [Tutorials](tutorials/README.md) -->
+* [Using files](tutorials/using-files/README.md)
+* Advanced Scenarios
+  * [Implementing new port protocols in Jolie](tutorials/supporting-new-protocols-in-jolie.md)
+
+## Language, tools, and standard library
+
 * [Basics](basics/README.md)
   * [Handling Simple Data](basics/handling_simple_data.md)
   * [Composing Statements](basics/composing_statements.md)
@@ -41,7 +49,7 @@
   * [Couriers](architectural-composition/couriers.md)
   * [Redirection](architectural-composition/redirection.md)
   * [Collections](architectural-composition/collections.md)
-* [Documenting API](documenting-api/README.md)
+* [Documenting APIs](documenting-api/README.md)
 * [Debugging](Debugging/tracing.md)
 * [Integration with other programming languages](technology-integration/README.md)
   * [Java](technology-integration/java.md)
@@ -112,5 +120,7 @@
   * [XmlUtils](standard-library-api/xml_utils.md)
   * [XMPP](standard-library-api/xmpp.md)
   * [ZipUtils](standard-library-api/zip_utils.md)
+
+## Other guidelines
 
 * [Contributing to this documentation](docs-contrib/README.md)
