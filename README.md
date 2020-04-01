@@ -30,9 +30,9 @@ RequestResponse: greet( GreetRequest )( GreetResponse )
 
 // An input port publishes APIs to clients
 inputPort GreeterInput {
-location: "socket://localhost:8080"	// Use TCP/IP
-protocol: http { format = "json" }	// Use HTTP
-interfaces: GreeterAPI				// Publish GreeterAPI
+location: "socket://localhost:8080"		// Use TCP/IP
+protocol: http { format = "json" }		// Use HTTP
+interfaces: GreeterAPI					// Publish GreeterAPI
 }
 
 // Implementation (the behaviour)
