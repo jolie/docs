@@ -6,7 +6,7 @@ The `main` procedure may be preceded or succeeded by the definition of auxiliary
 
 In Jolie procedures are defined by the `define` keyword, which associates a unique name to a block of code. Its syntax follows:
 
-```text
+```jolie
 
 define procedureName 
 {
@@ -18,7 +18,7 @@ define procedureName
 
 For example, the code below is valid:
 
-```text
+```jolie
 define sumProcedure
 {
     sum = x + y    
