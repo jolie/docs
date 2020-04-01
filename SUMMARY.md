@@ -113,3 +113,4 @@
   * [XMPP](standard-library-api/xmpp.md)
   * [ZipUtils](standard-library-api/zip_utils.md)
 
+* [Contributing to this documentation](docs-contrib/README.md)
