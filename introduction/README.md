@@ -1,10 +1,8 @@
 # Introduction
 
-<p style="float: left">
 Welcome to the reference documentation for the [Jolie programming language](https://jolie-lang.org).
-</p>
 
-<img src="../.gitbook/assets/jolielogo.png" style="float:right" />
+![](../.gitbook/assets/jolielogo.png | width=100)
 
 ## What is Jolie?
 
