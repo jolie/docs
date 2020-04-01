@@ -1,11 +1,11 @@
 # Table of contents
 
-* [Introduction](/README.md)
-  * [What is Jolie?](/README.md#what-is-jolie)
-  * [How does it look?](/README.md#how-does-it-look)
-  * [Microservice orientation](/README.md#microservice-orientation)
-  * [Where do I go from here?](/README.md#where-do-i-go-from-here)
-  * [Get in touch](/README.md#get-in-touch)
+* [Introduction](README.md)
+  * [What is Jolie?](../README.md#what-is-jolie)
+  * [How does it look?](../README.md#how-does-it-look)
+  * [Microservice orientation](../README.md#microservice-orientation)
+  * [Where do I go from here?](../README.md#where-do-i-go-from-here)
+  * [Get in touch](../README.md#get-in-touch)
 * [Reference Index](reference_index.md)
 
 ## Getting started
