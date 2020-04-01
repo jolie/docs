@@ -60,7 +60,7 @@ curl http://localhost:8080?greet?name=Jolie
 ```
 and you will see the output
 ```
-{"greeting":"Hello, Pippo"}
+{"greeting":"Hello, Jolie"}
 ```
 
 ## Microservice-orientation
