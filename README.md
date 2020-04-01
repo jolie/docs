@@ -4,13 +4,15 @@ Welcome to the reference documentation for the [Jolie programming language](http
 
 ![](./.gitbook/assets/jolielogo.png)
 
-Jolie is a programming language which provides a full service oriented programming paradigm within a unique linguistic domain. Jolie aims at briging a structured programming approach to service oriented programming. Jolie provides some core features like port declaration, interface definition and behavioural workflows which are some of the core features of service oriented programming. For each of them, there is a corresponding linguistic structure into the language. This is why se defined Jolie as the _first language for microservices_. Because it is the first language which natively provides primitives for directly deal with service oriented communication paradigms instead of exploiting external libraries or frameworks. The aim of the Jolie Team is to provide a new tool for developers which can fasting the development and the management of service oriented distributed systems. 
+Jolie is a _microservice-oriented programming language_: it brings a structured linguistic approach to the programming of services, including constructs for access endpoints \([communication ports](./basics/communication-ports/)\), APIs with synchronous and asynchronous operations \([interfaces](./basics/interfaces/)\), [communications](./basics/communication-ports/using_communication_ports.md), behavioural workflows \(including a native [parallel operator](./basics/composing_statements.md)\), and multiparty sessions \([correlation sets](./basics/sessions.md)\).
+Additionally, Jolie embraces that microservice systems are often heterogeneous and interoperability should be a first-class citizen: all data in Jolie is structured as trees that can be semi-automatically (most of the time fully automatically) converted from/to different data formats (JSON, XML, etc.) and communicated over a variety of protocols (HTTP, binary protocols, etc.).
+Jolie is an attempt at making the _first language for microservices_, in the sense that it provides primitives to deal directly with the programming of common concerns regarding microservices without relying on frameworks or external libraries.
+Our aim is to provide a tool that aid developers in producing and managing microservice systems more effectively.
 
-Take a time for navigating this book and let us know your opinions about the language.
-Enjoy Jolie!
+If you have comments or requests on this documentation or Jolie in general, you are very welcome to reach us. See [https://www.jolie-lang.org/community.html](https://www.jolie-lang.org/community.html).
+We hope that you will enjoy Jolie!
 
 _The Jolie Team_
-
 
 
 ## How to contribute to the Jolie Documentation

@@ -30,13 +30,25 @@ main
 }
 ```
 
+In practice, the `;` is used only when composing sequences in a single line of code, since newlines are interpreted as `;`. The code from before can be rewritten as:
+
+```text
+main
+{
+	// This is interpreted as a sequence
+    print@Console( "Hello, " )()
+    println@Console( "world!" )()
+}
+```
+
 **Attention.** Keep in mind that, in Jolie, `;` is NOT the "end of statement" marker. For the sake of clarity, let us consider an INVALID use of the sequence operator:
 
 ```text
 main
 {
     print@Console( "Hello, " )();
-    println@Console( "world!" )(); //
+    println@Console( "world!" )(); // Invalid usage of ;
+}
 ```
 
 ### Parallel
