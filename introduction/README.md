@@ -2,7 +2,7 @@
 
 Welcome to the reference documentation for the [Jolie programming language](https://jolie-lang.org).
 
-![](../.gitbook/assets/jolielogo.png | width=100)
+<img src="../.gitbook/assets/jolielogo.png" width="100" />
 
 ## What is Jolie?
 
