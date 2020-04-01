@@ -9,7 +9,6 @@
 * [Reference Index](reference_index.md)
 
 ## Getting started
-<!-- * [Getting started](tutorials/getting-started/README.md) -->
 * [Hello, World!](tutorials/getting-started/hello_world.md)
 * [Running a Jolie service with arguments](tutorials/getting-started/running_a_jolie_service_with_arguments.md)
 * [Creating a Service and a Client](tutorials/getting-started/creating_service_and_client.md)
@@ -18,7 +17,6 @@
 
 ## Tutorials
 
-<!-- * [Tutorials](tutorials/README.md) -->
 * [Using files](tutorials/using-files/README.md)
 * Advanced Scenarios
   * [Implementing new port protocols in Jolie](tutorials/supporting-new-protocols-in-jolie.md)
