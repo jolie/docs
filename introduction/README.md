@@ -2,8 +2,6 @@
 
 Welcome to the reference documentation for the [Jolie programming language](https://jolie-lang.org).
 
-<img src="../.gitbook/assets/jolielogo.png" width="100" />
-
 ## What is Jolie?
 
 Jolie is a _microservice-oriented programming language_: it is designed to reason effectively about the key questions of microservice development, including the following.
@@ -89,3 +87,4 @@ Enjoy Jolie!
 
 _The Jolie Team_
 
+![](../.gitbook/assets/jolielogo.png)
