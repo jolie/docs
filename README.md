@@ -12,7 +12,7 @@ Jolie is a _microservice-oriented programming language_: it is designed to reaso
 - How can these APIs be accessed?
 - How are APIs implemented in terms of concurrency, communication, and computation?
 
-## How do Jolie programs look like?
+## How does it look?
 
 This is a simple service for greeting clients.
 
@@ -63,7 +63,7 @@ and you will see the output
 {"greeting":"Hello, Pippo"}
 ```
 
-## What else?
+## Microservice-orientation
 
 More in general, Jolie brings a structured linguistic approach to the programming of services, including constructs for access endpoints \([communication ports](./basics/communication-ports/)\), APIs with synchronous and asynchronous operations \([interfaces](./basics/interfaces/)\), [communications](./basics/communication-ports/using_communication_ports.md), behavioural workflows \(including a native [parallel operator](./basics/composing_statements.md)\), and multiparty sessions \([correlation sets](./basics/sessions.md)\).
 Additionally, Jolie embraces that microservice systems are often heterogeneous and interoperability should be a first-class citizen: all data in Jolie is structured as trees that can be semi-automatically (most of the time fully automatically) converted from/to different data formats (JSON, XML, etc.) and communicated over a variety of protocols (HTTP, binary protocols, etc.).
