@@ -2,7 +2,7 @@
 
 ## HTTPS Protocol
 
-HTTPS \(HTTP Secure\) is a secure communication protocol obtained by layering the HTTP protocol on top of the SSL/TSL protocol.
+HTTPS \(HTTP Secure\) is a secure communication protocol obtained by layering the HTTP protocol on top of the SSL/TLS protocol.
 
 Protocol name in Jolie port definition: `https`.
 
