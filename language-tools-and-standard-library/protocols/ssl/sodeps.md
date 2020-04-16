@@ -2,7 +2,7 @@
 
 ## SODEPS Protocol
 
-SODEPS \(SODEP Secure\) is a secure communication protocol obtained by layering the SODEP protocol on top of the SSL/TSL protocol.
+SODEPS \(SODEP Secure\) is a secure communication protocol obtained by layering the SODEP protocol on top of the SSL/TLS protocol.
 
 Protocol name in Jolie port definition: `sodeps`.
 
