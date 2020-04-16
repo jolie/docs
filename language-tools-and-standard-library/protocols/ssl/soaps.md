@@ -2,7 +2,7 @@
 
 ## SOAPS Protocol
 
-SOAPS \(SOAP Secure\) is a secure communication protocol obtained by layering the SOAP protocol on top of the SSL/TSL protocol.
+SOAPS \(SOAP Secure\) is a secure communication protocol obtained by layering the SOAP protocol on top of the SSL/TLS protocol.
 
 Protocol name in Jolie port definition: `soaps`.
 
