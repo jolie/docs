@@ -14,6 +14,7 @@
 ## Tutorials
 
 * [Using files](tutorials/using-files.md)
+* [XML files](tutorials/xml-files.md)
 * [Twitter API](tutorials/twitter-api.md)
 * [Advanced Scenarios](tutorials/advanced-scenarios/README.md)
   * [Implementing new port protocols in Jolie](tutorials/advanced-scenarios/supporting-new-protocols-in-jolie.md)
