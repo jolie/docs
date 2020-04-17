@@ -14,6 +14,7 @@
 ## Tutorials
 
 * [Using files](tutorials/using-files.md)
+* [JSON files](tutorials/json-files.md)
 * [XML files](tutorials/xml-files.md)
 * [Twitter API](tutorials/twitter-api.md)
 * [Advanced Scenarios](tutorials/advanced-scenarios/README.md)
