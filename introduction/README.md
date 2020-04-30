@@ -14,7 +14,7 @@ Jolie is a _microservice-oriented programming language_: it is designed to reaso
 
 This is a simple service for greeting clients.
 
-```jolie
+```text
 execution { concurrent } // Handle clients concurrently
 
 // Some data types
