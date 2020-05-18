@@ -53,5 +53,5 @@ main
 }
 ```
 
-A more detailed explanation about interfaces can be found at the section [Interfaces](https://github.com/jolie/docs/tree/cd3ab5e29a9d98baaa8cffd4a1ec7b3f74a77793/tutorials/basics/interfaces/README.md).
+A more detailed explanation about interfaces can be found at the section [Interfaces](https://github.com/jolie/docs/tree/master/language-tools-and-standard-library/basics/interfaces/README.md).
 
