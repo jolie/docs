@@ -56,7 +56,7 @@ jolie greeter.ol
 The service is now waiting for client requests. Run
 
 ```text
-curl http://localhost:8080?greet?name=Jolie
+curl http://localhost:8080/greet?name=Jolie
 ```
 
 and you will see the output
