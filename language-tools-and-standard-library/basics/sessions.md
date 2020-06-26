@@ -286,7 +286,7 @@ provide
 Managing session-related calls impacts also on the libraries used by a Jolie program (after all, they are microservices too!).
 Sometimes it is useful to have a library "call back" its client, e.g., if executing some batch work or waiting for the user's input, for which we do not want to use a request-response pattern, but a one-way: the client enables the reception of some inputs from the library, which then will send a notification to the client each time a new input is ready. 
 
-A concrete example of that, is operation `in` of the Console service, which, as seen in the [example section on communication ports](/docs/language-tools-and-standard-library/basics/communication-ports/a_comprehensive_example), receives inputs from the standard input.
+A concrete example of that is operation `in` of the Console service, which, as seen in the [example section on communication ports](/docs/language-tools-and-standard-library/basics/communication-ports/a_comprehensive_example), receives inputs from the standard input.
 
 While calling that operation on a single-session service does not pose any problem on where to route the incoming request, that is not the case for concurrent execution, where many instances can prompt the insertion of some data to the user.
 
