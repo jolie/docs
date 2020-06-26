@@ -281,3 +281,50 @@ provide
    }
 ```
 
+## Sessions and Jolie libraries
+
+Managing session-related calls impacts also on the libraries used by a Jolie program (after all, they are microservices too!).
+Sometimes it is useful to have a library "call back" its client, e.g., if executing some batch work or waiting for the user's input, for which we do not want to use a request-response pattern, but a one-way: the client enables the reception of some inputs from the library, which then will send a notification to the client each time a new input is ready. 
+
+A concrete example of that, is operation `in` of the Console service, which, as seen in the [example section on communication ports](/docs/language-tools-and-standard-library/basics/communication-ports/a_comprehensive_example), receives inputs from the standard input.
+
+While calling that operation on a single-session service does not pose any problem on where to route the incoming request, that is not the case for concurrent execution, where many instances can prompt the insertion of some data to the user.
+
+To correctly route input messages to the appropriate session, the Console service puts in place the operation `subscribeSessionListener` (and its complementary `unsubscribeSessionListener`). That operation is useful to signal to the Console service that it should "tag" with a token given by the user (more on this in the next paragraph) the input received from the standard input, so that incoming input messages can be correctly correlated with their related session. Technically, to enable that functionality, the Console API requires the user to call `registerForInput` with a request containing the `enableSessionListener` node set to `true`. Then, before waiting for some message from the standard input (e.g., `in( message )`) we:
+- we define this session's token (e.g., we define a variable `token` assigning to it a unique value with the `new` primitive);
+- we subscribe our listener with this session's token (`subscribeSessionListener@Console( { token = token } )()`);
+- we wait for the data from the prompt (e.g., `in( message )`)
+- and finally, when we terminated this session's inputs, we unsubscribe our listener for this session (`unsubscribeSessionListener@Console( { token = token } )()`);
+
+For a more comprehensive example, we report the code below.
+
+```text
+execution { concurrent }
+
+// we define a cset on the InRequest.token node
+cset {
+  sessionToken: InRequest.token
+}
+
+main
+{
+  test()( res ){
+    // we registerForInput, enabling sessionListeners
+    registerForInput@Console( { enableSessionListener = true } )()
+    // we define this session's token
+    token = new
+    // we set the sessionToken for the InRequest
+    csets.sessionToken = token
+    // we subscribe our listener with this session's token
+    subscribeSessionListener@Console( { token = token } )()
+    // we make sure the print out to the user and the request for input are atomic
+    synchronized( inputSession ) {
+      println@Console( "insert response data for session " + token + ":" )()
+      // we wait for the data from the prompt
+      in( res )
+    }
+    // we unsubscribe our listener for this session before closing
+    unsubscribeSessionListener@Console( { token = token } )()
+  }
+}
+```
