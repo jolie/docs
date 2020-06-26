@@ -288,7 +288,7 @@ Sometimes it is useful to have a library "call back" its client, e.g., if execut
 
 A concrete example of that is operation `in` of the Console service, which, as seen in the [example section on communication ports](/docs/language-tools-and-standard-library/basics/communication-ports/a_comprehensive_example), receives inputs from the standard input.
 
-While calling that operation on a single-session service does not pose any problem on where to route the incoming request, that is not the case for concurrent execution, where many instances can prompt the insertion of some data to the user.
+While calling that operation on a single-session service does not pose any problem on where to route the incoming request, that is not the case for the `concurrent` and `sequential` execution modalities, where many instances can prompt the insertion of some data to the user.
 
 To correctly route input messages to the appropriate session, the Console service puts in place the operation `subscribeSessionListener` (and its complementary `unsubscribeSessionListener`). That operation is useful to signal to the Console service that it should "tag" with a token given by the user (more on this in the next paragraph) the input received from the standard input, so that incoming input messages can be correctly correlated with their related session. Technically, to enable that functionality, the Console API requires the user to call `registerForInput` with a request containing the `enableSessionListener` node set to `true`. Then, before waiting for some message from the standard input (e.g., `in( message )`) we:
 - we define this session's token (e.g., we define a variable `token` assigning to it a unique value with the `new` primitive);
