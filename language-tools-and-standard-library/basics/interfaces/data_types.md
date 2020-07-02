@@ -53,7 +53,7 @@ type MyType {
   email: string( regex(".*@.*\\..*") )
 }
 ```
-Note that Jolie uses the `dk.brics.automaton` library, thus you can use this link as a reference for composing the regular expressions: [Composing regular expressions in Jolie string basic type refinement](https://www.brics.dk/automaton/doc/index.html?dk/brics/automaton/RegExp.html)
+Note that Jolie uses the `dk.brics.automaton` library for managing regular expressions, thus you may consult this link as a reference for composing the regular expressions: [Composing regular expressions in Jolie string basic type refinement](https://www.brics.dk/automaton/doc/index.html?dk/brics/automaton/RegExp.html)
 
 #### Refinement: enum
 This refinement allows for specifying a set of available values for the string.
