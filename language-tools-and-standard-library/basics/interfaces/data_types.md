@@ -83,7 +83,7 @@ In this example the field `f1` can be an integer which respects one of the follo
 * 100 <= v <= 200
 * 300 <= v 
 
-Note that, depending on the basic type the minimum and the maximum values of each interval must be expressed with the related notation: using `L` for denoting long valued and usinf `.` for specifying the usage of decimals in the case of double.
+Note that, depending on the basic type, the minimum and the maximum values of each interval must be expressed with the related notation: using `L` for denoting long valued and usinf `.` for specifying the usage of decimals in the case of double.
 
 
 ## Custom Data Types
