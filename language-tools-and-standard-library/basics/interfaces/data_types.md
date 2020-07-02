@@ -71,8 +71,8 @@ In the following example, we show a type with three fields with different basic 
 ```text
 type MyType {
   f1: int( ranges( [1,4], [10,20], [100,200], [300, *]) )
-	f2: long( ranges( [3L,4L], [10L,20L], [100L,200L], [300L, *]) )
-	f3: double( ranges( [4.0,5.0], [10.0,20.0], [100.0,200.0], [300.0, *]) )
+  f2: long( ranges( [3L,4L], [10L,20L], [100L,200L], [300L, *]) )
+  f3: double( ranges( [4.0,5.0], [10.0,20.0], [100.0,200.0], [300.0, *]) )
 }
 ```
 The token `*` is used for specifyng an unbounded maximum limit.
