@@ -24,7 +24,7 @@ include "Printer.iol"
 outputPort P {
     Location: "socket://127.0.0.1:80"
     Protocol: sodep
-    Interface: PrinterInterface
+    Interfaces: PrinterInterface
 }
 
 main
