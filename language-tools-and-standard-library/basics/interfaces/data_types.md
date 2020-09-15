@@ -24,6 +24,68 @@ interface MyInterface {
 }
 ```
 
+### Refined Basic Data Types
+Basic data types can be refined in order to restrict the valid values. Depending on the basic data type there are different refinement available. In the following table there is the list of all the avaiable refinements. *it is possible to use only 1 refinement for each basic type declaration*. 
+
+| Basic Type   | Available Refinements |
+|:------------:|----------------------:|
+| *string*     | length, regex, enum   |
+| *int*        | ranges                |
+| *long*       | ranges                |
+| *double*     | ranges                | 
+
+When a value that does not respect the refinement type is forced to be used a *TypeMismatché will be raised by the interpreter.
+
+#### Refinement: length
+This refinement allows for specifying the minimum and the maximum lenght of a string. The minimum and the maximum lenght must be specify as a couple of values between square brackets. Example:
+```text
+type MyType {
+    my_refined_string_field: string( length( [2,5] ) )
+}
+```
+In this example the field `my_refined_string_field` is a string which must have at least two characters and not more than five characters. Values like `"home"`, `"dog"`, `"eye"`, etc are admitted, whereas values like `"I"`, `"keyboard"`,`"screen"`, etc are not admitted. 
+
+#### Refinement: regex
+This refinement allows for specifying the regular expression a string must respect.
+In the following example we set an email field to respect some structural charaters like `"@"` and `"."`.
+```text
+type MyType {
+  email: string( regex(".*@.*\\..*") )
+}
+```
+Note that Jolie uses the `dk.brics.automaton` library for managing regular expressions, thus you may consult this link as a reference for composing the regular expressions: [Composing regular expressions in Jolie string basic type refinement](https://www.brics.dk/automaton/doc/index.html?dk/brics/automaton/RegExp.html)
+
+#### Refinement: enum
+This refinement allows for specifying a set of available values for the string.
+In the follwwing example, only the values `"paul"`,`"homer"`,`"mark"`are admitted for the field name:
+```text
+type MyType {
+  name: string( enum(["paul","homer","mark"]))
+}
+```
+
+#### Refinement: ranges
+This refinement allows for specifying a list of valid intervals for an integer, a double or a long.
+In the following example, we show a type with three fields with different basic types. Each of them uses a refinement `ranges` for restriciting the possible values.
+
+```text
+type MyType {
+  f1: int( ranges( [1,4], [10,20], [100,200], [300, *]) )
+  f2: long( ranges( [3L,4L], [10L,20L], [100L,200L], [300L, *]) )
+  f3: double( ranges( [4.0,5.0], [10.0,20.0], [100.0,200.0], [300.0, *]) )
+}
+```
+The token `*` is used for specifyng an unbounded maximum limit.
+In this example the field `f1` can be an integer which respects one of the following conditions, where `v` is the actual value:
+
+* 1 <= v <= 4
+* 10 <= v <= 20
+* 100 <= v <= 200
+* 300 <= v 
+
+Note that, depending on the basic type, the minimum and the maximum values of each interval must be expressed with the related notation: using `L` for denoting long valued and usinf `.` for specifying the usage of decimals in the case of double.
+
+
 ## Custom Data Types
 
 Jolie supports the definition of custom data types, which are a composition of the basic ones. The simplest custom type is just an alias of a basic type `type CustomType: T`.
