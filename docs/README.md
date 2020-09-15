@@ -14,7 +14,7 @@ Jolie is a _microservice-oriented programming language_: it is designed to reaso
 
 This is a simple service for greeting clients.
 
-```text
+```jolie
 execution { concurrent } // Handle clients concurrently
 
 // Some data types
@@ -49,7 +49,7 @@ main
 
 If you have installed Jolie \([get it here](https://www.jolie-lang.org/downloads.html)\), you can save the code above in a file called `greeter.ol` and then launch it from the terminal with the command:
 
-```text
+```jolie
 jolie greeter.ol
 ```
 

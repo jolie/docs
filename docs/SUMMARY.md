@@ -1,6 +1,5 @@
 # Table of contents
 
-* [Introduction](introduction/README.md)
 * [Reference Index](reference_index.md)
 
 ## Getting started
