@@ -15,7 +15,7 @@ Some useful tools which deals with soap protocol are released together with joli
 
 ## SOAP Parameters
 
-```text
+```jolie
 type SoapConfiguration:void {
 
     /*

@@ -26,7 +26,7 @@ Operation documentation:
 
 Invocation template:
 
-```text
+```jolie
 sendMail@SMTP( request )( response )
 ```
 
@@ -34,7 +34,7 @@ sendMail@SMTP( request )( response )
 
 Type: SendMailRequest
 
-```text
+```jolie
 type SendMailRequest: void {
     .cc*: string
     .authenticate?: void {
@@ -88,7 +88,7 @@ Fault `SMTPFault` with type `undefined`
 
 Fault-handling install template:
 
-```text
+```jolie
 install ( SMTPFault => /* error-handling code */ )
 ```
 

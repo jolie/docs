@@ -34,7 +34,7 @@ Termination is a mechanism used to recover from errors: it is automatically trig
 
 Termination is triggered when a sibling activity raises a fault. Let us consider the following example:
 
-```text
+```jolie
 include "console.iol"
 
 main
@@ -57,7 +57,7 @@ In the example above, the code at Lines 7 and 13 is executed concurrently. In `s
 
 When termination is triggered on a scope, the latter recursively terminates its own child scopes. Once all child scopes terminated, the recovery handler is executed. Let us consider the following example:
 
-```text
+```jolie
 include "console.iol"
 include "time.iol"
 
@@ -94,7 +94,7 @@ If the fault is raised when the scope `son` is still executing \(we use Jolie's 
 
 Recovery handlers can be dynamically updated like fault handlers. Such a feature is particularly useful when we intend to update the termination handler depending on the activities executed successfully. As an example, let us consider the following script whose code can be downloaded [here](https://github.com/jolie/examples/tree/master/03_fault_handling/07_dynamic_install):
 
-```text
+```jolie
 include "console.iol"
 include "time.iol"
 
@@ -128,7 +128,7 @@ Besides replacing a recovery handlers, it may be useful to add code to the curre
 
 Let us consider the following example whose executable code can be found [here](https://github.com/jolie/examples/tree/master/03_fault_handling/08_cH):
 
-```text
+```jolie
 include "console.iol"
 include "time.iol"
 
@@ -176,7 +176,7 @@ Compensation is invoked by means of the `comp` statement, which can be used only
 
 Let us consider the following example showing how to perform a compensation. The executable code can be found [here](https://github.com/jolie/examples/tree/master/03_fault_handling/09_compensation):
 
-```text
+```jolie
 include "console.iol"
 
 main
@@ -210,7 +210,7 @@ Here we consider a simplified scenario of an electronic purchase where terminati
 
 In this example a user wants to electronically buy ten beers invoking the transaction service which is in charge to contact the product store service, the logistics service and the bank account service. It is clearly an over simplification w.r.t. a real scenario, but it is useful to our end for showing how termination and compensation work. In the following we report the implementation of the operation _buy_ of the transaction service:
 
-```text
+```jolie
 [ buy( request )( response ) {
           getProductDetails@ProductStore({ .product = request.product })( product_details );
           scope( locks ) {
@@ -284,7 +284,7 @@ Here the transaction service starts two parallel activities:
 
 Note that in the former activity, after each invocation a termination handler is installed:
 
-```text
+```jolie
   with( pr_req ) {
       .product = request.product;
       .quantity = request.quantity
@@ -313,7 +313,7 @@ Note that in the former activity, after each invocation a termination handler is
 
 In particular, in the second one, the termination handler is installed as an update of the previous one thanks to the usage of the keyword `cH`. Indeed, after the second installation the handler will appear as it follows:
 
-```text
+```jolie
 println@Console("unlocking product...")();
 unlockProduct@ProductStore( { .token = pr_res.token })();
 println@Console("product unlocking done")();
@@ -324,7 +324,7 @@ println@Console("cancelling logistics booking done")()
 
 On the other hand a termination is installed for unlocking the amount of money. All these termination handlers are promoted at the parent scope, and in case of fault, they will be compensated:
 
-```text
+```jolie
   install( default =>
                         { comp( lock_product ) | comp( account ) }
                         ...
@@ -338,7 +338,7 @@ In case there are no faults, all the activities are finalized in the last parall
 
 Handlers need to use and manipulate variable data often and a handler may need to refer to the status of a variable at the moment of its installation. Hence, Jolie provides the `^` operator which "freezes" a variable state within an installed handler. `^` is applied to a variable by prefixing it, as shown in the example below whose executable code can be found [here](https://github.com/jolie/examples/tree/master/03_fault_handling/10_installation_time_variable_evaluation).
 
-```text
+```jolie
 include "console.iol"
 
 main
@@ -367,7 +367,7 @@ The install primitive contained in the `while` loop updates the scope recovery h
 
 At this [link](https://github.com/jolie/examples/tree/master/03_fault_handling/13_transaction_example_multiple_products) we modified the electronic purchase example described above, introducing the possibility to buy a set of products instead of a single one. In such a case, the transaction service performs a locking call to the store service for each received product and, for each of these calls, it installs a related termination handler. In the termination handler, we exploits the freeze operator for freezing variables _i_, _token_ and _reservation\_id_ at the values they have in the moment of the installation:
 
-```text
+```jolie
 scope( locks ) {
   install( default =>
         { comp( lock_product ) | comp( account ) }
@@ -434,7 +434,7 @@ At lines 22-23 and 36-37 it is possible to find the usage of the freeze operator
 
 Solicit-Responses communication primitives allow for synchrnously sending a request and receiving a reply. Since the sending and the receiving are performed atomically in the same primitive, apparently it is not possible to install a handler after the request sending and before the reply reception. In Jolie it is possible to program such a behaviour using the following syntax:
 
-```text
+```jolie
 operation_name@Port_name( request )( response ) [ this => handler code here ]
 ```
 
@@ -442,7 +442,7 @@ between the square brackets it is possible to install a termination handler whic
 
 At this [link](https://github.com/jolie/examples/tree/master/03_fault_handling/13_transaction_example_multiple_products) we report an executable example where a client calls a server with a solicit-response operation named _hello_. In particular, we install a _println_ command after sending the request message:
 
-```text
+```jolie
 scope( calling ) {
     install( this => println@Console( "Before calling" )() );
     hello@Server("hello")( response )

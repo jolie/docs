@@ -42,7 +42,7 @@ Operation documentation: Schedules a timeout, which can be cancelled using \#can
 
 Invocation template:
 
-```text
+```jolie
 scheduleTimeout@Time( request )( response )
 ```
 
@@ -50,7 +50,7 @@ scheduleTimeout@Time( request )( response )
 
 Type: ScheduleTimeOutRequest
 
-```text
+```jolie
 type ScheduleTimeOutRequest: int {
     .message?: undefined
     .operation?: string
@@ -76,7 +76,7 @@ Fault `InvalidTimeUnit` with type `undefined`
 
 Fault-handling install template:
 
-```text
+```jolie
 install ( InvalidTimeUnit => /* error-handling code */ )
 ```
 
@@ -86,7 +86,7 @@ Operation documentation: Converts an input string into a date expressed by means
 
 Invocation template:
 
-```text
+```jolie
 getDateValues@Time( request )( response )
 ```
 
@@ -94,7 +94,7 @@ getDateValues@Time( request )( response )
 
 Type: DateValuesRequestType
 
-```text
+```jolie
 type DateValuesRequestType: string {
     .format?: string
 }
@@ -108,7 +108,7 @@ type DateValuesRequestType: string {
 
 Type: DateValuesType
 
-```text
+```jolie
 type DateValuesType: void {
     .month: int
     .year: int
@@ -128,7 +128,7 @@ Fault `InvalidDate` with type `undefined`
 
 Fault-handling install template:
 
-```text
+```jolie
 install ( InvalidDate => /* error-handling code */ )
 ```
 
@@ -138,7 +138,7 @@ Operation documentation: It returns a date time in a string format starting from
 
 Invocation template:
 
-```text
+```jolie
 getDateTime@Time( request )( response )
 ```
 
@@ -146,7 +146,7 @@ getDateTime@Time( request )( response )
 
 Type: GetDateTimeRequest
 
-```text
+```jolie
 type GetDateTimeRequest: long {
     .format?: string
 }
@@ -160,7 +160,7 @@ type GetDateTimeRequest: long {
 
 Type: GetDateTimeResponse
 
-```text
+```jolie
 type GetDateTimeResponse: string {
     .month: int
     .hour: int
@@ -186,7 +186,7 @@ Operation documentation: Warning: this is temporary and subject to future change
 
 Invocation template:
 
-```text
+```jolie
 getCurrentTimeMillis@Time( request )( response )
 ```
 
@@ -208,7 +208,7 @@ Operation documentation: Returns the current date split in three fields: day, mo
 
 Invocation template:
 
-```text
+```jolie
 getDateDiff@Time( request )( response )
 ```
 
@@ -216,7 +216,7 @@ getDateDiff@Time( request )( response )
 
 Type: DiffDateRequestType
 
-```text
+```jolie
 type DiffDateRequestType: void {
     .format?: string
     .date2: string
@@ -242,7 +242,7 @@ Operation documentation: Warning: this is temporary and subject to future change
 
 Invocation template:
 
-```text
+```jolie
 getTimeDiff@Time( request )( response )
 ```
 
@@ -250,7 +250,7 @@ getTimeDiff@Time( request )( response )
 
 Type: GetTimeDiffRequest
 
-```text
+```jolie
 type GetTimeDiffRequest: void {
     .time1: string
     .time2: string
@@ -274,7 +274,7 @@ Operation documentation: Warning: this is temporary and subject to future change
 
 Invocation template:
 
-```text
+```jolie
 getTimestampFromString@Time( request )( response )
 ```
 
@@ -282,7 +282,7 @@ getTimestampFromString@Time( request )( response )
 
 Type: GetTimestampFromStringRequest
 
-```text
+```jolie
 type GetTimestampFromStringRequest: string {
     .format?: string
     .language?: string
@@ -306,7 +306,7 @@ Fault `InvalidTimestamp` with type `undefined`
 
 Fault-handling install template:
 
-```text
+```jolie
 install ( InvalidTimestamp => /* error-handling code */ )
 ```
 
@@ -316,7 +316,7 @@ Operation documentation: Cancels a timeout from a long-value created from \#sche
 
 Invocation template:
 
-```text
+```jolie
 cancelTimeout@Time( request )( response )
 ```
 
@@ -338,7 +338,7 @@ Operation documentation: it sets a timeout whose duration is in milliseconds and
 
 Invocation template:
 
-```text
+```jolie
 setNextTimeoutByTime@Time( request )
 ```
 
@@ -354,7 +354,7 @@ Operation documentation:
 
 Invocation template:
 
-```text
+```jolie
 getCurrentDateTime@Time( request )( response )
 ```
 
@@ -362,7 +362,7 @@ getCurrentDateTime@Time( request )( response )
 
 Type: CurrentDateTimeRequestType
 
-```text
+```jolie
 type CurrentDateTimeRequestType: void {
     .format?: string
 }
@@ -384,7 +384,7 @@ Operation documentation:
 
 Invocation template:
 
-```text
+```jolie
 sleep@Time( request )( response )
 ```
 
@@ -406,7 +406,7 @@ Operation documentation: it sets a timeout whose duration is in milliseconds and
 
 Invocation template:
 
-```text
+```jolie
 setNextTimeout@Time( request )
 ```
 
@@ -414,7 +414,7 @@ setNextTimeout@Time( request )
 
 Type: SetNextTimeOutRequest
 
-```text
+```jolie
 type SetNextTimeOutRequest: int {
     .message?: undefined
     .operation?: string
@@ -432,7 +432,7 @@ Operation documentation: Warning: this is temporary and subject to future change
 
 Invocation template:
 
-```text
+```jolie
 getTimeFromMilliSeconds@Time( request )( response )
 ```
 
@@ -446,7 +446,7 @@ Type: int
 
 Type: TimeValuesType
 
-```text
+```jolie
 type TimeValuesType: void {
     .hour: int
     .minute: int
@@ -466,7 +466,7 @@ Operation documentation: Warning: this is temporary and subject to future change
 
 Invocation template:
 
-```text
+```jolie
 getDateTimeValues@Time( request )( response )
 ```
 
@@ -474,7 +474,7 @@ getDateTimeValues@Time( request )( response )
 
 Type: GetTimestampFromStringRequest
 
-```text
+```jolie
 type GetTimestampFromStringRequest: string {
     .format?: string
     .language?: string
@@ -490,7 +490,7 @@ type GetTimestampFromStringRequest: string {
 
 Type: DateTimeType
 
-```text
+```jolie
 type DateTimeType: void {
     .month: int
     .hour: int
@@ -516,7 +516,7 @@ Fault `InvalidDate` with type `undefined`
 
 Fault-handling install template:
 
-```text
+```jolie
 install ( InvalidDate => /* error-handling code */ )
 ```
 
@@ -526,7 +526,7 @@ Operation documentation: it sets a timeout whose duration is in milliseconds and
 
 Invocation template:
 
-```text
+```jolie
 setNextTimeoutByDateTime@Time( request )
 ```
 
@@ -542,7 +542,7 @@ Operation documentation: Returns the current date split in three fields: day, mo
 
 Invocation template:
 
-```text
+```jolie
 getCurrentDateValues@Time( request )( response )
 ```
 
@@ -556,7 +556,7 @@ Type: void
 
 Type: DateValuesType
 
-```text
+```jolie
 type DateValuesType: void {
     .month: int
     .year: int
@@ -576,7 +576,7 @@ Operation documentation: Warning: this is temporary and subject to future change
 
 Invocation template:
 
-```text
+```jolie
 getTimeValues@Time( request )( response )
 ```
 
@@ -590,7 +590,7 @@ Type: string
 
 Type: TimeValuesType
 
-```text
+```jolie
 type TimeValuesType: void {
     .hour: int
     .minute: int

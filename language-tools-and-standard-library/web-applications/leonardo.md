@@ -60,7 +60,7 @@ We start by creating the Jolie code that serves the requests from the web interf
 
 Let us open `leonardo.ol` and add the following interface:
 
-```text
+```jolie
 type LengthRequest: void{
     .item[ 1, * ]: string
 }
@@ -73,7 +73,7 @@ interface ExampleInterface {
 
 Then we edit the main HTTP input port, `HTTPInput`, and add `ExampleInterface` to the published interfaces:
 
-```text
+```jolie
 inputPort HTTPInput {
     // other deployment code
     Intefaces: HTTPInterface, ExampleInterface
@@ -82,7 +82,7 @@ inputPort HTTPInput {
 
 Finally, we write the operation `length` by adding the code below to the input choice inside the `main` procedure in Leonardo:
 
-```text
+```jolie
 main
 {
     // existing code in Leonardo
@@ -127,7 +127,7 @@ For the sake of brevity, we are not showing the boilerplate for building the HTM
 
 Once downloaded and unpacked, we can launch Leonardo and navigate to address `http://localhost:8000/`. Inside the `www` directory there are a `index.html` with a form containing three text fields - text1, text2, and text3. Submitting the request, by pressing the submit button, the event is intercepted by the JavaScript code shown below:
 
-```text
+```javascript
 $( document ).ready( function() {
   $( "#lengthButton" ).click( function() {
     Jolie.call(
@@ -154,7 +154,7 @@ Jolie supports Google Web Toolkit too by means of the `jolie-gwt.jar` library st
 
 The module comes with support classes for invoking operations published by the service of Leonardo which is serving the GWT application. In our case, we can easily call the `length` operation with the following code:
 
-```text
+```javascript
 Value request = new Value();
 request.getNewChild( "item" ).setValue( "Hello" );
 request.getNewChild( "item" ).setValue( "World!" );

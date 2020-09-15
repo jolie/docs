@@ -4,7 +4,7 @@ In [Creating a Service and a Client](https://github.com/jolie/docs/tree/d296c3f3
 
 Using **interfaces** it is possible to specify the type of each exchanged message. In the following we define the interface for the service _twice_.
 
-```text
+```jolie
 interface TwiceInterface {
     RequestResponse: twice( int )( int )
 }
@@ -16,7 +16,7 @@ The interface can now be attached to a port by exploiting the keyword `Interface
 
 ## Service's code
 
-```text
+```jolie
 include "twiceInterface.iol"
 
 inputPort TwiceService {
@@ -36,7 +36,7 @@ main
 
 ## Client's code
 
-```text
+```jolie
 include "console.iol"
 include "twiceInterface.iol"
 

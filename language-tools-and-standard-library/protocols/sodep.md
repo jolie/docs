@@ -8,7 +8,7 @@ Protocol name in port definition: `sodep`.
 
 ## SODEP Parameters
 
-```text
+```jolie
 type SodepConfiguration:void {
     /*
      * Defines the character set to use for (de-)coding strings.
@@ -68,7 +68,7 @@ We represent the protocol encoding by using a BNF-like notation. Raw data types 
 * raw numbers annotated with `byte` are to be considered single bytes;
 * the special keyword epsilon means _nothing_.
 
-```text
+```jolie
 SODEPMessage    ::= long(message id) String(resource path) String(operation name) Fault Value
 
 String     ::= int(string length) string(UTF-8 encoded)

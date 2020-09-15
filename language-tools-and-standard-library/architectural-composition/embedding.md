@@ -4,7 +4,7 @@ Embedding is a mechanism for executing multiple services within the same executi
 
 The syntax for embedding is:
 
-```text
+```jolie
 embedded {
     Language : path [ in OutputPort ]
 }
@@ -36,7 +36,7 @@ Embedding Jolie services is very simple. In order to show how it works, let us c
 
 In this example we want to implement a service which is able to clean a html string from the tags `<div>`, `</div>`, `<br>` and `</br>` replacing the br ones with a line feed and a carriage return. In order to do this, we implement a parent service called _clean\_div.ol_ which is in charge to clean the div tags and another service called _clean\_br.ol_ in charge to clean the br tags. The service _clean\_div.ol_ embeds the service _clean\_br.ol_:
 
-```text
+```jolie
 include "CleanBrInterface.iol"
 include "CleanDivInterface.iol"
 
@@ -76,7 +76,7 @@ It is worth noting that:
 * the embedding primitive specifies the language "Jolie" because the service _clean\_br.ol_ is written in Jolie
 * the embedding primitive joins the service _clean\_br.ol_ with the outputPort _CleanBr_ thus implying that each time we use port CleanBr inside the behaviour we will invoke the embedded service:
 
-```text
+```jolie
 cleanBr@CleanBr( request )( response )
 ```
 
@@ -90,7 +90,7 @@ Note that the embedding primitive, together with the usage of in-memory communic
 
 Afterwards, we can write a modified version of the client program of the previous example, in order to directly embed the service _clean\_dv.ol_ thus **transforming the service architecture into a single script**. The code of this example can be found [here](https://github.com/jolie/examples/tree/master/04_architectural_composition/01_embedding_jolie/02_script). Here we report the code of the script:
 
-```text
+```jolie
 include "CleanDivInterface.iol"
 include "console.iol"
 
@@ -121,7 +121,7 @@ Dynamic embedding makes possible to associate a unique embedded instance to a si
 
 As an example let us consider the case of a calculator which offers the four arithmetic operators but it loads the implementation of them at runtime depending on the request selection. If the client specifies to perform a sum, the calculator will load the service which implements the sum and it will call it on the same operation _run_. The full code of the example can be found [here](https://github.com/jolie/examples/tree/master/04_architectural_composition/05_dynamic_embedding/calculator), in the following we report the code of the calculator:
 
-```text
+```jolie
 include "runtime.iol"
 
 include "OperationInterface.iol"
@@ -178,7 +178,7 @@ main {
 
 The definition _embed\_service_ it is called within each operation offered by the calculator \(_sum_, _sub_, _mul_, _div_\) and it loads the specific service dynamically. Note that in this example the service files are named with the same name of the operations, thus there are the following files in the same folder of _calculator.ol_: _sum.ol_, _sub.ol_, _mul.ol_, _div.ol_. Each of them implement the same interface with different logics, thus they are polymorphic with respect the following interface:
 
-```text
+```jolie
 type RequestType: void {
   .x: double
   .y: double

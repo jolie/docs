@@ -31,7 +31,7 @@ Operation documentation: Returns the size of an existing queue, null otherwise
 
 Invocation template:
 
-```text
+```jolie
 size@QueueUtils( request )( response )
 ```
 
@@ -53,7 +53,7 @@ Operation documentation: Removes and returns the head of the queue
 
 Invocation template:
 
-```text
+```jolie
 poll@QueueUtils( request )( response )
 ```
 
@@ -75,7 +75,7 @@ Operation documentation: Creates a new queue with queue\_name as key
 
 Invocation template:
 
-```text
+```jolie
 new_queue@QueueUtils( request )( response )
 ```
 
@@ -97,7 +97,7 @@ Operation documentation: Removes an existing queue
 
 Invocation template:
 
-```text
+```jolie
 delete_queue@QueueUtils( request )( response )
 ```
 
@@ -119,7 +119,7 @@ Operation documentation: Pushes an element at the end of an existing queue
 
 Invocation template:
 
-```text
+```jolie
 push@QueueUtils( request )( response )
 ```
 
@@ -127,7 +127,7 @@ push@QueueUtils( request )( response )
 
 Type: QueueRequest
 
-```text
+```jolie
 type QueueRequest: void {
     .queue_name: string
     .element: undefined
@@ -151,7 +151,7 @@ Operation documentation: Retrieves, but does not remove, the head of the queue
 
 Invocation template:
 
-```text
+```jolie
 peek@QueueUtils( request )( response )
 ```
 

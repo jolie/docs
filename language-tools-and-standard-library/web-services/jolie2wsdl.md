@@ -6,7 +6,7 @@ Jolie2wsdl is the counterpart of [wsdl2jolie](https://jolielang.gitbook.io/docs/
 
 The syntax of jolie2wsdl follows:
 
-```text
+```jolie
 jolie2wsdl [ -i include_file_path ] --namespace [target_name_space] --portName [name_of_the_port] --portAddr [address_string] --outputFile [output_filename]  filename.ol
 ```
 
@@ -25,7 +25,7 @@ When programming a Jolie interface to be transformed into a WSDL document, its r
 
 Native types in operation declaration are not permitted. For example, the following declaration is forbidden:
 
-```text
+```jolie
 interface MyInterface {
     RequestResponse:
         myOp( string )( int )
@@ -34,7 +34,7 @@ interface MyInterface {
 
 All complex types must have a void value in the root. Hence, the following declaration are not permitted:
 
-```text
+```jolie
 type Type1: int {
     .msg: string
 }
@@ -50,7 +50,7 @@ interface MyInterface {
 
 Thus, the right types and interface declaration for our example may be:
 
-```text
+```jolie
 type Type1: void {
     .msg: int
 }

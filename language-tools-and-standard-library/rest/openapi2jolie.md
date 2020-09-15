@@ -35,7 +35,7 @@ two files are generated:
 
 The client can be now embedded in a jolie service for invoking the rest service described the openapi at url `https://petstore.swagger.io/v2/swagger.json`. Here in the following we report a jolie script which invokes api `/user/{username}`
 
-```text
+```jolie
 include "SwaggerPetStoreInterface.iol" 
 include "string_utils.iol"
 include "console.iol"

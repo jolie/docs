@@ -24,7 +24,7 @@ A crucial aspect of processes is that each of them has its own private state, de
 
 For instance, let us recall the server program given at the end of [Communication Ports](https://github.com/jolie/docs/tree/0a77ae520bccd6139e4a296e77e7fa6f30f066db/basics/basics/communication-ports/a_comprehensive_example/README.md) section. The execution modality of the _NewsPaper_ is `concurrent` thus it can support multiple requests from both the script _author.ol_ and _user.ol_.
 
-```text
+```jolie
 include "NewsPaperInterface.iol"
 
 execution{ concurrent }
@@ -50,7 +50,7 @@ _main_ and _init_ define the behaviour scope and the initializating one respecti
 
 As an example let us consider the newspaper service reported above enriched with a simple init scope where a message is printed out on the console:
 
-```text
+```jolie
 include "NewsPaperInterface.iol"
 include "console.iol"
 
@@ -85,14 +85,14 @@ The service is running...
 
 Jolie also provides _global variables_ to support sharing of data among different processes. These can be accessed using the `global` prefix:
 
-```text
+```jolie
 global.myGlobalVariable = 3 // Global variable
 myLocalVariable = 1 // Local to this behaviour instance
 ```
 
 In the example reportes at this [link](https://github.com/jolie/examples/tree/master/02_basics/7_global) it is shown the difference between a global variable and a local variable. The server is defined as it follows:
 
-```text
+```jolie
 include "ServiceInterface.iol"
 include "console.iol"
 
@@ -155,7 +155,7 @@ It is worth noting that the global variable keeps its value independently from t
 
 Concurrent access to global variables can be restricted through `synchronized` blocks, similarly to Java:
 
-```text
+```jolie
 synchronized( id ){
     //code
 }
@@ -169,7 +169,7 @@ The register service has a concurrent execution and exposes the `register` reque
 
 _regInterface.ol_
 
-```text
+```jolie
 type register: void {
     .message: string
 }
@@ -181,7 +181,7 @@ interface RegInterface {
 
 _server.ol_
 
-```text
+```jolie
 include "regInterface.iol"
 include "time.iol"
 
@@ -213,7 +213,7 @@ main
 
 The client executes five parallel calls to the service in order to register five different users.
 
-```text
+```jolie
 main
 {
     {

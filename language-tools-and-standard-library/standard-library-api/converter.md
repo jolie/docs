@@ -29,7 +29,7 @@ Operation documentation: string &lt;-&gt; raw \(byte arrays\) conversion methods
 
 Invocation template:
 
-```text
+```jolie
 stringToRaw@Converter( request )( response )
 ```
 
@@ -37,7 +37,7 @@ stringToRaw@Converter( request )( response )
 
 Type: StringToRawRequest
 
-```text
+```jolie
 type StringToRawRequest: string {
     .charset?: string
 }
@@ -59,11 +59,11 @@ Fault `IOException` with type `IOExceptionType`
 
 Fault-handling install template:
 
-```text
+```jolie
 install ( IOException => /* error-handling code */ )
 ```
 
-```text
+```jolie
 type IOExceptionType: JavaExceptionType
 ```
 
@@ -73,7 +73,7 @@ Operation documentation:
 
 Invocation template:
 
-```text
+```jolie
 base64ToRaw@Converter( request )( response )
 ```
 
@@ -95,11 +95,11 @@ Fault `IOException` with type `IOExceptionType`
 
 Fault-handling install template:
 
-```text
+```jolie
 install ( IOException => /* error-handling code */ )
 ```
 
-```text
+```jolie
 type IOExceptionType: JavaExceptionType
 ```
 
@@ -109,7 +109,7 @@ Operation documentation:
 
 Invocation template:
 
-```text
+```jolie
 rawToBase64@Converter( request )( response )
 ```
 
@@ -131,7 +131,7 @@ Operation documentation: string &lt;-&gt; raw \(byte arrays\) conversion methods
 
 Invocation template:
 
-```text
+```jolie
 rawToString@Converter( request )( response )
 ```
 
@@ -139,7 +139,7 @@ rawToString@Converter( request )( response )
 
 Type: RawToStringRequest
 
-```text
+```jolie
 type RawToStringRequest: raw {
     .charset?: string
 }
@@ -161,11 +161,11 @@ Fault `IOException` with type `IOExceptionType`
 
 Fault-handling install template:
 
-```text
+```jolie
 install ( IOException => /* error-handling code */ )
 ```
 
-```text
+```jolie
 type IOExceptionType: JavaExceptionType
 ```
 

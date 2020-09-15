@@ -6,7 +6,7 @@ In Jolie, dynamic parallelism can be used for instantiating parallel activities 
 
 The syntax of the spawn follows:
 
-```text
+```jolie
 spawn( var over range ) in resultVar {
     spawned session
 }
@@ -31,7 +31,7 @@ In the following example whose code can be found at this [link](https://github.c
 
 In the following, we report the implementation of the operation _getAverageTemperature_ which exploits the primitive _spawn_ for collecting the temperatures reading from the sensors.
 
-```text
+```jolie
     [ getAverageTemperature( request )( response ) {
         index = 0;
         foreach( sensor : global.sensor_hashmap ) {
@@ -73,7 +73,7 @@ The previous example has been modified at this [link](https://github.com/jolie/e
 
 In this case an embedded service, called _TemperatureCollectorEndpoint_ has been introduced for the _TemperatureCollector_ in order to deal with the asynchronous communication with the sensors. In this case, the spawn primitive runs a session into the _TemperatureCollectorEndpoint_ synchronously calling the operation _retrieveTemperature_ \(a request-response operation\). In the request message the target location of the sensor is specified.
 
-```text
+```jolie
 spawn( i over #sensor_vector ) in resultVar {
     scope( call_sensor ) {
         install( IOException =>
@@ -87,7 +87,7 @@ spawn( i over #sensor_vector ) in resultVar {
 
 Once triggered, the _TemperatureCollectorEndpoint_ session calls the sensor on a OneWay operation \(_getTemperature_\) and the sensor will reply by means of another OneWay operation \(_returnTemperature_\).
 
-```text
+```jolie
 [ getTemperature( request ) ] {
     random@Math()( r );
     response.temperature = r*40;
@@ -102,7 +102,7 @@ Once triggered, the _TemperatureCollectorEndpoint_ session calls the sensor on a
 
 The correlation between the two calls inside the _TemperatureCollectorEndpoint_ is kept thanks to a correlation set freshly generated at the beginning of the session and joined to the variable named _token_.
 
-```text
+```jolie
 retrieveTemperature( request )( response ) {
     csets.token = new;
     req_temp.token = csets.token;

@@ -14,7 +14,7 @@ An example using this medium can be found in part "Handling structured messages 
 
 The `local` medium can be used for service internal self communications, as shown in the example below:
 
-```text
+```jolie
 include "runtime.iol"
 include "string_utils.iol"
 

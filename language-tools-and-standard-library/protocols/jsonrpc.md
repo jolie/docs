@@ -6,7 +6,7 @@
 
 ## JSON-RPC Parameters
 
-```text
+```jolie
 type JsonRpcConfiguration:void {
     /*
     * Defines whether the underlying connection should be kept open.

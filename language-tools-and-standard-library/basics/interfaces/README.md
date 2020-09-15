@@ -9,7 +9,7 @@ Thus an interface is a collection of operation types, a list of One-Way and Requ
 
 The basic declaration of an interface lists all the names of the its operations, grouped by type:
 
-```text
+```jolie
 interface identifier {
     OneWay: 
         ow_name1( t1 ), 
@@ -28,7 +28,7 @@ The syntax presented above includes the types of the messages of each operation.
 
 As an example, let us declare the interface `SumInterface`:
 
-```text
+```jolie
 interface SumInterface {
     RequestResponse:
         sum( SumRequest )( int )
@@ -43,7 +43,7 @@ The type declarations of both request and response messages are explained furthe
 
 The operations of type _RequestResponse_ can reply with a fault instead of the response message. In such a case, we need to specify into the interface declaration that a request-response operation can raise a fault. In order to do that it is sufficient to list the faults after the usage of the statement _throws_ as it is shown here in the complete syntax:
 
-```text
+```jolie
 interface IfaceName {
  RequestResponse:
       Op1( ReqType1 )( ResType1 ) throws ErrX( MsgTypeX ) ... ErrY( MsgTypeY ) 

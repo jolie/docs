@@ -27,7 +27,7 @@ Operation documentation:
 
 Invocation template:
 
-```text
+```jolie
 escapeHTML@HTMLUtils( request )( response )
 ```
 
@@ -49,7 +49,7 @@ Operation documentation:
 
 Invocation template:
 
-```text
+```jolie
 unescapeHTML@HTMLUtils( request )( response )
 ```
 

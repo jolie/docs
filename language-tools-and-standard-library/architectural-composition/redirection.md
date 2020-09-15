@@ -15,7 +15,7 @@ The main advantages of redirection are:
 
 The syntax of redirection is:
 
-```text
+```jolie
 inputPort id {
     Location: URI
     Protocol: p
@@ -45,7 +45,7 @@ In the following example we show a simple redirection scenario where a proxy pro
 
 The redirection is obtained by simply using the `Redirects` keyword as explained above:
 
-```text
+```jolie
 outputPort SubService {
 Location: Location_Sub
 Protocol: sodep
@@ -67,7 +67,7 @@ Redirects:
 
 It is worth noting that, differently from an aggregation scenario where the client just uses a unique output port for sending messages to the target service, here the client has two output ports, one for the service _Sum_ and one for the service _Sub_.
 
-```text
+```jolie
 outputPort Sub {
   Location: "socket://localhost:9000/!/Sub"
   Protocol: sodep

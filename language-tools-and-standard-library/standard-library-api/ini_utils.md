@@ -26,7 +26,7 @@ Operation documentation:
 
 Invocation template:
 
-```text
+```jolie
 parseIniFile@IniUtils( request )( response )
 ```
 
@@ -34,7 +34,7 @@ parseIniFile@IniUtils( request )( response )
 
 Type: parseIniFileRequest
 
-```text
+```jolie
 type parseIniFileRequest: string {
     .charset?: string
 }
@@ -48,7 +48,7 @@ type parseIniFileRequest: string {
 
 Type: IniData
 
-```text
+```jolie
 type IniData: undefined
 ```
 

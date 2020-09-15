@@ -25,7 +25,7 @@ Operation documentation:
 
 Invocation template:
 
-```text
+```jolie
 schedulerCallback( request )
 ```
 
@@ -33,7 +33,7 @@ schedulerCallback( request )
 
 Type: SchedulerCallBackRequest
 
-```text
+```jolie
 type SchedulerCallBackRequest: void {
     .jobName: string
     .groupName: string

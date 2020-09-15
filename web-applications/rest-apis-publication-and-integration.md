@@ -12,7 +12,7 @@ _section under construction, please for the moment refer to page_ [_HTTP GET/POS
 
 Many REST API providers give access to their resources via a complex URL structure. Assuming that we want to evoke the operation sum that is accessible at the following address `http://localhost:8000/operation/v1/sum` we know that the operation sum it is expressed by the Jolie interface and the path will be expressed at port level by setting an `alias` in the following way
 
-```text
+```jolie
 type SumRequest:void {
  .x:int
  .y:int
@@ -42,7 +42,7 @@ main
 
 In a similar way we can use as alias to pass a variable parameter to GET operation let us assume that we want to access a specific user information with the following information
 
-```text
+```jolie
 type UserRequest:void {
     .idAuth0:string
 }

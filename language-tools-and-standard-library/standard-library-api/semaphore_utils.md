@@ -27,7 +27,7 @@ Operation documentation: Releases permits to a semaphore. If there exists no sem
 
 Invocation template:
 
-```text
+```jolie
 release@SemaphoreUtils( request )( response )
 ```
 
@@ -35,7 +35,7 @@ release@SemaphoreUtils( request )( response )
 
 Type: SemaphoreRequest
 
-```text
+```jolie
 type SemaphoreRequest: void {
     .permits?: int
     .name: string
@@ -59,7 +59,7 @@ Operation documentation: Acquires permits from a semaphore. If there exists no s
 
 Invocation template:
 
-```text
+```jolie
 acquire@SemaphoreUtils( request )( response )
 ```
 
@@ -67,7 +67,7 @@ acquire@SemaphoreUtils( request )( response )
 
 Type: SemaphoreRequest
 
-```text
+```jolie
 type SemaphoreRequest: void {
     .permits?: int
     .name: string

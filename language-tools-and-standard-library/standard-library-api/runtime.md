@@ -44,7 +44,7 @@ Operation documentation: Returns the version of the Jolie interpreter running th
 
 Invocation template:
 
-```text
+```jolie
 getVersion@Runtime( request )( response )
 ```
 
@@ -66,7 +66,7 @@ Operation documentation: Dynamically loads an external \(jar\) library.
 
 Invocation template:
 
-```text
+```jolie
 loadLibrary@Runtime( request )( response )
 ```
 
@@ -88,11 +88,11 @@ Fault `IOException` with type `IOExceptionType`
 
 Fault-handling install template:
 
-```text
+```jolie
 install ( IOException => /* error-handling code */ )
 ```
 
-```text
+```jolie
 type IOExceptionType: JavaExceptionType
 ```
 
@@ -102,7 +102,7 @@ Operation documentation: Removes the output port with the requested name.
 
 Invocation template:
 
-```text
+```jolie
 removeOutputPort@Runtime( request )( response )
 ```
 
@@ -124,7 +124,7 @@ Operation documentation: Set a redirection at an input port. If the redirection 
 
 Invocation template:
 
-```text
+```jolie
 setRedirection@Runtime( request )( response )
 ```
 
@@ -132,7 +132,7 @@ setRedirection@Runtime( request )( response )
 
 Type: SetRedirectionRequest
 
-```text
+```jolie
 type SetRedirectionRequest: void {
     .inputPortName: string
     .outputPortName: string
@@ -158,11 +158,11 @@ Fault `RuntimeException` with type `RuntimeExceptionType`
 
 Fault-handling install template:
 
-```text
+```jolie
 install ( RuntimeException => /* error-handling code */ )
 ```
 
-```text
+```jolie
 type RuntimeExceptionType: JavaExceptionType
 ```
 
@@ -172,7 +172,7 @@ Operation documentation: Returns all the output ports used by this service.
 
 Invocation template:
 
-```text
+```jolie
 getOutputPorts@Runtime( request )( response )
 ```
 
@@ -186,7 +186,7 @@ Type: void
 
 Type: GetOutputPortsResponse
 
-```text
+```jolie
 type GetOutputPortsResponse: void {
     .port*: void {
         .protocol: string
@@ -209,7 +209,7 @@ Operation documentation: Load an embedded service.
 
 Invocation template:
 
-```text
+```jolie
 loadEmbeddedService@Runtime( request )( response )
 ```
 
@@ -217,7 +217,7 @@ loadEmbeddedService@Runtime( request )( response )
 
 Type: LoadEmbeddedServiceRequest
 
-```text
+```jolie
 type LoadEmbeddedServiceRequest: void {
     .filepath: string
     .type: string
@@ -241,11 +241,11 @@ Fault `RuntimeException` with type `RuntimeExceptionType`
 
 Fault-handling install template:
 
-```text
+```jolie
 install ( RuntimeException => /* error-handling code */ )
 ```
 
-```text
+```jolie
 type RuntimeExceptionType: JavaExceptionType
 ```
 
@@ -255,7 +255,7 @@ Operation documentation: Returns the definition of output port definition. @thro
 
 Invocation template:
 
-```text
+```jolie
 getOutputPort@Runtime( request )( response )
 ```
 
@@ -263,7 +263,7 @@ getOutputPort@Runtime( request )( response )
 
 Type: GetOutputPortRequest
 
-```text
+```jolie
 type GetOutputPortRequest: void {
     .name: string
 }
@@ -277,7 +277,7 @@ type GetOutputPortRequest: void {
 
 Type: GetOutputPortResponse
 
-```text
+```jolie
 type GetOutputPortResponse: void {
     .protocol: string
     .name: string
@@ -297,7 +297,7 @@ Fault `OutputPortDoesNotExist` with type `undefined`
 
 Fault-handling install template:
 
-```text
+```jolie
 install ( OutputPortDoesNotExist => /* error-handling code */ )
 ```
 
@@ -307,7 +307,7 @@ Operation documentation: Returns a pretty-printed string representation of the l
 
 Invocation template:
 
-```text
+```jolie
 dumpState@Runtime( request )( response )
 ```
 
@@ -329,7 +329,7 @@ Operation documentation: Get the local in-memory location of this service.
 
 Invocation template:
 
-```text
+```jolie
 getLocalLocation@Runtime( request )( response )
 ```
 
@@ -351,7 +351,7 @@ Operation documentation: Get the output port name that a redirection points to.
 
 Invocation template:
 
-```text
+```jolie
 getRedirection@Runtime( request )( response )
 ```
 
@@ -359,7 +359,7 @@ getRedirection@Runtime( request )( response )
 
 Type: GetRedirectionRequest
 
-```text
+```jolie
 type GetRedirectionRequest: void {
     .inputPortName: string
     .resourceName: string
@@ -375,7 +375,7 @@ type GetRedirectionRequest: void {
 
 Type: MaybeString
 
-```text
+```jolie
 type MaybeString: void | string
 ```
 
@@ -390,7 +390,7 @@ Operation documentation: Set an output port. If an output port with this name do
 
 Invocation template:
 
-```text
+```jolie
 setOutputPort@Runtime( request )( response )
 ```
 
@@ -398,7 +398,7 @@ setOutputPort@Runtime( request )( response )
 
 Type: SetOutputPortRequest
 
-```text
+```jolie
 type SetOutputPortRequest: void {
     .protocol?: undefined
     .name: string
@@ -424,7 +424,7 @@ Operation documentation: Halts non-gracefully the execution of this service.
 
 Invocation template:
 
-```text
+```jolie
 halt@Runtime( request )( response )
 ```
 
@@ -432,7 +432,7 @@ halt@Runtime( request )( response )
 
 Type: HaltRequest
 
-```text
+```jolie
 type HaltRequest: void {
     .status?: int
 }
@@ -454,7 +454,7 @@ Operation documentation: Stops gracefully the execution of this service. Calling
 
 Invocation template:
 
-```text
+```jolie
 callExit@Runtime( request )( response )
 ```
 
@@ -476,7 +476,7 @@ Operation documentation: Returns information on the runtime state of the VM.
 
 Invocation template:
 
-```text
+```jolie
 stats@Runtime( request )( response )
 ```
 
@@ -490,7 +490,7 @@ Type: void
 
 Type: Stats
 
-```text
+```jolie
 type Stats: void {
     .os: void {
         .availableProcessors: int
@@ -524,7 +524,7 @@ Operation documentation: Remove a redirection at an input port
 
 Invocation template:
 
-```text
+```jolie
 removeRedirection@Runtime( request )( response )
 ```
 
@@ -532,7 +532,7 @@ removeRedirection@Runtime( request )( response )
 
 Type: GetRedirectionRequest
 
-```text
+```jolie
 type GetRedirectionRequest: void {
     .inputPortName: string
     .resourceName: string
@@ -556,11 +556,11 @@ Fault `RuntimeException` with type `RuntimeExceptionType`
 
 Fault-handling install template:
 
-```text
+```jolie
 install ( RuntimeException => /* error-handling code */ )
 ```
 
-```text
+```jolie
 type RuntimeExceptionType: JavaExceptionType
 ```
 
@@ -570,7 +570,7 @@ Operation documentation: Set the monitor for this service.
 
 Invocation template:
 
-```text
+```jolie
 setMonitor@Runtime( request )( response )
 ```
 
@@ -578,7 +578,7 @@ setMonitor@Runtime( request )( response )
 
 Type: SetMonitorRequest
 
-```text
+```jolie
 type SetMonitorRequest: void {
     .protocol?: undefined
     .location: any
@@ -602,7 +602,7 @@ Operation documentation: Returns the internal identifier of the executing Jolie 
 
 Invocation template:
 
-```text
+```jolie
 getProcessId@Runtime( request )( response )
 ```
 
@@ -624,7 +624,7 @@ Operation documentation: Get the include paths used by this interpreter
 
 Invocation template:
 
-```text
+```jolie
 getIncludePaths@Runtime( request )( response )
 ```
 
@@ -638,7 +638,7 @@ Type: void
 
 Type: GetIncludePathResponse
 
-```text
+```jolie
 type GetIncludePathResponse: void {
     .path*: string
 }
@@ -654,7 +654,7 @@ Operation documentation: Returns the value of an environment variable.
 
 Invocation template:
 
-```text
+```jolie
 getenv@Runtime( request )( response )
 ```
 
@@ -668,7 +668,7 @@ Type: string
 
 Type: MaybeString
 
-```text
+```jolie
 type MaybeString: void | string
 ```
 
@@ -681,7 +681,7 @@ type MaybeString: void | string
 
 #### JavaExceptionType <a id="JavaExceptionType"></a>
 
-```
+```jolie
 type JavaExceptionType: string { .stackTrace: string }
 ```
 

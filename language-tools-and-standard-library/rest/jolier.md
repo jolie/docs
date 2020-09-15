@@ -36,7 +36,7 @@ To generate the ssl certificate you can use the [keytool](https://docs.oracle.co
 
 The mapping of the rest templates is defined within file `rest_templates.json`. It is a json file structured as key value map, where the key reports the name of the target operation whereas the value reports the related call information to be used in the rest call. Here we presen an example of a key value pair:
 
-```text
+```json
 {
     "getOrders":"method=get, template=/orders/{userId}?maxItems={maxItems}"
 }
@@ -60,7 +60,7 @@ where the `operation_name` is used when no template is given.
 
 * when method `get` is specified, all the parameters of the request must be specified within the url. Thus the target request message type cannot have structured type defined, but it can only be defined as a flat list of nodes. As an example the follwong type is sound with the template above: 
 
-  ```text
+  ```jolie
   type GetOrdersType: void {
     .userId: string
     .maxItems: int
@@ -69,7 +69,7 @@ where the `operation_name` is used when no template is given.
 
   whereas the following one is not correct w.r.t. template `/orders/{userId}?maxItems={maxItems}`
 
-  ```text
+  ```jolie
   type GetOrdersType: void {
     .userId: string {
         .maxItems: int
@@ -90,7 +90,7 @@ At this [link](https://github.com/jolie/examples/tree/master/05_other_tools/03_j
 
 The mapping file is defined as it follows where the operation `getOrders` is mapped on a specific url, whereas the others are mapped without specifying any template.
 
-```text
+```json
 {
     "getOrders":"method=get, template=/orders/{userId}?maxItems={maxItems}",
     "getOrdersByItem":"method=post",

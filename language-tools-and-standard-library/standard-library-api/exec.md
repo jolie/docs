@@ -26,7 +26,7 @@ Operation documentation:
 
 Invocation template:
 
-```text
+```jolie
 exec@Exec( request )( response )
 ```
 
@@ -34,7 +34,7 @@ exec@Exec( request )( response )
 
 Type: CommandExecutionRequest
 
-```text
+```jolie
 type CommandExecutionRequest: string {
     .args*: string
     .workingDirectory?: string
@@ -54,7 +54,7 @@ type CommandExecutionRequest: string {
 
 Type: CommandExecutionResult
 
-```text
+```jolie
 type CommandExecutionResult: any {
     .exitCode?: int
     .stderr?: string

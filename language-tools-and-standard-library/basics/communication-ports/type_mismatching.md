@@ -4,7 +4,7 @@ In Jolie, whenever a message is sent or received through a port, its type is che
 
 The `TypeMismatch` fault can be easily handled by exploiting the [fault handling](https://jolielang.gitbook.io/docs/fault-handling/basics), as you can do with common faults:
 
-```text
+```jolie
 scope ( myScope ) 
 {
     install( 

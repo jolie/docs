@@ -16,13 +16,13 @@ Jolie offers three kinds of operators to compose statements in sequence, paralle
 
 The sequence operator `;` denotes that the left operand of the statement is executed _before_ the one on the right. The sequence operator syntax is:
 
-```text
+```jolie
 statementA ; statementB
 ```
 
 A valid use of the sequence operator is as it follows:
 
-```text
+```jolie
 main
 {
     print@Console( "Hello, " )();
@@ -32,7 +32,7 @@ main
 
 In practice, the `;` is used only when composing sequences in a single line of code, since newlines are interpreted as `;`. The code from before can be rewritten as:
 
-```text
+```jolie
 main
 {
     // This is interpreted as a sequence
@@ -43,7 +43,7 @@ main
 
 **Attention.** Keep in mind that, in Jolie, `;` is NOT the "end of statement" marker. For the sake of clarity, let us consider an INVALID use of the sequence operator:
 
-```text
+```jolie
 main
 {
     print@Console( "Hello, " )();
@@ -55,13 +55,13 @@ main
 
 The parallel operator `|` states that both left and right operands are executed _concurrently_. The syntax of the parallel operator is:
 
-```text
+```jolie
 statementA | statementB
 ```
 
 It is a good practice to explicitly group statements when mixing sequence and parallel operators. Statements can be grouped by enclosing them within an unlabelled [scope](https://jolielang.gitbook.io/docs/fault-handling/basics) represented by a pair curly brackets `{}`, like in the following example:
 
-```text
+```jolie
 { statementA ; statementB ; ... ; statementF }
 |
 { statementG ; statementH }
@@ -69,11 +69,11 @@ It is a good practice to explicitly group statements when mixing sequence and pa
 
 The parallel operator has always priority on the sequence one, thus the following code snippets are equivalent:
 
-```text
+```jolie
 A ; B | C ; D
 ```
 
-```text
+```jolie
 {A ; B} | {C ; D}
 ```
 
@@ -89,7 +89,7 @@ In this example we consider the scenario where there are three services:
 
 The behaviour of the InfoService is reported below. It is worth noting that the parallel operator combines the two calls to the other services, and the responses are stored into subnodes response.temperature and response.traffic, respectively.
 
-```text
+```jolie
 main {
   getInfo(request)(response) {
     getTemperature@Forecast( request )( response.temperature )
@@ -112,7 +112,7 @@ The input choice implements **input-guarded choice**. Namely, it supports the re
 
 The syntax of an input choice is:
 
-```text
+```jolie
 [ IS_1 ] { branch_code_1 }
 [ IS_i ] { branch_code_i }
 [ IS_n ] { branch_code_n }
@@ -120,7 +120,7 @@ The syntax of an input choice is:
 
 Let us consider the example below in which only `buy` or `sell` operation can execute, while the other is discarded.
 
-```text
+```jolie
 [ buy( stock )( response ) {
     buy@Exchange( stock )( response )
 } ] { println@Console( "Buy order forwarded" )() }
@@ -148,7 +148,7 @@ Conditions can be used as expressions and their evaluation always returns a bool
 
 Some valid conditions are:
 
-```text
+```jolie
 x == "Hi"
 !x
 25 = 10
@@ -156,7 +156,7 @@ x == "Hi"
 
 The statement `if ... else` is used to write deterministic choices:
 
-```text
+```jolie
 if ( condition ) {
     ...
 } [else {
@@ -168,7 +168,7 @@ Note that the `else` block is optional \(denoted by its enclosure in square brac
 
 Like in many other languages, the `if ... else` statement can be nested and combined:
 
-```text
+```jolie
 if ( !is_int( a ) ) {
     println@Console( "a is not an integer" )()
 } else if ( a > 50 ) {
@@ -184,7 +184,7 @@ if ( !is_int( a ) ) {
 
 The `while` statement executes a code block as long as its condition is true.
 
-```text
+```jolie
 while( condition ) {
     ...
 }
@@ -192,7 +192,7 @@ while( condition ) {
 
 Like the `while` statement, `for` executes a code block as long as its condition is true, but it explicitly defines its initialization code and the post-cycle code block, which is executed after each iteration.
 
-```text
+```jolie
 for( init-code-block, condition, post-cycle-code-block ) {
     ...
 }
@@ -200,7 +200,7 @@ for( init-code-block, condition, post-cycle-code-block ) {
 
 Example:
 
-```text
+```jolie
 include "console.iol"
 
 main {
@@ -216,7 +216,7 @@ main {
 
 Another form of `for` loops is the following, which iterates over all elements of an array `a`.
 
-```text
+```jolie
 for( element in a ) {
     println@Console( element )()
 }
@@ -224,7 +224,7 @@ for( element in a ) {
 
 This is equivalent to the following code, but it is much less error-prone, so it is recommended to use the code above instead of the one below.
 
-```text
+```jolie
 for( i = 0, i < #a, i++ ){
     println@Console( a[i] )
 }

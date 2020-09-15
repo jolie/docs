@@ -8,7 +8,7 @@ Before starting to show how to deploy a jolie microservice within a container do
 
 Let us now consider an example of a very simple jolie service to be deployed into a docker container, the `helloservice.ol`:
 
-```text
+```jolie
 interface HelloInterface {
 
 RequestResponse:
@@ -37,7 +37,7 @@ The complete code of this example can be found [at this link](https://github.com
 
 In order to create a docker image of this microservice, it is necessary to wrte down a Dockerfile. Thus, just open a text file in the same folder and name it **Dockerfile**. Then, edit it with ascript like the following one:
 
-```text
+```dockerfile
 FROM jolielang/jolie
 MAINTAINER YOUR NAME <YOUR EMAIL> 
 EXPOSE 8000
@@ -119,7 +119,7 @@ But how could we read it from a jolie service?
 
 Reading an environment variable from a Jolie service is very simple. It is sufficient to exploit the standard library, in particular the [Runtime service](https://jolielang.gitbook.io/docs/standard-library-api/runtime). In this case we can use the operation `getEnv` which allows for reading the value of an environment variable and we could modify the previous example as it follows:
 
-```text
+```jolie
 include "runtime.iol"
 
 interface HelloInterface {
@@ -160,7 +160,7 @@ In order to try this example, just repeat the steps described at the previous se
 
 At this [link](https://github.com/jolie/examples/tree/master/06_containers/03_passing_configuration_file) we modified the previous example in order to show how it is possible to pass parameters through a json configuration file. In particular, we imagine to pass two parameters by using a file called `config.json` which is reported below:
 
-```text
+```json
 {
     "repeat":1,
     "welcome_message":"welcome!"
@@ -169,7 +169,7 @@ At this [link](https://github.com/jolie/examples/tree/master/06_containers/03_pa
 
 The service `helloservice.ol` has been modified for reading the parameters from this file in the scope `init` instead of reading from the environment variables. Here we report the code of the modified service:
 
-```text
+```jolie
 include "file.iol"
 
 interface HelloInterface {
@@ -248,7 +248,7 @@ Note that the parameter `--network testnet` is used for connecting the container
 
 Now, the last step: passing the correct locations to the outputPorts of the service `infoService`. Here we can exploit the extension [auto](https://jolielang.gitbook.io/docs/locations#automatic-configuration-of-a-location-using-extension-auto) which allows for automatic defining a location of a port getting the value from an external file. In particular, in the example, we use a `ini` file for achieving such a result:
 
-```text
+```jolie
 outputPort Forecast {
 Location: "auto:ini:/Location/Forecast:file:/var/temp/config.ini"
 Protocol: sodep
@@ -264,7 +264,7 @@ Interfaces: TrafficInterface
 
 where the file `ini` is configured in this way:
 
-```text
+```ini
 [Location]
 Traffic=socket://traffic:8000
 Forecast=socket://forecast:8000

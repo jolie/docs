@@ -27,7 +27,7 @@ Operation documentation:
 
 Invocation template:
 
-```text
+```jolie
 secureRandom@SecurityUtils( request )( response )
 ```
 
@@ -35,7 +35,7 @@ secureRandom@SecurityUtils( request )( response )
 
 Type: SecureRandomRequest
 
-```text
+```jolie
 type SecureRandomRequest: void {
     .size: int
 }
@@ -57,7 +57,7 @@ Operation documentation:
 
 Invocation template:
 
-```text
+```jolie
 createSecureToken@SecurityUtils( request )( response )
 ```
 

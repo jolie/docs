@@ -44,7 +44,7 @@ Operation documentation: deprecated, please use base64ToRaw@Converter\(\)\(\) fr
 
 Invocation template:
 
-```text
+```jolie
 convertFromBase64ToBinaryValue@File( request )( response )
 ```
 
@@ -66,11 +66,11 @@ Fault `IOException` with type `IOExceptionType`
 
 Fault-handling install template:
 
-```text
+```jolie
 install ( IOException => /* error-handling code */ )
 ```
 
-```text
+```jolie
 type IOExceptionType: JavaExceptionType
 ```
 
@@ -80,7 +80,7 @@ Operation documentation: it tests if the specified file or directory exists or n
 
 Invocation template:
 
-```text
+```jolie
 getMimeType@File( request )( response )
 ```
 
@@ -102,11 +102,11 @@ Fault `FileNotFound` with type `FileNotFoundType`
 
 Fault-handling install template:
 
-```text
+```jolie
 install ( FileNotFound => /* error-handling code */ )
 ```
 
-```text
+```jolie
 type FileNotFoundType: WeakJavaExceptionType
 ```
 
@@ -116,7 +116,7 @@ Operation documentation: deprecated, please use rawToBase64@Converter\(\)\(\) fr
 
 Invocation template:
 
-```text
+```jolie
 convertFromBinaryToBase64Value@File( request )( response )
 ```
 
@@ -138,7 +138,7 @@ Operation documentation: Constructs an absolute path to the target file or direc
 
 Invocation template:
 
-```text
+```jolie
 toAbsolutePath@File( request )( response )
 ```
 
@@ -160,11 +160,11 @@ Fault `InvalidPathException` with type `JavaExceptionType`
 
 Fault-handling install template:
 
-```text
+```jolie
 install ( InvalidPathException => /* error-handling code */ )
 ```
 
-```text
+```jolie
 type JavaExceptionType: string {
     .stackTrace: string
 }
@@ -176,7 +176,7 @@ Operation documentation: Constructs the path to the parent directory. Can be use
 
 Invocation template:
 
-```text
+```jolie
 getParentPath@File( request )( response )
 ```
 
@@ -198,11 +198,11 @@ Fault `InvalidPathException` with type `JavaExceptionType`
 
 Fault-handling install template:
 
-```text
+```jolie
 install ( InvalidPathException => /* error-handling code */ )
 ```
 
-```text
+```jolie
 type JavaExceptionType: string {
     .stackTrace: string
 }
@@ -223,7 +223,7 @@ Operation documentation: The size of any basic type variable.
 
 Invocation template:
 
-```text
+```jolie
 list@File( request )( response )
 ```
 
@@ -231,7 +231,7 @@ list@File( request )( response )
 
 Type: ListRequest
 
-```text
+```jolie
 type ListRequest: void {
     .regex?: string
     .dirsOnly?: bool
@@ -258,7 +258,7 @@ type ListRequest: void {
 
 Type: ListResponse
 
-```text
+```jolie
 type ListResponse: void {
     .result*: string {
         .info?: void {
@@ -288,11 +288,11 @@ Fault `IOException` with type `IOExceptionType`
 
 Fault-handling install template:
 
-```text
+```jolie
 install ( IOException => /* error-handling code */ )
 ```
 
-```text
+```jolie
 type IOExceptionType: JavaExceptionType
 ```
 
@@ -302,7 +302,7 @@ Operation documentation: it copies a source directory into a destination one
 
 Invocation template:
 
-```text
+```jolie
 copyDir@File( request )( response )
 ```
 
@@ -310,7 +310,7 @@ copyDir@File( request )( response )
 
 Type: CopyDirRequest
 
-```text
+```jolie
 type CopyDirRequest: void {
     .from: string
     .to: string
@@ -334,7 +334,7 @@ Fault `FileNotFound` with type `undefined`
 
 Fault-handling install template:
 
-```text
+```jolie
 install ( FileNotFound => /* error-handling code */ )
 ```
 
@@ -342,7 +342,7 @@ Fault `IOException` with type `undefined`
 
 Fault-handling install template:
 
-```text
+```jolie
 install ( IOException => /* error-handling code */ )
 ```
 
@@ -352,7 +352,7 @@ Operation documentation: it copies a source directory into a destination one
 
 Invocation template:
 
-```text
+```jolie
 delete@File( request )( response )
 ```
 
@@ -360,7 +360,7 @@ delete@File( request )( response )
 
 Type: DeleteRequest
 
-```text
+```jolie
 type DeleteRequest: string {
     .isRegex?: int
 }
@@ -382,11 +382,11 @@ Fault `IOException` with type `IOExceptionType`
 
 Fault-handling install template:
 
-```text
+```jolie
 install ( IOException => /* error-handling code */ )
 ```
 
-```text
+```jolie
 type IOExceptionType: JavaExceptionType
 ```
 
@@ -405,7 +405,7 @@ Operation documentation: The size of any basic type variable.
 
 Invocation template:
 
-```text
+```jolie
 getSize@File( request )( response )
 ```
 
@@ -427,7 +427,7 @@ Operation documentation: it tests if the specified file or directory exists or n
 
 Invocation template:
 
-```text
+```jolie
 getFileSeparator@File( request )( response )
 ```
 
@@ -458,7 +458,7 @@ Operation documentation: The size of any basic type variable.
 
 Invocation template:
 
-```text
+```jolie
 rename@File( request )( response )
 ```
 
@@ -466,7 +466,7 @@ rename@File( request )( response )
 
 Type: RenameRequest
 
-```text
+```jolie
 type RenameRequest: void {
     .filename: string
     .to: string
@@ -490,11 +490,11 @@ Fault `IOException` with type `IOExceptionType`
 
 Fault-handling install template:
 
-```text
+```jolie
 install ( IOException => /* error-handling code */ )
 ```
 
-```text
+```jolie
 type IOExceptionType: JavaExceptionType
 ```
 
@@ -502,7 +502,7 @@ type IOExceptionType: JavaExceptionType
 
 Operation documentation: Reads some file's content into a Jolie structure
 
-```text
+```jolie
   Supported formats (ReadFileRequest.format):
   - text (the default)
   - base64 (same as binary but afterwards base64-encoded)
@@ -520,7 +520,7 @@ Operation documentation: Reads some file's content into a Jolie structure
 
 Invocation template:
 
-```text
+```jolie
 readFile@File( request )( response )
 ```
 
@@ -528,7 +528,7 @@ readFile@File( request )( response )
 
 Type: ReadFileRequest
 
-```text
+```jolie
 type ReadFileRequest: void {
     .filename: string
     .format?: string {
@@ -557,11 +557,11 @@ Fault `FileNotFound` with type `FileNotFoundType`
 
 Fault-handling install template:
 
-```text
+```jolie
 install ( FileNotFound => /* error-handling code */ )
 ```
 
-```text
+```jolie
 type FileNotFoundType: WeakJavaExceptionType
 ```
 
@@ -569,11 +569,11 @@ Fault `IOException` with type `IOExceptionType`
 
 Fault-handling install template:
 
-```text
+```jolie
 install ( IOException => /* error-handling code */ )
 ```
 
-```text
+```jolie
 type IOExceptionType: JavaExceptionType
 ```
 
@@ -583,7 +583,7 @@ Operation documentation: it tests if the specified file or directory exists or n
 
 Invocation template:
 
-```text
+```jolie
 exists@File( request )( response )
 ```
 
@@ -605,7 +605,7 @@ Operation documentation: it tests if the specified file or directory exists or n
 
 Invocation template:
 
-```text
+```jolie
 setMimeTypeFile@File( request )( response )
 ```
 
@@ -627,11 +627,11 @@ Fault `IOException` with type `IOExceptionType`
 
 Fault-handling install template:
 
-```text
+```jolie
 install ( IOException => /* error-handling code */ )
 ```
 
-```text
+```jolie
 type IOExceptionType: JavaExceptionType
 ```
 
@@ -641,7 +641,7 @@ Operation documentation: it deletes a directory recursively removing all its con
 
 Invocation template:
 
-```text
+```jolie
 deleteDir@File( request )( response )
 ```
 
@@ -663,11 +663,11 @@ Fault `IOException` with type `IOExceptionType`
 
 Fault-handling install template:
 
-```text
+```jolie
 install ( IOException => /* error-handling code */ )
 ```
 
-```text
+```jolie
 type IOExceptionType: JavaExceptionType
 ```
 
@@ -677,7 +677,7 @@ Operation documentation: it tests if the specified file or directory exists or n
 
 Invocation template:
 
-```text
+```jolie
 getServiceDirectory@File( request )( response )
 ```
 
@@ -699,11 +699,11 @@ Fault `IOException` with type `IOExceptionType`
 
 Fault-handling install template:
 
-```text
+```jolie
 install ( IOException => /* error-handling code */ )
 ```
 
-```text
+```jolie
 type IOExceptionType: JavaExceptionType
 ```
 
@@ -711,7 +711,7 @@ type IOExceptionType: JavaExceptionType
 
 Operation documentation: Writes a Jolie structure out to an external file
 
-```text
+```jolie
   Supported formats (WriteFileRequest.format):
   - text (the default if base value not of type raw)
   - binary (the default if base value of type raw)
@@ -732,7 +732,7 @@ Operation documentation: Writes a Jolie structure out to an external file
 
 Invocation template:
 
-```text
+```jolie
 writeFile@File( request )( response )
 ```
 
@@ -740,7 +740,7 @@ writeFile@File( request )( response )
 
 Type: WriteFileRequest
 
-```text
+```jolie
 type WriteFileRequest: void {
     .filename: string
     .format?: string {
@@ -777,11 +777,11 @@ Fault `FileNotFound` with type `FileNotFoundType`
 
 Fault-handling install template:
 
-```text
+```jolie
 install ( FileNotFound => /* error-handling code */ )
 ```
 
-```text
+```jolie
 type FileNotFoundType: WeakJavaExceptionType
 ```
 
@@ -789,11 +789,11 @@ Fault `IOException` with type `IOExceptionType`
 
 Fault-handling install template:
 
-```text
+```jolie
 install ( IOException => /* error-handling code */ )
 ```
 
-```text
+```jolie
 type IOExceptionType: JavaExceptionType
 ```
 
@@ -801,14 +801,14 @@ type IOExceptionType: JavaExceptionType
 
 Operation documentation:
 
-```text
+```jolie
  it creates the directory specified in the request root. Returns true if the directory has been
  created with success, false otherwise
 ```
 
 Invocation template:
 
-```text
+```jolie
 mkdir@File( request )( response )
 ```
 
@@ -830,7 +830,7 @@ Operation documentation: it returns if a filename is a directory or not. False i
 
 Invocation template:
 
-```text
+```jolie
 isDirectory@File( request )( response )
 ```
 
@@ -852,11 +852,11 @@ Fault `FileNotFound` with type `FileNotFoundType`
 
 Fault-handling install template:
 
-```text
+```jolie
 install ( FileNotFound => /* error-handling code */ )
 ```
 
-```text
+```jolie
 type FileNotFoundType: WeakJavaExceptionType
 ```
 
@@ -864,11 +864,11 @@ Fault `IOException` with type `IOExceptionType`
 
 Fault-handling install template:
 
-```text
+```jolie
 install ( IOException => /* error-handling code */ )
 ```
 
-```text
+```jolie
 type IOExceptionType: JavaExceptionType
 ```
 
@@ -876,13 +876,13 @@ type IOExceptionType: JavaExceptionType
 
 #### JavaExceptionType <a id="JavaExceptionType"></a>
 
-```
+```jolie
 type JavaExceptionType: string { .stackTrace: string }
 ```
 
 #### WeakJavaExceptionType <a id="WeakJavaExceptionType"></a>
 
-```
+```jolie
 type WeakJavaExceptionType: any { .stackTrace?: string }
 ```
 

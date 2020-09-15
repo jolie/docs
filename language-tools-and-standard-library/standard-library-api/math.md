@@ -31,7 +31,7 @@ Operation documentation: Returns a random number d such that 0.0 &lt;= d &lt; 1.
 
 Invocation template:
 
-```text
+```jolie
 random@Math( request )( response )
 ```
 
@@ -53,7 +53,7 @@ Operation documentation: Returns the absolute value of the input integer.
 
 Invocation template:
 
-```text
+```jolie
 abs@Math( request )( response )
 ```
 
@@ -75,7 +75,7 @@ Operation documentation: Returns the PI constant
 
 Invocation template:
 
-```text
+```jolie
 round@Math( request )( response )
 ```
 
@@ -83,7 +83,7 @@ round@Math( request )( response )
 
 Type: RoundRequestType
 
-```text
+```jolie
 type RoundRequestType: double {
     .decimals?: int
 }
@@ -105,7 +105,7 @@ Operation documentation: Returns the PI constant
 
 Invocation template:
 
-```text
+```jolie
 pi@Math( request )( response )
 ```
 
@@ -127,7 +127,7 @@ Operation documentation: Returns the result of .base to the power of .exponent \
 
 Invocation template:
 
-```text
+```jolie
 pow@Math( request )( response )
 ```
 
@@ -135,7 +135,7 @@ pow@Math( request )( response )
 
 Type: PowRequest
 
-```text
+```jolie
 type PowRequest: void {
     .base: double
     .exponent: double
@@ -159,7 +159,7 @@ Operation documentation: Returns the summation of values from .from to .to \(see
 
 Invocation template:
 
-```text
+```jolie
 summation@Math( request )( response )
 ```
 
@@ -167,7 +167,7 @@ summation@Math( request )( response )
 
 Type: SummationRequest
 
-```text
+```jolie
 type SummationRequest: void {
     .from: int
     .to: int

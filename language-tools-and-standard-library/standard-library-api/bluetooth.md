@@ -27,7 +27,7 @@ Operation documentation: Sets the current Bluetooth device as discoverable or no
 
 Invocation template:
 
-```text
+```jolie
 inquire@Bluetooth( request )( response )
 ```
 
@@ -41,7 +41,7 @@ Type: void
 
 Type: BluetoothInquiryResponse
 
-```text
+```jolie
 type BluetoothInquiryResponse: void {
     .service*: void {
         .location: string
@@ -67,7 +67,7 @@ Operation documentation: Sets the current Bluetooth device as discoverable or no
 
 Invocation template:
 
-```text
+```jolie
 setDiscoverable@Bluetooth( request )( response )
 ```
 

@@ -4,7 +4,7 @@ We are sure you noticed that in the example reported in [Creating a Service and 
 
 In Jolie it is possible to enable a service to process multiple requests by simply defining the execution modality. Setting th eexecution modality to `concurrent` will allow the service to process all the incoming requests concurrently.
 
-```text
+```jolie
 execution { concurrent }
 ```
 
@@ -12,7 +12,7 @@ The Twice service of the cited example now becomes:
 
 ## Server's code
 
-```text
+```jolie
 execution { concurrent }
 
 inputPort TwiceService {

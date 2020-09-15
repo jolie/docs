@@ -6,7 +6,7 @@ Now we want to create a server that provides a service to double a number. We al
 
 ## Server's code
 
-```text
+```jolie
 inputPort TwiceService {
     Location: "socket://localhost:8000"
     Protocol: sodep
@@ -25,7 +25,7 @@ The behaviour of the server starts with an input on operation `twice`, storing t
 
 ## Client's code
 
-```text
+```jolie
 include "console.iol"
 
 outputPort TwiceService {
@@ -53,7 +53,7 @@ To enable a communication between a server and a client, we need to specify the 
 
 ### Service inputPort
 
-```text
+```jolie
 inputPort TwiceService {
     Location: "socket://localhost:8000"
     Protocol: sodep
@@ -63,7 +63,7 @@ inputPort TwiceService {
 
 ### Client outputPort
 
-```text
+```jolie
 outputPort TwiceService {
     Location: "socket://localhost:8000"
     Protocol: sodep

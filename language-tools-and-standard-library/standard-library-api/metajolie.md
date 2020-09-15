@@ -29,7 +29,7 @@ Operation documentation:
 
 Invocation template:
 
-```text
+```jolie
 getInputPortMetaData@MetaJolie( request )( response )
 ```
 
@@ -37,7 +37,7 @@ getInputPortMetaData@MetaJolie( request )( response )
 
 Type: GetInputPortMetaDataRequest
 
-```text
+```jolie
 type GetInputPortMetaDataRequest: void {
     .filename: string
     .name?: Name
@@ -53,7 +53,7 @@ type GetInputPortMetaDataRequest: void {
 
 Type: GetInputPortMetaDataResponse
 
-```text
+```jolie
 type GetInputPortMetaDataResponse: void {
     .input*: Port
 }
@@ -69,11 +69,11 @@ Fault `ParserException` with type `ParserExceptionType`
 
 Fault-handling install template:
 
-```text
+```jolie
 install ( ParserException => /* error-handling code */ )
 ```
 
-```text
+```jolie
 type ParserExceptionType: void {
     .line: int
     .sourceName: string
@@ -85,7 +85,7 @@ Fault `InputPortMetaDataFault` with type `undefined`
 
 Fault-handling install template:
 
-```text
+```jolie
 install ( InputPortMetaDataFault => /* error-handling code */ )
 ```
 
@@ -93,11 +93,11 @@ Fault `SemanticException` with type `SemanticExceptionType`
 
 Fault-handling install template:
 
-```text
+```jolie
 install ( SemanticException => /* error-handling code */ )
 ```
 
-```text
+```jolie
 type SemanticExceptionType: void {
     .error*: void {
         .line: int
@@ -113,7 +113,7 @@ Operation documentation:
 
 Invocation template:
 
-```text
+```jolie
 getMetaData@MetaJolie( request )( response )
 ```
 
@@ -121,7 +121,7 @@ getMetaData@MetaJolie( request )( response )
 
 Type: GetMetaDataRequest
 
-```text
+```jolie
 type GetMetaDataRequest: void {
     .filename: string
     .name: Name
@@ -137,7 +137,7 @@ type GetMetaDataRequest: void {
 
 Type: GetMetaDataResponse
 
-```text
+```jolie
 type GetMetaDataResponse: void {
     .output*: Port
     .input*: Port
@@ -170,11 +170,11 @@ Fault `ParserException` with type `ParserExceptionType`
 
 Fault-handling install template:
 
-```text
+```jolie
 install ( ParserException => /* error-handling code */ )
 ```
 
-```text
+```jolie
 type ParserExceptionType: void {
     .line: int
     .sourceName: string
@@ -186,11 +186,11 @@ Fault `SemanticException` with type `SemanticExceptionType`
 
 Fault-handling install template:
 
-```text
+```jolie
 install ( SemanticException => /* error-handling code */ )
 ```
 
-```text
+```jolie
 type SemanticExceptionType: void {
     .error*: void {
         .line: int
@@ -206,7 +206,7 @@ Operation documentation:
 
 Invocation template:
 
-```text
+```jolie
 messageTypeCast@MetaJolie( request )( response )
 ```
 
@@ -214,7 +214,7 @@ messageTypeCast@MetaJolie( request )( response )
 
 Type: MessageTypeCastRequest
 
-```text
+```jolie
 type MessageTypeCastRequest: void {
     .types: void {
         .types*: Type
@@ -235,7 +235,7 @@ type MessageTypeCastRequest: void {
 
 Type: MessageTypeCastResponse
 
-```text
+```jolie
 type MessageTypeCastResponse: void {
     .message: undefined
 }
@@ -251,7 +251,7 @@ Fault `TypeMismatch` with type `undefined`
 
 Fault-handling install template:
 
-```text
+```jolie
 install ( TypeMismatch => /* error-handling code */ )
 ```
 
@@ -261,7 +261,7 @@ Operation documentation:
 
 Invocation template:
 
-```text
+```jolie
 checkNativeType@MetaJolie( request )( response )
 ```
 
@@ -269,7 +269,7 @@ checkNativeType@MetaJolie( request )( response )
 
 Type: CheckNativeTypeRequest
 
-```text
+```jolie
 type CheckNativeTypeRequest: void {
     .type_name: string
 }
@@ -283,7 +283,7 @@ type CheckNativeTypeRequest: void {
 
 Type: CheckNativeTypeResponse
 
-```text
+```jolie
 type CheckNativeTypeResponse: void {
     .result: bool
 }
@@ -297,61 +297,61 @@ type CheckNativeTypeResponse: void {
 
 #### Name <a id="Name"></a>
 
-```
+```jolie
 type Name: void { .registry?: string .domain?: string .name: string }
 ```
 
 #### Port <a id="Port"></a>
 
-```
+```jolie
 type Port: void { .protocol: string .interfaces*: Interface .name: Name .location: any }
 ```
 
 #### Interface <a id="Interface"></a>
 
-```
+```jolie
 type Interface: void { .types*: Type .operations*: Operation .name: Name }
 ```
 
 #### Type <a id="Type"></a>
 
-```
+```jolie
 type Type: void { .root_type: NativeType .sub_type*: SubType .name: Name }
 ```
 
 #### NativeType <a id="NativeType"></a>
 
-```
+```jolie
 type NativeType: void { .string_type?: bool .void_type?: bool .raw_type?: bool .int_type?: bool .any_type?: bool .link?: void { .domain?: string .name: string } .bool_type?: bool .double_type?: bool .long_type?: bool }
 ```
 
 #### SubType <a id="SubType"></a>
 
-```
+```jolie
 type SubType: void { .type_inline?: Type .name: string .cardinality: Cardinality .type_link?: Name }
 ```
 
 #### Cardinality <a id="Cardinality"></a>
 
-```
+```jolie
 type Cardinality: void { .min: int .max?: int .infinite?: int }
 ```
 
 #### Operation <a id="Operation"></a>
 
-```
+```jolie
 type Operation: void { .operation_name: string .output?: Name .input: Name .documentation?: any .fault*: Fault }
 ```
 
 #### Fault <a id="Fault"></a>
 
-```
+```jolie
 type Fault: void { .type_name?: Name .name: Name }
 ```
 
 #### Service <a id="Service"></a>
 
-```
+```jolie
 type Service: void { .output*: Name .input*: void { .domain: string .name: string } .name: Name }
 ```
 

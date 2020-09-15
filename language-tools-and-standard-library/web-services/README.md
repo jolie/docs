@@ -8,7 +8,7 @@ Web Services represent a special category of services. They are characterized by
 
 In order to show how to expose a jolie service as a web service, let us consider the following Jolie service example which returns the address of a person identified by his name and his surname. The example may be consulted also at this [link](https://github.com/jolie/examples/tree/master/08_web_services/01_exposing_a_web_service)
 
-```text
+```jolie
 include "console.iol"
 include "string_utils.iol"
 
@@ -79,7 +79,7 @@ It is worth noting that once generated, the wsdl file must be explicitly attache
 
 The final definition of the input port should look like the following one:
 
-```text
+```jolie
 inputPort MyServiceSOAPPort {
     Location: "socket://localhost:8001"
     Protocol: soap {
@@ -98,7 +98,7 @@ A web service can be easily invoked as a standard jolie service by simply defini
 
 As an example, let us extract the jolie interface from the wsdl definition of the example described in the section above using the tool [wsdl2jolie](https://jolielang.gitbook.io/docs/web-services/wsdl2jolie). The tool generates a `.iol` file which contains both the interface and the output port configured for interacting with the web service to be invoked. It is sufficient to import the file and invoking the web service as a standard jolie service. In the following example, where we suppose to name the generated file as `generated_interface.iol`, we show how to invoke the web service.
 
-```text
+```jolie
 include "generated_interface.iol"
 
 main {

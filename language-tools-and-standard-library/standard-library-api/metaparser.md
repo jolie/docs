@@ -35,7 +35,7 @@ Operation documentation:
 
 Invocation template:
 
-```text
+```jolie
 getSurface@Parser( request )( response )
 ```
 
@@ -43,7 +43,7 @@ getSurface@Parser( request )( response )
 
 Type: Port
 
-```text
+```jolie
 type Port: void {
     .protocol: string
     .interfaces*: Interface
@@ -71,7 +71,7 @@ Operation documentation:
 
 Invocation template:
 
-```text
+```jolie
 getNativeType@Parser( request )( response )
 ```
 
@@ -79,7 +79,7 @@ getNativeType@Parser( request )( response )
 
 Type: NativeType
 
-```text
+```jolie
 type NativeType: void {
     .string_type?: bool
     .void_type?: bool
@@ -122,7 +122,7 @@ Operation documentation:
 
 Invocation template:
 
-```text
+```jolie
 getInterface@Parser( request )( response )
 ```
 
@@ -130,7 +130,7 @@ getInterface@Parser( request )( response )
 
 Type: Interface
 
-```text
+```jolie
 type Interface: void {
     .types*: Type
     .operations*: Operation
@@ -156,7 +156,7 @@ Operation documentation:
 
 Invocation template:
 
-```text
+```jolie
 getTypeInLine@Parser( request )( response )
 ```
 
@@ -164,7 +164,7 @@ getTypeInLine@Parser( request )( response )
 
 Type: Type
 
-```text
+```jolie
 type Type: void {
     .root_type: NativeType
     .sub_type*: SubType
@@ -190,7 +190,7 @@ Operation documentation:
 
 Invocation template:
 
-```text
+```jolie
 getSurfaceWithoutOutputPort@Parser( request )( response )
 ```
 
@@ -198,7 +198,7 @@ getSurfaceWithoutOutputPort@Parser( request )( response )
 
 Type: Port
 
-```text
+```jolie
 type Port: void {
     .protocol: string
     .interfaces*: Interface
@@ -226,7 +226,7 @@ Operation documentation:
 
 Invocation template:
 
-```text
+```jolie
 getType@Parser( request )( response )
 ```
 
@@ -234,7 +234,7 @@ getType@Parser( request )( response )
 
 Type: Type
 
-```text
+```jolie
 type Type: void {
     .root_type: NativeType
     .sub_type*: SubType
@@ -260,7 +260,7 @@ Operation documentation:
 
 Invocation template:
 
-```text
+```jolie
 getOutputPort@Parser( request )( response )
 ```
 
@@ -268,7 +268,7 @@ getOutputPort@Parser( request )( response )
 
 Type: Port
 
-```text
+```jolie
 type Port: void {
     .protocol: string
     .interfaces*: Interface
@@ -296,7 +296,7 @@ Operation documentation:
 
 Invocation template:
 
-```text
+```jolie
 getSubType@Parser( request )( response )
 ```
 
@@ -304,7 +304,7 @@ getSubType@Parser( request )( response )
 
 Type: SubType
 
-```text
+```jolie
 type SubType: void {
     .type_inline?: Type
     .name: string
@@ -332,7 +332,7 @@ Operation documentation:
 
 Invocation template:
 
-```text
+```jolie
 getInputPort@Parser( request )( response )
 ```
 
@@ -340,7 +340,7 @@ getInputPort@Parser( request )( response )
 
 Type: Port
 
-```text
+```jolie
 type Port: void {
     .protocol: string
     .interfaces*: Interface
@@ -368,7 +368,7 @@ Operation documentation:
 
 Invocation template:
 
-```text
+```jolie
 getCardinality@Parser( request )( response )
 ```
 
@@ -376,7 +376,7 @@ getCardinality@Parser( request )( response )
 
 Type: Cardinality
 
-```text
+```jolie
 type Cardinality: void {
     .min: int
     .max?: int
@@ -400,49 +400,49 @@ Type: string
 
 #### Interface <a id="Interface"></a>
 
-```
+```jolie
 type Interface: void { .types*: Type .operations*: Operation .name: Name }
 ```
 
 #### Type <a id="Type"></a>
 
-```
+```jolie
 type Type: void { .root_type: NativeType .sub_type*: SubType .name: Name }
 ```
 
 #### NativeType <a id="NativeType"></a>
 
-```
+```jolie
 type NativeType: void { .string_type?: bool .void_type?: bool .raw_type?: bool .int_type?: bool .any_type?: bool .link?: void { .domain?: string .name: string } .bool_type?: bool .double_type?: bool .long_type?: bool }
 ```
 
 #### SubType <a id="SubType"></a>
 
-```
+```jolie
 type SubType: void { .type_inline?: Type .name: string .cardinality: Cardinality .type_link?: Name }
 ```
 
 #### Cardinality <a id="Cardinality"></a>
 
-```
+```jolie
 type Cardinality: void { .min: int .max?: int .infinite?: int }
 ```
 
 #### Name <a id="Name"></a>
 
-```
+```jolie
 type Name: void { .registry?: string .domain?: string .name: string }
 ```
 
 #### Operation <a id="Operation"></a>
 
-```
+```jolie
 type Operation: void { .operation_name: string .output?: Name .input: Name .documentation?: any .fault*: Fault }
 ```
 
 #### Fault <a id="Fault"></a>
 
-```
+```jolie
 type Fault: void { .type_name?: Name .name: Name }
 ```
 

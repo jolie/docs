@@ -28,7 +28,7 @@ Operation documentation:
 
 Invocation template:
 
-```text
+```jolie
 showMessageDialog@SwingUI( request )( response )
 ```
 
@@ -50,7 +50,7 @@ Operation documentation:
 
 Invocation template:
 
-```text
+```jolie
 showYesNoQuestionDialog@SwingUI( request )( response )
 ```
 
@@ -72,7 +72,7 @@ Operation documentation:
 
 Invocation template:
 
-```text
+```jolie
 showInputDialog@SwingUI( request )( response )
 ```
 

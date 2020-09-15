@@ -10,7 +10,7 @@ Jolie allows output ports to be dynamically bound, i.e., their locations and pro
 
 Technically, changes to the binding information of an output port is local to a behaviour instance: output ports are considered part of the local state of each instance. Dynamic binding is obtained by treating output ports as variables. For instance, the following would print the location and protocol name of output port `Printer`:
 
-```text
+```jolie
 // Printer.iol
 interface PrinterInterface {
     OneWay: printText( string )
@@ -36,7 +36,7 @@ main
 
 Binding information may be entered at runtime by making simple assignments:
 
-```text
+```jolie
 include "Printer.iol"
 
 outputPort P {
@@ -64,7 +64,7 @@ The _Chat Registry_ offers two operations: _addChat_ and _sendMessage_. The form
 
 Dynamic binding is exploited in the implementation of the _sendMessage_ operation of the _Chat Registry_ where every time a message is received the outputPort _User_ is bound to each registered user for forwarding messages. Note that user's locations are stored into the hashmap _global.chat.\(  \).users.\(  \).location_ which is set everytime a user requests to be connected to a chat by using operation _addChat_.
 
-```text
+```jolie
 [ sendMessage( request )( response ) {
         /* validate token */
         if ( is_defined( global.tokens.( request.token ) ) ) {

@@ -10,7 +10,7 @@ Using files in jolie is very simple. There standard library [`file.iol`](https:/
 
 In this simple example, whose code can be checked [at this link](https://github.com/jolie/examples/tree/master/Tutorials/using-files/reading-a-file), we show how to read the content of a file and print out it on the console. In the following we present a jolie script which reads from file `test.txt` and prints its content on the console using `println@Console`.
 
-```text
+```jolie
 include "file.iol"
 include "console.iol"
 
@@ -27,7 +27,7 @@ Note that it is important to include `file.iol` service from the standard librar
 
 As for the reading of a file, writing a file uses the standard library `file.iol` and in particular we exploit the operation `writeFile@File`. In the following we show a script which creates a file called `test.txt` and writes the string `this is a test message`. The full code of the example may be consulted [at this link](https://github.com/jolie/examples/tree/master/Tutorials/using-files/writing-a-file)
 
-```text
+```jolie
 include "file.iol"
 
 main {
@@ -47,7 +47,7 @@ Now, let's step forward creating a simple system where a server receives the con
 
 The interface of the server follows:
 
-```text
+```jolie
 interface ServerInterface {
     RequestResponse:
         setFileContent( string )( void )
@@ -56,7 +56,7 @@ interface ServerInterface {
 
 Note that it is very simple and it just defines a single operation which is able to receive a string. The code of the server is:
 
-```text
+```jolie
 include "ServerInterface.iol"
 include "file.iol"
 
@@ -88,7 +88,7 @@ The server is waiting to receive a message on operation `setFileContent`, once r
 
 On the other hand, the client reads a content from a file and sends it to the server:
 
-```text
+```jolie
 include "ServerInterface.iol"
 include "file.iol"
 
@@ -109,7 +109,7 @@ main {
 
 Let's now concluding this tutorial showing how to manage also binary files. So far indeed, we dealt only with text files where their content is always managed as a string. In general, we could require to manage any kind of files. In the following we show hot to read, communicate and write the binary content of a file. We propose the same scenario of the section above where there is a client which reads from a file and sends its content to a server, but we show how to deal with binary files. The full code of the example may be consulted [at this link](https://github.com/jolie/examples/tree/master/Tutorials/using-files/communicating-raw-files). The interface of the server changes as it follows:
 
-```text
+```jolie
 type SetFileRequest: void {
     .content: raw
 }
@@ -122,7 +122,7 @@ interface ServerInterface {
 
 Note that the request type of operation `setFile` has a subnode called `.content` whose native type is set to `raw`. `raw` is the native typed used in jolie messages for sending binaries. Let us now see how the client works:
 
-```text
+```jolie
 include "ServerInterface.iol"
 include "file.iol"
 
@@ -146,7 +146,7 @@ Note that the approach is the same of that we used for string contents with the 
 
 On the server side the code is:
 
-```text
+```jolie
 include "ServerInterface.iol"
 include "file.iol"
 

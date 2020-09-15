@@ -28,7 +28,7 @@ auto:<file format ini|json>:<variable path>:file:<path to file>
 
 Here we show an example of port definition which exploits the extension `auto` together with a file `ini`.
 
-```text
+```jolie
 inputPort MyInput {
 location: "auto:ini:/Location/MyInput:file:config.ini"
 protocol: sodep
@@ -63,7 +63,7 @@ where `Location` is the name of the section inside the `ini` file.
 
 Here we show an example of port definition which exploits the extension `auto` together with a file `json`.
 
-```text
+```jolie
 inputPort MyInput {
 location: "auto:json:MyInput.location:file:config.json"
 protocol: sodep
@@ -79,7 +79,7 @@ interfaces: DummyInterface
 
 where the `json` file is:
 
-```text
+```json
 {
   "MyInput": {
     "location":"socket://localhost:8000"

@@ -38,7 +38,7 @@ where all the possible arguments to the tool are specified. They are:
 
 Let us now try to apply the tool `jolie2java` to the simple example at this [link](https://github.com/jolie/examples/tree/master/05_other_tools/02_jolie2java/01_jolie2java). Here there is a Jolie service which implements two operations `getTemperature` and `getWind`. The interface which describes them follows:
 
-```text
+```jolie
 type GetTemperatureRequest: string {
     .place?: void {
         .longitude: string 
@@ -59,7 +59,7 @@ RequestResponse:
 
 The client declaration we want to convert in a Java Client is defined within the file `client.ol` which is reported below:
 
-```text
+```jolie
 include "ForecastInterface.iol"
 
 outputPort Forecast {
@@ -118,7 +118,7 @@ Files `Controller.java` and `JolieClient.java` actually implement the client for
 
 **Structured types** are converted by introducing inner classes inside the main one. For example, the type `GetTemperatureRequest` contains a subnode `place` which is mapped with an internal class called `placeType` as it is shown below where we report the first lines of the `GetTemperatureRequest.java`.
 
-```text
+```java
 public class GetTemperatureRequest implements Jolie2JavaInterface {
     public class placeType {
         private String latittude;
@@ -165,7 +165,7 @@ Let us now to show how to use the generated client into a Java project. First of
 
 In the following we show the code necessary to invoke the Jolie service of the example presented above. Here we assume that such a service is running on localhost at port 8000.
 
-```text
+```java
 import com.test.jolie.ForecastImpl;
 import com.test.jolie.JolieClient;
 import com.test.jolie.types.GetTemperatureRequest;
@@ -204,7 +204,7 @@ public class JavaApplication
 
 For those who are using [maven](https://maven.apache.org/) for managing their Java projecs, it is possible to use `jolie2java` within a specific maven plugin: `jolie2java-maven-plugin`. Just add the following lines to the pom of your project and the `jolie2java` tool can be used within the maven Lifecycle:
 
-```text
+```xml
 <!--dependencies-->
 <dependency>
   <groupId>jolie</groupId>

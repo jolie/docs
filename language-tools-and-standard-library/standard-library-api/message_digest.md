@@ -26,7 +26,7 @@ Operation documentation:
 
 Invocation template:
 
-```text
+```jolie
 md5@MessageDigest( request )( response )
 ```
 
@@ -34,7 +34,7 @@ md5@MessageDigest( request )( response )
 
 Type: MD5Request
 
-```text
+```jolie
 type MD5Request: string {
     .radix?: int
 } | raw {
@@ -61,11 +61,11 @@ Fault `UnsupportedOperation` with type `JavaExceptionType`
 
 Fault-handling install template:
 
-```text
+```jolie
 install ( UnsupportedOperation => /* error-handling code */ )
 ```
 
-```text
+```jolie
 type JavaExceptionType: string {
     .stackTrace: string
 }

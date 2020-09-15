@@ -6,7 +6,7 @@ _wsdl2jolie_ \(whose executable is installed by default in Jolie standard trunk\
 
 The syntax of wsdl2jolie follows:
 
-```text
+```jolie
 wsdl2jolie wsdl_uri [output filename]
 ```
 
@@ -22,7 +22,7 @@ Reading the raw XML is not so easy, or at least requires some time.
 
 If we execute the command `wsdl2jolie http://www.dneonline.com/calculator.asmx?WSDL` our output will be
 
-```text
+```jolie
 type NOTATIONType:any
 
 type Add:void {
@@ -89,7 +89,7 @@ which is the Jolie equivalent of the WSDL document. Those `.wsdl` and `.wsdl.por
 
 Once our interface is created, we can store it into a file, e.g., `CalculatorInterface.iol`, and use the output ports we discovered from Jolie code. As in the following:
 
-```text
+```jolie
 include "CalculatorInterface.iol"
 include "console.iol"
 

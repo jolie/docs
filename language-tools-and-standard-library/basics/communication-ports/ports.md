@@ -21,7 +21,7 @@ Usually we graphically represent outputPorts with red triangles and inputPort wi
 
 The syntax for input and output ports is, respectively:
 
-```text
+```jolie
 inputPort id {
     Location: URI
     Protocol: p
@@ -31,7 +31,7 @@ inputPort id {
 }
 ```
 
-```text
+```jolie
 outputPort id {
     Location: URI
     Protocol: p
@@ -78,7 +78,7 @@ For a thorough description of the protocols supported by Jolie and their paramet
 
 Let us consider the following input port declaration:
 
-```text
+```jolie
 inputPort SumInput {
     Location: "socket://localhost:8000/"
     Protocol: soap
@@ -90,7 +90,7 @@ inputPort SumInput {
 
 Finally, let us define the `SumServ` outputPort, which is used to invoke the services exposed by `SumInput`:
 
-```text
+```jolie
 outputPort SumServ {
     Location: "socket://localhost:8000/"
     Protocol: soap
@@ -106,7 +106,7 @@ More than one input and one output ports can be defined into a service thus, ena
 
 As an example, in the following piece of service, two input ports and three outputPorts are declared:
 
-```text
+```jolie
 include "Interface1.iol"
 include "Interface2.iol"
 include "Interface3.iol"

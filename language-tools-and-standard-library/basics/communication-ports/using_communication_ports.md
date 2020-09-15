@@ -16,13 +16,13 @@ Input primitives can be divided in two types which also correspond to those used
 
 In order to program a one-way operation inside the behaviour of a service, it is sufficient to declare the name of the OneWay operation published into an inputPort of the service followed by the name of the variable between brackets where the received message will be stored.
 
-```text
+```jolie
 operation_name( response )
 ```
 
 On the other hand, a request-response operation requires the name of a RequestResponse operation defined into an interface followed by two variables: the former is in charge to store the receiving message whereas the latter is in charge to store the replying message. Both the variables must be defined within brackets. Since a request-response primitive is a synchronous primitive, between the request and the response message some code can be executed. The caller will wait for the termination of that code before receiving for the reply.
 
-```text
+```jolie
 operation_name( request )( response ){
     // code block
 }
@@ -30,7 +30,7 @@ operation_name( request )( response ){
 
 As an example let us consider the following service which has two operations defined. The former is a one-way operation and the latter a request-response one.
 
-```text
+```jolie
 include "console.iol"
 
 exceution{ concurrent }
@@ -67,19 +67,19 @@ Output primitives allow for sending messages to some input operations defined on
 
 The syntax of notification and solicit-response resembles those of one-way and request-response with the exception that the operation name is followed by the token `@` and the name of the outputPort to be used for sending the message. Here in the following, we report the syntax of the notification where _OutputPort\_Name_ is the name of the outputPort to be used and _request_ is the variable where the sending message is stored.
 
-```text
+```jolie
 operation_name@OutputPort_Name( request )
 ```
 
 Analogously, in order to program a solicit-response it is necessary to indicate the port used to send the message. Differently from the one-way primitive, in the solicit-response one the first variable contains the message to be sent and the second one contains the variable where the reply message will be stored. No code block is associated with a solicit-response primitive because it simply sends a message and waits until it receives a response from the requested service.
 
-```text
+```jolie
 operation_name@OutputPort_Name( request )( response )
 ```
 
 In the following we report a possible client of the service above which is able to call the operations _myOW_ and _myRR_ in sequence:
 
-```text
+```jolie
 include "console.iol"
 
 exceution{ concurrent }

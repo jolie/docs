@@ -8,7 +8,7 @@ A collection is a set of output ports that share the same interface. They can be
 
 The syntax of collection is very simple, it is sufficient to group the output ports with the same interface within curly brackets:
 
-```text
+```jolie
 inputPort AggregatorPort {
     Location: ...
     Protocol: ...
@@ -29,7 +29,7 @@ Once a message is received on the shared interface, a courier process can be exe
 
 Note that at the input port of the Aggregator and the corresponding output ports of the two aggregated services appear as it follows:
 
-```text
+```jolie
 outputPort Printer1 {
 Location: ...
 Protocol: sodep
@@ -52,7 +52,7 @@ Interfaces: AggregatorInterface
 
 Then, in the courier process a simple algorithm which cyclically delivers the messages to the two interfaces, is defined as it follows:
 
-```text
+```jolie
 courier AggregatorInput {
     [ interface PrinterInterface( request ) ] {
         /* depending on the key the message will be forwared to Printer1 or Printer2 */
@@ -76,7 +76,7 @@ Note that the variable `global.printer_counter` is counting the message received
 
 The colection can be easily used for broadcasting messages to output ports with the same interface. In this case it is sufficient to modify the courier process by forwarding the messages to all the target service as it is shown below:
 
-```text
+```jolie
 courier AggregatorInput {
     [ interface PrinterInterface( request ) ] {
         forward Printer1( request ) | forward Printer2( request )
@@ -100,7 +100,7 @@ Our aim is to deploy a service that aggregates Printer1, Printer2, and Fax to ac
 
 In the following the code of the aggregator:
 
-```text
+```jolie
 include "locations.iol"
 include "printer.iol"
 include "fax.iol"

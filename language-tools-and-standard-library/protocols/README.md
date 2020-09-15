@@ -23,7 +23,7 @@ The parameters of the protocol are specified in the input/output [port](https://
 
 Let us recall the examples given in [HTTP GET/POST Requests](https://jolielang.gitbook.io/docs/web-applications/web_get_post) where we set the parameters `method` and `format`, of protocol `http`, to define what kind of messages the port shall send or receive.
 
-```text
+```jolie
 // HTTP GET input port
 inputPort MyInput {
     //Location: ...
@@ -63,7 +63,7 @@ Protocol's parameters can be set dynamically using the alias `->` operator.
 
 To exemplify how to dynamically set the parameters of a protocol, we refer to the [Leonardo](https://github.com/jolie/docs/tree/17849b39db5140ffe17f04d698cd6945df1d999f/protocols/web_applications/leonardo/README.md)'s inputPort definition:
 
-```text
+```jolie
 inputPort HTTPInput {
     Protocol: http {
         .keepAlive = 0; // Do not keep connections open

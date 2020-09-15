@@ -23,7 +23,7 @@ Note that documentation comments \(forward and backward\) in types are always at
 
 Joliedoc is very easy to use, it is sufficient to run the command `joliedoc` followed by the file name of the service to be documented. Its usage is
 
-```text
+```jolie
 joliedoc <filename> [--internals]
 ```
 
@@ -35,7 +35,7 @@ As a result the command `joliedoc` produces a folder called `joliedoc` which con
 
 As an example just try to run the joliedoc on the following simple service:
 
-```text
+```jolie
 /** This type represents a message test type */
 type TestRRRequest: void {
     .field1: string  //< this is field1
@@ -119,7 +119,7 @@ main {
 
 Save it into a file called `test.ol` and try to generate the documentation with the default settings:
 
-```text
+```jolie
 joliedoc test.ol
 ```
 
@@ -133,7 +133,7 @@ This is the overview of the service where all the internals ports are hidden. If
 
 Finally, try to run the command specifying you want to add the internals:
 
-```text
+```jolie
 joliedoc test.ol --internals
 ```
 

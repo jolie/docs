@@ -14,7 +14,7 @@ Java's keytool helps to introspect key- and truststore: `keytool -list -keystore
 
 ## SSL Parameters
 
-```text
+```jolie
 type SSLConfiguration:void {
     .ssl?:void{
 

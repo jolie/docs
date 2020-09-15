@@ -14,7 +14,7 @@ Some other notes to value mapping: Jolie variables of type `long` are unsupporte
 
 This is an example of a primitive XML-RPC server:
 
-```text
+```jolie
 execution { concurrent }
 
 type SumRequest:void {
@@ -53,7 +53,7 @@ main
 
 ## XML-RPC Parameters
 
-```text
+```jolie
 type XmlRpcConfiguration:void {
 
     /*

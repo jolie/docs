@@ -27,7 +27,7 @@ Operation documentation:
 
 Invocation template:
 
-```text
+```jolie
 in( request )
 ```
 
@@ -35,7 +35,7 @@ in( request )
 
 Type: InRequest
 
-```text
+```jolie
 type InRequest: string {
     .token?: string
 }
@@ -66,7 +66,7 @@ Operation documentation:
 
 Invocation template:
 
-```text
+```jolie
 print@Console( request )( response )
 ```
 
@@ -88,7 +88,7 @@ Operation documentation:
 
 Invocation template:
 
-```text
+```jolie
 println@Console( request )( response )
 ```
 
@@ -110,7 +110,7 @@ Operation documentation: it enables the console for input listening parameter en
 
 Invocation template:
 
-```text
+```jolie
 registerForInput@Console( request )( response )
 ```
 
@@ -118,7 +118,7 @@ registerForInput@Console( request )( response )
 
 Type: RegisterForInputRequest
 
-```text
+```jolie
 type RegisterForInputRequest: void {
     .enableSessionListener?: bool
 }
@@ -140,7 +140,7 @@ Operation documentation: it disables a session to receive inputs from the consol
 
 Invocation template:
 
-```text
+```jolie
 unsubscribeSessionListener@Console( request )( response )
 ```
 
@@ -148,7 +148,7 @@ unsubscribeSessionListener@Console( request )( response )
 
 Type: UnsubscribeSessionListener
 
-```text
+```jolie
 type UnsubscribeSessionListener: void {
     .token: string
 }
@@ -170,7 +170,7 @@ Operation documentation: it receives a token string which identifies a service s
 
 Invocation template:
 
-```text
+```jolie
 subscribeSessionListener@Console( request )( response )
 ```
 
@@ -178,7 +178,7 @@ subscribeSessionListener@Console( request )( response )
 
 Type: SubscribeSessionListener
 
-```text
+```jolie
 type SubscribeSessionListener: void {
     .token: string
 }
@@ -200,7 +200,7 @@ Operation documentation: It enables timestamp inline printing for each console o
 
 Invocation template:
 
-```text
+```jolie
 enableTimestamp@Console( request )( response )
 ```
 
@@ -208,7 +208,7 @@ enableTimestamp@Console( request )( response )
 
 Type: EnableTimestampRequest
 
-```text
+```jolie
 type EnableTimestampRequest: bool {
     .format?: string
 }

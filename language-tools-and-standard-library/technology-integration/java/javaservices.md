@@ -14,7 +14,7 @@ Each public method of the Java Service is an input operation invokable by the em
 
 Let us write our own `MyConsole` Java service that offers a `println` request-response operation. `println` is a public method of `MyConsole` class that takes a string as request and prints it at console.
 
-```text
+```java
 package example;
 import jolie.runtime.JavaService;
 
@@ -34,7 +34,7 @@ Once stored in the `example` folder, as defined by the package statement, our Ja
 
 Once our service is visible by Jolie's interpreter, we can embed it in a Jolie service:
 
-```text
+```jolie
 interface MyConsoleInterface {
     OneWay: println( string )
 }
@@ -61,7 +61,7 @@ To practice on request-response operations between embedded and embedder, let us
 
 We use the previously written Java Service `MyConsole` to print the result and show how to embed multiple classes.
 
-```text
+```java
 package example;
 
 import jolie.runtime.JavaService;
@@ -84,7 +84,7 @@ Note that both input and output types of each method, although meant to be primi
 
 Following, the Jolie service embeds both MyConsole and Twice classes:
 
-```text
+```jolie
 interface MyConsoleInterface {
     OneWay:    println( string )
 }
@@ -122,7 +122,7 @@ main
 
 A Java Service can also call an operation of the embedder by means of the `sendMessage` method of Jolie standard library. In this example we use the `Value` and `ValueVector` objects to handle a custom-typed message from a request-response operation invoked on the embedder.
 
-```text
+```jolie
 include "console.iol"
 
 type Split_req: void{
@@ -171,7 +171,7 @@ main
 
 The embedder acts as a bridge between two embedded Java Services, `MyJavaExample` which requests a `split` operation and, `Splitter` which implements it.
 
-```text
+```java
 package example;
 
 import jolie.runtime.JavaService;
@@ -247,7 +247,7 @@ Before continuing with the development of a JavaService keep in mind that there 
 
 If you use Maven it is very easy to import the Jolie dependency into your project, just add the following dependency into your `pom.xml` file:
 
-```text
+```xml
 <dependency>
     <groupId>jolie</groupId>
     <artifactId>jolie</artifactId>
@@ -280,7 +280,7 @@ Before writing the actual code of the JavaService it is important to create the 
 
 Here we present the code of our first JavaService which simply prints out on the console a message received from an invoker and then reply with the message `I am your father`.
 
-```text
+```java
 package org.jolie.example;
 
 import Jolie.runtime.JavaService;
@@ -367,7 +367,7 @@ Now we are ready for embedding the JavaService into a Jolie service. It is very 
 
   `reply`.
 
-```text
+```jolie
 type HelloWorldRequest: void {
   .message: string
 }
@@ -394,7 +394,7 @@ interface FirstJavaServiceInterface {
 
   this example:
 
-```text
+```jolie
 outputPort FirstJavaServiceOutputPort {
   Interfaces: FirstJavaServiceInterface
 }
@@ -402,7 +402,7 @@ outputPort FirstJavaServiceOutputPort {
 
 * Embed the JavaService by joining it with its outputPort
 
-```text
+```jolie
 include "FirstJavaServiceInterface.iol"
 
 outputPort FirstJavaServiceOutputPort {
@@ -419,7 +419,7 @@ embedded {
 
 Here we report a complete example of a Jolie code which calls the JavaService and prints out its response on the console. Save it in a file named `main.ol`. Note that the embedded construct takes as a type the keyword Java instead of Jolie because we are embedding a JavaService. As parameter the embedded construct takes the absolute class name obtained as `package/name+class/name`.
 
-```text
+```jolie
 include "console.iol"
 
 include "FirstJavaServiceInterface.iol"
@@ -461,7 +461,7 @@ In the previous example we just wrote a Jolie program which exploits the JavaSer
 
 In the following case we present a possible solution where the operation of the JavaService is exported to the inputPort by exploiting the same interface `FirstJavaServiceInterface` with a new implementation of the operation `HelloWorld` in the main scope of the service.
 
-```text
+```jolie
 include "console.iol"
 
 include "FirstJavaServiceInterface.iol"
@@ -494,7 +494,7 @@ main {
 
 Such a scenario is useful when we need to add some extra computation within the behaviour before invoking the JavaService \(in the example we print out the request message before forwarding it to the JavaService\). In those cases where there is no need to manipulate the messages in the behaviour, we could directly aggregate the JavaService outputPort in the inputPort of the service by obtaining a direct connection between the Jolie inputPort and the JavaService.
 
-```text
+```jolie
 include "console.iol"
 
 include "FirstJavaServiceInterface.iol"
@@ -529,7 +529,7 @@ In this section we deepen the usage of the class `Value` which allows for the ma
 
 First of all, we need to create a Value in Java as we would do in Jolie. The following Java code creates a Value named `v`.
 
-```text
+```java
 Value v = Value.create();
 ```
 
@@ -537,13 +537,13 @@ Value v = Value.create();
 
 In each Jolie tree, a node is a vector. To access/get the vector elements of a node, you can use the method `getChildren( String subnodeName )` which returns the corresponding `ValueVector` of the subnode `subnondeName`. In the following example we get all the vector elements of the subnode `subnode1`.
 
-```text
+```java
 ValueVector vVector = v.getChildren("subnode1");
 ```
 
 All the items of a ValueVector are Value objects. To access the Value element at index _i_ it is possible to use the method `get( int index )`. In the following example we access the third element of the subnode `subnode1` where 0 is the index of the first element.
 
-```text
+```java
 ValueVector vVector = v.getChildren("subnode1");
 Value thirdElement = vVector.get( 2 );
 ```
@@ -552,7 +552,7 @@ Value thirdElement = vVector.get( 2 );
 
 It is possible to use the method `setValue( ... )` for setting the value content of an element as in the following example:
 
-```text
+```java
 ValueVector vVector = v.getChildren("subnode1");
 Value thirdElement = vVector.get( 2 );
 thirdElement.setValue("Millennium Falcon");
@@ -571,7 +571,7 @@ Once accessed a vector element \(a value in general\), it is possible to get its
 
 In the following example we suppose to print out the content of the third element of the subnode `subnode1` supposing it is a string.
 
-```text
+```java
 ValueVector vVector = v.getChildren("subnode1");
 Value thirdElement = vVector.get( 2 );
 thirdElement.setValue("Millennium Falcon");
@@ -586,7 +586,7 @@ A JavaService can be also programmed to call an operation of the embedder. A typ
 
 This can be done with the method `sendMessage` of the class `JavaService`. As an example, we extend the previous JavaService by introducing a new asynchronous method called `AsynchHelloWorld` which receives a request with the same message of method `HelloWorld` and a field `sleep` which specifies the number of millisecond to wait before sending the reply. When Such a time-out has been introduced just for simulating a delay in the response. When the sleeping time is finished the method calls back the Jolie service on its operation `reply`.
 
-```text
+```java
 package org.jolie.example;
 
 import Jolie.net.CommMessage;
@@ -628,7 +628,7 @@ The class `CommMessage` \(package `Jolie.net`\) represents a Jolie communication
 
 In this case, the message to send contains the same string of method `HelloWorld`. It is worth noting that in this example the operation _reply_ is a **OneWay** operation but it is possible also to interact by using a _RequestResponse_ operation. The class `CommMessage` provides different static methods for creating a request message and a response message. Now let us comment how the _FirstJavaServiceInterface_ must be modified to be compliant with the new JavaService:
 
-```text
+```jolie
 type AsyncHelloWorldRequest: void {
   .message: string
   .sleep: int
@@ -654,7 +654,7 @@ The new operation `AsyncHelloWorld` has been declared as a OneWay operation and 
 
 The embedder follows:
 
-```text
+```jolie
 include "console.iol"
 
 include "FirstJavaServiceInterface.iol"
@@ -698,7 +698,7 @@ Each public method programmed within a JavaService must be considered as an inpu
 
 So far, we have exploited only OneWay operations for making interactions between the JavaService and the embedder. Now, we present how to exploit also RequestResponse operations. In the example below there are both a RequestResponse invocation from the JavaService to the embedder and a RequestResponse invocation from the embedder to the JavaService. The Java code follows:
 
-```text
+```java
 package org.jolie.example;
 import Jolie.net.CommChannel;
 import Jolie.net.CommMessage;
@@ -734,7 +734,7 @@ Faults are very important for defining a correct communication protocol between 
 
 Let us consider the _FirstJavaService_ example where we call the method `HelloWorld` of the JavaService. In particular, let us modify the Java code to reply with a fault in case the incoming message is wrong.
 
-```text
+```java
 public Value HelloWorld( Value request ) throws FaultException {
         String message = request.getFirstChild( "message" ).strValue();
         System.out.println( message );
@@ -752,7 +752,7 @@ public Value HelloWorld( Value request ) throws FaultException {
 
 Note that the method `HelloWorld` throws an exception called `FaultException` that comes from the _jolie.runtime_ package. A simple Java exception **is not** recognized by the Jolie interpreter as a Fault, only those of FaultException type are. The creation of a _FaultException_ is very simple, the constructor can take one or two parameters. The former one is always the name of the fault, whereas the latter one, if present, contains the fault value tree \(in the example a message with a subnode `msg`\). The fault value tree is a common object of type _Value_. On the Jolie service side, there is nothing special but the fault is managed as usual:
 
-```text
+```jolie
 include "console.iol"
 
 include "FirstJavaServiceInterface.iol"
@@ -788,7 +788,7 @@ main {
 
 Keep in mind to modify the _FirstJavaServiceInterface_ by declaring the fault `WrongFault` for the operation `HelloWorld`:
 
-```text
+```jolie
 type AsyncHelloWorldRequest: void {
   .message: string
   .sleep: int
@@ -818,7 +818,7 @@ interface FirstJavaServiceInterface {
 
 In Jolie a RequestResponse message can return a fault message which must be managed into the JavaService. Such a task is very easy and can be achieved by checking if the response is a fault or not by exploiting method `isFault` of the class `CommMessage` as reported in the following code snippet:
 
-```text
+```jolie
 CommMessage response = sendMessage( request ).recvResponseFor( request );
 if ( response.isFault() ) {
     System.out.println( response.fault().faultName() );
@@ -831,7 +831,7 @@ if ( response.isFault() ) {
 
 So far, we have discussed the possibility to statically embed a JavaService. In this case the JavaService is shared among all the sessions created by the embedder. In some cases, it could be particularly suitable to embed an instance of JavaService for each running session of the embedder. Such a task can be fulfilled by exploiting the dynamic embedding functionality supplied by the `Runtime` of Jolie. In the following example we present the Java code of a JavaService which simply returns the value of a counter that is increased each time it is invoked on its method `start`.
 
-```text
+```java
 public class FourthJavaService extends JavaService {
     private int counter;
 
@@ -845,7 +845,7 @@ public class FourthJavaService extends JavaService {
 
 In the following code we report a classical embedding of this JavaService:
 
-```text
+```jolie
 include "console.iol"
 
 interface DynamicJavaServiceInterface {
@@ -904,7 +904,7 @@ In this case the JavaService is shared among all the sessions and each new invoc
 
 Now let us see what happens if we dynamically embed it as reported in the following service:
 
-```text
+```jolie
 include "console.iol"
 include "runtime.iol"
 

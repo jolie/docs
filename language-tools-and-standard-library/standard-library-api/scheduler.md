@@ -28,7 +28,7 @@ Operation documentation:
 
 Invocation template:
 
-```text
+```jolie
 setCronJob@Scheduler( request )( response )
 ```
 
@@ -36,7 +36,7 @@ setCronJob@Scheduler( request )( response )
 
 Type: SetCronJobRequest
 
-```text
+```jolie
 type SetCronJobRequest: void {
     .jobName: string
     .cronSpecs: void {
@@ -77,7 +77,7 @@ Fault `JobAlreadyExists` with type `void`
 
 Fault-handling install template:
 
-```text
+```jolie
 install ( JobAlreadyExists => /* error-handling code */ )
 ```
 
@@ -87,7 +87,7 @@ Operation documentation:
 
 Invocation template:
 
-```text
+```jolie
 deleteCronJob@Scheduler( request )( response )
 ```
 
@@ -95,7 +95,7 @@ deleteCronJob@Scheduler( request )( response )
 
 Type: DeleteCronJobRequest
 
-```text
+```jolie
 type DeleteCronJobRequest: void {
     .jobName: string
     .groupName: string
@@ -119,7 +119,7 @@ Operation documentation:
 
 Invocation template:
 
-```text
+```jolie
 setCallbackOperation@Scheduler( request )
 ```
 
@@ -127,7 +127,7 @@ setCallbackOperation@Scheduler( request )
 
 Type: SetCallBackOperationRequest
 
-```text
+```jolie
 type SetCallBackOperationRequest: void {
     .operationName: string
 }

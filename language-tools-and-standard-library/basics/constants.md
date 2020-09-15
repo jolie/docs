@@ -2,7 +2,7 @@
 
 It is possible to define constants by means of the construct `constants`. The declarations of the constants are divided by commas. The syntax is:
 
-```text
+```jolie
 constants {
     const1 = val1,
     const2 = val2,
@@ -13,7 +13,7 @@ constants {
 
 As an example let us consider the following code:
 
-```text
+```jolie
 constants {
     Server_location = "socket://localhost:8080",
     ALARM_TIMEOUT = 2000,

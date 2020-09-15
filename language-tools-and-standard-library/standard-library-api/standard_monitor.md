@@ -27,7 +27,7 @@ Operation documentation:
 
 Invocation template:
 
-```text
+```jolie
 monitorAlert( request )
 ```
 
@@ -53,7 +53,7 @@ Operation documentation:
 
 Invocation template:
 
-```text
+```jolie
 pushEvent@Monitor( request )
 ```
 
@@ -67,7 +67,7 @@ Type: undefined
 
 #### MonitorEvent <a id="MonitorEvent"></a>
 
-```text
+```jolie
 type MonitorEvent: void {
     .memory: long
     .data?: undefined
@@ -93,7 +93,7 @@ type MonitorEvent: void {
 
  Operation documentation: Invocation template:
 
-```text
+```jolie
 flush@Monitor( request )( response )
 ```
 
@@ -107,7 +107,7 @@ Type: void
 
 Type: FlushResponse
 
-```text
+```jolie
 type FlushResponse: void {
     .events*: MonitorEvent
 }
@@ -123,7 +123,7 @@ Operation documentation:
 
 Invocation template:
 
-```text
+```jolie
 setMonitor@Monitor( request )( response )
 ```
 
@@ -131,7 +131,7 @@ setMonitor@Monitor( request )( response )
 
 Type: SetStandardMonitorRequest
 
-```text
+```jolie
 type SetStandardMonitorRequest: void {
     .queueMax?: int
     .triggeredEnabled?: bool

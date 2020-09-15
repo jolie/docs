@@ -12,7 +12,7 @@ Jolie provides the statement `throw` to raise faults.
 
 Scope and throw syntax follows.
 
-```text
+```jolie
 scope( scope_name )
 {
 
@@ -26,7 +26,7 @@ scope( scope_name )
 
 The `install` statement provides the installation of dynamic fault handlers within a scope. The primitive `install` joins a fault to a process and its handler is executed when the scope catches the fault.
 
-```text
+```jolie
 scope( scope_name )
 {
     install ( 
@@ -43,7 +43,7 @@ scope( scope_name )
 
 A fault which is not caught within a scope, is automatically re-thrown to the parent scope. In the following example whose runnable code can be found [here](https://github.com/jolie/examples/tree/master/03_fault_handling/01_install), a simple jolie script asks the user to insert a number, if the number does not correspond to the `secret` one, a fault is raised.
 
-```text
+```jolie
 include "console.iol"
 
 main
@@ -80,14 +80,14 @@ main
 
 It is worth noting that the fault is firstly cathed by the first handler defined within the scope _num\_scope_ which will execute the following code:
 
-```text
+```jolie
 println@Console( "Wrong!" )();
 throw( WrongNumberFault )
 ```
 
 It will print the string `"Wrong!"` in the console and then it will re-throw the fault to the parent scope, the scope _main_. At this point the seconf fault handler defined at the level of the main scope will be executed:
 
-```text
+```jolie
 println@Console( "A wrong number has been inserted!" )()
 ```
 
@@ -97,7 +97,7 @@ An install statement may execute in parallel to other behaviours that may throw 
 
 As an example, consider the following code which can be found also [here](https://github.com/jolie/examples/tree/master/03_fault_handling/02_install_priority):
 
-```text
+```jolie
 scope( s )
 {
     throw( f ) | install( f => println@Console( "Fault caught!" )()    )
@@ -112,7 +112,7 @@ Uncaught fault signals in a request-response body are automatically sent to the 
 
 Here we transform the previous example script into a service in order to introduce a request-response operation \(operation _guess_\). You can find the complete code [here](https://github.com/jolie/examples/tree/master/03_fault_handling/03_fault_in_messages)
 
-```text
+```jolie
 type NumberExceptionType: void{
     .number: int
     .exceptionMessage: string
@@ -125,7 +125,7 @@ interface GuessInterface {
 
 The interface defines the operation `guess` able to throw a `NumberException`, whose message type is `NumberExceptionType`.
 
-```text
+```jolie
 include "GuessInterface.iol"
 include "console.iol"
 
@@ -172,7 +172,7 @@ The server implements the throw statement in the else branch of operation `guess
 
 The syntax for joining data into a fault is a simple extension of the `throw` syntax given previously.
 
-```text
+```jolie
 scope ( scope_name )
 {
     install ( FaultName => /* fault handling code */ );
@@ -183,7 +183,7 @@ scope ( scope_name )
 
 In the server of the example above, it is obtained by the follwoing piece of code:
 
-```text
+```jolie
 with( exceptionMessage ){
     .number = number;
     .exceptionMessage = "Wrong number, better luck next time!"
@@ -193,7 +193,7 @@ throw( NumberException, exceptionMessage )
 
 Let us check the client of the example in order to show how it handles the raise of the fault and prints the data sent from it:
 
-```text
+```jolie
 main
 {
     install( NumberException=>
@@ -210,7 +210,7 @@ It is worth noting that, in order to correctly reference fault data within a fau
 
 Thus in the example, since we want to access the node `exceptionMessage`, we use the following path:
 
-```text
+```jolie
 main.NumberException.exceptionMessage )()
 ```
 
@@ -222,7 +222,7 @@ With syntax `scope_name.default` we access the name of the fault caught by the s
 
 Used in combination with [dynamic lookup](https://jolielang.gitbook.io/docs/basics/data_structures#dynamic-look-up), with syntax `scope_name( scope_name.default ).faultMessage`, we can access the message sent with the fault, for instance `msg` in the example below.
 
-```text
+```jolie
 scope ( s ){
     install( MyFault => 
         println@Console( "Caught MyFault, message: " + s.MyFault.msg )() 

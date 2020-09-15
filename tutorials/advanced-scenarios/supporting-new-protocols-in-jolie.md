@@ -105,7 +105,7 @@ Similarly to what we did before, we need to rename the file from `SodepProtocol.
 
 * The name method
 
-  ```text
+  ```jolie
   public String name()
   {
     return "mysodep";
@@ -114,7 +114,7 @@ Similarly to what we did before, we need to rename the file from `SodepProtocol.
 
 * The SodepProtocol method
 
-  ```text
+  ```jolie
   public MySodepProtocol( VariablePath configurationPath )
   {
     super( configurationPath );
@@ -141,7 +141,7 @@ NOTE! To recompile the entire Jolie project, integrate your extension into the m
 
 Now that the implementation of `mysodep` is ready and compiled, we can use it in Jolie programs. As an example, we use the new protocol `mysodep` in the programs below \(a client and a server\).
 
-```java
+```jolie
 include "console.iol"
 interface TwiceInterface {
     RequestResponse: twice( int )( int )

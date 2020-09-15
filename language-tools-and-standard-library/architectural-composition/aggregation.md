@@ -4,7 +4,7 @@ The _Aggregation_ is an architectural operator between an inputPort and a set of
 
 The syntax for aggregation extends that given for input ports.
 
-```text
+```jolie
 inputPort id {
     Location: URI
     Protocol: p
@@ -37,7 +37,7 @@ As an example let us consider the case of two services, the printer and fax, agg
 
 The service _printer_ offers two operations called _print_ and _del_. The former allows for the printing of a document whereas the latter allows for its deletion from the queue. On the other hand the service _fax_ offers just one operation called _fax_. The aggregator, aggregates on its inputPort called _Aggregator_ both the printer and fax services as it is shown below where we report the ports declaration of the aggregator service:
 
-```text
+```jolie
 include "printer.iol"
 include "fax.iol"
 
@@ -87,7 +87,7 @@ Here we introduce the concept of surface that is quite similar to that of _inter
 
 A _surface_ is the resulting interface available at a given input port.
 
-```text
+```jolie
 interface A { ... }
 interface B { ... }
 interface C { ... }
@@ -115,7 +115,7 @@ In this case the surface at input port _MyInput_ is the resulting interface of t
 
 A surface is always obtained by listing all the available operations and types of all the interfaces available at a given input port. Thus if we calculate the surface of the port _Aggregator_ dicussed in the previous section we will obtain the following one:
 
-```text
+```jolie
 type JobID:void{
     .jobId:string
 }
@@ -177,7 +177,7 @@ The service _MetaJolie_ provides a set of functionalities for getting important 
 
 In the following you can find the example of the programmatic surface extraction of service _aggregator.ol_.
 
-```text
+```jolie
 include "metajolie.iol"
 include "metaparser.iol"
 include "console.iol"
@@ -201,7 +201,7 @@ In this case the aggregator automatically transforms the messages thus enabling 
 
 The full executable example can be found [here](https://github.com/jolie/examples/tree/master/04_architectural_composition/06_aggregation/07_protocol_transformation). Here we report the input ports of both the fax and the printer services, and the output ports of the aggregator together with its main input port.
 
-```text
+```jolie
 // Fax Service
 inputPort FaxInput {
 Location: "socket://localhost:9001"

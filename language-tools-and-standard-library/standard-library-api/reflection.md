@@ -26,7 +26,7 @@ Operation documentation: Invokes the specified .operation at .outputPort. If the
 
 Invocation template:
 
-```text
+```jolie
 invoke@Reflection( request )( response )
 ```
 
@@ -34,7 +34,7 @@ invoke@Reflection( request )( response )
 
 Type: InvokeRequest
 
-```text
+```jolie
 type InvokeRequest: void {
     .outputPort: string
     .data?: undefined
@@ -62,7 +62,7 @@ Fault `OperationNotFound` with type `string`
 
 Fault-handling install template:
 
-```text
+```jolie
 install ( OperationNotFound => /* error-handling code */ )
 ```
 
@@ -70,11 +70,11 @@ Fault `InvocationFault` with type `InvocationFaultType`
 
 Fault-handling install template:
 
-```text
+```jolie
 install ( InvocationFault => /* error-handling code */ )
 ```
 
-```text
+```jolie
 type InvocationFaultType: void {
     .data: string
     .name: string

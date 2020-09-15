@@ -27,7 +27,7 @@ Operation documentation:
 
 Invocation template:
 
-```text
+```jolie
 getNetworkInterfaceNames@NetworkService( request )( response )
 ```
 
@@ -41,7 +41,7 @@ Type: GetNetworkInterfaceNamesRequest
 
 Type: GetNetworkInterfaceNamesResponse
 
-```text
+```jolie
 type GetNetworkInterfaceNamesResponse: void {
     .interfaceName*: string {
         .displayName: string
@@ -60,7 +60,7 @@ Operation documentation:
 
 Invocation template:
 
-```text
+```jolie
 getIPAddresses@NetworkService( request )( response )
 ```
 
@@ -68,7 +68,7 @@ getIPAddresses@NetworkService( request )( response )
 
 Type: GetIPAddressesRequest
 
-```text
+```jolie
 type GetIPAddressesRequest: void {
     .interfaceName: string
 }
@@ -82,7 +82,7 @@ type GetIPAddressesRequest: void {
 
 Type: GetIPAddressesResponse
 
-```text
+```jolie
 type GetIPAddressesResponse: void {
     .ip4?: string
     .ip6?: string
@@ -100,7 +100,7 @@ Fault `InterfaceNotFound` with type `undefined`
 
 Fault-handling install template:
 
-```text
+```jolie
 install ( InterfaceNotFound => /* error-handling code */ )
 ```
 

@@ -31,7 +31,7 @@ Operation documentation: Checks the connection with the database. Throws Connect
 
 Invocation template:
 
-```text
+```jolie
 checkConnection@Database( request )( response )
 ```
 
@@ -53,7 +53,7 @@ Fault `ConnectionError` with type `undefined`
 
 Fault-handling install template:
 
-```text
+```jolie
 install ( ConnectionError => /* error-handling code */ )
 ```
 
@@ -61,7 +61,7 @@ install ( ConnectionError => /* error-handling code */ )
 
 Operation documentation: Queries the database and returns a result set
 
-```text
+```jolie
   Example with SQL parameters:
   queryRequest =
       "SELECT city, country, data FROM weather " +
@@ -99,7 +99,7 @@ Operation documentation: Queries the database and returns a result set
 
 Invocation template:
 
-```text
+```jolie
 query@Database( request )( response )
 ```
 
@@ -107,7 +107,7 @@ query@Database( request )( response )
 
 Type: QueryRequest
 
-```text
+```jolie
 type QueryRequest: undefined
 ```
 
@@ -117,7 +117,7 @@ type QueryRequest: undefined
 
 Type: QueryResult
 
-```text
+```jolie
 type QueryResult: void {
     .row*: undefined
 }
@@ -133,7 +133,7 @@ Fault `SQLException` with type `undefined`
 
 Fault-handling install template:
 
-```text
+```jolie
 install ( SQLException => /* error-handling code */ )
 ```
 
@@ -141,7 +141,7 @@ Fault `ConnectionError` with type `undefined`
 
 Fault-handling install template:
 
-```text
+```jolie
 install ( ConnectionError => /* error-handling code */ )
 ```
 
@@ -151,7 +151,7 @@ Operation documentation: Executes more than one database command in a single tra
 
 Invocation template:
 
-```text
+```jolie
 executeTransaction@Database( request )( response )
 ```
 
@@ -159,7 +159,7 @@ executeTransaction@Database( request )( response )
 
 Type: DatabaseTransactionRequest
 
-```text
+```jolie
 type DatabaseTransactionRequest: void {
     .statement[1,2147483647]: undefined
 }
@@ -173,7 +173,7 @@ type DatabaseTransactionRequest: void {
 
 Type: DatabaseTransactionResult
 
-```text
+```jolie
 type DatabaseTransactionResult: void {
     .result*: TransactionQueryResult
 }
@@ -189,7 +189,7 @@ Fault `SQLException` with type `undefined`
 
 Fault-handling install template:
 
-```text
+```jolie
 install ( SQLException => /* error-handling code */ )
 ```
 
@@ -197,7 +197,7 @@ Fault `ConnectionError` with type `undefined`
 
 Fault-handling install template:
 
-```text
+```jolie
 install ( ConnectionError => /* error-handling code */ )
 ```
 
@@ -205,7 +205,7 @@ install ( ConnectionError => /* error-handling code */ )
 
 Operation documentation: Updates the database and returns a single status code
 
-```text
+```jolie
   Example with SQL parameters:
   updateRequest =
       "INSERT INTO weather(city, country, data) " +
@@ -218,7 +218,7 @@ Operation documentation: Updates the database and returns a single status code
 
 Invocation template:
 
-```text
+```jolie
 update@Database( request )( response )
 ```
 
@@ -226,7 +226,7 @@ update@Database( request )( response )
 
 Type: UpdateRequest
 
-```text
+```jolie
 type UpdateRequest: undefined
 ```
 
@@ -244,7 +244,7 @@ Fault `SQLException` with type `undefined`
 
 Fault-handling install template:
 
-```text
+```jolie
 install ( SQLException => /* error-handling code */ )
 ```
 
@@ -252,7 +252,7 @@ Fault `ConnectionError` with type `undefined`
 
 Fault-handling install template:
 
-```text
+```jolie
 install ( ConnectionError => /* error-handling code */ )
 ```
 
@@ -262,7 +262,7 @@ Operation documentation: Explicitly closes a database connection Per default the
 
 Invocation template:
 
-```text
+```jolie
 close@Database( request )( response )
 ```
 
@@ -282,7 +282,7 @@ Type: void
 
 Operation documentation: Connects to a database and eventually closes a previous connection
 
-```text
+```jolie
   Example with HSQLDB:
   with ( connectionInfo ) {
       .username = "sa";
@@ -296,7 +296,7 @@ Operation documentation: Connects to a database and eventually closes a previous
 
 Invocation template:
 
-```text
+```jolie
 connect@Database( request )( response )
 ```
 
@@ -304,7 +304,7 @@ connect@Database( request )( response )
 
 Type: ConnectionInfo
 
-```text
+```jolie
 type ConnectionInfo: void {
     .database: string
     .password: string
@@ -344,7 +344,7 @@ Fault `InvalidDriver` with type `undefined`
 
 Fault-handling install template:
 
-```text
+```jolie
 install ( InvalidDriver => /* error-handling code */ )
 ```
 
@@ -352,7 +352,7 @@ Fault `ConnectionError` with type `undefined`
 
 Fault-handling install template:
 
-```text
+```jolie
 install ( ConnectionError => /* error-handling code */ )
 ```
 
@@ -360,7 +360,7 @@ Fault `DriverClassNotFound` with type `undefined`
 
 Fault-handling install template:
 
-```text
+```jolie
 install ( DriverClassNotFound => /* error-handling code */ )
 ```
 
@@ -368,7 +368,7 @@ install ( DriverClassNotFound => /* error-handling code */ )
 
 #### TransactionQueryResult <a id="TransactionQueryResult"></a>
 
-```
+```jolie
 type TransactionQueryResult: int { .row*: undefined }
 ```
 

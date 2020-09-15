@@ -46,7 +46,7 @@ Operation documentation: Returns true if the string contains .substring
 
 Invocation template:
 
-```text
+```jolie
 leftPad@StringUtils( request )( response )
 ```
 
@@ -54,7 +54,7 @@ leftPad@StringUtils( request )( response )
 
 Type: PadRequest
 
-```text
+```jolie
 type PadRequest: string {
     .length: int
     .char: string
@@ -78,7 +78,7 @@ Operation documentation: checks if the passed string starts with a given prefix
 
 Invocation template:
 
-```text
+```jolie
 valueToPrettyString@StringUtils( request )( response )
 ```
 
@@ -100,7 +100,7 @@ Operation documentation: Returns true if the string contains .substring
 
 Invocation template:
 
-```text
+```jolie
 toLowerCase@StringUtils( request )( response )
 ```
 
@@ -122,7 +122,7 @@ Operation documentation: Returns true if the string contains .substring
 
 Invocation template:
 
-```text
+```jolie
 length@StringUtils( request )( response )
 ```
 
@@ -144,7 +144,7 @@ Operation documentation: Returns true if the string contains .substring
 
 Invocation template:
 
-```text
+```jolie
 match@StringUtils( request )( response )
 ```
 
@@ -152,7 +152,7 @@ match@StringUtils( request )( response )
 
 Type: MatchRequest
 
-```text
+```jolie
 type MatchRequest: string {
     .regex: string
 }
@@ -166,7 +166,7 @@ type MatchRequest: string {
 
 Type: MatchResult
 
-```text
+```jolie
 type MatchResult: int {
     .group*: string
 }
@@ -182,7 +182,7 @@ Operation documentation: Returns true if the string contains .substring
 
 Invocation template:
 
-```text
+```jolie
 replaceFirst@StringUtils( request )( response )
 ```
 
@@ -190,7 +190,7 @@ replaceFirst@StringUtils( request )( response )
 
 Type: ReplaceRequest
 
-```text
+```jolie
 type ReplaceRequest: string {
     .regex: string
     .replacement: string
@@ -214,7 +214,7 @@ Operation documentation: Returns true if the string contains .substring
 
 Invocation template:
 
-```text
+```jolie
 sort@StringUtils( request )( response )
 ```
 
@@ -222,7 +222,7 @@ sort@StringUtils( request )( response )
 
 Type: StringItemList
 
-```text
+```jolie
 type StringItemList: void {
     .item*: string
 }
@@ -236,7 +236,7 @@ type StringItemList: void {
 
 Type: StringItemList
 
-```text
+```jolie
 type StringItemList: void {
     .item*: string
 }
@@ -252,7 +252,7 @@ Operation documentation: Returns true if the string contains .substring
 
 Invocation template:
 
-```text
+```jolie
 replaceAll@StringUtils( request )( response )
 ```
 
@@ -260,7 +260,7 @@ replaceAll@StringUtils( request )( response )
 
 Type: ReplaceRequest
 
-```text
+```jolie
 type ReplaceRequest: string {
     .regex: string
     .replacement: string
@@ -284,7 +284,7 @@ Operation documentation: Returns true if the string contains .substring
 
 Invocation template:
 
-```text
+```jolie
 substring@StringUtils( request )( response )
 ```
 
@@ -292,7 +292,7 @@ substring@StringUtils( request )( response )
 
 Type: SubStringRequest
 
-```text
+```jolie
 type SubStringRequest: string {
     .end: int
     .begin: int
@@ -316,7 +316,7 @@ Operation documentation: it returns a random UUID
 
 Invocation template:
 
-```text
+```jolie
 getRandomUUID@StringUtils( request )( response )
 ```
 
@@ -338,7 +338,7 @@ Operation documentation: Returns true if the string contains .substring
 
 Invocation template:
 
-```text
+```jolie
 rightPad@StringUtils( request )( response )
 ```
 
@@ -346,7 +346,7 @@ rightPad@StringUtils( request )( response )
 
 Type: PadRequest
 
-```text
+```jolie
 type PadRequest: string {
     .length: int
     .char: string
@@ -370,7 +370,7 @@ Operation documentation: Returns true if the string contains .substring
 
 Invocation template:
 
-```text
+```jolie
 contains@StringUtils( request )( response )
 ```
 
@@ -378,7 +378,7 @@ contains@StringUtils( request )( response )
 
 Type: ContainsRequest
 
-```text
+```jolie
 type ContainsRequest: string {
     .substring: string
 }
@@ -400,7 +400,7 @@ Operation documentation: Returns true if the string contains .substring
 
 Invocation template:
 
-```text
+```jolie
 split@StringUtils( request )( response )
 ```
 
@@ -408,7 +408,7 @@ split@StringUtils( request )( response )
 
 Type: SplitRequest
 
-```text
+```jolie
 type SplitRequest: string {
     .regex: string
     .limit?: int
@@ -424,7 +424,7 @@ type SplitRequest: string {
 
 Type: SplitResult
 
-```text
+```jolie
 type SplitResult: void {
     .result*: string
 }
@@ -440,7 +440,7 @@ Operation documentation: Returns true if the string contains .substring
 
 Invocation template:
 
-```text
+```jolie
 splitByLength@StringUtils( request )( response )
 ```
 
@@ -448,7 +448,7 @@ splitByLength@StringUtils( request )( response )
 
 Type: SplitByLengthRequest
 
-```text
+```jolie
 type SplitByLengthRequest: string {
     .length: int
 }
@@ -462,7 +462,7 @@ type SplitByLengthRequest: string {
 
 Type: SplitResult
 
-```text
+```jolie
 type SplitResult: void {
     .result*: string
 }
@@ -478,7 +478,7 @@ Operation documentation: Returns true if the string contains .substring
 
 Invocation template:
 
-```text
+```jolie
 trim@StringUtils( request )( response )
 ```
 
@@ -500,7 +500,7 @@ Operation documentation: Returns true if the string contains .substring
 
 Invocation template:
 
-```text
+```jolie
 find@StringUtils( request )( response )
 ```
 
@@ -508,7 +508,7 @@ find@StringUtils( request )( response )
 
 Type: MatchRequest
 
-```text
+```jolie
 type MatchRequest: string {
     .regex: string
 }
@@ -522,7 +522,7 @@ type MatchRequest: string {
 
 Type: MatchResult
 
-```text
+```jolie
 type MatchResult: int {
     .group*: string
 }
@@ -538,7 +538,7 @@ Operation documentation: checks if a string ends with a given suffix
 
 Invocation template:
 
-```text
+```jolie
 endsWith@StringUtils( request )( response )
 ```
 
@@ -546,7 +546,7 @@ endsWith@StringUtils( request )( response )
 
 Type: EndsWithRequest
 
-```text
+```jolie
 type EndsWithRequest: string {
     .suffix: string
 }
@@ -568,7 +568,7 @@ Operation documentation: Returns true if the string contains .substring
 
 Invocation template:
 
-```text
+```jolie
 toUpperCase@StringUtils( request )( response )
 ```
 
@@ -590,7 +590,7 @@ Operation documentation: Returns true if the string contains .substring
 
 Invocation template:
 
-```text
+```jolie
 join@StringUtils( request )( response )
 ```
 
@@ -598,7 +598,7 @@ join@StringUtils( request )( response )
 
 Type: JoinRequest
 
-```text
+```jolie
 type JoinRequest: void {
     .piece*: string
     .delimiter: string
@@ -622,7 +622,7 @@ Operation documentation: Returns true if the string contains .substring
 
 Invocation template:
 
-```text
+```jolie
 indexOf@StringUtils( request )( response )
 ```
 
@@ -630,7 +630,7 @@ indexOf@StringUtils( request )( response )
 
 Type: IndexOfRequest
 
-```text
+```jolie
 type IndexOfRequest: string {
     .word: string
 }
@@ -652,7 +652,7 @@ Operation documentation: checks if the passed string starts with a given prefix
 
 Invocation template:
 
-```text
+```jolie
 startsWith@StringUtils( request )( response )
 ```
 
@@ -660,7 +660,7 @@ startsWith@StringUtils( request )( response )
 
 Type: StartsWithRequest
 
-```text
+```jolie
 type StartsWithRequest: string {
     .prefix: string
 }

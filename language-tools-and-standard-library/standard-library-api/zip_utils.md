@@ -30,7 +30,7 @@ Operation documentation:
 
 Invocation template:
 
-```text
+```jolie
 zip@ZipUtils( request )( response )
 ```
 
@@ -38,7 +38,7 @@ zip@ZipUtils( request )( response )
 
 Type: ZipRequest
 
-```text
+```jolie
 type ZipRequest: undefined
 ```
 
@@ -56,11 +56,11 @@ Fault `IOException` with type `IOExceptionType`
 
 Fault-handling install template:
 
-```text
+```jolie
 install ( IOException => /* error-handling code */ )
 ```
 
-```text
+```jolie
 type IOExceptionType: JavaExceptionType
 ```
 
@@ -70,7 +70,7 @@ Operation documentation:
 
 Invocation template:
 
-```text
+```jolie
 IOException@ZipUtils( request )( response )
 ```
 
@@ -92,7 +92,7 @@ Operation documentation:
 
 Invocation template:
 
-```text
+```jolie
 unzip@ZipUtils( request )( response )
 ```
 
@@ -100,7 +100,7 @@ unzip@ZipUtils( request )( response )
 
 Type: UnzipRequest
 
-```text
+```jolie
 type UnzipRequest: void {
     .filename: string
     .targetPath: string
@@ -116,7 +116,7 @@ type UnzipRequest: void {
 
 Type: UnzipResponse
 
-```text
+```jolie
 type UnzipResponse: void {
     .entry*: string
 }
@@ -132,7 +132,7 @@ Fault `FileNotFound` with type `undefined`
 
 Fault-handling install template:
 
-```text
+```jolie
 install ( FileNotFound => /* error-handling code */ )
 ```
 
@@ -142,7 +142,7 @@ Operation documentation:
 
 Invocation template:
 
-```text
+```jolie
 readEntry@ZipUtils( request )( response )
 ```
 
@@ -150,7 +150,7 @@ readEntry@ZipUtils( request )( response )
 
 Type: ReadEntryRequest
 
-```text
+```jolie
 type ReadEntryRequest: void {
     .entry: string
     .filename?: string
@@ -176,11 +176,11 @@ Fault `IOException` with type `IOExceptionType`
 
 Fault-handling install template:
 
-```text
+```jolie
 install ( IOException => /* error-handling code */ )
 ```
 
-```text
+```jolie
 type IOExceptionType: JavaExceptionType
 ```
 
@@ -190,7 +190,7 @@ Operation documentation:
 
 Invocation template:
 
-```text
+```jolie
 listEntries@ZipUtils( request )( response )
 ```
 
@@ -198,7 +198,7 @@ listEntries@ZipUtils( request )( response )
 
 Type: ListEntriesRequest
 
-```text
+```jolie
 type ListEntriesRequest: void {
     .filename?: string
     .archive?: raw
@@ -214,7 +214,7 @@ type ListEntriesRequest: void {
 
 Type: ListEntriesResponse
 
-```text
+```jolie
 type ListEntriesResponse: void {
     .entry*: string
 }
@@ -230,11 +230,11 @@ Fault `IOException` with type `IOExceptionType`
 
 Fault-handling install template:
 
-```text
+```jolie
 install ( IOException => /* error-handling code */ )
 ```
 
-```text
+```jolie
 type IOExceptionType: JavaExceptionType
 ```
 
@@ -242,7 +242,7 @@ type IOExceptionType: JavaExceptionType
 
 #### JavaExceptionType <a id="JavaExceptionType"></a>
 
-```
+```jolie
 type JavaExceptionType: string { .stackTrace: string }
 ```
 

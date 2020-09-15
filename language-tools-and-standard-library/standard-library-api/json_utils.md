@@ -25,13 +25,13 @@ Interface documentation:
 
 Operation documentation: Returns the value converted into a JSON string
 
-```text
+```jolie
   Each child value corresponds to an attribute, the base values are saved as the default values (attribute "$" or singular value), the "_" helper childs disappear (e.g. a._[i]._[j] -> a[i][j]), the rest gets converted recursively
 ```
 
 Invocation template:
 
-```text
+```jolie
 getJsonString@JsonUtils( request )( response )
 ```
 
@@ -39,7 +39,7 @@ getJsonString@JsonUtils( request )( response )
 
 Type: GetJsonStringRequest
 
-```text
+```jolie
 type GetJsonStringRequest: undefined
 ```
 
@@ -57,7 +57,7 @@ Fault `JSONCreationError` with type `undefined`
 
 Fault-handling install template:
 
-```text
+```jolie
 install ( JSONCreationError => /* error-handling code */ )
 ```
 
@@ -65,13 +65,13 @@ install ( JSONCreationError => /* error-handling code */ )
 
 Operation documentation: Returns the JSON string converted into a value
 
-```text
+```jolie
   Each attribute corresponds to a child value, the default values (attribute "$" or singular value) are saved as the base values, nested arrays get mapped with the "_" helper childs (e.g. a[i][j] -> a._[i]._[j]), the rest gets converted recursively
 ```
 
 Invocation template:
 
-```text
+```jolie
 getJsonValue@JsonUtils( request )( response )
 ```
 
@@ -79,7 +79,7 @@ getJsonValue@JsonUtils( request )( response )
 
 Type: GetJsonValueRequest
 
-```text
+```jolie
 type GetJsonValueRequest: any {
     .strictEncoding?: bool
     .charset?: string
@@ -95,7 +95,7 @@ type GetJsonValueRequest: any {
 
 Type: GetJsonValueResponse
 
-```text
+```jolie
 type GetJsonValueResponse: undefined
 ```
 
@@ -107,7 +107,7 @@ Fault `JSONCreationError` with type `undefined`
 
 Fault-handling install template:
 
-```text
+```jolie
 install ( JSONCreationError => /* error-handling code */ )
 ```
 

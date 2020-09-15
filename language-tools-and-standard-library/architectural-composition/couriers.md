@@ -12,7 +12,7 @@ In the diagram above, we represent a courier process as a black square within an
 
 A courier process is defined in terms of a scope prefixed with the keyword `courier` followed by the name of the input port where attaching the courier process:
 
-```text
+```jolie
 courier <Name of the Input port> {
     ...
 }
@@ -20,7 +20,7 @@ courier <Name of the Input port> {
 
 In the body of the scope, the list of the operations affected by the courier process must be defined. The list of operations follows this syntactical structure:
 
-```text
+```jolie
 courier <Name of the Input port> {
     [ <declaration of operation> ] {
        // code
@@ -40,7 +40,7 @@ courier <Name of the Input port> {
 
 where the declaration of the operation can be twofold depending on the operation type: request response or one way:
 
-```text
+```jolie
 courier <Name of the Input port> {
     /* request response */
     [ operation_name( request )( response ) ] {
@@ -58,7 +58,7 @@ courier <Name of the Input port> {
 
 The statement `forward` can be used within the courier process code of each operation for delivering the message to the final target, as specified in the input port definition for the given operation. The syntax of the forward is very simple and it just follows the structure of the request response or the one way operation:
 
-```text
+```jolie
 courier <Name of the Input port> {
     /* request response */
     [ operation_name( request )( response ) ] {
@@ -78,7 +78,7 @@ courier <Name of the Input port> {
 
 As an example, try to add the following courier process to the service aggregator of the example described in [Section Aggregation](aggregation.md)
 
-```text
+```jolie
 courier Aggregator {
     [ print( request )( response ) ] {
         println@Console("Hello, I am the courier process")();
@@ -102,7 +102,7 @@ Such a courier process is attached to port `Aggregator` and it is applied only o
 
 Sometimes it could happen that a courier process must be executed for all the operations of the same interface. In these cases could be quite annoying to list all the operations of that interface and write for each of them the same code. In Jolie it is possible to join a courier process to all the operations of a given interface. In this case the syntax is:
 
-```text
+```jolie
 courier <Name of the Input port> {
     /* all the request response operations of the interface*/
     [ interface interface_name( request )( response ) ] {
@@ -128,7 +128,7 @@ Here we extend the example presented in [Section Aggregation](aggregation.md) by
 
 The complete code of the example can be checked [here](https://github.com/jolie/examples/tree/master/04_architectural_composition/06_aggregation/03_courier/01-Courier). In this case we add courier processes to the interfaces of the aggregated ports where, before forwarding the incoming messages to the target ports we call the logger service by sending the content of the message obtained with the operation `valueToPrettyString` of service [StringUtils](https://jolielang.gitbook.io/docs/standard-library-api/string_utils).
 
-```text
+```jolie
 courier Aggregator {
     [ interface PrinterInterface( request )( response ) ] {
         valueToPrettyString@StringUtils( request )( s );
@@ -146,7 +146,7 @@ courier Aggregator {
 
 It is worth noting that the output port of service Logger is just one of the output ports available within the service aggregator and it is normally defined like all the others.
 
-```text
+```jolie
 outputPort Logger {
     Location: Location_Logger
     Protocol: sodep
@@ -168,7 +168,7 @@ Interface extension can be particularly useful when it is necessary to enrich th
 
 `interface extender` is the keyword used in Jolie for defining the extending rules to overload the types of a given interface. The syntax follows.
 
-```text
+```jolie
 interface extender extender_id {
     OneWay: * | OneWayDefinition
     RequestResponse: * | RequestResponseDefinition
@@ -179,7 +179,7 @@ The `interface extender` associates an identifier \(`extender_id`\) to a set of 
 
 As an example let us consider the following interface extender:
 
-```text
+```jolie
 type AuthenticationData: void {
     .key:string
 }
@@ -194,7 +194,7 @@ This interface extender must be read in the following way:
 
 * extends all the request response operations of a given interface with type `AuthenticationData` in request messages and type `void` in response messages. The `AuthenticationData` just adds a node `key:string` to each request message, whereas the type `void` does not actually alter the response messages. A new fault called `KeyNotValid` can be thrown by all the extended request response operations. In case we specify the name of the operation in the interface extender, the rule will be applied only to that operation. In the following example, the rule will be applied only to operations named `op1`.
 
-```text
+```jolie
 type AuthenticationData: void {
     .key:string
 }
@@ -209,7 +209,7 @@ RequestResponse:
 
 Interface extenders can only be applied to aggregated output ports. In order to do that the keyword `with` is used for associating an aggregated output port to an interface extender. The syntax follows:
 
-```text
+```jolie
 inputPort AggregatorPort {
     // Location definition
     // Protocol definition
@@ -232,7 +232,7 @@ In this example we add a service called _authenticator_ for checking the validit
 
 If we look into the service aggregator, we will find the following interface extension:
 
-```text
+```jolie
 type AuthenticationData: void {
     .key:string
 }
@@ -247,7 +247,7 @@ interface extender AuthInterfaceExtender {
 
 and the following courier processes where a _checkKey_ request is sent to the service _Authenticator_ before forwarding the message to the target output port. Note that in case the key is not valid, a fault _KeyNotValid_ generated by the service Authenticator is automatically sent back to the client:
 
-```text
+```jolie
 courier Aggregator {
     [ interface PrinterInterface( request )( response ) ] {
         valueToPrettyString@StringUtils( request )( s );

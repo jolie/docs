@@ -27,7 +27,7 @@ Operation documentation:
 
 Invocation template:
 
-```text
+```jolie
 sendMessage@XMPP( request )( response )
 ```
 
@@ -35,7 +35,7 @@ sendMessage@XMPP( request )( response )
 
 Type: SendMessageRequest
 
-```text
+```jolie
 type SendMessageRequest: string {
     .to: string
 }
@@ -57,7 +57,7 @@ Fault `XMPPException` with type `undefined`
 
 Fault-handling install template:
 
-```text
+```jolie
 install ( XMPPException => /* error-handling code */ )
 ```
 
@@ -67,7 +67,7 @@ Operation documentation:
 
 Invocation template:
 
-```text
+```jolie
 connect@XMPP( request )( response )
 ```
 
@@ -75,7 +75,7 @@ connect@XMPP( request )( response )
 
 Type: ConnectionRequest
 
-```text
+```jolie
 type ConnectionRequest: void {
     .password: string
     .port?: int
@@ -107,7 +107,7 @@ Fault `XMPPException` with type `undefined`
 
 Fault-handling install template:
 
-```text
+```jolie
 install ( XMPPException => /* error-handling code */ )
 ```
 

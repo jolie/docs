@@ -26,13 +26,13 @@ Interface documentation:
 
 Operation documentation: Transforms the base value in XML format \(data types string, raw\) into a Jolie value
 
-```text
+```jolie
       The XML root node will be discarded, the rest gets converted recursively
 ```
 
 Invocation template:
 
-```text
+```jolie
 xmlToValue@XmlUtils( request )( response )
 ```
 
@@ -40,7 +40,7 @@ xmlToValue@XmlUtils( request )( response )
 
 Type: XMLToValueRequest
 
-```text
+```jolie
 type XMLToValueRequest: any {
     .options?: void {
         .skipMixedText?: bool
@@ -77,11 +77,11 @@ Fault `IOException` with type `IOExceptionType`
 
 Fault-handling install template:
 
-```text
+```jolie
 install ( IOException => /* error-handling code */ )
 ```
 
-```text
+```jolie
 type IOExceptionType: JavaExceptionType
 ```
 
@@ -91,7 +91,7 @@ Operation documentation:
 
 Invocation template:
 
-```text
+```jolie
 transform@XmlUtils( request )( response )
 ```
 
@@ -99,7 +99,7 @@ transform@XmlUtils( request )( response )
 
 Type: XMLTransformationRequest
 
-```text
+```jolie
 type XMLTransformationRequest: void {
     .source: string
     .xslt: string
@@ -123,11 +123,11 @@ Fault `TransformerException` with type `JavaExceptionType`
 
 Fault-handling install template:
 
-```text
+```jolie
 install ( TransformerException => /* error-handling code */ )
 ```
 
-```text
+```jolie
 type JavaExceptionType: string {
     .stackTrace: string
 }
@@ -137,13 +137,13 @@ type JavaExceptionType: string {
 
 Operation documentation: Transforms the value contained within the root node into an xml string.
 
-```text
+```jolie
       The base value of ValueToXmlRequest.root will be discarded, the rest gets converted recursively
 ```
 
 Invocation template:
 
-```text
+```jolie
 valueToXml@XmlUtils( request )( response )
 ```
 
@@ -151,7 +151,7 @@ valueToXml@XmlUtils( request )( response )
 
 Type: ValueToXmlRequest
 
-```text
+```jolie
 type ValueToXmlRequest: void {
     .omitXmlDeclaration?: bool
     .indent?: bool
@@ -192,11 +192,11 @@ Fault `IOException` with type `IOExceptionType`
 
 Fault-handling install template:
 
-```text
+```jolie
 install ( IOException => /* error-handling code */ )
 ```
 
-```text
+```jolie
 type IOExceptionType: JavaExceptionType
 ```
 
@@ -204,7 +204,7 @@ Fault `IllegalArgumentException` with type `string`
 
 Fault-handling install template:
 
-```text
+```jolie
 install ( IllegalArgumentException => /* error-handling code */ )
 ```
 
@@ -212,7 +212,7 @@ install ( IllegalArgumentException => /* error-handling code */ )
 
 #### JavaExceptionType <a id="JavaExceptionType"></a>
 
-```
+```jolie
 type JavaExceptionType: string { .stackTrace: string }
 ```
 

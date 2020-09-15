@@ -37,37 +37,37 @@ The steps it implements are:
 
 1. Creation of the docker images of the three services
 
-   ```text
+   ```jolie
    build@Jocker(rqImg)(response);
    ```
 
 2. Creation of the network `testnet` where connecting the containers 
 
-   ```text
+   ```jolie
    createNetwork@Jocker( ntwCreate_rq )( ntwCreate_rs );
    ```
 
 3. Creation of the three containers
 
-   ```text
+   ```jolie
    createContainer@Jocker( cntCreate_rq )( cntCreate_rs );
    ```
 
 4. Attaching each container to the network `testnet`
 
-   ```text
+   ```jolie
    attachContainerToNetwork@Jocker( attachCnt2Ntw_rq )();
    ```
 
 5. Starting of each container
 
-   ```text
+   ```jolie
    startContainer@Jocker( startCnt_rq )();
    ```
 
 6. Inspecting the container for checking it is running
 
-   ```text
+   ```jolie
    inspectContainer@Jocker( inspect_rq )( inspect_rs );
    ```
 
@@ -75,7 +75,7 @@ The steps it implements are:
 
 1. Invoking of the `infoService` for testing if it is working
 
-   ```text
+   ```jolie
    getInfo@InfoService( { .city = "Rome" } )( info )
    ```
 
@@ -83,25 +83,25 @@ The steps it implements are:
 
 1. Stopping all the containers
 
-   ```text
+   ```jolie
    stopContainer@Jocker( stopCnt_rq )();
    ```
 
 2. Removing all containers
 
-   ```text
+   ```jolie
    removeContainer@Jocker( stopCnt_rq )( );
    ```
 
 3. Removing the network `testnet`
 
-   ```text
+   ```jolie
    removeNetwork@Jocker( ntwRemove_rq )();
    ```
 
 4. Removing all the images
 
-   ```text
+   ```jolie
    removeImage@Jocker( rmImage_rq )();
    ```
 

@@ -6,7 +6,7 @@
 
 Get a bearer token to access the Twitter API from Twitter at the page [https://developer.twitter.com/en/docs/basics/authentication/oauth-2-0/bearer-tokens](https://developer.twitter.com/en/docs/basics/authentication/oauth-2-0/bearer-tokens). Replace `<YOUR BEARER TOKEN>` in the code below with your own bearer token.
 
-```
+```jolie
 outputPort Twitter {
 location: "socket://api.twitter.com:443/"
 protocol: https {
@@ -24,7 +24,7 @@ You can now access the operations `user_timeline` and `show` of the Twitter API 
 
 Here is a full Jolie snippet that prints the latest 10 tweets by the [Jolie Twitter account](https://twitter.com/jolielang). Just copy-paste the code into a file, put your own bearer token, and launch it.
 
-```
+```jolie
 // The output port from above
 outputPort Twitter {
 location: "socket://api.twitter.com:443/"
@@ -72,7 +72,7 @@ For example, say that you want to use operation `statuses/user_timeline`. Its do
 
 This translates to the following output port configuration in Jolie. You have to replace `<YOUR BEARER TOKEN>` with the bearer token that you have obtained previously.
 
-```
+```jolie
 outputPort Twitter {
 location: "socket://api.twitter.com:443/"
 protocol: https {
@@ -92,7 +92,7 @@ RequestResponse: user_timeline
 
 We can now use our output port to access the Twitter API. Continuing with our example, we use operation `user_timeline` to print all the latest 10 tweets by the [Jolie Twitter account](https://twitter.com/jolielang).
 
-```
+```jolie
 include "console.iol"
 
 outputPort Twitter {
@@ -116,7 +116,7 @@ main
 
 You can add more operations simply by adding the corresponding entries to the protocol configuratoin and the interface of the port. For example, the following code extends our previous output port to offer also the `home_timeline` operation (see [https://developer.twitter.com/en/docs/tweets/timelines/api-reference/get-statuses-home_timeline](https://developer.twitter.com/en/docs/tweets/timelines/api-reference/get-statuses-home_timeline)).
 
-```
+```jolie
 outputPort Twitter {
 location: "socket://api.twitter.com:443/"
 protocol: https {
@@ -136,7 +136,7 @@ If you do not want to hardcode the bearer token, you can make your program read 
 
 For example, to read the bearer token from an environment variable and use it to configure the Twitter output port, you can use the following code.
 
-```
+```jolie
 include "runtime.iol" // Include the Runtime service
 
 outputPort Twitter {

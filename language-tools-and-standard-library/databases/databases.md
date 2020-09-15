@@ -21,7 +21,7 @@ The Database service officially supports only the listed DB systems, which were 
 
 By default, the Database service included by `database.iol` works for connecting to a single database. If you need to use multiple databases from the same Jolie service, you can run additional instance by creating another output port and embedding the Database Java service again, as in the following:
 
-```text
+```jolie
 outputPort Database2 {
 Interfaces: DatabaseInterface
 }
@@ -36,7 +36,7 @@ Java:
 
 This is a modification of the WeatherService client mentioned in section \[Web Services/web\_services\] \(web\_services/web\_services.html\). It fetches meteorologic data of a particular location \(constants `City` and `Country`\) and stores it in HSQLDB. If the DB has not been set up yet, the code takes care of the initialisation. The idea is to run the program in batch \(eg. by a cronjob\) to collect data, which could be interesting in Internet of Things \(IoT\) scenarios.
 
-```text
+```jolie
 include "weatherService.iol"
 include "string_utils.iol"
 include "xml_utils.iol"
@@ -121,7 +121,7 @@ main
 
 The next example provides a very easy CRUD \(create, retrieve, update, delete\) webservice for a TODO list. The example is shown with HSQLDB but theoretically each DB could have been used. The HTTP's server output format is set to JSON, the input can be approached by both GET or POST requests.
 
-```text
+```jolie
 include "console.iol"
 include "database.iol"
 include "string_utils.iol"

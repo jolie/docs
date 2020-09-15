@@ -8,7 +8,7 @@ Beside the ease of refactoring \(e.g., moving the service from internal to stand
 
 The syntax for internal services is
 
-```text
+```jolie
 interface ServerInterface {
     OneWay: op1( T1 )
     RequestResponse: op2( T2 )( T3 )
@@ -47,7 +47,7 @@ Let us see an example of Internal Services in action with a simplified implement
 
 With internal services its is very quick and easy to draft a prototype implementation of tree. The full code of the example can be checked at this [link](https://github.com/jolie/examples/tree/master/04_architectural_composition/03_internal_services/02_tree_as_a_service).
 
-```text
+```jolie
 include "console.iol"
 include "file.iol"
 

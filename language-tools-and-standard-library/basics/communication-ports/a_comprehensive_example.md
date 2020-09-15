@@ -11,7 +11,7 @@ A newspaper service collects news sent by authors, users can get all the registe
 * _sendNews_ which is a OneWay operation used by authors for sending news to the newspaper service
 * _getNews_ which is a RequestResponse operation used by users for getting the list of the registered news
 
-```text
+```jolie
 type News: void {
     .category: string
     .title: string
@@ -36,7 +36,7 @@ interface NewsPaperInterface {
 
 The implementation of the two operations is very simple; we exploit a global variable for storing all the incoming news. When the _getNews_ is invoked, we just return the list of the stored news. Details about the global variables can be found in section [Processes](../processes.md).
 
-```text
+```jolie
 include "NewsPaperInterface.iol"
 
 execution{ concurrent }
@@ -58,7 +58,7 @@ main {
 
 The author and the user can invoke the _NewsPaper_ by exploiting two jolie scripts, _author.ol_ and _user.ol_ respectively. The two scripts can be run in a separate shell with respect to the newspaper one. In the following we report the code of the twi scripts:
 
-```text
+```jolie
 //author.ol
 include "NewsPaperInterface.iol"
 
@@ -84,7 +84,7 @@ main {
 }
 ```
 
-```text
+```jolie
 //user.ol
 
 include "NewsPaperInterface.iol"

@@ -26,7 +26,7 @@ Operation documentation:
 
 Invocation template:
 
-```text
+```jolie
 wsdlToJolie@WebServicesUtils( request )( response )
 ```
 
@@ -48,11 +48,11 @@ Fault `IOException` with type `IOExceptionType`
 
 Fault-handling install template:
 
-```text
+```jolie
 install ( IOException => /* error-handling code */ )
 ```
 
-```text
+```jolie
 type IOExceptionType: JavaExceptionType
 ```
 

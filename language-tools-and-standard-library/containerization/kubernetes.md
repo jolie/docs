@@ -6,7 +6,7 @@
 
 Let's make some modifications to `helloservice.ol` used in the previous Docker example:
 
-```text
+```jolie
 include "runtime.iol"
 
 interface HelloInterface {
@@ -40,7 +40,7 @@ The HOSTNAME environment variable is set by Kubernetes itself and it's printed o
 
 The Dockerfile needed to create a docker image of this microservice is the same seen in the Docker section:
 
-```text
+```dockerfile
 FROM jolielang/jolie
 EXPOSE 8000
 COPY helloservice.ol main.ol
@@ -57,7 +57,7 @@ docker build -t hello .
 
 This image can now be wrapped in [**Pods**](https://kubernetes.io/docs/concepts/workloads/pods/pod/), the smallest deployable units of computing that can be created and managed in Kubernetes. A [**Deployment**](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/) describes in a declarative way the desired state of a **ReplicaSet** having the purpose to maintain a stable set of replica Pods running at any given time:
 
-```text
+```yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -131,7 +131,7 @@ minikube service jolie-sample-deployment
 
 Now we a stable access door to our application, and it can be invoked by a client:
 
-```text
+```jolie
 include "console.iol"
 
 interface HelloInterface {

@@ -20,7 +20,7 @@ Furthermore, Jolie supports the `any` basic type, which means a value that can b
 
 In the following example, differently typed values are passed into the same variable:
 
-```text
+```jolie
 a = 5
 a = "Hello"
 ```
@@ -37,7 +37,7 @@ Their behaviour is the same as in other classical programming languages. The lan
 
 An example of the aforementioned operators follows:
 
-```text
+```jolie
 a = 1
 b = 4
 
@@ -52,7 +52,7 @@ Additional meanings: `+` is the string concatenator and matches the OR on `bool`
 
 Variables can be cast to other types by using the corresponding casting functions: `bool()`, `int()`, `long()`, `double()`, and `string()`. Some examples follow:
 
-```text
+```jolie
 s = "10";
 n = 5 + int( s ); // n = 15
 
@@ -71,7 +71,7 @@ expression instanceof (native_type | custom_type)
 
 `instanceof` operator can be used to check variable typing with both native types and custom ones \(see type subsection in [Data Types](https://jolielang.gitbook.io/docs/basics/interfaces/data_types) section\). Example:
 
-```text
+```jolie
 s = "10";
 n = s instanceof string; // n = true
 n = s instanceof int; // n = false
@@ -82,19 +82,19 @@ n = ( s = 10 ) instanceof int; // n = true
 
 Strings can be inserted enclosing them between double quotes. Character escaping works like in C and Java, using the `\` escape character:
 
-```text
+```jolie
 s = "This is a string\n"
 ```
 
 Strings can be concatenated by using the plus operator:
 
-```text
+```jolie
 s = "This is " + "a string\n"
 ```
 
 String formatting is preserved, so strings can contain tabs and new lines:
 
-```text
+```jolie
 s = "
 JOLIE preserves formatting.
     This line will be indented.
@@ -108,7 +108,7 @@ All variables start as undefined; that is, they are not part of the state of the
 
 To check whether a variable is defined, you can use the primitive predicate `is_defined`:
 
-```text
+```jolie
 a = 1
 c1 = is_defined( a ) // c1 is true
 c2 = is_defined( b ) // c2 is false
@@ -116,7 +116,7 @@ c2 = is_defined( b ) // c2 is false
 
 Sometimes it is useful to undefine a variable, i.e., to remove its value and make it undefined again. Undefining a variable is done by using the `undef` statement, as shown in the example below.
 
-```text
+```jolie
 a = 1
 undef( a )
 if ( is_defined( a ) ) {
@@ -140,7 +140,7 @@ The operators behave like this:
 
 Example:
 
-```text
+```jolie
 a[ 0 ] = 0;
 a[ 1 ] = 5;
 a[ 2 ] = "Hello";
@@ -151,7 +151,7 @@ A key point for understanding and programming services in Jolie is that every va
 
 Jolie handles dynamic array creation and packing. This makes dealing with complex data easier, although Jolie hides this mechanism when the programmer does not need it. Whenever an array index is not specified, the implicit index for that variable is set by default to 0 \(zero\), like shown in the example below.
 
-```text
+```jolie
 a = 1 // Jolie interprets this as a[0] = 1
 println@Console( a[ 0 ] )() // Will print 1
 ```
@@ -160,7 +160,7 @@ println@Console( a[ 0 ] )() // Will print 1
 
 Since its dynamic-array orientation, one handy feature provided by Jolie is the array size operator `#`, which can be used as shown in the examples below.
 
-```text
+```jolie
 a[ 0 ] = 0;
 a[ 1 ] = 1;
 a[ 2 ] = 2;

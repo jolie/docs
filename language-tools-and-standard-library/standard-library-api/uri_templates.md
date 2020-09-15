@@ -27,7 +27,7 @@ Operation documentation:
 
 Invocation template:
 
-```text
+```jolie
 expand@UriTemplates( request )( response )
 ```
 
@@ -35,7 +35,7 @@ expand@UriTemplates( request )( response )
 
 Type: ExpandRequest
 
-```text
+```jolie
 type ExpandRequest: void {
     .template: string
     .params?: undefined
@@ -59,7 +59,7 @@ Operation documentation:
 
 Invocation template:
 
-```text
+```jolie
 match@UriTemplates( request )( response )
 ```
 
@@ -67,7 +67,7 @@ match@UriTemplates( request )( response )
 
 Type: UriMatchRequest
 
-```text
+```jolie
 type UriMatchRequest: void {
     .template: string
     .uri: string
@@ -83,7 +83,7 @@ type UriMatchRequest: void {
 
 Type: MatchResponse
 
-```text
+```jolie
 type MatchResponse: undefined
 ```
 
