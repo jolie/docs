@@ -16,7 +16,7 @@ In the following sections we explain the medium-specific properties of the locat
 
 ## Automatic configuration of a location using extension `auto`
 
-Both inputPort locations and outputPort locations cna be automatically set from an external file by using the extension `auto`. `auto` is a special extension which can be defined instead of a usual location. When using `auto` two different kind of external files can be exploited for defining the locations: `ini` and `json`.
+Both inputPort locations and outputPort locations can be automatically set from an external file by using the extension `auto`. `auto` is a special extension which can be defined instead of a usual location. When using `auto` two different kind of external files can be exploited for defining the locations: `ini` and `json`.
 
 The form of the extension string for auto is:
 
