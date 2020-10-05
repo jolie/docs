@@ -89,8 +89,6 @@
   * [LocalSocket](language-tools-and-standard-library/locations/localsocket.md)
 * [Databases](language-tools-and-standard-library/databases/README.md)
   * [Databases](language-tools-and-standard-library/databases/databases.md)
-* [Mock Services](language-tools-and-standard-library/mock/README.md)
-  * [joliemock](language-tools-and-standard-library/mock/README.md)
 * [Standard Library API](language-tools-and-standard-library/standard-library-api/README.md)
   * [Bluetooth](language-tools-and-standard-library/standard-library-api/bluetooth.md)
   * [CallbackDefault](language-tools-and-standard-library/standard-library-api/callback_default.md)
