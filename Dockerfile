@@ -16,7 +16,7 @@ RUN apk update && \
 	apk add --update nodejs npm --no-cache
 RUN mkdir -p /home/nginx/jolie-docs
 WORKDIR /home/nginx/jolie-docs
-COPY docs/ ./
+COPY web/ ./
 COPY gitbook/ ./
 RUN npm update
 RUN npm install -g gitbook-cli
