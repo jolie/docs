@@ -34,6 +34,7 @@ RUN for version in $(git for-each-ref --shell --format='%(refname:lstrip=3)' | g
         chown -R nginx:nginx _book && \
         cp -r _book/* /usr/share/nginx/html/${version}; \
         cd ..; \
+        git stash; \
     done
 ## Copy nginx config file
 RUN git checkout master
