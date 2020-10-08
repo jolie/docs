@@ -25,6 +25,7 @@ RUN for version in $(git for-each-ref --shell --format='%(refname:lstrip=3)' | g
     do \
         echo "Copying version ${version}"; \
         git checkout ${version}; \
+        cp -r gitbook/* web; \
         cd web; \
         gitbook init && \
         gitbook install && \
@@ -38,6 +39,6 @@ RUN for version in $(git for-each-ref --shell --format='%(refname:lstrip=3)' | g
     done
 ## Copy nginx config file
 RUN git checkout master
-RUN cp -r nginx/conf.d /etc/nginx/conf.d
+RUN cp -r docker/nginx/conf.d /etc/nginx/conf.d
 WORKDIR /
 EXPOSE 8080
