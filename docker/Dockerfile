@@ -38,6 +38,6 @@ RUN for version in $(git for-each-ref --shell --format='%(refname:lstrip=3)' | g
     done
 ## Copy nginx config file
 RUN git checkout master
-COPY nginx/conf.d/ /etc/nginx/conf.d/
+RUN cp -r nginx/conf.d /etc/nginx/conf.d
 WORKDIR /
 EXPOSE 8080
