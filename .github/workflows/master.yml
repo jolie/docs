@@ -1,0 +1,25 @@
+on: 
+ push:
+  branches:
+    - main
+jobs:
+  docker_build_and_push:
+    runs-on: ubuntu-latest
+    name: "JolieDoc Build"
+    steps:
+      - name: Check out the repo 
+      - uses: actions/checkout@v2
+      - name: Build Global Image
+        run: docker build . --file all.DockerFile --tag jolie-docs --no-cache
+      - name: publish  
+        run: docker push eu.gcr.io/pixis-259818/co.pixis.frontend:$GITHUB_SHA
+      - name: Build and push
+        uses: docker/build-push-action@v2
+        with:
+          context: .
+          file: ./all.Dockerfile
+          push: true
+          tags: jolielang/jolie-docs:latest
+          secrets: |
+            GIT_AUTH_TOKEN=${{ secrets.DOCKER_ACCESS_TOKEN }}
+      
