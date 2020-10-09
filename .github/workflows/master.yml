@@ -5,7 +5,6 @@ on:
 jobs:
   docker_build_and_push:
     runs-on: ubuntu-latest
-
     name: "JolieDoc Build"
     steps:
       - uses: actions/checkout@v1
