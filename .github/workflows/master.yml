@@ -5,13 +5,11 @@ on:
 jobs:
   docker_build_and_push:
     runs-on: ubuntu-latest
+
     name: "JolieDoc Build"
     steps:
       - uses: actions/checkout@v1
-      - name: Change Directory
-        run: cd ./docker  
-      - name: Build Global Image
-        run: docker build . --file Dockerfile --tag jolie-docs --no-cache
+      - name: Change Directory 
       - name: Login to DockerHub
         uses: docker/login-action@v1
         with:
@@ -20,8 +18,8 @@ jobs:
       - name: Build and push
         uses: docker/build-push-action@v2
         with:
-          context: .
-          file: ./all.Dockerfile
+          context: ./docker
+          file: ./Dockerfile
           push: true
           tags: jolielang/jolie-docs:latest
-      
+     
