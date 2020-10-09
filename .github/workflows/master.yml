@@ -7,8 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     name: "JolieDoc Build"
     steps:
-      - name: Check out the repo 
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v1
       - name: Build Global Image
         run: docker build . --file all.DockerFile --tag jolie-docs --no-cache
       - name: publish  
