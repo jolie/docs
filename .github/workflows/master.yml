@@ -19,5 +19,5 @@ jobs:
           context: ./docker
           file: ./Dockerfile
           push: true
-          tags: jolielang/jolie-docs:latest
+          tags: jolielang/docs:latest
      
