@@ -2,6 +2,8 @@ on:
  push:
   branches:
     - master
+    - v1.9.x
+    - v1.10.x 
 jobs:
   docker_build_and_push:
     runs-on: ubuntu-latest
