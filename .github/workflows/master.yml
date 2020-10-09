@@ -11,7 +11,7 @@ jobs:
       - name: ls
         run: ls  
       - name: Build Global Image
-        run: docker build . --file ./docker/DockerFile --tag jolie-docs --no-cache
+        run: docker build . --file ./docker/Dockerfile --tag jolie-docs --no-cache
       - name: Login to DockerHub
         uses: docker/login-action@v1
         with:
