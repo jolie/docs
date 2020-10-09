@@ -8,7 +8,6 @@ jobs:
     name: "JolieDoc Build"
     steps:
       - uses: actions/checkout@v1
-      - name: Change Directory 
       - name: Login to DockerHub
         uses: docker/login-action@v1
         with:
