@@ -8,10 +8,10 @@ jobs:
     name: "JolieDoc Build"
     steps:
       - uses: actions/checkout@v1
-      - name: ls
-        run: ls  
+      - name: Change Directory
+        run: cd ./docker  
       - name: Build Global Image
-        run: docker build . --file ./docker/Dockerfile --tag jolie-docs --no-cache
+        run: docker build . --file Dockerfile --tag jolie-docs --no-cache
       - name: Login to DockerHub
         uses: docker/login-action@v1
         with:
