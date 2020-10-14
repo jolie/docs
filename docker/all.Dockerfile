@@ -23,7 +23,8 @@ RUN git clone https://github.com/jolie/docs.git
 WORKDIR /home/docs/docker
 RUN pwd
 RUN ls
-RUN cp -r overrides/ /
+# RUN cp -r overrides/ /
+COPY overrides /
 WORKDIR /home/docs
 
 RUN for version in $(git for-each-ref --shell --format='%(refname:lstrip=3)' | grep 'v[0-9]*\.[0-9]*\.x' | tr -d "'"); \
