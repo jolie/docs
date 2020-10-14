@@ -19,9 +19,11 @@ RUN npm install gitbook-plugin-highlight-jolie
 RUN npm install gitbook-plugin-theme-jolie
 RUN npm install gitbook-plugin-logo
 RUN npm install gitbook-plugin-collapsible-chapters
-COPY docker/overrides/usr/lib/node_modules/gitbook-cli/node_modules/npm/node_modules/graceful-fs/polyfills.js /usr/lib/node_modules/gitbook-cli/node_modules/graceful-fs/polyfills.js
 RUN git clone https://github.com/jolie/docs.git
+WORKDIR /home/docs/docker
+COPY /overrides /
 WORKDIR /home/docs
+
 RUN for version in $(git for-each-ref --shell --format='%(refname:lstrip=3)' | grep 'v[0-9]*\.[0-9]*\.x' | tr -d "'"); \
     do \
         echo "Copying version ${version}"; \
