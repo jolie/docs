@@ -2,6 +2,11 @@ on:
  push:
   branches:
     - master 
+ workflow_run:
+    workflows: ["Trigger"]
+    branches:
+         - v1.9.x
+         - v1.10.x 
 jobs:
   docker_build_and_push:
     runs-on: ubuntu-latest
