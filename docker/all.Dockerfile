@@ -16,6 +16,7 @@ RUN npm update
 RUN npm install -g gitbook-cli
 RUN npm install mv
 RUN npm install gitbook-plugin-highlight-jolie
+RUN npm install gitbook-plugin-theme-jolie
 RUN npm install gitbook-plugin-logo
 RUN npm install gitbook-plugin-collapsible-chapters
 COPY docker/overrides/usr/lib/node_modules/gitbook-cli/node_modules/npm/node_modules/graceful-fs/polyfills.js /usr/lib/node_modules/gitbook-cli/node_modules/graceful-fs/polyfills.js
