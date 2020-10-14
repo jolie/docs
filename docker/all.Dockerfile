@@ -21,6 +21,8 @@ RUN npm install gitbook-plugin-logo
 RUN npm install gitbook-plugin-collapsible-chapters
 RUN git clone https://github.com/jolie/docs.git
 WORKDIR /home/docs/docker
+RUN pwd
+RUN ls
 COPY overrides /
 WORKDIR /home/docs
 
