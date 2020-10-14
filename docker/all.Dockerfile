@@ -39,9 +39,9 @@ RUN for version in $(git for-each-ref --shell --format='%(refname:lstrip=3)' | g
         ## Copy static webserver
         mkdir -p /usr/share/nginx/html/${version}; \
         chown -R nginx:nginx _book && \
-        cp -r _book/* /usr/share/nginx/html/${version}; \
+        cp -r -v /home/docs/_book/* /usr/share/nginx/html/${version}; \
         ## Copy assets
-        cp -r .gitbook /usr/share/nginx/html/${version}; \
+        cp -r -v /home/docs/.gitbook/* /usr/share/nginx/html/${version}; \
         cd ..; \
         git stash; \
     done
