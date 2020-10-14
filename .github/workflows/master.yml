@@ -22,5 +22,6 @@ jobs:
         with:
           file: ./docker/all.Dockerfile
           push: true
+          no-cache: true
           tags: jolielang/docs:latest
      
