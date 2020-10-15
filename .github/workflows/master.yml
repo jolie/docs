@@ -5,8 +5,7 @@ on:
  workflow_run:
     workflows: ["Trigger"]
     branches:
-         - v1.9.x
-         - v1.10.x 
+         - master
     types: 
       - completed     
 jobs:
