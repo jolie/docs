@@ -47,6 +47,7 @@ RUN for version in $(git for-each-ref --shell --format='%(refname:lstrip=3)' | g
     done
 ## Copy nginx config file
 RUN git checkout master
+COPY docker/versions.json /usr/share/nginx/html
 RUN cp -r docker/nginx/conf.d /etc/nginx
 WORKDIR /
 EXPOSE 8080
