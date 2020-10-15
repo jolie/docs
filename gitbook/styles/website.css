@@ -132,3 +132,7 @@ li.chapter a {
     }
 }
 
+select#versions {
+    width: 85%;
+    margin: 0 20px 20px 20px;
+}
