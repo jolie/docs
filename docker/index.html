@@ -1,0 +1,14 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <script>
+            (function() {
+                getVersions().then(response => {
+                    return response.json();
+                }).then(json => {
+                    window.location.replace("/" + json[0].name);
+                })}());
+        </script>
+    </head>
+    <body></body>
+</html
