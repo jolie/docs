@@ -136,3 +136,7 @@ select#versions {
     width: 85%;
     margin: 0 20px 20px 20px;
 }
+
+.book .book-body .page-wrapper .page-inner {
+    max-width: 90%;
+}
