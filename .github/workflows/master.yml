@@ -1,7 +1,9 @@
 on: 
  push:
   branches:
-    - master 
+    - master
+    - v1.10.x
+    - v1.9.x
  workflow_run:
     workflows: ["Trigger"]
     branches:
