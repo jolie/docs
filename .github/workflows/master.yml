@@ -6,7 +6,8 @@ jobs:
   docker_build_and_push:
     runs-on: ubuntu-latest
     name: "Trigger"
-    steps:
-     - uses: actions/hello-world-docker-action@master
-       with:
-         who-to-greet: 'Version 1.9.0'
+    uses: actions/checkout@v2
+      with:
+        token: ${{secrets.PAT}}
+    - run: |
+        git push
