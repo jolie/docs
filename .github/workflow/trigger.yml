@@ -11,4 +11,4 @@ jobs:
       with:
         ref: master
         token: ${{secrets.PAT}}
-    - run:  git branch  | git config --global user.email "gitaction@gitaction.com" |git config --global user.name "GitAction" | git commit --allow-empty -m "Triggered by v1.9.x" | git push
+    - run:  git branch  | git config --global user.email "gitaction@gitaction.com" |git config --global user.name "GitAction" | git commit --allow-empty -m "Triggered by v1.10.x" | git push
