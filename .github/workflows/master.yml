@@ -11,4 +11,4 @@ jobs:
       with:
         ref: master
         token: ${{secrets.PAT}}
-    - run:  git branch | git commit --allow-empty -m "Triggered by v1.9.x" | git push
+    - run:  git branch 
