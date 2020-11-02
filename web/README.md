@@ -4,7 +4,7 @@ Welcome to the reference documentation for the [Jolie programming language](http
 
 ## What is Jolie?
 
-Jolie is a _microservice-oriented programming language_: it is designed to reason effectively about the key questions of microservice development, including the following.
+Jolie is a _service-oriented programming language_: it is designed to reason effectively about the key questions of (micro)service development, including the following.
 
 * What are the APIs exposed by services?
 * How can these APIs be accessed?
