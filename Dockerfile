@@ -8,16 +8,13 @@ LABEL build_date="2020-08-31" \
 	  url="https://jolie-lang.org"
 MAINTAINER Brian Alberg "alberg@imada.sdu.dk"
 ENV REFRESHED_AT 2020-08-31
-## Fix issue in Node/Docker as reported here:
-## https://stackoverflow.com/questions/52196518/could-not-get-uid-gid-when-building-node-docker
-ENV npm_config_unsafe_perm true
 ## Install NodeJS
 RUN apk update && \
 	apk add --update nodejs npm --no-cache
-RUN mkdir -p /home/nginx/jolie-docs
-WORKDIR /home/nginx/jolie-docs
-COPY web/ ./
-COPY gitbook/ ./
+WORKDIR /home/jolie-docs
+COPY gitbook/* ./
+# sed append line after match
+RUN sed -i '/^{/a \    "root": "./web",' book.json
 RUN npm update
 RUN npm install -g gitbook-cli
 RUN npm install mv
@@ -26,13 +23,6 @@ RUN npm install gitbook-plugin-theme-jolie
 RUN npm install gitbook-plugin-logo
 RUN npm install gitbook-plugin-collapsible-chapters
 COPY overrides/ /
-RUN gitbook init && \
-    gitbook install && \
-    gitbook build
-## Copy static webserver
-RUN chown -R nginx:nginx _book && \
-    cp -r _book /usr/share/nginx/html/jolie-docs
-## Copy nginx config file
-COPY docker/nginx/conf.d/ /etc/nginx/conf.d/
-WORKDIR /
+RUN gitbook init
 EXPOSE 8080
+CMD gitbook --port 8080 serve
