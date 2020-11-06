@@ -5,18 +5,23 @@
 A Jolie program defines a service. A service achieves complex tasks by composing other services. An example of a very simple service is the following:
 
 ```jolie
-include "console.iol"
+import console.Console
 
-main
-{
-    println@Console( "Hello, world!" )()
+service Hello {
+    embed Console as C
+
+    main {
+        println@C( "Hello, world!" )()
+    }
 }
 ```
 
 The program above reads as:
 
-* include the source file console.iol;
-* send the message `"Hello, world!"` to the `println` operation of the `Console` service.
+* import the service definition `Console` from the package `console`;
+* define a service `Hello` that:
+  * starts an instance of `Console`, called `C`;
+  * sends the message `"Hello, world!"` to the `println` operation of service `C`.
 
 We can already see some characteristics of a Jolie program:
 
