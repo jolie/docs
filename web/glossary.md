@@ -1,6 +1,6 @@
-# The linguistic paradigm of (micro)services
+# The service oriented programming paradigm
 
-This document defines the key elements of the linguistic paradigm of (micro)services.
+This document defines the key elements of the service-oriented programming paradigm.
 
 This terminology is used in the Jolie website and documentation.
 
