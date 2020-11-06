@@ -9,6 +9,7 @@
 * [Creating a Service and a Client](getting-started/creating_service_and_client.md)
 * [Adding Interfaces](getting-started/adding_interface.md)
 * [Setting the execution modality](getting-started/set_execution_modality.md)
+* [Writing Jolie modules](getting-started/jolie_modules.md)
 
 ## Tutorials
 
