@@ -1,4 +1,4 @@
-# The service oriented programming paradigm
+# Glossary
 
 This document defines the key elements of the service-oriented programming paradigm.
 
