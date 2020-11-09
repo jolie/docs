@@ -7,7 +7,7 @@ Jolie defines two types of operations:
 
 Thus an interface is a collection of operation types, a list of One-Way and Request-Response operation declarations.
 
-The basic declaration of an interface lists all the names of the its operations, grouped by type:
+The basic declaration of an interface lists all the names of its operations, grouped by type:
 
 ```jolie
 interface identifier {

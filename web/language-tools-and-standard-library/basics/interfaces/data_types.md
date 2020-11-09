@@ -1,6 +1,6 @@
 # Data Types
 
-In Jolie, the messages exchanged through operations are data trees \(see section [Handling Simple Data](https://jolielang.gitbook.io/docs/basics/handling_simple_data).
+In Jolie, the messages exchanged through operations are data trees \(see section [Handling Simple Data](../handling_simple_data.md)\).
 
 A data type defines:
 
@@ -25,7 +25,7 @@ interface MyInterface {
 ```
 
 ### Refined Basic Data Types
-Basic data types can be refined in order to restrict the valid values. Depending on the basic data type there are different refinement available. In the following table there is the list of all the avaiable refinements. *it is possible to use only 1 refinement for each basic type declaration*. 
+Basic data types can be refined in order to restrict the valid values. Depending on the basic data type there are different refinements available. In the following table there is the list of all the avaiable refinements. *It is possible to use only 1 refinement for each basic type declaration*.
 
 | Basic Type   | Available Refinements |
 |:------------:|----------------------:|
@@ -34,10 +34,10 @@ Basic data types can be refined in order to restrict the valid values. Depending
 | *long*       | ranges                |
 | *double*     | ranges                | 
 
-When a value that does not respect the refinement type is forced to be used a *TypeMismatché will be raised by the interpreter.
+When a value that does not respect the refinement type is forced to be used a *TypeMismatch* will be raised by the interpreter.
 
 #### Refinement: length
-This refinement allows for specifying the minimum and the maximum lenght of a string. The minimum and the maximum lenght must be specify as a couple of values between square brackets. Example:
+This refinement allows for specifying the minimum and the maximum length of a string. The minimum and the maximum length must be specify as a couple of values between square brackets. Example:
 ```text
 type MyType {
     my_refined_string_field: string( length( [2,5] ) )
@@ -83,7 +83,7 @@ In this example the field `f1` can be an integer which respects one of the follo
 * 100 <= v <= 200
 * 300 <= v 
 
-Note that, depending on the basic type, the minimum and the maximum values of each interval must be expressed with the related notation: using `L` for denoting long valued and usinf `.` for specifying the usage of decimals in the case of double.
+Note that, depending on the basic type, the minimum and the maximum values of each interval must be expressed with the related notation: using `L` for denoting long valued and using `.` for specifying the usage of decimals in the case of double.
 
 
 ## Custom Data Types
@@ -152,7 +152,7 @@ Since each node of a tree in Jolie is a vector, in a type declaration each node 
 Some special shortcuts can be used for expressing cardinality easily instead of the ordinary syntax with square brackets:
 
 * `*` - meaning any number of occurrences, a shortcut for `[0, *]`.
-* `?` - meaning non or one occurrence, a shortcut for `[0, 1]`.
+* `?` - meaning none or one occurrence, a shortcut for `[0, 1]`.
 * when no cardinality is defined, it is defaulted to the value `[1,1]`, meaning that one and only one occurrence of that subnode can be contained in the node.
 
 Formally, given `R` as a range, which specifies the allowed number of occurrences of the subnode in a value, the complete syntax for nested data types with cardinality follows:
@@ -234,10 +234,10 @@ As we can read, nodes `x` and `y` are similarly typed, both are typed as `void` 
 
 Let us focus on the cardinality. To be valid, the node `myType` must declare:
 
-* at least one nodes `x` of type `mySubType`;
+* at least one node `x` of type `mySubType`;
 * a range between one and three of `y`.
 
-Referring to the previous example, `x` requires the definition of both nodes `value` and `comment`, while `y` requires only the definition the node `comment`, since none or an infinite number of nodes `myType.y.value` can be defined. The subnode `z` can be present or not, and can contain any kind of subnode \(`{ ? }`\).
+Referring to the previous example, `x` requires the definition of both nodes `value` and `comment`, while `y` requires only the definition of the node `comment`, since none or an infinite number of nodes `myType.y.value` can be defined. The subnode `z` can be present or not, and can contain any kind of subnode \(`{ ? }`\).
 
 ## Defining type nodes with reserved characters
 
@@ -249,7 +249,7 @@ type TestType: void {
 }
 ```
 
-You can access these nodes with special characters by using dynamic look-up, for example x.\("@node"\). This is explained more in detail in [data structures](https://github.com/jolie/docs/tree/c05a0cef52a6b00c2a807bcadb983fb0ad7840f7/basics/interfaces/basic/data_structures/README.md).
+You can access these nodes with special characters by using dynamic look-up, for example x.\("@node"\). This is explained more in detail in [data structures](../data_structures.md).
 
 _Attention: This feature is available from Jolie 1.6.2._
 
@@ -269,5 +269,5 @@ type CustomType: any | any { .subNode: T } | any { .subNode[2,3]: T }
 
 ## Checking types at runtime: `istanceof`
 
-See section [Handling Simple Data/Rutime type checking of a variable](https://jolielang.gitbook.io/docs/basics/handling_simple_data#runtime-type-checking-of-a-variable-instanceof) for getting details about pritimive `instanceof`
+See section [Handling Simple Data/Rutime type checking of a variable](../handling_simple_data.md#runtime-type-checking-of-a-variable-instanceof) for getting details about pritimive `instanceof`.
 
