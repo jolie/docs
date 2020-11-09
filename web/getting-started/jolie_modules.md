@@ -12,7 +12,7 @@ The Jolie module system is built upon three different components, namely: _packa
 
 - a symbol is a named definition declared in a file. Symbols are either `type` definitions, `interface` definitions, or `service` definitions. As in other languages, the access to Jolie symbols can be restricted with the usual access modifiers prefixing of the symbol definition. Symbols without an access modifier are considered `private` by default, while `public` ones are accessible from the importer;
 
-- a module corresponds to a Jolie file and it contains a set of symbols. To make a Jolie module directly executable (e.g., runnable with the command `jolie myFile.ol`), we need to specify a service named `main` which itself contains the block `main { ... }`. This `main` service (and namesake procedure) is the execution target/entry-point of the Jolie interpreter. The interpreter prohibits the execution of modules without a `main` service. Drawing a parallel, programmers define a `main` method in a Java class when that unit is the entry-point of execution: hence, the method is implemented in applications that define a specific execution flow, while libraries frequently omit a `main` method as they are modules imported and used by other projects;
+- a module corresponds to a Jolie file and it contains a set of symbols. To make a Jolie module directly executable (e.g., runnable with the command `jolie myFile.ol`), we need to have specified just _one_ `service` which itself contains the block `main { ... }`. This single service (and `main` procedure) is the execution target/entry-point of the Jolie interpreter. Drawing a parallel, programmers define a `main` method in a Java class when that unit is the entry-point of execution: hence, the method is implemented in applications that define a specific execution flow, while libraries frequently omit a `main` method as they are modules imported and used by other projects. When there are more and one service per module, the interpreter prohibits direct the execution of modules and requires the definition of the `--service` parameter (explained below);
 
 - a package is a directory that contains one or more Jolie modules. The `import` mechanism uses the package name &mdash; i.e., the directory name &mdash; to traverse and locate the target module in the file system.
 
@@ -48,7 +48,7 @@ The `service` is a component that includes blocks that define its deployment and
 More precisely, a service node contains a collection of Jolie components, like named procedures and communication ports, and may specify a typed value used to parametrise its execution &mdash; this value can be passed either from the execution command used to launch the Jolie interpreter as well as by an importer that wants to use the service internally (e.g., see [embedding](../language-tools-and-standard-library/architectural-composition/embedding). The syntax of `service` definition is the following:
 
 ```jolie
-service serviceName ( parameterType : parameterName ){
+service ServiceName ( parameterType : parameterName ){
 	// service related component..
 	main {
 		// ...
@@ -89,14 +89,14 @@ The service `MyService` requires a value of type `MyServiceParam` for its execut
 
 ### Service execution target
 
-While having a `main` service is mandatory to directly run a given Jolie module, we can instruct the Jolie interpreter to target a custom-named service &mdash; and by extension, use the same instruction to select the target of execution of one of the services within a given module.
+While having a single service is mandatory to directly run a given Jolie module, we can instruct the Jolie interpreter to target a custom-named service &mdash; and by extension, use the same instruction to select the target of execution of one of the services within a given module.
 
 To select a custom-named Jolie module for execution, we use the interpreter parameter `-s` or the equivalent `--service` followed by the name of the target service, e.g.,  `jolie --service myService`.
 
-Specifically, if the targeted module has only one service definition, the `--service` parameter is discarded and the service is executed (WARNING: this goes against the `main` service policy above).
+Specifically, if the targeted module has only one service definition, the `--service` parameter is discarded and the service is executed.
 Contrarily, when a module includes multiple service definitions, the Jolie interpreter requires the definition of the `--service` parameter, reporting an execution error both if the parameter or the correspondent service definition in the module is missing.
 
-Note: the current version of Jolie does not support passing service argument to execution service from the command-line, thus the `main` (or `--service`-targeted) execution service cannot require a parameter. 
+Note: the current version of Jolie does not support passing service argument to execution service from the command-line, thus single-service modules (or `--service`-targeted services) cannot require a parameter. 
 
 ```jolie
 type MyServiceParam {
@@ -122,7 +122,7 @@ service MyService ( MyServiceParam: p ) {
 	}
 }
 
-service main {
+service MainService {
 
 	embed MyService( { .protocol = "sodep", .factor = 2 } ) as Service
 
@@ -134,7 +134,7 @@ service main {
 
 ## Embedding a service
 
-As seen in the closing example of the previous section, the `main` service internally launched the execution of another service (`MyService`) by `embed`ding it. 
+As seen in the closing example of the previous section, the `MainService` service internally launched the execution of another service (`MyService`) by `embed`ding it. 
 In this section we explain in more details how the `embed` statement works, starting from its syntax:
 
 ```
@@ -159,7 +159,7 @@ The following example shows the usage of the `Console` service, which exposes op
 ```jolie
 from console import Console
 
-service main{
+service MyService{
 	
 	embed Console as C
 	
