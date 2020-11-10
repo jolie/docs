@@ -206,7 +206,7 @@ Hence, let `WorkingDir` represent the absolute path of the execution directory, 
 
 1. we look for the module following the nesting structure of the `PATH` under the `WorkingDir`;
 2. if the above attempt fails, we look for a packaged version of Jolie services &mdash; which are files with the extension `.jap` &mdash; contained within the `lib` subdirectory of the `WorkingDir`. Specifically, we look for a `.jap` file named `HEAD.jap` which, if found, is inspected following the nesting structure of the `TAIL`;
-3. if the above attempt fails, we apply the procedures 1. and 2. to the system-level directories (e.g., from the `lib` directory of the $JOLIE_HOME folder)
+3. if the above attempt fails, we apply the procedures 1. and 2. to the system-level directories (e.g., from the `packages` directory of the $JOLIE_HOME folder)
 
 ### Relative paths
 
