@@ -1,18 +1,15 @@
 # Table of contents
 
-* [Reference Index](reference_index.md)
-
-## Getting started
-
-* [Hello, World!](getting-started/hello_world.md)
-* [Running a Jolie service with arguments](getting-started/running_a_jolie_service_with_arguments.md)
-* [Creating a Service and a Client](getting-started/creating_service_and_client.md)
-* [Adding Interfaces](getting-started/adding_interface.md)
-* [Setting the execution modality](getting-started/set_execution_modality.md)
-* [Writing Jolie modules](getting-started/jolie_modules.md)
+* [Paradigm](paradigm.md)
 
 ## Tutorials
 
+* Getting Started
+  * [Hello, World!](getting-started/hello_world.md)
+  * [Running a Jolie service with arguments](getting-started/running_a_jolie_service_with_arguments.md)
+  * [Creating a Service and a Client](getting-started/creating_service_and_client.md)
+  * [Adding Interfaces](getting-started/adding_interface.md)
+  * [Setting the execution modality](getting-started/set_execution_modality.md)
 * [Using files](tutorials/using-files.md)
 * [JSON files](tutorials/json-files.md)
 * [XML files](tutorials/xml-files.md)
@@ -23,19 +20,22 @@
 ## Language, tools, and standard library
 
 * [Basics](language-tools-and-standard-library/basics/README.md)
+  * [Data Types](language-tools-and-standard-library/basics/interfaces/data_types.md)
+  * [Interfaces](language-tools-and-standard-library/basics/interfaces/README.md)
+  * [Services](language-tools-and-standard-library/basics/services.md)
+    * [Ports](language-tools-and-standard-library/basics/communication-ports/ports.md)
+    * [Communication](language-tools-and-standard-library/basics/communication-ports/README.md)
+      * [Communication Primitives](language-tools-and-standard-library/basics/communication-ports/using_communication_ports.md)
+      * [Synchronous vs Asynchronous Communication](language-tools-and-standard-library/basics/communication-ports/synchronousvsasynchronous.md)
+      * [Type Mismatching](language-tools-and-standard-library/basics/communication-ports/type_mismatching.md)
+      * [Example](language-tools-and-standard-library/basics/communication-ports/a_comprehensive_example.md)
+  * [Embedding](language-tools-and-standard-library/architectural-composition/embedding.md)
   * [Handling Simple Data](language-tools-and-standard-library/basics/handling_simple_data.md)
   * [Composing Statements](language-tools-and-standard-library/basics/composing_statements.md)
   * [Define](language-tools-and-standard-library/basics/define.md)
   * [Data Structures](language-tools-and-standard-library/basics/data_structures.md)
   * [Constants](language-tools-and-standard-library/basics/constants.md)
-  * [Interfaces](language-tools-and-standard-library/basics/interfaces/README.md)
-    * [Data Types](language-tools-and-standard-library/basics/interfaces/data_types.md)
-  * [Communication](language-tools-and-standard-library/basics/communication-ports/README.md)
-    * [Ports](language-tools-and-standard-library/basics/communication-ports/ports.md)
-    * [Communication Primitives](language-tools-and-standard-library/basics/communication-ports/using_communication_ports.md)
-    * [Synchronous vs Asynchronous Communication](language-tools-and-standard-library/basics/communication-ports/synchronousvsasynchronous.md)
-    * [Type Mismatching](language-tools-and-standard-library/basics/communication-ports/type_mismatching.md)
-    * [Example](language-tools-and-standard-library/basics/communication-ports/a_comprehensive_example.md)
+  * [Modules](language-tools-and-standard-library/basics/modules.md)
   * [Processes](language-tools-and-standard-library/basics/processes.md)
   * [Dynamic Binding](language-tools-and-standard-library/basics/dynamic_binding.md)
   * [Sessions](language-tools-and-standard-library/basics/sessions.md)
@@ -45,7 +45,6 @@
     * [Termination and Compensation](language-tools-and-standard-library/basics/fault-handling/termination_and_compensation.md)
   * [Engine Arguments](language-tools-and-standard-library/basics/engine_arguments.md)
 * [Architectural Programming](language-tools-and-standard-library/architectural-composition/README.md)
-  * [Embedding](language-tools-and-standard-library/architectural-composition/embedding.md)
   * [Internal Services](language-tools-and-standard-library/architectural-composition/internal_services.md)
   * [Aggregation](language-tools-and-standard-library/architectural-composition/aggregation.md)
   * [Couriers](language-tools-and-standard-library/architectural-composition/couriers.md)
@@ -124,6 +123,11 @@
   * [XmlUtils](language-tools-and-standard-library/standard-library-api/xml_utils.md)
   * [XMPP](language-tools-and-standard-library/standard-library-api/xmpp.md)
   * [ZipUtils](language-tools-and-standard-library/standard-library-api/zip_utils.md)
+
+## Indeces
+
+* [Glossary](glossary.md)
+* [Reference Index](reference_index.md)
 
 ## Other guidelines
 

@@ -142,7 +142,7 @@ Conditions are used in control flow statements in order to check a boolean expre
 * `<=`: is lower than or equal to;
 * `>`: is higher than;
 * `>=`: is higher than or equal to;
-* `!`: negation
+* `!`: negation.
 
 Conditions can be used as expressions and their evaluation always returns a boolean value \(true or false\). That value is the argument of conditional operators.
 
@@ -151,7 +151,7 @@ Some valid conditions are:
 ```jolie
 x == "Hi"
 !x
-25 = 10
+25 == 10
 ```
 
 The statement `if ... else` is used to write deterministic choices:

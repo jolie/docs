@@ -1,6 +1,6 @@
 # Introduction
 
-Welcome to the reference documentation for the [Jolie programming language](https://jolie-lang.org).
+Welcome to the documentation of the [Jolie programming language](https://jolie-lang.org).
 
 ## What is Jolie?
 
@@ -10,7 +10,7 @@ Jolie is a _service-oriented programming language_: it is designed to reason eff
 * How can these APIs be accessed?
 * How are APIs implemented in terms of concurrency, communication, and computation?
 
-## How does it look?
+## Key Constructs: APIs and Services
 
 This is a simple service for greeting clients.
 
@@ -21,32 +21,36 @@ type GreetResponse { greeting:string }
 
 // Define the API that we are going to publish
 interface GreeterAPI {
-    RequestResponse: greet( GreetRequest )( GreetResponse )
+	RequestResponse: greet( GreetRequest )( GreetResponse )
 }
 
 service Greeter {
-    execution: concurrent // Handle clients concurrently
+	execution: concurrent // Handle clients concurrently
 
-    // An input port publishes APIs to clients
-    inputPort GreeterInput {
-    location: "socket://localhost:8080"        // Use TCP/IP
-    protocol: http { format = "json" }        // Use HTTP
-    interfaces: GreeterAPI                    // Publish GreeterAPI
-    }
+	// An input port publishes APIs to clients
+	inputPort GreeterInput {
+		location: "socket://localhost:8080"		// Use TCP/IP
+		protocol: http { format = "json" }		// Use HTTP
+		interfaces: GreeterAPI					// Publish GreeterAPI
+	}
 
-    // Implementation (the behaviour)
-    main {
-        /*
-        This statement receives a request for greet,
-        runs the code in { ... }, and sends response
-        back to the client.
-        */
-        greet( request )( response ) {
-            response.greeting = "Hello, " + request.name
-        }
-    }
+	// Implementation (the behaviour)
+	main {
+		/*
+		This statement receives a request for greet,
+		runs the code in { ... }, and sends response
+		back to the client.
+		*/
+		greet( request )( response ) {
+			response.greeting = "Hello, " + request.name
+		}
+	}
 }
 ```
+
+** Explanation of the key concepts **
+
+** Forward link to getting started, basics, and paradigm **
 
 If you have installed Jolie \([get it here](https://www.jolie-lang.org/downloads.html)\), you can save the code above in a file called `greeter.ol` and then launch it from the terminal with the command:
 
