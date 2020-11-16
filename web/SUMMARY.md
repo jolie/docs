@@ -1,6 +1,5 @@
 # Table of contents
 
-* [Paradigm](paradigm.md)
 
 ## Tutorials
 
