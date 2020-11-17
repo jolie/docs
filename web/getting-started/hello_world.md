@@ -5,7 +5,7 @@
 A Jolie program defines a service. A service achieves complex tasks by composing other services. An example of a very simple service is the following:
 
 ```jolie
-import console.Console
+from console import Console
 
 service Hello {
     embed Console as C

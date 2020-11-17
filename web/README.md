@@ -10,7 +10,7 @@ Jolie is a _service-oriented programming language_: it is designed to reason eff
 * How can these APIs be accessed?
 * How are APIs implemented in terms of concurrency, communication, and computation?
 
-## Key Constructs: APIs and Services
+## How does it look?
 
 This is a simple service for greeting clients.
 
@@ -47,10 +47,6 @@ service Greeter {
 	}
 }
 ```
-
-** Explanation of the key concepts **
-
-** Forward link to getting started, basics, and paradigm **
 
 If you have installed Jolie \([get it here](https://www.jolie-lang.org/downloads.html)\), you can save the code above in a file called `greeter.ol` and then launch it from the terminal with the command:
 
