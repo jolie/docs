@@ -3,12 +3,7 @@
 
 ## Tutorials
 
-* Getting Started
-  * [Hello, World!](getting-started/hello_world.md)
-  * [Running a Jolie service with arguments](getting-started/running_a_jolie_service_with_arguments.md)
-  * [Creating a Service and a Client](getting-started/creating_service_and_client.md)
-  * [Adding Interfaces](getting-started/adding_interface.md)
-  * [Setting the execution modality](getting-started/set_execution_modality.md)
+* [Getting Started](tutorials/getting-started/README.md)
 * [Using files](tutorials/using-files.md)
 * [JSON files](tutorials/json-files.md)
 * [XML files](tutorials/xml-files.md)
