@@ -75,7 +75,7 @@ Once we defined the interface to implement, we are ready to define the service. 
 This code permits to import the definition of the `CalculatorInterface` from module `CalculatorInterfaceModule` stored into file `CalculatorInterfaceModule.ol` and defines a service called `CalculatorService`. 
 
 ### Defining the inputPort
-Unfortunately, this code will raise an error if executed because the service definition does not contain any listening port and it does contain any behaviour too. Let's start by defining a listening endpoint for this service:
+Unfortunately, the code above will raise an error if executed, because the service definition does not contain any listening port nor any behaviour too. Let's start by defining a listening endpoint for this service:
 
 ```jolie
  from CalculatorInterfaceModule import CalculatorInterface
