@@ -5,7 +5,7 @@ Docker image with Gitbook using the [xiroV/gitbook-plugin-highlight-jolie](https
 Build the image with
 
 ```
-docker build -t jolie-docs .
+docker build -t jolie-docs . 
 ```
 
 Then run it with
