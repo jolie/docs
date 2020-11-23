@@ -45,7 +45,7 @@ Jolie also supports the importing of all the (public) symbols defined in a given
 
 The `service` is a component that includes blocks that define its deployment and its behaviour. 
 
-More precisely, a service node contains a collection of Jolie components, like named procedures and communication ports, and may specify a typed value used to parametrise its execution &mdash; this value can be passed either from the execution command used to launch the Jolie interpreter as well as by an importer that wants to use the service internally (e.g., see [embedding](../architectural-composition/embedding)). The syntax of `service` definition is the following:
+More precisely, a service node contains a collection of Jolie components, like named procedures and communication ports, and may specify a typed value used to parametrise its execution &mdash; this value can be passed either from the execution command used to launch the Jolie interpreter as well as by an importer that wants to use the service internally (e.g., see [embedding](../architectural-composition/embedding.html)). The syntax of `service` definition is the following:
 
 ```jolie
 [public | private] service ServiceName ( parameterName : parameterType) {
@@ -169,7 +169,7 @@ service MyService{
 }
 ```
 
-The section of the documentation dedicated to the [standard library](../standard-library-api) reports more information on the modules, types, and interfaces available to programmers with the standard Jolie installation.
+The section of the documentation dedicated to the [standard library](../standard-library-api/) reports more information on the modules, types, and interfaces available to programmers with the standard Jolie installation.
  
 
 ## Debugging the import system
