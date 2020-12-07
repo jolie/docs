@@ -24,7 +24,7 @@ Let us suppose that _C_ finishes its execution. As a result, its compensation ha
 
 Fault handlers can execute compensations by invoking the compensation handlers loaded within the corresponding scope, e.g., in the previous scenario the fault handler of A invokes the compensation handler of C.
 
-![](../../../.gitbook/assets/termination_and_compensation.jpg)
+![](https://raw.githubusercontent.com/jolie/docs/v1.10.x/web/.gitbook/assets/termination_and_compensation.jpg)
 
 **Fig.1** Code _P_ is executed in parallel with scopes _B_ and _C_ within scope _A_. _C_ is supposed to be successfully ended, whereas _B_ is terminated during its execution by the fault _f_ raised by _P_. The fault handler of _A_ can execute the compensation handler loaded by _C_.
 
@@ -181,7 +181,7 @@ include "console.iol"
 
 main
 {
-    install( a_fault => 
+    install( FaultName => 
         println@Console( "Fault handler for a_fault" )();
         comp( example_scope )
     );
@@ -206,7 +206,7 @@ When scope `example_scope` ends with success, its current recovery handler is pr
 
 Here we consider a simplified scenario of an electronic purchase where termination and compensation handlers are used. The full code can be checked [here](https://github.com/jolie/examples/tree/master/03_fault_handling/12_transaction_example) whereas the reference architecture of the example follows:
 
-![](../../../.gitbook/assets/transactions.png)
+![](https://raw.githubusercontent.com/jolie/docs/v1.10.x/web/.gitbook/assets/transactions.png)
 
 In this example a user wants to electronically buy ten beers invoking the transaction service which is in charge to contact the product store service, the logistics service and the bank account service. It is clearly an over simplification w.r.t. a real scenario, but it is useful to our end for showing how termination and compensation work. In the following we report the implementation of the operation _buy_ of the transaction service:
 
@@ -340,10 +340,11 @@ Handlers need to use and manipulate variable data often and a handler may need t
 
 ```jolie
 include "console.iol"
+include "time.iol"
 
 main
 {
-    install( a_fault => 
+    install( FaultName => 
         comp( example_scope )
     );
     scope( example_scope )
@@ -351,6 +352,7 @@ main
         install( this => println@Console( "initiating recovery" )() );
         i = 1;
         while( true ){
+            sleep@Time( 50 )(  )
             install( this =>
                 cH;
                 println@Console( "recovering step" + ^i )()
@@ -359,11 +361,14 @@ main
         }
     }
     |
-    throw( FaultName )
+    {
+      sleep@Time( 200 )(  )
+      throw( FaultName )
+    }
 }
 ```
 
-The install primitive contained in the `while` loop updates the scope recovery handler at each iteration. In the process the value of the variable `i` is frozen within the handler.
+The install primitive contained in the `while` loop updates the scope recovery handler at each iteration. In the process the value of the variable `i` is frozen within the handler. In the example above, the calls to `sleep@Time` just simulate computational time. 
 
 At this [link](https://github.com/jolie/examples/tree/master/03_fault_handling/13_transaction_example_multiple_products) we modified the electronic purchase example described above, introducing the possibility to buy a set of products instead of a single one. In such a case, the transaction service performs a locking call to the store service for each received product and, for each of these calls, it installs a related termination handler. In the termination handler, we exploits the freeze operator for freezing variables _i_, _token_ and _reservation\_id_ at the values they have in the moment of the installation:
 
