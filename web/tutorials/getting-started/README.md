@@ -38,7 +38,7 @@ type SubRequest: void {
 }
 
 type MulRequest: void {
-    factor*: int
+    factor*: double
 }
 
 type DivRequest: void {
@@ -50,13 +50,13 @@ interface CalculatorInterface {
     RequestResponse:
         sum( SumRequest )( int ),
         sub( SubRequest )( int ),
-        mul( MulRequest )( int ),
+        mul( MulRequest )( double ),
         div( DivRequest )( double ) 
 }
 
 ```
 Some interesting things to note:
-* in Jolie there are basic data types as integers, string, double, etc. In the example we exploit `int` (integers) for all the operations with the exception of operation division where we use type `double`. You can check the other basic types [here](https://docs.jolie-lang.org/v1.10.x/language-tools-and-standard-library/basics/interfaces/data_types.html);
+* in Jolie there are basic data types as integers, string, double, etc. In the example we exploit `int` (integers) for all the operations with the exception of operations multiplication and division where we use type `double`. You can check the other basic types [here](https://docs.jolie-lang.org/v1.10.x/language-tools-and-standard-library/basics/interfaces/data_types.html);
 * the keyword `type` allows for the definition of structured data types;
 * an operation message type is just a data type associated with it into the definition of the operation. As an example the request message of operation `sum` is `SumRequest` whereas the reply is just a `double`;
 * a data type structure in Jolie represents a tree of nodes. As an example, type `DivRequest` contains two subnodes named `dividend` and `divisor` respectively. Both of them are `double`;
