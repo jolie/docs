@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+
+:root {
+  --purple-color: #873077;
+}
+
+.book.font-family-1 {
+    font-family: Roboto, Arial, Helvetica, sans-serif;
+    font-weight: 300;
+}
+
+div {
+  text-align: left;
+  text-justify: inter-word;
+}
+
+.book-summary {
+    font-family: Roboto, Arial, Helvetica, sans-serif;
+}
+
+li.chapter a {
+    font-weight: 400;
+}
+
+.book-summary ul.summary li a, .book-summary ul.summary li span {
+    display: block;
+    padding: 10px 15px;
+    border-bottom: none;
+    color: #364149;
+    background: 0 0;
+    font-size: 1.5rem;
+    overflow: hidden;
+    white-space: normal;
+    position: relative;
+}
+
+.book-summary ul.summary li.active>a {
+    color: var(--purple-color);
+    background-color: white;
+    text-decoration: none;
+}
+
+.book-summary ul.summary li.header {
+    padding: 10px 15px;
+    padding-top: 20px;
+    text-transform: uppercase;
+    color: #aaaaaa;
+    font-weight: 700;
+    font-size: 0.8em;
+}
+
+.markdown-section * {
+    font-size: 1.8rem;
+}
+
+.markdown-section a {
+    color: var(--purple-color);
+    text-decoration: none;
+    background: 0 0;
+}
+
+ /*Over-ride maximum page width - default 800px*/
+.page-inner {
+    max-width: 850px;
+}
+
+.intopic-toc li a {
+    color: var(--purple-color);
+    font-size: 1.5rem;
+}
+
+.intopic-toc h3 {
+    margin-top: 0;
+    font-size:1.2em;
+    margin: 35px 0 0 0;
+    color: #000;
+    text-align: left;
+}
+
+/* code block */
+.book .book-body .page-wrapper .page-inner section.normal .highlight pre, .book .book-body .page-wrapper .page-inner section.normal pre {
+    background-color: #242A31;
+    border: 5px solid #F5F7F9;
+    color: #F5F7F9;
+    border-radius: 3px;
+    font-size: 105%;
+    line-height: 1.45;
+    overflow: auto;
+    padding: 16px;
+}
+
+/* inline code */
+.book .book-body .page-wrapper .page-inner section.normal code {
+    border-radius: 3px;
+    font-size: 100%;
+    margin: 0;
+    padding: 0.2em 0;
+}
+
+/* remove "Published with GitBook" link */
+.gitbook-link {
+    display: none !important;
+}
+
+.navigation {
+    position: absolute;
+    margin: 10;
+    max-width: 150px;
+    min-width: 90px;
+
+    display: none; /*flex*/
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+
+    font-size: 30px;
+    color: var(--purple-color);
+
+    text-align: center;
+
+    .transition(all 350ms ease);
+
+    &:hover {
+        text-decoration: none;
+    }
+
+    &.navigation-next {
+        right: 0px;
+    }
+    &.navigation-prev {
+        left: 0px;
+    }
+}
+
+select#versions {
+    width: 85%;
+    margin: 0 20px 20px 20px;
+}
+
+.book .book-body .page-wrapper .page-inner { 
+    max-width: 90%;
+}
