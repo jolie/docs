@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
 
 :root {
-  --purple-color: #873077;
+  --color-purple: #873077;
 }
 
 .book.font-family-1 {
@@ -35,7 +35,7 @@ li.chapter a {
 }
 
 .book-summary ul.summary li.active>a {
-    color: var(--purple-color);
+    color: var(--color-purple);
     background-color: white;
     text-decoration: none;
 }
@@ -54,7 +54,7 @@ li.chapter a {
 }
 
 .markdown-section a {
-    color: var(--purple-color);
+    color: var(--color-purple);
     text-decoration: none;
     background: 0 0;
 }
@@ -65,7 +65,7 @@ li.chapter a {
 }
 
 .intopic-toc li a {
-    color: var(--purple-color);
+    color: var(--color-purple);
     font-size: 1.5rem;
 }
 
@@ -102,34 +102,8 @@ li.chapter a {
     display: none !important;
 }
 
-.navigation {
-    position: absolute;
-    margin: 10;
-    max-width: 150px;
-    min-width: 90px;
-
-    display: none; /*flex*/
-    justify-content: center;
-    align-content: center;
-    flex-direction: column;
-
-    font-size: 30px;
-    color: var(--purple-color);
-
-    text-align: center;
-
-    .transition(all 350ms ease);
-
-    &:hover {
-        text-decoration: none;
-    }
-
-    &.navigation-next {
-        right: 0px;
-    }
-    &.navigation-prev {
-        left: 0px;
-    }
+.book-body .navigation:hover {
+    color: var(--color-purple);
 }
 
 select#versions {
@@ -137,6 +111,6 @@ select#versions {
     margin: 0 20px 20px 20px;
 }
 
-.book .book-body .page-wrapper .page-inner { 
+.book .book-body .page-wrapper .page-inner {
     max-width: 90%;
 }
