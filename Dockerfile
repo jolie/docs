@@ -9,7 +9,9 @@ WORKDIR home
 # the directory web will be mounted under home as read-only, thus we serve the
 # book from home so that install/build/serve commands can create a directory
 # _book (this is particularly relevant for the install command)
-COPY book.json .
+COPY web/book.json .
+# tell gitbook that the book is inside the web directory
+RUN sed -i '/^{/a \    "root": "./web",' book.json
 # install gitbook plugins listed in book.json
 RUN gitbook install
 # port 35729 is the live-reload port of gitbook
