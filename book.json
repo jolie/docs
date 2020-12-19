@@ -1,4 +1,5 @@
 {
+    "root": "./web",
     "title": "Jolie Documentation",
     "plugins": [
         "-highlight",
