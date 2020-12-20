@@ -5,6 +5,7 @@
 
 * [Getting Started](tutorials/getting-started/README.md)
 * [Using Dependencies](tutorials/using-dependencies/README.md)
+  * [Using more than one dependency](tutorials/using-more-than-one-dependency/README.md)
 * [Using files](tutorials/using-files.md)
 * [JSON files](tutorials/json-files.md)
 * [XML files](tutorials/xml-files.md)
