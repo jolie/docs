@@ -183,6 +183,25 @@ A structure can be completely erased - undefined - using the statement `undef`:
 ```jolie
 undef( animals )
 ```
+**WARNING:**
+undef ( ) do not remove the structure it is aliasing, only undefine the alias used.
+
+For example
+```
+include "console.iol"
+
+main {
+    a.b.c.d.e = 12;
+    a.b.c = 14;
+    p -> a.b.c;
+    println@Console(p)();
+    undef(p);
+    println@Console(a.b.c)();
+    println@Console(a.b.c.d.e)()
+}
+```
+
+running the code shows, that after the operation undef on p, the original data path is unchanged.
 
 ## `<<` - copying an entire tree structure
 
