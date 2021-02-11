@@ -72,6 +72,7 @@ interface MyServiceInterface {
 service MyService( MyServiceParam: p ) {
 	
 	execution {concurrent}
+	
 	inputPort IP {
 		location: p.location
 		protocol: p.protocol
@@ -87,6 +88,8 @@ service MyService( MyServiceParam: p ) {
 ```
 
 The service `MyService` requires a value of type `MyServiceParam` for its execution. Specifically, the values in the parameter include the location and protocol of the `inputPort` and the multiplicative factor used in the `multiply` operation.
+
+Remember to indicate the execution mode, otherwise it would be single (single execution) giving rise to an exception in a calling sequence.
 
 ### Service execution target
 
