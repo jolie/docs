@@ -318,3 +318,37 @@ two
 three
 ```
 
+**BEWARE OF ->:**
+a -> b
+
+where b is a custom data type,is a lazy reference not a pointer to the node.
+The espression on the right of -> will be evaluated evaluated every time you are going to use the reference a.
+So we could say a is a lazy reference.
+
+Consider the following use:
+
+```jolie
+define push_env {
+    __name = "env-" + __deepStack
+    ;
+    prev_env -> __environment.(__name)
+    ;
+    __deepStack++
+    ;
+    __name = "env-" + __deepStack
+    ;
+    __environment.(__name) = __name
+    ;
+    env -> __environment.(__name)
+}
+```
+
+the idea is to have ``` __environment``` as a root where every child variable represent an environment of execution.
+
+if we evaluate ```prev_env``` and ```env``` at the end of the routine we will find that they have the same value.
+
+```prev_env``` is evaluated as ``` __environment.(__name)```
+
+same expression of ``` env``` .
+
+If you are going to use static path (not dynamic) this type of problem will not arise, but if you are using dynamic look-up be careful of the type of implementation.
