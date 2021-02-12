@@ -274,6 +274,48 @@ d
 
 Note that node `d.first` has been overwritten entirely by the subtree `s.first` which is defined as an empty node with four sub-nodes.
 
+## using literals
+
+You can create a custom data type from its literal specification.
+
+Consider the following structure
+
+```jolie
+d - 12
+|_ greeting = "hello"
+|_ first = "to the"
+    |_ first.second = "world"
+    |_ first.third = "!"
+```
+
+You can define d with the follow line:
+
+```jolie
+d << 12 {.greeting ="hello", .first = "to the", .first.second = "world", .first.third="!" }
+```
+**Warning:**
+Remember to use << to copy the entire tree structure.
+
+It's very common to make the mistake
+
+```jolie
+d = 12 {.greeting ="hello", .first = "to the", .first.second = "world", .first.third="!" }
+```
+
+In this case only the root value (12) would be assigned to d
+
+**Using the literals in calling the service's operation**
+
+You can use the literals calling an operation's service.
+
+So if we have the operation op at Service that allow a custom data type structure as d, defined above, we can call the operation in the follow mode
+
+```jolie
+op@Service(12 {.greeting ="hello", .first = "to the", .first.second = "world", .first.third="!" })()
+```
+
+
+
 ## `->` - structures aliases
 
 A structure element can be an alias, i.e. it can point to another variable path.
