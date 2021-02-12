@@ -87,8 +87,8 @@ main
 {
     // existing code in Leonardo
     [ length( request )( response ){
-        response = 0;
-        for( i = 0, i
+        response = #request.item }]
+        ....
 ```
 
 The code above iterates over all the received items and sums their lengths.
