@@ -21,7 +21,7 @@ In this section we explain what parameters can be set for each protocol.
 
 The parameters of the protocol are specified in the input/output [port](https://jolielang.gitbook.io/docs/basics/communication-ports) definition. Unless required, if a parameter is not defined it is set to its default value according to its protocol specification.
 
-Let us recall the examples given in [HTTP GET/POST Requests](https://jolielang.gitbook.io/docs/web-applications/web_get_post) where we set the parameters `method` and `format`, of protocol `http`, to define what kind of messages the port shall send or receive.
+Let us recall the examples given in [HTTP GET/POST Requests](https://docs.jolie-lang.org/v1.10.x/language-tools-and-standard-library/web-applications/web_get_post.html) where we set the parameters `method` and `format`, of protocol `http`, to define what kind of messages the port shall send or receive.
 
 ```jolie
 // HTTP GET input port
