@@ -1,4 +1,8 @@
 # StringUtils
+Inclusion file:
+
+include "string_utils.iol" 
+from string_utils import StringUtils
 
 Inclusion code: 
 
@@ -74,7 +78,7 @@ Type: string
 
 ### valueToPrettyString <a id="valueToPrettyString"></a>
 
-Operation documentation: checks if the passed string starts with a given prefix
+Operation documentation: take a custom data type / simple type and return it's literal indented representation (string) 
 
 Invocation template:
 

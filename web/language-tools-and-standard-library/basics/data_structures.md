@@ -183,6 +183,25 @@ A structure can be completely erased - undefined - using the statement `undef`:
 ```jolie
 undef( animals )
 ```
+**Note that:**
+undef ( ) does not remove the structure it is aliasing, only undefine the alias used.
+
+For example, consider:
+```
+include "console.iol"
+
+main {
+    a.b.c.d.e = 12;
+    a.b.c = 14;
+    p -> a.b.c;
+    println@Console(p)();
+    undef(p);
+    println@Console(a.b.c)();
+    println@Console(a.b.c.d.e)()
+}
+```
+
+Running the code shows that, after the operation undef on `p`, the original data path is unchanged.
 
 ## `<<` - copying an entire tree structure
 
@@ -255,6 +274,48 @@ d
 
 Note that node `d.first` has been overwritten entirely by the subtree `s.first` which is defined as an empty node with four sub-nodes.
 
+## Using literals
+
+You can create a custom data value from its literal specification.
+
+Consider the following structure
+
+```jolie
+d - 12
+|_ greeting = "hello"
+|_ first = "to the"
+    |_ first.second = "world"
+    |_ first.third = "!"
+```
+
+You can define d with the follow line:
+
+```jolie
+d << 12 {.greeting ="hello", .first = "to the", .first.second = "world", .first.third="!" }
+```
+**Note that:**
+Remember to use << to copy the entire tree structure.
+
+It's very common to make the mistake
+
+```jolie
+d = 12 {.greeting ="hello", .first = "to the", .first.second = "world", .first.third="!" }
+```
+
+In this case only the root value (12) would be assigned to d
+
+**Using the literals in calling the service's operation**
+
+You can use the literals calling an operation's service.
+
+So if we have the operation op at Service that allow a custom data type structure as d, defined above, we can call the operation in the follow mode
+
+```jolie
+op@Service(12 {.greeting ="hello", .first = "to the", .first.second = "world", .first.third="!" })()
+```
+
+
+
 ## `->` - structures aliases
 
 A structure element can be an alias, i.e. it can point to another variable path.
@@ -299,3 +360,37 @@ two
 three
 ```
 
+**BEWARE OF ->:**
+a -> b
+
+where b is a custom data type,is a lazy reference not a pointer to the node.
+The espression on the right of -> will be evaluated evaluated every time you are going to use the reference a.
+So we could say a is a lazy reference.
+
+Consider the following use:
+
+```jolie
+define push_env {
+    __name = "env-" + __deepStack
+    ;
+    prev_env -> __environment.(__name)
+    ;
+    __deepStack++
+    ;
+    __name = "env-" + __deepStack
+    ;
+    __environment.(__name) = __name
+    ;
+    env -> __environment.(__name)
+}
+```
+
+the idea is to have ``` __environment``` as a root where every child variable represent an environment of execution.
+
+if we evaluate ```prev_env``` and ```env``` at the end of the routine we will find that they have the same value.
+
+```prev_env``` is evaluated as ``` __environment.(__name)```
+
+same expression of ``` env``` .
+
+If you are going to use static path (not dynamic) this type of problem will not arise, but if you are using dynamic look-up be careful of the type of implementation.
