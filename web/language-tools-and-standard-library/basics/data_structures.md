@@ -184,9 +184,9 @@ A structure can be completely erased - undefined - using the statement `undef`:
 undef( animals )
 ```
 **WARNING:**
-undef ( ) do not remove the structure it is aliasing, only undefine the alias used.
+undef ( ) does not remove the structure it is aliasing, only undefine the alias used.
 
-For example
+For example, consider:
 ```
 include "console.iol"
 
@@ -201,7 +201,7 @@ main {
 }
 ```
 
-running the code shows, that after the operation undef on p, the original data path is unchanged.
+Running the code shows that, after the operation undef on `p`, the original data path is unchanged.
 
 ## `<<` - copying an entire tree structure
 
