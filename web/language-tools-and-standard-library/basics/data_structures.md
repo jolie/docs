@@ -183,7 +183,7 @@ A structure can be completely erased - undefined - using the statement `undef`:
 ```jolie
 undef( animals )
 ```
-**WARNING:**
+**Note that:**
 undef ( ) does not remove the structure it is aliasing, only undefine the alias used.
 
 For example, consider:
@@ -274,9 +274,9 @@ d
 
 Note that node `d.first` has been overwritten entirely by the subtree `s.first` which is defined as an empty node with four sub-nodes.
 
-## using literals
+## Using literals
 
-You can create a custom data type from its literal specification.
+You can create a custom data value from its literal specification.
 
 Consider the following structure
 
@@ -293,7 +293,7 @@ You can define d with the follow line:
 ```jolie
 d << 12 {.greeting ="hello", .first = "to the", .first.second = "world", .first.third="!" }
 ```
-**Warning:**
+**Note that:**
 Remember to use << to copy the entire tree structure.
 
 It's very common to make the mistake
