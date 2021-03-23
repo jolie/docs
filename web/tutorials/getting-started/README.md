@@ -138,7 +138,7 @@ Unfortunately, the code above will raise an error if executed, because the servi
  ```
 Some interesting things to be noticed:
 * the behaviour is set within scope `main`;
-* the list of operations are specified using [input choices](https://docs.jolie-lang.org/v1.10.x/language-tools-and-standard-library/basics/composing_statements.html). This is why you see square brackets around the implementation of each operation. Briefly, when more than one operation is put within an input choice, it means they are alla available but only that which receives a message is executed;
+* the list of operations are specified using [input choices](/language-tools-and-standard-library/basics/composing_statements.md#input-choice). This is why you see square brackets around the implementation of each operation. Briefly, when more than one operation is put within an input choice, it means they are alla available but only that which receives a message is executed;
 * each operation specifies a variable which contains the request message, in the example we named all of them as `request`. they specify the variable which will contain the response, in the example we named all of them as `response`;
 * the code specified within curly brackets in an operation, defines the code to be executed after the reception of a request and the final sending of the response;
 * once the body code of a request-response is finished, the content of the variable specified as a response will be actually sent as response message. This means that its data structure must correspond to what is defined into the interface;
@@ -223,5 +223,24 @@ from CalculatorInterfaceModule import CalculatorInterface
 ## The complete example
 The complete example of this tutorial can be found at this [link](https://github.com/jolie/examples/tree/master/v1.10.x/tutorials/getting_started)
 
+## Exiting a service
+Jolie provides the `exit` instruction to exit the current program by terminating the running Java virtual machine. In the example above, we could extend our service interface and behaviour with the `shutdown` operation, which closes the service using the `exit` instruction — notice that we use the full syntax of [input choices](/language-tools-and-standard-library/basics/composing_statements.md#input-choice) here, which is `[ inputOperation ]{ post-operation code }`.
 
+```jolie
+     main {
 
+         [ sum( request )( response ) {
+             for( t in request.term ) {
+                 response = response + t
+             }
+         }]
+
+         // ...
+
+         [ shutdown()() ]{
+            exit
+         }
+     }
+
+ }
+```
