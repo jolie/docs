@@ -13,7 +13,7 @@ In the following, we report the new interface of the `AdvancedCalculatorService`
 
 ```jolie
 type FactorialRequest: void {
-    term[1,*]: int
+    term: int
 }
 type FactorialResponse: void {
     factorial: long 

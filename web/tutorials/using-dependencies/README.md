@@ -14,7 +14,7 @@ The `AdvancedCalculatorService` will be a new service available for a client tog
 In the following we report the interface of the `AdvancedCalculatorService`:
 ```jolie
 type FactorialRequest: void {
-    term[1,*]: int
+    term: int
 }
 type FactorialResponse: void {
     factorial: long 
