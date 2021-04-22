@@ -4,7 +4,7 @@ This an introductory tutorial for getting confidence with the Jolie language. Yo
 
 * define an interface for a service;
 * program and run a service;
-* setting the execution modality.
+* set the execution modality.
 
 As a reference example, here we are creating a service which implements a simple basic calculator. In particular, the service will provide four basic operations for each of the basic arithmetic ones: sum, subtraction, multiplication and division.
 
@@ -20,12 +20,12 @@ interface CalculatorInterface {
 }
 
 ```
-This code can be read as _defines and interface called CalculatorInterface which contains four operations of type RequestReponse called sum, sub, mul and div respectively_. It is worth noting that there are two possible tyeps for the operations: _RequestResponse_ and _OneWay_. The former represents a synchronous exchange which involves a request message and a response message, whereas the latter represents an asynchronous exchange where there is only a request message without any response. 
+This code can be read as _defines an interface called CalculatorInterface which contains four operations of type RequestReponse called sum, sub, mul and div respectively_. It is worth noting that there are two possible types for the operations: _RequestResponse_ and _OneWay_. The former represents a synchronous exchange which involves a request message and a response message, whereas the latter represents an asynchronous exchange where there is only a request message without any response. 
 
 Save this code into a specific file called `CalculatorInterfaceModule.ol`, we will import it later from the service module.
 
 ### Define message types
-So far, we just defined an interface as a list of operations without specifyning anything about the signatures of the operations. In Jolie it is possible to define message types in order to specify the structure of the messages. In the following we enhance the previous definition of the interface, by adding message types.
+So far, we have just defined an interface as a list of operations without specifying anything about the signatures of the operations. In Jolie it is possible to define message types in order to specify the structure of the messages. In the following we enhance the previous definition of the interface, by adding message types.
 
 ```jolie
 type SumRequest: void {
@@ -63,7 +63,7 @@ Some interesting things to note:
 * a node in a data structure can be a vector. As an example node `term` of type `SumRequest` is a vector of `double`. `[1,*]` stands for: minimum occurences 1 and maximum occurences infinte. We read `term[1,*]:double` as an unbounded vector of double with at least one element;
 
 ## Program and run a service
-Once we defined the interface to implement, we are ready to define the service. Let'us call the service `ServiceCalculator`, edit a new module as it follows:
+Once we have defined the interface to implement, we are ready to define the service. Let's call the service `CalculatorService`. Edit a new module as follows:
  
  ```jolie
  from CalculatorInterfaceModule import CalculatorInterface
@@ -91,14 +91,14 @@ Unfortunately, the code above will raise an error if executed, because the servi
  }
  ```
 
- Listening endpoints in Jolie are called `inputPort`. In this example we defined one inputPort named `CalculatorPort`. An inputPort always required three parameters in order to be properly set:
+ Listening endpoints in Jolie are called `inputPort`. In this example we defined one inputPort named `CalculatorPort`. An inputPort always requires three parameters in order to be properly set:
  * **location**: it specifies where the service is listening for messages. In the example `socket://localhost:8000` where `socket` defines the medium used for the communication;
- * **protocol**: it specifies the protocol do use for interacting with the service. In this example is `http`. In particular, protocol http is parameterized setting propertu `format` to `json` which means tha the message body of the http message is a json;
+ * **protocol**: it specifies the protocol do use for interacting with the service. In this example is `http`. In particular, protocol http is parameterized setting property `format` to `json` which means that the message body of the http message is a JSON;
  * **interfaces**: it specifies the interfaces available at the port. In this case the interface `CalculatorInterface` is defined.
- Summarizing we can read the inputPort definition of this example as it follows: _start to listen on a socket of localhost at port 8000. Use protocol http for interpreting received messages and preparing responses too. Enable all the operations defined into CalculatorInterface`.
+ Summarizing we can read the inputPort definition of this example as follows: _start to listen on a socket of localhost at port 8000. Use protocol http for interpreting received messages and preparing responses too. Enable all the operations defined into CalculatorInterface`.
 
  ### Defining the behaviour
- Now, the service is ready to receive messages on the operation specified in interface `CalculatorInterface` but we did not tell it what to do once a message is received. It is time to finalizing the service specifying the behaviour:
+ Now, the service is ready to receive messages on the operation specified in interface `CalculatorInterface` but we did not tell it what to do once a message is received. It is time to finalize the service by specifying the behaviour:
 
  ```jolie
  from CalculatorInterfaceModule import CalculatorInterface
@@ -138,9 +138,9 @@ Unfortunately, the code above will raise an error if executed, because the servi
  ```
 Some interesting things to be noticed:
 * the behaviour is set within scope `main`;
-* the list of operations are specified using [input choices](https://docs.jolie-lang.org/v1.10.x/language-tools-and-standard-library/basics/composing_statements.html). This is why you see square brackets around the implementation of each operation. Briefly, when more than one operation is put within an input choice, it means they are alla available but only that which receives a message is executed;
+* the list of operations are specified using [input choices](/language-tools-and-standard-library/basics/composing_statements.md#input-choice). This is why you see square brackets around the implementation of each operation. Briefly, when more than one operation is put within an input choice, it means they are alla available but only that which receives a message is executed;
 * each operation specifies a variable which contains the request message, in the example we named all of them as `request`. they specify the variable which will contain the response, in the example we named all of them as `response`;
-* the code specified withing curly brackets in an operation, defines the code to be executed after the reception of a request and the final sending of the response;
+* the code specified within curly brackets in an operation, defines the code to be executed after the reception of a request and the final sending of the response;
 * once the body code of a request-response is finished, the content of the variable specified as a response will be actually sent as response message. This means that its data structure must correspond to what is defined into the interface;
 * we read `for( t in request.term )` as: for each element of vector `request.term` do the code within curly brackets. Use token `t` for referring to the current element of the vector.
 
@@ -177,10 +177,10 @@ Some interesting things to be noticed:
  ```
 
 ### Setting the execution modality
-We are quite sure that, if you strictly followed this tutorial, you were able to run only one client and then restart the service because it went down. This is not an error or a malfunctioning, but it is due to the fact that we did not specify any execution modality for the service `CalculatorService`. The execution modality specifies three different way to run a service: `concurrent`, `sequential` or `single`. If nothing is specified, modality `single` is set. This modality means that the service executes its behaviour once, then stops. This is why our service just executed one operation and then stops. 
+We are quite sure that, if you strictly followed this tutorial, you were able to run only one client and then restart the service because it went down. This is not an error or a malfunction, but it is due to the fact that we did not specify any execution modality for the service `CalculatorService`. The execution modality specifies three different way to run a service: `concurrent`, `sequential` or `single`. If nothing is specified, modality `single` is set. This modality means that the service executes its behaviour once, then stops. This is why our service just executed one operation and then stopped. 
 
 In order to enable the service to continuously serve requests we need to specify the execution modality `concurrent`.
-So, let's admire our first service in jolie! 
+So, let's admire our first service in Jolie! 
 ```jolie
 from CalculatorInterfaceModule import CalculatorInterface
 
@@ -223,5 +223,24 @@ from CalculatorInterfaceModule import CalculatorInterface
 ## The complete example
 The complete example of this tutorial can be found at this [link](https://github.com/jolie/examples/tree/master/v1.10.x/tutorials/getting_started)
 
+## Exiting a service
+Jolie provides the `exit` instruction to exit the current program by terminating the running Java virtual machine. In the example above, we could extend our service interface and behaviour with the `shutdown` operation, which closes the service using the `exit` instruction — notice that we use the full syntax of [input choices](/language-tools-and-standard-library/basics/composing_statements.md#input-choice) here, which is `[ inputOperation ]{ post-operation code }`.
 
+```jolie
+     main {
 
+         [ sum( request )( response ) {
+             for( t in request.term ) {
+                 response = response + t
+             }
+         }]
+
+         // ...
+
+         [ shutdown()() ]{
+            exit
+         }
+     }
+
+ }
+```

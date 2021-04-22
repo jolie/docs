@@ -1,9 +1,10 @@
 version: "3.8"
 services:
-  web:
+  jolie-docs:
     build: .
-    image: jolie-doc
+    image: jolie-docs
     ports:
       - "8080:8080"
+      - "35729:35729"
     volumes:
-      - ./web:/home/jolie-docs/web:ro
+      - ./web:/home/web:ro

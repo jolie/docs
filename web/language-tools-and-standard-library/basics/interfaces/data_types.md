@@ -32,9 +32,41 @@ Basic data types can be refined in order to restrict the valid values. Depending
 | *string*     | length, regex, enum   |
 | *int*        | ranges                |
 | *long*       | ranges                |
-| *double*     | ranges                | 
+| *double*     | ranges                |
 
 When a value that does not respect the refinement type is forced to be used a *TypeMismatch* will be raised by the interpreter.
+
+#### String format
+
+The string is enclosed (as in other languages) by two double quote. 
+Inside the string you can 
+
++ use a single quote;
++ insert a special character with the usual escape method (\\<character>,  example \n")
++ using a double quote, escaping it (\"")
+
+You can split the string over multiple lines
+
+```jolie
+jsonValue = "{
+	\"int\": 123,
+	\"bool\": true,
+	\"long\": 124,
+	\"double\": 123.4,
+	\"string\": \"string\",
+	\"void\": {},
+	\"array\": [123, true,\"ciccio\",124,{}],
+	\"obj\" : {
+		\"int\": 1243,
+		\"bool\": true,
+		\"long\": 1234,
+		\"double\": 1234.4,
+		\"string\": \"string\",
+		\"void\": {}
+		}
+	}"
+;
+```
 
 #### Refinement: length
 This refinement allows for specifying the minimum and the maximum length of a string. The minimum and the maximum length must be specify as a couple of values between square brackets. Example:
