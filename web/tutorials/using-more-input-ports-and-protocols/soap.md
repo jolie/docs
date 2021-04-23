@@ -1,12 +1,12 @@
 # Adding an input port with protocol SOAP
-Protocol [soap](https://docs.jolie-lang.org/v1.10.x/language-tools-and-standard-library/protocols/soap.html) is used for exchanging structured information among Web Services. As depicted in the following picture, in Jolie it is possible to add input ports specifically for addressing SOAP messages.
+Protocol [http/soap](https://docs.jolie-lang.org/v1.10.x/language-tools-and-standard-library/protocols/soap.html) is used for exchanging structured information among Web Services. As depicted in the following picture, in Jolie it is possible to add input ports specifically for addressing SOAP messages.
 
 ![](https://raw.githubusercontent.com/jolie/docs/v1.10.x/web/.gitbook/assets/more_inputports_and_protocols_soap.png)
 
 The behaviour of the service is always the same, but a new soap port is added and a soap client can now invoke the service. In the following we describe the steps to follow in order to add a soap port correclty configured.
 
 ## Adding the port
-The first step is adding the inputPort to the code. In pour example is:
+The first step is adding the inputPort to the code. In our example is:
 ```
 inputPort AdvancedCalculatorPortSOAP {
         location: "socket://localhost:8002"
