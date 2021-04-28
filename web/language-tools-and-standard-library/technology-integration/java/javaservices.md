@@ -39,17 +39,25 @@ interface MyConsoleInterface {
     OneWay: println( string )
 }
 
-outputPort MyConsole {
-    Interfaces: MyConsoleInterface
+service MyConsole {
+  
+inputPort ip {
+        location:"local"
+        interfaces: MyConsoleInterface
+    }
+
+foreign java {
+  class: "example.MyConsole" 
+  }
 }
 
-embedded {
-    Java: "example.MyConsole" in MyConsole
-}
 
-main
-{
-    println@MyConsole("Hello World!")
+service TestService{
+    embed MyConsole as MyConsole
+        main
+        {
+            println@MyConsole("Hello World!")
+        }
 }
 ```
 
@@ -94,27 +102,50 @@ interface TwiceInterface {
                         twiceDoub( double )( double )
 }
 
-outputPort MyConsole {
-    Interfaces: MyConsoleInterface
-}
+
 
 outputPort Twice {
     Interfaces: TwiceInterface
 }
 
-embedded {
-    Java:     "example.Twice" in Twice,
-            "example.MyConsole" in MyConsole
+service MyConsole {
+  
+inputPort ip {
+        location:"local"
+        interfaces: JwtInterface
+    }
+
+foreign java {
+  class: "example.MyConsole" 
+  }
 }
 
-main
-{
-    intExample = 3;
-    doubleExample = 3.14;
-    twiceInt@Twice( intExample )( intExample );
-    twiceDoub@Twice( doubleExample )( doubleExample );
-    println@MyConsole("intExample twice: " + intExample );
-    println@MyConsole("doubleExample twice: " + doubleExample )
+service Twice {
+  
+inputPort ip {
+        location:"local"
+        interfaces: TwiceInterface
+    }
+
+foreign java {
+  class: "example.MyConsole" 
+  }
+}
+
+
+
+service TestService{
+    embed MyConsole as MyConsole
+    embed Twice as Twice
+    main
+    {
+        intExample = 3;
+        doubleExample = 3.14;
+        twiceInt@Twice( intExample )( intExample );
+        twiceDoub@Twice( doubleExample )( doubleExample );
+        println@MyConsole("intExample twice: " + intExample );
+        println@MyConsole("doubleExample twice: " + doubleExample )
+    }
 }
 ```
 
