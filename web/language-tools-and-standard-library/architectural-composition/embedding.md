@@ -1,16 +1,13 @@
 # Embedding
 
-Embedding is a mechanism for executing multiple services within the same execution context. A service, called _embedder_, can _embed_ another service, called _embedded_ service, by targeting it with the `embedded` primitive.
+Embedding is a mechanism for executing multiple services within the same execution context. A service, called _embedder_, can _embed_ another service, called _embedded_ service, by targeting it with the `embed` primitive.
 
 The syntax for embedding is:
 
 ```jolie
-embedded {
-    Language : path [ in OutputPort ]
-}
+embed NameOfService in NameOutput
 ```
-
-the embedding construct specifies the type \(`Language`\) of the service to embed, and `path` is a URL \(possible in simple form\) pointing to the definition of the service to embed. Jolie currently supports the embedding of services written with the following technologies:
+the embed construct is agnostic to the technology used to implement: Jolie currently supports the embedding of services written with the following technologies:
 
 * `Jolie`: described in the section below;
 * `Java`: go to section [Integration with other technologies/Java](../technology-integration/java/javaservices.md);
