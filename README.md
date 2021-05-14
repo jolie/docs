@@ -40,23 +40,23 @@ If you want to update the documentation, **this is not the repository that you a
 ### Request message assignment
 - Try to write the message request using inline syntax whenever possible.
   Ex:
-  ```
+  ```jolie
   readFile@file( { filename = "test.txt" } )( response )
   ```
   instead of 
-  ```
+  ```jolie
   request.filename = "test.txt"
   readFile@File( request )( response )
   ```
 - Use multiple lines if necessary
-  ```
+  ```jolie
   writeFile@File( {
   filename = "text.txt"
   content = "this is a test message"
   } )()
   ```
 - Use deep copy or with in case the request message has several nodes
-  ```
+  ```jolie
   request << {
      node1 = "node1"
      node2 = "node2"
@@ -65,14 +65,7 @@ If you want to update the documentation, **this is not the repository that you a
   }
   ```
   or 
-  ```
-  with( request ) {
-     .node1 = "node1"
-     .node2 = "node2"
-     .node3 = "node3"
-     ...
-  }
-  ```
+ 
 
 ## Creating a new tutorial
 - Define a branch name that follows this guideline `tutorials/new/short-tutorial-name`
