@@ -20,6 +20,43 @@ If you want to update the documentation, **this is not the repository that you a
 - CONSTANTS: SCREAMING_SNAKE_CASE
 - define: camelCase
 
+### Request message assignment
+- Try to write the message request using inline syntax whenever possible.
+  Ex:
+  ```
+  readFile@file( { filename = "test.txt" } )( response )
+  ```
+  instead of 
+  ```
+  request.filename = "test.txt"
+  readFile@File( request )( response )
+  ```
+- Use multiple lines if necessary
+  ```
+  writeFile@File( {
+  filename = "text.txt"
+  content = "this is a test message"
+  } )()
+  ```
+- Use deep copy or with in case the request message has several nodes
+  ```
+  request << {
+     node1 = "node1"
+     node2 = "node2"
+     node3 = "node3"
+     ...
+  }
+  ```
+  or 
+  ```
+  with( request ) {
+     .node1 = "node1"
+     .node2 = "node2"
+     .node3 = "node3"
+     ...
+  }
+  ```
+
 ## Creating a new tutorial
 - Define a branch name that follows this guideline `tutorials/new/short-tutorial-name`
 - Actions to take in repo `jolie/examples` 
