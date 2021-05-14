@@ -9,16 +9,33 @@ If you want to update the documentation, **this is not the repository that you a
 ## Guidelines for creating examples
 ### Naming conventions
 - outputPort: camelCase
+  - location: camelCase
+  - protocol: camelCase
+  - interfaces: camelCase
+  - aggregates: camelCase
+  - redirects: camelCase
+  - RequestResponse: CamelCase
+  - OneWay: CamelCase
 - inputPort: camelCase
+  - location: camelCase
+  - protocol: camelCase
+  - interfaces: camelCase
+  - aggregates: camelCase
+  - redirects: camelCase
+  - RequestResponse: CamelCase
+  - OneWay: CamelCase
 - ServiceName: CamelCase
 - TypeName: CamelCase
 - Interfaces: CamelCase
+  - RequestResponse: CamelCase
+  - OneWay: CamelCase
 - operations: camelCase
 - variables: camelCase
 - package-name: kebab-case
 - module-name: kebab-case
 - CONSTANTS: SCREAMING_SNAKE_CASE
 - define: camelCase
+- private: camelCase
 
 ### Request message assignment
 - Try to write the message request using inline syntax whenever possible.
