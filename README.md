@@ -65,6 +65,14 @@ If you want to update the documentation, **this is not the repository that you a
   }
   ```
   or 
+  ```jolie
+  with( request ) {
+     node1 = "node1";
+     node2 = "node2";
+     node3 = "node3";
+     ...
+  }
+  ```
  
 
 ## Creating a new tutorial
