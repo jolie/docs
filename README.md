@@ -6,6 +6,20 @@ If you want to update the documentation, **this is not the repository that you a
 
 # How to contribute to the documentation
 
+## Guidelines for creating examples
+### Naming conventions
+- outputPort: camelCase
+- inputPort: camelCase
+- ServiceName: CamelCase
+- TypeName: CamelCase
+- Interfaces: CamelCase
+- operations: camelCase
+- variables: camelCase
+- package-name: kebab-case
+- module-name: kebab-case
+- CONSTANTS: SCREAMING_SNAKE_CASE
+- define: camelCase
+
 ## Creating a new tutorial
 - Define a branch name that follows this guideline `tutorials/new/short-tutorial-name`
 - Actions to take in repo `jolie/examples` 
