@@ -74,7 +74,9 @@ If you want to update the documentation, **this is not the repository that you a
   }
   ```
  
-
+## Fixing a tutorial
+- Create a branch named as it follows
+  - `tutorials/fix/name-of-the-tutorial`
 ## Creating a new tutorial
 - Define a branch name that follows this guideline `tutorials/new/short-tutorial-name`
 - Actions to take in repo `jolie/examples` 
