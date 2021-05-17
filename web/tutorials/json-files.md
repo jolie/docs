@@ -74,3 +74,68 @@ main
 ```
 
 The file `note.json` will now contain the JSON data that we showed at the beginning of the tutorial.
+
+### Another example
+Let us consider to have a starting json file, named `file.json` like the following one:
+
+```json
+{
+    "module": [
+        {
+            "moduleId": "ONE",
+            "moduleName": "ONE",
+            "moduleOverview": "ONE"
+        },
+        {
+            "moduleId": "TWO",
+            "moduleName": "TWO",
+            "moduleOverview": "TWO"
+        }
+    ]
+}
+```
+The need is to add one more module item to the file. In the following example a jolie script just reads the file and add a new item module, then it wrotes the result on the same file.
+
+```jolie
+from file import File
+
+service ManagingJsonFiles {
+    embed File as File
+
+    main {
+        readFile@File( { filename = "file.json", format = "json" } )( starting_json )
+        starting_json.module[ #starting_json.module ] << {
+            moduleId = "NEW"
+            moduleName = "NEW"
+            moduleOverview = "NEW"
+        }
+        writeFile@File({ filename = "file.json", format = "json", content << starting_json } )()
+    }
+}
+```
+It is worth noting that `readFile` and `writeFile` are two operations offerred by standard library `File`. The standard library has been imported at the first line `from file import File`, then it is embedded at line four `embed File as File`.
+
+The final json file appears like the following one.
+```json
+{
+    "module": [
+        {
+            "moduleOverview": "ONE",
+            "moduleName": "ONE",
+            "moduleId": "ONE"
+        },
+        {
+            "moduleOverview": "TWO",
+            "moduleName": "TWO",
+            "moduleId": "TWO"
+        },
+        {
+            "moduleOverview": "NEW",
+            "moduleName": "NEW",
+            "moduleId": "NEW"
+        }
+    ]
+}
+
+```
+The complete example may be consulted at this [link](https://github.com/jolie/examples/tree/master/v1.10.x/tutorials/json-files).
