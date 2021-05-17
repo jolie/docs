@@ -13,7 +13,7 @@ The execution modality permits to specify the way a process must be executed whi
 The syntax of the _execution modality_ is:
 
 ```text
-execution { single | concurrent | sequential }
+execution: single | concurrent | sequential 
 ```
 
 `single` is the default execution modality \(so the `execution` construct can be omitted\), which runs the program behaviour once. `sequential`, instead, causes the program behaviour to be made available again after the current instance has terminated. This is useful, for instance, for modelling services that need to guarantee exclusive access to a resource. Finally, `concurrent` causes a program behaviour to be instantiated and executed _whenever its first input statement can receive a message_.
@@ -27,7 +27,7 @@ For instance, let us recall the server program given at the end of [Communicatio
 ```jolie
 include "NewsPaperInterface.iol"
 
-execution{ concurrent }
+execution: concurrent
 
 inputPort NewsPaperPort {
   Location:"auto:ini:/Locations/NewsPaperPort:file:locations.ini"
@@ -54,7 +54,7 @@ As an example let us consider the newspaper service reported above enriched with
 include "NewsPaperInterface.iol"
 include "console.iol"
 
-execution{ concurrent }
+execution: concurrent
 
 inputPort NewsPaperPort {
   Location:"auto:ini:/Locations/NewsPaperPort:file:locations.ini"
@@ -96,7 +96,7 @@ In the example reportes at this [link](https://github.com/jolie/examples/tree/ma
 include "ServiceInterface.iol"
 include "console.iol"
 
-execution{ concurrent }
+execution: concurrent
 
 inputPort Test {
   Location: "socket://localhost:9000"
@@ -191,7 +191,7 @@ inputPort Register {
     Interfaces: RegInterface
 }
 
-execution { concurrent }
+execution: concurrent
 
 init
 {
