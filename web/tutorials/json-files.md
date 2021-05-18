@@ -10,8 +10,8 @@ Say that you have a JSON file called `note.json` with the following content.
 ```json
 {
 	"note": {
-		"from": "John",
-		"to": "Jane",
+		"sender": "John",
+		"receiver": "Jane",
 		"content": "I made pasta"
 	}
 }
@@ -20,15 +20,19 @@ Say that you have a JSON file called `note.json` with the following content.
 You can read from this file and obtain a Jolie data structure as follows.
 
 ```jolie
-include "file.iol"
+from file import File
 
-main
-{
-	readFile@File( {
-		filename = "note.json"
-		format = "json"
-	} )( data )
-	// data is now { node << { from = "John" to = "Jane" content = "I made pasta" } }
+service Example {
+    embed File as File
+
+	main
+	{
+		readFile@File( {
+			filename = "note.json"
+			format = "json"
+		} )( data )
+		// data is now { node << { sender = "John" receiver = "Jane" content = "I made pasta" } }
+	}
 }
 ```
 
@@ -45,8 +49,8 @@ Suppose that you wanted to store the following data structure as a JSON file.
 ```jolie
 {
 	note << {
-		from = "John"
-		to = "Jane"
+		sender = "John"
+		receiver = "Jane"
 		content = "I made pasta"
 	}
 }
@@ -55,21 +59,25 @@ Suppose that you wanted to store the following data structure as a JSON file.
 You can do so by invoking `writeFile@File` and passing that data structure as the `content` to be written.
 
 ```jolie
-include "file.iol"
+from file import File
 
-main
-{
-	writeFile@File( {
-		filename = "note.json"
-		format = "json"
-		content << {
-			note << {
-				from = "John"
-				to = "Jane"
-				content = "I made pasta"
+service Example {
+	embed File as File
+	
+	main
+	{
+		writeFile@File( {
+			filename = "note.json"
+			format = "json"
+			content << {
+				note << {
+					sender = "John"
+					receiver = "Jane"
+					content = "I made pasta"
+				}
 			}
-		}
-	} )()
+		} )()
+	}
 }
 ```
 
