@@ -38,7 +38,10 @@ The mapping of the rest templates is defined within file `rest_templates.json`. 
 
 ```json
 {
-    "getOrders":"method=get, template=/orders/{userId}?maxItems={maxItems}"
+    "getOrders": {
+        "method"="get", 
+        "template"="/orders/{userId}?maxItems={maxItems}"
+    }
 }
 ```
 
@@ -92,10 +95,19 @@ The mapping file is defined as it follows where the operation `getOrders` is map
 
 ```json
 {
-    "getOrders":"method=get, template=/orders/{userId}?maxItems={maxItems}",
-    "getOrdersByItem":"method=post",
-    "putOrder":"method=put",
-    "deleteOrder":"method=delete"
+    "getOrders": {
+        "method"="get", 
+        "template"="/orders/{userId}?maxItems={maxItems}"
+    }
+    "getOrdersByItem": {
+        "method"="post"
+    }
+    "putOrder": {
+        "method"="put"
+    }
+    "deleteOrder": {
+        "method"="delete"
+    }
 }
 ```
 
