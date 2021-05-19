@@ -70,7 +70,7 @@ jsonValue = "{
 
 #### Refinement: length
 This refinement allows for specifying the minimum and the maximum length of a string. The minimum and the maximum length must be specify as a couple of values between square brackets. Example:
-```text
+```jolie
 type MyType {
     my_refined_string_field: string( length( [2,5] ) )
 }
@@ -80,7 +80,7 @@ In this example the field `my_refined_string_field` is a string which must have 
 #### Refinement: regex
 This refinement allows for specifying the regular expression a string must respect.
 In the following example we set an email field to respect some structural charaters like `"@"` and `"."`.
-```text
+```jolie
 type MyType {
   email: string( regex(".*@.*\\..*") )
 }
@@ -90,7 +90,7 @@ Note that Jolie uses the `dk.brics.automaton` library for managing regular expre
 #### Refinement: enum
 This refinement allows for specifying a set of available values for the string.
 In the follwwing example, only the values `"paul"`,`"homer"`,`"mark"`are admitted for the field name:
-```text
+```jolie
 type MyType {
   name: string( enum(["paul","homer","mark"]))
 }
@@ -100,7 +100,7 @@ type MyType {
 This refinement allows for specifying a list of valid intervals for an integer, a double or a long.
 In the following example, we show a type with three fields with different basic types. Each of them uses a refinement `ranges` for restriciting the possible values.
 
-```text
+```jolie
 type MyType {
   f1: int( ranges( [1,4], [10,20], [100,200], [300, *]) )
   f2: long( ranges( [3L,4L], [10L,20L], [100L,200L], [300L, *]) )
