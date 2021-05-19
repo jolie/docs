@@ -98,13 +98,13 @@ The mapping file is defined as it follows where the operation `getOrders` is map
     "getOrders": {
         "method":"get", 
         "template":"/orders/{userId}?maxItems={maxItems}"
-    }
+    },
     "getOrdersByItem": {
         "method":"post"
-    }
+    },
     "putOrder": {
         "method":"put"
-    }
+    },
     "deleteOrder": {
         "method":"delete"
     }
