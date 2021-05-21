@@ -98,7 +98,7 @@ execution:concurrent
 
 main {
     setFileContent( request )( response ) {
-        writeFile@File( {
+        writeFile@file( {
             filename = FILENAME
             content = request
             append = 1
