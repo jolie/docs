@@ -27,11 +27,11 @@ service Example {
 }
 ```
 
-Note that it is important to import ```jolie from file import File```and embed   ```jolie   embed File as file ``` the into the  service from the standard library then it is sufficient to use operation `readFile@file` for reading from the file. The operation `readFile@File` requires the filename. The content is then stored into variable `response` and it can be easily printed out using `println@console`.
+Note that it is important to import ```jolie from file import File```and embed   ```jolie   embed File as file ``` the into the  service from the standard library then it is sufficient to use operation `readFile@file` for reading from the file. The operation `readFile@file` requires the filename. The content is then stored into variable `response` and it can be easily printed out using `println@console`.
 
 ## Writing a file
 
-As for the reading of a file, writing a file uses the standard library `file` and in particular we exploit the operation `writeFile@file`. In the following we show a script which creates a file called `test.txt` and writes the string `this is a test message`. The full code of the example may be consulted [at this link](https://github.com/jolie/examples/tree/master/v1.10.x/Tutorials/using-files/writing-a-file)
+As for the reading of a file, writing a file uses the standard library `file` and in particular we exploit the operation `writeFile@file`. In the following we show a script which creates a file called `test.txt` and writes the string `this is a test message`. The full code of the example may be consulted [at this link](https://github.com/jolie/examples/tree/master/v1.10.x/tutorials/using-files/writing-a-file)
 
 ```jolie
 from file import File
@@ -52,7 +52,7 @@ Note that the operation `writeFile@file` requires at least two parameters: the f
 
 ## Communicating the content of a file
 
-Now, let's step forward creating a simple system where a server receives the content from a source file read by the client, and appends it to a receiving file. The full example can be checked [at this link](https://github.com/jolie/examples/tree/master/V1.10.x/tutorials/using-files/communicating-file-content).
+Now, let's step forward creating a simple system where a server receives the content from a source file read by the client, and appends it to a receiving file. The full example can be checked [at this link](https://github.com/jolie/examples/tree/master/v1.10.x/tutorials/using-files/communicating-file-content).
 The example uses the following file structure 
 ```
 .
