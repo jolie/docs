@@ -220,7 +220,7 @@ service ExampleClient{
 
     main {
         
-        readFile@File( {
+        readFile@file( {
             filename = "source.pdf"
             format = "binary"
         } )( rq.content )
