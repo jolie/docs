@@ -6,10 +6,12 @@
 * [Getting Started](tutorials/getting-started/README.md)
 * [Using Dependencies](tutorials/using-dependencies/README.md)
   * [Using more than one dependency](tutorials/using-more-than-one-dependency/README.md)
-* [Using files](tutorials/using-files.md)
-* [JSON files](tutorials/json-files.md)
-* [XML files](tutorials/xml-files.md)
-* [Twitter API](tutorials/twitter-api.md)
+* Standard Library
+  * [Using files](tutorials/using-files.md)
+    * [JSON files](tutorials/json-files.md)
+    * [XML files](tutorials/xml-files.md)ù
+* Integration Scenarios
+  * [Twitter API](tutorials/twitter-api.md)
 * [Advanced Scenarios](tutorials/advanced-scenarios/README.md)
   * [Implementing new port protocols in Jolie](tutorials/advanced-scenarios/supporting-new-protocols-in-jolie.md)
 
