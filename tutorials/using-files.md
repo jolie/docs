@@ -52,7 +52,7 @@ Note that the operation `writeFile@file` requires at least two parameters: the f
 
 ## Communicating the content of a file
 
-Now, let's step forward creating a simple system where a server receives the content from a source file read by the client, and appends it to a receiving file. The full example can be checked [at this link](https://github.com/jolie/examples/tree/master/V1.10.x/Tutorials/using-files/communicating-file-content).
+Now, let's step forward creating a simple system where a server receives the content from a source file read by the client, and appends it to a receiving file. The full example can be checked [at this link](https://github.com/jolie/examples/tree/master/V1.10.x/tutorials/using-files/communicating-file-content).
 The example uses the following file structure 
 ```
 .
@@ -74,7 +74,7 @@ Note that it is very simple and it just defines a single operation which is able
 
 ```jolie
 
-from ./ServerInterface import ServerInterface
+from .ServerInterface import ServerInterface
 from file import File
 
 constants {
@@ -114,7 +114,7 @@ The server is waiting to receive a message on operation `setFileContent`, once r
 On the other hand, the client reads a content from a file and sends it to the server:
 
 ```jolie
-from ./ServerInterface import ServerInterface
+from .ServerInterface import ServerInterface
 from file import File
 
 service ExampleClient{
@@ -138,9 +138,17 @@ service ExampleClient{
 
 ## Communicating raw contents
 
-Let's now concluding this tutorial showing how to manage also binary files. So far indeed, we dealt only with text files where their content is always managed as a string. In general, we could require to manage any kind of files. In the following we show hot to read, communicate and write the binary content of a file. We propose the same scenario of the section above where there is a client which reads from a file and sends its content to a server, but we show how to deal with binary files. The full code of the example may be consulted [at this link](https://github.com/jolie/examples/tree/master/v/Tutorials/using-files/communicating-raw-files). The interface of the server changes as it follows:
+Let's now concluding this tutorial showing how to manage also binary files. So far indeed, we dealt only with text files where their content is always managed as a string. In general, we could require to manage any kind of files. In the following we show hot to read, communicate and write the binary content of a file. We propose the same scenario of the section above where there is a client which reads from a file and sends its content to a server, but we show how to deal with binary files. The full code of the example may be consulted [at this link](https://github.com/jolie/examples/tree/master/v1.10.x/tutorials/using-files/communicating-raw-files). Like in previous example the following file structure is used.
+```
+.
++-- ServerInterface.ol
++-- server.ol
++-- client.ol
+``` 
 
-```text
+The interface of the server changes as it follows:
+
+```jolie
 type SetFileRequest: void {
     .content: raw
 }
@@ -153,55 +161,73 @@ interface ServerInterface {
 
 Note that the request type of operation `setFile` has a subnode called `.content` whose native type is set to `raw`. `raw` is the native typed used in jolie messages for sending binaries. Let us now see how the client works:
 
-```text
-include "ServerInterface.iol"
-include "file.iol"
+```jolie
+from .ServerInterface import ServerInterface
+from file import File
 
-outputPort Server {
-    Location: "socket://localhost:9000"
-    Protocol: sodep
-    Interfaces: ServerInterface
-}
-
-main {
-    with( f ) {
-        .filename = "source.pdf";
-        .format = "binary"
-    }
-    readFile@File( f )( rq.content )
-    setFile@Server( rq )()
-}
-```
-
-Note that the approach is the same of that we used for string contents with the difference that we specify also the parameter `format="binary"` for the operation `readFile@File`. Such a parameter enables jolie to intepreting the content of the file as a stream fo bytes which are represented as the native type `raw`. It is worth noting that the content of the reading is directly stored into the variable `rq.content`, this is why we just send variable `rq` with operation `setFile`.
-
-On the server side the code is:
-
-```text
-include "ServerInterface.iol"
-include "file.iol"
-
-execution{ concurrent }
-
-inputPort Server {
-    Location: "socket://localhost:9000"
-    Protocol: sodep
-    Interfaces: ServerInterface
-}
 
 constants {
     FILENAME = "received.pdf"
 }
 
+
+service ExampleServer {
+
+embed File as file    
+
+inputPort server {
+    Location: "socket://localhost:9000"
+    Protocol: sodep
+    Interfaces: ServerInterface
+}
+
+
+execution: concurrent 
 main {
     setFile( request )( response ) {
-        with( rq_w ) {
+
+        writeFile@file(  {
             .filename = FILENAME;
             .content = request.content;
             .format = "binary"
-        }
-        writeFile@File( rq_w )()
+        })()
     }
+}
+
+
+}
+```
+
+Note that the approach is the same of that we used for string contents with the difference that we specify also the parameter `format="binary"` for the operation `readFile@file`. Such a parameter enables jolie to intepreting the content of the file as a stream fo bytes which are represented as the native type `raw`. It is worth noting that the content of the reading is directly stored into the variable `rq.content`, this is why we just send variable `rq` with operation `setFile`.
+
+On the server side the code is:
+
+```jolie
+from .ServerInterface import ServerInterface
+from file import File
+
+
+
+service ExampleClient{
+
+    embed File as file
+
+    outputPort server {
+        Location: "socket://localhost:9000"
+        Protocol: sodep
+        Interfaces: ServerInterface
+    }
+
+    main {
+        
+        readFile@File( {
+            filename = "source.pdf"
+            format = "binary"
+        } )( rq.content )
+        
+        setFile@server( rq )()
+    }
+
 }
 ```
 
