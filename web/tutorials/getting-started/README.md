@@ -124,6 +124,7 @@ Unfortunately, the code above will raise an error if executed, because the servi
          }]
 
          [ mul( request )( response ) {
+             response = 1
              for ( f in request.factor ) {
                  response = response * f 
              }
