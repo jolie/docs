@@ -1,4 +1,4 @@
-# Understandig errors
+# Understanding errors
 
 This section is devoted to explain some errors that can be raised by the interpreter which could be difficut to understand due to the service oriented model used by Jolie:
 
