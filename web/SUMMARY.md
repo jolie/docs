@@ -122,6 +122,8 @@
   * [XMPP](language-tools-and-standard-library/standard-library-api/xmpp.md)
   * [ZipUtils](language-tools-and-standard-library/standard-library-api/zip_utils.md)
 
+## Errors
+* [Understanding errors](errors/errors.md)
 ## Indeces
 
 * [Glossary](glossary.md)
