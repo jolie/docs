@@ -124,6 +124,7 @@
 
 ## Errors
 * [Understanding errors](errors/errors.md)
+
 ## Indeces
 
 * [Glossary](glossary.md)
