@@ -72,7 +72,7 @@ main {
 
 It is worth noting that:
 
-* the outputPort _CleanBr_ does not define nor the location and the procolo because they are set by the embedding primitive with localtion "local" and inner memory protocol.
+* the outputPort _CleanBr_ does not define nor the location and the protocol because they are set by the embedding primitive with location "local" and inner memory protocol.
 * the embedding primitive specifies the language "Jolie" because the service _clean\_br.ol_ is written in Jolie
 * the embedding primitive joins the service _clean\_br.ol_ with the outputPort _CleanBr_ thus implying that each time we use port CleanBr inside the behaviour we will invoke the embedded service:
 
@@ -155,7 +155,7 @@ define __embed_service {
 main {
   [ sum( request )( response ) {
       __op = "sum";
-      /* here we call the define __embed_service where the variable __p is the name of the operation */
+      /* here we call the define __embed_service where the variable __op is the name of the operation */
       __embed_service
   }]
 
