@@ -17,7 +17,7 @@ Input primitives can be divided in two types which also correspond to those used
 In order to program a one-way operation inside the behaviour of a service, it is sufficient to declare the name of the OneWay operation published into an inputPort of the service followed by the name of the variable between brackets where the received message will be stored.
 
 ```jolie
-operation_name( response )
+operation_name( request )
 ```
 
 On the other hand, a request-response operation requires the name of a RequestResponse operation defined into an interface followed by two variables: the former is in charge to store the receiving message whereas the latter is in charge to store the replying message. Both the variables must be defined within brackets. Since a request-response primitive is a synchronous primitive, between the request and the response message some code can be executed. The caller will wait for the termination of that code before receiving for the reply.
@@ -33,7 +33,7 @@ As an example let us consider the following service which has two operations def
 ```jolie
 include "console.iol"
 
-exceution{ concurrent }
+execution{ concurrent }
 
 interface MyInterface {
 OneWay:

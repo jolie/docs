@@ -4,7 +4,7 @@ In Jolie a _process_ is a running instance of a behaviour whereas a _session_ is
 
 ## Execution modality
 
-The execution modality permits to specify the way a process must be executed whithin the engine. An process can be executed in three modalities:
+The execution modality permits to specify the way a process must be executed within the engine. An process can be executed in three modalities:
 
 * single
 * sequential

@@ -299,7 +299,7 @@ The same stands between nested data types.
 type CustomType: any | any { .subNode: T } | any { .subNode[2,3]: T }
 ```
 
-## Checking types at runtime: `istanceof`
+## Checking types at runtime: `instanceof`
 
 See section [Handling Simple Data/Rutime type checking of a variable](../handling_simple_data.md#runtime-type-checking-of-a-variable-instanceof) for getting details about pritimive `instanceof`.
 
