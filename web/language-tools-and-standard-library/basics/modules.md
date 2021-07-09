@@ -24,11 +24,16 @@ The syntax of the `import` statement is
 from moduleSpecifier import importTarget_1 [as alias_1], ..., importTarget_n [as alias_n]
 ```
 
-The importing module is defined by the moduleSpecifier. Users can use a dot `.` as path separator between packages and modules. Each identifier before the last one defines the packages where the importing module resides, while the last identifier represents the importing module name. Hence, the import fragment `from A.B.C.d` would read "look into folder A, then B, then C, open module (the file) d and import the following symbols (omitted)". When prefixed with a `.` module lookups are resolved from the location of the importing file, rather than the working directory from which the Jolie interpreter have been launched. E.g.,
+The importing module is defined by the moduleSpecifier. Users can use a dot `.` as path separator between packages and modules. Each identifier before the last one defines the packages where the importing module resides, while the last identifier represents either the importing package or the importing module name. If the last identifier is a package, Jolie module parser will attempt to look up for a module named `main` in particular package, or else it is a module.
+
+Hence, the import fragment `from A.B.C.d` would read "look into folder A, then B, then C, check if d is a folder; if so, open module (the file) main in d, otherwise, open module (the file) d and import the following symbols (omitted)". When prefixed with a `.` module lookups are resolved from the location of the importing file, rather than the working directory from which the Jolie interpreter have been launched. E.g.,
 
 ```jolie
-from A import AInterface // import AInterface definition from module A.
-from .B import BType as BLocalType // import BType definition as BLocalType from module B in the same package.
+from A import AInterface
+// import AInterface definition from module A or A.main if A is a package.
+
+from .B import BType as BLocalType
+// import BType definition as BLocalType from module B (or B.main if B is a package) in the same package.
 ```
 
 The second part of the import statement, importTarget, is a list of symbol names defined in the target module, with an optional qualified name to bind to the local execution environment denoted by using 'as' keyword. E.g., 
