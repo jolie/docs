@@ -9,6 +9,7 @@ RUN apk update && \
     apk add git && \
     apk add nodejs npm --no-cache
 RUN npm install -g gitbook-cli
+RUN cd /usr/local/lib/node_modules/gitbook-cli/node_modules/npm/node_modules/ && npm install graceful-fs@4.2.0 --save
 RUN git clone https://github.com/jolie/docs.git
 WORKDIR /home/docs
 RUN cp -r -v docker/overrides/* /
