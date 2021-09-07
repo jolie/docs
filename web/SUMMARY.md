@@ -11,7 +11,7 @@
   * [sodep](tutorials/using-more-input-ports-and-protocols/sodep.md)
   * [https](tutorials/using-more-input-ports-and-protocols/https.md)
   * [soaps](tutorials/using-more-input-ports-and-protocols/soaps.md)
-  * [sodeps](tutorials/using-more-input-ports-and-protocols/sodep.md)
+  * [sodeps](tutorials/using-more-input-ports-and-protocols/sodeps.md)
 * Standard Library
   * [Using files](tutorials/using-files.md)
     * [JSON files](tutorials/json-files.md)
