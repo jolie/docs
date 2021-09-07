@@ -6,6 +6,7 @@
 * [Getting Started](tutorials/getting-started/README.md)
 * [Using Dependencies](tutorials/using-dependencies/README.md)
   * [Using more than one dependency](tutorials/using-more-than-one-dependency/README.md)
+* [Using more input ports and protocols](tutorials/using-more-input-ports-and-protocols/README.md)
 * Standard Library
   * [Using files](tutorials/using-files.md)
     * [JSON files](tutorials/json-files.md)

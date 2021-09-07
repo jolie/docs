@@ -15,9 +15,10 @@ inputPort AdvancedCalculatorPortSOAP {
 }
 
 ```
+From now on, the service will be able to receive messages in soap format on port `8002`. But there is not any wsdl document attached to it. _Note_: jolie does not perform a type check validation at the level of SOAP message for received messages, but messages will be automatically converted into jolie values and then type checked against the jolie interface. As far as the reply messages are concerned, jolie will exploit the wsdl definition for correctly ordering xml sequences, jolie uses not ordered trees, thus subnodes are always unordered and when they are converted into a xml soap format, there is not any guarantee about the order of subnodes. A specific order can be forced using a xml schema within the corresponding wsdl definition. For this reason it is important to attach the wsdl definition to the soap port. In the following section we explaining how to do it.
 
 ## Generating the wsdl definition
-The port is defined but we also need to attach the corresponding wsdl definition to be used together with that port. The wsdl definition must represents the jolie interface using the WSDL XML notation. Addressing such a step manually is quite difficult, so we introduced an automatic tool for doing it: [jolie2wsdl](https://docs.jolie-lang.org/v1.10.x/language-tools-and-standard-library/web-services/jolie2wsdl.html). It is installed together with the jolie interpreter. Its usage is quite simple, it is a command line tool which accepts some parameters. In our example, the command to run is:
+Once the soap port is defined, we need to attach the corresponding wsdl definition to be used together with that port. In the case., the wsdl definition represents the existing jolie interface (in teh example it is `AdvancedCalculatorInterface`) using a WSDL XML notation. Converting manually a jolie interface into a wsdl definition is quite difficult, so we introduced an automatic tool for doing it: [jolie2wsdl](https://docs.jolie-lang.org/v1.10.x/language-tools-and-standard-library/web-services/jolie2wsdl.html). It is installed together with the jolie interpreter. Its usage is quite simple, it is a command line tool which accepts some parameters. In our example, the command to run is:
 ```
 jolie2wsdl --namespace test.jolie.org --portName AdvancedCalculatorPortSOAP --portAddr http://localhost:8002 --outputFile AdvancedCalculator.wsdl AdvancedCalculatorService.ol 
 ```
@@ -50,7 +51,7 @@ This new inputPort has been defined for using protocol `soap`, and it is listeni
 ## The complete example
 
 The complete example follows and it may be consulted at this [link]
-(https://github.com/jolie/examples/tree/master/v1.10.x/tutorials/more_inputports_and_protocols)
+(https://github.com/jolie/examples/tree/master/v1.10.x/tutorials/more_inputports_and_protocols/soap)
 
 ```
 service AdvancedCalculatorService {
@@ -126,7 +127,7 @@ The complete example can be found [here](https://github.com/jolie/examples/tree/
 jolie AdvancedCalculatorService.ol
 jolie CalcularService.ol
 ```
-Now the service AdvanceCalculatorService is listening on two ports: '8001' and '8002'. Where the former accepts 'http/json' messages and the latter soap messages. Now let us use an external tool for create a correct soap request. A tool you could use is [SoapUI](https://www.soapui.org/). It is sufficient to import the wsdl file and then fill the request with the value you prefer. In the following picture we prepared a request for the operation `factorial`.
+Now the service AdvanceCalculatorService is listening on two ports: `8001` and `8002`. Where the former accepts 'http/json' messages and the latter soap messages. Now let us use an external tool for creating a correct soap request. A tool you could use is [SoapUI](https://www.soapui.org/). It is sufficient to import the wsdl file and then fill the request with the value you prefer. In the following picture we prepared a request for the operation `factorial`.
 
 ![](https://raw.githubusercontent.com/jolie/docs/v1.10.x/web/.gitbook/assets/soapgui.png)
 
