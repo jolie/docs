@@ -7,6 +7,11 @@
 * [Using Dependencies](tutorials/using-dependencies/README.md)
   * [Using more than one dependency](tutorials/using-more-than-one-dependency/README.md)
 * [Using more input ports and protocols](tutorials/using-more-input-ports-and-protocols/README.md)
+  * [soap](tutorials/using-more-input-ports-and-protocols/soap.md)
+  * [sodep](tutorials/using-more-input-ports-and-protocols/sodep.md)
+  * [https](tutorials/using-more-input-ports-and-protocols/https.md)
+  * [soaps](tutorials/using-more-input-ports-and-protocols/soaps.md)
+  * [sodeps](tutorials/using-more-input-ports-and-protocols/sodep.md)
 * Standard Library
   * [Using files](tutorials/using-files.md)
     * [JSON files](tutorials/json-files.md)
