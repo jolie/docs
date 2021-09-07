@@ -8,9 +8,9 @@ In particular, we modify the service `AdvancedCalculatorService` of the tutorial
 Besides the existing port for protocol `http`, Input ports will be incrementally added for the following protocols:
 
 - [soap](soap.html)
-- [sodep](https://docs.jolie-lang.org/v1.10.x/tutorials/using-more-input-ports-and-protocols/sodep.html)
-- [https](https://docs.jolie-lang.org/v1.10.x/tutorials/using-more-input-ports-and-protocols/https.html)
-- [soaps](https://docs.jolie-lang.org/v1.10.x/tutorials/using-more-input-ports-and-protocols/soaps.html)
-- [sodeps](https://docs.jolie-lang.org/v1.10.x/tutorials/using-more-input-ports-and-protocols/sodeps.html)
+- [sodep](sodep.html)
+- [https](https.html)
+- [soaps](soaps.html)
+- [sodeps](sodeps.html)
 
 All the examples may be consulted at this [link](https://github.com/jolie/examples/tree/master/v1.10.x/tutorials/more_inputports_and_protocols)
