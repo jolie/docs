@@ -9,7 +9,7 @@ As it happened for the addition of soap protocol input port, also in the case of
 
 ## Adding the port
 The first step is adding the inputPort to the code. In our example is:
-```
+```jolie
 inputPort AdvancedCalculatorPortSOAP {
         location: "socket://localhost:8003"
         protocol: sodep 
@@ -25,7 +25,7 @@ No other actions are required.
 The complete example follows and it may be consulted at this [link]
 (https://github.com/jolie/examples/tree/master/v1.10.x/tutorials/more_inputports_and_protocols/sodep)
 
-```
+```jolie
 from AdvancedCalculatorServiceInterfaceModule import AdvancedCalculatorInterface
 from CalculatorInterfaceModule import CalculatorInterface
 
@@ -113,14 +113,14 @@ service AdvancedCalculatorService {
 
 ## Running the service and invoking it
 Since we are extending the example [Using more than one dependency](https://docs.jolie-lang.org/v1.10.x/tutorials/using-more-than-one-dependency/), here we need to run two services in two separate shells:
-```
+```jolie
 jolie AdvancedCalculatorService.ol
 jolie CalcularService.ol
 ```
 
 In this case the client is another jolie script that must be run in a separate shell:
 
-```
+```jolie
 from AdvancedCalculatorServiceInterfaceModule import AdvancedCalculatorInterface
 from console import *
 from string_utils import StringUtils
@@ -190,7 +190,7 @@ service SodepClient {
 
 Note that in this client the corresponding sodep outputPort is defined. In the behaviour, a simple choice is offered to the user on the console for selecting the operation to invoke. Depending on the choice, the user is asked to insert the specific parameters required by the operation, then the message is sent to the AdvamcedCalculatorService. In the following we report an example of an execution:
 
-```
+```jolie
 jolie sodep_client.ol 
 
 

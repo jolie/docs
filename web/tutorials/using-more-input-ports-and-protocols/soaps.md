@@ -9,7 +9,7 @@ As it happened for the addition of the other protocol input ports, also in the c
 
 ## Adding the port
 The first step is adding the inputPort to the code. In our example is:
-```
+```jolie
 inputPort AdvancedCalculatorPortSOAPS {
         location: "socket://localhost:8005"
         protocol: soaps {
@@ -24,7 +24,7 @@ inputPort AdvancedCalculatorPortSOAPS {
 ```
 
 Note that protocol `soaps` requires parameters for identifying the wsdl document to use (`wsdl`) and the related port (`wsdl.port`) as we did for protocol `soap`. Here we generated a new wsdl document, in order to provide the correct location for the soaps port. As we did for the soap protocol example, we exploit tool [jolie2wsdl](https://docs.jolie-lang.org/v1.10.x/language-tools-and-standard-library/web-services/jolie2wsdl.html),
-```
+```jolie
 jolie2wsdl --namespace example.jolie.org --portName AdvancedCalculatorPortSOAPS --portAddr https://localhost:8005 --outputFile AdvanceCalculatorSOAPS.wsdl AdvancedCalculatorService.ol
 ```
 In this case we saved the wsdl document within file `AdvancedCalculatorSOAPS.wsdl` that is the file name specified in parameter `wsdl`. 
@@ -36,7 +36,7 @@ Moreover, similarly as we did for protocol `https`, protocol `soaps` requires a 
 The complete example follows and it may be consulted at this [link]
 (https://github.com/jolie/examples/tree/master/v1.10.x/tutorials/more_inputports_and_protocols/soaps)
 
-```
+```jolie
 from AdvancedCalculatorServiceInterfaceModule import AdvancedCalculatorInterface
 from CalculatorInterfaceModule import CalculatorInterface
 
@@ -146,7 +146,7 @@ As it si possible to note, here we just added the port `AdvancedCalculatorPortSO
 
 ## Running the service and invoking it
 Since we are extending the example [Using more than one dependency](https://docs.jolie-lang.org/v1.10.x/tutorials/using-more-than-one-dependency/), here we need to run two services in two separate shells:
-```
+```jolie
 jolie AdvancedCalculatorService.ol
 jolie CalcularService.ol
 ```

@@ -9,7 +9,7 @@ As it happened for the addition of the other protocol input ports, also in the c
 
 ## Adding the port
 The first step is adding the inputPort to the code. In our example is:
-```
+```jolie
 inputPort AdvancedCalculatorPortHTTPS {
     location: "socket://localhost:8004"
     protocol: https { 
@@ -31,7 +31,7 @@ In this example, we previously generated a key store using the tool [`keytool`](
 The complete example follows and it may be consulted at this [link]
 (https://github.com/jolie/examples/tree/master/v1.10.x/tutorials/more_inputports_and_protocols/https)
 
-```
+```jolie
 from AdvancedCalculatorServiceInterfaceModule import AdvancedCalculatorInterface
 from CalculatorInterfaceModule import CalculatorInterface
 
@@ -130,7 +130,7 @@ As it si possible to note, here we just added the port `AdvancedCalculatorPortHT
 
 ## Running the service and invoking it
 Since we are extending the example [Using more than one dependency](https://docs.jolie-lang.org/v1.10.x/tutorials/using-more-than-one-dependency/), here we need to run two services in two separate shells:
-```
+```jolie
 jolie AdvancedCalculatorService.ol
 jolie CalcularService.ol
 ```

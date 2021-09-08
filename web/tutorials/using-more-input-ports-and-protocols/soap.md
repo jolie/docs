@@ -7,7 +7,7 @@ The behaviour of the service is always the same, but a new soap port is added an
 
 ## Adding the port
 The first step is adding the inputPort to the code. In our example is:
-```
+```jolie
 inputPort AdvancedCalculatorPortSOAP {
         location: "socket://localhost:8002"
         protocol: soap 
@@ -19,7 +19,7 @@ From now on, the service will be able to receive messages in soap format on port
 
 ## Generating the wsdl definition
 Once the soap port is defined, we need to attach the corresponding wsdl definition to be used together with that port. In the case., the wsdl definition represents the existing jolie interface (in teh example it is `AdvancedCalculatorInterface`) using a WSDL XML notation. Converting manually a jolie interface into a wsdl definition is quite difficult, so we introduced an automatic tool for doing it: [jolie2wsdl](https://docs.jolie-lang.org/v1.10.x/language-tools-and-standard-library/web-services/jolie2wsdl.html). It is installed together with the jolie interpreter. Its usage is quite simple, it is a command line tool which accepts some parameters. In our example, the command to run is:
-```
+```jolie
 jolie2wsdl --namespace test.jolie.org --portName AdvancedCalculatorPortSOAP --portAddr http://localhost:8002 --outputFile AdvancedCalculator.wsdl AdvancedCalculatorService.ol 
 ```
 where:
@@ -35,7 +35,7 @@ The final result should be similar to the definition at this [link](https://gith
 Now we are ready to complete the configuration of the soap port as it follows:
 
 
-```
+```jolie
 inputPort AdvancedCalculatorPortSOAP {
         location: "socket://localhost:8002"
         protocol: soap {
@@ -53,7 +53,7 @@ This new inputPort has been defined for using protocol `soap`, and it is listeni
 The complete example follows and it may be consulted at this [link]
 (https://github.com/jolie/examples/tree/master/v1.10.x/tutorials/more_inputports_and_protocols/soap)
 
-```
+```jolie
 service AdvancedCalculatorService {
 
     execution{ concurrent }
@@ -123,7 +123,7 @@ service AdvancedCalculatorService {
 
 ## Running the service and invoking it
 The complete example can be found [here](https://github.com/jolie/examples/tree/master/v1.10.x/tutorials/more_inputports_and_protocols/soap). Since we are extending the example [Using more than one dependency](https://docs.jolie-lang.org/v1.10.x/tutorials/using-more-than-one-dependency/), here we need to run two services in two separate shells:
-```
+```jolie
 jolie AdvancedCalculatorService.ol
 jolie CalcularService.ol
 ```
