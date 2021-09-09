@@ -1,1 +1,2 @@
 # Services
+A service is the key element of a jolie program, it is the minimal artifact that can be designed and developed with Jolie. In Jolie everything is a service, a composition of services is a service. An application written in Jolie is always a composition of services. There is no possibility to develop something different. In this section we will show which are the basic elements for defining a service.
