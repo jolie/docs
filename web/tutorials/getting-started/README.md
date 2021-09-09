@@ -187,7 +187,7 @@ from CalculatorInterfaceModule import CalculatorInterface
 
  service CalculatorService {
 
-     execution{ concurrent }
+     execution: concurrent
 
      inputPort CalculatorPort {
          location: "socket://localhost:8000"

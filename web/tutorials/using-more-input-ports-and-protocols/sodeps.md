@@ -37,7 +37,7 @@ interface ChuckNorrisIface {
 
 service AdvancedCalculatorService {
 
-    execution{ concurrent }
+    execution: concurrent
 
     outputPort Chuck {
         location: "socket://api.chucknorris.io:443/"

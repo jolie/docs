@@ -56,7 +56,7 @@ The complete example follows and it may be consulted at this [link]
 ```jolie
 service AdvancedCalculatorService {
 
-    execution{ concurrent }
+    execution: concurrent
 
     outputPort Chuck {
         location: "socket://api.chucknorris.io:443/"

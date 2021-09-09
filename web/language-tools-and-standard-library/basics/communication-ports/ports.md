@@ -7,9 +7,9 @@ In Jolie there are two kinds of ports:
 
 Within each port, both input and output, it is possible to define three elements:
 
-* _Location_; 
-* _Protocol_;
-* _Interfaces_.
+* _location_; 
+* _protocol_;
+* _interfaces_.
 
 The Location defines _where_ the service is listening for a message \(in the case of input ports\) or where the message has to be sent \(in the case of output ports\). The Protocol defines _how_ Jolie will send or receive a message. It could defines both the transportation protocol \(e.g. http\) and the message format \(e.g. json\). Finally, Interfaces specify the list of the available operations and the related message types information. In particular, in case of an input port, an interfaces specifies the operation exhibited by the current service, whereas in the case of an output port it defines the operations which can be invoked by that service.
 
@@ -23,9 +23,9 @@ The syntax for input and output ports is, respectively:
 
 ```jolie
 inputPort id {
-    Location: URI
-    Protocol: p
-    Interfaces: iface_1, 
+    location: URI
+    protocol: p
+    interfaces: iface_1, 
                 ..., 
                 iface_n
 }
@@ -33,9 +33,9 @@ inputPort id {
 
 ```jolie
 outputPort id {
-    Location: URI
-    Protocol: p
-    Interfaces: iface_1, 
+    location: URI
+    protocol: p
+    interfaces: iface_1, 
                 ..., 
                 iface_n
 }
@@ -92,9 +92,9 @@ Finally, let us define the `SumServ` outputPort, which is used to invoke the ser
 
 ```jolie
 outputPort SumServ {
-    Location: "socket://localhost:8000/"
-    Protocol: soap
-    Interfaces: SumInterface
+    location: "socket://localhost:8000/"
+    protocol: soap
+    interfaces: SumInterface
 }
 ```
 
@@ -115,33 +115,33 @@ include "MyInterface.iol"
 execution{ concurrent }
 
 outputPort OutputPort1 {
-    Location: "socket://localhost:9000/"
-    Protocol: sodep
-    Interfaces: Interface1
+    location: "socket://localhost:9000/"
+    protocol: sodep
+    interfaces: Interface1
 }
 
 outputPort OutputPort2 {
-    Location: "socket://localhost:9001/"
-    Protocol: sodep
-    Interfaces: Interface2
+    location: "socket://localhost:9001/"
+    protocol: sodep
+    interfaces: Interface2
 }
 
 outputPort OutputPort3 {
-    Location: "socket://localhost:9002/"
-    Protocol: sodep
-    Interfaces: Interface3
+    location: "socket://localhost:9002/"
+    protocol: sodep
+    interfaces: Interface3
 }
 
 inputPort InputPort1 {
-    Location: "socket://localhost:8000/"
-    Protocol: soap
-    Interfaces: MyInterface
+    location: "socket://localhost:8000/"
+    protocol: soap
+    interfaces: MyInterface
 }
 
 inputPort InputPort2 {
-    Location: "socket://localhost:8001/"
-    Protocol: sodep
-    Interfaces: MyInterface
+    location: "socket://localhost:8001/"
+    protocol: sodep
+    interfaces: MyInterface
 }
 
 main {
