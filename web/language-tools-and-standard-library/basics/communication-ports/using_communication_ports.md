@@ -33,7 +33,7 @@ As an example let us consider the following service which has two operations def
 ```jolie
 include "console.iol"
 
-execution{ concurrent }
+execution: concurrent
 
 interface MyInterface {
 OneWay:
@@ -82,7 +82,7 @@ In the following we report a possible client of the service above which is able 
 ```jolie
 include "console.iol"
 
-exceution{ concurrent }
+execution: concurrent
 
 interface MyInterface {
 OneWay:
