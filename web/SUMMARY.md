@@ -34,6 +34,7 @@
     * [Synchronous vs Asynchronous Communication](language-tools-and-standard-library/basics/communication-ports/synchronousvsasynchronous.md)
     * [Type Mismatching](language-tools-and-standard-library/basics/communication-ports/type_mismatching.md)
     * [Example](language-tools-and-standard-library/basics/communication-ports/a_comprehensive_example.md)
+  * [Embedding](language-tools-and-standard-library/architectural-composition/embedding.md)
   * [Handling Simple Data](language-tools-and-standard-library/basics/handling_simple_data.md)
   * [Composing Statements](language-tools-and-standard-library/basics/composing_statements.md)
   * [Define](language-tools-and-standard-library/basics/define.md)
