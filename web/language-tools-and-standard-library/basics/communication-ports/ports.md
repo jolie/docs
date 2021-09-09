@@ -59,7 +59,7 @@ Jolie currently supports four media:
 
 An example of a valid location is: `"socket://www.mysite.com:80/"`, where `socket://` is the location medium and the following part represents the address.
 
-For a thorough description of the locations supported by Jolie and their parameters see [Locations](https://github.com/jolie/docs/tree/f99116a5ee813ad79e1967682b95c2ab305c9c0e/basics/communication-ports/locations/introduction/README.md) section.
+For a thorough description of the locations supported by Jolie and their parameters see [Locations](../../locations/README.md) section.
 
 ## Protocols
 
@@ -74,7 +74,7 @@ Protocols are referred by name. Examples of valid \(supported\) protocol names a
 * `xmlrpc`
 * `jsonrpc`
 
-For a thorough description of the protocols supported by Jolie and their parameters see [Protocols](https://github.com/jolie/docs/tree/f99116a5ee813ad79e1967682b95c2ab305c9c0e/basics/communication-ports/protocols/introduction/README.md) section.
+For a thorough description of the protocols supported by Jolie and their parameters see [Protocols](../../protocols/README.md) section.
 
 Let us consider the following input port declaration:
 
