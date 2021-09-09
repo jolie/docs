@@ -128,13 +128,13 @@ Complex custom types can be obtained by defining nested subnodes of the root, th
 
 ```jolie
 type CustomType: T {
-    .aSubNode: T {
-        .aSubSubNode: T {
+    aSubNode: T {
+        aSubSubNode: T {
             ...
         }
     }
     ...
-    .anotherSubNode: T { ... }
+    anotherSubNode: T { ... }
 }
 ```
 
@@ -142,8 +142,8 @@ Let us see some example of nested data types.
 
 ```jolie
 type Coordinates: void {
-  .lat: double
-  .lng: double
+  lat: double
+  lng: double
 }
 ```
 
@@ -151,11 +151,11 @@ The custom type `Coordinates` is a possible representation of a nested data type
 
 ```jolie
 type ShoppingList: void {
-  .fruits: int {
-    .bananas: int
-    .apples: int
+  fruits: int {
+    bananas: int
+    apples: int
   }
-  .notes: string
+  notes: string
 }
 ```
 
@@ -165,15 +165,31 @@ A definition of type can be used within another type definition thus to express 
 
 ```jolie
 type Fruits: void {
-    .bananas: int
-    .apples: int
+    bananas: int
+    apples: int
 }
 
 type ShoppingList: void {
-    .fruits: Fruits
-    .notes: string
+    fruits: Fruits
+    notes: string
 }
 ```
+
+*NOTE*: in case the root native type is `void`, the definition of the native type can be omitted. As an example the two tyopes above can be written also as it follows:
+
+```jolie
+type Fruits {
+    bananas: int
+    apples: int
+}
+
+type ShoppingList {
+    fruits: Fruits
+    notes: string
+}
+```
+In the following we will exploit this syntactic shortcut for expressing types.
+
 
 ### Subnodes with cardinality
 
@@ -191,13 +207,13 @@ Formally, given `R` as a range, which specifies the allowed number of occurrence
 
 ```jolie
 type CustomType: T {
-    .aSubNode[R]: T {
-        .aSubSubNode[R]: T {
+    aSubNode[R]: T {
+        aSubSubNode[R]: T {
             ...
         }
     }
     ...
-    .anotherSubNode[R]: T { ... }
+    anotherSubNode[R]: T { ... }
 }
 ```
 
@@ -205,7 +221,7 @@ Lets consider the examples below to illustrate the 3 different cardinality optio
 
 ```jolie
 type CustomType: T {
-  .aSubNode[1,5]: T
+  aSubNode[1,5]: T
 }
 ```
 
@@ -213,8 +229,8 @@ _Example_. In this case cardinalities are defined by occurrences where minimal o
 
 ```jolie
 type CustomType: T {
-  .aSubNode[0,1]: T
-  .anotherSubNode?: T
+  aSubNode[0,1]: T
+  anotherSubNode?: T
 }
 ```
 
@@ -222,8 +238,8 @@ The example above shows that `?` is a shortcut for `[0,1]` and hence the cardina
 
 ```jolie
 type CustomType: T {
-  .aSubNode[0,*]: T
-  .anotherSubNode*: T
+  aSubNode[0,*]: T
+  anotherSubNode*: T
 }
 ```
 
@@ -244,21 +260,21 @@ type CustomType: undefined
 Let us see a comprehensive example of a custom type with cardinality.
 
 ```jolie
-type mySubType: void {
- .value: double
- .comment: string
+type mySubType {
+ value: double
+ comment: string
 }
 
 type myType: string {
 
- .x[ 1, * ]: mySubType
+ x[ 1, * ]: mySubType
 
- .y[ 1, 3 ]: void {
-  .value*: double
-  .comment: string
+ y[ 1, 3 ] {
+  value*: double
+  comment: string
  }
 
- .z?: void { ? }
+ z?: void { ? }
 }
 ```
 
@@ -276,8 +292,8 @@ Referring to the previous example, `x` requires the definition of both nodes `va
 Sometimes you may need to define node names that contain special characters, such as @. In these cases, you need to put your node name between double quotes, as in the following example.
 
 ```jolie
-type TestType: void {
-    ."@node": string
+type TestType {
+    "@node": string
 }
 ```
 
