@@ -5,7 +5,7 @@ Communication ports define how to enable communications with other microservices
 * input ports
 * output ports
 
-Input ports deal with exposing input operations to other microservices. Output ports define how to invoke the operations of other microservices. Ports allow Jolie programmers to combine communication media \([sockets](../../locations/socket.html), [localsockets](../../locations/localsocket.html), [bluetooth](../../locations/btl2cap.html)\) and data formats \([http](../..//protocols/http.html), [https](../../protocols/https), [soap](../../protocols/soap)\), which is the concrete binding information between the communicating microservices.
+Input ports deal with exposing input operations to other microservices. Output ports define how to invoke the operations of other microservices. Ports allow Jolie programmers to combine communication media \([sockets](../../locations/socket.html), [localsockets](../../locations/localsocket.html), [bluetooth](../../locations/btl2cap.html)\) and data formats \([http](../../protocols/http.html), [https](../../protocols/https.html), [soap](../../protocols/soap.html)\), which is the concrete binding information between the communicating microservices.
 
-In addition to the concrete binding, Jolie ports include [interfaces](./interfaces.html) to express [data type](./data_types.html) information for each operation supported by a given port.
+In addition to the concrete binding, Jolie ports include [interfaces](./interfaces/README.md) to express [data type](./interfaces/data_types.html) information for each operation supported by a given port.
 
