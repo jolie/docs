@@ -107,12 +107,7 @@ More than one input and one output ports can be defined into a service thus, ena
 As an example, in the following piece of service, two input ports and three outputPorts are declared:
 
 ```jolie
-include "Interface1.iol"
-include "Interface2.iol"
-include "Interface3.iol"
-include "MyInterface.iol"
-
-execution{ concurrent }
+...
 
 outputPort OutputPort1 {
     location: "socket://localhost:9000/"
@@ -144,8 +139,6 @@ inputPort InputPort2 {
     interfaces: MyInterface
 }
 
-main {
 ...
-}
 ```
 
