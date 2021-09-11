@@ -1,9 +1,9 @@
-# Service Definition
-A service is the key element of a jolie program, it is the minimal artifact that can be designed and developed with Jolie. In Jolie everything is a service, a composition of services is a service. An application written in Jolie is always a composition of services. There is no possibility to develop something different. 
+# Services
+A service is the key element of a jolie program, it is the minimal artifact that can be designed and developed with Jolie. In Jolie everything is a service, a composition of services is a service. An application written in Jolie is always a composition of services. There is no possibility to develop something different.
 
-The `service` is a component that includes blocks that define its deployment and its behaviour. 
+A service is always described by a **service definition** where the code is specified. Service definitions can be organized in [modules](modules.html).
 
-More precisely, a service node contains a collection of Jolie components, like named procedures and communication ports, and may specify a typed value used to parametrise its execution &mdash; this value can be passed either from the execution command used to launch the Jolie interpreter as well as by an importer that wants to use the service internally (e.g., see [embedding](../architectural-composition/embedding.md)). The syntax of `service` definition is the following:
+The `service` is a component that includes blocks that define its deployment and its behaviour. More precisely, a service node contains a collection of Jolie components, like named procedures and communication ports, and may specify a typed value used to parameterise its execution &mdash; this value can be passed either from the execution command used to launch the Jolie interpreter as well as by an importer that wants to use the service internally (e.g., see embedding below)). The syntax of `service` definition is the following:
 
 ```jolie
 [public | private] service ServiceName ( parameterName : parameterType) {
@@ -14,7 +14,35 @@ More precisely, a service node contains a collection of Jolie components, like n
 }
 ```
 
-To better understand how `service`s and their parameters interact, let us look at a concrete example of a Jolie module that specifies a type (for the parameter), an interface of a service and a `service` using it:
+The following example reports a service which provides a simple operation for multiplying a parameter with a numeric constant `8`.
+
+```jolie
+interface MyServiceInterface {
+	RequestResponse: multiply ( int )( int )
+}
+
+service MyService() {
+	
+	execution: concurrent
+	
+	inputPort IP {
+		location: "socket://localhost:8000"
+		protocol: sodep
+		interfaces: MyServiceInterface
+	}
+
+	main {
+		multiply ( number )( result ) {
+			result = number * 8
+		}
+	}
+}
+```
+
+This service exposes one [inputPort](./basics/communication-ports/ports.html) where it offers the operation `multiply`. Note that the interface has been defined outside the scope `service` but it is referenced within it input port `IP`. Interface declarations indeed are independently defined w.r.t. services, and they can only be referenced when used. The statement `execution:concurrent` specifies the [execution modality](./processes.html) to be used when running the service.
+
+## Parameterized services
+To better understand how `service`s and their parameters interact, let us modify the previous example by giving the possibility to specify the constant used for the multiplication, the location of the service and its protocol. In the following we report the Jolie module that specifies a type (for the parameter), an interface of a service and a `service` using it:
 
 ```jolie
 type MyServiceParam {
@@ -29,7 +57,7 @@ interface MyServiceInterface {
 
 service MyService( MyServiceParam: p ) {
 	
-	execution {concurrent}
+	execution: concurrent
 	
 	inputPort IP {
 		location: p.location
@@ -47,7 +75,6 @@ service MyService( MyServiceParam: p ) {
 
 The service `MyService` requires a value of type `MyServiceParam` for its execution. Specifically, the values in the parameter include the location and protocol of the `inputPort` and the multiplicative factor used in the `multiply` operation.
 
-Remember to indicate the execution mode, otherwise it would be single (single execution) giving rise to an exception in a calling sequence.
 
 ## Service execution target
 

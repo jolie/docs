@@ -27,7 +27,7 @@
   * [Data Types](language-tools-and-standard-library/basics/interfaces/data_types.md)
   * [Interfaces](language-tools-and-standard-library/basics/interfaces/README.md)
   * [Ports](language-tools-and-standard-library/basics/communication-ports/ports.md)
-  * [Service Definition](language-tools-and-standard-library/basics/services.md)
+  * [Services](language-tools-and-standard-library/basics/services.md)
   * [Modules](language-tools-and-standard-library/basics/modules.md)
   * [Communication](language-tools-and-standard-library/basics/communication-ports/README.md)
     * [Communication Primitives](language-tools-and-standard-library/basics/communication-ports/using_communication_ports.md)
