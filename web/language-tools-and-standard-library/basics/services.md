@@ -39,7 +39,7 @@ service MyService() {
 }
 ```
 
-This service exposes one [inputPort](./basics/communication-ports/ports.html) where it offers the operation `multiply`. Note that the interface has been defined outside the scope `service` but it is referenced within it input port `IP`. Interface declarations indeed are independently defined w.r.t. services, and they can only be referenced when used. The statement `execution:concurrent` specifies the [execution modality](./processes.html) to be used when running the service.
+This service exposes one [inputPort](./basics/ports.html) where it offers the operation `multiply`. Note that the interface has been defined outside the scope `service` but it is referenced within it input port `IP`. Interface declarations indeed are independently defined w.r.t. services, and they can only be referenced when used. The statement `execution:concurrent` specifies the [execution modality](./processes.html) to be used when running the service.
 
 ## Parameterized services
 To better understand how `service`s and their parameters interact, let us modify the previous example by giving the possibility to specify the constant used for the multiplication, the location of the service and its protocol. In the following we report the Jolie module that specifies a type (for the parameter), an interface of a service and a `service` using it:
