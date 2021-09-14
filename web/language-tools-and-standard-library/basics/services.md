@@ -55,7 +55,7 @@ interface MyServiceInterface {
 	RequestResponse: multiply ( int )( int )
 }
 
-service MyService( MyServiceParam: p ) {
+service MyService( p: MyServiceParam ) {
 	
 	execution: concurrent
 	
@@ -85,9 +85,11 @@ To select a custom-named Jolie module for execution, we use the interpreter para
 Specifically, if the targeted module has only one service definition, the `--service` parameter is discarded and the service is executed.
 Contrarily, when a module includes multiple service definitions, the Jolie interpreter requires the definition of the `--service` parameter, reporting an execution error both if the parameter or the correspondent service definition in the module is missing.
 
-Note: the current version of Jolie does not support passing service argument to execution service from the command-line, thus single-service modules (or `--service`-targeted services) cannot require a parameter. 
+In the example below, we show a module where two services are defined. Service `MyService` require parameters to be executed, whereas service `MainService` does not require them, but it embeds service `MyService` by passing paramenters in statement `embed`.
 
 ```jolie
+from console import Console 
+
 type MyServiceParam {
 	factor: int
 	protocol: string
@@ -97,11 +99,11 @@ interface MyServiceInterface {
 	RequestResponse: multiply( int )( int )
 }
 
-service MyService ( MyServiceParam: p ) {
+service MyService ( p: MyServiceParam ) {
 	inputPort IP {
 		location: "local"
 		protocol: p.protocol
-		interface: MyServiceInterface
+		interfaces: MyServiceInterface
 	}
 	
 	main {
@@ -112,13 +114,21 @@ service MyService ( MyServiceParam: p ) {
 }
 
 service MainService {
-
+	embed Console as Console
 	embed MyService( { .protocol = "sodep", .factor = 2 } ) as Service
 
 	main {
-		multi@Service( 3 )( res ) // res = 6
+		multiply@Service( 3 )( res ) // res = 6
+		println@Console( res )()
 	}
 }
+```
+
+In order to run it, the following command line must be used:
+
+```
+jolie --service MainService script.ol
+
 ```
 
 ## Embedding a service
@@ -141,7 +151,7 @@ When that trailing part is missing, the embedded service runs without any automa
 
 ### Embedding the standard library
 
-The Jolie standard library comes as a collection of services that users can `import` and use through the embedding mechanism. 
+The Jolie standard library comes as a collection of services that users can `import` and use through the embedding mechanism. The usage of statemnt `import` is documented in section [Modules](modules.html)
 
 The following example shows the usage of the `Console` service, which exposes operations for communication between Jolie and the standard input/output:
 
