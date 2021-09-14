@@ -53,7 +53,7 @@
   * [Redirection](language-tools-and-standard-library/architectural-composition/redirection.md)
   * [Collections](language-tools-and-standard-library/architectural-composition/collections.md)
 * [Architectural Patterns]()
-  * [Synchronous vs Asynchronous Communication](language-tools-and-standard-library/basics/synchronousvsasynchronous.md)
+  * [Synchronous vs Asynchronous Communication](language-tools-and-standard-library/architectural-composition/synchronousvsasynchronous.md)
 * [Documenting APIs](language-tools-and-standard-library/documenting-api.md)
 * [Debugging](language-tools-and-standard-library/tracing.md)
 * [Integration with other programming languages](language-tools-and-standard-library/technology-integration/README.md)
