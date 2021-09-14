@@ -125,7 +125,7 @@ Here we discuss a simple example where both OneWay/Notification and RequestRespo
 
 The example's architecture is reported below.
 
-![](../../../.gitbook/assets/newspaper.png)
+![](https://docs.jolie-lang.org/v1.10.x/.gitbook/assets/newspaper.png)
 
 A newspaper service collects news sent by authors, users can get all the registered news into the newspaper. The interface of the newspaper service defines two operations:
 
