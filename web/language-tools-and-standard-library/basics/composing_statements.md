@@ -79,6 +79,7 @@ A ; B | C ; D
 
 Parallel execution is especially useful when dealing with multiple services, in order to minimize waiting times by managing multiple communications at once.
 
+#### An example with parallel
 In this example we consider the scenario where there are three services:
 
 * trafficService: it provides information about traffic for a given city
