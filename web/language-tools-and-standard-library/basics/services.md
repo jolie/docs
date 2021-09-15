@@ -75,6 +75,33 @@ service MyService( p: MyServiceParam ) {
 
 The service `MyService` requires a value of type `MyServiceParam` for its execution. Specifically, the values in the parameter include the location and protocol of the `inputPort` and the multiplicative factor used in the `multiply` operation.
 
+## Private services
+
+In order to limited the service from being accessed by public, like types and interfaces, Jolie provides the ability to specify scope of access via `public` and `private` keywords. The service is defined as `public` by default when omitted. The access limitation for service helps us write secure and mantainable Jolie code. Below shows the code snippet for a Jolie module that can be execute only through command line interface. These two services, namely `ConfigurationService` and `MainService`, cannot be imported and used externally.
+
+```jolie
+private service ConfigurationService {
+	inputPort IP {
+		location: "local"
+		requestResponse: getDBConn( void )(string)
+	}
+	
+	main {
+		getDBConn ( req )( result ) {
+			result = "SUPER_SECRET_CONN"
+		}
+	}
+}
+
+private service MainService {
+
+	embed ConfigurationService( ) as Conf
+
+	main {
+		getDBConn@Conf( )( res )
+	}
+}
+```
 
 ## Service execution target
 
