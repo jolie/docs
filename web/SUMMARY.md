@@ -33,7 +33,7 @@
     * [Type Mismatching](language-tools-and-standard-library/basics/communication-ports/type_mismatching.md)
   * [Handling Simple Data](language-tools-and-standard-library/basics/handling_simple_data.md)
   * [Composing Statements](language-tools-and-standard-library/basics/composing_statements.md)
-  * [Define](language-tools-and-standard-library/basics/define.md)
+  * [Procedures](language-tools-and-standard-library/basics/define.md)
   * [Data Structures](language-tools-and-standard-library/basics/data_structures.md)
   * [Constants](language-tools-and-standard-library/basics/constants.md)
   * [Processes](language-tools-and-standard-library/basics/processes.md)
