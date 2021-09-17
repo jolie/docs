@@ -101,9 +101,9 @@ main {
 }
 ```
 
-[Click here to get the comprehensive code of the example above.](https://github.com/jolie/examples/tree/master/02_basics/3_parallel)
+[Click here to get the comprehensive code of the example above.](https://github.com/jolie/examples/tree/master/v1.10.x/02_basics/3_parallel)
 
-Concurrent access to shared variables can be restricted through [synchronized](https://jolielang.gitbook.io/docs/basics/processes) blocks.
+Concurrent access to shared variables can be restricted through [synchronized](processes.html) blocks.
 
 ## Statements
 
@@ -131,7 +131,42 @@ Let us consider the example below in which only `buy` or `sell` operation can ex
 }] { println@Console( "Sell order forwarded" )() }
 ```
 
-Note that input choice are used also as the first statement of the behaviour in order to specify all the available operations for that service. In this case all the operations are available to be called from external clients. In the link below we modified the example presented in the previous section \(Parallel\) where in the forecast service we specify two operations inside a input choice. [Click here to get the example code.](https://github.com/jolie/examples/tree/master/02_basics/2_input_choice)
+Note that input choice are usually used as the first statement of the service behaviour in order to specify all the available operations for that service. In this case all the operations are available to be called from external clients; in this case, when the service receives a message for an operation of the input choice, a session which executes the related branch will be run. 
+
+#### An example with input choice
+
+In the link below we modified the example presented in the previous section \(Parallel\) where in service `forecastService` we specify two operations instead of one (`getTemperature` and `getWind`) composed within an input choice. The architecture is the same:
+
+![](../../.gitbook/assets/arch_parallel_example.png)
+
+[Click here to get the example code.](https://github.com/jolie/examples/tree/master/v1.10.x/02_basics/2_input_choice)
+
+The forecast has been modified as follows:
+
+```jolie
+main {
+    /* here we implement an input choice among the operations: getTemperature and getWind */
+    [ getTemperature( request )( response ) {
+        if ( request.city == "Rome" ) {
+            response = 32.4
+        } else if ( request.city == "Cesena" ) {
+            response = 30.1
+        } else {
+            response = 29.0
+        }
+    } ] { nullProcess }
+
+    [ getWind( request )( response ) {
+        if ( request.city == "Rome" ) {
+            response = 1.40
+        } else if ( request.city == "Cesena" ) {
+            response = 2.01
+        } else {
+            response = 1.30
+        }
+    }] { nullProcess }
+}
+```
 
 ### Conditions and conditional statement
 
@@ -213,7 +248,7 @@ main {
 
 #### Iterating over arrays
 
-**Attention.** Arrays and the `#` operator are explained in detail in the [Data Structures](https://jolielang.gitbook.io/docs/basics/data_structures) section.
+**Attention.** Arrays and the `#` operator are explained in detail in the [Data Structures](data_structures.html) section.
 
 Another form of `for` loops is the following, which iterates over all elements of an array `a`.
 
