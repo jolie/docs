@@ -44,6 +44,7 @@
     * [Scopes and faults](language-tools-and-standard-library/basics/fault-handling/basics.md)
     * [Termination and Compensation](language-tools-and-standard-library/basics/fault-handling/termination_and_compensation.md)
   * [Engine Arguments](language-tools-and-standard-library/basics/engine_arguments.md)
+  * [Comments](language-tools-and-standard-library/basics/comments.md)
 * [Package Manager](language-tools-and-standard-library/package-manager/README.md)
 * [Architectural Programming](language-tools-and-standard-library/architectural-composition/README.md)
   * [Embedding](language-tools-and-standard-library/architectural-composition/embedding.md)

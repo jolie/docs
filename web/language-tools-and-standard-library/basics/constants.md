@@ -25,14 +25,3 @@ Constants might also be assigned on the command line. Just call a program using 
 
 **Attention.** Under Windows `=` is a parameter delimiter. To correctly use the command line option `-C` make sure to enclose the assignment of the constant between single or double quotes like `jolie -C "server_location=\"socket://localhost:4003\"" program.ol` .
 
-# Comments
-
-The comments' format is the same as in Java:
-```
-// single line
-
-/*
-multiple 
-lines
-*/
-```
