@@ -1,6 +1,6 @@
 # Processes
 
-In Jolie a _process_ is a running instance of a behaviour whereas a _session_ is a process in charge to serve one or more requests. The two concepts are quite similar, thus the two terms could be used for referring the same entity. The only difference is that a process is a term which refers to an executable entity inside a Jolie engine, whereas a session is an entity which represents an open conversation among two or more services. Briefly, the _process_ can be considered as the executable artifact which animates a session. A session always starts when triggered from an external message, whereas a processalways starts when a session is trigerred or when a Jolie script is run.
+In Jolie a _process_ is a running instance of a behaviour whereas a _session_ is a process in charge to serve one or more requests. The two concepts are quite similar, thus the two terms could be used for referring the same entity. The only difference is that a process is a term which refers to an executable entity inside a Jolie engine, whereas a session is an entity which represents an open conversation among two or more services. Briefly, the _process_ can be considered as the executable artifact which animates a session. A session always starts when triggered from an external message, whereas a process always starts when a session is trigerred or when a Jolie script is run.
 
 ## Execution modality
 
@@ -22,25 +22,28 @@ In the \`sequential\` and \`concurrent\` cases, the behavioural definition insid
 
 A crucial aspect of processes is that each of them has its own private state, determining variable scoping. This lifts programmers from worrying about race conditions in most cases.
 
-For instance, let us recall the server program given at the end of [Communication Ports](https://github.com/jolie/docs/tree/0a77ae520bccd6139e4a296e77e7fa6f30f066db/basics/basics/communication-ports/a_comprehensive_example/README.md) section. The execution modality of the _NewsPaper_ is `concurrent` thus it can support multiple requests from both the script _author.ol_ and _user.ol_.
+For instance, let us recall the server program given at the end of [Communication Ports](./communication-primitives.html) section. The execution modality of the _NewsPaper_ is `concurrent` thus it can support multiple requests from both the script _author.ol_ and _user.ol_.
 
 ```jolie
-include "NewsPaperInterface.iol"
+from NewsPaperInterface import NewsPaperInterface
 
-execution: concurrent
 
-inputPort NewsPaperPort {
-  Location:"auto:ini:/Locations/NewsPaperPort:file:locations.ini"
-  Protocol: sodep
-  Interfaces: NewsPaperInterface
-}
+service NewsPaper {
+  execution: concurrent 
 
-main {
-    [ getNews( request )( response ) {
-        response.news -> global.news
-    }]
+  inputPort NewsPaperPort {
+    location:"auto:ini:/Locations/NewsPaperPort:file:locations.ini"
+    protocol: sodep
+    interfaces: NewsPaperInterface
+  }
 
-    [ sendNews( request ) ] { global.news[ #global.news ] << request }
+  main {
+      [ getNews( request )( response ) {
+          response.news -> global.news
+      }]
+
+      [ sendNews( request ) ] { global.news[ #global.news ] << request }
+  }
 }
 ```
 
@@ -51,27 +54,31 @@ _main_ and _init_ define the behaviour scope and the initializating one respecti
 As an example let us consider the newspaper service reported above enriched with a simple init scope where a message is printed out on the console:
 
 ```jolie
-include "NewsPaperInterface.iol"
-include "console.iol"
+from NewsPaperInterface import NewsPaperInterface
+from console import Console
 
-execution: concurrent
+service NewsPaper {
+  execution: concurrent 
 
-inputPort NewsPaperPort {
-  Location:"auto:ini:/Locations/NewsPaperPort:file:locations.ini"
-  Protocol: sodep
-  Interfaces: NewsPaperInterface
-}
+  embed Console as Console
 
-init {
+  inputPort NewsPaperPort {
+    location:"auto:ini:/Locations/NewsPaperPort:file:locations.ini"
+    protocol: sodep
+    interfaces: NewsPaperInterface
+  }
+
+  init {
      println@Console("The service is running...")()
-}
+  }
 
-main {
-    [ getNews( request )( response ) {
-        response.news -> global.news
-    }]
+  main {
+      [ getNews( request )( response ) {
+          response.news -> global.news
+      }]
 
-    [ sendNews( request ) ] { global.news[ #global.news ] << request }
+      [ sendNews( request ) ] { global.news[ #global.news ] << request }
+  }
 }
 ```
 
@@ -90,28 +97,32 @@ global.myGlobalVariable = 3 // Global variable
 myLocalVariable = 1 // Local to this behaviour instance
 ```
 
-In the example reportes at this [link](https://github.com/jolie/examples/tree/master/02_basics/7_global) it is shown the difference between a global variable and a local variable. The server is defined as it follows:
+In the example reportes at this [link](https://github.com/jolie/examples/tree/master/v1.10.x/02_basics/7_global) it is shown the difference between a global variable and a local variable. The server is defined as it follows:
 
 ```jolie
-include "ServiceInterface.iol"
-include "console.iol"
+from ServiceInterface import ServiceInterface
+from console import Console
 
-execution: concurrent
+service MyService {
 
-inputPort Test {
-  Location: "socket://localhost:9000"
-  Protocol: sodep
-  Interfaces: ServiceInterface
-}
+  embed Console as Console 
+  execution: concurrent 
 
-main {
-    test( request)( response ) {
-        global.count++;
-        count++;
-        println@Console("global.count:" + global.count )();
-        println@Console("count:" + count )();
-        println@Console()()
-    }
+  inputPort Test {
+    location: "socket://localhost:9000"
+    protocol: sodep
+    interfaces: ServiceInterface
+  }
+
+  main {
+      test( request)( response ) {
+          global.count++
+          count++
+          println@Console("global.count:" + global.count )()
+          println@Console("count:" + count )()
+          println@Console()()
+      }
+  }
 }
 ```
 
@@ -163,51 +174,57 @@ synchronized( id ){
 
 The synchronisation block allows only one process at a time to enter any `synchronized` block sharing the same `id`.
 
-As an example, let us consider the service reported at this [link](https://github.com/jolie/examples/tree/master/02_basics/4_synchronized)
+As an example, let us consider the service reported at this [link](https://github.com/jolie/examples/tree/master/v1.10.x/02_basics/4_synchronized)
 
 The register service has a concurrent execution and exposes the `register` request-response operation. `register` increments a global variable, which counts the number of registered users, and sends back a response to the client. A _sleep_ call to time service, simulates the server side computation time.
 
-_regInterface.ol_
+_RegisterInterface.ol_
 
 ```jolie
-type register: void {
-    .message: string
+type response {
+	message: string
 }
 
-interface RegInterface {
-    RequestResponse: register( void )( response )
+interface RegisterInterface {
+	RequestResponse: register( void )( response )
 }
 ```
 
-_server.ol_
+_register.ol_
 
 ```jolie
-include "regInterface.iol"
-include "time.iol"
+from RegisterInterface import RegisterInterface
+from time import Time
 
-inputPort Register {
-    Location: "socket://localhost:2000"
-    Protocol: sodep
-    Interfaces: RegInterface
-}
 
-execution: concurrent
+service Register {
 
-init
-{
-    global.registered_users=0;
-    response.message = "Successful registration.\nYou are the user number "
-}
+	execution: concurrent
 
-main
-{
-    register()( response ){
-        /* the synchronized section allows to access syncToken scope in mutual exclusion */
-        synchronized( syncToken ) {
-            response.message = response.message + ++global.registered_users;
-            sleep@Time( 2000 )()
-        }
-    }
+	embed Time as Time 
+
+	inputPort Register {
+		location: "socket://localhost:2000"
+		protocol: sodep
+		interfaces: RegisterInterface	
+	}
+
+	init
+	{
+		global.registered_users=0;
+		response.message = "Successful registration.\nYou are the user number "
+	}
+
+	main
+	{
+		register()( response ){
+			/* the synchronized section allows to access syncToken scope in mutual exclusion */
+			synchronized( syncToken ) {
+				response.message = response.message + ++global.registered_users;
+				sleep@Time( 2000 )()
+			}
+		}
+	}
 }
 ```
 
