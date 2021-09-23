@@ -48,7 +48,6 @@ To better understand how `service`s and their parameters interact, let us modify
 type MyServiceParam {
 	factor: int
 	location: string
-	protocol: string
 }
 
 interface MyServiceInterface {
@@ -61,7 +60,7 @@ service MyService( p: MyServiceParam ) {
 	
 	inputPort IP {
 		location: p.location
-		protocol: p.protocol
+		protocol: sodep
 		interfaces: MyServiceInterface
 	}
 
@@ -75,6 +74,21 @@ service MyService( p: MyServiceParam ) {
 
 The service `MyService` requires a value of type `MyServiceParam` for its execution. Specifically, the values in the parameter include the location and protocol of the `inputPort` and the multiplicative factor used in the `multiply` operation.
 
+### Passing parameters from command line
+It is possible to pass parameters to a service from command line, just storing the parameter values into a json file and padding it using argument `--params`. Let us considering the following json file, named `params.json`, to be passed to the service defined in the previous section:
+
+```json
+{
+    "location":"socket://localhost:8000",
+    "factor": 2
+}
+```
+The command line for running the service passing the parameters in `params.json` is:
+
+```
+jolie --params params.json my-service.ol
+```
+where we suppose that `my-service.ol` is the file where `MyService` has been stored.
 ## Private services
 
 In order to limited the service from being accessed by public, like types and interfaces, Jolie provides the ability to specify scope of access via `public` and `private` keywords. The service is defined as `public` by default when omitted. The access limitation for service helps us write secure and mantainable Jolie code. Below shows the code snippet for a Jolie module that can be execute only through command line interface. These two services, namely `ConfigurationService` and `MainService`, cannot be imported and used externally.
