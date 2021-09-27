@@ -8,88 +8,103 @@ Jolie allows output ports to be dynamically bound, i.e., their locations and pro
 
 ## Dynamic binding in Jolie
 
-Technically, changes to the binding information of an output port is local to a behaviour instance: output ports are considered part of the local state of each instance. Dynamic binding is obtained by treating output ports as variables. For instance, the following would print the location and protocol name of output port `Printer`:
+Changes to the binding information of an output port is local to a session: the configuration of the output ports are considered part of the local state of each session, indeed. Dynamic binding is obtained by treating output ports as variables. As an example, let us consider this [example](https://github.com/jolie/examples/tree/master/v1.10.x/02_basics/8_dynamicbinding/printers), where there is a printer-manager that is in charge to forward a message to print, to the right target service depending on the printer selection of the client. There are two printer services available: `printer1`  and `printer2`. Both of them share the same interface.
+
+![](../../.gitbook/assets/dynamicbinding-printer.png)
+
+In particular the code of the printer-manager follows:
 
 ```jolie
-// Printer.iol
-interface PrinterInterface {
-    OneWay: printText( string )
-}
+from PrinterInterface import PrinterInterface
+from PrinterManagerInterface import PrinterManagerInterface
 
-//dynamic_binding_example.ol
+service PrinterManager {
 
-include "console.iol"
-include "Printer.iol"
+    execution: concurrent
 
-outputPort P {
-    Location: "socket://127.0.0.1:80"
-    Protocol: sodep
-    Interfaces: PrinterInterface
-}
+    outputPort Printer {
+        protocol: sodep 
+        interfaces: PrinterInterface
+    }
 
-main
-{
-    println@Console( P.location )();
-    println@Console( P.protocol )()
+    inputPort PrinterManager {
+        location: "socket://localhost:8000"
+        protocol: sodep
+        interfaces: PrinterManagerInterface
+    }
+
+    main {
+        print( request )( response ) {
+            if ( request.printer == "printer1" ) {
+                Printer.location = "socket://localhost:8001"
+            } else if ( request.printer == "printer2" ) {
+                Printer.location = "socket://localhost:8002"
+            } 
+            printText@Printer( { text = request.text } )()
+        } 
+    }
 }
 ```
 
-Binding information may be entered at runtime by making simple assignments:
+Here the dynamic binding is simply obtained by using a variable assignment.
 
 ```jolie
-include "Printer.iol"
-
-outputPort P {
-    Interfaces: PrinterInterface
-}
-
-main
-{
-    P.location = "socket://127.0.0.1:80/";
-    P.protocol = "sodep"
-}
+if ( request.printer == "printer1" ) {
+    Printer.location = "socket://localhost:8001"
+} else if ( request.printer == "printer2" ) {
+    Printer.location = "socket://localhost:8002"
+} 
 ```
+Note that the location of port `Printer` can be simly overwritten by referring to it using the path `Printer.location`.
 
 ## Example: programming a chat
 
-We show a usage example of dynamic binding and binding transmission by implementing a a simple chat service. It is composed by a _Chat Registry_ which is in charge to manage all the open chats and participants, and a _User_ service which is in charge to manage a single participant connected to a chat. There are no limits to the users that can be connected to a chat. In the following diagram we report an example architecture where three users are connected to the _Chat Registry_ service.
+We show a usage example of dynamic binding and binding transmission by implementing a simple chat scenario. It is composed by a `chat-registry` which is in charge to manage all the open chats and participants, and a `user` service which is in charge to manage a single participant connected to a chat. There are no limits to the users that can be connected to a chat. In the following diagram we report an example of the architecture where three users are connected to the service `chat-registry`.
 
 ![](../../.gitbook/assets/chat_example.png)
 
-The code can be consulted at this [link](https://github.com/jolie/examples/tree/master/02_basics/8_dynamicbinding).
+The code can be consulted at this [link](https://github.com/jolie/examples/tree/master/v1.10.x/02_basics/8_dynamicbinding/chat).
 
-Note that both the _Chat Registry_ and each _User_ service exhibit an inputPort for receiving messages. The outputPort of the _Chat Registry_ which points to the _User_ service is not bound to any service, but it needs to be bound dynamically depending on the users connected to a chat.
+The `chat-registry` and each `user` service exhibit an inputPort for receiving messages. The outputPort of the `chat-registry` which points to users is not bound to any service, but it needs to be bound dynamically depending on the users connected to a chat.
 
-The _Chat Registry_ offers two operations: _addChat_ and _sendMessage_. The former operation permits to a user to connect to a chat, whereas the latter is exploited by the user to send messages to all the participants of a chat. The _User_ service is composed by two components: _user\_service.ol_ and _user.ol_. The former one is in charge to receive messages from the _Chat Registry_ whereas the latter just manages the console for enabling human interactions and sending local messages to the _Chat Registry_.
+The `chat-registry` offers two operations: _addChat_ and _sendMessage_. The former operation permits to a user to connect to a chat, whereas the latter is exploited by the user to send messages to all the participants of a chat. The `user` service is composed by two services: service `User`, which is the main one, and service `UserListener` which is embedded by the former. Service `UserListener` is in charge to receive messages from the `chat-registry`  whereas the latter just manages the console for enabling human interactions and sending local messages to the `chat-registry`.
 
-Dynamic binding is exploited in the implementation of the _sendMessage_ operation of the _Chat Registry_ where every time a message is received the outputPort _User_ is bound to each registered user for forwarding messages. Note that user's locations are stored into the hashmap _global.chat.\(  \).users.\(  \).location_ which is set everytime a user requests to be connected to a chat by using operation _addChat_.
+Dynamic binding is exploited in the implementation of the _sendMessage_ operation of the `chat-registry`  where every time a message is received the user's outputPort is bound to each registered user for forwarding messages. Note that user's locations are stored into the hashmap `global.chat.\(  \).users.\(  \).location` which is set everytime a user requests to be connected to a chat by using operation _addChat_.
 
 ```jolie
 [ sendMessage( request )( response ) {
-        /* validate token */
-        if ( is_defined( global.tokens.( request.token ) ) ) {
-            /* sending messages to all participants using dynamic binding */
-            chat_name = global.tokens.( request.token ).chat_name;
-            foreach( u : global.chat.( chat_name ).users ) {
-                /* output port dynamic rebinding */
-                User.location = global.chat.( chat_name ).users.( u ).location;
-                /* message sending */
-                if ( u != global.tokens.( request.token ).username ) {
-                  with( msg ) {
-                      .message = request.message;
-                      .chat_name = chat_name;
-                      .username = global.tokens.( request.token ).username
-                  };
-                  setMessage@User( msg )
+    /* validate token */
+    if ( !is_defined( global.tokens.( request.token ) ) ) {
+        throw( TokenNotValid )
+    }
+}] {
+    /* sending messages to all participants using dynamic binding */
+        chat_name = global.tokens.( request.token ).chat_name
+        foreach( u : global.chat.( chat_name ).users ) {
+            /* output port dynamic rebinding */
+            User.location = global.chat.( chat_name ).users.( u ).location
+            /* message sending */
+            if ( u != global.tokens.( request.token ).username ) {
+                msg <<  {
+                    message = request.message
+                    chat_name = chat_name
+                    username = global.tokens.( request.token ).username
+                }
+                scope( sending_msg ) {
+                    install( IOException => 
+                        target_token = global.chat.( chat_name ).users.( u ).token
+                        undef( global.tokens.( target_token ) )
+                        undef( global.chat.( chat_name ).users.( u ) )
+                        println@Console("User service not found, removed user " + u + " from chat " + chat_name )()
+                    )
+                    setMessage@User( msg )
                 }
             }
-        } else {
-            throw( TokenNotValid )
         }
-    }]
+}
 ```
 
-The operation _setMessage_ is exploited by the _Chat Registry_ to send a message to each participant of the chat. Note that such an operation is exhibited in the inputPort of the _user\_service.ol_ at the user side.
+The operation _setMessage_ is exploited by the `chat-registry` to send a message to each participant of the chat. Note that such an operation is exhibited in the inputPort of the service `UserListener` at the user side.
 
 ## Compatibility of the interfaces
 
