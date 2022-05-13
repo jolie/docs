@@ -49,7 +49,6 @@
   * [Comments](language-tools-and-standard-library/basics/comments.md)
 * [Architectural Programming](language-tools-and-standard-library/architectural-composition/README.md)
   * [Embedding](language-tools-and-standard-library/architectural-composition/embedding.md)
-  * [Internal Services](language-tools-and-standard-library/architectural-composition/internal_services.md)
   * [Aggregation](language-tools-and-standard-library/architectural-composition/aggregation.md)
   * [Couriers](language-tools-and-standard-library/architectural-composition/couriers.md)
   * [Redirection](language-tools-and-standard-library/architectural-composition/redirection.md)
