@@ -22,6 +22,9 @@ A port includes at least three elements:
 - the transport protocol used for communications through the port;
 - the interface that the port makes accessible.
 
+### Surface
+The resulting interface offered by an inputPort, intended as the sum of all the available interfaces at the given port.
+
 ### Connection
 We say that an output port is _connected to_ an input port when it is meant that messages sent through the former will reach the latter.
 
