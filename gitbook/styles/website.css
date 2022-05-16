@@ -57,6 +57,7 @@ li.chapter a {
     color: var(--purple-color);
     text-decoration: none;
     background: 0 0;
+    font-weight: bold;
 }
 
  /*Over-ride maximum page width - default 800px*/
