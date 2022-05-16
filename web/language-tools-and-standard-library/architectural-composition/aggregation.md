@@ -91,14 +91,14 @@ outputPort Aport {
 }
 
 outputPort Bport {
-  Interfaces: B
+  interfaces: B
 }
 
 
 inputPort MyInput {
     ...
-    Interfaces: C, D
-    Aggregates: Aport, Bport
+    interfaces: C, D
+    aggregates: Aport, Bport
 }
 ```
 
@@ -109,21 +109,21 @@ In this case the surface at input port _MyInput_ is the resulting interface of t
 A surface is always obtained by listing all the available operations and types of all the interfaces available at a given input port. Thus if we calculate the surface of the port _Aggregator_ dicussed in the previous section we will obtain the following one:
 
 ```jolie
-type JobID:void{
-    .jobId:string
+type JobID {
+    jobId: string
 }
 
-type FaxAndPrintRequest:void{
-    .print:PrintRequest
-    .fax:FaxRequest
+type FaxAndPrintRequest {
+    print: PrintRequest
+    fax: FaxRequest
 }
-type PrintRequest:void{
-    .content:string
+type PrintRequest {
+    content: string
 }
-type PrintResponse:JobID
-type FaxRequest:void{
-    .destination:string
-    .content:string
+type PrintResponse: JobID
+type FaxRequest {
+    destination:string
+    content:string
 }
 
 
@@ -165,7 +165,7 @@ Note that the tool _jolie2surface_ also adds the outputPort declaration connecte
 
 ### Extracting surface programmatically
 
-The surface can be extracted in a programmatic way too by exploiting the standard library of Jolie. In particular, we can use the services [MetaJolie](https://jolielang.gitbook.io/docs/standard-library-api/metajolie) and [MetaParser](https://jolielang.gitbook.io/docs/standard-library-api/metaparser) for getting the surface of a an input port of a service.  
+The surface can be extracted in a programmatic way too by exploiting the standard library of Jolie. In particular, we can use the services [MetaJolie](https://jolielang.gitbook.io/docs/standard-library-api/metajolie) and [MetaRender](https://jolielang.gitbook.io/docs/standard-library-api/metaparser) for getting the surface of a an input port of a service.  
 The service _MetaJolie_ provides a set of functionalities for getting important meta information about a service whereas the service _MetaParser_ provides for transforming these information into a syntactically correct Jolie definition. If we want to extract the surface of an input port we can use the operation _getInputPortMetaData@MetaJolie_ which returns a complete description of the input port of a service definition. Then, with the operation _getSurface@Parser_ we can extract the surface by passing the definition of the input port obtained from the previous operation.
 
 In the following you can find the example of the programmatic surface extraction of service _aggregator.ol_.
@@ -197,36 +197,39 @@ The full executable example can be found [here](https://github.com/jolie/example
 ```jolie
 // Fax Service
 inputPort FaxInput {
-Location: "socket://localhost:9001"
-Protocol: soap { .wsdl = "fax.wsdl" }
-Interfaces: FaxInterface
+    location: "socket://localhost:9001"
+    protocol: soap { .wsdl = "fax.wsdl"; .debug=false; .debug.showContent=true }
+    interfaces: FaxInterface
 }
 
 // Printer Service
 inputPort PrinterInput {
-Location: "socket://localhost:9000"
-Protocol: http { .fomat = "json" }
-Interfaces: PrinterInterface
+    location: "socket://localhost:9000"
+    protocol:  http { .format = "json"; .debug = false }
+    interfaces: PrinterInterface
 }
 
 // Aggregator
 outputPort Printer {
-Location: "socket://localhost:9000"
-Protocol: http { .fomat = "json" }
-Interfaces: PrinterInterface
+    location: "socket://localhost:9000"
+    protocol: http { .fomat = "json"; .debug=false }
+    interfaces: PrinterInterface
 }
 
 outputPort Fax {
-Location: "socket://localhost:9001"
-Protocol: soap { .wsdl = "fax.wsdl" }
-Interfaces: FaxInterface
+    location: "socket://localhost:9001"
+    protocol: soap { .wsdl = "fax.wsdl"; .debug=false }
+    interfaces: FaxInterface
 }
 
 inputPort Aggregator {
-Location: "socket://localhost:9002"
-Protocol: sodep
-Interfaces: AggregatorInterface
-Aggregates: Printer, Fax
+    location: "socket://localhost:9002"
+    protocol: sodep
+    /* the service Aggregator does not only aggregates other services, but it also provides its own operations */
+    interfaces: AggregatorInterface
+    /* Printer and Fax outputPorts are aggregated here. All the messages for their operations
+    will be forwarded to them */
+    aggregates: Printer, Fax
 }
 ```
 
