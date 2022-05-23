@@ -22,7 +22,7 @@ As it happens for the tool [jolier](jolier.md), also the tool `jolie2openapi` re
 
 ## Example
 
-As an example, let us consider the service demo at this [link](https://github.com/jolie/examples/tree/master/05_other_tools/03_jolier). It is sufficient to run the following command for producing the openapi specification related to interface `DemoInterface`.
+As an example, let us consider the service demo at this [link](https://github.com/jolie/examples/blob/master/v1.10.x/05_other_tools/03_jolier/rest_template.json). It is sufficient to run the following command for producing the openapi specification related to interface `DemoInterface`.
 
 ```text
 jolie2openapi demo.ol DEMO localhost:8000 .
