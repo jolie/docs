@@ -1,4 +1,4 @@
-# Javaservices
+# Java Services
 
 ## Embedding a Java service
 
@@ -19,8 +19,7 @@ package example;
 import jolie.runtime.JavaService;
 
 public class MyConsole extends JavaService {
-
-    public void println( String s  ){
+    public void println( String s  ) {
         System.out.println( s );
     }
 }
@@ -30,30 +29,40 @@ Once stored in the `example` folder, as defined by the package statement, our Ja
 
 * run the Java compiler on our MyConsole.java file adding the _jolie.jar_ library in the classpaths \(`-cp`\): `javac -cp /path/to/jolie.jar MyConsole.java`;
 * compress the MyConsole.class file into a .jar library with the `jar` command: `jar cvf example.jar example/MyConsole.class`
-* move the example.jar file into javaServices folder in Jolie installation directory.
+* move the example.jar file into the `lib` folder of your current directory.
 
-Once our service is visible by Jolie's interpreter, we can embed it in a Jolie service:
+Now that you have the implementation of your Java service, we need to make it accessible to Jolie code. For this, create a file called `my-console.ol` with the following content:
 
 ```jolie
 interface MyConsoleInterface {
-    OneWay: println( string )
+  OneWay: println( string )
 }
 
-outputPort MyConsole {
-    Interfaces: MyConsoleInterface
-}
+service MyConsole {
+  inputPort Input {
+    location: "local"
+    interfaces: MyConsoleInterface
+  }
 
-embedded {
-    Java: "example.MyConsole" in MyConsole
-}
-
-main
-{
-    println@MyConsole("Hello World!")
+  foreign java {
+    class: "example.MyConsole"
+  }
 }
 ```
 
-The embedder construct, at Line 10, declares the type keyword as `Java` and defines the path name of the Java Service as `package_name.class_name`.
+It is now possible to embed `MyConsole` within a Jolie service, just like you would embed any other service:
+
+```jolie
+from .my-console import MyConsole
+
+service Main {
+  embed MyConsole as console
+
+  main {
+    println@console( "Hello World!" )
+  }
+}
+```
 
 ## Using a request-response operation in Java services
 
@@ -67,13 +76,12 @@ package example;
 import jolie.runtime.JavaService;
 
 public class Twice extends JavaService {
-
-    public Integer twiceInt( Integer request ){
+    public Integer twiceInt( Integer request ) {
         Integer result = request + request;
         return result;
     }
 
-    public Double twiceDoub( Double request ){
+    public Double twiceDouble( Double request ) {
         Double result = request + request;
         return result;
     }
@@ -82,56 +90,62 @@ public class Twice extends JavaService {
 
 Note that both input and output types of each method, although meant to be primitive types `int` and `double`, must be declared as their wrapping classes, respectively `Interger` and `Double`.
 
+Define a `twice.ol` module accordingly:
+
+```jolie
+interface TwiceInterface {
+RequestResponse:
+  twiceInt( int )( int ),
+  twiceDouble( double )( double )
+}
+
+service Twice {
+  inputPort Input {
+    location: "local"
+    interfaces: TwiceInterface
+  }
+
+  foreign java {
+    class: "example.Twice"
+  }
+}
+```
+
 Following, the Jolie service embeds both MyConsole and Twice classes:
 
 ```jolie
-interface MyConsoleInterface {
-    OneWay:    println( string )
-}
+from .my-console import MyConsole
+from .twice import Twice
 
-interface TwiceInterface {
-    RequestResponse:     twiceInt( int )( int ),
-                        twiceDoub( double )( double )
-}
-
-outputPort MyConsole {
-    Interfaces: MyConsoleInterface
-}
-
-outputPort Twice {
-    Interfaces: TwiceInterface
-}
-
-embedded {
-    Java:     "example.Twice" in Twice,
-            "example.MyConsole" in MyConsole
-}
-
-main
-{
+service {
+  embed MyConsole as console
+  embed Twice as twice
+  main {
     intExample = 3;
     doubleExample = 3.14;
-    twiceInt@Twice( intExample )( intExample );
-    twiceDoub@Twice( doubleExample )( doubleExample );
-    println@MyConsole("intExample twice: " + intExample );
-    println@MyConsole("doubleExample twice: " + doubleExample )
+    twiceInt@twice( intExample )( intExample );
+    twiceDouble@twice( doubleExample )( doubleExample );
+    println@console("intExample twice: " + intExample );
+    println@console("doubleExample twice: " + doubleExample )
+  }
 }
 ```
 
 ## Handling structured messages and embedder's operations invocation
 
-A Java Service can also call an operation of the embedder by means of the `sendMessage` method of Jolie standard library. In this example we use the `Value` and `ValueVector` objects to handle a custom-typed message from a request-response operation invoked on the embedder.
+A Java Service can also invoke operations of its embedder by means of the `getEmbedder` method offered by the `JavaService` class, which returns an `Embedder` object that can be used to perform the invocations.
+To exemplify its usage, consider the following service.
 
 ```jolie
-include "console.iol"
+from console import Console
 
-type Split_req: void{
-    .string: string
-    .regExpr: string
+type Split_req {
+    string:string
+    regExpr:string
 }
 
-type Split_res : void{
-    .s_chunk*: string
+type Split_res{
+    s_chunk*:string
 }
 
 interface SplitterInterface {
@@ -142,29 +156,42 @@ interface MyJavaExampleInterface {
     OneWay: start( void )
 }
 
-outputPort Splitter {
-    Interfaces: SplitterInterface
+service Splitter {
+  inputPort Input {
+    location: "local"
+    interfaces: SplitterInterface
+  }
+
+  foreign java {
+    class: "example.Splitter"
+  }
 }
 
-outputPort MyJavaExample {
-    Interfaces: MyJavaExampleInterface
+service JavaExample {
+  inputPort Input {
+    location: "local"
+    interfaces: MyJavaExampleInterface
+  }
+
+  foreign java {
+    class: "example.MyJavaExample"
+  }
 }
 
-inputPort Embedder {
-    Location: "local"
-    Interfaces: SplitterInterface
-}
+service Main {
+  embed Splitter as splitter
+  embed MyJavaExample as myJavaExample
 
-embedded {
-    Java:     "example.Splitter" in Splitter,
-            "example.JavaExample" in MyJavaExample
-}
+  inputPort Embedder {
+    location: "local"
+    interfaces: SplitterInterface
+  }
 
 main
 {    
-    start@MyJavaExample();
-    split( split_req )( split_res ){
-        split@Splitter( split_req )( split_res )
+    start@myJavaExample();
+    split( split_req )( split_res ) {
+        split@splitter( split_req )( split_res )
     }
 }
 ```
@@ -191,10 +218,7 @@ public class JavaExample extends JavaService {
 
         try {
             System.out.println("Sent request");
-            CommMessage request = CommMessage.createRequest(     "split",
-                                                                "/",
-                                                                s_req );
-            CommMessage response = sendMessage( request ).recvResponseFor( request );
+            Value s_array = getEmbedder().callRequestResponse( "split", s_req );
             System.out.println("Received response");
 
             Value s_array = response.value();
@@ -202,7 +226,7 @@ public class JavaExample extends JavaService {
             for( int i = 0; i
 ```
 
-After `start()` is called by the embedder, our Java Service creates a `Value` object according to the `Split_req` type definition. At Line 20 it creates a request message, defining the invoked operation \(`split`\), the resource \(`/`\), and the message \(`s_req`\). Finally, at Line 21, it sends the request and waits for receiving a response.
+After `start()` is called by the embedder, our Java Service creates a `Value` object according to the `Split_req` type definition. In the try block, it then obtained a reference to the `Embedder` object \(representing the embedder Jolie service\) and uses its `callRequestResponse` method to invoke operation `split` at the embedder. The method returns a value \(`s_array`\) containing the response from the service. Notice that the embedder needs to expose this operation in an input port with location `local`.
 
 After receiving the response, the service prints at console the subnodes of the response exploiting the `ValueVector` object.
 
@@ -249,9 +273,9 @@ If you use Maven it is very easy to import the Jolie dependency into your projec
 
 ```xml
 <dependency>
-    <groupId>jolie</groupId>
+    <groupId>org.jolie-lang</groupId>
     <artifactId>jolie</artifactId>
-    <version>1.6.2</version>
+    <version>1.10.5</version>
 </dependency>
 ```
 
@@ -345,15 +369,13 @@ Now we are ready for embedding the JavaService into a Jolie service. It is very 
 
   `lib`\)
 
-* Create a Jolie interface file where defining all the available
+* Create a Jolie file where defining the wrapping `service` block for your JavaService and name it
 
-  operations of your JavaService and name it
-
-  `FirstJavaServiceInterface.iol`. It is worth noting that all the
+  `first-java-service.ol`. It is worth noting that all the
 
   public methods defined in the class FirstJavaService can be promoted
 
-  as operations at the level of a Jolie service. In our example the
+  as operations at the level of the wrapping Jolie service. In our example the
 
   interface is called `FirstJavaServiceInterface` and it declares one
 
@@ -368,76 +390,61 @@ Now we are ready for embedding the JavaService into a Jolie service. It is very 
   `reply`.
 
 ```jolie
-type HelloWorldRequest: void {
-  .message: string
+type HelloWorldRequest {
+  message:string
 }
 
-type HelloWorldResponse: void {
-  .reply: string
+type HelloWorldResponse {
+  reply:string
 }
 
 interface FirstJavaServiceInterface {
   RequestResponse:
     HelloWorld( HelloWorldRequest )( HelloWorldResponse )
 }
-```
 
-* In the code of your Jolie service, create an outputPort for your
+service FirstJavaService {
+  inputPort Input {
+    location: "local"
+    interfaces: FirstJavaServiceInterface
+  }
 
-  JavaService specifically addressed for operating with it. You can
-
-  name the outputPort as you prefer \(there are no restrictions\), in
-
-  this example we use the name `FirstJavaService`. Remember to join
-
-  the JavaService interface in the outputPort declaration as we did in
-
-  this example:
-
-```jolie
-outputPort FirstJavaServiceOutputPort {
-  Interfaces: FirstJavaServiceInterface
+  foreign java {
+    class: "org.jolie.example.FirstJavaService"
+  }
 }
 ```
 
-* Embed the JavaService by joining it with its outputPort
+* In the code of your Jolie service, embed the wrapper Jolie service. You can
+
+  name the resulting output port as you prefer \(there are no restrictions\), in
+
+  this example we use the name `firstJavaService`.
 
 ```jolie
-include "FirstJavaServiceInterface.iol"
+from .first-java-service import FirstJavaService
 
-outputPort FirstJavaServiceOutputPort {
-  Interfaces: FirstJavaServiceInterface
-}
-
-embedded {
-  Java:
-    "org.jolie.example.FirstJavaService" in FirstJavaServiceOutputPort
-}
+service Main {
+  embed FirstJavaService as firstJavaService
 ```
 
 * Complete your Jolie code.
 
-Here we report a complete example of a Jolie code which calls the JavaService and prints out its response on the console. Save it in a file named `main.ol`. Note that the embedded construct takes as a type the keyword Java instead of Jolie because we are embedding a JavaService. As parameter the embedded construct takes the absolute class name obtained as `package/name+class/name`.
+Here we report a complete example of a Jolie code which calls the JavaService and prints out its response on the console. Save it in a file named `main.ol`.
 
 ```jolie
-include "console.iol"
+from .first-java-service import FirstJavaService
+from console import Console
 
-include "FirstJavaServiceInterface.iol"
+service Main {
+  embed FirstJavaService as firstJavaService
+  embed Console as console
 
-outputPort FirstJavaServiceOutputPort {
-  Interfaces: FirstJavaServiceInterface
-}
-
-embedded {
-  Java:
-    "org.jolie.example.FirstJavaService" in FirstJavaServiceOutputPort
-}
-
-
-main {
-    request.message = "Hello world!";
-    HelloWorld@FirstJavaServiceOutputPort( request )( response );
-    println@Console( response.reply )()
+  main {
+    request.message = "Hello world!"
+    HelloWorld@firstJavaService( request )( response )
+    println@console( response.reply )()
+  }
 }
 ```
 
@@ -446,7 +453,7 @@ At this point your Jolie working directory should look like the following one:
 * _your Jolie working directory_
   * **lib**
     * FirstJavaService.jar
-  * FirstJavaServiceInterface.iol
+  * first-java-service.ol
   * main.ol
 
 You can run the Jolie program by using the simple command `jolie main.ol`.
@@ -462,63 +469,49 @@ In the previous example we just wrote a Jolie program which exploits the JavaSer
 In the following case we present a possible solution where the operation of the JavaService is exported to the inputPort by exploiting the same interface `FirstJavaServiceInterface` with a new implementation of the operation `HelloWorld` in the main scope of the service.
 
 ```jolie
-include "console.iol"
+from .first-java-service import FirstJavaService
+from console import Console
 
-include "FirstJavaServiceInterface.iol"
+service Main {
+  execution: concurrent
 
-outputPort FirstJavaServiceOutputPort {
-  Interfaces: FirstJavaServiceInterface
-}
+  embed FirstJavaService as firstJavaService
+  embed Console as console
+  
+  inputPort MyInputPort {
+    location: "socket://localhost:9090"
+    protocol: sodep
+    interfaces: FirstJavaServiceInterface
+  }
 
-embedded {
-  Java:
-    "org.jolie.example.FirstJavaService" in FirstJavaServiceOutputPort
-}
-
-execution{ concurrent }
-
-inputPort MyInputPort {
-  Location: "socket://localhost:9090"
-  Protocol: sodep
-  Interfaces: FirstJavaServiceInterface
-}
-
-
-main {
+  main {
     HelloWorld( request )( response ) {
-        println@Console("I am the embedder")();
-        HelloWorld@FirstJavaServiceOutputPort( request )( response )
+        println@console("I am the embedder")()
+        HelloWorld@firstJavaServiceOutputPort( request )( response )
     }
+  }
 }
 ```
 
 Such a scenario is useful when we need to add some extra computation within the behaviour before invoking the JavaService \(in the example we print out the request message before forwarding it to the JavaService\). In those cases where there is no need to manipulate the messages in the behaviour, we could directly aggregate the JavaService outputPort in the inputPort of the service by obtaining a direct connection between the Jolie inputPort and the JavaService.
 
 ```jolie
-include "console.iol"
+from .first-java-service import FirstJavaService
+from console import Console
 
-include "FirstJavaServiceInterface.iol"
+service Main {
+  execution: concurrent
 
-outputPort FirstJavaServiceOutputPort {
-  Interfaces: FirstJavaServiceInterface
-}
+  embed FirstJavaService as firstJavaService
+  
+  inputPort MyInputPort {
+    location: "socket://localhost:9090"
+    protocol: sodep
+    aggregates: firstJavaService
+  }
 
-embedded {
-  Java:
-    "org.jolie.example.FirstJavaService" in FirstJavaServiceOutputPort
-}
-
-execution{ concurrent }
-
-inputPort MyInputPort {
-  Location: "socket://localhost:9090"
-  Protocol: sodep
-  Aggregates: FirstJavaServiceOutputPort
-}
-
-main {
-  ...
-}
+  main {
+    ...
 ```
 
 ## Manipulating Jolie values in Java
@@ -578,153 +571,9 @@ thirdElement.setValue("Millennium Falcon");
 System.out.println( thirdElement.strValue() );
 ```
 
-## Calling an operation of the embedder from the JavaService
-
-A JavaService can be also programmed to call an operation of the embedder. A typical example of such a scenario is the case of a callback pattern between the embedder and the JavaService as reported in the picture below:
-
-![](../../../.gitbook/assets/firstarchitectureservicecallback.png)
-
-This can be done with the method `sendMessage` of the class `JavaService`. As an example, we extend the previous JavaService by introducing a new asynchronous method called `AsynchHelloWorld` which receives a request with the same message of method `HelloWorld` and a field `sleep` which specifies the number of millisecond to wait before sending the reply. When Such a time-out has been introduced just for simulating a delay in the response. When the sleeping time is finished the method calls back the Jolie service on its operation `reply`.
-
-```java
-package org.jolie.example;
-
-import Jolie.net.CommMessage;
-import Jolie.runtime.JavaService;
-import Jolie.runtime.Value;
-
-public class FirstJavaService extends JavaService
-{
-    public Value HelloWorld( Value request ) {
-        String message = request.getFirstChild( "message" ).strValue();
-        System.out.println( message );
-        Value response = Value.create().getFirstChild( message );
-        response.getFirstChild( "reply" ).setValue( "I am your father" );
-        return response;
-    }
-
-    public void AsyncHelloWorld( Value request ) {
-        String message = request.getFirstChild( "message" ).strValue();
-        System.out.println( "async " + message );
-        Value response = Value.create().getFirstChild( message );
-        response.getFirstChild( "reply" ).setValue( "I am your father" );
-        try {
-            Thread.sleep( request.getFirstChild( "sleep" ).intValue() );
-        } catch ( InterruptedException e ) {
-            e.printStackTrace();
-        }
-        sendMessage( CommMessage.createRequest( "reply", "/", response ) );
-    }
-}
-```
-
-The class `CommMessage` \(package `Jolie.net`\) represents a Jolie communication message which is sent to the embedder by means of the JavaService method `sendMessage`. The method indeed requires a message which is created by exploiting the static methods `createRequest`. In this case, the message has been initialized with the following parameters:
-
-* `reply`: the name of the operation of the embedder to call;
-* `/`: the service path \(see [Redirection](https://jolielang.gitbook.io/docs/architectural-composition/redirection)\);
-* `response` : a Value object that contains the data structure to
-
-  send.
-
-In this case, the message to send contains the same string of method `HelloWorld`. It is worth noting that in this example the operation _reply_ is a **OneWay** operation but it is possible also to interact by using a _RequestResponse_ operation. The class `CommMessage` provides different static methods for creating a request message and a response message. Now let us comment how the _FirstJavaServiceInterface_ must be modified to be compliant with the new JavaService:
-
-```jolie
-type AsyncHelloWorldRequest: void {
-  .message: string
-  .sleep: int
-}
-
-type HelloWorldRequest: void {
-  .message: string
-}
-
-type HelloWorldResponse: void {
-  .reply: string
-}
-
-interface FirstJavaServiceInterface {
-  RequestResponse:
-    HelloWorld( HelloWorldRequest )( HelloWorldResponse )
-  OneWay:
-    AsyncHelloWorld( AsyncHelloWorldRequest )
-}
-```
-
-The new operation `AsyncHelloWorld` has been declared as a OneWay operation and its message type contains two subnodes: `message` and `sleep`. Note that in this case, the corresponding Java method `AsyncHelloWorld` returns a `void` instead of a `Value`.
-
-The embedder follows:
-
-```jolie
-include "console.iol"
-
-include "FirstJavaServiceInterface.iol"
-
-interface LocalInterface {
-OneWay:
-  reply( HelloWorldResponse )
-}
-
-outputPort FirstJavaServiceOutputPort {
-  Interfaces: FirstJavaServiceInterface
-}
-
-embedded {
-  Java:
-    "org.jolie.example.FirstJavaService" in FirstJavaServiceOutputPort
-}
-
-inputPort MyLocalPort {
-  Location: "local"
-  Interfaces: LocalInterface
-}
-
-
-main {
-    request.message = "Hello world!";
-    request.sleep = 3000;
-    AsyncHelloWorld@FirstJavaServiceOutputPort( request );
-    reply( response );
-    println@Console( response.reply )()
-}
-```
-
-The embedder must declare its own _inputPort_ \(here called `MyLocalPort`\) where it will receive messages from the JavaService. In particular, on port _MyLocalPort_, the embedder exhibits a OneWay operation called `reply`. In the main scope, the embedder calls the JavaService by means of the operation `AsyncHelloWorld` and then waits for the reply message on the operation `reply`.
-
 ## Annotations
 
 Each public method programmed within a JavaService must be considered as an input operation that can be invoked from the embedder. Depending on the return object the method represents a OneWay operation or a RequestResponse one. If the return type is `void`, the operation is considered a OneWay operation, a RequestResponse operation otherwise. You can override this behaviour by using the `@RequestResponse` annotation, which forces Jolie to consider the annotated method as a RequestResponse operation.
-
-## Using RequestResponse operations in JavaServices
-
-So far, we have exploited only OneWay operations for making interactions between the JavaService and the embedder. Now, we present how to exploit also RequestResponse operations. In the example below there are both a RequestResponse invocation from the JavaService to the embedder and a RequestResponse invocation from the embedder to the JavaService. The Java code follows:
-
-```java
-package org.jolie.example;
-import Jolie.net.CommChannel;
-import Jolie.net.CommMessage;
-import Jolie.runtime.JavaService;
-import Jolie.runtime.Value;
-import Jolie.runtime.embedding.RequestResponse;
-
-public class JavaServiceWithRequestResponseCall extends JavaService {
-
-    public void start( Value msg ) {
-        System.out.println( msg.getFirstChild( "message" ).strValue() );
-        Value v = Value.create();
-        v.getFirstChild( "message" ).setValue( "Hello world from the JavaService" );
-        try {
-            CommMessage request = CommMessage.createRequest( "initialize","/",v );
-            CommMessage response = sendMessage( request ).
-                recvResponseFor( request );
-            System.out.println( response.value().strValue() );
-            } catch ( Exception e ) {
-                e.printStackTrace();
-            }
-        }
-}
-```
-
-In this example, the JavaService exhibits a OneWay operation `start` where it prints out the received message and then invokes the embedder by means of the RequestResponse operation `initialize`. The RequestResponse invocation is performed by means of the method `sendMessage` where the string `"Hello world from the JavaService"` is the message content. Since, we are calling a RequestResponse we must synchronously wait for receiving the response message by means of the methods `recvResponseFor` which returns the response message stored into the variable `response`.
 
 ## Faults
 
@@ -746,71 +595,60 @@ public Value HelloWorld( Value request ) throws FaultException {
         Value response = Value.create().getFirstChild( message );
         response.getFirstChild( "reply" ).setValue( "I am your father" );
         return response;
-
     }
 ```
 
-Note that the method `HelloWorld` throws an exception called `FaultException` that comes from the _jolie.runtime_ package. A simple Java exception **is not** recognized by the Jolie interpreter as a Fault, only those of FaultException type are. The creation of a _FaultException_ is very simple, the constructor can take one or two parameters. The former one is always the name of the fault, whereas the latter one, if present, contains the fault value tree \(in the example a message with a subnode `msg`\). The fault value tree is a common object of type _Value_. On the Jolie service side, there is nothing special but the fault is managed as usual:
+Note that the method `HelloWorld` throws an exception called `FaultException` that comes from the _jolie.runtime_ package. A simple Java exception **is not** recognized by the Jolie interpreter as a Fault, only those of FaultException type are. The creation of a _FaultException_ is very simple, the constructor can take one or two parameters. The former one is always the name of the fault, whereas the latter one, if present, contains the fault value tree \(in the example a message with a subnode `msg`\). The fault value tree is a common object of type _Value_. On the Jolie service side, there is nothing special but the fault is managed as usual.
+
+Getting to the code, we need to update the Jolie wrapper module for `FirstJavaService` such that it declares the fault:
 
 ```jolie
-include "console.iol"
-
-include "FirstJavaServiceInterface.iol"
-
-interface LocalInterface {
-OneWay:
-  reply( HelloWorldResponse )
+type HelloWorldRequest {
+  message:string
 }
 
-outputPort FirstJavaServiceOutputPort {
-  Interfaces: FirstJavaServiceInterface
+type HelloWorldResponse {
+  reply:string
 }
 
-embedded {
-  Java:
-    "org.jolie.example.FirstJavaService" in FirstJavaServiceOutputPort
-}
-
-inputPort MyLocalPort {
-  Location: "local"
-  Interfaces: LocalInterface
-}
-
-
-main {
-    install( WrongMessage => println@Console( main.WrongMessage.msg )() );
-
-    request.message = "I am Obi";
-    HelloWorld@FirstJavaServiceOutputPort( request )( response );
-    println@Console( response.reply )()
-}
-```
-
-Keep in mind to modify the _FirstJavaServiceInterface_ by declaring the fault `WrongFault` for the operation `HelloWorld`:
-
-```jolie
-type AsyncHelloWorldRequest: void {
-  .message: string
-  .sleep: int
-}
-
-type HelloWorldRequest: void {
-  .message: string
-}
-
-type HelloWorldResponse: void {
-  .reply: string
-}
-
-type WrongMessageFaultType: void {
-  .msg: string
+type WrongMessageFaultType {
+  msg:string
 }
 
 interface FirstJavaServiceInterface {
   RequestResponse:
     HelloWorld( HelloWorldRequest )( HelloWorldResponse ) throws WrongMessage( WrongMessageFaultType )
-  OneWay:
-    AsyncHelloWorld( AsyncHelloWorldRequest )
+}
+
+service FirstJavaService {
+  inputPort Input {
+    location: "local"
+    interfaces: FirstJavaServiceInterface
+  }
+
+  foreign java {
+    class: "org.jolie.example.FirstJavaService"
+  }
+}
+```
+
+We can then use it and manage the fault as usual in an embedding Jolie service:
+
+```jolie
+from console import Console
+from first-java-service import FirstJavaService
+
+service Main {
+  embed FirstJavaService as firstJavaService
+  embed Console as console
+
+  main {
+    install( WrongMessage => println@Console( main.WrongMessage.msg )() )
+
+    request.message = "I am Obi"
+    HelloWorld@FirstJavaServiceOutputPort( request )( response )
+    println@Console( response.reply )()
+  }
 }
 ```
 
@@ -819,11 +657,11 @@ interface FirstJavaServiceInterface {
 In Jolie a RequestResponse message can return a fault message which must be managed into the JavaService. Such a task is very easy and can be achieved by checking if the response is a fault or not by exploiting method `isFault` of the class `CommMessage` as reported in the following code snippet:
 
 ```jolie
-CommMessage response = sendMessage( request ).recvResponseFor( request );
-if ( response.isFault() ) {
-    System.out.println( response.fault().faultName() );
-} else {
-    System.out.println( response.value().strValue() );
+try {
+  Value response = getEmbedder().callRequestResponse( request );
+  System.out.println( response.value().strValue() );
+} catch( FaultException e ) {
+  System.out.println( e.faultName() );
 }
 ```
 
