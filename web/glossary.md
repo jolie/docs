@@ -74,7 +74,7 @@ Given a service network, we call its _boundary_ the set of:
 - the input ports exposed by the services in the network that can be reached from outside of the network;
 - the output ports that the services inside of the network require to be connected to services outside of the network.
 
-### Cell
+### Cell (or Multiservice)
 
 A group of service networks in execution.
 

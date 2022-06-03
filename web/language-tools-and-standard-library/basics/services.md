@@ -89,9 +89,39 @@ The command line for running the service passing the parameters in `params.json`
 jolie --params params.json my-service.ol
 ```
 where we suppose that `my-service.ol` is the file where `MyService` has been stored.
+
+## Embedding a service
+Services can be embedded within other services in order to run a __cell__ (or multiservice). The primitive which allows for embedding a service is primitive `embed`. In the following example service `ConfigurationService` is embedded within service `MainService`:
+
+
+```jolie
+service ConfigurationService {
+	inputPort IP {
+		location: "local"
+		requestResponse: getDBConn( void )(string)
+	}
+	
+	main {
+		getDBConn ( req )( result ) {
+			result = "SUPER_SECRET_CONN"
+		}
+	}
+}
+
+service MainService {
+
+	embed ConfigurationService( ) as Conf
+
+	main {
+		getDBConn@Conf( )( res )
+	}
+}
+```
+
+More details abot embedding can be found at section [Embedding](../architectural-composition/embedding.md)
 ## Private services
 
-In order to limited the service from being accessed by public, like types and interfaces, Jolie provides the ability to specify scope of access via `public` and `private` keywords. The service is defined as `public` by default when omitted. The access limitation for service helps us write secure and mantainable Jolie code. Below shows the code snippet for a Jolie module that can be execute only through command line interface. These two services, namely `ConfigurationService` and `MainService`, cannot be imported and used externally.
+In order to limit the service from being accessed by public, like types and interfaces, Jolie provides the ability to specify scope of access via `public` and `private` keywords. The service is defined as `public` by default when omitted. The access limitation for service helps us write secure and mantainable Jolie code. Below shows the code snippet for a Jolie module that can be execute only through command line interface. These two services, namely `ConfigurationService` and `MainService`, cannot be imported and used externally.
 
 ```jolie
 private service ConfigurationService {
@@ -126,7 +156,7 @@ To select a custom-named Jolie module for execution, we use the interpreter para
 Specifically, if the targeted module has only one service definition, the `--service` parameter is discarded and the service is executed.
 Contrarily, when a module includes multiple service definitions, the Jolie interpreter requires the definition of the `--service` parameter, reporting an execution error both if the parameter or the correspondent service definition in the module is missing.
 
-In the example below, we show a module where two services are defined. Service `MyService` require parameters to be executed, whereas service `MainService` does not require them, but it embeds service `MyService` by passing paramenters in statement `embed`.
+In the example below, we show a module where two services are defined. Service `MyService` require parameters to be executed, whereas service `MainService` does not require them, but it embeds service `MyService` by passing parameters in statement `embed`.
 
 ```jolie
 from console import Console 
@@ -171,43 +201,4 @@ In order to run it, the following command line must be used:
 jolie --service MainService script.ol
 
 ```
-
-## Embedding a service
-
-As seen in the closing example of the previous section, the `MainService` service internally launched the execution of another service (`MyService`) by `embed`ding it. 
-In this section we explain in more details how the `embed` statement works, starting from its syntax:
-
-```
-embed serviceName( passingValue ) [in existedPortName | as newPortName]
-```
-
-Above, we see that the `embed` statement takes as input a service name and an optional value.
-Then, we can optionally bind an inputPort of the embedded service (which must be set as local) to an outputPort of the embedder.
-To achieve that, we have two modalities:
-
-- using the `in` keyword we bind the inputPort of the target to an _existing_ outputPort defined by the embedder;
-- using the `as` keyword we create a new outputPort that has the same interface of the inputPort of the embedded service, besides being bound to it.
-
-When that trailing part is missing, the embedded service runs without any automatic binding &mdash; however that does not mean it is not callable in other ways, e.g., through a fixed TCP/IP address like `"socket://localhost:8080"` or though a local location like `"local://A"`).
-
-### Embedding the standard library
-
-The Jolie standard library comes as a collection of services that users can `import` and use through the embedding mechanism. The usage of statemnt `import` is documented in section [Modules](modules.html)
-
-The following example shows the usage of the `Console` service, which exposes operations for communication between Jolie and the standard input/output:
-
-```jolie
-from console import Console
-
-service MyService{
-	
-	embed Console as C
-	
-	main {
-		print@C( "Hello world!" )()
-	}
-}
-```
-
-The section of the documentation dedicated to the [standard library](../standard-library-api/) reports more information on the modules, types, and interfaces available to programmers with the standard Jolie installation.
 
