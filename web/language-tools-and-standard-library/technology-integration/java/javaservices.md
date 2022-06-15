@@ -681,46 +681,46 @@ public class FourthJavaService extends JavaService {
 }
 ```
 
-In the following code we report a classical embedding of this JavaService:
+In the following code we report a classical embedding of this JavaService wrapper:
 
 ```jolie
-include "console.iol"
-
+// fouth-java-service.ol
 interface DynamicJavaServiceInterface {
   RequestResponse:
     start( void )( int )
 }
 
+service DynamicJavaService {
 
-execution{ concurrent }
+	inputPort Input {
+		location: "local"
+		interfaces: DynamicJavaServiceInterface
+	}
 
-outputPort DynamicJavaService {
-  Interfaces: DynamicJavaServiceInterface
-}
+	foreign java {
+		class: "org.jolie.example.FourthJavaService"
+	}
 
-embedded {
-  Java:
-    "org.jolie.example.dynamicembedding.DynamicJavaService" in DynamicJavaService
-}
-
-inputPort MyInputPort {
-  Location: "socket://localhost:9090"
-  Protocol: sodep
-  Interfaces: DynamicJavaServiceInterface
-}
-
-
-main {
-    [ start( request )( response ) {
-        start@DynamicJavaService()( response )
-    }]
 }
 ```
+
 
 if we run a client that calls the service ten times as in the following code snippet:
 
 ```text
-for( i = 0, i
+from fouth-java-service import DynamicJavaService
+from console import Console
+service main {
+
+    embed DynamicJavaService as DynamicJavaService
+    embed Console as Console
+
+    main {
+        for ( i = 0 , i < 10 , i ++ ){
+            println@Console("Received counter " + start@DynamicJavaService() )()
+        }
+    }
+}
 ```
 
 we obtain:
@@ -743,40 +743,36 @@ In this case the JavaService is shared among all the sessions and each new invoc
 Now let us see what happens if we dynamically embed it as reported in the following service:
 
 ```jolie
-include "console.iol"
-include "runtime.iol"
+from fouth-java-service import DynamicJavaServiceInterface
+from console import Console
+from runtime import Runtime
 
-interface DynamicJavaServiceInterface {
-  RequestResponse:
-    start( void )( int )
-}
+service main {
 
-execution{ concurrent }
-
-outputPort DynamicJavaService {
-  Interfaces: DynamicJavaServiceInterface
-}
-
-inputPort MyInputPort {
-  Location: "socket://localhost:9090"
-  Protocol: sodep
-  Interfaces: DynamicJavaServiceInterface
-}
+    embed Console as Console
+    embed Runtime as Runtime
 
 
-main {
-    [ start( request )( response ) {
-        with( emb ) {
-          .filepath = "org.jolie.example.dynamicembedding.DynamicJavaService";
-          .type = "Java"
-        };
-        loadEmbeddedService@Runtime( emb )( DynamicJavaService.location );
-        start@DynamicJavaService()( response )
-    }]
+    outputPort DynamicJavaService {
+        Interfaces: DynamicJavaServiceInterface
+    }
+
+    main {
+        for ( i = 0 , i < 10 , i ++ ){
+            with( emb ) {
+                .filepath = "org.jolie.example.DynamicJavaService"
+                .type = "Java"
+            }
+            loadEmbeddedService@Runtime( emb )( DynamicJavaService.location )
+
+            println@Console("Received counter " + start@DynamicJavaService() )()
+        }
+    }
+
 }
 ```
 
-Note that we included `runtime.iol` to exploit `loadEmbeddedService@Runtime` operation. Such an operation permits to dynamically embed the JavaService in the context of the running session. The operation returns the memory location which is directly bound in the location `DynamicJavaService.location` that is the location of outputPort `DynamicJavaService`.
+Note that we imported `runtime` package to exploit `loadEmbeddedService` operation. Such an operation permits to dynamically embed the JavaService in the context of the running session. The operation returns the memory location which is directly bound in the location `DynamicJavaService.location` that is the location of outputPort `DynamicJavaService`.
 
 Now, if we run the same client as in the example before, we obtain the following result:
 
@@ -794,4 +790,3 @@ Received counter 1
 ```
 
 Such a result means that for each session enabled on the embedder, a new JavaService object is instantiated and executed, thus the counter will start from zero every invocation.
-
