@@ -4,10 +4,18 @@ This section is devoted in illustrating how to create REST services with Jolie. 
 
 In jolie a developer can follow two different approaches for programming REST APIs:
 
-- Programming a rest self-contained service
-- Adding a router in front of an existing service
+- Programming a self-contained REST service by using the `http` protocol.
+- Adding a router in front of an existing service.
 
-## Programming a self-contained service
+## Programming a self-contained REST service
+
+We demonstrate how to create a self-contained REST service with a simple example: a REST service that exposes an API for retrieving information about users. Users are identified by username and associated to data that includes name, e-mail address, and an integer representing "karma" that the user has in the system. In particular, two operations are possible:
+
+- Getting information about a specific user (name, e-mail, and karma counter) by passing its username, for example by requesting `/api/users/jane`.
+- Listing the usernames of the users in the system, with the possibility of filtering them by karma. For example, to get the list of usernames associated to minimum karma 5, we could request `/api/users?minKarma=5`.
+
+The code for implementing this service follows.
+
 ```jolie
 type User { name: string, email: string, karma: int }
 type ListUsersRequest { minKarma?: int }
@@ -74,6 +82,11 @@ service App {
 	}
 }
 ```
+
+Above, notice the use of the `osc` parameter of the `http` protocol to map operations to their respective HTTP configurations.
+For example, operation `viewUser` is configured to use:
+- `/api/user` as URI template, by `template = "/api/user"`. See the [official RFC on URI templates](https://www.rfc-editor.org/rfc/rfc6570) for more information about them.
+- GET as HTTP method, by `method = "get"`.
 
 ## Adding a router
 
