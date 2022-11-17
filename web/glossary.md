@@ -54,7 +54,7 @@ A running instance of a behaviour, equipped with its own private state and messa
 ### Service dependency
 When a service `A` has an output port that needs to be connected to another service `B` in order for the service `A` to function, we say that service `A` _depends on_ service `B`.
 
-![](.gitbook/assets/definitions.png)
+![service definitions](.gitbook/assets/../../../src/images/definitions.svg)
 
 ### Service network
 
