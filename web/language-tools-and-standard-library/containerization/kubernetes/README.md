@@ -170,4 +170,3 @@ jolie-sample-deployment-655f8b759d-mq8cn:hello
 $ jolie client.ol 
 jolie-sample-deployment-655f8b759d-bmzk7:hello
 ```
-

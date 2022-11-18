@@ -1,4 +1,5 @@
 # Adding an input port with protocol HTTPS
+
 Protocol [https](https://docs.jolie-lang.org/v1.10.x/language-tools-and-standard-library/protocols/ssl/https.html) is a very wide used secure protocol which exploits __http__ over __ssl__.  It is a standard protocol we suggest to use everytime you need to secure your APIs follwing a standard approach.
 
 In the following picture we show how to add an inputPort which provides a `https` protocol in addition to those with `http/json`, `http/soap`  and `sodep`, already discussed in the previous sections.
@@ -8,7 +9,9 @@ In the following picture we show how to add an inputPort which provides a `https
 As it happened for the addition of the other protocol input ports, also in the case of a https protocol input port, the behaviour of the service is always the same, and you don't need to modify it.
 
 ## Adding the port
+
 The first step is adding the inputPort to the code. In our example is:
+
 ```jolie
 inputPort AdvancedCalculatorPortHTTPS {
     location: "socket://localhost:8004"
@@ -23,13 +26,12 @@ inputPort AdvancedCalculatorPortHTTPS {
 ```
 
 Note that protocol `https` requires a keystore as a reference in order to provide a security certificate to clients.  
-In this example, we previously generated a key store using the tool [`keytool`](https://dzone.com/articles/keytool-commandutility-to-generate-a-keystorecerti). Then, we specified the key store file as a parameter of the protocol `ssl.keyStore`, together with the password to access it `ssl.keyStorePassword`. 
-
+In this example, we previously generated a key store using the tool [`keytool`](https://dzone.com/articles/keytool-commandutility-to-generate-a-keystorecerti). Then, we specified the key store file as a parameter of the protocol `ssl.keyStore`, together with the password to access it `ssl.keyStorePassword`.
 
 ## The complete example
 
 The complete example follows and it may be consulted at this [link]
-(https://github.com/jolie/examples/tree/master/v1.10.x/tutorials/more_inputports_and_protocols/https)
+(<https://github.com/jolie/examples/tree/master/v1.10.x/tutorials/more_inputports_and_protocols/https>)
 
 ```jolie
 from AdvancedCalculatorServiceInterfaceModule import AdvancedCalculatorInterface
@@ -126,19 +128,23 @@ service AdvancedCalculatorService {
     }
 }
 ```
+
 As it si possible to note, here we just added the port `AdvancedCalculatorPortHTTPS`, thus enabling the service to receive on port `8004` using protocol `https`.
 
 ## Running the service and invoking it
+
 Since we are extending the example [Using more than one dependency](https://docs.jolie-lang.org/v1.10.x/tutorials/using-more-than-one-dependency/), here we need to run two services in two separate shells:
+
 ```jolie
 jolie AdvancedCalculatorService.ol
 jolie CalcularService.ol
 ```
 
-We can use `curl` for sending a request to the service. 
+We can use `curl` for sending a request to the service.
 
 ```
 curl https://localhost:8004/factorial?term=3
 
 ```
+
 _WARNING_: If you are using a self signed certificate for the example service, use parameter `--insecure`for avoiding the validation check of the certificate, otherwise `curl` will not send any request.

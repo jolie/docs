@@ -7,7 +7,7 @@ In Jolie there are two kinds of ports:
 
 Within each port, both input and output, it is possible to define three elements:
 
-* _location_; 
+* _location_;
 * _protocol_;
 * _interfaces_.
 
@@ -141,4 +141,3 @@ inputPort InputPort2 {
 
 ...
 ```
-

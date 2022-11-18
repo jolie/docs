@@ -38,30 +38,30 @@ As an example let us consider the case of two services, the printer and fax, agg
 The service _printer_ offers two operations called _print_ and _del_. The former allows for the printing of a document whereas the latter allows for its deletion from the queue. On the other hand the service _fax_ offers just one operation called _fax_. The aggregator, aggregates on its inputPort called _Aggregator_ both the printer and fax services as it is shown below where we report the ports declaration of the aggregator service:
 
 ```jolie
-	/* this outputPort points to service Printer */
-	outputPort Printer {
-		location: "socket://localhost:9000"
-		protocol: sodep
-		interfaces: PrinterInterface
-	}
+ /* this outputPort points to service Printer */
+ outputPort Printer {
+  location: "socket://localhost:9000"
+  protocol: sodep
+  interfaces: PrinterInterface
+ }
 
-	/* this outputPort points to the service Fax */
-	outputPort Fax {
-		location: "socket://localhost:9001"
-		protocol: sodep
-		interfaces: FaxInterface
-	}
+ /* this outputPort points to the service Fax */
+ outputPort Fax {
+  location: "socket://localhost:9001"
+  protocol: sodep
+  interfaces: FaxInterface
+ }
 
-	/* this is the inputPort of the Aggregation service */
-	inputPort Aggregator {
-		location: "socket://localhost:9002"
-		protocol: sodep
-		/* the service Aggregator does not only aggregates other services, but it also provides its own operations */
-		interfaces: AggregatorInterface
-		/* Printer and Fax outputPorts are aggregated here. All the messages for their operations
-		will be forwarded to them */
-		aggregates: Printer, Fax
-	}
+ /* this is the inputPort of the Aggregation service */
+ inputPort Aggregator {
+  location: "socket://localhost:9002"
+  protocol: sodep
+  /* the service Aggregator does not only aggregates other services, but it also provides its own operations */
+  interfaces: AggregatorInterface
+  /* Printer and Fax outputPorts are aggregated here. All the messages for their operations
+  will be forwarded to them */
+  aggregates: Printer, Fax
+ }
 
 ```
 
@@ -232,4 +232,3 @@ inputPort Aggregator {
     aggregates: Printer, Fax
 }
 ```
-

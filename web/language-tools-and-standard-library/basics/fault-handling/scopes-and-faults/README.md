@@ -232,4 +232,3 @@ scope ( s ){
 };
 println@Console( "Fault message from scope s: " + s.( s.default ).msg )()
 ```
-

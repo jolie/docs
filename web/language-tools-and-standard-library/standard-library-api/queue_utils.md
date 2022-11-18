@@ -1,3 +1,5 @@
+<!-- markdownlint-disable -->
+
 # QueueUtils
 
 Inclusion code: 

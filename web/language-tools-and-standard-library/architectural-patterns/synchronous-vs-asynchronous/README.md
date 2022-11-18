@@ -9,4 +9,3 @@ It is worth noting that both of them have always an impact on the architecture o
 ![](../../../.gitbook/assets/async.png)
 
 In the example reported at [https://github.com/jolie/examples/tree/master/02\_basics/6\_async\_vs\_sync](https://github.com/jolie/examples/tree/master/02_basics/6_async_vs_sync) we modelled a message exchange both using a synchronous communication and an asynchronous one. Note that the synchronous version can be easily considered as a common pattern to be used as is in your projects, whereas the asynchronous one could require some more analysis from the point of view of the session management. Please, read the section about [sessions](../../basics/processes-and-sessions/sessions/README.md) in order to learn about session management.
-

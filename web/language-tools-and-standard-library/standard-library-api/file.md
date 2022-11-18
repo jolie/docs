@@ -1,3 +1,5 @@
+<!-- markdownlint-disable -->
+
 # File
 
 Inclusion code: 

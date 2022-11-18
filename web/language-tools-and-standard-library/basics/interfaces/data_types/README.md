@@ -25,6 +25,7 @@ interface MyInterface {
 ```
 
 ### Refined Basic Data Types
+
 Basic data types can be refined in order to restrict the valid values. Depending on the basic data type there are different refinements available. In the following table there is the list of all the avaiable refinements. *It is possible to use only 1 refinement for each basic type declaration*.
 
 | Basic Type   | Available Refinements |
@@ -38,58 +39,66 @@ When a value that does not respect the refinement type is forced to be used a *T
 
 #### String format
 
-The string is enclosed (as in other languages) by two double quote. 
-Inside the string you can 
+The string is enclosed (as in other languages) by two double quote.
+Inside the string you can
 
-+ use a single quote;
-+ insert a special character with the usual escape method (\\<character>,  example \n")
-+ using a double quote, escaping it (\"")
+* use a single quote;
+* insert a special character with the usual escape method (\\<character>,  example \n")
+* using a double quote, escaping it (\"")
 
 You can split the string over multiple lines
 
 ```jolie
 jsonValue = "{
-	\"int\": 123,
-	\"bool\": true,
-	\"long\": 124,
-	\"double\": 123.4,
-	\"string\": \"string\",
-	\"void\": {},
-	\"array\": [123, true,\"ciccio\",124,{}],
-	\"obj\" : {
-		\"int\": 1243,
-		\"bool\": true,
-		\"long\": 1234,
-		\"double\": 1234.4,
-		\"string\": \"string\",
-		\"void\": {}
-		}
-	}"
+ \"int\": 123,
+ \"bool\": true,
+ \"long\": 124,
+ \"double\": 123.4,
+ \"string\": \"string\",
+ \"void\": {},
+ \"array\": [123, true,\"ciccio\",124,{}],
+ \"obj\" : {
+  \"int\": 1243,
+  \"bool\": true,
+  \"long\": 1234,
+  \"double\": 1234.4,
+  \"string\": \"string\",
+  \"void\": {}
+  }
+ }"
 ;
 ```
 
 #### Refinement: length
+
 This refinement allows for specifying the minimum and the maximum length of a string. The minimum and the maximum length must be specify as a couple of values between square brackets. Example:
+
 ```jolie
 type MyType {
     my_refined_string_field: string( length( [2,5] ) )
 }
 ```
-In this example the field `my_refined_string_field` is a string which must have at least two characters and not more than five characters. Values like `"home"`, `"dog"`, `"eye"`, etc are admitted, whereas values like `"I"`, `"keyboard"`,`"screen"`, etc are not admitted. 
+
+In this example the field `my_refined_string_field` is a string which must have at least two characters and not more than five characters. Values like `"home"`, `"dog"`, `"eye"`, etc are admitted, whereas values like `"I"`, `"keyboard"`,`"screen"`, etc are not admitted.
 
 #### Refinement: regex
+
 This refinement allows for specifying the regular expression a string must respect.
 In the following example we set an email field to respect some structural charaters like `"@"` and `"."`.
+
 ```jolie
 type MyType {
   email: string( regex(".*@.*\\..*") )
 }
 ```
+
 Note that Jolie uses the `dk.brics.automaton` library for managing regular expressions, thus you may consult this link as a reference for composing the regular expressions: [Composing regular expressions in Jolie string basic type refinement](https://www.brics.dk/automaton/doc/index.html?dk/brics/automaton/RegExp.html)
 
 #### Refinement: enum
+
 This refinement allows for specifying a set of available values for the string.
 In the follwwing example, only the values `"paul"`,`"homer"`,`"mark"`are admitted for the field name:
+
 ```jolie
 type MyType {
   name: string( enum(["paul","homer","mark"]))
@@ -97,6 +106,7 @@ type MyType {
 ```
 
 #### Refinement: ranges
+
 This refinement allows for specifying a list of valid intervals for an integer, a double or a long.
 In the following example, we show a type with three fields with different basic types. Each of them uses a refinement `ranges` for restriciting the possible values.
 
@@ -107,16 +117,16 @@ type MyType {
   f3: double( ranges( [4.0,5.0], [10.0,20.0], [100.0,200.0], [300.0, *]) )
 }
 ```
+
 The token `*` is used for specifyng an unbounded maximum limit.
 In this example the field `f1` can be an integer which respects one of the following conditions, where `v` is the actual value:
 
 * 1 <= v <= 4
 * 10 <= v <= 20
 * 100 <= v <= 200
-* 300 <= v 
+* 300 <= v
 
 Note that, depending on the basic type, the minimum and the maximum values of each interval must be expressed with the related notation: using `L` for denoting long valued and using `.` for specifying the usage of decimals in the case of double.
-
 
 ## Custom Data Types
 
@@ -188,8 +198,8 @@ type ShoppingList {
     notes: string
 }
 ```
-In the following we will exploit this syntactic shortcut for expressing types.
 
+In the following we will exploit this syntactic shortcut for expressing types.
 
 ### Subnodes with cardinality
 
@@ -225,7 +235,7 @@ type CustomType: T {
 }
 ```
 
-_Example_. In this case cardinalities are defined by occurrences where minimal occurrence of `aSubNode` of type `T` is one and maximum occurrences of the same node are five.
+*Example*. In this case cardinalities are defined by occurrences where minimal occurrence of `aSubNode` of type `T` is one and maximum occurrences of the same node are five.
 
 ```jolie
 type CustomType: T {
@@ -299,7 +309,7 @@ type TestType {
 
 You can access these nodes with special characters by using dynamic look-up, for example x.\("@node"\). This is explained more in detail in [data structures](../data_structures.md).
 
-_Attention: This feature is available from Jolie 1.6.2._
+*Attention: This feature is available from Jolie 1.6.2.*
 
 ## Data types choice \(sum types\)
 
@@ -318,4 +328,3 @@ type CustomType: any | any { .subNode: T } | any { .subNode[2,3]: T }
 ## Checking types at runtime: `instanceof`
 
 See section [Handling Simple Data/Rutime type checking of a variable](../handling_simple_data.md#runtime-type-checking-of-a-variable-instanceof) for getting details about pritimive `instanceof`.
-

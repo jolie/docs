@@ -96,4 +96,3 @@ Note that the `<variable path>` take the following forms:
 MyInput.location
 MyOutput.location
 ```
-

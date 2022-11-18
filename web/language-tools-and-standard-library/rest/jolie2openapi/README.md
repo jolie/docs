@@ -16,7 +16,7 @@ where:
 * **input\_port**:    it is the name of the input port whose interfaces must be converted
 * **router\_host**:    it is the url of the host to be contacted for using rest apis: This information will be inserted directly into the resulting openapi specification
 * **output\_folder**:    it is the output folder where storing the resulting json file
-* **\[easy\_interface true\|false\]**:     if true no templates will be exploited for generating the json file, the mapping will be automaticallty generated assuming all the operations mapped on method post. Default is false. 
+* **\[easy\_interface true\|false\]**:     if true no templates will be exploited for generating the json file, the mapping will be automaticallty generated assuming all the operations mapped on method post. Default is false.
 
 As it happens for the tool [jolier](jolier.md), also the tool `jolie2openapi` requires to read rest calls mapping from an external file. The name of the mapping file is the same and it is `rest_templates.json`, its configuration rules can be consulted at the [related section of the tool jolier](https://jolielang.gitbook.io/docs/rest/jolier#defining-the-rest-calls-mapping)
 
@@ -29,4 +29,3 @@ jolie2openapi demo.ol DEMO localhost:8000 .
 ```
 
 The tool will generate a file called `DEMO.json` which contains the openapi 2.0 specification. The file can be importend in tools enabled for processing openapi specifications.
-

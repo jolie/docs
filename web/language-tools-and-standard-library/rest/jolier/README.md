@@ -61,7 +61,7 @@ where the `operation_name` is used when no template is given.
 
 ## Restrictions on rest calls mapping
 
-* when method `get` is specified, all the parameters of the request must be specified within the url. Thus the target request message type cannot have structured type defined, but it can only be defined as a flat list of nodes. As an example the follwong type is sound with the template above: 
+* when method `get` is specified, all the parameters of the request must be specified within the url. Thus the target request message type cannot have structured type defined, but it can only be defined as a flat list of nodes. As an example the follwong type is sound with the template above:
 
   ```jolie
   type GetOrdersType: void {
@@ -122,4 +122,3 @@ Once run, it is possible to try to invoke it using a common tool for sending RES
 ```text
 http://localhost:8000/orders/myuser?maxItems=0
 ```
-

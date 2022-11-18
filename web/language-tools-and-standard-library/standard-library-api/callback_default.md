@@ -1,3 +1,5 @@
+<!-- markdownlint-disable -->
+
 # CallbackDefault
 
 Inclusion code: 

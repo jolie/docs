@@ -101,4 +101,3 @@ main
 ```
 
 The operation `hanoi` receives an external http request \(e.g., a GET `http://localhost:8000/hanoi?src=source&aux=auxiliary&dst=destination&n=5`\) and fires the local operation `hanoiSolver` which uses the `local` location for recursively call itself and build the solution.
-

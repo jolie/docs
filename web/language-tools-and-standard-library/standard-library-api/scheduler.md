@@ -1,3 +1,5 @@
+<!-- markdownlint-disable -->
+
 # Scheduler
 
 Inclusion code: 

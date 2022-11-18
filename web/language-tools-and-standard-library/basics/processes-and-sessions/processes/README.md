@@ -1,4 +1,5 @@
 # Processes
+
 A _process_ can be considered as the executable artifact which animates a session. In this section, we will discuss those statements that rule the execution of processes within the engine. In particular, we will show how to address concurrent execution of processes and synchronization.
 
 ## Execution modality
@@ -181,11 +182,11 @@ _RegisterInterface.ol_
 
 ```jolie
 type response {
-	message: string
+ message: string
 }
 
 interface RegisterInterface {
-	RequestResponse: register( void )( response )
+ RequestResponse: register( void )( response )
 }
 ```
 
@@ -198,32 +199,32 @@ from time import Time
 
 service Register {
 
-	execution: concurrent
+ execution: concurrent
 
-	embed Time as Time 
+ embed Time as Time 
 
-	inputPort Register {
-		location: "socket://localhost:2000"
-		protocol: sodep
-		interfaces: RegisterInterface	
-	}
+ inputPort Register {
+  location: "socket://localhost:2000"
+  protocol: sodep
+  interfaces: RegisterInterface 
+ }
 
-	init
-	{
-		global.registered_users=0;
-		response.message = "Successful registration.\nYou are the user number "
-	}
+ init
+ {
+  global.registered_users=0;
+  response.message = "Successful registration.\nYou are the user number "
+ }
 
-	main
-	{
-		register()( response ){
-			/* the synchronized section allows to access syncToken scope in mutual exclusion */
-			synchronized( syncToken ) {
-				response.message = response.message + ++global.registered_users;
-				sleep@Time( 2000 )()
-			}
-		}
-	}
+ main
+ {
+  register()( response ){
+   /* the synchronized section allows to access syncToken scope in mutual exclusion */
+   synchronized( syncToken ) {
+    response.message = response.message + ++global.registered_users;
+    sleep@Time( 2000 )()
+   }
+  }
+ }
 }
 ```
 
@@ -260,5 +261,3 @@ main
 ```
 
 If executed, it is possible to observe that the parallel calls of the client are sequentialized by the service thanks to the primitive _synchronized_ which implements a mutual access of the scope _syncToken_.
-
-

@@ -1,3 +1,5 @@
+<!-- markdownlint-disable -->
+
 # StringUtils
 Inclusion file:
 

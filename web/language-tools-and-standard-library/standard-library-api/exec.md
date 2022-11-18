@@ -1,3 +1,5 @@
+<!-- markdownlint-disable -->
+
 # Exec
 
 Inclusion code: 

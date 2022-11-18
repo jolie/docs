@@ -13,4 +13,3 @@ Since HTTPS is the HTTP protocol wrapped in an SSL encrypted message, HTTPS para
 ## HTTPS with HTTP Compression
 
 Unfortunately there exist some known HTTPS attacks with enabled HTTP compression like [BREACH](http://en.wikipedia.org/wiki/BREACH). Hence you might want to set the `compression` parameter to `false` when you are handling sensitive data.
-

@@ -51,4 +51,3 @@ type JsonRpcConfiguration:void {
     .requestCompression?:string
 }
 ```
-

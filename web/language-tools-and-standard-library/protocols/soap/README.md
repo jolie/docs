@@ -186,4 +186,3 @@ type SoapConfiguration:void {
     .requestCompression?:string
 }
 ```
-

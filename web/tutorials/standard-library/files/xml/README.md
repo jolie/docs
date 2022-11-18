@@ -20,14 +20,14 @@ service Example {
 
 embed File as file 
 
-	main
-	{
-		readFile@file( {
-			filename = "note.xml"
-			format = "xml"
-		} )( data )
-		// data is now { node << { from = "John" to = "Jane" content = "I made pasta" } }
-	}
+ main
+ {
+  readFile@file( {
+   filename = "note.xml"
+   format = "xml"
+  } )( data )
+  // data is now { node << { from = "John" to = "Jane" content = "I made pasta" } }
+ }
 }
 ```
 
@@ -43,15 +43,15 @@ service Example {
 embed File as file 
 embed Console as console
 
-	main
-	{
-		readFile@file( {
-			filename = "note.xml"
-			format = "xml"
-		} )( data )
-		// data is now { node << { from = "John" to = "Jane" content = "I made pasta" } }
-		println@console(data.node.to)()
-	}
+ main
+ {
+  readFile@file( {
+   filename = "note.xml"
+   format = "xml"
+  } )( data )
+  // data is now { node << { from = "John" to = "Jane" content = "I made pasta" } }
+  println@console(data.node.to)()
+ }
 }
 ```
 
@@ -61,11 +61,11 @@ Suppose that you wanted to store the following data structure as an XML file.
 
 ```jolie
 {
-	note << {
-		from = "John"
-		to = "Jane"
-		content = "I made pasta"
-	}
+ note << {
+  from = "John"
+  to = "Jane"
+  content = "I made pasta"
+ }
 }
 ```
 
@@ -77,21 +77,21 @@ from file import File
 service Example {
 
 embed File as file 
-	main
-	{
-		writeFile@file( {
-			filename = "note.xml"
-			format = "xml"
-			content << {
-				note << {
-					from = "John"
-					to = "Jane"
-					content = "I made pasta"
-				}
-			}
-		} )()
-	}
- }	
+ main
+ {
+  writeFile@file( {
+   filename = "note.xml"
+   format = "xml"
+   content << {
+    note << {
+     from = "John"
+     to = "Jane"
+     content = "I made pasta"
+    }
+   }
+  } )()
+ }
+ } 
 ```
 
 The file `note.xml` will now contain the XML data that we showed at the beginning of the tutorial.

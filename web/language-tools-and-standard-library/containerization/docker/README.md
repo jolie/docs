@@ -271,4 +271,3 @@ Forecast=socket://forecast:8000
 ```
 
 It is worth noting that here we use the name of the containers \(`traffic` and `forecast`\) for identifying them in the network. Docker will be responsible to resolve them within the context of `testnet`.
-

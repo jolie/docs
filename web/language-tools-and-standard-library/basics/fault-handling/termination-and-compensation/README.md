@@ -279,7 +279,7 @@ In this example a user wants to electronically buy ten beers invoking the transa
 
 Here the transaction service starts two parallel activities:
 
-* contact the product store and the logistics for booking the product and the transportation service. In particular it executes a sequence of two calls: _lockProduct@ProductStore_ and _bookTransportation_. The former locks the requested product on the Product Store whereas the latter books the transportation service. 
+* contact the product store and the logistics for booking the product and the transportation service. In particular it executes a sequence of two calls: _lockProduct@ProductStore_ and _bookTransportation_. The former locks the requested product on the Product Store whereas the latter books the transportation service.
 * contact the bank account for locking the neccesary amount
 
 Note that in the former activity, after each invocation a termination handler is installed:
@@ -368,7 +368,7 @@ main
 }
 ```
 
-The install primitive contained in the `while` loop updates the scope recovery handler at each iteration. In the process the value of the variable `i` is frozen within the handler. In the example above, the calls to `sleep@Time` just simulate computational time. 
+The install primitive contained in the `while` loop updates the scope recovery handler at each iteration. In the process the value of the variable `i` is frozen within the handler. In the example above, the calls to `sleep@Time` just simulate computational time.
 
 At this [link](https://github.com/jolie/examples/tree/master/03_fault_handling/13_transaction_example_multiple_products) we modified the electronic purchase example described above, introducing the possibility to buy a set of products instead of a single one. In such a case, the transaction service performs a locking call to the store service for each received product and, for each of these calls, it installs a related termination handler. In the termination handler, we exploits the freeze operator for freezing variables _i_, _token_ and _reservation\_id_ at the values they have in the moment of the installation:
 
@@ -458,4 +458,3 @@ scope( calling ) {
 ```
 
 In the same example the solicit-response is programmed with a fake activity which raises a fault thus trigerring the termination handler of the Solicit-Response. It is woth noting how the solicit-response handler is installed before executing the termination trigerred by the parallel fault.
-

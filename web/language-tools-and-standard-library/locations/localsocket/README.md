@@ -12,4 +12,3 @@ Localsockets locations can be regular or abstract. Abstract sockets are identica
 
 * Abstract localsockets definition: `localsocket://abs/path/to/socket`
 * Regular localsockets definition: `localsocket:///path/to/socket`
-

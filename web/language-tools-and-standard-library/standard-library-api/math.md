@@ -1,3 +1,5 @@
+<!-- markdownlint-disable -->
+
 # Math
 
 Inclusion code: 

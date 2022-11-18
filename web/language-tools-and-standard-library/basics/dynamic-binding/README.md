@@ -55,6 +55,7 @@ if ( request.printer == "printer1" ) {
     Printer.location = "socket://localhost:8002"
 } 
 ```
+
 Note that the location of port `Printer` can be simly overwritten by referring to it using the path `Printer.location`.
 
 ## Example: programming a chat

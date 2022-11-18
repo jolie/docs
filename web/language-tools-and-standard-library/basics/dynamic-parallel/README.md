@@ -12,11 +12,11 @@ spawn( var over range ) in resultVar {
 }
 ```
 
-where _var_ is the index variable which ranges over _range_. _resultVar_ is the variable vector which will containt all the results from each spawned activity. _spawn session_ represents the session code to be executed in parallel for each spawn instantiation.
+where _var_ is the index variable which ranges over _range_. _resultVar_ is the variable vector which will contain all the results from each spawned activity. _spawn session_ represents the session code to be executed in parallel for each spawn instantiation.
 
 **Semantics** The execution of a spawn statement is completed when all its spawned sessions are completed. All the spawned sessions must be considered as common_service sessions_ instantiated by the spawn primitive and executed in parallel under the following conditions:
 
-* they cannot contain input operations, thus they cannot receive messages from an external service \(with the exception of the response messages of solicit responses\). 
+* they cannot contain input operations, thus they cannot receive messages from an external service \(with the exception of the response messages of solicit responses\).
 * they can be instantiated only by means of the spawn primitive
 * they cannot exploit correlation sets
 * they inherit all the variable values and the outputPort declarations of the current service session which is executing the spawn
@@ -113,4 +113,3 @@ retrieveTemperature( request )( response ) {
     response = result.temperature
 }
 ```
-

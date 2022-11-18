@@ -1,6 +1,6 @@
 # ZipUtils
 
-Inclusion code: 
+Inclusion code:
 
 | Service Deployment |  |  |  |
 | :--- | :--- | :--- | :--- |
@@ -245,4 +245,3 @@ type IOExceptionType: JavaExceptionType
 ```jolie
 type JavaExceptionType: string { .stackTrace: string }
 ```
-

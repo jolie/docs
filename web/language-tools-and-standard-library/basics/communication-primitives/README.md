@@ -118,7 +118,6 @@ service MyService {
 
 It is possible to set the response timeout of a solicit-response by specifying the engine argument `responseTimeout` when running Jolie. Details can be found at page [Basics/Engine Argument](../engine-arguments/README.md).
 
-
 # Example
 
 Here we discuss a simple example where both OneWay/Notification and RequestResponse/SolicitResponse primitives are used. The complete code can be checked and downloaded at this [link](https://github.com/jolie/examples/tree/master/v1.10.x/02_basics/1_ports/newspaper).

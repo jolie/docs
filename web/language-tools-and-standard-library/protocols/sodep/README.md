@@ -51,7 +51,7 @@ For the sake of clarity, we show \(in Java pseudo-code\) how these structures ar
 
 #### Value
 
-* `Object` `content`: the content of this value. Can be a String, an Integer, or a Double; 
+* `Object` `content`: the content of this value. Can be a String, an Integer, or a Double;
 * `Map< String, Value[] >` \`\`: the children vectors of this value, mapped by name.
 
 ### Formal specification
@@ -81,4 +81,3 @@ ValueContent    ::= 0(byte) | 1(byte) String | 2(byte) int | 3(byte) double | 4(
 
 ValueChildren    ::= String(child name) int(how many Value) Value* | epsilon
 ```
-

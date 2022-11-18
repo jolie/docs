@@ -1,4 +1,5 @@
 # Adding an input port with protocol SODEP
+
 Protocol [sodep](https://docs.jolie-lang.org/v1.10.x/language-tools-and-standard-library/protocols/sodep.html) is a binary protocol released together with Jolie engine. It is an efficient protocol we suggest to use everytime you need to integrate a jolie service with another jolie service.
 
 In the following picture we show how to add an inputPort which provides a sodep protocol in addition to those with `http/json` and `http/soap` already discussed.
@@ -8,7 +9,9 @@ In the following picture we show how to add an inputPort which provides a sodep 
 As it happened for the addition of soap protocol input port, also in the case of a sodep protocol input port the behaviour of the service is always the same, and you don't need to modify it.
 
 ## Adding the port
+
 The first step is adding the inputPort to the code. In our example is:
+
 ```jolie
 inputPort AdvancedCalculatorPortSOAP {
         location: "socket://localhost:8003"
@@ -23,7 +26,7 @@ No other actions are required.
 ## The complete example
 
 The complete example follows and it may be consulted at this [link]
-(https://github.com/jolie/examples/tree/master/v1.10.x/tutorials/more_inputports_and_protocols/sodep)
+(<https://github.com/jolie/examples/tree/master/v1.10.x/tutorials/more_inputports_and_protocols/sodep>)
 
 ```jolie
 from AdvancedCalculatorServiceInterfaceModule import AdvancedCalculatorInterface
@@ -112,7 +115,9 @@ service AdvancedCalculatorService {
 ```
 
 ## Running the service and invoking it
+
 Since we are extending the example [Using more than one dependency](https://docs.jolie-lang.org/v1.10.x/tutorials/using-more-than-one-dependency/), here we need to run two services in two separate shells:
+
 ```jolie
 jolie AdvancedCalculatorService.ol
 jolie CalcularService.ol

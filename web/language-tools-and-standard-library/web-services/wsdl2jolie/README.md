@@ -152,4 +152,3 @@ So far not all the WSDL and SOAP features are supported, which can raise compati
 * SOAP 1.2, currently NOT supported;
 * XML Schema Extended types, currently NOT supported;
 * HTTP GET and HTTP POST, currently HALF supported as Web Service calls.
-

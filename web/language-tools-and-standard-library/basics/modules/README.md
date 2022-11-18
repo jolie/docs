@@ -1,12 +1,12 @@
 # Module System and Import Statement
 
-The Jolie module system is a mechanism that allows developers to share and reuse Jolie code from different files. 
+The Jolie module system is a mechanism that allows developers to share and reuse Jolie code from different files.
 
 A Jolie module can be accessed and used through the `import` statement.
 
 ## Definitions
 
-The terminology for the module system differs among programming languages, thus it is useful to have a concrete definition before we delve into one for Jolie. 
+The terminology for the module system differs among programming languages, thus it is useful to have a concrete definition before we delve into one for Jolie.
 
 The Jolie module system is built upon three different components, namely: _packages_, _modules_, and _symbols_:
 
@@ -36,7 +36,7 @@ from .B import BType as BLocalType
 // import BType definition as BLocalType from module B (or B.main if B is a package) in the same package.
 ```
 
-The second part of the import statement, importTarget, is a list of symbol names defined in the target module, with an optional qualified name to bind to the local execution environment denoted by using 'as' keyword. E.g., 
+The second part of the import statement, importTarget, is a list of symbol names defined in the target module, with an optional qualified name to bind to the local execution environment denoted by using 'as' keyword. E.g.,
 
 ```jolie
 from package.module import symbolA // Absolute import
@@ -45,15 +45,13 @@ from .module import symbolB as localB // Relative import
 
 Jolie also supports the importing of all the (public) symbols defined in a given module, with the wildcard keyword `*`, e.g., `from myPackage.myModule import *` &mdash; wildcard-imported symbols cannot be aliased, as they are imported in bulk.
 
-
-
 ## Debugging the import system
 
-The import statement executes in three stages: 
+The import statement executes in three stages:
 
 - modules lookup;
 - modules parsing;
-- symbol binding. 
+- symbol binding.
 
 For each import statement, the Jolie interpreter resolves the import as specified in the module path, performing a lookup to the importing source.
 
@@ -72,6 +70,7 @@ For absolute paths, the interpreter performs the lookup within the directory of 
 Let us illustrate the followed procedure to define the priorities of module lookup with a concrete example.
 
 To do that, we first define some labels to represent the relevant parts of the module path used in the lookup:
+
 - let `PATH` represent the whole module path, e.g., `p1.p2.mod`;
 - let `HEAD` represent the prefix of the path, e.g,, `p1` in `p1.p2.mod`;
 - let `TAIL` represent the suffix of the path, e.g., `p2.mod` in `p1.p2.mod`.
@@ -83,7 +82,7 @@ Hence, let `WorkingDir` represent the absolute path of the execution directory, 
 2. if the above attempt fails, we look for a packaged version of Jolie services &mdash; which are files with the extension `.jap` &mdash; contained within the `lib` subdirectory of the `WorkingDir`. Specifically, we look for a `.jap` file named `HEAD.jap` which, if found, is inspected following the nesting structure of the `TAIL`;
 3. if the above attempt fails, we apply the procedures 1. and 2. to the system-level directories (e.g., from the `packages` directory of the $JOLIE_HOME folder)
 
-### Relative paths
+###  Relative paths
 
 Relative paths (denoted by the `.` prefix) are resolved starting from the location of the importer.
 

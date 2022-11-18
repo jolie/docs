@@ -281,4 +281,3 @@ _It is not possible to apply a courier process to the operations actually implem
 This is due to the fact that the aggregation statement, together with the courier definition, is an operator at the level of service network, not at the level of a single service. For this reason, if we need to put under courier processes also the operations which are orchestrating other sub services, it is better to place the final aggregator in a separate component with respect to the operation orchestrator, and then aggregates also it into the final aggregator. Here we report the service circuit as it should be in this case:
 
 ![](../../.gitbook/assets/interface_extension_example2.png)
-

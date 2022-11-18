@@ -1,3 +1,5 @@
+<!-- markdownlint-disable -->
+
 # StandardMonitor
 
 Inclusion code: 

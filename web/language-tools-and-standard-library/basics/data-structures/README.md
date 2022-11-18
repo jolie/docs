@@ -183,10 +183,12 @@ A structure can be completely erased - undefined - using the statement `undef`:
 ```jolie
 undef( animals )
 ```
+
 **Note that:**
 undef ( ) does not remove the structure it is aliasing, only undefine the alias used.
 
 For example, consider:
+
 ```
 include "console.iol"
 
@@ -293,6 +295,7 @@ You can define d with the follow line:
 ```jolie
 d << 12 {.greeting ="hello", .first = "to the", .first.second = "world", .first.third="!" }
 ```
+
 **Note that:**
 Remember to use << to copy the entire tree structure.
 
@@ -313,8 +316,6 @@ So if we have the operation op at Service that allow a custom data type structur
 ```jolie
 op@Service(12 {.greeting ="hello", .first = "to the", .first.second = "world", .first.third="!" })()
 ```
-
-
 
 ## `->` - structures aliases
 
@@ -364,7 +365,7 @@ three
 a -> b
 
 where b is a custom data type,is a lazy reference not a pointer to the node.
-The espression on the right of -> will be evaluated evaluated every time you are going to use the reference a.
+The expression on the right of -> will be evaluated evaluated every time you are going to use the reference a.
 So we could say a is a lazy reference.
 
 Consider the following use:
@@ -385,12 +386,12 @@ define push_env {
 }
 ```
 
-the idea is to have ``` __environment``` as a root where every child variable represent an environment of execution.
+the idea is to have ```__environment``` as a root where every child variable represent an environment of execution.
 
 if we evaluate ```prev_env``` and ```env``` at the end of the routine we will find that they have the same value.
 
-```prev_env``` is evaluated as ``` __environment.(__name)```
+```prev_env``` is evaluated as ```__environment.(__name)```
 
-same expression of ``` env``` .
+same expression of ```env``` .
 
 If you are going to use static path (not dynamic) this type of problem will not arise, but if you are using dynamic look-up be careful of the type of implementation.

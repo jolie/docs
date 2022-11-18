@@ -1,3 +1,5 @@
+<!-- markdownlint-disable -->
+
 # Time
 
 Inclusion code: 

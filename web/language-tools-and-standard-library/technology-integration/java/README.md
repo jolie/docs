@@ -4,4 +4,3 @@ Since the current interpreter of Jolie is written in Java, Java is a programming
 
 * **Jolie Client**: generating a Java client for a Jolie service
 * **Java Services**: writing Java classes to be used as functional supports for Jolie services
-

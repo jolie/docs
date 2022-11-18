@@ -110,7 +110,7 @@ Files `Controller.java` and `JolieClient.java` actually implement the client for
 * int -&gt; Integer
 * string -&gt; String
 * double -&gt; Double
-* long -&gt; Long 
+* long -&gt; Long
 * bool -&gt; Booelan
 * raw -&gt; ByteArray _\(it is an class available from the jolie.jar library\)_
 * undefined -&gt; Value _\(it is an class available from the jolie.jar library\)_
@@ -134,7 +134,7 @@ public class GetTemperatureRequest implements Jolie2JavaInterface {
 
 In order to use the generated classes in a Java project it is possible to copy them by hand and then compile them. Note that you need to import also the directories which define the package name given as argument `com/test/jolie`. It is worth noting that you need to add the following libraries to your project in order to satisfy the dependencies:
 
-* `jolie.jar`: 
+* `jolie.jar`:
 * `libjolie.jar`
 * `sodep.jar`
 * `jolie-java.jar`
@@ -157,7 +157,7 @@ The command generates three folders:
 
 Let us now to show how to use the generated client into a Java project. First of all, include the following jar files in the classpath of your project:
 
-* `jolie.jar`: 
+* `jolie.jar`:
 * `libjolie.jar`
 * `sodep.jar`
 * `jolie-java.jar`
@@ -184,7 +184,7 @@ public class JavaApplication
 }
 ```
 
-* before using the client, it is necessary to initialize the location and the port of the service to invoke. The first row of the main does this: 
+* before using the client, it is necessary to initialize the location and the port of the service to invoke. The first row of the main does this:
 
 `JolieClient.init( "localhost", 8000 );`
 
@@ -260,4 +260,3 @@ where the configuration parameters are:
 * _includePath_: the path where the jolie standard library include files are stored. Default `/usr/lib/jolie/include`.
 
 Note that the `jolie2java-maven-plugin` will be run during the `generated-sources` phase of maven, thus before the compilation one. So, take care to specify an outputDirectory inside your project which can be accessed by maven during the compilation.
-

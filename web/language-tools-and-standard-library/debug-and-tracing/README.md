@@ -35,6 +35,7 @@ jolie --trace file myFirstJolieService.ol
 ```
 
 In this case, no traces will be printed in the console, but they will be stored into a file named as `<timestam>.jolie.log.json`. Such a file can be navigated using a called _jolietraceviewer_. You can install jolietraceviewer through npm:
+
 ```text
 npm install -g @jolie/jolietraceviewer
 ```
@@ -54,4 +55,3 @@ jolie --trace file --traceLevel comm myFirstJolieService.ol
 ```
 
 It just traces only the communication actions. Use `comp` for tracing only the computation ones.
-

@@ -83,4 +83,3 @@ inputPort HTTPInput {
 As shown, except `keepAlive`, `debug.showContent`, and `default` parameters that are statically set, all other parameters are aliased to a variable whose value can be changed at runtime, during the execution of Leonardo.
 
 Besides aliasing protocol's parameter, we can access and modify them using the standard Jolie construct for [dynamic port binding](https://jolielang.gitbook.io/docs/basics/dynamic_binding).
-

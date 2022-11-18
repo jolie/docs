@@ -31,7 +31,7 @@ Jolie supports some basic arithmetic operators:
 * subtract \(`-`\)
 * multiply \(`*`\)
 * divide \(`/`\)
-* modulo \(`%`\) 
+* modulo \(`%`\)
 
 Their behaviour is the same as in other classical programming languages. The language also supports pre-/post-increment \(`++`\) and pre-/post-decrement \(`--`\) operators.
 
@@ -179,4 +179,3 @@ Notice
 Certain input formats as JSON allow directly nested arrays though, e.g. `[[1,2],[3,4]]` . For this reason Jolie\'s JSON parser automatically inserts a `_` -named children node for each array. If the JSON data was saved in the variable `matrix` , a single value may be obtained by `matrix._[i]._[j]` .
 
 The underscore trick works in both directions: by expressing nested arrays in this way, all `_` -named members again disappear on conversion \(back\) into JSON.
-

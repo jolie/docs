@@ -1,4 +1,5 @@
-# Embedding 
+# Embedding
+
 Embedding is a mechanism for launching a service from within another service. A service, called _embedder_, can _embed_ another service, called _embedded_ service, by targeting it with the `embed` primitive.
 
 The syntax for embedding is:
@@ -26,18 +27,16 @@ The following example shows the usage of the `Console` service, which exposes op
 from console import Console
 
 service MyService{
-	
-	embed Console as C
-	
-	main {
-		print@C( "Hello world!" )()
-	}
+ 
+ embed Console as C
+ 
+ main {
+  print@C( "Hello world!" )()
+ }
 }
 ```
 
 The section of the documentation dedicated to the [standard library](../standard-library-api/) reports more information on the modules, types, and interfaces available to programmers with the standard Jolie installation.
-
-
 
 ## An example of embedding
 
@@ -82,27 +81,27 @@ service CleanDiv {
 
 It is worth noting that:
 
-* it is necessary to import the service _CleanBr_ from module _clean_br.ol_ and its interface from module _CleanBrInterface_
-* the outputPorts _CleanBr_ and _StringUtils_ do not define nor the location and the protocol because they are set by the embedding primitive with location "local" and inner memory protocol.
-* the embedding primitive joins the service _clean\_br.ol_ with the outputPort _CleanBr_ thus implying that each time we use port CleanBr inside the behaviour we will invoke the embedded service:
+- it is necessary to import the service _CleanBr_ from module _clean_br.ol_ and its interface from module _CleanBrInterface_
+- the outputPorts _CleanBr_ and _StringUtils_ do not define nor the location and the protocol because they are set by the embedding primitive with location "local" and inner memory protocol.
+- the embedding primitive joins the service _clean\_br.ol_ with the outputPort _CleanBr_ thus implying that each time we use port CleanBr inside the behaviour we will invoke the embedded service:
+
 ```jolie
 cleanBr@CleanBr( request )( response )
 ```
-* the _StringUtils_ is a service embedded from the standard library
 
+- the _StringUtils_ is a service embedded from the standard library
 
 ### Hiding connections
 
 Note that the embedding primitive, together with the usage of in-memory communication, allows for hiding connections among embedded microservices. In the example above the connection between the service _clean\_div.ol_ and _clean\_br.ol_ is hidden by the embedding and no external microservices can call the inputPort of the microservice _clean\_br.ol_.
 
 ![](../../.gitbook/assets/embedding2.png)
+
 ### Cells (or multiservices)
 
 Here we introduce the concept of _cells_ as a unique execution context for a set of services. In a cell, one or more services can be executed within the same execution context. When there is only one service, the definition of a cell corresponds to the same of a service. A cell exhibits only the public available ports of the inner services. The ports that are not reachable by external invokers are considered internal ports and they are hidden from the point of view of a cell. Operationally, a cell can be obtained by exploiting the embedding primitive.
 
 ![](../../.gitbook/assets/cells.png)
-
-
 
 ### Creating a script from a service architecture
 
@@ -116,22 +115,22 @@ from clean_div import CleanDiv
 
 service Script {
 
-	outputPort CleanDiv {
-		Interfaces: CleanDivInterface
-	}
+ outputPort CleanDiv {
+  Interfaces: CleanDivInterface
+ }
 
-	embed CleanDiv in CleanDiv
-	embed Console as Console
+ embed CleanDiv in CleanDiv
+ embed Console as Console
 
 
-	main
-	{
-		div = "<div>This is an example of embedding<br>try to run the encoding_div.ol<br>and watch the result.</div>"
-		println@Console("String to be cleaned:" + div )()
-		cleanDiv@CleanDiv( div )( clean_string )
-		println@Console()()
-		println@Console( "String cleaned:" + clean_string )()
-	}
+ main
+ {
+  div = "<div>This is an example of embedding<br>try to run the encoding_div.ol<br>and watch the result.</div>"
+  println@Console("String to be cleaned:" + div )()
+  cleanDiv@CleanDiv( div )( clean_string )
+  println@Console()()
+  println@Console( "String cleaned:" + clean_string )()
+ }
 }
 ```
 
@@ -221,4 +220,3 @@ interface OperationInterface {
 ```
 
 It is worth noting that the embedded service is running once for each enabled session then it expires. Thus each call produce a new specific embedding for that call.
-

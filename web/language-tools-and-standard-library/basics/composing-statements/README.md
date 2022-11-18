@@ -132,7 +132,7 @@ Let us consider the example below in which only `buy` or `sell` operation can ex
 }] { println@Console( "Sell order forwarded" )() }
 ```
 
-Note that input choice are usually used as the first statement of the service behaviour in order to specify all the available operations for that service. In this case all the operations are available to be called from external clients; in this case, when the service receives a message for an operation of the input choice, a session which executes the related branch will be run. 
+Note that input choice are usually used as the first statement of the service behaviour in order to specify all the available operations for that service. In this case all the operations are available to be called from external clients; in this case, when the service receives a message for an operation of the input choice, a session which executes the related branch will be run.
 
 #### An example with input choice
 

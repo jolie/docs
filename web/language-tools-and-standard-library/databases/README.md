@@ -217,4 +217,3 @@ Client requests using curl:
 * Retrieve record - GET request in JSON: `curl -v "http://localhost:8000/retrieve?=\{\"id\":0\}"`
 * Retrieve record - POST request in x-www-form-urlencoded \(webbrowser form\): `curl -v -d "id=0" -H "Content-Type: application/x-www-form-urlencoded" "http://localhost:8000/retrieve"`
 * Retrieve record - POST request in JSON: `curl -v -d "{\"id\":0}" -H "Content-Type: application/json" "http://localhost:8000/retrieve"`
-

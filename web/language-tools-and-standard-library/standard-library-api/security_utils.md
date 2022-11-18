@@ -1,3 +1,5 @@
+<!-- markdownlint-disable -->
+
 # SecurityUtils
 
 Inclusion code: 

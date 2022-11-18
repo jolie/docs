@@ -1,3 +1,5 @@
+<!-- markdownlint-disable -->
+
 # Bluetooth
 
 Inclusion code: 

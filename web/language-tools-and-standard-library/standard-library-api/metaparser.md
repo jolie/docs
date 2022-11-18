@@ -1,3 +1,5 @@
+<!-- markdownlint-disable -->
+
 # MetaParser
 
 Inclusion code: 

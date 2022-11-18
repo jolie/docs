@@ -28,4 +28,3 @@ In case a `TypeMismatch` is raised by the receiver, no fault is sent back to the
 | :--- | :--- | :--- |
 | **SENDER side** | The message is not sent;a `TypeMismatch` exception is raised. | a `TypeMismatch` exception is raised. |
 | **RECEIVER side** | The message is discarded;a warning message is sent to console;a `TypeMismatch` fault message is sent to the sender | a `TypeMismatch` exception is raised.a `TypeMismatch` fault is sent to the sender. |
-

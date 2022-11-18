@@ -1,6 +1,5 @@
 # Jolie project structure
 
-
 ```
 ├── cmd (contains executable commands)
 │   ├── executable1 (directory containing executable1)
@@ -22,4 +21,3 @@
 ├── web (web files, e.g., CSS and HTML files)
 └── README.md
 ```
-

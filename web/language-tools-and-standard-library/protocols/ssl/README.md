@@ -74,4 +74,3 @@ type SSLConfiguration:void {
     }
 }
 ```
-

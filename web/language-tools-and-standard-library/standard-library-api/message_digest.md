@@ -1,3 +1,5 @@
+<!-- markdownlint-disable -->
+
 # MessageDigest
 
 Inclusion code: 

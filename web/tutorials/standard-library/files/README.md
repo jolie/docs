@@ -1,6 +1,6 @@
 # Using files
-Using files in jolie is very simple. There standard library [`file`](https://docs.jolie-lang.org/v1.10.x/language-tools-and-standard-library/standard-library-api/file.html) provides a set of useful operations for managing files. In this tutorial we show:
 
+Using files in jolie is very simple. There standard library [`file`](https://docs.jolie-lang.org/v1.10.x/language-tools-and-standard-library/standard-library-api/file.html) provides a set of useful operations for managing files. In this tutorial we show:
 
 * how to read from a file;
 * how to write to a file;
@@ -27,7 +27,7 @@ service Example {
 }
 ```
 
-Note that it is important to import ```jolie from file import File```and embed   ```jolie   embed File as file ``` the into the  service from the standard library then it is sufficient to use operation `readFile@file` for reading from the file. The operation `readFile@file` requires the filename. The content is then stored into variable `response` and it can be easily printed out using `println@console`.
+Note that it is important to import ```jolie from file import File```and embed   ```jolie   embed File as file``` the into the  service from the standard library then it is sufficient to use operation `readFile@file` for reading from the file. The operation `readFile@file` requires the filename. The content is then stored into variable `response` and it can be easily printed out using `println@console`.
 
 ## Writing a file
 
@@ -53,7 +53,8 @@ Note that the operation `writeFile@file` requires at least two parameters: the f
 ## Communicating the content of a file
 
 Now, let's step forward creating a simple system where a server receives the content from a source file read by the client, and appends it to a receiving file. The full example can be checked [at this link](https://github.com/jolie/examples/tree/master/v1.10.x/tutorials/using-files/communicating-file-content).
-The example uses the following file structure 
+The example uses the following file structure
+
 ```
 .
 +-- ServerInterface.ol
@@ -139,12 +140,13 @@ service ExampleClient{
 ## Communicating raw contents
 
 Let's now concluding this tutorial showing how to manage also binary files. So far indeed, we dealt only with text files where their content is always managed as a string. In general, we could require to manage any kind of files. In the following we show hot to read, communicate and write the binary content of a file. We propose the same scenario of the section above where there is a client which reads from a file and sends its content to a server, but we show how to deal with binary files. The full code of the example may be consulted [at this link](https://github.com/jolie/examples/tree/master/v1.10.x/tutorials/using-files/communicating-raw-files). Like in previous example the following file structure is used.
+
 ```
 .
 +-- ServerInterface.ol
 +-- server.ol
 +-- client.ol
-``` 
+```
 
 The interface of the server changes as it follows:
 
@@ -232,4 +234,3 @@ service ExampleClient{
 ```
 
 Also in this case we enable the usage of binaries setting the parameter `format="binary"` for operation `writeFile`. Note that in this example the file read is a PDF file.
-

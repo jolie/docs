@@ -1,4 +1,5 @@
 # Services
+
 A service is the key element of a jolie program, it is the minimal artifact that can be designed and developed with Jolie. In Jolie everything is a service, a composition of services is a service. An application written in Jolie is always a composition of services. There is no possibility to develop something different.
 
 A service is always described by a **service definition** where the code is specified. Service definitions can be organized in [modules](modules.html).
@@ -7,10 +8,10 @@ The `service` is a component that includes blocks that define its deployment and
 
 ```jolie
 [public | private] service ServiceName ( parameterName : parameterType) {
-	// service related component..
-	main {
-		// ...
-	}
+ // service related component..
+ main {
+  // ...
+ }
 }
 ```
 
@@ -18,63 +19,65 @@ The following example reports a service which provides a simple operation for mu
 
 ```jolie
 interface MyServiceInterface {
-	RequestResponse: multiply ( int )( int )
+ RequestResponse: multiply ( int )( int )
 }
 
 service MyService() {
-	
-	execution: concurrent
-	
-	inputPort IP {
-		location: "socket://localhost:8000"
-		protocol: sodep
-		interfaces: MyServiceInterface
-	}
+ 
+ execution: concurrent
+ 
+ inputPort IP {
+  location: "socket://localhost:8000"
+  protocol: sodep
+  interfaces: MyServiceInterface
+ }
 
-	main {
-		multiply ( number )( result ) {
-			result = number * 8
-		}
-	}
+ main {
+  multiply ( number )( result ) {
+   result = number * 8
+  }
+ }
 }
 ```
 
 This service exposes one [inputPort](./basics/ports.html) where it offers the operation `multiply`. Note that the interface has been defined outside the scope `service` but it is referenced within it input port `IP`. Interface declarations indeed are independently defined w.r.t. services, and they can only be referenced when used. The statement `execution:concurrent` specifies the [execution modality](./processes.html) to be used when running the service.
 
 ## Parameterized services
+
 To better understand how `service`s and their parameters interact, let us modify the previous example by giving the possibility to specify the constant used for the multiplication, the location of the service and its protocol. In the following we report the Jolie module that specifies a type (for the parameter), an interface of a service and a `service` using it:
 
 ```jolie
 type MyServiceParam {
-	factor: int
-	location: string
+ factor: int
+ location: string
 }
 
 interface MyServiceInterface {
-	RequestResponse: multiply ( int )( int )
+ RequestResponse: multiply ( int )( int )
 }
 
 service MyService( p: MyServiceParam ) {
-	
-	execution: concurrent
-	
-	inputPort IP {
-		location: p.location
-		protocol: sodep
-		interfaces: MyServiceInterface
-	}
+ 
+ execution: concurrent
+ 
+ inputPort IP {
+  location: p.location
+  protocol: sodep
+  interfaces: MyServiceInterface
+ }
 
-	main {
-		multiply ( number )( result ) {
-			result = number * p.factor
-		}
-	}
+ main {
+  multiply ( number )( result ) {
+   result = number * p.factor
+  }
+ }
 }
 ```
 
 The service `MyService` requires a value of type `MyServiceParam` for its execution. Specifically, the values in the parameter include the location and protocol of the `inputPort` and the multiplicative factor used in the `multiply` operation.
 
 ### Passing parameters from command line
+
 It is possible to pass parameters to a service from command line, just storing the parameter values into a json file and padding it using argument `--params`. Let us considering the following json file, named `params.json`, to be passed to the service defined in the previous section:
 
 ```json
@@ -83,67 +86,70 @@ It is possible to pass parameters to a service from command line, just storing t
     "factor": 2
 }
 ```
+
 The command line for running the service passing the parameters in `params.json` is:
 
 ```
 jolie --params params.json my-service.ol
 ```
+
 where we suppose that `my-service.ol` is the file where `MyService` has been stored.
 
 ## Embedding a service
-Services can be embedded within other services in order to run a __cell__ (or multiservice). The primitive which allows for embedding a service is primitive `embed`. In the following example service `ConfigurationService` is embedded within service `MainService`:
 
+Services can be embedded within other services in order to run a **cell** (or multiservice). The primitive which allows for embedding a service is primitive `embed`. In the following example service `ConfigurationService` is embedded within service `MainService`:
 
 ```jolie
 service ConfigurationService {
-	inputPort IP {
-		location: "local"
-		requestResponse: getDBConn( void )(string)
-	}
-	
-	main {
-		getDBConn ( req )( result ) {
-			result = "SUPER_SECRET_CONN"
-		}
-	}
+ inputPort IP {
+  location: "local"
+  requestResponse: getDBConn( void )(string)
+ }
+ 
+ main {
+  getDBConn ( req )( result ) {
+   result = "SUPER_SECRET_CONN"
+  }
+ }
 }
 
 service MainService {
 
-	embed ConfigurationService( ) as Conf
+ embed ConfigurationService( ) as Conf
 
-	main {
-		getDBConn@Conf( )( res )
-	}
+ main {
+  getDBConn@Conf( )( res )
+ }
 }
 ```
 
 More details abot embedding can be found at section [Embedding](../architectural-composition/embedding.md)
+
 ## Private services
 
 In order to limit the service from being accessed by public, like types and interfaces, Jolie provides the ability to specify scope of access via `public` and `private` keywords. The service is defined as `public` by default when omitted. The access limitation for service helps us write secure and mantainable Jolie code. Below shows the code snippet for a Jolie module that can be execute only through command line interface. These two services, namely `ConfigurationService` and `MainService`, cannot be imported and used externally.
 
 ```jolie
 private service ConfigurationService {
-	inputPort IP {
-		location: "local"
-		requestResponse: getDBConn( void )(string)
-	}
-	
-	main {
-		getDBConn ( req )( result ) {
-			result = "SUPER_SECRET_CONN"
-		}
-	}
+ inputPort IP {
+  location: "local"
+  requestResponse: getDBConn( void )(string)
+ }
+ 
+ main {
+  getDBConn ( req )( result ) {
+   result = "SUPER_SECRET_CONN"
+  }
+ }
 }
 
 private service MainService {
 
-	embed ConfigurationService( ) as Conf
+ embed ConfigurationService( ) as Conf
 
-	main {
-		getDBConn@Conf( )( res )
-	}
+ main {
+  getDBConn@Conf( )( res )
+ }
 }
 ```
 
@@ -162,36 +168,36 @@ In the example below, we show a module where two services are defined. Service `
 from console import Console 
 
 type MyServiceParam {
-	factor: int
-	protocol: string
+ factor: int
+ protocol: string
 }
 
 interface MyServiceInterface {
-	RequestResponse: multiply( int )( int )
+ RequestResponse: multiply( int )( int )
 }
 
 service MyService ( p: MyServiceParam ) {
-	inputPort IP {
-		location: "local"
-		protocol: p.protocol
-		interfaces: MyServiceInterface
-	}
-	
-	main {
-		multiply ( number )( result ) {
-			result = number * p.factor
-		}
-	}
+ inputPort IP {
+  location: "local"
+  protocol: p.protocol
+  interfaces: MyServiceInterface
+ }
+ 
+ main {
+  multiply ( number )( result ) {
+   result = number * p.factor
+  }
+ }
 }
 
 service MainService {
-	embed Console as Console
-	embed MyService( { .protocol = "sodep", .factor = 2 } ) as Service
+ embed Console as Console
+ embed MyService( { .protocol = "sodep", .factor = 2 } ) as Service
 
-	main {
-		multiply@Service( 3 )( res ) // res = 6
-		println@Console( res )()
-	}
+ main {
+  multiply@Service( 3 )( res ) // res = 6
+  println@Console( res )()
+ }
 }
 ```
 
@@ -201,4 +207,3 @@ In order to run it, the following command line must be used:
 jolie --service MainService script.ol
 
 ```
-

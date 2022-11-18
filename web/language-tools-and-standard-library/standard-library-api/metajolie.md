@@ -1,3 +1,5 @@
+<!-- markdownlint-disable -->
+
 # MetaJolie
 
 Inclusion code: 

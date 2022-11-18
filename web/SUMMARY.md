@@ -1,6 +1,5 @@
 # Table of contents
 
-
 ## Tutorials
 
 * [Getting Started](tutorials/getting-started/README.md)
@@ -140,4 +139,3 @@
 ## Other guidelines
 
 * [Contributing to this documentation](other-guidelines/docs-contrib.md)
-

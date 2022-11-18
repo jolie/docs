@@ -1,5 +1,6 @@
 # Adding an input port with protocol SODEPS
-Protocol [sodeps](https://docs.jolie-lang.org/v1.10.x/language-tools-and-standard-library/protocols/ssl/sodeps.html) uses  binary protocol `sodep` already described in this example, over `ssl`. It can be useful when secuting communication over sodep protocol. 
+
+Protocol [sodeps](https://docs.jolie-lang.org/v1.10.x/language-tools-and-standard-library/protocols/ssl/sodeps.html) uses  binary protocol `sodep` already described in this example, over `ssl`. It can be useful when secuting communication over sodep protocol.
 
 In the following picture we show how to add an inputPort which provides a sodeps protocol in addition to those with `http/json`, `http/soap`, `sodep`, `https` and `sodeps`  already discussed.
 
@@ -8,7 +9,9 @@ In the following picture we show how to add an inputPort which provides a sodeps
 As it happened for the addition of sodep protocol input port, also in the case of a sodep protocol input port the behaviour of the service is always the same, and you don't need to modify it.
 
 ## Adding the port
+
 The first step is adding the inputPort to the code. In our example is:
+
 ```jolie
 inputPort AdvancedCalculatorPortSODEPS {
     location: "socket://localhost:8006"
@@ -20,12 +23,12 @@ inputPort AdvancedCalculatorPortSODEPS {
 }
 ```
 
-It is worth noting that, as we did for protocol `https` also in this case we need to specify the keystore and the related password. You can use tool [`keytool`](https://docs.oracle.com/cd/E19798-01/821-1841/gjrgy/) for generating it. 
+It is worth noting that, as we did for protocol `https` also in this case we need to specify the keystore and the related password. You can use tool [`keytool`](https://docs.oracle.com/cd/E19798-01/821-1841/gjrgy/) for generating it.
 
 ## The complete example
 
 The complete example follows and it may be consulted at this [link]
-(https://github.com/jolie/examples/tree/master/v1.10.x/tutorials/more_inputports_and_protocols/sodeps)
+(<https://github.com/jolie/examples/tree/master/v1.10.x/tutorials/more_inputports_and_protocols/sodeps>)
 
 ```jolie
 from AdvancedCalculatorServiceInterfaceModule import AdvancedCalculatorInterface
@@ -144,7 +147,9 @@ service AdvancedCalculatorService {
 ```
 
 ## Running the service and invoking it
+
 Since we are extending the example [Using more than one dependency](https://docs.jolie-lang.org/v1.10.x/tutorials/using-more-than-one-dependency/), here we need to run two services in two separate shells:
+
 ```jolie
 jolie AdvancedCalculatorService.ol
 jolie CalcularService.ol
@@ -222,8 +227,8 @@ service SodepsClient {
     }
  }
 ```
-Note that the outputPort requires two more parameters: `ssl.trustStore` and `ssl.trustStorePassword` which allows to the define the trust store where checking the validity of the server certificate. To this end, it is important to [extract the certificate](https://access.redhat.com/documentation/en-us/red_hat_jboss_data_virtualization/6.2/html/security_guide/extract_a_self-signed_certificate_from_the_keystore) from the keystore of the service and [add it to the trust store](https://access.redhat.com/documentation/en-us/red_hat_jboss_data_virtualization/6.2/html/security_guide/add_a_certificate_to_a_truststore_using_keytool) of the client. In the following we report how to run the client and how it appears its console:
 
+Note that the outputPort requires two more parameters: `ssl.trustStore` and `ssl.trustStorePassword` which allows to the define the trust store where checking the validity of the server certificate. To this end, it is important to [extract the certificate](https://access.redhat.com/documentation/en-us/red_hat_jboss_data_virtualization/6.2/html/security_guide/extract_a_self-signed_certificate_from_the_keystore) from the keystore of the service and [add it to the trust store](https://access.redhat.com/documentation/en-us/red_hat_jboss_data_virtualization/6.2/html/security_guide/add_a_certificate_to_a_truststore_using_keytool) of the client. In the following we report how to run the client and how it appears its console:
 
 ```jolie
 jolie sodep_client.ol 

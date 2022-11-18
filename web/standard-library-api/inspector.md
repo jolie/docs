@@ -1,3 +1,5 @@
+<!-- markdownlint-disable -->
+
 # Include library: inspector.iol
 
 Inclusion code: <pre>include "inspector.iol"</pre>
@@ -26,7 +28,7 @@ Inclusion code: <pre>include "inspector.iol"</pre>
 
 <h3 id="InspectorInterface">InspectorInterface</h3>
 
-Interface documentation: 
+Interface documentation:
 
 <table>
   <thead>
@@ -43,9 +45,9 @@ Interface documentation:
       <td><a href="#InspectionRequest">InspectionRequest</a></td>
       <td><a href="#ProgramInspectionResponse">ProgramInspectionResponse</a></td>
       <td>
-        ParserException( <a href="#WeakJavaExceptionType">WeakJavaExceptionType</a> ) <br> 
-        FileNotFoundException( <a href="#WeakJavaExceptionType">WeakJavaExceptionType</a> ) <br> 
-        IOException( <a href="#WeakJavaExceptionType">WeakJavaExceptionType</a> ) <br> 
+        ParserException( <a href="#WeakJavaExceptionType">WeakJavaExceptionType</a> ) <br>
+        FileNotFoundException( <a href="#WeakJavaExceptionType">WeakJavaExceptionType</a> ) <br>
+        IOException( <a href="#WeakJavaExceptionType">WeakJavaExceptionType</a> ) <br>
         SemanticException( <a href="#WeakJavaExceptionType">WeakJavaExceptionType</a> )
       </td>
     </tr>
@@ -54,9 +56,9 @@ Interface documentation:
       <td><a href="#InspectionRequest">InspectionRequest</a></td>
       <td><a href="#TypesInspectionResponse">TypesInspectionResponse</a></td>
       <td>
-        ParserException( <a href="#WeakJavaExceptionType">WeakJavaExceptionType</a> ) <br> 
-        FileNotFoundException( <a href="#WeakJavaExceptionType">WeakJavaExceptionType</a> ) <br> 
-        IOException( <a href="#WeakJavaExceptionType">WeakJavaExceptionType</a> ) <br> 
+        ParserException( <a href="#WeakJavaExceptionType">WeakJavaExceptionType</a> ) <br>
+        FileNotFoundException( <a href="#WeakJavaExceptionType">WeakJavaExceptionType</a> ) <br>
+        IOException( <a href="#WeakJavaExceptionType">WeakJavaExceptionType</a> ) <br>
         SemanticException( <a href="#WeakJavaExceptionType">WeakJavaExceptionType</a> )
       </td>
     </tr>
@@ -65,255 +67,208 @@ Interface documentation:
 
 <h2>Operation Description</h2>
 
-
-
 <h3 id="inspectProgram">inspectProgram</h3>
 
-Operation documentation: 
+Operation documentation:
 
-
-Invocation template: 
+Invocation template:
 <pre>inspectProgram@Inspector( request )( response )</pre>
 
 <h4 id="InspectionRequest">Request type</h4>
 
 Type: InspectionRequest
 
-
 <pre>type InspectionRequest: void {
-	.filename: string
+ .filename: string
 }</pre>
 
-<code>InspectionRequest : void</code> 
+<code>InspectionRequest : void</code>
 
 <ul>
 
-  <li><code>filename : string</code> 
+  <li><code>filename : string</code>
 </li>
 
 </ul>
-
-
 
 <h4 id="ProgramInspectionResponse">Response type</h4>
 
 Type: ProgramInspectionResponse
 
-
 <pre>type ProgramInspectionResponse: void {
-	.port*: PortInfoType
+ .port*: PortInfoType
 }</pre>
 
-<code>ProgramInspectionResponse : void</code> 
+<code>ProgramInspectionResponse : void</code>
 
 <ul>
 
-  <li><code>port : void</code> 
+  <li><code>port : void</code>
 </li>
 
 </ul>
 
-
-
-
 <h4>Possible faults thrown</h4>
-
 
 Fault <code>ParserException</code> with type <code>WeakJavaExceptionType</code>
 
-Fault-handling install template: 
-<pre>install ( ParserException => /* error-handling code */ )</pre>
+Fault-handling install template:
+<pre>install ( ParserException => /*error-handling code*/ )</pre>
 <pre>type WeakJavaExceptionType: any {
-	.stackTrace?: string
+ .stackTrace?: string
 }</pre>
-
 
 Fault <code>FileNotFoundException</code> with type <code>WeakJavaExceptionType</code>
 
-Fault-handling install template: 
-<pre>install ( FileNotFoundException => /* error-handling code */ )</pre>
+Fault-handling install template:
+<pre>install ( FileNotFoundException => /*error-handling code*/ )</pre>
 <pre>type WeakJavaExceptionType: any {
-	.stackTrace?: string
+ .stackTrace?: string
 }</pre>
-
 
 Fault <code>IOException</code> with type <code>WeakJavaExceptionType</code>
 
-Fault-handling install template: 
-<pre>install ( IOException => /* error-handling code */ )</pre>
+Fault-handling install template:
+<pre>install ( IOException => /*error-handling code*/ )</pre>
 <pre>type WeakJavaExceptionType: any {
-	.stackTrace?: string
+ .stackTrace?: string
 }</pre>
-
 
 Fault <code>SemanticException</code> with type <code>WeakJavaExceptionType</code>
 
-Fault-handling install template: 
-<pre>install ( SemanticException => /* error-handling code */ )</pre>
+Fault-handling install template:
+<pre>install ( SemanticException => /*error-handling code*/ )</pre>
 <pre>type WeakJavaExceptionType: any {
-	.stackTrace?: string
+ .stackTrace?: string
 }</pre>
-
-
 
 <h3 id="inspectTypes">inspectTypes</h3>
 
-Operation documentation: 
+Operation documentation:
 
-
-Invocation template: 
+Invocation template:
 <pre>inspectTypes@Inspector( request )( response )</pre>
 
 <h4 id="InspectionRequest">Request type</h4>
 
 Type: InspectionRequest
 
-
 <pre>type InspectionRequest: void {
-	.filename: string
+ .filename: string
 }</pre>
 
-<code>InspectionRequest : void</code> 
+<code>InspectionRequest : void</code>
 
 <ul>
 
-  <li><code>filename : string</code> 
+  <li><code>filename : string</code>
 </li>
 
 </ul>
-
-
 
 <h4 id="TypesInspectionResponse">Response type</h4>
 
 Type: TypesInspectionResponse
 
-
 <pre>type TypesInspectionResponse: void {
-	.type*: TypeInfoType
+ .type*: TypeInfoType
 }</pre>
 
-<code>TypesInspectionResponse : void</code> 
+<code>TypesInspectionResponse : void</code>
 
 <ul>
 
-  <li><code>type : </code> 
+  <li><code>type : </code>
 </li>
 
 </ul>
 
-
-
-
 <h4>Possible faults thrown</h4>
-
 
 Fault <code>ParserException</code> with type <code>WeakJavaExceptionType</code>
 
-Fault-handling install template: 
-<pre>install ( ParserException => /* error-handling code */ )</pre>
+Fault-handling install template:
+<pre>install ( ParserException => /*error-handling code*/ )</pre>
 <pre>type WeakJavaExceptionType: any {
-	.stackTrace?: string
+ .stackTrace?: string
 }</pre>
-
 
 Fault <code>FileNotFoundException</code> with type <code>WeakJavaExceptionType</code>
 
-Fault-handling install template: 
-<pre>install ( FileNotFoundException => /* error-handling code */ )</pre>
+Fault-handling install template:
+<pre>install ( FileNotFoundException => /*error-handling code*/ )</pre>
 <pre>type WeakJavaExceptionType: any {
-	.stackTrace?: string
+ .stackTrace?: string
 }</pre>
-
 
 Fault <code>IOException</code> with type <code>WeakJavaExceptionType</code>
 
-Fault-handling install template: 
-<pre>install ( IOException => /* error-handling code */ )</pre>
+Fault-handling install template:
+<pre>install ( IOException => /*error-handling code*/ )</pre>
 <pre>type WeakJavaExceptionType: any {
-	.stackTrace?: string
+ .stackTrace?: string
 }</pre>
-
 
 Fault <code>SemanticException</code> with type <code>WeakJavaExceptionType</code>
 
-Fault-handling install template: 
-<pre>install ( SemanticException => /* error-handling code */ )</pre>
+Fault-handling install template:
+<pre>install ( SemanticException => /*error-handling code*/ )</pre>
 <pre>type WeakJavaExceptionType: any {
-	.stackTrace?: string
+ .stackTrace?: string
 }</pre>
-
-
 
 <h3>Subtypes</h3>
 
-
 <h4 id="PortInfoType">PortInfoType</h4>
 
-
-
 <pre>type PortInfoType: void {
-	.protocol?: string
-	.isOutput: bool
-	.subtype*: TypeInfoType
-	.documentation?: string
-	.name: string
-	.location?: string
-	.interface*: InterfaceInfoType
+ .protocol?: string
+ .isOutput: bool
+ .subtype*: TypeInfoType
+ .documentation?: string
+ .name: string
+ .location?: string
+ .interface*: InterfaceInfoType
 }</pre>
-<code>PortInfoType : void</code> 
-
+<code>PortInfoType : void</code>
 
 <h4 id="TypeInfoType">TypeInfoType</h4>
 
 <pre>type TypeInfoType: void {
-	.rootType: string
-	.code?: string
-	.subtype*: TypeInfoType
-	.documentation?: string
-	.name?: string
-	.undefinedSubtypes?: bool
-	.isNative: bool
+ .rootType: string
+ .code?: string
+ .subtype*: TypeInfoType
+ .documentation?: string
+ .name?: string
+ .undefinedSubtypes?: bool
+ .isNative: bool
 }</pre>
-<code>TypeInfoType : void</code> 
-
+<code>TypeInfoType : void</code>
 
 <h4 id="InterfaceInfoType">InterfaceInfoType</h4>
 
-
-
 <pre>type InterfaceInfoType: void {
-	.documentation?: string
-	.name: string
-	.operation*: OperationInfoType
+ .documentation?: string
+ .name: string
+ .operation*: OperationInfoType
 }</pre>
-<code>InterfaceInfoType : void</code> 
-
+<code>InterfaceInfoType : void</code>
 
 <h4 id="OperationInfoType">OperationInfoType</h4>
 
-
-
 <pre>type OperationInfoType: void {
-	.responseType?: TypeInfoType
-	.requestType: TypeInfoType
-	.documentation?: string
-	.name: string
-	.fault*: FaultInfoType
+ .responseType?: TypeInfoType
+ .requestType: TypeInfoType
+ .documentation?: string
+ .name: string
+ .fault*: FaultInfoType
 }</pre>
-<code>OperationInfoType : void</code> 
-
+<code>OperationInfoType : void</code>
 
 <h4 id="FaultInfoType">FaultInfoType</h4>
 
-
-
 <pre>type FaultInfoType: void {
-	.name: string
-	.faultType: TypeInfoType
+ .name: string
+ .faultType: TypeInfoType
 }</pre>
-<code>FaultInfoType : void</code> 
-
-
-
-
+<code>FaultInfoType : void</code>

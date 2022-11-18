@@ -264,4 +264,3 @@ Finally, to make the dependencies available at runtime, we add the annotation `@
     "jaxws/woodstox-core-asl.jar"
 })
 ```
-

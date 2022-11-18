@@ -1,3 +1,5 @@
+<!-- markdownlint-disable -->
+
 # Console
 
 Inclusion code: 

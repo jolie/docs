@@ -188,4 +188,3 @@ In this specific example you will find the code for both the client side \(HTML/
 * `/leornardo.ol`
 
 It is not necessary to define precisely the cookie binding for each operation exposed by the HTTP input port, one can use the global cookies configuration expressed in the following form `.cookies.cookieName = "subNodeName"`, Particular attention must be paid on the presence subNodeName in the type of all operation exposed by the port otherwise a TypeMismatch will occur.
-

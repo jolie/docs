@@ -1,3 +1,5 @@
+<!-- markdownlint-disable -->
+
 # SwingUI
 
 Inclusion code: 

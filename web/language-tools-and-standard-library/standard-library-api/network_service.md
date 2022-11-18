@@ -1,3 +1,5 @@
+<!-- markdownlint-disable -->
+
 # NetworkService
 
 Inclusion code: 

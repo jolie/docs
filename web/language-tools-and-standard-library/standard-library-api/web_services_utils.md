@@ -1,3 +1,5 @@
+<!-- markdownlint-disable -->
+
 # WebServicesUtils
 
 Inclusion code: 

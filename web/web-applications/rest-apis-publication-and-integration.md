@@ -78,4 +78,3 @@ _In this section we explain how to use the_ `default` _parameter to capture any 
 ## Integrating HTTP Cookies with Jolie Sessions
 
 _In this section we show how to integrate HTTP cookie-based sessions with Jolie_ [_correlation-based sessions_](https://jolielang.gitbook.io/docs/basics/sessions)_._
-

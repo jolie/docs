@@ -24,67 +24,68 @@ type ViewUserRequest { username: string }
 
 interface UsersInterface {
 RequestResponse:
-	viewUser( ViewUserRequest )( User ) throws UserNotFound( string ),
-	listUsers( ListUsersRequest )( ListUsersResponse )
+ viewUser( ViewUserRequest )( User ) throws UserNotFound( string ),
+ listUsers( ListUsersRequest )( ListUsersResponse )
 }
 
 service App {
-	execution: concurrent
+ execution: concurrent
 
-	inputPort Web {
-		location: "socket://localhost:8080"
-		protocol: http {
-			format = "json"
-			osc << {
-				listUsers << {
-					template = "/api/user"
-					method = "get"
-				}
-				viewUser << {
-					template = "/api/user/{username}"
-					method = "get"
-					statusCodes.UserNotFound = 404
-				}
-			}
-		}
-		interfaces: UsersInterface
-	}
+ inputPort Web {
+  location: "socket://localhost:8080"
+  protocol: http {
+   format = "json"
+   osc << {
+    listUsers << {
+     template = "/api/user"
+     method = "get"
+    }
+    viewUser << {
+     template = "/api/user/{username}"
+     method = "get"
+     statusCodes.UserNotFound = 404
+    }
+   }
+  }
+  interfaces: UsersInterface
+ }
 
-	init {
-		users << {
-			john << {
-				name = "John Doe", email = "john@doe.com", karma = 4
-			}
-			jane << {
-				name = "Jane Doe", email = "jane@doe.com", karma = 6
-			}
-		}
-	}
+ init {
+  users << {
+   john << {
+    name = "John Doe", email = "john@doe.com", karma = 4
+   }
+   jane << {
+    name = "Jane Doe", email = "jane@doe.com", karma = 6
+   }
+  }
+ }
     
-	main {
-		[ viewUser( request )( user ) {
-			if( is_defined( users.(request.username) ) ) {
-				user << users.(request.username)
-			} else {
-				throw( UserNotFound, request.username )
-			}
-		} ]
+ main {
+  [ viewUser( request )( user ) {
+   if( is_defined( users.(request.username) ) ) {
+    user << users.(request.username)
+   } else {
+    throw( UserNotFound, request.username )
+   }
+  } ]
 
-		[ listUsers( request )( response ) {
-			i = 0
-			foreach( username : users ) {
-				user << users.(username)
-				if( !( is_defined( request.minKarma ) && user.karma < request.minKarma ) ) {
-					response.usernames[i++] = username
-				}
-			}
-		} ]
-	}
+  [ listUsers( request )( response ) {
+   i = 0
+   foreach( username : users ) {
+    user << users.(username)
+    if( !( is_defined( request.minKarma ) && user.karma < request.minKarma ) ) {
+     response.usernames[i++] = username
+    }
+   }
+  } ]
+ }
 }
 ```
 
 Above, notice the use of the `osc` parameter of the `http` protocol to map operations to their respective HTTP configurations.
 For example, operation `viewUser` is configured to use:
+
 - `/api/user` as URI template, by `template = "/api/user"`. See the [official RFC on URI templates](https://www.rfc-editor.org/rfc/rfc6570) for more information about them.
 - GET as HTTP method, by `method = "get"`.
 
@@ -106,7 +107,6 @@ Such a kind of mapping must be provided to _jester_ in the form of a json file. 
 
 In the following sections we will show how some tools which come together with the jolie installation can facilitate the deployment of a jolie service as a REST service. The tools are:
 
-* **jolier**: like the command `jolie`, `jolier` automatically executes a jolie service as a REST service transparently embedding _jester_
-* **jolie2openapi**: it generates an [openapi](https://swagger.io/docs/specification/about/) definition of a jolie interface
-* **openapi2jolie**: it generates a jolie client which enable to invoking a rest service described by an openapi definition 
-
+- **jolier**: like the command `jolie`, `jolier` automatically executes a jolie service as a REST service transparently embedding _jester_
+- **jolie2openapi**: it generates an [openapi](https://swagger.io/docs/specification/about/) definition of a jolie interface
+- **openapi2jolie**: it generates a jolie client which enable to invoking a rest service described by an openapi definition

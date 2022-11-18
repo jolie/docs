@@ -1,4 +1,4 @@
-# What makes a technology microservice oriented? 
+# What makes a technology microservice oriented?
 
 When approaching a new programming language or framework that claims to be working within a new programming paradigm one should approach this claim with extreme care. The same level of care should also be shown when approaching a (micro)services technology; we all know one of the "mantra" of MSA is that they should be technology independent, but ask yourself would you drill holes in a concrete wall with a penknife?
 
@@ -8,21 +8,22 @@ So what things one should look in a (micro)service-oriented language; a good sta
 
 * Operation: One may be tempted to consider an operation as an object method or a function, as well if the share some concept like the definition of a method/function/operation signature, they differ on the fact that a client can call an operation without sharing any artefacts with the server. In the same way, the server should be able to process the request without any knowledge of the client's nature.
 
-* Messages/Type: The messages contain all the information data used by the operations, in terms of the payload content sent or received by any specific operation. Messages are the only way the client and server should exchange data; the handling of the message content should be independent of the protocol used to free the programmer to know details about a specific. Any credible service-oriented language should have some built-in message check to free the programmer from developing extra code to check the validity of the sent or received messages.     
+* Messages/Type: The messages contain all the information data used by the operations, in terms of the payload content sent or received by any specific operation. Messages are the only way the client and server should exchange data; the handling of the message content should be independent of the protocol used to free the programmer to know details about a specific. Any credible service-oriented language should have some built-in message check to free the programmer from developing extra code to check the validity of the sent or received messages.
 
-* Port: So far we have talked about some general logical aspect of (micro)services programming, The concept of port binds together all functional elements with the deployment aspect of the service. This separation should be evident also in the coding of our services, the development of the behaviour should be agnostic from deployment issues 
+* Port: So far we have talked about some general logical aspect of (micro)services programming, The concept of port binds together all functional elements with the deployment aspect of the service. This separation should be evident also in the coding of our services, the development of the behaviour should be agnostic from deployment issues
 
-* Binding: In a microservice based should be able to express the binding between Interfaces and ports easily. Any change in binding should not affect the coding of the behaviour. 
+* Binding: In a microservice based should be able to express the binding between Interfaces and ports easily. Any change in binding should not affect the coding of the behaviour.
 
 * Protocol: The protocol express how the message is sent not what message contains, by saying that a microservices technology should be protocol agnostic, the logic on how the message is constructed or processed should be not affected if the protocol changes
 
 ## NodeJs
-NodeJs is accredited to be a "microservice" technology based on the fact that can "construct non-blocking, event-driven I/O software", so the question comes natural, so if I implement an event-driven software in C++ does it make C++ a microservice language? 
+
+NodeJs is accredited to be a "microservice" technology based on the fact that can "construct non-blocking, event-driven I/O software", so the question comes natural, so if I implement an event-driven software in C++ does it make C++ a microservice language?
 We don't think so, in the same way, C was not a OO language as well if you could design OO artefacts.
 
 ## Interface or lack of it
 
-ECMAScript/NodeJS does not contemplate the possibility to define an interface this has some considerable on how we code our service let's start with a simple example in Jolie 
+ECMAScript/NodeJS does not contemplate the possibility to define an interface this has some considerable on how we code our service let's start with a simple example in Jolie
 
 ```jolie
 type MyOpRequest:void{
@@ -40,7 +41,8 @@ interface MySimpleInterface {
 }
 
 ```
-Here is my port definition 
+
+Here is my port definition
 
 ```jolie
   inputPort myHttpPort{
@@ -53,7 +55,9 @@ Here is my port definition
      
   }
 ```
+
 Now lets look at the behaviour part
+
 ```jolie
 execution{ concurrent }
 
@@ -64,7 +68,7 @@ main {
 }
 ```
 
-Putting all toghether 
+Putting all toghether
 
 ```jolie
 type MyOpRequest:void{
@@ -105,16 +109,21 @@ So how we can do this in NodeJs, as said before we can really define an interfac
 ```js
 var express = require('express');
 ```
+
 now we can create the "port" variable
+
  ```js
  var myHttpPort = express();
 ```
-and we initiate it 
+
+and we initiate it
+
  ```js
 myHttpPort.listen(8000)
  ```
+
  now we need to write the behaviour
- 
+
  ```js
 myHttpPort.get('/myOp', function (req, res) {
   var query = request.query;
@@ -123,8 +132,9 @@ myHttpPort.get('/myOp', function (req, res) {
   response.send(resVariable);
 });
  ```
- 
-Putting all toghether 
+
+Putting all toghether
+
  ```js
 var express = require('express');
 var myHttpPort = express();
@@ -138,10 +148,10 @@ myHttpPort.get('/myOp', function (request, response) {
 myHttpPort.listen(8000)
 
  ```
- 
+
 ### TypeCheck TypeCast
- 
-Now with an implementation like this one can argue there is not need for interface definition , but what about type check or type casting lets us try to modify our implementation in NodeJs 
+
+Now with an implementation like this one can argue there is not need for interface definition , but what about type check or type casting lets us try to modify our implementation in NodeJs
 
  ```js
 function(request, response) {
@@ -158,7 +168,9 @@ function(request, response) {
   response.send(resVariable);
 });
  ```
- now the same implemntation with jolie 
+
+ now the same implemntation with jolie
+
 ```jolie
 [myOp(request)(response){
    response.iam = "I'am "+ request.name + " " + request.surname + " and I am  " + (request.age +1);
@@ -166,33 +178,43 @@ function(request, response) {
    format = "json"
  }]
  ```
+
 let's test them
- 
- ``` 
+
+ ```
 http://localhost:8000/myop?name=John&surname=Green&age=41
- ``` 
- The result for the NodeJS implementation returns 
+ ```
+
+ The result for the NodeJS implementation returns
+
  ```json
 {"iam":"I'am John Green and I will  411"}
  ```
-  and the Jolie implementation 
+
+  and the Jolie implementation
+
 ```json  
 {"iam":"I'am John Green and I will  42"}
  ```
-Now the difference is result is given by the presence of the interface with its type definition that allows to cast when possible 
 
-What about type checking 
- ``` 
+Now the difference is result is given by the presence of the interface with its type definition that allows to cast when possible
+
+What about type checking
+
+ ```
  http://localhost:8000/myOp?name=John&surname=Green&age=Fourty-one
- ``` 
+ ```
+
 Jolie guards against type TypeMismatch intrinsically thanks to its TypeDefinition
-```xml 
+
+```xml
 <myOpResponse>
 <TypeMismatch>
 Invalid native type for node #Message.age: expected INT, found java.lang.String
 </TypeMismatch>
 </myOpResponse>
 ```
+
 when NodeJs will need some extra code to implement type cast and type check
 
  ```js
@@ -222,12 +244,12 @@ function(request, response) {
   response.send(xml(resVariable));
 });
  ```
+
 Now the end result is comparable, but the approach is complicity different in Jolie the developer is forced to define the type for each operation, this free the developer to implement control check later on.
 
+### Service Refactoring
 
-### Service Refactoring 
-
-Now let's imagine that we need to define an other set of operation grouped together in an new interface MySecondInterface here is the Jolie code 
+Now let's imagine that we need to define an other set of operation grouped together in an new interface MySecondInterface here is the Jolie code
 
  ```jolie
  type myOp1Request:void{
@@ -269,6 +291,7 @@ interface MySecondInterface {
     }
  
   ```
+
 now in NodeJs
 
  ```js
@@ -290,8 +313,9 @@ function(request, response) {
   response.send(xml(resVariable));
 });
  ```
- There is nothing special about this but lets consider the case where all the operation in of MySecondInterface need to be exposed by a second port in Jolie in this is achieved by creating a second port and binding MySecondInterface to the second port 
- 
+
+ There is nothing special about this but lets consider the case where all the operation in of MySecondInterface need to be exposed by a second port in Jolie in this is achieved by creating a second port and binding MySecondInterface to the second port
+
 ```jolie
   inputPort mySecondHttpPort{
      Location:"socket://localhost:8001"
@@ -304,8 +328,9 @@ function(request, response) {
   }
 
 ```
+
 In Jolie there is not the need to change any code in the behavior because there is a clear separation between the logical and physical layer of the service
-On the other hand in nodeJs 
+On the other hand in nodeJs
 
 ```js
 var mySecondHttpPort = express();
@@ -329,7 +354,8 @@ function(request, response) {
  
 mySecondHttpPort.listen(8001)
 ```
-The resulting change may look trivial changing myHttpPort into mySecondHttpPort , but let's consider the case where MySecondInterface would contain a bigger number of operation the developer would be forced to find all the operation involved in the change and apply the port. It goes without saying that if you want move operation from one interface to the other is the you have the problem due to the fact namePot.HTTPVerb format binds together an deployment aspect with the the way my (micro)service need to be coded this in our opinion is counter productive in a (micro)service complaint language. 
+
+The resulting change may look trivial changing myHttpPort into mySecondHttpPort , but let's consider the case where MySecondInterface would contain a bigger number of operation the developer would be forced to find all the operation involved in the change and apply the port. It goes without saying that if you want move operation from one interface to the other is the you have the problem due to the fact namePot.HTTPVerb format binds together an deployment aspect with the the way my (micro)service need to be coded this in our opinion is counter productive in a (micro)service complaint language.
 
 ### Client Service
 
@@ -367,7 +393,8 @@ interface MySecondInterface {
 }
 
 ```
-now lets look at client 
+
+now lets look at client
 
 ```jolie
 include "simpleInterface.iol"
@@ -395,6 +422,7 @@ main{
 ```
 
 Now look at the NodeJs
+
 ```javascript
 var request = require('request');
 
@@ -406,6 +434,7 @@ request({url:url, qs:propertiesObject}, function(err, response, body) {
   console.log("Get response: " + body);
 });
 ```
+
 In this NodeJs implementation there are certain consideration to do
 
 1. You need to know pass the full url each time you are calling your operation
@@ -413,7 +442,7 @@ In this NodeJs implementation there are certain consideration to do
 
 This is given by the fact that nodeJs is not been though to work with service operation, it can implement call to service operation but it does remain a function based language.
 
-### Orchestrating services 
+### Orchestrating services
 
 Let us consider the following example our client need to write a minimum of logic calling two operation of the server, how would look the code in Jolie and in NodeJS let's start with a new operation in NodeJs
 
@@ -462,6 +491,7 @@ myHttpPort.get('/checkAge', [
     response.send(resVariable);
   });
 ```
+
 and now in Jolie
 
 ```jolie
@@ -517,6 +547,7 @@ requestCheckAge={age : 22};
 checkAge(requestCheckAge);
 
 ```
+
 and now the Jolie orchestator
 
 ```jolie
@@ -550,9 +581,7 @@ main{
 
 }
 ```
-Let's comperare the two way orchestrate operation in jolie we can clearly identify a sequence of  operation calls with a clear compositional  logic ,where in NodeJs the orchestration logic need to be defined as a series http call response handling functions. With in this functions we can see how the programmer need to extract the content from the body ```responseCheckAge = JSON.parse(body); ``` when in Jolie you just work with straight three variable. In NodeJs the programmer is force to define a lot of low level aspects and continuously switching paradigm between the native functional paradigm and the need to thinking to operations. 
+
+Let's comperare the two way orchestrate operation in jolie we can clearly identify a sequence of  operation calls with a clear compositional  logic ,where in NodeJs the orchestration logic need to be defined as a series http call response handling functions. With in this functions we can see how the programmer need to extract the content from the body ```responseCheckAge = JSON.parse(body);``` when in Jolie you just work with straight three variable. In NodeJs the programmer is force to define a lot of low level aspects and continuously switching paradigm between the native functional paradigm and the need to thinking to operations.
 
 This result in an increase in complexity and difficulty in reading the code, in Jolie the syntax il coherent with the service paradigm that help the programmer with the definition of the orchestration behavior  
-
-
-  

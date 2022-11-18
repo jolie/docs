@@ -116,4 +116,3 @@ type XmlRpcConfiguration:void {
     .requestCompression?:string
 }
 ```
-

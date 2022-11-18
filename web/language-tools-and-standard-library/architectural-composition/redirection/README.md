@@ -88,4 +88,3 @@ From an architectural point of view, redirection and aggregation are different. 
 Redirection can be used for transparently transforming messages from a protocol to another. As an example let us consider the scenario discussed in the previous section where the redirector exposes a port using protocol `sodep` and but it internally communicates with the redirected services using protocol `http`. The complete code of the example can be found [here](https://github.com/jolie/examples/tree/master/04_architectural_composition/07_redirection/02_redirection_change_protocol).
 
 ![](../../.gitbook/assets/redirection_example_protocol_sodep.png)
-

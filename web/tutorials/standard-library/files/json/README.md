@@ -9,11 +9,11 @@ Say that you have a JSON file called `note.json` with the following content.
 
 ```json
 {
-	"note": {
-		"sender": "John",
-		"receiver": "Jane",
-		"content": "I made pasta"
-	}
+ "note": {
+  "sender": "John",
+  "receiver": "Jane",
+  "content": "I made pasta"
+ }
 }
 ```
 
@@ -25,14 +25,14 @@ from file import File
 service Example {
     embed File as File
 
-	main
-	{
-		readFile@File( {
-			filename = "note.json"
-			format = "json"
-		} )( data )
-		// data is now { node << { sender = "John" receiver = "Jane" content = "I made pasta" } }
-	}
+ main
+ {
+  readFile@File( {
+   filename = "note.json"
+   format = "json"
+  } )( data )
+  // data is now { node << { sender = "John" receiver = "Jane" content = "I made pasta" } }
+ }
 }
 ```
 
@@ -48,11 +48,11 @@ Suppose that you wanted to store the following data structure as a JSON file.
 
 ```jolie
 {
-	note << {
-		sender = "John"
-		receiver = "Jane"
-		content = "I made pasta"
-	}
+ note << {
+  sender = "John"
+  receiver = "Jane"
+  content = "I made pasta"
+ }
 }
 ```
 
@@ -62,28 +62,29 @@ You can do so by invoking `writeFile@File` and passing that data structure as th
 from file import File
 
 service Example {
-	embed File as File
-	
-	main
-	{
-		writeFile@File( {
-			filename = "note.json"
-			format = "json"
-			content << {
-				note << {
-					sender = "John"
-					receiver = "Jane"
-					content = "I made pasta"
-				}
-			}
-		} )()
-	}
+ embed File as File
+ 
+ main
+ {
+  writeFile@File( {
+   filename = "note.json"
+   format = "json"
+   content << {
+    note << {
+     sender = "John"
+     receiver = "Jane"
+     content = "I made pasta"
+    }
+   }
+  } )()
+ }
 }
 ```
 
 The file `note.json` will now contain the JSON data that we showed at the beginning of the tutorial.
 
 ### Another example
+
 Let us consider to have a starting json file, named `file.json` like the following one:
 
 ```json
@@ -102,6 +103,7 @@ Let us consider to have a starting json file, named `file.json` like the followi
     ]
 }
 ```
+
 The need is to add one more module item to the file. In the following example a jolie script just reads the file and add a new item module, then it wrotes the result on the same file.
 
 ```jolie
@@ -121,9 +123,11 @@ service ManagingJsonFiles {
     }
 }
 ```
+
 It is worth noting that `readFile` and `writeFile` are two operations offerred by standard library `File`. The standard library has been imported at the first line `from file import File`, then it is embedded at line four `embed File as File`.
 
 The final json file appears like the following one.
+
 ```json
 {
     "module": [
@@ -146,4 +150,5 @@ The final json file appears like the following one.
 }
 
 ```
+
 The complete example may be consulted at this [link](https://github.com/jolie/examples/tree/master/v1.10.x/tutorials/json-files).

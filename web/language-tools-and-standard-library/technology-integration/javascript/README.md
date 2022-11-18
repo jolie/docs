@@ -48,4 +48,3 @@ main
 ```
 
 Like embedding Jolie Services, also JavaScript Services require the specification of the local file where the JavaScript Service is defined \(i.e., `TwiceService.js`, Line 18\).
-

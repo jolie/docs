@@ -53,4 +53,3 @@ interface IfaceName {
 ```
 
 where _ErrX_, _ErrY_, _ErrW_, ..., _ErrZ_ are the fault names and _MsgTypeX_, ..., _MsgTypeZ_ are the types of the messages. Examples of its usage can be found in Section [Fault Handling](../fault-handling/).
-

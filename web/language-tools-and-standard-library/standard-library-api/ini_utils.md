@@ -1,3 +1,5 @@
+<!-- markdownlint-disable -->
+
 # IniUtils
 
 Inclusion code: 

@@ -138,4 +138,3 @@ joliedoc test.ol --internals
 ```
 
 The resul should look like the previous one but port `Console` also appears as output console and the usage of `println@Console` operation appears as communication dependencies in the dependency map.
-

@@ -111,4 +111,3 @@ main {
 ```
 
 As it is possible to note, within a jolie service the the web service just appears as a simple output port called `MyServiceSOAPPortServicePort` and it can be invoked as a standard jolie service. The complete code of the example may be consulted at this [link](https://github.com/jolie/examples/tree/master/08_web_services/02_invoking_a_web_service)
-

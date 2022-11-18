@@ -1,3 +1,5 @@
+<!-- markdownlint-disable -->
+
 # XmlUtils
 
 Inclusion code: 

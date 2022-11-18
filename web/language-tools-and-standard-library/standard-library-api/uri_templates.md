@@ -1,3 +1,5 @@
+<!-- markdownlint-disable -->
+
 # UriTemplates
 
 Inclusion code: 

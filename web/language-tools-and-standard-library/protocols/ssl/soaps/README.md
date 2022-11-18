@@ -9,4 +9,3 @@ Protocol name in Jolie port definition: `soaps`.
 ## SOAPS Parameters
 
 Since SOAPS is the SOAP protocol wrapped in an SSL encrypted message, SOAPS parameters are the same defined for [SOAP](https://jolielang.gitbook.io/docs/protocols/ssl).
-

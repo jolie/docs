@@ -41,7 +41,7 @@ The steps it implements are:
    build@Jocker(rqImg)(response);
    ```
 
-2. Creation of the network `testnet` where connecting the containers 
+2. Creation of the network `testnet` where connecting the containers
 
    ```jolie
    createNetwork@Jocker( ntwCreate_rq )( ntwCreate_rs );
@@ -104,4 +104,3 @@ The steps it implements are:
    ```jolie
    removeImage@Jocker( rmImage_rq )();
    ```
-
