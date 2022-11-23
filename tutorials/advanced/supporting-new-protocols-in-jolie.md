@@ -43,7 +43,7 @@ To prepare the structure of the project, we will not start from scratch but rath
 
 The file `pom.xml` is the file used by maven to compile the project. Any protocol written in Jolie uses the following parent block, groupId, version, and packaging:
 
-```markup
+```xml
 <parent>
   <groupId>org.jolie-lang</groupId>
   <artifactId>distribution</artifactId>

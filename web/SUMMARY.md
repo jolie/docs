@@ -11,13 +11,13 @@
   * [https](tutorials/using-more-input-ports-and-protocols/https/README.md)
   * [soaps](tutorials/using-more-input-ports-and-protocols/soaps/README.md)
   * [sodeps](tutorials/using-more-input-ports-and-protocols/sodeps/README.md)
-* Standard Library
+* [Standard Library](tutorials/standard-library/files/README.md)
   * [Using files](tutorials/standard-library/files/README.md)
     * [JSON files](tutorials/standard-library/files/json/README.md)
     * [XML files](tutorials/standard-library/files/xml/README.md)
-* Integration Scenarios
+* [Integration Scenarios](tutorials/twitter-api/README.md)
   * [Twitter API](tutorials/twitter-api/README.md)
-* Advanced Scenarios
+* [Advanced Scenarios](tutorials/advanced-scenarios/supporting-new-protocols-in-jolie/README.md)
   * [Implementing new port protocols in Jolie](tutorials/advanced-scenarios/supporting-new-protocols-in-jolie/README.md)
 
 ## Language, tools, and standard library
@@ -52,7 +52,7 @@
   * [Couriers](language-tools-and-standard-library/architectural-composition/couriers/README.md)
   * [Redirection](language-tools-and-standard-library/architectural-composition/redirection/README.md)
   * [Collections](language-tools-and-standard-library/architectural-composition/collections/README.md)
-* [Architectural Patterns]()
+* [Architectural Patterns](language-tools-and-standard-library/architectural-patterns/synchronous-vs-asynchronous/README.md)
   * [Synchronous vs Asynchronous Communication](language-tools-and-standard-library/architectural-patterns/synchronous-vs-asynchronous/README.md)
 * [Documenting APIs](language-tools-and-standard-library/documenting-api/README.md)
 * [Debugging](language-tools-and-standard-library/debug-and-tracing/README.md)
@@ -92,8 +92,8 @@
   * [RMI](language-tools-and-standard-library/locations/rmi/README.md)
   * [LocalSocket](language-tools-and-standard-library/locations/localsocket/README.md)
 * [Databases](language-tools-and-standard-library/databases/README.md)
-* [Mock Services](language-tools-and-standard-library/mock/README.md)
-  * [joliemock](language-tools-and-standard-library/mock/README.md)
+* [Mock Services](language-tools-and-standard-library/mock-services/README.md)
+  * [joliemock](language-tools-and-standard-library/mock-services/README.md)
 * [Standard Library API](language-tools-and-standard-library/standard-library-api/README.md)
   * [Bluetooth](language-tools-and-standard-library/standard-library-api/bluetooth.md)
   * [CallbackDefault](language-tools-and-standard-library/standard-library-api/callback_default.md)

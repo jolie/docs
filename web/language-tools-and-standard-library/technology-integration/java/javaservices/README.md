@@ -10,7 +10,7 @@ Each method of the embedded class is seen as an operation from the embedder, whi
 
 Many services of the Jolie standard library \(like `Console`\) are Java services.
 
-Each public method of the Java Service is an input operation invokable by the embedder. Depending on the output object, each method represents a one-way operation \(if the output is void\) or a request-response \(for non-void outputs\). This behaviour can be overridden by using the `@RequestResponse` annotation when declaring a void-returning operation.
+Each public method of the Java Service is an input operation invocable by the embedder. Depending on the output object, each method represents a one-way operation \(if the output is void\) or a request-response \(for non-void outputs\). This behaviour can be overridden by using the `@RequestResponse` annotation when declaring a void-returning operation.
 
 Let us write our own `MyConsole` Java service that offers a `println` request-response operation. `println` is a public method of `MyConsole` class that takes a string as request and prints it at console.
 
@@ -88,7 +88,7 @@ public class Twice extends JavaService {
 }
 ```
 
-Note that both input and output types of each method, although meant to be primitive types `int` and `double`, must be declared as their wrapping classes, respectively `Interger` and `Double`.
+Note that both input and output types of each method, although meant to be primitive types `int` and `double`, must be declared as their wrapping classes, respectively `Integer` and `Double`.
 
 Define a `twice.ol` module accordingly:
 
@@ -248,13 +248,13 @@ The tutorial also presents some features of Java integration in Jolie, i.e., man
 
   following picture.
 
-![](../../../.gitbook/assets/createproject.png)
+![create-project](../../../../.gitbook/assets/createproject.png)
 
 * If you are creating a new project from scratch click on “New
 
   Project” icon and then select **Java** -&gt; **Java Class Library**
 
-![](../../../.gitbook/assets/createproject_java.png)
+![create-java-class-library](../../../../.gitbook/assets/createproject_java.png)
 
 Then, follows the instructions and give a name to the project \(ex: `FirstJavaService`\) and define the working directory.
 
@@ -286,19 +286,19 @@ If you manually manage your project just add the `jolie.jar` as an external depe
 * Select _Add JAR/Folder_
 * Select the `jolie.jar` file from the path selector
 
-![](../../../.gitbook/assets/addjar.png)
+![add-jar](../../../../.gitbook/assets/addjar.png)
 
 ### The first JavaService
 
 As a first example of a JavaService we present a sample scenario where we suppose to extend the features of a Jolie service by exploiting native Java computation. The architecture of the final system will look as it is represented in the following picture:
 
-![](../../../.gitbook/assets/firstarchitecture.png)
+![architecture](../../../../.gitbook/assets/firstarchitecture.png)
 
 As it is possible to note, here the Jolie service communicates with the JavaService with a synchronous call equivalent to a RequestResponse.
 
 Before writing the actual code of the JavaService it is important to create the package which will contain it. Let us name it `org.jolie.example`. Then, let us create the new Java file called `FirstJavaService.java`.
 
-![](../../../.gitbook/assets/package.png)
+![package](../../../../.gitbook/assets/package.png)
 
 #### Writing the JavaService code
 
@@ -464,7 +464,7 @@ You can run the Jolie program by using the simple command `jolie main.ol`.
 
 In the previous example we just wrote a Jolie program which exploits the JavaService _FirstJavaService_. Clearly, it is possible to exploit the same JavaService within a Jolie service by adding an inputPort to the previous program.
 
-![](../../../.gitbook/assets/firstarchitectureservice.png)
+![service-architecture](../../../../.gitbook/assets/firstarchitectureservice.png)
 
 In the following case we present a possible solution where the operation of the JavaService is exported to the inputPort by exploiting the same interface `FirstJavaServiceInterface` with a new implementation of the operation `HelloWorld` in the main scope of the service.
 
@@ -518,7 +518,7 @@ service Main {
 
 In this section we deepen the usage of the class `Value` which allows for the management of Jolie value trees within Java.
 
-#### Creating a value
+### Creating a value
 
 First of all, we need to create a Value in Java as we would do in Jolie. The following Java code creates a Value named `v`.
 
@@ -526,9 +526,9 @@ First of all, we need to create a Value in Java as we would do in Jolie. The fol
 Value v = Value.create();
 ```
 
-#### Getting the vector elements
+### Getting the vector elements
 
-In each Jolie tree, a node is a vector. To access/get the vector elements of a node, you can use the method `getChildren( String subnodeName )` which returns the corresponding `ValueVector` of the subnode `subnondeName`. In the following example we get all the vector elements of the subnode `subnode1`.
+In each Jolie tree, a node is a vector. To access/get the vector elements of a node, you can use the method `getChildren( String subnodeName )` which returns the corresponding `ValueVector` of the subnode `subnodeName`. In the following example we get all the vector elements of the subnode `subnode1`.
 
 ```java
 ValueVector vVector = v.getChildren("subnode1");
@@ -541,7 +541,7 @@ ValueVector vVector = v.getChildren("subnode1");
 Value thirdElement = vVector.get( 2 );
 ```
 
-#### Setting the value of an element
+### Setting the value of an element
 
 It is possible to use the method `setValue( ... )` for setting the value content of an element as in the following example:
 
@@ -551,7 +551,7 @@ Value thirdElement = vVector.get( 2 );
 thirdElement.setValue("Millennium Falcon");
 ```
 
-#### Getting the value of an element
+### Getting the value of an element
 
 Once accessed a vector element \(a value in general\), it is possible to get its value by simply using one of the following methods depending on the type of the content:
 
@@ -684,7 +684,7 @@ public class FourthJavaService extends JavaService {
 In the following code we report a classical embedding of this JavaService wrapper:
 
 ```jolie
-// fouth-java-service.ol
+// fourth-java-service.ol
 interface DynamicJavaServiceInterface {
   RequestResponse:
     start( void )( int )
@@ -707,7 +707,7 @@ service DynamicJavaService {
 if we run a client that calls the service ten times as in the following code snippet:
 
 ```text
-from fouth-java-service import DynamicJavaService
+from fourth-java-service import DynamicJavaService
 from console import Console
 service main {
 
@@ -742,7 +742,7 @@ In this case the JavaService is shared among all the sessions and each new invoc
 Now let us see what happens if we dynamically embed it as reported in the following service:
 
 ```jolie
-from fouth-java-service import DynamicJavaServiceInterface
+from fourth-java-service import DynamicJavaServiceInterface
 from console import Console
 from runtime import Runtime
 

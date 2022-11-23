@@ -1,0 +1,6 @@
+[book]
+authors = ["Jolie Team"]
+language = "en"
+multilingual = false
+src = "web"
+title = "Jolie Documentation"

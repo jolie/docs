@@ -18,16 +18,16 @@ from file import File
 
 service Example {
 
-embed File as file 
+  embed File as file 
 
- main
- {
-  readFile@file( {
-   filename = "note.xml"
-   format = "xml"
+  main
+  {
+    readFile@file( {
+    filename = "note.xml"
+    format = "xml"
   } )( data )
   // data is now { node << { from = "John" to = "Jane" content = "I made pasta" } }
- }
+  }
 }
 ```
 
@@ -36,7 +36,6 @@ Variable `data` now contains the data from the XML structure, which you can acce
 ```jolie
 from file import File
 from console import Console
-
 
 service Example {
 
@@ -76,22 +75,22 @@ from file import File
 
 service Example {
 
-embed File as file 
- main
- {
-  writeFile@file( {
-   filename = "note.xml"
-   format = "xml"
-   content << {
-    note << {
-     from = "John"
-     to = "Jane"
-     content = "I made pasta"
-    }
-   }
-  } )()
- }
- } 
+  embed File as file 
+  main
+  {
+    writeFile@file( {
+      filename = "note.xml"
+      format = "xml"
+      content << {
+        note << {
+          from = "John"
+          to = "Jane"
+          content = "I made pasta"
+        }
+      }
+    })()
+  }
+} 
 ```
 
 The file `note.xml` will now contain the XML data that we showed at the beginning of the tutorial.

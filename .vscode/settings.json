@@ -1,0 +1,20 @@
+{
+    "cSpell.words": [
+        "behaviour",
+        "classpath",
+        "classpaths",
+        "embedder",
+        "println",
+        "sodeps"
+    ],
+    "cSpell.languageSettings": [
+        {
+            // use with Markdown files
+            "languageId": "markdown",
+            // Exclude code.
+            "ignoreRegExpList": [
+                "/^\\s*```[\\s\\S]*?^\\s*```/gm"
+            ]
+        }
+    ]
+}

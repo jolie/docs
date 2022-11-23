@@ -1,0 +1,25 @@
+{
+  "name": "highlight-jolie",
+  "version": "1.0.0",
+  "description": "",
+  "targets": {
+    "highlight.js": {
+      "source": "src/highlight.js"
+    }
+  },
+  "scripts": {
+    "build": "parcel build --no-source-maps",
+    "copy-to-mdbook": "cp dist/highlight.js ../web/highlight.js",
+    "build-and-copy": "npm run build && npm run copy-to-mdbook"
+  },
+  "browserslist": "> 0.5%, last 2 versions, not dead",
+  "author": "narongrit.kie@gmail.com",
+  "license": "ISC",
+  "dependencies": {
+    "highlight.js": "^11.6.0",
+    "highlightjs-jolie": "^0.1.8"
+  },
+  "devDependencies": {
+    "parcel": "^2.8.0"
+  }
+}
