@@ -1,34 +1,57 @@
-FROM nginx:alpine
-LABEL build_date="2020-09-30" \
-	  author="Brian Alberg <alberg@imada.sdu.dk>" \
-	  description="Jolie Documentation" \
-	  url="https://jolie-lang.org"
-MAINTAINER Brian Alberg "alberg@imada.sdu.dk"
-WORKDIR /home
-RUN apk update && \
-    apk add git && \
-    apk add nodejs npm --no-cache
-RUN npm install -g gitbook-cli
-RUN cd /usr/local/lib/node_modules/gitbook-cli/node_modules/npm/node_modules/ && npm install graceful-fs@4.2.0 --save
-RUN git clone https://github.com/jolie/docs.git
-WORKDIR /home/docs
-RUN cp -r -v docker/overrides/* /
-RUN cp docker/versions.json docker/index.html /usr/share/nginx/html
-RUN cp -r docker/nginx/conf.d /etc/nginx
 
-RUN for version in $(git for-each-ref --shell --format='%(refname:lstrip=3)' | grep 'v[0-9]*\.[0-9]*\.x' | tr -d "'"); \
+# build highlight jolie highlight.js
+FROM node:alpine AS highlight-jolie
+WORKDIR /highlight-jolie
+COPY highlight-jolie .
+RUN npm install
+RUN npm run build
+
+# install mdbook
+FROM rust:1.65 AS builder
+ENV MDBOOK_VERSION="0.4.21"
+ENV ARC="x86_64-unknown-linux-musl"
+RUN apt-get update && \
+    apt-get install --no-install-recommends -y \
+    musl-tools
+RUN rustup target add "${ARC}"
+RUN cargo --version
+# RUN cargo install mdbook
+RUN cargo install mdbook --version "${MDBOOK_VERSION}" --target "${ARC}"
+# RUN cargo install mdbook-mermaid
+RUN cargo install mdbook-mermaid --target "${ARC}"
+
+
+# build mdbook
+FROM nginx:alpine
+COPY --from=builder /usr/local/cargo/bin/mdbook /usr/bin/mdbook
+COPY --from=builder /usr/local/cargo/bin/mdbook-mermaid /usr/bin/mdbook-mermaid
+
+COPY docker/versions.json docker/index.html /usr/share/nginx/html/
+COPY docker/nginx/conf.d /etc/nginx/conf.d
+
+COPY theme /jolie-docs/theme
+COPY --from=highlight-jolie /highlight-jolie/dist/highlight.js /jolie-docs/theme/highlight.js
+COPY book.toml /jolie-docs/book.toml
+
+RUN apk update && \
+    apk add git
+
+RUN git clone https://github.com/kicito/docs.git
+WORKDIR /docs
+
+ADD http://date.jsontest.com /etc/builddate
+
+# RUN for version in $(git for-each-ref --shell --format='%(refname:lstrip=3)' | grep 'v[0-9]*\.[0-9]*\.x' | tr -d "'"); \
+RUN for version in $(git for-each-ref --shell --format='%(refname:lstrip=3)' | grep 'v1\.10\.x' | tr -d "'"); \
     do \
         echo "Copying version ${version}"; \
         git checkout -f ${version}; \
-        cd web; \
-        cp logo.png /usr/share/nginx/html; \
-        gitbook install; \
-        gitbook build;\
+        cp /jolie-docs/book.toml /docs/book.toml; \
+        cp -r /jolie-docs/theme /docs/; \
+        mdbook build;\
         ## Copy static webserver
         mkdir -p /usr/share/nginx/html/${version}; \
-        chown -R nginx:nginx _book;\
-        cp -r -v _book/. /usr/share/nginx/html/${version}; \
-        cd ..; \
+        chown -R nginx:nginx book;\
+        cp -r -v book/. /usr/share/nginx/html/${version}; \
     done
-WORKDIR /
 EXPOSE 8080

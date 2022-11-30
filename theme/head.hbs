@@ -1,0 +1,18 @@
+<script defer>
+    document.addEventListener("DOMContentLoaded", function () {
+        fetch("/versions.json").then( response => {
+            return response.json();
+        }).then( json => {
+            const s = document.getElementById('version-select');
+            for (const version of json) {
+                const opt = document.createElement('option');
+                opt.value = version.name;
+                opt.innerHTML = version.name;
+                s.appendChild( opt );
+            }
+            s.onchange = function( selected ){
+                window.location.href = "/" + this.value
+            }
+        })
+    })
+</script>
