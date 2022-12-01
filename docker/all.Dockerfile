@@ -41,8 +41,7 @@ WORKDIR /docs
 
 ADD http://date.jsontest.com /etc/builddate
 
-# RUN for version in $(git for-each-ref --shell --format='%(refname:lstrip=3)' | grep 'v[0-9]*\.[0-9]*\.x' | tr -d "'"); \
-RUN for version in $(git for-each-ref --shell --format='%(refname:lstrip=3)' | grep 'v1\.10\.x' | tr -d "'"); \
+RUN for version in $(git for-each-ref --shell --format='%(refname:lstrip=3)' | grep 'v[0-9]*\.[0-9]*\.x' | tr -d "'"); \
     do \
         echo "Copying version ${version}"; \
         git checkout -f ${version}; \
