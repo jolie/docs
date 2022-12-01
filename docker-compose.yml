@@ -4,7 +4,6 @@ services:
     build: .
     image: jolie-docs
     ports:
-      - "8080:8080"
-      - "35729:35729"
+      - "3000:3000"
     volumes:
-      - ./web:/home/web:ro
+      - ./src:/jolie-docs/src:ro

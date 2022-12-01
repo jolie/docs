@@ -1,52 +1,42 @@
+<!-- markdown-link-check-disable -->
+
 # Jolie Documentation
 
 Documentation for Jolie `v1.9.x`.
 
 Before making a pull request, test your changes by building the documentation
-locally. Use the Docker image provided in this branch to build a Gitbook
-accessible on [localhost:8080](http://localhost:8080). Edit the files in the
-directory `web` and wait for Gitbook to reload the page to see your edits (be
-patient, it may take up to one minute).
+locally. Use the Docker image provided in this branch to build a mdBook
+accessible on [localhost:3000](http://localhost:3000). Edit the files in the
+directory `src` and wait for mdBook to reload the page to see your edits (be
+patient, it may take up to a minute).
 
-## Build the Docker image
+## Using `docker-compose`
 
-Docker image with Gitbook using the
-[highlight-jolie](https://github.com/xiroV/gitbook-plugin-highlight-jolie)
-plugin, to support Jolie syntax highlighting.
+run it with
 
-### Using `docker-compose`
-
-Build the image with
-
-```
-docker-compose build
-```
-
-Then run it with
-
-```
-docker-compose up -d
+```bash
+docker compose up -d
 ```
 
 and stop it with
 
-```
-docker-compose down
+```bash
+docker compose down
 ```
 
-### Using `docker`
+## Using `docker`
 
 Build the image with
 
-```
+```bash
 docker build -t jolie-docs .
 ```
 
 Then run it with
 
-```
+```bash
 docker run --rm -it \
-    -p 8080:8080 -p 35729:35729 \
-    -v "$(pwd)"/web:/home/web:ro \
+    -p 3000:3000 \
+    -v "$(pwd)"/src:/jolie-docs:ro \
     jolie-docs
 ```
