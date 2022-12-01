@@ -1,12 +1,15 @@
+<!-- cSpell:disable -->
+<!-- markdownlint-disable -->
+<!-- editorconfig-checker-disable -->
 # WebServicesUtils
 
-Inclusion code: 
+Inclusion code:
 
-| Service Deployment |  |  |  |
-| :--- | :--- | :--- | :--- |
-| Port Name | Location | Protocol | Interfaces |
-| WebServicesUtils documentation: |  |  |  |
-| WebServicesUtils | - | - | [WebServicesUtilsInterface](web_services_utils.md#WebServicesUtilsInterface) |
+| Service Deployment              |          |          |                                                                              |
+|:--------------------------------|:---------|:---------|:-----------------------------------------------------------------------------|
+| Port Name                       | Location | Protocol | Interfaces                                                                   |
+| WebServicesUtils documentation: |          |          |                                                                              |
+| WebServicesUtils                | -        | -        | [WebServicesUtilsInterface](web_services_utils.md#WebServicesUtilsInterface) |
 
 ### List of Available Interfaces
 
@@ -14,9 +17,9 @@ Inclusion code:
 
 Interface documentation:
 
-| Operation Name | Input Type | Output Type | Faults |
-| :--- | :--- | :--- | :--- |
-| [wsdlToJolie](web_services_utils.md#wsdlToJolie) | string | string |  IOException\( [IOExceptionType](web_services_utils.md#IOExceptionType) \) |
+| Operation Name                                   | Input Type | Output Type | Faults                                                                    |
+|:-------------------------------------------------|:-----------|:------------|:--------------------------------------------------------------------------|
+| [wsdlToJolie](web_services_utils.md#wsdlToJolie) | string     | string      | IOException\( [IOExceptionType](web_services_utils.md#IOExceptionType) \) |
 
 ## Operation Description
 
@@ -63,4 +66,3 @@ type IOExceptionType: JavaExceptionType
 ```
 type JavaExceptionType: string { .stackTrace: string }
 ```
-

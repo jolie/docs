@@ -7,7 +7,7 @@ In Jolie there are two kinds of ports:
 
 Within each port, both input and output, it is possible to define three elements:
 
-* _Location_; 
+* _Location_;
 * _Protocol_;
 * _Interfaces_.
 
@@ -15,7 +15,7 @@ The Location defines _where_ the service is listening for a message \(in the cas
 
 Usually we graphically represent outputPorts with red triangles and inputPort with yellow squares. As an example, in the diagram below we represent a client connected to a server by means of an outputPort defined in the client and an inputPort defined in the server.
 
-![](../../../.gitbook/assets/creating_service_and_client.png)
+![](../../../assets/image/creating_service_and_client.png)
 
 ## The syntax of input and output ports
 
@@ -57,6 +57,7 @@ Jolie currently supports four media:
 * `rmi` \(Java RMI\);
 * `localsocket` \(Unix local sockets\);
 
+<!-- cSpell:ignore mysite -->
 An example of a valid location is: `"socket://www.mysite.com:80/"`, where `socket://` is the location medium and the following part represents the address.
 
 For a thorough description of the locations supported by Jolie and their parameters see [Locations](https://github.com/jolie/docs/tree/f99116a5ee813ad79e1967682b95c2ab305c9c0e/basics/communication-ports/locations/introduction/README.md) section.
@@ -102,7 +103,7 @@ outputPort SumServ {
 
 More than one input and one output ports can be defined into a service thus, enabling a service to receive messages from different location and different protocols.
 
-![](../../../.gitbook/assets/multipleports.png)
+![](../../../assets/image/multipleports.png)
 
 As an example, in the following piece of service, two input ports and three outputPorts are declared:
 
@@ -148,4 +149,3 @@ main {
 ...
 }
 ```
-

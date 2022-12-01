@@ -1,4 +1,4 @@
-# Hello, World!
+# Hello, World
 
 ## Hello World
 
@@ -33,4 +33,3 @@ Jolie programs are saved in files named with the `.ol` extension. For example, w
 `jolie myFirstJolieService.ol`
 
 which will print the string `Hello, world!`.
-

@@ -30,7 +30,7 @@ The `service` construct specifies:
 
 * a name `ServerName` for the service. The name will act as an output port for the owner of the internal service to call it;
 * the `Interfaces` of the service \(it is possible to declare interfaces fetched in included files, just as regular services\).
-* an optional `init`ialisation procedure, as for regular services;
+* an optional `init` initialisation procedure, as for regular services;
 * a `main` procedure, as for regular services;
 
 The internal service has access to all the output ports defined in the owner. This is limited to the information statically defined therein, not the dynamic bindings set by the caller processes.
@@ -52,57 +52,56 @@ include "console.iol"
 include "file.iol"
 
 type TreeType: void{
-  .file: string
-  .tab?: string
+    .file: string
+    .tab?: string
 }
 
 interface TreeInterface {
-  RequestResponse: tree( TreeType )( string )
+    RequestResponse: tree( TreeType )( string )
 }
 
 service TreeInternalService
 {
-  Interfaces: TreeInterface
-  main
-  {
-    tree( req )( res ){
-      exists@File( req.file )( reqExists );
-      if ( reqExists ){
-        if( !is_defined( req.tab ) ){
-          res += req.file
-        } else {
-          res += req.tab + "├-- " + req.file
-        };
-        isDirectory@File( req.file )( isDir );
-        if ( isDir ){
-          getFileSeparator@File()( sep );
-          lReq.order.byname = true;
-          lReq.directory = req.file;
-          list@File( lReq )( lRes );
-          for (i=0, i<#lRes.result, i++) {
-            bReq.file = req.file + sep + lRes.result[ i ];
-            if( is_defined( req.tab ) ) {
-              bReq.tab = req.tab + "|   "
+    Interfaces: TreeInterface
+    main
+    {
+        tree( req )( res ){
+            exists@File( req.file )( reqExists );
+            if ( reqExists ){
+                if( !is_defined( req.tab ) ){
+                    res += req.file
+                } else {
+                    res += req.tab + "├-- " + req.file
+                };
+                isDirectory@File( req.file )( isDir );
+                if ( isDir ){
+                    getFileSeparator@File()( sep );
+                    lReq.order.byname = true;
+                    lReq.directory = req.file;
+                    list@File( lReq )( lRes );
+                    for (i=0, i<#lRes.result, i++) {
+                        bReq.file = req.file + sep + lRes.result[ i ];
+                        if( is_defined( req.tab ) ) {
+                            bReq.tab = req.tab + "|   "
+                        } else {
+                            bReq.tab = "    "
+                        };
+                        tree@TreeInternalService( bReq )( bRes );
+                        res += "n" + bRes
+                    }
+                }
             } else {
-              bReq.tab = "    "
-            };
-            tree@TreeInternalService( bReq )( bRes );
-            res += "n" + bRes
-          }
+                res = req.file + " does not exist"
+            }
         }
-      } else {
-        res = req.file + " does not exist"
-      }
     }
-  }
 }
 
 main
 {
-  tree@TreeInternalService( { .file = "/path/to/my/directory" } )( res );
-  println@Console( res )()
+    tree@TreeInternalService( { .file = "/path/to/my/directory" } )( res );
+    println@Console( res )()
 }
 ```
 
 Note that at line 39, the internal service _TreeInternalService_ is recursively called on operation _tree_.
-

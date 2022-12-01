@@ -1,12 +1,15 @@
+<!-- cSpell:disable -->
+<!-- markdownlint-disable -->
+<!-- editorconfig-checker-disable -->
 # Bluetooth
 
-Inclusion code: 
+Inclusion code:
 
-| Service Deployment |  |  |  |
-| :--- | :--- | :--- | :--- |
-| Port Name | Location | Protocol | Interfaces |
-| Bluetooth documentation: |  |  |  |
-| Bluetooth | - | - | [BluetoothInterface](bluetooth.md#BluetoothInterface) |
+| Service Deployment       |          |          |                                                       |
+|:-------------------------|:---------|:---------|:------------------------------------------------------|
+| Port Name                | Location | Protocol | Interfaces                                            |
+| Bluetooth documentation: |          |          |                                                       |
+| Bluetooth                | -        | -        | [BluetoothInterface](bluetooth.md#BluetoothInterface) |
 
 ### List of Available Interfaces
 
@@ -14,10 +17,10 @@ Inclusion code:
 
 Interface documentation:
 
-| Operation Name | Input Type | Output Type | Faults |
-| :--- | :--- | :--- | :--- |
-| [inquire](bluetooth.md#inquire) | void | [BluetoothInquiryResponse](bluetooth.md#BluetoothInquiryResponse) |  |
-| [setDiscoverable](bluetooth.md#setDiscoverable) | int | int |  |
+| Operation Name                                  | Input Type | Output Type                                                       | Faults |
+|:------------------------------------------------|:-----------|:------------------------------------------------------------------|:-------|
+| [inquire](bluetooth.md#inquire)                 | void       | [BluetoothInquiryResponse](bluetooth.md#BluetoothInquiryResponse) |        |
+| [setDiscoverable](bluetooth.md#setDiscoverable) | int        | int                                                               |        |
 
 ## Operation Description
 
@@ -56,10 +59,10 @@ type BluetoothInquiryResponse: void {
 `BluetoothInquiryResponse : void`
 
 * `service : void`
-  * `location : string`
+    * `location : string`
 * `device : void`
-  * `address : string`
-  * `name : string`
+    * `address : string`
+    * `name : string`
 
 ### setDiscoverable <a id="setDiscoverable"></a>
 
@@ -82,4 +85,3 @@ Type: int
 Type: int
 
 `int : int`
-

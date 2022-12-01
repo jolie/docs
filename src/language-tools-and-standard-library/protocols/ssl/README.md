@@ -1,3 +1,5 @@
+<!-- cSpell: ignore truststore storepass -->
+
 # Security with SSL
 
 ## SSL wrapping protocol
@@ -74,4 +76,3 @@ type SSLConfiguration:void {
     }
 }
 ```
-

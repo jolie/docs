@@ -74,4 +74,3 @@ type BTL2CAPParameters:void {
     .transmitmtu?: string
 }
 ```
-

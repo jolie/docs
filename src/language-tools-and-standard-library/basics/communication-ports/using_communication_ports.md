@@ -5,7 +5,7 @@ Communication primitives are strictly related to the operations declared in the 
 * input primitives
 * output primitives
 
-Input primitives are triggered by a message reception, whereas the output primtives enable a message sending.
+Input primitives are triggered by a message reception, whereas the output primitives enable a message sending.
 
 ## Input primitives
 
@@ -62,7 +62,7 @@ main {
 
 Output primitives allow for sending messages to some input operations defined on another service. Also the output primitives can be divided into two categories:
 
-* **notification**: a message can be sent to a receving one-way operation.
+* **notification**: a message can be sent to a receiving one-way operation.
 * **solicit-response**: a message can be sent to a receiving request-response operation. The solicit-response is blocked until the reply message is received.
 
 The syntax of notification and solicit-response resembles those of one-way and request-response with the exception that the operation name is followed by the token `@` and the name of the outputPort to be used for sending the message. Here in the following, we report the syntax of the notification where _OutputPort\_Name_ is the name of the outputPort to be used and _request_ is the variable where the sending message is stored.
@@ -107,4 +107,3 @@ main {
 ### Solicit-Response timeout
 
 It is possible to set the response timeout of a solicit-response by specifying the engine argument `responseTimeout` when running Jolie. Details can be found at page [Basics/Engine Argument](../engine_arguments.md).
-

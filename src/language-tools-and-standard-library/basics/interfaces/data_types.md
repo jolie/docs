@@ -1,3 +1,5 @@
+<!-- cSpell:ignore brics -->
+
 # Data Types
 
 In Jolie, the messages exchanged through operations are data trees \(see section [Handling Simple Data](https://jolielang.gitbook.io/docs/basics/handling_simple_data).
@@ -48,8 +50,8 @@ Let us see some example of nested data types.
 
 ```jolie
 type Coordinates: void {
-  .lat: double
-  .lng: double
+    .lat: double
+    .lng: double
 }
 ```
 
@@ -57,11 +59,11 @@ The custom type `Coordinates` is a possible representation of a nested data type
 
 ```jolie
 type ShoppingList: void {
-  .fruits: int {
-    .bananas: int
-    .apples: int
-  }
-  .notes: string
+    .fruits: int {
+        .bananas: int
+        .apples: int
+    }
+    .notes: string
 }
 ```
 
@@ -83,9 +85,9 @@ type ShoppingList: void {
 
 ### Subnodes with cardinality
 
-Since each node of a tree in Jolie is a vector, in a type declaration each node requires a cardinality to be specified. The cardinality espresses the minimum and the maximum occurencies for that node \(`[min, max]`\). Cardinality is always expressed in the form:
+Since each node of a tree in Jolie is a vector, in a type declaration each node requires a cardinality to be specified. The cardinality expresses the minimum and the maximum occurrences for that node \(`[min, max]`\). Cardinality is always expressed in the form:
 
-* `[min, max]` - an interval from `min` to `max` \(both integers\), where `max` can be equal to `*` for defining an unlimited number of occurencies \(`[min, *]`\).
+* `[min, max]` - an interval from `min` to `max` \(both integers\), where `max` can be equal to `*` for defining an unlimited number of occurrences \(`[min, *]`\).
 
 Some special shortcuts can be used for expressing cardinality easily instead of the ordinary syntax with square brackets:
 
@@ -111,7 +113,7 @@ Lets consider the examples below to illustrate the 3 different cardinality optio
 
 ```jolie
 type CustomType: T {
-  .aSubNode[1,5]: T
+    .aSubNode[1,5]: T
 }
 ```
 
@@ -119,8 +121,8 @@ _Example_. In this case cardinalities are defined by occurrences where minimal o
 
 ```jolie
 type CustomType: T {
-  .aSubNode[0,1]: T
-  .anotherSubNode?: T
+    .aSubNode[0,1]: T
+    .anotherSubNode?: T
 }
 ```
 
@@ -128,8 +130,8 @@ The example above shows that `?` is a shortcut for `[0,1]` and hence the cardina
 
 ```jolie
 type CustomType: T {
-  .aSubNode[0,*]: T
-  .anotherSubNode*: T
+    .aSubNode[0,*]: T
+    .anotherSubNode*: T
 }
 ```
 
@@ -151,20 +153,20 @@ Let us see a comprehensive example of a custom type with cardinality.
 
 ```jolie
 type mySubType: void {
- .value: double
- .comment: string
+    .value: double
+    .comment: string
 }
 
 type myType: string {
 
- .x[ 1, * ]: mySubType
+    .x[ 1, * ]: mySubType
 
- .y[ 1, 3 ]: void {
-  .value*: double
-  .comment: string
- }
+    .y[ 1, 3 ]: void {
+        .value*: double
+        .comment: string
+    }
 
- .z?: void { ? }
+    .z?: void { ? }
 }
 ```
 
@@ -205,7 +207,6 @@ The same stands between nested data types.
 type CustomType: any | any { .subNode: T } | any { .subNode[2,3]: T }
 ```
 
-## Checking types at runtime: `istanceof`
+## Checking types at runtime: `instanceof`
 
-See section [Handling Simple Data/Rutime type checking of a variable](https://jolielang.gitbook.io/docs/basics/handling_simple_data#runtime-type-checking-of-a-variable-instanceof) for getting details about pritimive `instanceof`
-
+See section [Handling Simple Data/Runtime type checking of a variable](https://jolielang.gitbook.io/docs/basics/handling_simple_data#runtime-type-checking-of-a-variable-instanceof) for getting details about primitive `instanceof`

@@ -1,12 +1,15 @@
+<!-- cSpell:disable -->
+<!-- markdownlint-disable -->
+<!-- editorconfig-checker-disable -->
 # Math
 
-Inclusion code: 
+Inclusion code:
 
-| Service Deployment |  |  |  |
-| :--- | :--- | :--- | :--- |
-| Port Name | Location | Protocol | Interfaces |
-| Math documentation: |  |  |  |
-| Math | - | - | [MathInterface](math.md#MathInterface) |
+| Service Deployment  |          |          |                                        |
+|:--------------------|:---------|:---------|:---------------------------------------|
+| Port Name           | Location | Protocol | Interfaces                             |
+| Math documentation: |          |          |                                        |
+| Math                | -        | -        | [MathInterface](math.md#MathInterface) |
 
 ### List of Available Interfaces
 
@@ -14,14 +17,14 @@ Inclusion code:
 
 Interface documentation:
 
-| Operation Name | Input Type | Output Type | Faults |
-| :--- | :--- | :--- | :--- |
-| [random](math.md#random) | void | double |  |
-| [abs](math.md#abs) | int | int |  |
-| [round](math.md#round) | [RoundRequestType](math.md#RoundRequestType) | double |  |
-| [pi](math.md#pi) | void | double |  |
-| [pow](math.md#pow) | [PowRequest](math.md#PowRequest) | double |  |
-| [summation](math.md#summation) | [SummationRequest](math.md#SummationRequest) | int |  |
+| Operation Name                 | Input Type                                   | Output Type | Faults |
+|:-------------------------------|:---------------------------------------------|:------------|:-------|
+| [random](math.md#random)       | void                                         | double      |        |
+| [abs](math.md#abs)             | int                                          | int         |        |
+| [round](math.md#round)         | [RoundRequestType](math.md#RoundRequestType) | double      |        |
+| [pi](math.md#pi)               | void                                         | double      |        |
+| [pow](math.md#pow)             | [PowRequest](math.md#PowRequest)             | double      |        |
+| [summation](math.md#summation) | [SummationRequest](math.md#SummationRequest) | int         |        |
 
 ## Operation Description
 
@@ -184,4 +187,3 @@ type SummationRequest: void {
 Type: int
 
 `int : int`
-

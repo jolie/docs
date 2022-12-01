@@ -1,12 +1,15 @@
+<!-- cSpell:disable -->
+<!-- markdownlint-disable -->
+<!-- editorconfig-checker-disable -->
 # Database
 
-Inclusion code: 
+Inclusion code:
 
-| Service Deployment |  |  |  |
-| :--- | :--- | :--- | :--- |
-| Port Name | Location | Protocol | Interfaces |
-| Database documentation: |  |  |  |
-| Database | - | - | [DatabaseInterface](database.md#DatabaseInterface) |
+| Service Deployment      |          |          |                                                    |
+|:------------------------|:---------|:---------|:---------------------------------------------------|
+| Port Name               | Location | Protocol | Interfaces                                         |
+| Database documentation: |          |          |                                                    |
+| Database                | -        | -        | [DatabaseInterface](database.md#DatabaseInterface) |
 
 ### List of Available Interfaces
 
@@ -14,14 +17,14 @@ Inclusion code:
 
 Interface documentation:
 
-| Operation Name | Input Type | Output Type | Faults |
-| :--- | :--- | :--- | :--- |
-| [checkConnection](database.md#checkConnection) | void | void |  ConnectionError\( undefined \) |
-| [query](database.md#query) | [QueryRequest](database.md#QueryRequest) | [QueryResult](database.md#QueryResult) |  SQLException\( undefined \)  ConnectionError\( undefined \) |
-| [executeTransaction](database.md#executeTransaction) | [DatabaseTransactionRequest](database.md#DatabaseTransactionRequest) | [DatabaseTransactionResult](database.md#DatabaseTransactionResult) |  SQLException\( undefined \)  ConnectionError\( undefined \) |
-| [update](database.md#update) | [UpdateRequest](database.md#UpdateRequest) | int |  SQLException\( undefined \)  ConnectionError\( undefined \) |
-| [close](database.md#close) | void | void |  |
-| [connect](database.md#connect) | [ConnectionInfo](database.md#ConnectionInfo) | void |  InvalidDriver\( undefined \)  ConnectionError\( undefined \)  DriverClassNotFound\( undefined \) |
+| Operation Name                                       | Input Type                                                           | Output Type                                                        | Faults                                                                                           |
+|:-----------------------------------------------------|:---------------------------------------------------------------------|:-------------------------------------------------------------------|:-------------------------------------------------------------------------------------------------|
+| [checkConnection](database.md#checkConnection)       | void                                                                 | void                                                               | ConnectionError\( undefined \)                                                                   |
+| [query](database.md#query)                           | [QueryRequest](database.md#QueryRequest)                             | [QueryResult](database.md#QueryResult)                             | SQLException\( undefined \)  ConnectionError\( undefined \)                                      |
+| [executeTransaction](database.md#executeTransaction) | [DatabaseTransactionRequest](database.md#DatabaseTransactionRequest) | [DatabaseTransactionResult](database.md#DatabaseTransactionResult) | SQLException\( undefined \)  ConnectionError\( undefined \)                                      |
+| [update](database.md#update)                         | [UpdateRequest](database.md#UpdateRequest)                           | int                                                                | SQLException\( undefined \)  ConnectionError\( undefined \)                                      |
+| [close](database.md#close)                           | void                                                                 | void                                                               |                                                                                                  |
+| [connect](database.md#connect)                       | [ConnectionInfo](database.md#ConnectionInfo)                         | void                                                               | InvalidDriver\( undefined \)  ConnectionError\( undefined \)  DriverClassNotFound\( undefined \) |
 
 ## Operation Description
 
@@ -371,4 +374,3 @@ install ( DriverClassNotFound => /* error-handling code */ )
 ```jolie
 type TransactionQueryResult: int { .row*: undefined }
 ```
-

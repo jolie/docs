@@ -18,4 +18,3 @@ Save the file with the name `mySecondJolieService.ol` and try to run it in the f
 ```jolie
 jolie mySecondJolieService.ol Hi!
 ```
-

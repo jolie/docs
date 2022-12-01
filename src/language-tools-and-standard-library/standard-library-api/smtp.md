@@ -1,12 +1,15 @@
+<!-- cSpell:disable -->
+<!-- markdownlint-disable -->
+<!-- editorconfig-checker-disable -->
 # SMTP
 
-Inclusion code: 
+Inclusion code:
 
-| Service Deployment |  |  |  |
-| :--- | :--- | :--- | :--- |
-| Port Name | Location | Protocol | Interfaces |
-| SMTP documentation: |  |  |  |
-| SMTP | - | - | [SMTPInterface](smtp.md#SMTPInterface) |
+| Service Deployment  |          |          |                                        |
+|:--------------------|:---------|:---------|:---------------------------------------|
+| Port Name           | Location | Protocol | Interfaces                             |
+| SMTP documentation: |          |          |                                        |
+| SMTP                | -        | -        | [SMTPInterface](smtp.md#SMTPInterface) |
 
 ### List of Available Interfaces
 
@@ -14,9 +17,9 @@ Inclusion code:
 
 Interface documentation:
 
-| Operation Name | Input Type | Output Type | Faults |
-| :--- | :--- | :--- | :--- |
-| [sendMail](smtp.md#sendMail) | [SendMailRequest](smtp.md#SendMailRequest) | void |  SMTPFault\( undefined \) |
+| Operation Name               | Input Type                                 | Output Type | Faults                   |
+|:-----------------------------|:-------------------------------------------|:------------|:-------------------------|
+| [sendMail](smtp.md#sendMail) | [SendMailRequest](smtp.md#SendMailRequest) | void        | SMTPFault\( undefined \) |
 
 ## Operation Description
 
@@ -61,13 +64,13 @@ type SendMailRequest: void {
 
 * `cc : string`
 * `authenticate : void`
-  * `password : string`
-  * `username : string`
+    * `password : string`
+    * `username : string`
 * `bcc : string`
 * `attachment : void`
-  * `filename : string`
-  * `contentType : string`
-  * `content : raw`
+    * `filename : string`
+    * `contentType : string`
+    * `content : raw`
 * `subject : string`
 * `host : string`
 * `replyTo : string`
@@ -91,4 +94,3 @@ Fault-handling install template:
 ```jolie
 install ( SMTPFault => /* error-handling code */ )
 ```
-

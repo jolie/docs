@@ -1,12 +1,15 @@
+<!-- cSpell:disable -->
+<!-- markdownlint-disable -->
+<!-- editorconfig-checker-disable -->
 # Converter
 
-Inclusion code: 
+Inclusion code:
 
-| Service Deployment |  |  |  |
-| :--- | :--- | :--- | :--- |
-| Port Name | Location | Protocol | Interfaces |
-| Converter documentation: |  |  |  |
-| Converter | - | - | [ConverterInterface](converter.md#ConverterInterface) |
+| Service Deployment       |          |          |                                                       |
+|:-------------------------|:---------|:---------|:------------------------------------------------------|
+| Port Name                | Location | Protocol | Interfaces                                            |
+| Converter documentation: |          |          |                                                       |
+| Converter                | -        | -        | [ConverterInterface](converter.md#ConverterInterface) |
 
 ### List of Available Interfaces
 
@@ -14,12 +17,12 @@ Inclusion code:
 
 Interface documentation:
 
-| Operation Name | Input Type | Output Type | Faults |
-| :--- | :--- | :--- | :--- |
-| [stringToRaw](converter.md#stringToRaw) | [StringToRawRequest](converter.md#StringToRawRequest) | raw |  IOException\( [IOExceptionType](converter.md#IOExceptionType) \) |
-| [base64ToRaw](converter.md#base64ToRaw) | string | raw |  IOException\( [IOExceptionType](converter.md#IOExceptionType) \) |
-| [rawToBase64](converter.md#rawToBase64) | raw | string |  |
-| [rawToString](converter.md#rawToString) | [RawToStringRequest](converter.md#RawToStringRequest) | string |  IOException\( [IOExceptionType](converter.md#IOExceptionType) \) |
+| Operation Name                          | Input Type                                            | Output Type | Faults                                                           |
+|:----------------------------------------|:------------------------------------------------------|:------------|:-----------------------------------------------------------------|
+| [stringToRaw](converter.md#stringToRaw) | [StringToRawRequest](converter.md#StringToRawRequest) | raw         | IOException\( [IOExceptionType](converter.md#IOExceptionType) \) |
+| [base64ToRaw](converter.md#base64ToRaw) | string                                                | raw         | IOException\( [IOExceptionType](converter.md#IOExceptionType) \) |
+| [rawToBase64](converter.md#rawToBase64) | raw                                                   | string      |                                                                  |
+| [rawToString](converter.md#rawToString) | [RawToStringRequest](converter.md#RawToStringRequest) | string      | IOException\( [IOExceptionType](converter.md#IOExceptionType) \) |
 
 ## Operation Description
 
@@ -176,4 +179,3 @@ type IOExceptionType: JavaExceptionType
 ```
 type JavaExceptionType: string { .stackTrace: string }
 ```
-

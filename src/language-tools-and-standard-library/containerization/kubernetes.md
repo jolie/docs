@@ -1,3 +1,5 @@
+<!-- cSpell: ignore helloservice TESTVAR -->
+
 # Kubernetes
 
 [Kubernetes](https://kubernetes.io/) is an open-source system for automating deployment, scaling, and management of containerized applications. Jolie microservices deployed inside a Docker container can be managed by Kubernetes as well. We are going to use what learnt in Docker [section](https://github.com/jolie/docs/tree/454f0b1c62f161eaacc3217f5e7347979b082a13/containerization/containerization/docker.md) to deploy an easily-scalable application, with multiple containers running the same service behind a load balancer. To run the example a Kubernetes environment is needed, the easiest way to get it is to install [Minikube](https://kubernetes.io/docs/tasks/tools/install-minikube/).
@@ -12,7 +14,7 @@ include "runtime.iol"
 interface HelloInterface {
 
 RequestResponse:
-     hello( string )( string )
+    hello( string )( string )
 }
 
 execution{ concurrent }
@@ -24,13 +26,13 @@ Interfaces: HelloInterface
 }
 
 init {
-  getenv@Runtime( "HOSTNAME" )( HOSTNAME )
+    getenv@Runtime( "HOSTNAME" )( HOSTNAME )
 }
 
 main {
-  hello( request )( response ) {
+    hello( request )( response ) {
         response = HOSTNAME + ":" + request 
-  }
+    }
 }
 ```
 
@@ -61,25 +63,25 @@ This image can now be wrapped in [**Pods**](https://kubernetes.io/docs/concepts/
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: jolie-sample-deployment
-  labels:
-    app: jolie-sample
-spec:
-  replicas: 2
-  selector:
-    matchLabels:
-      app: jolie-sample
-  template:
-    metadata:
-      labels:
+    name: jolie-sample-deployment
+    labels:
         app: jolie-sample
-    spec:
-      containers:
-      - name: jolie-k8s-sample
-        image: hello
-        ports:
-        - containerPort: 8000
-        imagePullPolicy: IfNotPresent
+spec:
+    replicas: 2
+    selector:
+        matchLabels:
+            app: jolie-sample
+    template:
+        metadata:
+            labels:
+                app: jolie-sample
+        spec:
+            containers:
+            - name: jolie-k8s-sample
+                image: hello
+                ports:
+                - containerPort: 8000
+                imagePullPolicy: IfNotPresent
 ```
 
 To create the Deployment save the text above in **jolie-k8s-deployment.yml** file and type this command:
@@ -121,10 +123,10 @@ The last step is to make the **Service** visible from your host going through a 
 ```text
 minikube service jolie-sample-deployment
 |-----------|-------------------------|-------------|-----------------------------|
-| NAMESPACE |          NAME           | TARGET PORT |             URL             |
-|-----------|-------------------------|-------------|-----------------------------|
-| default   | jolie-sample-deployment |             | http://<your_IP>:<ext_port> |
-|-----------|-------------------------|-------------|-----------------------------|
+| NAMESPACE   | NAME                      | TARGET PORT   | URL                           |
+|-------------|---------------------------|---------------|-------------------------------|
+| default     | jolie-sample-deployment   |               | http://<your_IP>:<ext_port>   |
+| ----------- | ------------------------- | ------------- | ----------------------------- |
 ```
 
 ## Invoking microservices from client
@@ -136,7 +138,7 @@ include "console.iol"
 
 interface HelloInterface {
 RequestResponse:
-     hello( string )( string )
+    hello( string )( string )
 }
 
 outputPort Hello {
@@ -147,20 +149,20 @@ Interfaces: HelloInterface
 
 
 main {
-  hello@Hello( "hello" )( response );
-  println@Console( response )()
+    hello@Hello( "hello" )( response );
+    println@Console( response )()
 }
 ```
 
 Each time you make a request typing:
 
-```text
+```bash
 jolie client.ol
 ```
 
 your local  is hit and the **LoadBalancer** redirects the request to one of the 2 available **Pods** running the service. Printing out the HOSTNAME variable makes visible the load balancing, showing which **Pod** is serving the response:
 
-```text
+```bash
 $ jolie client.ol 
 jolie-sample-deployment-655f8b759d-mq8cn:hello
 $ jolie client.ol 
@@ -170,4 +172,3 @@ jolie-sample-deployment-655f8b759d-mq8cn:hello
 $ jolie client.ol 
 jolie-sample-deployment-655f8b759d-bmzk7:hello
 ```
-

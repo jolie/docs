@@ -2,7 +2,7 @@
 
 Now we want to create a server that provides a service to double a number. We also create a client for that service.
 
-![](../.gitbook/assets/creating_service_and_client.png)
+![](../assets/image/creating_service_and_client.png)
 
 ## Server's code
 
@@ -74,4 +74,3 @@ outputPort TwiceService {
 Ports are based upon the three fundamental concepts of _location_, _protocol_, and _supported operations_. The former two define the concrete binding information between a Jolie program and other services. The last, instead, defines the list of the available operations at the given port.
 
 In particular, a location, e.g. a TCP/IP address, expresses the communication medium that a service uses for exposing its interface or contacting another service. A protocol defines how data to be sent or received should be encoded \(output\) or decoded \(input\).
-

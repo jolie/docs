@@ -1,12 +1,15 @@
+<!-- cSpell:disable -->
+<!-- markdownlint-disable -->
+<!-- editorconfig-checker-disable -->
 # XMPP
 
-Inclusion code: 
+Inclusion code:
 
-| Service Deployment |  |  |  |
-| :--- | :--- | :--- | :--- |
-| Port Name | Location | Protocol | Interfaces |
-| XMPP documentation: |  |  |  |
-| XMPP | - | - | [XMPPInterface](xmpp.md#XMPPInterface) |
+| Service Deployment  |          |          |                                        |
+|:--------------------|:---------|:---------|:---------------------------------------|
+| Port Name           | Location | Protocol | Interfaces                             |
+| XMPP documentation: |          |          |                                        |
+| XMPP                | -        | -        | [XMPPInterface](xmpp.md#XMPPInterface) |
 
 ### List of Available Interfaces
 
@@ -14,10 +17,10 @@ Inclusion code:
 
 Interface documentation:
 
-| Operation Name | Input Type | Output Type | Faults |
-| :--- | :--- | :--- | :--- |
-| [sendMessage](xmpp.md#sendMessage) | [SendMessageRequest](xmpp.md#SendMessageRequest) | void |  XMPPException\( undefined \) |
-| [connect](xmpp.md#connect) | [ConnectionRequest](xmpp.md#ConnectionRequest) | void |  XMPPException\( undefined \) |
+| Operation Name                     | Input Type                                       | Output Type | Faults                       |
+|:-----------------------------------|:-------------------------------------------------|:------------|:-----------------------------|
+| [sendMessage](xmpp.md#sendMessage) | [SendMessageRequest](xmpp.md#SendMessageRequest) | void        | XMPPException\( undefined \) |
+| [connect](xmpp.md#connect)         | [ConnectionRequest](xmpp.md#ConnectionRequest)   | void        | XMPPException\( undefined \) |
 
 ## Operation Description
 
@@ -110,4 +113,3 @@ Fault-handling install template:
 ```jolie
 install ( XMPPException => /* error-handling code */ )
 ```
-

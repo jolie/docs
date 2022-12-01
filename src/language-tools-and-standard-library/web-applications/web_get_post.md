@@ -29,12 +29,12 @@ inputPort MyInput {
 main
 {
     sum( request )( response ) {
-    response = request.x + request.y
+        response = request.x + request.y
     }
 }
 ```
 
-Jolie transparently supports the reception of GET requests ad the automatic parsing of HTTP querystrings. Hence, we can simply execute `jolie sum.ol` and point the browser to: `http://localhost:8000/sum?x=6&y=2` to obtain the result of the sum computed by the code in our example.
+Jolie transparently supports the reception of GET requests ad the automatic parsing of HTTP query strings. Hence, we can simply execute `jolie sum.ol` and point the browser to: `http://localhost:8000/sum?x=6&y=2` to obtain the result of the sum computed by the code in our example.
 
 ## Sending GET requests
 
@@ -77,42 +77,42 @@ Handling POST requests is similar to handling GET ones. Let us reuse the code gi
 execution { concurrent }
 
 type SumRequest:void {
-  .x:int
-  .y:int
+    .x:int
+    .y:int
 }
 
 interface SumInterface {
-  RequestResponse:
-    sum(SumRequest)(int),
-    form(void)(string)
+    RequestResponse:
+        sum(SumRequest)(int),
+        form(void)(string)
 }
 
 inputPort MyInput {
-  Location: "socket://localhost:8000/"
-  Protocol: http { .format = "html" }
-  Interfaces: SumInterface
+    Location: "socket://localhost:8000/"
+    Protocol: http { .format = "html" }
+    Interfaces: SumInterface
 }
 
 main
 {
-  [ sum( request )( response ) {
-    response = request.x + request.y
-  }]{ nullProcess }
+    [ sum( request )( response ) {
+        response = request.x + request.y
+    }]{ nullProcess }
 
-  [ form()( f ) {
-    f = "
+    [ form()( f ) {
+        f = "
 <html>
-  <body>
-    <form action='sum' method='POST'>
-      <code>x</code>: <input type='text' value='3' name='x' />
-      <br/>
-      <code>y</code>: <input type='text' value='2' name='y' />
-      <br/>
-      <input type='submit'/>
-    </form>
-  </body>
+    <body>
+        <form action='sum' method='POST'>
+            <code>x</code>: <input type='text' value='3' name='x' />
+            <br/>
+            <code>y</code>: <input type='text' value='2' name='y' />
+            <br/>
+            <input type='submit'/>
+        </form>
+    </body>
 </html>"
-  }]{ nullProcess }
+    }]{ nullProcess }
 }
 ```
 
@@ -148,4 +148,3 @@ main
     println@Console( response )()
 }
 ```
-

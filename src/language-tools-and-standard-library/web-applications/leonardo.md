@@ -22,20 +22,20 @@ Leonardo comes with a `config.iol` file, where are stored some constants for bas
 
 ```text
 constants {
-      // The location for reaching the Leonardo web server
-      Location_Leonardo = "socket://localhost:8000/",
+    // The location for reaching the Leonardo web server
+    Location_Leonardo = "socket://localhost:8000/",
 
-      // Root content directory
-      RootContentDirectory = "www/",
+    // Root content directory
+    RootContentDirectory = "www/",
 
-      // Default page to serve in case clients do not specify one
-      DefaultPage = "index.html",
+    // Default page to serve in case clients do not specify one
+    DefaultPage = "index.html",
 
-      // Print debug messages for all exchanged HTTP messages
-      DebugHttp = false,
+    // Print debug messages for all exchanged HTTP messages
+    DebugHttp = false,
 
-      // Add the content of HTTP messages to their debug messages
-      DebugHttpContent = false
+    // Add the content of HTTP messages to their debug messages
+    DebugHttpContent = false
 }
 ```
 
@@ -129,20 +129,20 @@ Once downloaded and unpacked, we can launch Leonardo and navigate to address `ht
 
 ```javascript
 $( document ).ready( function() {
-  $( "#lengthButton" ).click( function() {
-    Jolie.call(
-       'length',
-       { item: [
-          $("#text1").val(),
-          $("#text2").val(),
-          $("#text3").val()
-        ] 
-      },
-      function( response ) {
-         $( "#result" ).html( response );
-       }
-     );
-  })
+    $( "#lengthButton" ).click( function() {
+        Jolie.call(
+            'length',
+            { item: [
+                $("#text1").val(),
+                $("#text2").val(),
+                $("#text3").val()
+            ] 
+            },
+            function( response ) {
+                $( "#result" ).html( response );
+            }
+        );
+    })
 });
 ```
 
@@ -170,13 +170,13 @@ JolieService.Util.getInstance().call(
     });
 ```
 
-## Using Cookie
+<!-- ## Using Cookie no code?
 
 Jolie HTTP protocol is able to handle cookies both when processing outbound and inbound HTTP messages. Jolie allows to define specific cookies handling at port level without the need of writing further processing code.
 
 ### Inbound Cookies Handling
 
-In a classic client/server application where `Leornardo.ol` is acting as WebServer the programmer is able to define specific binding between inbound cookies and message subnodes. To do so it is sufficient to define in the input Port configuration parameters `.osc.operationName.cookies.cookieName = "subNodeName"`. A working example has been provided to exemplify the handling inbound cookies
+In a classic client/server application where `Leonardo.ol` is acting as WebServer the programmer is able to define specific binding between inbound cookies and message subnodes. To do so it is sufficient to define in the input Port configuration parameters `.osc.operationName.cookies.cookieName = "subNodeName"`. A working example has been provided to exemplify the handling inbound cookies
 
 [Leonardo and inbound cookie handling](https://github.com/jolie/docs/blob/master/files/web_applications/code/cookie_server_code.zip)
 
@@ -185,7 +185,6 @@ In this specific example you will find the code for both the client side \(HTML/
 * `/doc/TestingInstruction.txt`
 * `/doc/ExampleAbstract.txt`
 * `/www/js/CookiesHandler.js`
-* `/leornardo.ol`
+* `/leonardo.ol`
 
-It is not necessary to define precisely the cookie binding for each operation exposed by the HTTP input port, one can use the global cookies configuration expressed in the following form `.cookies.cookieName = "subNodeName"`, Particular attention must be paid on the presence subNodeName in the type of all operation exposed by the port otherwise a TypeMismatch will occur.
-
+It is not necessary to define precisely the cookie binding for each operation exposed by the HTTP input port, one can use the global cookies configuration expressed in the following form `.cookies.cookieName = "subNodeName"`, Particular attention must be paid on the presence subNodeName in the type of all operation exposed by the port otherwise a TypeMismatch will occur. -->

@@ -24,7 +24,7 @@ Let us suppose that _C_ finishes its execution. As a result, its compensation ha
 
 Fault handlers can execute compensations by invoking the compensation handlers loaded within the corresponding scope, e.g., in the previous scenario the fault handler of A invokes the compensation handler of C.
 
-![](../../../.gitbook/assets/termination_and_compensation.jpg)
+![](../../../assets/image/termination_and_compensation.jpg)
 
 **Fig.1** Code _P_ is executed in parallel with scopes _B_ and _C_ within scope _A_. _C_ is supposed to be successfully ended, whereas _B_ is terminated during its execution by the fault _f_ raised by _P_. The fault handler of _A_ can execute the compensation handler loaded by _C_.
 
@@ -206,109 +206,109 @@ When scope `example_scope` ends with success, its current recovery handler is pr
 
 Here we consider a simplified scenario of an electronic purchase where termination and compensation handlers are used. The full code can be checked [here](https://github.com/jolie/examples/tree/master/03_fault_handling/12_transaction_example) whereas the reference architecture of the example follows:
 
-![](../../../.gitbook/assets/transactions.png)
+![](../../../assets/image/transactions.png)
 
 In this example a user wants to electronically buy ten beers invoking the transaction service which is in charge to contact the product store service, the logistics service and the bank account service. It is clearly an over simplification w.r.t. a real scenario, but it is useful to our end for showing how termination and compensation work. In the following we report the implementation of the operation _buy_ of the transaction service:
 
 ```jolie
 [ buy( request )( response ) {
-          getProductDetails@ProductStore({ .product = request.product })( product_details );
-          scope( locks ) {
-              install( default =>
-                    { comp( lock_product ) | comp( account ) }
-                    ;
-                    valueToPrettyString@StringUtils( locks.( locks.default ) )( s );
-                    msg_failure = "ERROR: " + locks.default + "," + s;
-                    throw( TransactionFailure, msg_failure )
-              );
-              scope( lock_product ) {
-                  /* lock product availability */
-                  with( pr_req ) {
-                      .product = request.product;
-                      .quantity = request.quantity
-                  };
-                  lockProduct@ProductStore( pr_req )( pr_res );
-                  install( this =>
-                      println@Console("unlocking product...")();
-                      unlockProduct@ProductStore( { .token = pr_res.token })();
-                      println@Console("product unlocking done")()
-                  );
-                  /* lock logistics delivery time */
-                  getCurrentTimeMillis@Time()( now );
-                  with( log_req ) {
-                      .weight = product_details.weight * request.quantity;
-                      .expected_delivery_date = now + 1000*60*60*72; // three days
-                      .product = request.product
-                  };
-                  bookTransportation@Logistics( log_req )( log_res );
-                  install( this =>
-                      cH;
-                      println@Console("cancelling logistics booking..." )();
-                      cancelBooking@Logistics({ .reservation_id = log_res.reservation_id } )();
-                      println@Console("cancelling logistics booking done")()
-                  )
-              }
-              |
-              scope( account ) {
-                  /* lock account availability */
-                  with( cba ) {
-                      .card_number = request.card_number;
-                      .amount = request.quantity * product_details.price
-                  };
-                  lockCredit@BankAccount( cba )( lock_credit );
-                  install( this =>
-                      println@Console("cancelling account lock..")();
-                      cancelLock@BankAccount( { .token = lock_credit.token })();
-                      println@Console("cancelling account lock done")()
-                  )
-              }
-          }
-          ;
-          /* commit */
-          {
-              commit@BankAccount({ .token = lock_credit.token })()
-              |
-              confirmBooking@Logistics({ .reservation_id = log_res.reservation_id })()
-              |
-              commitProduct@ProductStore({ .token = pr_res.token })()
-          }
-          ;
-          response.delivery_date = log_res.actual_delivery_date
+    getProductDetails@ProductStore({ .product = request.product })( product_details );
+    scope( locks ) {
+        install( default =>
+            { comp( lock_product ) | comp( account ) }
+            ;
+            valueToPrettyString@StringUtils( locks.( locks.default ) )( s );
+            msg_failure = "ERROR: " + locks.default + "," + s;
+            throw( TransactionFailure, msg_failure )
+        );
+        scope( lock_product ) {
+            /* lock product availability */
+            with( pr_req ) {
+                .product = request.product;
+                .quantity = request.quantity
+            };
+            lockProduct@ProductStore( pr_req )( pr_res );
+            install( this =>
+                println@Console("unlocking product...")();
+                unlockProduct@ProductStore( { .token = pr_res.token })();
+                println@Console("product unlocking done")()
+            );
+            /* lock logistics delivery time */
+            getCurrentTimeMillis@Time()( now );
+            with( log_req ) {
+                .weight = product_details.weight * request.quantity;
+                .expected_delivery_date = now + 1000*60*60*72; // three days
+                .product = request.product
+            };
+            bookTransportation@Logistics( log_req )( log_res );
+            install( this =>
+                cH;
+                println@Console("cancelling logistics booking..." )();
+                cancelBooking@Logistics({ .reservation_id = log_res.reservation_id } )();
+                println@Console("cancelling logistics booking done")()
+            )
+        }
+        |
+        scope( account ) {
+            /* lock account availability */
+            with( cba ) {
+                .card_number = request.card_number;
+                .amount = request.quantity * product_details.price
+            };
+            lockCredit@BankAccount( cba )( lock_credit );
+            install( this =>
+                println@Console("cancelling account lock..")();
+                cancelLock@BankAccount( { .token = lock_credit.token })();
+                println@Console("cancelling account lock done")()
+            )
+        }
+    }
+    ;
+    /* commit */
+    {
+        commit@BankAccount({ .token = lock_credit.token })()
+        |
+        confirmBooking@Logistics({ .reservation_id = log_res.reservation_id })()
+        |
+        commitProduct@ProductStore({ .token = pr_res.token })()
+    }
+    ;
+    response.delivery_date = log_res.actual_delivery_date
     }]
 ```
 
 Here the transaction service starts two parallel activities:
 
-* contact the product store and the logistics for booking the product and the transportation service. In particular it executes a sequence of two calls: _lockProduct@ProductStore_ and _bookTransportation_. The former locks the requested product on the Product Store whereas the latter books the transportation service. 
-* contact the bank account for locking the neccesary amount
+* contact the product store and the logistics for booking the product and the transportation service. In particular it executes a sequence of two calls: _lockProduct@ProductStore_ and _bookTransportation_. The former locks the requested product on the Product Store whereas the latter books the transportation service.
+* contact the bank account for locking the necessary amount
 
 Note that in the former activity, after each invocation a termination handler is installed:
 
 ```jolie
-  with( pr_req ) {
-      .product = request.product;
-      .quantity = request.quantity
-  };
-  lockProduct@ProductStore( pr_req )( pr_res );
-  install( this =>
-      println@Console("unlocking product...")();
-      unlockProduct@ProductStore( { .token = pr_res.token })();
-      println@Console("product unlocking done")()
-  );
-  /* lock logistics delivery time */
-  getCurrentTimeMillis@Time()( now );
-  with( log_req ) {
-      .weight = product_details.weight * request.quantity;
-      .expected_delivery_date = now + 1000*60*60*72; // three days
-      .product = request.product
-  };
-  bookTransportation@Logistics( log_req )( log_res );
-  install( this =>
-      cH;
-      println@Console("cancelling logistics booking..." )();
-      cancelBooking@Logistics({ .reservation_id = log_res.reservation_id } )();
-      println@Console("cancelling logistics booking done")()
-  )
+    with( pr_req ) {
+        .product = request.product;
+        .quantity = request.quantity
+    };
+    lockProduct@ProductStore( pr_req )( pr_res );
+    install( this =>
+        println@Console("unlocking product...")();
+        unlockProduct@ProductStore( { .token = pr_res.token })();
+        println@Console("product unlocking done")()
+    );
+    /* lock logistics delivery time */
+    getCurrentTimeMillis@Time()( now );
+    with( log_req ) {
+        .weight = product_details.weight * request.quantity;
+        .expected_delivery_date = now + 1000*60*60*72; // three days
+        .product = request.product
+    };
+    bookTransportation@Logistics( log_req )( log_res );
+    install( this =>
+        cH;
+        println@Console("cancelling logistics booking..." )();
+        cancelBooking@Logistics({ .reservation_id = log_res.reservation_id } )();
+        println@Console("cancelling logistics booking done")()
+    )
 ```
 
 In particular, in the second one, the termination handler is installed as an update of the previous one thanks to the usage of the keyword `cH`. Indeed, after the second installation the handler will appear as it follows:
@@ -325,14 +325,14 @@ println@Console("cancelling logistics booking done")()
 On the other hand a termination is installed for unlocking the amount of money. All these termination handlers are promoted at the parent scope, and in case of fault, they will be compensated:
 
 ```jolie
-  install( default =>
-                        { comp( lock_product ) | comp( account ) }
-                        ...
+    install( default =>
+        { comp( lock_product ) | comp( account ) }
+    ...
 ```
 
-If we simulate that the user has not enough money into the bank account, teh fault _CreditNotPresent_ is raised by the bank account service. In this case, the compensation handlers of the sibling activities are executed by rolling back the lock of the product and the book of the transportation service.
+If we simulate that the user has not enough money into the bank account, the fault _CreditNotPresent_ is raised by the bank account service. In this case, the compensation handlers of the sibling activities are executed by rolling back the lock of the product and the book of the transportation service.
 
-In case there are no faults, all the activities are finalized in the last parallel of the operation _buy_ where all the involved services are called for commiting the previous lock of resources.
+In case there are no faults, all the activities are finalized in the last parallel of the operation _buy_ where all the involved services are called for committing the previous lock of resources.
 
 ## Installation-time variable evaluation
 
@@ -369,16 +369,16 @@ At this [link](https://github.com/jolie/examples/tree/master/03_fault_handling/1
 
 ```jolie
 scope( locks ) {
-  install( default =>
+    install( default =>
         { comp( lock_product ) | comp( account ) }
         ;
         valueToPrettyString@StringUtils( locks.( locks.default ) )( s );
         msg_failure = "ERROR: " + locks.default + "," + s;
         throw( TransactionFailure, msg_failure )
-  );
-  scope( lock_product ) {
-      /* lock product availability */
-      for( i = 0, i < #request.product, i++ ) {
+    );
+    scope( lock_product ) {
+        /* lock product availability */
+        for( i = 0, i < #request.product, i++ ) {
             println@Console("processing product " + request.product[ i ] )();
             with( pr_req ) {
                 .product = request.product[ i ];
@@ -406,25 +406,25 @@ scope( locks ) {
                 println@Console("cancelling logistics booking for product " + request.product[ ^i ] )();
                 cancelBooking@Logistics({ .reservation_id = ^reservation_id } )()
             )
-      }
-  }
-  |
-  scope( account ) {
-      /* lock account availability */
-      for( y = 0, y < #request.product, y++ ) {
-          amount = amount + request.product[ y ].quantity * products.( request.product[ y ] ).price
-      };
-      with( cba ) {
-          .card_number = request.card_number;
-          .amount = amount
-      };
-      lockCredit@BankAccount( cba )( lock_credit );
-      install( this =>
-          println@Console("cancelling account lock..")();
-          cancelLock@BankAccount( { .token = lock_credit.token })();
-          println@Console("cancelling account lock done")()
-      )
-  }
+        }
+    }
+    |
+    scope( account ) {
+        /* lock account availability */
+        for( y = 0, y < #request.product, y++ ) {
+            amount = amount + request.product[ y ].quantity * products.( request.product[ y ] ).price
+        };
+        with( cba ) {
+            .card_number = request.card_number;
+            .amount = amount
+        };
+        lockCredit@BankAccount( cba )( lock_credit );
+        install( this =>
+            println@Console("cancelling account lock..")();
+            cancelLock@BankAccount( { .token = lock_credit.token })();
+            println@Console("cancelling account lock done")()
+        )
+    }
 }
 ```
 
@@ -438,7 +438,7 @@ Solicit-Responses communication primitives allow for synchrnously sending a requ
 operation_name@Port_name( request )( response ) [ this => handler code here ]
 ```
 
-between the square brackets it is possible to install a termination handler which is installed after the sending of the request and before receiving a reply. **Note that the handler is installed only in case of a successfull reply, not in the case of a fault one**.
+between the square brackets it is possible to install a termination handler which is installed after the sending of the request and before receiving a reply. **Note that the handler is installed only in case of a successful reply, not in the case of a fault one**.
 
 At this [link](https://github.com/jolie/examples/tree/master/03_fault_handling/13_transaction_example_multiple_products) we report an executable example where a client calls a server with a solicit-response operation named _hello_. In particular, we install a _println_ command after sending the request message:
 
@@ -447,10 +447,9 @@ scope( calling ) {
     install( this => println@Console( "Before calling" )() );
     hello@Server("hello")( response )
     [
-          this => println@Console("Installed Solicit-response handler")()
+        this => println@Console("Installed Solicit-response handler")()
     ]
 }
 ```
 
-In the same example the solicit-response is programmed with a fake activity which raises a fault thus trigerring the termination handler of the Solicit-Response. It is woth noting how the solicit-response handler is installed before executing the termination trigerred by the parallel fault.
-
+In the same example the solicit-response is programmed with a fake activity which raises a fault thus triggering the termination handler of the Solicit-Response. It is worth noting how the solicit-response handler is installed before executing the termination triggered by the parallel fault.

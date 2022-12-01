@@ -1,13 +1,16 @@
+<!-- cSpell:disable -->
+<!-- markdownlint-disable -->
+<!-- editorconfig-checker-disable -->
 # StandardMonitor
 
-Inclusion code: 
+Inclusion code:
 
-| Service Deployment |  |  |  |
-| :--- | :--- | :--- | :--- |
-| Port Name | Location | Protocol | Interfaces |
-| MonitorInput | local | - | [StandardMonitorInputInterface](standard_monitor.md#StandardMonitorInputInterface) |
-| Monitor documentation: |  |  |  |
-| Monitor | - | - | [MonitorInterface](standard_monitor.md#MonitorInterface)[StandardMonitorInterface](standard_monitor.md#StandardMonitorInterface) |
+| Service Deployment     |          |          |                                                                                                                                  |
+|:-----------------------|:---------|:---------|:---------------------------------------------------------------------------------------------------------------------------------|
+| Port Name              | Location | Protocol | Interfaces                                                                                                                       |
+| MonitorInput           | local    | -        | [StandardMonitorInputInterface](standard_monitor.md#StandardMonitorInputInterface)                                               |
+| Monitor documentation: |          |          |                                                                                                                                  |
+| Monitor                | -        | -        | [MonitorInterface](standard_monitor.md#MonitorInterface)[StandardMonitorInterface](standard_monitor.md#StandardMonitorInterface) |
 
 ### List of Available Interfaces
 
@@ -15,9 +18,9 @@ Inclusion code:
 
 Interface documentation:
 
-| Operation Name | Input Type | Output Type | Faults |
-| :--- | :--- | :--- | :--- |
-| [monitorAlert](standard_monitor.md#monitorAlert) | void |  - |  |
+| Operation Name                                   | Input Type | Output Type | Faults |
+|:-------------------------------------------------|:-----------|:------------|:-------|
+| [monitorAlert](standard_monitor.md#monitorAlert) | void       | -           |        |
 
 ## Operation Description
 
@@ -41,9 +44,9 @@ Type: void
 
 Interface documentation:
 
-| Operation Name | Input Type | Output Type | Faults |
-| :--- | :--- | :--- | :--- |
-| [pushEvent](standard_monitor.md#pushEvent) | undefined |  - |  |
+| Operation Name                             | Input Type | Output Type | Faults |
+|:-------------------------------------------|:-----------|:------------|:-------|
+| [pushEvent](standard_monitor.md#pushEvent) | undefined  | -           |        |
 
 ## Operation Description
 
@@ -82,10 +85,10 @@ type MonitorEvent: void {
 
  Interface documentation:
 
-| Operation Name | Input Type | Output Type | Faults |
-| :--- | :--- | :--- | :--- |
-| [flush](standard_monitor.md#flush) | void | [FlushResponse](standard_monitor.md#FlushResponse) |  |
-| [setMonitor](standard_monitor.md#setMonitor) | [SetStandardMonitorRequest](standard_monitor.md#SetStandardMonitorRequest) | void |  |
+| Operation Name                               | Input Type                                                                 | Output Type                                        | Faults |
+|:---------------------------------------------|:---------------------------------------------------------------------------|:---------------------------------------------------|:-------|
+| [flush](standard_monitor.md#flush)           | void                                                                       | [FlushResponse](standard_monitor.md#FlushResponse) |        |
+| [setMonitor](standard_monitor.md#setMonitor) | [SetStandardMonitorRequest](standard_monitor.md#SetStandardMonitorRequest) | void                                               |        |
 
 ## Operation Description
 
@@ -158,4 +161,3 @@ Type: void
 ```
 type MonitorEvent: void { .memory: long .data?: undefined .type: string .timestamp: long }
 ```
-

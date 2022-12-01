@@ -1,12 +1,15 @@
+<!-- cSpell:disable -->
+<!-- markdownlint-disable -->
+<!-- editorconfig-checker-disable -->
 # Scheduler
 
-Inclusion code: 
+Inclusion code:
 
-| Service Deployment |  |  |  |
-| :--- | :--- | :--- | :--- |
-| Port Name | Location | Protocol | Interfaces |
-| Scheduler documentation: |  |  |  |
-| Scheduler | - | - | [SchedulerInterface](scheduler.md#SchedulerInterface) |
+| Service Deployment       |          |          |                                                       |
+|:-------------------------|:---------|:---------|:------------------------------------------------------|
+| Port Name                | Location | Protocol | Interfaces                                            |
+| Scheduler documentation: |          |          |                                                       |
+| Scheduler                | -        | -        | [SchedulerInterface](scheduler.md#SchedulerInterface) |
 
 ### List of Available Interfaces
 
@@ -14,11 +17,11 @@ Inclusion code:
 
 Interface documentation:
 
-| Operation Name | Input Type | Output Type | Faults |
-| :--- | :--- | :--- | :--- |
-| [setCronJob](scheduler.md#setCronJob) | [SetCronJobRequest](scheduler.md#SetCronJobRequest) | void |  JobAlreadyExists\( void \) |
-| [deleteCronJob](scheduler.md#deleteCronJob) | [DeleteCronJobRequest](scheduler.md#DeleteCronJobRequest) | void |  |
-| [setCallbackOperation](scheduler.md#setCallbackOperation) | [SetCallBackOperationRequest](scheduler.md#SetCallBackOperationRequest) |  - |  |
+| Operation Name                                            | Input Type                                                              | Output Type | Faults                     |
+|:----------------------------------------------------------|:------------------------------------------------------------------------|:------------|:---------------------------|
+| [setCronJob](scheduler.md#setCronJob)                     | [SetCronJobRequest](scheduler.md#SetCronJobRequest)                     | void        | JobAlreadyExists\( void \) |
+| [deleteCronJob](scheduler.md#deleteCronJob)               | [DeleteCronJobRequest](scheduler.md#DeleteCronJobRequest)               | void        |                            |
+| [setCallbackOperation](scheduler.md#setCallbackOperation) | [SetCallBackOperationRequest](scheduler.md#SetCallBackOperationRequest) | -           |                            |
 
 ## Operation Description
 
@@ -56,13 +59,13 @@ type SetCronJobRequest: void {
 
 * `jobName : string`
 * `cronSpecs : void`
-  * `dayOfWeek : string`
-  * `hour : string`
-  * `month : string`
-  * `dayOfMonth : string`
-  * `year : string`
-  * `second : string`
-  * `minute : string`
+    * `dayOfWeek : string`
+    * `hour : string`
+    * `month : string`
+    * `dayOfMonth : string`
+    * `year : string`
+    * `second : string`
+    * `minute : string`
 * `groupName : string`
 
 #### Response type
@@ -136,4 +139,3 @@ type SetCallBackOperationRequest: void {
 `SetCallBackOperationRequest : void`
 
 * `operationName : string`
-

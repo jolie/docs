@@ -7,7 +7,7 @@ HTTP \(Hypertext Transfer Protocol\) is an application protocol for distributed,
 Protocol name in Jolie port definition: `http`.
 
 ## HTTP Parameters
-
+<!-- markdownlint-disable -->
 ```jolie
 type HttpConfiguration:void {
     /* General */
@@ -175,14 +175,14 @@ type HttpConfiguration:void {
          * .addHeader.header[0] << "Authorization" { .value="TOP_SECRET" }
          * Default: none 
          */
-         .header*:string { .value:string } }
-       
-         /*
+        .header*:string { .value:string } }
+
+        /*
          * Defines the request method *
          * Default: "POST"
          * Supported values: "GET", "POST" 
          */
-         .method?:string {
+        .method?:string {
             
             /*
             * "queryFormat" on a GET request may be set to "json" to have the 
@@ -242,7 +242,7 @@ type HttpConfiguration:void {
             } 
         }
 
-     /* 
+    /* 
      * HTTP request paths are usually composed by the medium's URI path 
      * as prefix and the resource name (or eventual aliases) as suffix. 
      * This works perfectly on IP sockets (medium "socket"), but is not 
@@ -431,4 +431,3 @@ type HttpConfiguration:void {
     .host?:string
 }
 ```
-

@@ -82,21 +82,21 @@ Parallel execution is especially useful when dealing with multiple services, in 
 In this example we consider the scenario where there are three services:
 
 * trafficService: it provides information about traffic for a given city
-* forecastServyce: it provides information about forecasts for a given city \(in the specific case it just provides the current temperature\)
+* forecastService: it provides information about forecasts for a given city \(in the specific case it just provides the current temperature\)
 * infoService: it concurrently retrieves information from both the forecast and the  traffic service:
 
-![](../../.gitbook/assets/arch_parallel_example.png)
+![](../../assets/image/arch_parallel_example.png)
 
 The behaviour of the InfoService is reported below. It is worth noting that the parallel operator combines the two calls to the other services, and the responses are stored into subnodes response.temperature and response.traffic, respectively.
 
 ```jolie
 main {
-  getInfo(request)(response) {
-    getTemperature@Forecast( request )( response.temperature )
-    |
-    getData@Traffic( request )( response.traffic )
-  };
-  println@Console("Request served!")()
+    getInfo(request)(response) {
+        getTemperature@Forecast( request )( response.temperature )
+        |
+        getData@Traffic( request )( response.traffic )
+    };
+    println@Console("Request served!")()
 }
 ```
 
@@ -229,4 +229,3 @@ for( i = 0, i < #a, i++ ){
     println@Console( a[i] )
 }
 ```
-

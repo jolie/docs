@@ -1,12 +1,15 @@
+<!-- cSpell:disable -->
+<!-- markdownlint-disable -->
+<!-- editorconfig-checker-disable -->
 # JsonUtils
 
-Inclusion code: 
+Inclusion code:
 
-| Service Deployment |  |  |  |
-| :--- | :--- | :--- | :--- |
-| Port Name | Location | Protocol | Interfaces |
-| JsonUtils documentation: |  |  |  |
-| JsonUtils | - | - | [JsonUtilsInterface](json_utils.md#JsonUtilsInterface) |
+| Service Deployment       |          |          |                                                        |
+|:-------------------------|:---------|:---------|:-------------------------------------------------------|
+| Port Name                | Location | Protocol | Interfaces                                             |
+| JsonUtils documentation: |          |          |                                                        |
+| JsonUtils                | -        | -        | [JsonUtilsInterface](json_utils.md#JsonUtilsInterface) |
 
 ### List of Available Interfaces
 
@@ -14,10 +17,10 @@ Inclusion code:
 
 Interface documentation:
 
-| Operation Name | Input Type | Output Type | Faults |
-| :--- | :--- | :--- | :--- |
-| [getJsonString](json_utils.md#getJsonString) | [GetJsonStringRequest](json_utils.md#GetJsonStringRequest) | GetJsonStringResponse |  JSONCreationError\( undefined \) |
-| [getJsonValue](json_utils.md#getJsonValue) | [GetJsonValueRequest](json_utils.md#GetJsonValueRequest) | [GetJsonValueResponse](json_utils.md#GetJsonValueResponse) |  JSONCreationError\( undefined \) |
+| Operation Name                               | Input Type                                                 | Output Type                                                | Faults                           |
+|:---------------------------------------------|:-----------------------------------------------------------|:-----------------------------------------------------------|:---------------------------------|
+| [getJsonString](json_utils.md#getJsonString) | [GetJsonStringRequest](json_utils.md#GetJsonStringRequest) | GetJsonStringResponse                                      | JSONCreationError\( undefined \) |
+| [getJsonValue](json_utils.md#getJsonValue)   | [GetJsonValueRequest](json_utils.md#GetJsonValueRequest)   | [GetJsonValueResponse](json_utils.md#GetJsonValueResponse) | JSONCreationError\( undefined \) |
 
 ## Operation Description
 
@@ -110,4 +113,3 @@ Fault-handling install template:
 ```jolie
 install ( JSONCreationError => /* error-handling code */ )
 ```
-

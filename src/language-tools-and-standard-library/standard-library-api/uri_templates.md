@@ -1,12 +1,15 @@
+<!-- cSpell:disable -->
+<!-- markdownlint-disable -->
+<!-- editorconfig-checker-disable -->
 # UriTemplates
 
-Inclusion code: 
+Inclusion code:
 
-| Service Deployment |  |  |  |
-| :--- | :--- | :--- | :--- |
-| Port Name | Location | Protocol | Interfaces |
-| UriTemplates documentation: |  |  |  |
-| UriTemplates | - | - | [UriTemplatesIface](uri_templates.md#UriTemplatesIface) |
+| Service Deployment          |          |          |                                                         |
+|:----------------------------|:---------|:---------|:--------------------------------------------------------|
+| Port Name                   | Location | Protocol | Interfaces                                              |
+| UriTemplates documentation: |          |          |                                                         |
+| UriTemplates                | -        | -        | [UriTemplatesIface](uri_templates.md#UriTemplatesIface) |
 
 ### List of Available Interfaces
 
@@ -14,10 +17,10 @@ Inclusion code:
 
 Interface documentation: WARNING: the API of this service is experimental. Use it at your own risk.
 
-| Operation Name | Input Type | Output Type | Faults |
-| :--- | :--- | :--- | :--- |
-| [expand](uri_templates.md#expand) | [ExpandRequest](uri_templates.md#ExpandRequest) | string |  |
-| [match](uri_templates.md#match) | [UriMatchRequest](uri_templates.md#UriMatchRequest) | [MatchResponse](uri_templates.md#MatchResponse) |  |
+| Operation Name                    | Input Type                                          | Output Type                                     | Faults |
+|:----------------------------------|:----------------------------------------------------|:------------------------------------------------|:-------|
+| [expand](uri_templates.md#expand) | [ExpandRequest](uri_templates.md#ExpandRequest)     | string                                          |        |
+| [match](uri_templates.md#match)   | [UriMatchRequest](uri_templates.md#UriMatchRequest) | [MatchResponse](uri_templates.md#MatchResponse) |        |
 
 ## Operation Description
 
@@ -88,4 +91,3 @@ type MatchResponse: undefined
 ```
 
 `MatchResponse : bool`
-

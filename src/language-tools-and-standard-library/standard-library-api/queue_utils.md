@@ -1,12 +1,15 @@
+<!-- cSpell:disable -->
+<!-- markdownlint-disable -->
+<!-- editorconfig-checker-disable -->
 # QueueUtils
 
-Inclusion code: 
+Inclusion code:
 
-| Service Deployment |  |  |  |
-| :--- | :--- | :--- | :--- |
-| Port Name | Location | Protocol | Interfaces |
-| QueueUtils documentation: |  |  |  |
-| QueueUtils | - | - | [QueueUtilsInterface](queue_utils.md#QueueUtilsInterface) |
+| Service Deployment        |          |          |                                                           |
+|:--------------------------|:---------|:---------|:----------------------------------------------------------|
+| Port Name                 | Location | Protocol | Interfaces                                                |
+| QueueUtils documentation: |          |          |                                                           |
+| QueueUtils                | -        | -        | [QueueUtilsInterface](queue_utils.md#QueueUtilsInterface) |
 
 ### List of Available Interfaces
 
@@ -14,14 +17,14 @@ Inclusion code:
 
 Interface documentation:
 
-| Operation Name | Input Type | Output Type | Faults |
-| :--- | :--- | :--- | :--- |
-| [size](queue_utils.md#size) | string | int |  |
-| [poll](queue_utils.md#poll) | string | undefined |  |
-| [new\_queue](queue_utils.md#new_queue) | string | bool |  |
-| [delete\_queue](queue_utils.md#delete_queue) | string | bool |  |
-| [push](queue_utils.md#push) | [QueueRequest](queue_utils.md#QueueRequest) | bool |  |
-| [peek](queue_utils.md#peek) | string | undefined |  |
+| Operation Name                               | Input Type                                  | Output Type | Faults |
+|:---------------------------------------------|:--------------------------------------------|:------------|:-------|
+| [size](queue_utils.md#size)                  | string                                      | int         |        |
+| [poll](queue_utils.md#poll)                  | string                                      | undefined   |        |
+| [new\_queue](queue_utils.md#new_queue)       | string                                      | bool        |        |
+| [delete\_queue](queue_utils.md#delete_queue) | string                                      | bool        |        |
+| [push](queue_utils.md#push)                  | [QueueRequest](queue_utils.md#QueueRequest) | bool        |        |
+| [peek](queue_utils.md#peek)                  | string                                      | undefined   |        |
 
 ## Operation Description
 
@@ -166,4 +169,3 @@ Type: string
 Type: undefined
 
 `undefined : any`
-

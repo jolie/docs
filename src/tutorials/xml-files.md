@@ -18,11 +18,11 @@ include "file.iol"
 
 main
 {
-	readFile@File( {
-		filename = "note.xml"
-		format = "xml"
-	} )( data )
-	// data is now { node << { from = "John" to = "Jane" content = "I made pasta" } }
+    readFile@File( {
+        filename = "note.xml"
+        format = "xml"
+    } )( data )
+    // data is now { node << { from = "John" to = "Jane" content = "I made pasta" } }
 }
 ```
 
@@ -38,11 +38,11 @@ Suppose that you wanted to store the following data structure as an XML file.
 
 ```jolie
 {
-	note << {
-		from = "John"
-		to = "Jane"
-		content = "I made pasta"
-	}
+    note << {
+        from = "John"
+        to = "Jane"
+        content = "I made pasta"
+    }
 }
 ```
 
@@ -53,17 +53,17 @@ include "file.iol"
 
 main
 {
-	writeFile@File( {
-		filename = "note.xml"
-		format = "xml"
-		content << {
-			note << {
-				from = "John"
-				to = "Jane"
-				content = "I made pasta"
-			}
-		}
-	} )()
+    writeFile@File( {
+        filename = "note.xml"
+        format = "xml"
+        content << {
+            note << {
+                from = "John"
+                to = "Jane"
+                content = "I made pasta"
+            }
+        }
+    } )()
 }
 ```
 

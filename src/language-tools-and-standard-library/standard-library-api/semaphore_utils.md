@@ -1,12 +1,15 @@
+<!-- cSpell:disable -->
+<!-- markdownlint-disable -->
+<!-- editorconfig-checker-disable -->
 # SemaphoreUtils
 
-Inclusion code: 
+Inclusion code:
 
-| Service Deployment |  |  |  |
-| :--- | :--- | :--- | :--- |
-| Port Name | Location | Protocol | Interfaces |
-| SemaphoreUtils documentation: |  |  |  |
-| SemaphoreUtils | - | - | [SemaphoreUtilsInterface](semaphore_utils.md#SemaphoreUtilsInterface) |
+| Service Deployment            |          |          |                                                                       |
+|:------------------------------|:---------|:---------|:----------------------------------------------------------------------|
+| Port Name                     | Location | Protocol | Interfaces                                                            |
+| SemaphoreUtils documentation: |          |          |                                                                       |
+| SemaphoreUtils                | -        | -        | [SemaphoreUtilsInterface](semaphore_utils.md#SemaphoreUtilsInterface) |
 
 ### List of Available Interfaces
 
@@ -14,10 +17,10 @@ Inclusion code:
 
 Interface documentation:
 
-| Operation Name | Input Type | Output Type | Faults |
-| :--- | :--- | :--- | :--- |
-| [release](semaphore_utils.md#release) | [SemaphoreRequest](semaphore_utils.md#SemaphoreRequest) | bool |  |
-| [acquire](semaphore_utils.md#acquire) | [SemaphoreRequest](semaphore_utils.md#SemaphoreRequest) | bool |  |
+| Operation Name                        | Input Type                                              | Output Type | Faults |
+|:--------------------------------------|:--------------------------------------------------------|:------------|:-------|
+| [release](semaphore_utils.md#release) | [SemaphoreRequest](semaphore_utils.md#SemaphoreRequest) | bool        |        |
+| [acquire](semaphore_utils.md#acquire) | [SemaphoreRequest](semaphore_utils.md#SemaphoreRequest) | bool        |        |
 
 ## Operation Description
 
@@ -84,4 +87,3 @@ type SemaphoreRequest: void {
 Type: bool
 
 `bool : bool`
-

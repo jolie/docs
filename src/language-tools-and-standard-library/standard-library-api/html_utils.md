@@ -1,12 +1,15 @@
+<!-- cSpell:disable -->
+<!-- markdownlint-disable -->
+<!-- editorconfig-checker-disable -->
 # HTMLUtils
 
-Inclusion code: 
+Inclusion code:
 
-| Service Deployment |  |  |  |
-| :--- | :--- | :--- | :--- |
-| Port Name | Location | Protocol | Interfaces |
-| HTMLUtils documentation: |  |  |  |
-| HTMLUtils | - | - | [HTMLUtilsInterface](html_utils.md#HTMLUtilsInterface) |
+| Service Deployment       |          |          |                                                        |
+|:-------------------------|:---------|:---------|:-------------------------------------------------------|
+| Port Name                | Location | Protocol | Interfaces                                             |
+| HTMLUtils documentation: |          |          |                                                        |
+| HTMLUtils                | -        | -        | [HTMLUtilsInterface](html_utils.md#HTMLUtilsInterface) |
 
 ### List of Available Interfaces
 
@@ -14,10 +17,10 @@ Inclusion code:
 
 Interface documentation:
 
-| Operation Name | Input Type | Output Type | Faults |
-| :--- | :--- | :--- | :--- |
-| [escapeHTML](html_utils.md#escapeHTML) | string | string |  |
-| [unescapeHTML](html_utils.md#unescapeHTML) | string | string |  |
+| Operation Name                             | Input Type | Output Type | Faults |
+|:-------------------------------------------|:-----------|:------------|:-------|
+| [escapeHTML](html_utils.md#escapeHTML)     | string     | string      |        |
+| [unescapeHTML](html_utils.md#unescapeHTML) | string     | string      |        |
 
 ## Operation Description
 
@@ -64,4 +67,3 @@ Type: string
 Type: string
 
 `string : string`
-

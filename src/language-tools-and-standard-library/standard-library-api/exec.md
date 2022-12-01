@@ -1,12 +1,15 @@
+<!-- cSpell:disable -->
+<!-- markdownlint-disable -->
+<!-- editorconfig-checker-disable -->
 # Exec
 
-Inclusion code: 
+Inclusion code:
 
-| Service Deployment |  |  |  |
-| :--- | :--- | :--- | :--- |
-| Port Name | Location | Protocol | Interfaces |
-| Exec documentation: |  |  |  |
-| Exec | - | - | [ExecInterface](exec.md#ExecInterface) |
+| Service Deployment  |          |          |                                        |
+|:--------------------|:---------|:---------|:---------------------------------------|
+| Port Name           | Location | Protocol | Interfaces                             |
+| Exec documentation: |          |          |                                        |
+| Exec                | -        | -        | [ExecInterface](exec.md#ExecInterface) |
 
 ### List of Available Interfaces
 
@@ -14,9 +17,9 @@ Inclusion code:
 
 Interface documentation:
 
-| Operation Name | Input Type | Output Type | Faults |
-| :--- | :--- | :--- | :--- |
-| [exec](exec.md#exec) | [CommandExecutionRequest](exec.md#CommandExecutionRequest) | [CommandExecutionResult](exec.md#CommandExecutionResult) |  |
+| Operation Name       | Input Type                                                 | Output Type                                              | Faults |
+|:---------------------|:-----------------------------------------------------------|:---------------------------------------------------------|:-------|
+| [exec](exec.md#exec) | [CommandExecutionRequest](exec.md#CommandExecutionRequest) | [CommandExecutionResult](exec.md#CommandExecutionResult) |        |
 
 ## Operation Description
 
@@ -65,4 +68,3 @@ type CommandExecutionResult: any {
 
 * `exitCode : int`
 * `stderr : string`
-

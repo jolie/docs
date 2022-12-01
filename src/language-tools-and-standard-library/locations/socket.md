@@ -19,4 +19,3 @@ Sockets can identify:
 
 * Local socket address, used when the communication is directed to a program running on the same location of the sender, i.e.,   `socket://(localhost|127.0.0.1):port_number/path`;
 * Remote socket address, used when the communication is directed to a program running on a remote location from the sender. In this case `host_name`s can be used in order to identify the resource via a Domain Name System, e.g., `www.google.com:80` and `173.194.71.147:80` point to the same location, i.e.,   `socket://(host_name|IP_address):port_number/path`.
-

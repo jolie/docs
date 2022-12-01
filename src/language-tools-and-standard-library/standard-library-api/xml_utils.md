@@ -1,12 +1,15 @@
+<!-- cSpell:disable -->
+<!-- markdownlint-disable -->
+<!-- editorconfig-checker-disable -->
 # XmlUtils
 
-Inclusion code: 
+Inclusion code:
 
-| Service Deployment |  |  |  |
-| :--- | :--- | :--- | :--- |
-| Port Name | Location | Protocol | Interfaces |
-| XmlUtils documentation: |  |  |  |
-| XmlUtils | - | - | [XmlUtilsInterface](xml_utils.md#XmlUtilsInterface) |
+| Service Deployment      |          |          |                                                     |
+|:------------------------|:---------|:---------|:----------------------------------------------------|
+| Port Name               | Location | Protocol | Interfaces                                          |
+| XmlUtils documentation: |          |          |                                                     |
+| XmlUtils                | -        | -        | [XmlUtilsInterface](xml_utils.md#XmlUtilsInterface) |
 
 ### List of Available Interfaces
 
@@ -14,11 +17,11 @@ Inclusion code:
 
 Interface documentation:
 
-| Operation Name | Input Type | Output Type | Faults |
-| :--- | :--- | :--- | :--- |
-| [xmlToValue](xml_utils.md#xmlToValue) | [XMLToValueRequest](xml_utils.md#XMLToValueRequest) | undefined |  IOException\( [IOExceptionType](xml_utils.md#IOExceptionType) \) |
-| [transform](xml_utils.md#transform) | [XMLTransformationRequest](xml_utils.md#XMLTransformationRequest) | string |  TransformerException\( [JavaExceptionType](xml_utils.md#JavaExceptionType) \) |
-| [valueToXml](xml_utils.md#valueToXml) | [ValueToXmlRequest](xml_utils.md#ValueToXmlRequest) | string |  IOException\( [IOExceptionType](xml_utils.md#IOExceptionType) \)  IllegalArgumentException\( string \) |
+| Operation Name                        | Input Type                                                        | Output Type | Faults                                                                                                 |
+|:--------------------------------------|:------------------------------------------------------------------|:------------|:-------------------------------------------------------------------------------------------------------|
+| [xmlToValue](xml_utils.md#xmlToValue) | [XMLToValueRequest](xml_utils.md#XMLToValueRequest)               | undefined   | IOException\( [IOExceptionType](xml_utils.md#IOExceptionType) \)                                       |
+| [transform](xml_utils.md#transform)   | [XMLTransformationRequest](xml_utils.md#XMLTransformationRequest) | string      | TransformerException\( [JavaExceptionType](xml_utils.md#JavaExceptionType) \)                          |
+| [valueToXml](xml_utils.md#valueToXml) | [ValueToXmlRequest](xml_utils.md#ValueToXmlRequest)               | string      | IOException\( [IOExceptionType](xml_utils.md#IOExceptionType) \)  IllegalArgumentException\( string \) |
 
 ## Operation Description
 
@@ -57,12 +60,12 @@ type XMLToValueRequest: any {
 `XMLToValueRequest : any`
 
 * `options : void`
-  * `skipMixedText : bool`
-  * `charset : string`
-  * `includeAttributes : bool`
-  * `schemaLanguage : string`
-  * `includeRoot : bool`
-  * `schemaUrl : string`
+    * `skipMixedText : bool`
+    * `charset : string`
+    * `includeAttributes : bool`
+    * `schemaLanguage : string`
+    * `includeRoot : bool`
+    * `schemaUrl : string`
 * `isXmlStore : bool`
 
 #### Response type
@@ -176,9 +179,9 @@ type ValueToXmlRequest: void {
 * `rootNodeName : string`
 * `isXmlStore : bool`
 * `applySchema : void`
-  * `schema : string`
-  * `doctypeSystem : string`
-  * `encoding : string`
+    * `schema : string`
+    * `doctypeSystem : string`
+    * `encoding : string`
 
 #### Response type
 
@@ -215,4 +218,3 @@ install ( IllegalArgumentException => /* error-handling code */ )
 ```jolie
 type JavaExceptionType: string { .stackTrace: string }
 ```
-

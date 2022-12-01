@@ -11,4 +11,3 @@ The first deals with structuring the execution contexts in which services operat
 The second category deals with the topology of the connections between services in a microservice architecture.
 
 Jolie supports mechanisms for both categories, whose main representatives are introduced in this section.
-

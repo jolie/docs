@@ -81,12 +81,12 @@ where the `json` file is:
 
 ```json
 {
-  "MyInput": {
-    "location":"socket://localhost:8000"
-  },
-  "MyOutput": {
-    "location":"socket://100.100.100.100:8000"
-  }
+    "MyInput": {
+        "location":"socket://localhost:8000"
+    },
+    "MyOutput": {
+        "location":"socket://100.100.100.100:8000"
+    }
 }
 ```
 
@@ -96,4 +96,3 @@ Note that the `<variable path>` take the following forms:
 MyInput.location
 MyOutput.location
 ```
-

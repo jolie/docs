@@ -1,19 +1,20 @@
+<!-- cSpell:ignore sqljdbc4, derbyclient, sqlserver, HSQLDB, hsql, hsqls -->
 # Databases
 
 Jolie can be used with various relational/SQL databases, using the Database service from the standard library. The Database service uses JDBC, so you need the correct driver JAR placed in the `lib` subdirectory \(the one of the program or the global one, e.g., `/usr/lib/jolie/lib/` in Linux\).
 
 Attention: if your JAR driver is called differently, you will have to rename it or create an apposite link, otherwise Jolie is not able to load it. The list of correct names for JAR drivers is given below.
 
-| Database | Driver name \(`driver` \) | JAR filename |
-| :--- | :--- | :--- |
-| PostgreSQL | `postgresql` | `jdbc-postgresql.jar` |
-| MySQL | `mysql` | `jdbc-mysql.jar` |
-| Apache Derby | `derby_embedded` or `derby` | `derby.jar` or `derbyclient.jar` |
-| SQLite | `sqlite` | `jdbc-sqlite.jar` |
-| SQLServer | `sqlserver` | `sqljdbc4.jar` |
-| HSQLDB | `hsqldb_embedded`, `hsqldb_hsql` , `hsqldb_hsqls` , `hsqldb_http` or `hsqldb_https` | `hsqldb.jar` |
-| IBM DB 2 | `db2` | `db2jcc.jar` |
-| IBM AS 400 | `as400` | `jt400.jar` |
+| Database     | Driver name \(`driver` \)                                                           | JAR filename                     |
+|:-------------|:------------------------------------------------------------------------------------|:---------------------------------|
+| PostgreSQL   | `postgresql`                                                                        | `jdbc-postgresql.jar`            |
+| MySQL        | `mysql`                                                                             | `jdbc-mysql.jar`                 |
+| Apache Derby | `derby_embedded` or `derby`                                                         | `derby.jar` or `derbyclient.jar` |
+| SQLite       | `sqlite`                                                                            | `jdbc-sqlite.jar`                |
+| SQLServer    | `sqlserver`                                                                         | `sqljdbc4.jar`                   |
+| HSQLDB       | `hsqldb_embedded`, `hsqldb_hsql` , `hsqldb_hsqls` , `hsqldb_http` or `hsqldb_https` | `hsqldb.jar`                     |
+| IBM DB 2     | `db2`                                                                               | `db2jcc.jar`                     |
+| IBM AS 400   | `as400`                                                                             | `jt400.jar`                      |
 
 The Database service officially supports only the listed DB systems, which were tested and are known to work. If your DB system has not been covered, please contact us \(jolie-devel@lists.sourceforge.net\) and we will help you to get it added.
 
@@ -34,7 +35,7 @@ Java:
 
 ## First example: WeatherService
 
-This is a modification of the WeatherService client mentioned in section \[Web Services/web\_services\] \(web\_services/web\_services.html\). It fetches meteorologic data of a particular location \(constants `City` and `Country`\) and stores it in HSQLDB. If the DB has not been set up yet, the code takes care of the initialisation. The idea is to run the program in batch \(eg. by a cronjob\) to collect data, which could be interesting in Internet of Things \(IoT\) scenarios.
+This is a modification of the WeatherService client mentioned in section \[Web Services/web\_services\] \(web\_services/web\_services.html\). It fetches meteorological data of a particular location \(constants `City` and `Country`\) and stores it in HSQLDB. If the DB has not been set up yet, the code takes care of the initialisation. The idea is to run the program in batch \(eg. by a cronjob\) to collect data, which could be interesting in Internet of Things \(IoT\) scenarios.
 
 ```jolie
 include "weatherService.iol"
@@ -119,7 +120,7 @@ main
 
 ## Second example: TodoList
 
-The next example provides a very easy CRUD \(create, retrieve, update, delete\) webservice for a TODO list. The example is shown with HSQLDB but theoretically each DB could have been used. The HTTP's server output format is set to JSON, the input can be approached by both GET or POST requests.
+The next example provides a very easy CRUD \(create, retrieve, update, delete\) web service for a TODO list. The example is shown with HSQLDB but theoretically each DB could have been used. The HTTP's server output format is set to JSON, the input can be approached by both GET or POST requests.
 
 ```jolie
 include "console.iol"
@@ -213,8 +214,7 @@ Client requests using curl:
 
 * Create new record: `curl -v "http://localhost:8000/create?text=Shopping"`
 * Retrieve all records: `curl -v "http://localhost:8000/retrieveAll"`
-* Retrieve record - GET in x-www-form-urlencoded \(webbrowser form\): `curl -v "http://localhost:8000/retrieve?id=0"`
+* Retrieve record - GET in x-www-form-urlencoded \(web browser form\): `curl -v "http://localhost:8000/retrieve?id=0"`
 * Retrieve record - GET request in JSON: `curl -v "http://localhost:8000/retrieve?=\{\"id\":0\}"`
-* Retrieve record - POST request in x-www-form-urlencoded \(webbrowser form\): `curl -v -d "id=0" -H "Content-Type: application/x-www-form-urlencoded" "http://localhost:8000/retrieve"`
+* Retrieve record - POST request in x-www-form-urlencoded \(web browser form\): `curl -v -d "id=0" -H "Content-Type: application/x-www-form-urlencoded" "http://localhost:8000/retrieve"`
 * Retrieve record - POST request in JSON: `curl -v -d "{\"id\":0}" -H "Content-Type: application/json" "http://localhost:8000/retrieve"`
-

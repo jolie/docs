@@ -1,12 +1,15 @@
+<!-- cSpell:disable -->
+<!-- markdownlint-disable -->
+<!-- editorconfig-checker-disable -->
 # ZipUtils
 
-Inclusion code: 
+Inclusion code:
 
-| Service Deployment |  |  |  |
-| :--- | :--- | :--- | :--- |
-| Port Name | Location | Protocol | Interfaces |
-| ZipUtils documentation: |  |  |  |
-| ZipUtils | - | - | [ZipUtilsInterface](zip_utils.md#ZipUtilsInterface) |
+| Service Deployment      |          |          |                                                     |
+|:------------------------|:---------|:---------|:----------------------------------------------------|
+| Port Name               | Location | Protocol | Interfaces                                          |
+| ZipUtils documentation: |          |          |                                                     |
+| ZipUtils                | -        | -        | [ZipUtilsInterface](zip_utils.md#ZipUtilsInterface) |
 
 ### List of Available Interfaces
 
@@ -14,13 +17,13 @@ Inclusion code:
 
 Interface documentation:
 
-| Operation Name | Input Type | Output Type | Faults |
-| :--- | :--- | :--- | :--- |
-| [zip](zip_utils.md#zip) | [ZipRequest](zip_utils.md#ZipRequest) | raw |  IOException\( [IOExceptionType](zip_utils.md#IOExceptionType) \) |
-| [IOException](zip_utils.md#IOException) | undefined | undefined |  |
-| [unzip](zip_utils.md#unzip) | [UnzipRequest](zip_utils.md#UnzipRequest) | [UnzipResponse](zip_utils.md#UnzipResponse) |  FileNotFound\( undefined \) |
-| [readEntry](zip_utils.md#readEntry) | [ReadEntryRequest](zip_utils.md#ReadEntryRequest) | any |  IOException\( [IOExceptionType](zip_utils.md#IOExceptionType) \) |
-| [listEntries](zip_utils.md#listEntries) | [ListEntriesRequest](zip_utils.md#ListEntriesRequest) | [ListEntriesResponse](zip_utils.md#ListEntriesResponse) |  IOException\( [IOExceptionType](zip_utils.md#IOExceptionType) \) |
+| Operation Name                          | Input Type                                            | Output Type                                             | Faults                                                           |
+|:----------------------------------------|:------------------------------------------------------|:--------------------------------------------------------|:-----------------------------------------------------------------|
+| [zip](zip_utils.md#zip)                 | [ZipRequest](zip_utils.md#ZipRequest)                 | raw                                                     | IOException\( [IOExceptionType](zip_utils.md#IOExceptionType) \) |
+| [IOException](zip_utils.md#IOException) | undefined                                             | undefined                                               |                                                                  |
+| [unzip](zip_utils.md#unzip)             | [UnzipRequest](zip_utils.md#UnzipRequest)             | [UnzipResponse](zip_utils.md#UnzipResponse)             | FileNotFound\( undefined \)                                      |
+| [readEntry](zip_utils.md#readEntry)     | [ReadEntryRequest](zip_utils.md#ReadEntryRequest)     | any                                                     | IOException\( [IOExceptionType](zip_utils.md#IOExceptionType) \) |
+| [listEntries](zip_utils.md#listEntries) | [ListEntriesRequest](zip_utils.md#ListEntriesRequest) | [ListEntriesResponse](zip_utils.md#ListEntriesResponse) | IOException\( [IOExceptionType](zip_utils.md#IOExceptionType) \) |
 
 ## Operation Description
 
@@ -245,4 +248,3 @@ type IOExceptionType: JavaExceptionType
 ```jolie
 type JavaExceptionType: string { .stackTrace: string }
 ```
-

@@ -8,7 +8,7 @@ Usage: jolie [options] behaviour_file [program arguments]
 Available options:
     -h, --help                                        Display this help information
     -C ConstantIdentifier=ConstantValue                Sets constant ConstantIdentifier to ConstantValue before starting execution 
-                                                       (under Windows use quotes or double-quotes, e.g., -C "ConstantIdentifier=ConstantValue" )
+                                                        (under Windows use quotes or double-quotes, e.g., -C "ConstantIdentifier=ConstantValue" )
     --connlimit [number]                              Set the maximum number of active connection threads
     --conncache [number]                              Set the maximum number of cached persistent output connections
     --responseTimeout [number]                        Set the timeout for request-response invocations (in milliseconds)
@@ -22,4 +22,3 @@ Available options:
     --charset [character encoding, e.g., UTF-8]        Character encoding of the source *.ol/*.iol (default: system-dependent, on GNU/Linux UTF-8)
     --version                                          Display this program version information
 ```
-

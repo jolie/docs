@@ -30,4 +30,3 @@ When creating a new page, please follow the guidelines above and make sure to:
 
 * create the page as a new `.md` file, under one of the existing first-level sub-folders \(or create a new one, if necessary\);
 * update the summary to show the link to the newly created page. This is done by editing the [SUMMARY.md](https://github.com/jolie/docs/blob/master/SUMMARY.md) file, present in the root of the repository.
-

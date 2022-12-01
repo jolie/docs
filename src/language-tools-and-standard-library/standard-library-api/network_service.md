@@ -1,12 +1,15 @@
+<!-- cSpell:disable -->
+<!-- markdownlint-disable -->
+<!-- editorconfig-checker-disable -->
 # NetworkService
 
-Inclusion code: 
+Inclusion code:
 
-| Service Deployment |  |  |  |
-| :--- | :--- | :--- | :--- |
-| Port Name | Location | Protocol | Interfaces |
-| NetworkService documentation: |  |  |  |
-| NetworkService | - | - | [NetworkServiceInterface](network_service.md#NetworkServiceInterface) |
+| Service Deployment            |          |          |                                                                       |
+|:------------------------------|:---------|:---------|:----------------------------------------------------------------------|
+| Port Name                     | Location | Protocol | Interfaces                                                            |
+| NetworkService documentation: |          |          |                                                                       |
+| NetworkService                | -        | -        | [NetworkServiceInterface](network_service.md#NetworkServiceInterface) |
 
 ### List of Available Interfaces
 
@@ -14,10 +17,10 @@ Inclusion code:
 
 Interface documentation:
 
-| Operation Name | Input Type | Output Type | Faults |
-| :--- | :--- | :--- | :--- |
-| [getNetworkInterfaceNames](network_service.md#getNetworkInterfaceNames) | GetNetworkInterfaceNamesRequest | [GetNetworkInterfaceNamesResponse](network_service.md#GetNetworkInterfaceNamesResponse) |  |
-| [getIPAddresses](network_service.md#getIPAddresses) | [GetIPAddressesRequest](network_service.md#GetIPAddressesRequest) | [GetIPAddressesResponse](network_service.md#GetIPAddressesResponse) |  InterfaceNotFound\( undefined \) |
+| Operation Name                                                          | Input Type                                                        | Output Type                                                                             | Faults                           |
+|:------------------------------------------------------------------------|:------------------------------------------------------------------|:----------------------------------------------------------------------------------------|:---------------------------------|
+| [getNetworkInterfaceNames](network_service.md#getNetworkInterfaceNames) | GetNetworkInterfaceNamesRequest                                   | [GetNetworkInterfaceNamesResponse](network_service.md#GetNetworkInterfaceNamesResponse) |                                  |
+| [getIPAddresses](network_service.md#getIPAddresses)                     | [GetIPAddressesRequest](network_service.md#GetIPAddressesRequest) | [GetIPAddressesResponse](network_service.md#GetIPAddressesResponse)                     | InterfaceNotFound\( undefined \) |
 
 ## Operation Description
 
@@ -52,7 +55,7 @@ type GetNetworkInterfaceNamesResponse: void {
 `GetNetworkInterfaceNamesResponse : void`
 
 * `interfaceName : string`
-  * `displayName : string`
+    * `displayName : string`
 
 ### getIPAddresses <a id="getIPAddresses"></a>
 
@@ -103,4 +106,3 @@ Fault-handling install template:
 ```jolie
 install ( InterfaceNotFound => /* error-handling code */ )
 ```
-

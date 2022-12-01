@@ -1,12 +1,15 @@
+<!-- cSpell:disable -->
+<!-- markdownlint-disable -->
+<!-- editorconfig-checker-disable -->
 # MetaParser
 
-Inclusion code: 
+Inclusion code:
 
-| Service Deployment |  |  |  |
-| :--- | :--- | :--- | :--- |
-| Port Name | Location | Protocol | Interfaces |
-| Parser documentation: |  |  |  |
-| Parser | - | - | [ParserInterface](metaparser.md#ParserInterface) |
+| Service Deployment    |          |          |                                                  |
+|:----------------------|:---------|:---------|:-------------------------------------------------|
+| Port Name             | Location | Protocol | Interfaces                                       |
+| Parser documentation: |          |          |                                                  |
+| Parser                | -        | -        | [ParserInterface](metaparser.md#ParserInterface) |
 
 ### List of Available Interfaces
 
@@ -14,18 +17,18 @@ Inclusion code:
 
 Interface documentation:
 
-| Operation Name | Input Type | Output Type | Faults |
-| :--- | :--- | :--- | :--- |
-| [getSurface](metaparser.md#getSurface) | [Port](metaparser.md#Port) | string |  |
-| [getNativeType](metaparser.md#getNativeType) | [NativeType](metaparser.md#NativeType) | string |  |
-| [getInterface](metaparser.md#getInterface) | [Interface](metaparser.md#Interface) | string |  |
-| [getTypeInLine](metaparser.md#getTypeInLine) | [Type](metaparser.md#Type) | string |  |
-| [getSurfaceWithoutOutputPort](metaparser.md#getSurfaceWithoutOutputPort) | [Port](metaparser.md#Port) | string |  |
-| [getType](metaparser.md#getType) | [Type](metaparser.md#Type) | string |  |
-| [getOutputPort](metaparser.md#getOutputPort) | [Port](metaparser.md#Port) | string |  |
-| [getSubType](metaparser.md#getSubType) | [SubType](metaparser.md#SubType) | string |  |
-| [getInputPort](metaparser.md#getInputPort) | [Port](metaparser.md#Port) | string |  |
-| [getCardinality](metaparser.md#getCardinality) | [Cardinality](metaparser.md#Cardinality) | string |  |
+| Operation Name                                                           | Input Type                               | Output Type | Faults |
+|:-------------------------------------------------------------------------|:-----------------------------------------|:------------|:-------|
+| [getSurface](metaparser.md#getSurface)                                   | [Port](metaparser.md#Port)               | string      |        |
+| [getNativeType](metaparser.md#getNativeType)                             | [NativeType](metaparser.md#NativeType)   | string      |        |
+| [getInterface](metaparser.md#getInterface)                               | [Interface](metaparser.md#Interface)     | string      |        |
+| [getTypeInLine](metaparser.md#getTypeInLine)                             | [Type](metaparser.md#Type)               | string      |        |
+| [getSurfaceWithoutOutputPort](metaparser.md#getSurfaceWithoutOutputPort) | [Port](metaparser.md#Port)               | string      |        |
+| [getType](metaparser.md#getType)                                         | [Type](metaparser.md#Type)               | string      |        |
+| [getOutputPort](metaparser.md#getOutputPort)                             | [Port](metaparser.md#Port)               | string      |        |
+| [getSubType](metaparser.md#getSubType)                                   | [SubType](metaparser.md#SubType)         | string      |        |
+| [getInputPort](metaparser.md#getInputPort)                               | [Port](metaparser.md#Port)               | string      |        |
+| [getCardinality](metaparser.md#getCardinality)                           | [Cardinality](metaparser.md#Cardinality) | string      |        |
 
 ## Operation Description
 
@@ -104,8 +107,8 @@ type NativeType: void {
 * `int_type : bool`
 * `any_type : bool`
 * `link : void`
-  * `domain : string`
-  * `name : string`
+    * `domain : string`
+    * `name : string`
 * `bool_type : bool`
 * `double_type : bool`
 * `long_type : bool`
@@ -445,4 +448,3 @@ type Operation: void { .operation_name: string .output?: Name .input: Name .docu
 ```jolie
 type Fault: void { .type_name?: Name .name: Name }
 ```
-

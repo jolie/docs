@@ -1,4 +1,6 @@
-# Javaservices
+<!-- cSpell: ignore javac, Dfile, Dgroup, Dartifact Dversion, Dpackaging -->
+
+# Java Services
 
 ## Embedding a Java service
 
@@ -80,7 +82,7 @@ public class Twice extends JavaService {
 }
 ```
 
-Note that both input and output types of each method, although meant to be primitive types `int` and `double`, must be declared as their wrapping classes, respectively `Interger` and `Double`.
+Note that both input and output types of each method, although meant to be primitive types `int` and `double`, must be declared as their wrapping classes, respectively `Integer` and `Double`.
 
 Following, the Jolie service embeds both MyConsole and Twice classes:
 
@@ -218,19 +220,13 @@ The tutorial also presents some features of Java integration in Jolie, i.e., man
 
 ### Creation of a JavaService project
 
-* If you are using Maven, just click on “New Project” icon and then
+* If you are using Maven, just click on “New Project” icon and then select **Maven** -&gt; **Java Application** as reported in the following picture.
 
-  select **Maven** -&gt; **Java Application** as reported in the
+![](../../../assets/image/createproject.png)
 
-  following picture.
+* If you are creating a new project from scratch click on “New Project” icon and then select **Java** -&gt; **Java Class Library**
 
-![](../../../.gitbook/assets/createproject.png)
-
-* If you are creating a new project from scratch click on “New
-
-  Project” icon and then select **Java** -&gt; **Java Class Library**
-
-![](../../../.gitbook/assets/createproject_java.png)
+![](../../../assets/image/createproject_java.png)
 
 Then, follows the instructions and give a name to the project \(ex: `FirstJavaService`\) and define the working directory.
 
@@ -262,19 +258,19 @@ If you manually manage your project just add the `jolie.jar` as an external depe
 * Select _Add JAR/Folder_
 * Select the `jolie.jar` file from the path selector
 
-![](../../../.gitbook/assets/addjar.png)
+![](../../../assets/image/addjar.png)
 
 ### The first JavaService
 
 As a first example of a JavaService we present a sample scenario where we suppose to extend the features of a Jolie service by exploiting native Java computation. The architecture of the final system will look as it is represented in the following picture:
 
-![](../../../.gitbook/assets/firstarchitecture.png)
+![](../../../assets/image/firstarchitecture.png)
 
 As it is possible to note, here the Jolie service communicates with the JavaService with a synchronous call equivalent to a RequestResponse.
 
 Before writing the actual code of the JavaService it is important to create the package which will contain it. Let us name it `org.jolie.example`. Then, let us create the new Java file called `FirstJavaService.java`.
 
-![](../../../.gitbook/assets/package.png)
+![](../../../assets/image/package.png)
 
 #### Writing the JavaService code
 
@@ -300,29 +296,17 @@ public class FirstJavaService extends JavaService
 
 In the code there are some important aspects to be considered:
 
-* We need to import two classes from the Jolie dependency:
+* We need to import two classes from the Jolie dependency: `jolie.runtime.JavaService` and `jolie.runtime.Value`
 
-  `jolie.runtime.JavaService` and `jolie.runtime.Value`
-
-* the class `FirstJavaService` must be extended as a JavaService:
-
-  `... extends JavaService`
+* the class `FirstJavaService` must be extended as a JavaService: `... extends JavaService`
 
 * the request parameter and the response one are objects `Value`
-* it is possible to navigate the tree of a `Value` by using specific
-
-  methods like `getFirstChild` \(see below\)
+* it is possible to navigate the tree of a `Value` by using specific methods like `getFirstChild` \(see below\)
 
 * the request message has a subnode `message` which contains a string
-* the response message will contain the reply message in the subnode
+* the response message will contain the reply message in the subnode `reply`
 
-  `reply`
-
-* the core logic of the JavaService is just the line
-
-  `System.out.println("message")` which prints out the content of the
-
-  variable message on the console
+* the core logic of the JavaService is just the line `System.out.println("message")` which prints out the content of the variable message on the console
 
 #### Building the JavaService
 
@@ -334,69 +318,39 @@ If you are managing the project with Maven you will find the resulting jar in fo
 
 Now we are ready for embedding the JavaService into a Jolie service. It is very simple, just follow these steps:
 
-* Create a folder where placing your Jolie files, ex:
-
-  `JolieJavaServiceExample`
+* Create a folder where placing your Jolie files, ex: `JolieJavaServiceExample`
 
 * Create a subfolder named `lib` \(`JolieJavaServiceExample/lib`\)
-* Copy the jar file of your JavaService into the folder `lib` \(jolie
+* Copy the jar file of your JavaService into the folder `lib` \(jolie  automatically imports all the libraries contained in the subfolder `lib`\)
 
-  automatically imports all the libraries contained in the subfolder
+* Create a Jolie interface file where defining all the available operations of your JavaService and name it `FirstJavaServiceInterface.iol`.
 
-  `lib`\)
+It is worth noting that all the public methods defined in the class FirstJavaService can be promoted as operations at the level of a Jolie service.
 
-* Create a Jolie interface file where defining all the available
+In our example the interface is called `FirstJavaServiceInterface` and it declares one operation called `HelloWorld` \(the name of the operation must be the same name of the corresponding operation in the JavaService\).
 
-  operations of your JavaService and name it
-
-  `FirstJavaServiceInterface.iol`. It is worth noting that all the
-
-  public methods defined in the class FirstJavaService can be promoted
-
-  as operations at the level of a Jolie service. In our example the
-
-  interface is called `FirstJavaServiceInterface` and it declares one
-
-  operation called `HelloWorld` \(the name of the operation must be the
-
-  same name of the corresponding operation in the JavaService\). The
-
-  request and response message types define two messages where the
-
-  former has a subnode named `message` and the latter is named
-
-  `reply`.
+The request and response message types define two messages where the former has a subnode named `message` and the latter is named `reply`.
 
 ```jolie
 type HelloWorldRequest: void {
-  .message: string
+    .message: string
 }
 
 type HelloWorldResponse: void {
-  .reply: string
+    .reply: string
 }
 
 interface FirstJavaServiceInterface {
-  RequestResponse:
-    HelloWorld( HelloWorldRequest )( HelloWorldResponse )
+    RequestResponse:
+        HelloWorld( HelloWorldRequest )( HelloWorldResponse )
 }
 ```
 
-* In the code of your Jolie service, create an outputPort for your
-
-  JavaService specifically addressed for operating with it. You can
-
-  name the outputPort as you prefer \(there are no restrictions\), in
-
-  this example we use the name `FirstJavaService`. Remember to join
-
-  the JavaService interface in the outputPort declaration as we did in
-
-  this example:
+* In the code of your Jolie service, create an outputPort for your JavaService specifically addressed for operating with it. You can name the outputPort as you prefer \(there are no restrictions\), in this example we use the name `FirstJavaService`. Remember to join the JavaService interface in the outputPort declaration as we did in this example:
 
 ```jolie
 outputPort FirstJavaServiceOutputPort {
-  Interfaces: FirstJavaServiceInterface
+    Interfaces: FirstJavaServiceInterface
 }
 ```
 
@@ -406,12 +360,12 @@ outputPort FirstJavaServiceOutputPort {
 include "FirstJavaServiceInterface.iol"
 
 outputPort FirstJavaServiceOutputPort {
-  Interfaces: FirstJavaServiceInterface
+    Interfaces: FirstJavaServiceInterface
 }
 
 embedded {
-  Java:
-    "org.jolie.example.FirstJavaService" in FirstJavaServiceOutputPort
+    Java:
+        "org.jolie.example.FirstJavaService" in FirstJavaServiceOutputPort
 }
 ```
 
@@ -425,12 +379,12 @@ include "console.iol"
 include "FirstJavaServiceInterface.iol"
 
 outputPort FirstJavaServiceOutputPort {
-  Interfaces: FirstJavaServiceInterface
+    Interfaces: FirstJavaServiceInterface
 }
 
 embedded {
-  Java:
-    "org.jolie.example.FirstJavaService" in FirstJavaServiceOutputPort
+    Java:
+        "org.jolie.example.FirstJavaService" in FirstJavaServiceOutputPort
 }
 
 
@@ -444,10 +398,10 @@ main {
 At this point your Jolie working directory should look like the following one:
 
 * _your Jolie working directory_
-  * **lib**
-    * FirstJavaService.jar
-  * FirstJavaServiceInterface.iol
-  * main.ol
+    * **lib**
+        * FirstJavaService.jar
+    * FirstJavaServiceInterface.iol
+    * main.ol
 
 You can run the Jolie program by using the simple command `jolie main.ol`.
 
@@ -457,7 +411,7 @@ You can run the Jolie program by using the simple command `jolie main.ol`.
 
 In the previous example we just wrote a Jolie program which exploits the JavaService _FirstJavaService_. Clearly, it is possible to exploit the same JavaService within a Jolie service by adding an inputPort to the previous program.
 
-![](../../../.gitbook/assets/firstarchitectureservice.png)
+![](../../../assets/image/firstarchitectureservice.png)
 
 In the following case we present a possible solution where the operation of the JavaService is exported to the inputPort by exploiting the same interface `FirstJavaServiceInterface` with a new implementation of the operation `HelloWorld` in the main scope of the service.
 
@@ -467,20 +421,20 @@ include "console.iol"
 include "FirstJavaServiceInterface.iol"
 
 outputPort FirstJavaServiceOutputPort {
-  Interfaces: FirstJavaServiceInterface
+    Interfaces: FirstJavaServiceInterface
 }
 
 embedded {
-  Java:
-    "org.jolie.example.FirstJavaService" in FirstJavaServiceOutputPort
+    Java:
+        "org.jolie.example.FirstJavaService" in FirstJavaServiceOutputPort
 }
 
 execution{ concurrent }
 
 inputPort MyInputPort {
-  Location: "socket://localhost:9090"
-  Protocol: sodep
-  Interfaces: FirstJavaServiceInterface
+    Location: "socket://localhost:9090"
+    Protocol: sodep
+    Interfaces: FirstJavaServiceInterface
 }
 
 
@@ -500,24 +454,24 @@ include "console.iol"
 include "FirstJavaServiceInterface.iol"
 
 outputPort FirstJavaServiceOutputPort {
-  Interfaces: FirstJavaServiceInterface
+    Interfaces: FirstJavaServiceInterface
 }
 
 embedded {
-  Java:
-    "org.jolie.example.FirstJavaService" in FirstJavaServiceOutputPort
+    Java:
+        "org.jolie.example.FirstJavaService" in FirstJavaServiceOutputPort
 }
 
 execution{ concurrent }
 
 inputPort MyInputPort {
-  Location: "socket://localhost:9090"
-  Protocol: sodep
-  Aggregates: FirstJavaServiceOutputPort
+    Location: "socket://localhost:9090"
+    Protocol: sodep
+    Aggregates: FirstJavaServiceOutputPort
 }
 
 main {
-  ...
+    ...
 }
 ```
 
@@ -525,7 +479,7 @@ main {
 
 In this section we deepen the usage of the class `Value` which allows for the management of Jolie value trees within Java.
 
-#### Creating a value.
+### Creating a value
 
 First of all, we need to create a Value in Java as we would do in Jolie. The following Java code creates a Value named `v`.
 
@@ -533,9 +487,9 @@ First of all, we need to create a Value in Java as we would do in Jolie. The fol
 Value v = Value.create();
 ```
 
-#### Getting the vector elements.
+### Getting the vector elements
 
-In each Jolie tree, a node is a vector. To access/get the vector elements of a node, you can use the method `getChildren( String subnodeName )` which returns the corresponding `ValueVector` of the subnode `subnondeName`. In the following example we get all the vector elements of the subnode `subnode1`.
+In each Jolie tree, a node is a vector. To access/get the vector elements of a node, you can use the method `getChildren( String subnodeName )` which returns the corresponding `ValueVector` of the subnode `subnodeName`. In the following example we get all the vector elements of the subnode `subnode1`.
 
 ```java
 ValueVector vVector = v.getChildren("subnode1");
@@ -548,7 +502,7 @@ ValueVector vVector = v.getChildren("subnode1");
 Value thirdElement = vVector.get( 2 );
 ```
 
-#### Setting the value of an element.
+### Setting the value of an element
 
 It is possible to use the method `setValue( ... )` for setting the value content of an element as in the following example:
 
@@ -558,7 +512,7 @@ Value thirdElement = vVector.get( 2 );
 thirdElement.setValue("Millennium Falcon");
 ```
 
-#### Getting the value of an element.
+### Getting the value of an element
 
 Once accessed a vector element \(a value in general\), it is possible to get its value by simply using one of the following methods depending on the type of the content:
 
@@ -582,9 +536,9 @@ System.out.println( thirdElement.strValue() );
 
 A JavaService can be also programmed to call an operation of the embedder. A typical example of such a scenario is the case of a callback pattern between the embedder and the JavaService as reported in the picture below:
 
-![](../../../.gitbook/assets/firstarchitectureservicecallback.png)
+![](../../../assets/image/firstarchitectureservicecallback.png)
 
-This can be done with the method `sendMessage` of the class `JavaService`. As an example, we extend the previous JavaService by introducing a new asynchronous method called `AsynchHelloWorld` which receives a request with the same message of method `HelloWorld` and a field `sleep` which specifies the number of millisecond to wait before sending the reply. When Such a time-out has been introduced just for simulating a delay in the response. When the sleeping time is finished the method calls back the Jolie service on its operation `reply`.
+This can be done with the method `sendMessage` of the class `JavaService`. As an example, we extend the previous JavaService by introducing a new asynchronous method called `AsyncHelloWorld` which receives a request with the same message of method `HelloWorld` and a field `sleep` which specifies the number of millisecond to wait before sending the reply. When Such a time-out has been introduced just for simulating a delay in the response. When the sleeping time is finished the method calls back the Jolie service on its operation `reply`.
 
 ```java
 package org.jolie.example;
@@ -622,31 +576,29 @@ The class `CommMessage` \(package `Jolie.net`\) represents a Jolie communication
 
 * `reply`: the name of the operation of the embedder to call;
 * `/`: the service path \(see [Redirection](https://jolielang.gitbook.io/docs/architectural-composition/redirection)\);
-* `response` : a Value object that contains the data structure to
-
-  send.
+* `response` : a Value object that contains the data structure to send.
 
 In this case, the message to send contains the same string of method `HelloWorld`. It is worth noting that in this example the operation _reply_ is a **OneWay** operation but it is possible also to interact by using a _RequestResponse_ operation. The class `CommMessage` provides different static methods for creating a request message and a response message. Now let us comment how the _FirstJavaServiceInterface_ must be modified to be compliant with the new JavaService:
 
 ```jolie
 type AsyncHelloWorldRequest: void {
-  .message: string
-  .sleep: int
+    .message: string
+    .sleep: int
 }
 
 type HelloWorldRequest: void {
-  .message: string
+    .message: string
 }
 
 type HelloWorldResponse: void {
-  .reply: string
+    .reply: string
 }
 
 interface FirstJavaServiceInterface {
-  RequestResponse:
-    HelloWorld( HelloWorldRequest )( HelloWorldResponse )
-  OneWay:
-    AsyncHelloWorld( AsyncHelloWorldRequest )
+    RequestResponse:
+        HelloWorld( HelloWorldRequest )( HelloWorldResponse )
+    OneWay:
+        AsyncHelloWorld( AsyncHelloWorldRequest )
 }
 ```
 
@@ -661,23 +613,22 @@ include "FirstJavaServiceInterface.iol"
 
 interface LocalInterface {
 OneWay:
-  reply( HelloWorldResponse )
+    reply( HelloWorldResponse )
 }
 
 outputPort FirstJavaServiceOutputPort {
-  Interfaces: FirstJavaServiceInterface
+    Interfaces: FirstJavaServiceInterface
 }
 
 embedded {
-  Java:
-    "org.jolie.example.FirstJavaService" in FirstJavaServiceOutputPort
+    Java:
+        "org.jolie.example.FirstJavaService" in FirstJavaServiceOutputPort
 }
 
 inputPort MyLocalPort {
-  Location: "local"
-  Interfaces: LocalInterface
+    Location: "local"
+    Interfaces: LocalInterface
 }
-
 
 main {
     request.message = "Hello world!";
@@ -730,24 +681,23 @@ In this example, the JavaService exhibits a OneWay operation `start` where it pr
 
 Faults are very important for defining a correct communication protocol between a JavaService and a Jolie service. Here we explain how managing both faults from the JavaService to the embedder Jolie service and vice-versa.
 
-### Sending a Fault from a Javaservice
+### Sending a Fault from a Java Service
 
 Let us consider the _FirstJavaService_ example where we call the method `HelloWorld` of the JavaService. In particular, let us modify the Java code to reply with a fault in case the incoming message is wrong.
 
 ```java
 public Value HelloWorld( Value request ) throws FaultException {
-        String message = request.getFirstChild( "message" ).strValue();
-        System.out.println( message );
-        if ( !message.equals( "I am Luke" ) ) {
-            Value faultMessage = Value.create();
-            faultMessage.getFirstChild( "msg" ).setValue( "I am not your father" );
-            throw new FaultException( "WrongMessage", faultMessage );
-        }
-        Value response = Value.create().getFirstChild( message );
-        response.getFirstChild( "reply" ).setValue( "I am your father" );
-        return response;
-
+    String message = request.getFirstChild( "message" ).strValue();
+    System.out.println( message );
+    if ( !message.equals( "I am Luke" ) ) {
+        Value faultMessage = Value.create();
+        faultMessage.getFirstChild( "msg" ).setValue( "I am not your father" );
+        throw new FaultException( "WrongMessage", faultMessage );
     }
+    Value response = Value.create().getFirstChild( message );
+    response.getFirstChild( "reply" ).setValue( "I am your father" );
+    return response;
+}
 ```
 
 Note that the method `HelloWorld` throws an exception called `FaultException` that comes from the _jolie.runtime_ package. A simple Java exception **is not** recognized by the Jolie interpreter as a Fault, only those of FaultException type are. The creation of a _FaultException_ is very simple, the constructor can take one or two parameters. The former one is always the name of the fault, whereas the latter one, if present, contains the fault value tree \(in the example a message with a subnode `msg`\). The fault value tree is a common object of type _Value_. On the Jolie service side, there is nothing special but the fault is managed as usual:
@@ -759,21 +709,21 @@ include "FirstJavaServiceInterface.iol"
 
 interface LocalInterface {
 OneWay:
-  reply( HelloWorldResponse )
+    reply( HelloWorldResponse )
 }
 
 outputPort FirstJavaServiceOutputPort {
-  Interfaces: FirstJavaServiceInterface
+    Interfaces: FirstJavaServiceInterface
 }
 
 embedded {
-  Java:
-    "org.jolie.example.FirstJavaService" in FirstJavaServiceOutputPort
+    Java:
+        "org.jolie.example.FirstJavaService" in FirstJavaServiceOutputPort
 }
 
 inputPort MyLocalPort {
-  Location: "local"
-  Interfaces: LocalInterface
+    Location: "local"
+    Interfaces: LocalInterface
 }
 
 
@@ -790,27 +740,27 @@ Keep in mind to modify the _FirstJavaServiceInterface_ by declaring the fault `W
 
 ```jolie
 type AsyncHelloWorldRequest: void {
-  .message: string
-  .sleep: int
+    .message: string
+    .sleep: int
 }
 
 type HelloWorldRequest: void {
-  .message: string
+    .message: string
 }
 
 type HelloWorldResponse: void {
-  .reply: string
+    .reply: string
 }
 
 type WrongMessageFaultType: void {
-  .msg: string
+    .msg: string
 }
 
 interface FirstJavaServiceInterface {
-  RequestResponse:
-    HelloWorld( HelloWorldRequest )( HelloWorldResponse ) throws WrongMessage( WrongMessageFaultType )
-  OneWay:
-    AsyncHelloWorld( AsyncHelloWorldRequest )
+    RequestResponse:
+        HelloWorld( HelloWorldRequest )( HelloWorldResponse ) throws WrongMessage( WrongMessageFaultType )
+    OneWay:
+        AsyncHelloWorld( AsyncHelloWorldRequest )
 }
 ```
 
@@ -849,26 +799,26 @@ In the following code we report a classical embedding of this JavaService:
 include "console.iol"
 
 interface DynamicJavaServiceInterface {
-  RequestResponse:
-    start( void )( int )
+    RequestResponse:
+        start( void )( int )
 }
 
 
 execution{ concurrent }
 
 outputPort DynamicJavaService {
-  Interfaces: DynamicJavaServiceInterface
+    Interfaces: DynamicJavaServiceInterface
 }
 
 embedded {
-  Java:
-    "org.jolie.example.dynamicembedding.DynamicJavaService" in DynamicJavaService
+    Java:
+        "org.jolie.example.dynamicembedding.DynamicJavaService" in DynamicJavaService
 }
 
 inputPort MyInputPort {
-  Location: "socket://localhost:9090"
-  Protocol: sodep
-  Interfaces: DynamicJavaServiceInterface
+    Location: "socket://localhost:9090"
+    Protocol: sodep
+    Interfaces: DynamicJavaServiceInterface
 }
 
 
@@ -909,28 +859,28 @@ include "console.iol"
 include "runtime.iol"
 
 interface DynamicJavaServiceInterface {
-  RequestResponse:
-    start( void )( int )
+    RequestResponse:
+        start( void )( int )
 }
 
 execution{ concurrent }
 
 outputPort DynamicJavaService {
-  Interfaces: DynamicJavaServiceInterface
+    Interfaces: DynamicJavaServiceInterface
 }
 
 inputPort MyInputPort {
-  Location: "socket://localhost:9090"
-  Protocol: sodep
-  Interfaces: DynamicJavaServiceInterface
+    Location: "socket://localhost:9090"
+    Protocol: sodep
+    Interfaces: DynamicJavaServiceInterface
 }
 
 
 main {
     [ start( request )( response ) {
         with( emb ) {
-          .filepath = "org.jolie.example.dynamicembedding.DynamicJavaService";
-          .type = "Java"
+            .filepath = "org.jolie.example.dynamicembedding.DynamicJavaService";
+            .type = "Java"
         };
         loadEmbeddedService@Runtime( emb )( DynamicJavaService.location );
         start@DynamicJavaService()( response )
@@ -956,4 +906,3 @@ Received counter 1
 ```
 
 Such a result means that for each session enabled on the embedder, a new JavaService object is instantiated and executed, thus the counter will start from zero every invocation.
-

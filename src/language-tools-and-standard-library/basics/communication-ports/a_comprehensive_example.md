@@ -4,7 +4,7 @@ Here we discuss a simple example where both OneWay/Notification and RequestRespo
 
 The example's architecture is reported below.
 
-![](../../../.gitbook/assets/newspaper.png)
+![](../../../assets/image/newspaper.png)
 
 A newspaper service collects news sent by authors, users can get all the registered news into the newspaper. The interface of the newspaper service defines two operations:
 
@@ -26,11 +26,11 @@ type GetNewsResponse: void {
 type SendNewsRequest: News
 
 interface NewsPaperInterface {
-  RequestResponse:
-      getNews( void )( GetNewsResponse )
+    RequestResponse:
+        getNews( void )( GetNewsResponse )
 
-  OneWay:
-      sendNews( SendNewsRequest )
+    OneWay:
+        sendNews( SendNewsRequest )
 }
 ```
 
@@ -42,9 +42,9 @@ include "NewsPaperInterface.iol"
 execution{ concurrent }
 
 inputPort NewsPaperPort {
-  Location:"auto:ini:/Locations/NewsPaperPort:file:locations.ini"
-  Protocol: sodep
-  Interfaces: NewsPaperInterface
+    Location:"auto:ini:/Locations/NewsPaperPort:file:locations.ini"
+    Protocol: sodep
+    Interfaces: NewsPaperInterface
 }
 
 main {
@@ -65,9 +65,9 @@ include "NewsPaperInterface.iol"
 include "console.iol"
 
 outputPort NewsPaper {
-  Location: "socket://localhost:9000"
-  Protocol: sodep
-  Interfaces: NewsPaperInterface
+    Location: "socket://localhost:9000"
+    Protocol: sodep
+    Interfaces: NewsPaperInterface
 }
 
 main {
@@ -91,9 +91,9 @@ include "NewsPaperInterface.iol"
 include "console.iol"
 
 outputPort NewsPaper {
-  Location: "socket://localhost:9000"
-  Protocol: sodep
-  Interfaces: NewsPaperInterface
+    Location: "socket://localhost:9000"
+    Protocol: sodep
+    Interfaces: NewsPaperInterface
 }
 
 main {
@@ -107,4 +107,3 @@ main {
     }
 }
 ```
-

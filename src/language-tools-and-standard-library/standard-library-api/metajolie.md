@@ -1,12 +1,15 @@
+<!-- cSpell:disable -->
+<!-- markdownlint-disable -->
+<!-- editorconfig-checker-disable -->
 # MetaJolie
 
-Inclusion code: 
+Inclusion code:
 
-| Service Deployment |  |  |  |
-| :--- | :--- | :--- | :--- |
-| Port Name | Location | Protocol | Interfaces |
-| MetaJolie documentation: |  |  |  |
-| MetaJolie | - | - | [MetaJolieInterface](metajolie.md#MetaJolieInterface) |
+| Service Deployment       |          |          |                                                       |
+|:-------------------------|:---------|:---------|:------------------------------------------------------|
+| Port Name                | Location | Protocol | Interfaces                                            |
+| MetaJolie documentation: |          |          |                                                       |
+| MetaJolie                | -        | -        | [MetaJolieInterface](metajolie.md#MetaJolieInterface) |
 
 ### List of Available Interfaces
 
@@ -14,12 +17,12 @@ Inclusion code:
 
 Interface documentation:
 
-| Operation Name | Input Type | Output Type | Faults |
-| :--- | :--- | :--- | :--- |
-| [getInputPortMetaData](metajolie.md#getInputPortMetaData) | [GetInputPortMetaDataRequest](metajolie.md#GetInputPortMetaDataRequest) | [GetInputPortMetaDataResponse](metajolie.md#GetInputPortMetaDataResponse) |  ParserException\( [ParserExceptionType](metajolie.md#ParserExceptionType) \)  InputPortMetaDataFault\( undefined \)  SemanticException\( [SemanticExceptionType](metajolie.md#SemanticExceptionType) \) |
-| [getMetaData](metajolie.md#getMetaData) | [GetMetaDataRequest](metajolie.md#GetMetaDataRequest) | [GetMetaDataResponse](metajolie.md#GetMetaDataResponse) |  ParserException\( [ParserExceptionType](metajolie.md#ParserExceptionType) \)  SemanticException\( [SemanticExceptionType](metajolie.md#SemanticExceptionType) \) |
-| [messageTypeCast](metajolie.md#messageTypeCast) | [MessageTypeCastRequest](metajolie.md#MessageTypeCastRequest) | [MessageTypeCastResponse](metajolie.md#MessageTypeCastResponse) |  TypeMismatch\( undefined \) |
-| [checkNativeType](metajolie.md#checkNativeType) | [CheckNativeTypeRequest](metajolie.md#CheckNativeTypeRequest) | [CheckNativeTypeResponse](metajolie.md#CheckNativeTypeResponse) |  |
+| Operation Name                                            | Input Type                                                              | Output Type                                                               | Faults                                                                                                                                                                                                  |
+|:----------------------------------------------------------|:------------------------------------------------------------------------|:--------------------------------------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [getInputPortMetaData](metajolie.md#getInputPortMetaData) | [GetInputPortMetaDataRequest](metajolie.md#GetInputPortMetaDataRequest) | [GetInputPortMetaDataResponse](metajolie.md#GetInputPortMetaDataResponse) | ParserException\( [ParserExceptionType](metajolie.md#ParserExceptionType) \)  InputPortMetaDataFault\( undefined \)  SemanticException\( [SemanticExceptionType](metajolie.md#SemanticExceptionType) \) |
+| [getMetaData](metajolie.md#getMetaData)                   | [GetMetaDataRequest](metajolie.md#GetMetaDataRequest)                   | [GetMetaDataResponse](metajolie.md#GetMetaDataResponse)                   | ParserException\( [ParserExceptionType](metajolie.md#ParserExceptionType) \)  SemanticException\( [SemanticExceptionType](metajolie.md#SemanticExceptionType) \)                                        |
+| [messageTypeCast](metajolie.md#messageTypeCast)           | [MessageTypeCastRequest](metajolie.md#MessageTypeCastRequest)           | [MessageTypeCastResponse](metajolie.md#MessageTypeCastResponse)           | TypeMismatch\( undefined \)                                                                                                                                                                             |
+| [checkNativeType](metajolie.md#checkNativeType)           | [CheckNativeTypeRequest](metajolie.md#CheckNativeTypeRequest)           | [CheckNativeTypeResponse](metajolie.md#CheckNativeTypeResponse)           |                                                                                                                                                                                                         |
 
 ## Operation Description
 
@@ -160,9 +163,9 @@ type GetMetaDataResponse: void {
 * `types : void` : the definitions of all the types
 * `service : void` : the definition of the service
 * `embeddedServices : void` : the definitions of all the embedded services
-  * `servicepath : string` : path where the service can be found
-  * `type : string` : type of the embedded service
-  * `portId : string` : target output port where the embedded service is bound
+    * `servicepath : string` : path where the service can be found
+    * `type : string` : type of the embedded service
+    * `portId : string` : target output port where the embedded service is bound
 
 #### Possible faults thrown
 
@@ -227,8 +230,8 @@ type MessageTypeCastRequest: void {
 `MessageTypeCastRequest : void`
 
 * `types : void` : the types to use for casting the message
-  * `types : void` : list of all the required types
-  * `messageTypeName : void` : starting type to user for casting
+    * `types : void` : list of all the required types
+    * `messageTypeName : void` : starting type to user for casting
 * `message : any` : the message to be cast
 
 #### Response type <a id="MessageTypeCastResponse"></a>
@@ -354,4 +357,3 @@ type Fault: void { .type_name?: Name .name: Name }
 ```jolie
 type Service: void { .output*: Name .input*: void { .domain: string .name: string } .name: Name }
 ```
-

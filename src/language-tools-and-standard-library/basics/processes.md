@@ -1,10 +1,10 @@
 # Processes
 
-In Jolie a _process_ is a running instance of a behaviour whereas a _session_ is a process in charge to serve one or more requests. The two concepts are quite similar, thus the two terms could be used for referring the same entity. The only difference is that a process is a term which refers to an executable entity inside a Jolie engine, whereas a session is an entity which represents an open conversation among two or more services. Briefly, the _process_ can be considered as the executable artifact which animates a session. A session always starts when triggered from an external message, whereas a processalways starts when a session is trigerred or when a Jolie script is run.
+In Jolie a _process_ is a running instance of a behaviour whereas a _session_ is a process in charge to serve one or more requests. The two concepts are quite similar, thus the two terms could be used for referring the same entity. The only difference is that a process is a term which refers to an executable entity inside a Jolie engine, whereas a session is an entity which represents an open conversation among two or more services. Briefly, the _process_ can be considered as the executable artifact which animates a session. A session always starts when triggered from an external message, whereas a process always starts when a session is triggered or when a Jolie script is run.
 
 ## Execution modality
 
-The execution modality permits to specify the way a process must be executed whithin the engine. An process can be executed in three modalities:
+The execution modality permits to specify the way a process must be executed within the engine. An process can be executed in three modalities:
 
 * single
 * sequential
@@ -30,9 +30,9 @@ include "NewsPaperInterface.iol"
 execution{ concurrent }
 
 inputPort NewsPaperPort {
-  Location:"auto:ini:/Locations/NewsPaperPort:file:locations.ini"
-  Protocol: sodep
-  Interfaces: NewsPaperInterface
+    Location:"auto:ini:/Locations/NewsPaperPort:file:locations.ini"
+    Protocol: sodep
+    Interfaces: NewsPaperInterface
 }
 
 main {
@@ -57,13 +57,13 @@ include "console.iol"
 execution{ concurrent }
 
 inputPort NewsPaperPort {
-  Location:"auto:ini:/Locations/NewsPaperPort:file:locations.ini"
-  Protocol: sodep
-  Interfaces: NewsPaperInterface
+    Location:"auto:ini:/Locations/NewsPaperPort:file:locations.ini"
+    Protocol: sodep
+    Interfaces: NewsPaperInterface
 }
 
 init {
-     println@Console("The service is running...")()
+    println@Console("The serv[ice is running...")()
 }
 
 main {
@@ -90,7 +90,7 @@ global.myGlobalVariable = 3 // Global variable
 myLocalVariable = 1 // Local to this behaviour instance
 ```
 
-In the example reportes at this [link](https://github.com/jolie/examples/tree/master/02_basics/7_global) it is shown the difference between a global variable and a local variable. The server is defined as it follows:
+In the example reporters at this [link](https://github.com/jolie/examples/tree/master/02_basics/7_global) it is shown the difference between a global variable and a local variable. The server is defined as it follows:
 
 ```jolie
 include "ServiceInterface.iol"
@@ -99,9 +99,9 @@ include "console.iol"
 execution{ concurrent }
 
 inputPort Test {
-  Location: "socket://localhost:9000"
-  Protocol: sodep
-  Interfaces: ServiceInterface
+    Location: "socket://localhost:9000"
+    Protocol: sodep
+    Interfaces: ServiceInterface
 }
 
 main {
@@ -167,7 +167,7 @@ As an example, let us consider the service reported at this [link](https://githu
 
 The register service has a concurrent execution and exposes the `register` request-response operation. `register` increments a global variable, which counts the number of registered users, and sends back a response to the client. A _sleep_ call to time service, simulates the server side computation time.
 
-_regInterface.ol_
+_regInterface.ol_/
 
 ```jolie
 type register: void {
@@ -179,7 +179,7 @@ interface RegInterface {
 }
 ```
 
-_server.ol_
+_server.ol_/
 
 ```jolie
 include "regInterface.iol"
@@ -243,5 +243,4 @@ main
 }
 ```
 
-If executed, it is possible to observe that the parallel calls of the client are sequentialized by the service thanks to the primitive _synchronized_ which implements a mutual access of the scope _syncToken_.
-
+If executed, it is possible to observe that the parallel calls of the client are serialized by the service thanks to the primitive _synchronized_ which implements a mutual access of the scope _syncToken_.

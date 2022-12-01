@@ -2,7 +2,7 @@
 
 Web Services represent a special category of services. They are characterized by the usage of a set of specific XML based technologies like WSDL and SOAP. A Jolie service can both invoke existing web services and being exposed as a Web Service. It is very easy to do so, it is sufficient to parameterized a Jolie port \(input or output\) to use the protocol [soap](../protocols/soap.md) or the protocol soaps.
 
-![](../../.gitbook/assets/webservices.png)
+![](../../assets/image/webservices.png)
 
 ## Exposing a web service
 
@@ -111,4 +111,3 @@ main {
 ```
 
 As it is possible to note, within a jolie service the the web service just appears as a simple output port called `MyServiceSOAPPortServicePort` and it can be invoked as a standard jolie service. The complete code of the example may be consulted at this [link](https://github.com/jolie/examples/tree/master/08_web_services/02_invoking_a_web_service)
-

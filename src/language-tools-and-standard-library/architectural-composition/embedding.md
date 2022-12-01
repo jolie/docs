@@ -22,13 +22,14 @@ Embedding produces a hierarchy of services where the embedder is the parent serv
 
 Command line parameters can also be passed within the embedding path.
 
+<!-- cSpell:ignore Macroservices, Macroservice -->
 ## Macroservices
 
 Here we introduce the concept of _macroservice_ as a unique execution context for a set of microservices. One or more microservices can be executed within the same execution context. When there is only one microservice, the definition of a macroservice corresponds with the same of microservice. A macroservice exhibit only the public available ports of the inner microservices. The ports that are not reachable by external invokers are considered internal ports and they are hidden from the point of view of a macroservice. Operationally, a macroservice can be obtained by exploiting the embedding primitive.
 
-![](../../.gitbook/assets/macroservices.png)
+![](../../assets/image/macroservices.png)
 
-Graphically they are represented with a orange exagon.
+Graphically they are represented with a orange hexagon.
 
 ## Embedding Jolie Services
 
@@ -45,18 +46,18 @@ include "string_utils.iol"
 execution{ concurrent }
 
 outputPort CleanBr {
-  Interfaces: CleanBrInterface
+    Interfaces: CleanBrInterface
 }
 
 embedded {
-  Jolie:
-    "clean_br.ol" in CleanBr
+    Jolie:
+        "clean_br.ol" in CleanBr
 }
 
 inputPort CleanDiv {
-  Location: "socket://localhost:9000"
-  Protocol: sodep
-  Interfaces: CleanDivInterface
+    Location: "socket://localhost:9000"
+    Protocol: sodep
+    Interfaces: CleanDivInterface
 }
 
 main {
@@ -68,11 +69,11 @@ main {
 }
 ```
 
-![](../../.gitbook/assets/embedding.png)
+![](../../assets/image/embedding.png)
 
 It is worth noting that:
 
-* the outputPort _CleanBr_ does not define nor the location and the procolo because they are set by the embedding primitive with localtion "local" and inner memory protocol.
+* the outputPort _CleanBr_ does not define nor the location and the protocol because they are set by the embedding primitive with location "local" and inner memory protocol.
 * the embedding primitive specifies the language "Jolie" because the service _clean\_br.ol_ is written in Jolie
 * the embedding primitive joins the service _clean\_br.ol_ with the outputPort _CleanBr_ thus implying that each time we use port CleanBr inside the behaviour we will invoke the embedded service:
 
@@ -84,7 +85,7 @@ cleanBr@CleanBr( request )( response )
 
 Note that the embedding primitive, together with the usage of in-memory communication, allows for hiding connections among embedded microservices. In the example above the connection between the service _clean\_div.ol_ and _clean\_br.ol_ is hidden by the embedding and no external microservices can call the inputPort of the microservice _clean\_br.ol_.
 
-![](../../.gitbook/assets/embedding2.png)
+![](../../assets/image/embedding2.png)
 
 ### Creating a script from a service architecture
 
@@ -131,19 +132,19 @@ execution{ concurrent }
 
 /* common interface of the embedded services */
 outputPort Operation {
-  Interfaces: OperationInterface
+    Interfaces: OperationInterface
 }
 
 inputPort Calculator {
-  Location: "socket://localhost:8000"
-  Protocol: sodep
-  Interfaces: CalculatorInterface
+    Location: "socket://localhost:8000"
+    Protocol: sodep
+    Interfaces: CalculatorInterface
 }
 
 define __embed_service {
     with( emb ) {
-      .filepath = __op + ".ol";
-      .type = "Jolie"
+        .filepath = __op + ".ol";
+        .type = "Jolie"
     };
     /* this is the Runtime service operation for dynamic embed files */
     loadEmbeddedService@Runtime( emb )( Operation.location );
@@ -153,26 +154,26 @@ define __embed_service {
 }
 
 main {
-  [ sum( request )( response ) {
-      __op = "sum";
-      /* here we call the define __embed_service where the variable __p is the name of the operation */
-      __embed_service
-  }]
+    [ sum( request )( response ) {
+        __op = "sum";
+        /* here we call the define __embed_service where the variable __p is the name of the operation */
+        __embed_service
+    }]
 
-  [ mul( request )( response ) {
-      __op = "mul";
-      __embed_service
-  }]
+    [ mul( request )( response ) {
+        __op = "mul";
+        __embed_service
+    }]
 
-  [ div( request )( response ) {
-      __op = "div";
-      __embed_service
-  }]
+    [ div( request )( response ) {
+        __op = "div";
+        __embed_service
+    }]
 
-  [ sub( request )( response ) {
-    __op = "sub";
-    __embed_service
-  }]
+    [ sub( request )( response ) {
+        __op = "sub";
+        __embed_service
+    }]
 }
 ```
 
@@ -180,15 +181,14 @@ The definition _embed\_service_ it is called within each operation offered by th
 
 ```jolie
 type RequestType: void {
-  .x: double
-  .y: double
+    .x: double
+    .y: double
 }
 
 interface OperationInterface {
-  RequestResponse:
-    run( RequestType )( double )
+    RequestResponse:
+        run( RequestType )( double )
 }
 ```
 
 It is worth noting that the embedded service is running once for each enabled session then it expires. Thus each call produce a new specific embedding for that call.
-

@@ -1,12 +1,15 @@
+<!-- cSpell:disable -->
+<!-- markdownlint-disable -->
+<!-- editorconfig-checker-disable -->
 # IniUtils
 
-Inclusion code: 
+Inclusion code:
 
-| Service Deployment |  |  |  |
-| :--- | :--- | :--- | :--- |
-| Port Name | Location | Protocol | Interfaces |
-| IniUtils documentation: |  |  |  |
-| IniUtils | - | - | [IniUtilsInterface](ini_utils.md#IniUtilsInterface) |
+| Service Deployment      |          |          |                                                     |
+|:------------------------|:---------|:---------|:----------------------------------------------------|
+| Port Name               | Location | Protocol | Interfaces                                          |
+| IniUtils documentation: |          |          |                                                     |
+| IniUtils                | -        | -        | [IniUtilsInterface](ini_utils.md#IniUtilsInterface) |
 
 ### List of Available Interfaces
 
@@ -14,9 +17,9 @@ Inclusion code:
 
 Interface documentation:
 
-| Operation Name | Input Type | Output Type | Faults |
-| :--- | :--- | :--- | :--- |
-| [parseIniFile](ini_utils.md#parseIniFile) | [parseIniFileRequest](ini_utils.md#parseIniFileRequest) | [IniData](ini_utils.md#IniData) |  |
+| Operation Name                            | Input Type                                              | Output Type                     | Faults |
+|:------------------------------------------|:--------------------------------------------------------|:--------------------------------|:-------|
+| [parseIniFile](ini_utils.md#parseIniFile) | [parseIniFileRequest](ini_utils.md#parseIniFileRequest) | [IniData](ini_utils.md#IniData) |        |
 
 ## Operation Description
 
@@ -53,4 +56,3 @@ type IniData: undefined
 ```
 
 `IniData : void`
-

@@ -1,10 +1,10 @@
 # Java Client
 
-The creation of a Java Client allows for an easy integration with an existing Jolie service from a Java application by simply using the sodep protocol. In this case you don't need to introduce a rest interface over a http protocol, or a SOAP communication layer, you can just explott the easiest way offered by Jolie for building a service: the protocol [SODEP](../../protocols/sodep.md).
+The creation of a Java Client allows for an easy integration with an existing Jolie service from a Java application by simply using the sodep protocol. In this case you don't need to introduce a rest interface over a http protocol, or a SOAP communication layer, you can just exploit the easiest way offered by Jolie for building a service: the protocol [SODEP](../../protocols/sodep.md).
 
 In the following picture we briefly represent how the final architecture of the Jolie Client appears.
 
-![](../../../.gitbook/assets/jolie_client.png)
+![](../../../assets/image/jolie_client.png)
 
 The Java client for a Jolie service can be automatically built starting from a Jolie outputPort declaration. In particular, the client takes the form of a package of classes where all the Jolie types declared in the interfaces used at the input port, are converted into classes in Java. Moreover, all the Jolie interfaces available at the given port are converted into one Java interface. An implementation of the Java interface is provided in order to easily call the Jolie service by exploiting the Jolie Java client.
 
@@ -31,7 +31,7 @@ where all the possible arguments to the tool are specified. They are:
 
 * `--format`: it can be `java` or `gwt` depending on the target technology. The default is `java`. **Note that the generation of the gwt classes is deprecated**
 * `--packageName`: it is the name of the package which will contain all the generated classes. It is a mandatory argument.
-* `--targetPort`: it is the name of the outputPort to be converted. It could be usedful where the jolie file containes more than one outputPort and we just need to convert one of them. If it is not specified all the output ports will be converted.
+* `--targetPort`: it is the name of the outputPort to be converted. It could be useful where the jolie file contains more than one outputPort and we just need to convert one of them. If it is not specified all the output ports will be converted.
 * `--outputDirectory`: it is the name of the output directory where the generated files will be stored. The default value is `./generated`
 * `--buildXml`: it specifies if the tool must generate also the file `build.xml` which can be used by _ant_ for building the generated classes and provide a unique library file in the form of a jar file. The default is `true`.
 * `--addSource`: when the generation of the file `build.xml` is enabled it specifies if adding also the sources \(files .java\) to the jar. The default is `false`. In case the argument `buildXml` is set to `false` it is ignored.
@@ -47,13 +47,13 @@ type GetTemperatureRequest: string {
 }
 
 type GetWindRequest: void {
-  .city: string
+    .city: string
 }
 
 interface ForecastInterface {
 RequestResponse:
-  getTemperature( GetTemperatureRequest )( double ),
-  getWind( GetWindRequest )( double )
+    getTemperature( GetTemperatureRequest )( double ),
+    getWind( GetWindRequest )( double )
 }
 ```
 
@@ -110,8 +110,8 @@ Files `Controller.java` and `JolieClient.java` actually implement the client for
 * int -&gt; Integer
 * string -&gt; String
 * double -&gt; Double
-* long -&gt; Long 
-* bool -&gt; Booelan
+* long -&gt; Long
+* bool -&gt; Boolean
 * raw -&gt; ByteArray _\(it is an class available from the jolie.jar library\)_
 * undefined -&gt; Value _\(it is an class available from the jolie.jar library\)_
 * any -&gt; Object
@@ -134,14 +134,14 @@ public class GetTemperatureRequest implements Jolie2JavaInterface {
 
 In order to use the generated classes in a Java project it is possible to copy them by hand and then compile them. Note that you need to import also the directories which define the package name given as argument `com/test/jolie`. It is worth noting that you need to add the following libraries to your project in order to satisfy the dependencies:
 
-* `jolie.jar`: 
+* `jolie.jar`:
 * `libjolie.jar`
 * `sodep.jar`
 * `jolie-java.jar`
 
 It is possible to retrieve all of them in the installation folder of Jolie. In particular, `jolie.jar` is in the installation folder, `libjolie.jar` and `jolie-java.jar` are in the folder `lib` and, finally, `sodep.jar` is in the folder `extensions`.
 
-Alternatively, if you are confindent with [ant](https://ant.apache.org/) you can directly compile a distributable jar by exploiting the generated file `build.xml`. In this case it is sufficient to run the following command on the console from the same folder where the file `build.xml` is:
+Alternatively, if you are confident with [ant](https://ant.apache.org/) you can directly compile a distributable jar by exploiting the generated file `build.xml`. In this case it is sufficient to run the following command on the console from the same folder where the file `build.xml` is:
 
 ```text
 ant dist
@@ -157,7 +157,7 @@ The command generates three folders:
 
 Let us now to show how to use the generated client into a Java project. First of all, include the following jar files in the classpath of your project:
 
-* `jolie.jar`: 
+* `jolie.jar`:
 * `libjolie.jar`
 * `sodep.jar`
 * `jolie-java.jar`
@@ -184,7 +184,7 @@ public class JavaApplication
 }
 ```
 
-* before using the client, it is necessary to initialize the location and the port of the service to invoke. The first row of the main does this: 
+* before using the client, it is necessary to initialize the location and the port of the service to invoke. The first row of the main does this:
 
 `JolieClient.init( "localhost", 8000 );`
 
@@ -202,54 +202,54 @@ public class JavaApplication
 
 ### Using the jolie2java-maven-plugin
 
-For those who are using [maven](https://maven.apache.org/) for managing their Java projecs, it is possible to use `jolie2java` within a specific maven plugin: `jolie2java-maven-plugin`. Just add the following lines to the pom of your project and the `jolie2java` tool can be used within the maven Lifecycle:
+For those who are using [maven](https://maven.apache.org/) for managing their Java projects, it is possible to use `jolie2java` within a specific maven plugin: `jolie2java-maven-plugin`. Just add the following lines to the pom of your project and the `jolie2java` tool can be used within the maven Lifecycle:
 
 ```xml
 <!--dependencies-->
 <dependency>
-  <groupId>jolie</groupId>
-  <artifactId>jolie</artifactId>
-  <version>1.8.1</version>
+    <groupId>jolie</groupId>
+    <artifactId>jolie</artifactId>
+    <version>1.8.1</version>
 </dependency>
 <dependency>
-  <groupId>jolie</groupId>
-  <artifactId>libjolie</artifactId>
-  <version>1.8.1</version>
+    <groupId>jolie</groupId>
+    <artifactId>libjolie</artifactId>
+    <version>1.8.1</version>
 </dependency>
 <dependency>
-  <groupId>jolie</groupId>
-  <artifactId>jolie-java</artifactId>
-  <version>1.8.1</version>
+    <groupId>jolie</groupId>
+    <artifactId>jolie-java</artifactId>
+    <version>1.8.1</version>
 </dependency>
 <dependency>
-  <groupId>jolie</groupId>
-  <artifactId>sodep</artifactId>
-  <version>1.8.1</version>
+    <groupId>jolie</groupId>
+    <artifactId>sodep</artifactId>
+    <version>1.8.1</version>
 </dependency>
 
 <!-- maven plugin -->
 <build>
-      <plugins>
-          <plugin>
-              <groupId>jolie</groupId>
-              <artifactId>jolie2java-maven-plugin</artifactId>
-              <version>1.0.0</version>
-              <configuration>
-                  <joliePath>...</joliePath>
-                  <outputDirectory>...</outputDirectory>
-                  <packageName>...</packageName>
-          <includePath>...</includePath>
-              </configuration>
-              <executions>
-                  <execution>
-                      <goals>
-                          <goal>joliegen</goal>
-                      </goals>
-                  </execution>
-              </executions>
-          </plugin>
-      </plugins>
-  </build>
+    <plugins>
+        <plugin>
+            <groupId>jolie</groupId>
+            <artifactId>jolie2java-maven-plugin</artifactId>
+            <version>1.0.0</version>
+            <configuration>
+                <joliePath>...</joliePath>
+                <outputDirectory>...</outputDirectory>
+                <packageName>...</packageName>
+                <includePath>...</includePath>
+            </configuration>
+            <executions>
+                <execution>
+                    <goals>
+                        <goal>joliegen</goal>
+                    </goals>
+                </execution>
+            </executions>
+        </plugin>
+    </plugins>
+</build>
 ```
 
 where the configuration parameters are:
@@ -260,4 +260,3 @@ where the configuration parameters are:
 * _includePath_: the path where the jolie standard library include files are stored. Default `/usr/lib/jolie/include`.
 
 Note that the `jolie2java-maven-plugin` will be run during the `generated-sources` phase of maven, thus before the compilation one. So, take care to specify an outputDirectory inside your project which can be accessed by maven during the compilation.
-

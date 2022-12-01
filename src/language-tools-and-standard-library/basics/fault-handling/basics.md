@@ -78,14 +78,14 @@ main
 }
 ```
 
-It is worth noting that the fault is firstly cathed by the first handler defined within the scope _num\_scope_ which will execute the following code:
+It is worth noting that the fault is firstly catch by the first handler defined within the scope _num\_scope_ which will execute the following code:
 
 ```jolie
 println@Console( "Wrong!" )();
 throw( WrongNumberFault )
 ```
 
-It will print the string `"Wrong!"` in the console and then it will re-throw the fault to the parent scope, the scope _main_. At this point the seconf fault handler defined at the level of the main scope will be executed:
+It will print the string `"Wrong!"` in the console and then it will re-throw the fault to the parent scope, the scope _main_. At this point the second fault handler defined at the level of the main scope will be executed:
 
 ```jolie
 println@Console( "A wrong number has been inserted!" )()
@@ -139,13 +139,13 @@ inputPort Guess {
 
 init {
     secret = int(args[0]);
-  install( FaultMain =>
+    install( FaultMain =>
         println@Console( "A wrong number has been sent!" )()
     );
-  install( NumberException =>
-    println@Console( "Wrong number sent!" )();
-    throw( FaultMain )
-  )
+    install( NumberException =>
+        println@Console( "Wrong number sent!" )();
+        throw( FaultMain )
+    )
 }
 
 main
@@ -159,7 +159,7 @@ main
                 .number = number;
                 .exceptionMessage = "Wrong number, better luck next time!"
             };
-                /* here the throw also attach the exceptionMessage variable to the fault */
+            /* here the throw also attach the exceptionMessage variable to the fault */
             throw( NumberException, exceptionMessage )
         }
     }
@@ -181,7 +181,7 @@ scope ( scope_name )
 }
 ```
 
-In the server of the example above, it is obtained by the follwoing piece of code:
+In the server of the example above, it is obtained by the following piece of code:
 
 ```jolie
 with( exceptionMessage ){
@@ -204,7 +204,7 @@ main
 }
 ```
 
-It is worth noting that, in order to correctly reference fault data within a fault handler, it is necessary to specify the scope path where the fault is contained. The path is always built in the follwing way:
+It is worth noting that, in order to correctly reference fault data within a fault handler, it is necessary to specify the scope path where the fault is contained. The path is always built in the following way:
 
 * _name of the scope.Name of the fault.Node of the message to access_
 
@@ -232,4 +232,3 @@ scope ( s ){
 };
 println@Console( "Fault message from scope s: " + s.( s.default ).msg )()
 ```
-

@@ -18,36 +18,36 @@ This is an example of a primitive XML-RPC server:
 execution { concurrent }
 
 type SumRequest:void {
-  .param:void {
-    .x:int
-    .y:int
-    .z:void {
-      .a:int
-      .b:int
+    .param:void {
+        .x:int
+        .y:int
+        .z:void {
+            .a:int
+            .b:int
+        }
     }
-  }
 }
 
 type SumResponse:void {
-  .param:int
+    .param:int
 }
 
 interface SumInterface {
-  RequestResponse: 
-    sum(SumRequest)(SumResponse)
+    RequestResponse: 
+        sum(SumRequest)(SumResponse)
 }
 
 inputPort MyInput {
-  Location: "socket://localhost:8000/"
-  Protocol: xmlrpc { .debug = true }
-  Interfaces: SumInterface
+    Location: "socket://localhost:8000/"
+    Protocol: xmlrpc { .debug = true }
+    Interfaces: SumInterface
 }
 
 main
 {
-  [ sum( request )( response ) {
-    response.param = request.param.x + request.param.y + request.param.z.a + request.param.z.b
-  }]{ nullProcess }
+    [ sum( request )( response ) {
+        response.param = request.param.x + request.param.y + request.param.z.a + request.param.z.b
+    }]{ nullProcess }
 }
 ```
 
@@ -116,4 +116,3 @@ type XmlRpcConfiguration:void {
     .requestCompression?:string
 }
 ```
-

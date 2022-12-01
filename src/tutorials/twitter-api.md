@@ -10,11 +10,11 @@ Get a bearer token to access the Twitter API from Twitter at the page [https://d
 outputPort Twitter {
 location: "socket://api.twitter.com:443/"
 protocol: https {
-	addHeader.header << "Authorization" { value = "Bearer " + "<YOUR BEARER TOKEN>" }
-	osc << {
-		user_timeline << { alias = "1.1/statuses/user_timeline.json" method = "get" }
-		show << { alias = "1.1/statuses/show.json" method = "get" }
-	}
+    addHeader.header << "Authorization" { value = "Bearer " + "<YOUR BEARER TOKEN>" }
+    osc << {
+        user_timeline << { alias = "1.1/statuses/user_timeline.json" method = "get" }
+        show << { alias = "1.1/statuses/show.json" method = "get" }
+    }
 }
 RequestResponse: user_timeline, show
 }
@@ -29,25 +29,25 @@ Here is a full Jolie snippet that prints the latest 10 tweets by the [Jolie Twit
 outputPort Twitter {
 location: "socket://api.twitter.com:443/"
 protocol: https {
-	addHeader.header << "Authorization" { value = "Bearer " + "<YOUR BEARER TOKEN>" }
-	osc << {
-		user_timeline << { alias = "1.1/statuses/user_timeline.json" method = "get" }
-		show << { alias = "1.1/statuses/show.json" method = "get" }
-	}
+    addHeader.header << "Authorization" { value = "Bearer " + "<YOUR BEARER TOKEN>" }
+    osc << {
+        user_timeline << { alias = "1.1/statuses/user_timeline.json" method = "get" }
+        show << { alias = "1.1/statuses/show.json" method = "get" }
+    }
 }
 RequestResponse: user_timeline, show
 }
 
 main
 {
-	user_timeline@Twitter( {
-		screen_name = "jolielang"
-		count = 10
-		tweet_mode = "extended" // get full tweets
-	} )( tweetList )
-	for( tweet in tweetList._ ) { // JSON arrays are stored in _
-		println@Console( tweet.full_text )()
-	}
+    user_timeline@Twitter( {
+        screen_name = "jolielang"
+        count = 10
+        tweet_mode = "extended" // get full tweets
+    } )( tweetList )
+    for( tweet in tweetList._ ) { // JSON arrays are stored in _
+        println@Console( tweet.full_text )()
+    }
 }
 ```
 
@@ -76,13 +76,13 @@ This translates to the following output port configuration in Jolie. You have to
 outputPort Twitter {
 location: "socket://api.twitter.com:443/"
 protocol: https {
-	addHeader.header << "Authorization" { value = "Bearer " + "<YOUR BEARER TOKEN>" }
-	osc << { // "operation-specific configuration"
-		user_timeline << { // Configuration for operation user_timeline
-			alias = "1.1/statuses/user_timeline.json" // the resource path
-			method = "get" // the HTTP method to use
-		}
-	}
+    addHeader.header << "Authorization" { value = "Bearer " + "<YOUR BEARER TOKEN>" }
+    osc << { // "operation-specific configuration"
+        user_timeline << { // Configuration for operation user_timeline
+            alias = "1.1/statuses/user_timeline.json" // the resource path
+            method = "get" // the HTTP method to use
+        }
+    }
 }
 RequestResponse: user_timeline
 }
@@ -96,37 +96,38 @@ We can now use our output port to access the Twitter API. Continuing with our ex
 include "console.iol"
 
 outputPort Twitter {
-	/* put the output port code from above here */
+    /* put the output port code from above here */
 }
 
 main
 {
-	user_timeline@Twitter( {
-		screen_name = "jolielang"
-		count = 10
-		tweet_mode = "extended" // get full tweets
-	} )( tweetList )
-	for( tweet in tweetList._ ) { // JSON arrays are stored in _
-		println@Console( tweet.full_text )()
-	}
+    user_timeline@Twitter( {
+        screen_name = "jolielang"
+        count = 10
+        tweet_mode = "extended" // get full tweets
+    } )( tweetList )
+    for( tweet in tweetList._ ) { // JSON arrays are stored in _
+        println@Console( tweet.full_text )()
+    }
 }
 ```
 
 ### Adding more operations
 
-You can add more operations simply by adding the corresponding entries to the protocol configuratoin and the interface of the port. For example, the following code extends our previous output port to offer also the `home_timeline` operation (see [https://developer.twitter.com/en/docs/tweets/timelines/api-reference/get-statuses-home_timeline](https://developer.twitter.com/en/docs/tweets/timelines/api-reference/get-statuses-home_timeline)).
+You can add more operations simply by adding the corresponding entries to the protocol configurations and the interface of the port. For example, the following code extends our previous output port to offer also the `home_timeline` operation (see [https://developer.twitter.com/en/docs/tweets/timelines/api-reference/get-statuses-home_timeline](https://developer.twitter.com/en/docs/tweets/timelines/api-reference/get-statuses-home_timeline)).
 
 ```jolie
 outputPort Twitter {
-location: "socket://api.twitter.com:443/"
-protocol: https {
-	addHeader.header << "Authorization" { value = "Bearer " + "<YOUR BEARER TOKEN>" }
-	osc << {
-		user_timeline << { alias = "1.1/statuses/user_timeline.json" method = "get" }
-		home_timeline << { alias = "1.1/statuses/home_timeline.json" method = "get" }
-	}
-}
-RequestResponse: user_timeline, home_timeline
+    location: "socket://api.twitter.com:443/"
+    protocol: https {
+        addHeader.header << "Authorization" { value = "Bearer " + "<YOUR BEARER TOKEN>" 
+        }
+        osc << {
+            user_timeline << { alias = "1.1/statuses/user_timeline.json" method = "get" }
+            home_timeline << { alias = "1.1/statuses/home_timeline.json" method = "get" }
+        }
+    }
+    RequestResponse: user_timeline, home_timeline
 }
 ```
 
@@ -140,21 +141,21 @@ For example, to read the bearer token from an environment variable and use it to
 include "runtime.iol" // Include the Runtime service
 
 outputPort Twitter {
-location: "socket://api.twitter.com:443/"
-protocol: https {
-	// No hardcoded authorization header
-	osc << {
-		user_timeline << { alias = "1.1/statuses/user_timeline.json" method = "get" }
-		/* More operation configurations ... */
-	}
-}
-RequestResponse: user_timeline /* More operations... */
+    location: "socket://api.twitter.com:443/"
+    protocol: https {
+        // No hardcoded authorization header
+    osc << {
+        user_timeline << { alias = "1.1/statuses/user_timeline.json" method = "get" }
+        /* More operation configurations ... */
+        }
+    }
+    RequestResponse: user_timeline /* More operations... */
 }
 
 init
 {
-	// Read the bearer token from the environment variable BEARER_TOKEN
-	getenv@Runtime( "BEARER_TOKEN" )( bearerToken )
-	Twitter.protocol.addHeader.header << "Authorization" { value = "Bearer " + bearerToken }
+    // Read the bearer token from the environment variable BEARER_TOKEN
+    getenv@Runtime( "BEARER_TOKEN" )( bearerToken )
+    Twitter.protocol.addHeader.header << "Authorization" { value = "Bearer " + bearerToken }
 }
 ```

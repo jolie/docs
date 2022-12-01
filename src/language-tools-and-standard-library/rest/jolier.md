@@ -1,6 +1,6 @@
 # jolier
 
-`jolier` is a tool distributed with jolie which permits to easily deploy a jolie microservice as a REST service. jolier requires three parameters to work together with two other optional parameters. Morevoer, it requires a mapping file called _rest\_template.json_ to be read at the boot for creating the mapping between the rest calls and the target operations. If you type the command in a shell without any argument, the following message will be prompt to the console:
+`jolier` is a tool distributed with jolie which permits to easily deploy a jolie microservice as a REST service. jolier requires three parameters to work together with two other optional parameters. Moreover, it requires a mapping file called _rest\_template.json_ to be read at the boot for creating the mapping between the rest calls and the target operations. If you type the command in a shell without any argument, the following message will be prompt to the console:
 
 ```text
 Usage: jolier <service_filename> <input_port> <router_host> [-easyInterface] [-debug]
@@ -28,13 +28,13 @@ Usage: jolier <service_filename> <input_port> <router_host> [-easyInterface] [-d
 * **\[-trustStorePassword\]**: sets the trustStore password
 * **\[-sslProtocol\]**: sets the ssl protocol
 
-To generate the ssl certificate you can use the [keytool](https://docs.oracle.com/javase/6/docs/technotes/tools/windows/keytool.html) or indicate the location of your preexisting java supported keystore file.
+To generate the ssl certificate you can use the [keytool](https://docs.oracle.com/javase/6/docs/technotes/tools/windows/keytool.html) or indicate the location of your java supported keystore file.
 
 **NOTE**: You need to pay particular attention on key file location parameters if you are deploying your REST service with a Docker image.
 
 ## Defining the rest calls mapping
 
-The mapping of the rest templates is defined within file `rest_templates.json`. It is a json file structured as key value map, where the key reports the name of the target operation whereas the value reports the related call information to be used in the rest call. Here we presen an example of a key value pair:
+The mapping of the rest templates is defined within file `rest_templates.json`. It is a json file structured as key value map, where the key reports the name of the target operation whereas the value reports the related call information to be used in the rest call. Here we present an example of a key value pair:
 
 ```json
 {
@@ -58,24 +58,24 @@ where the `operation_name` is used when no template is given.
 
 ## Restrictions on rest calls mapping
 
-* when method `get` is specified, all the parameters of the request must be specified within the url. Thus the target request message type cannot have structured type defined, but it can only be defined as a flat list of nodes. As an example the follwong type is sound with the template above: 
+* when method `get` is specified, all the parameters of the request must be specified within the url. Thus the target request message type cannot have structured type defined, but it can only be defined as a flat list of nodes. As an example the follwong type is sound with the template above:
 
-  ```jolie
-  type GetOrdersType: void {
+```jolie
+type GetOrdersType: void {
     .userId: string
     .maxItems: int
-  }
-  ```
+}
+```
 
-  whereas the following one is not correct w.r.t. template `/orders/{userId}?maxItems={maxItems}`
+whereas the following one is not correct w.r.t. template `/orders/{userId}?maxItems={maxItems}`
 
-  ```jolie
-  type GetOrdersType: void {
+```jolie
+type GetOrdersType: void {
     .userId: string {
         .maxItems: int
-   }
-  }
-  ```
+    }
+}
+```
 
 * when `template` is not defined, the request will be completely read from the body of the message which must match the stype structure of the target operation
 * in case of methods `post`, `put` and `delete` it is possible to place part of the parameters inside the url and the rest of them in the body. In this case the request type of the target operation must contain all of them and they must be defined as a list of flat nodes.
@@ -110,4 +110,3 @@ Once run, it is possible to try to invoke it using a common tool for sending RES
 ```text
 http://localhost:8000/orders/myuser?maxItems=0
 ```
-

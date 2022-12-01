@@ -36,19 +36,19 @@ jolie --version
 ## Project Structure
 
 The new protocol we are going to implement is essentially a new sub-project in the Jolie repository.
-
+<!-- cSpell:ignore mysodep -->
 To prepare the structure of the project, we will not start from scratch but rather copy and modify a protocol already present. To do that, first access the folder where the Jolie repository was cloned. Then, let us open the folder named `extensions`. Here, we find the folder named `sodep` and we make a copy, naming the new folder e.g., `mysodep`. The choice to use `sodep` in our tutorial comes from the fact that its implementation is relatively small and just consists of three files, described below.
 
 ### pom.xml
 
 The file `pom.xml` is the file used by maven to compile the project. Any protocol written in Jolie uses the following parent block, groupId, version, and packaging:
 
-```markup
+```xml
 <parent>
-  <groupId>org.jolie-lang</groupId>
-  <artifactId>distribution</artifactId>
-  <relativePath>../../pom.xml</relativePath>
-  <version>1.0.0</version>
+    <groupId>org.jolie-lang</groupId>
+    <artifactId>distribution</artifactId>
+    <relativePath>../../pom.xml</relativePath>
+    <version>1.0.0</version>
 </parent>
 <groupId>org.jolie-lang</groupId>
 <artifactId>mysodep</artifactId>
@@ -58,18 +58,18 @@ The file `pom.xml` is the file used by maven to compile the project. Any protoco
 
 Note that only the `artifactId` changes from protocol to protocol. Here, we replaced the original `sodep` with `mysodep`.
 
-```markup
-    <name>mysodep</name>
-    <description>mySodep protocol for Jolie</description>
+```xml
+<name>mysodep</name>
+<description>mySodep protocol for Jolie</description>
 ```
 
 In the build block, the `manifestEntries` block contains information on the name of the protocol factory.
 
-```markup
+```xml
 <manifestEntries>
-  <X-JOLIE-ProtocolExtension>
-    mysodep:jolie.net.MySodepProtocolFactory  
-  </X-JOLIE-ProtocolExtension>
+    <X-JOLIE-ProtocolExtension>
+        mysodep:jolie.net.MySodepProtocolFactory  
+    </X-JOLIE-ProtocolExtension>
 </manifestEntries>
 ```
 
@@ -77,7 +77,7 @@ Here, change the `sodep` part to the name of your protocol \(`mysodep`\), and ch
 
 The last part of the `pom.xml` file is the implementation of dependencies. All protocols will have Jolie as a dependency, as written below.
 
-```markup
+```xml
 <dependencies>
     <dependency>
         <groupId>${project.groupId}</groupId>
@@ -101,25 +101,27 @@ Similarly to what we did before, we need to rename the file from `SodepProtocol.
 
 * The class name
 
-  public class mySodepProtocol extends ConcurrentCommProtocol
+```java
+public class mySodepProtocol extends ConcurrentCommProtocol
+```
 
 * The name method
 
-  ```jolie
-  public String name()
-  {
+```java
+public String name()
+{
     return "mysodep";
-  }
-  ```
+}
+```
 
 * The SodepProtocol method
 
-  ```jolie
-  public MySodepProtocol( VariablePath configurationPath )
-  {
+```java
+public MySodepProtocol( VariablePath configurationPath )
+{
     super( configurationPath );
-  }   
-  ```
+}   
+```
 
 ## First compilation and execution
 
@@ -135,7 +137,7 @@ to compile the extension. This will create an executable named `mysodep.jar` in 
 
 NOTE! To recompile the entire Jolie project, integrate your extension into the main Jolie `pom.xml` file, found in the repository root. This is done by adding the following line to the 'module' section of the `pom.xml` file.
 
-```markup
+```xml
 <module>extensions/mysodep</module>
 ```
 
@@ -182,16 +184,14 @@ In this section, we will use the new protocol, `mysodep`, to take a closer look 
 Any protocol factory needs to have two methods implemented to create output ports and input ports, respectively.
 
 ```java
-public CommProtocol createOutputProtocol( VariablePath configurationPath, URI location )
-  throws IOException
+public CommProtocol createOutputProtocol( VariablePath configurationPath, URI location ) throws IOException
 {
-  return new mySodepProtocol( configurationPath );
+    return new mySodepProtocol( configurationPath );
 } 
 
-public CommProtocol createInputProtocol( VariablePath configurationPath, URI location )
-  throws IOException
+public CommProtocol createInputProtocol( VariablePath configurationPath, URI location ) throws IOException
 {
-  return new mySodepProtocol( configurationPath );
+    return new mySodepProtocol( configurationPath );
 }
 ```
 
@@ -204,7 +204,7 @@ The method `name` labels the protocol and it is used by the Jolie interpreter to
 ```java
 public String name()
 {
-  return "mysodep";
+    return "mysodep";
 }
 ```
 
@@ -214,7 +214,7 @@ The method `recv`, handles incoming messages to be decoded into Jolie `CommMessa
 public CommMessage recv( InputStream istream, OutputStream ostream )
     throws IOException
 {
-  // ...
+    // ...
 }
 ```
 
@@ -241,11 +241,11 @@ public final boolean isThreadSafe()
 
 If our protocol implementation used some dependencies, they can be added in the `pom.xml` dependency block. For instance, if our protocol needs the `http` library in the Jolie project, like the existing protocol `soap`, then we can add the following lines the dependencies block in the `pom.xml` file.
 
-```markup
+```xml
 <dependency>
-  <groupId>${project.groupId}</groupId>
-  <artifactId>http</artifactId>
-  <version>${jolie.version}</version>
+    <groupId>${project.groupId}</groupId>
+    <artifactId>http</artifactId>
+    <version>${jolie.version}</version>
 </dependency>
 ```
 
@@ -264,4 +264,3 @@ Finally, to make the dependencies available at runtime, we add the annotation `@
     "jaxws/woodstox-core-asl.jar"
 })
 ```
-

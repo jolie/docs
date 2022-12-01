@@ -111,16 +111,16 @@ Combining `foreach` and dynamic look-up is very useful for navigating and handli
 include "console.iol"
 
 main {
-  animals.pet[0].name = "cat";
-  animals.pet[1].name = "dog";
-  animals.wild[0].name = "tiger";
-  animals.wild[1].name = "lion";
+    animals.pet[0].name = "cat";
+    animals.pet[1].name = "dog";
+    animals.wild[0].name = "tiger";
+    animals.wild[1].name = "lion";
 
-  foreach ( kind : animals ){
-    for ( i = 0, i < #animals.( kind ), i++ ) {
-        println@Console( "animals." + kind + "[" + i + "].name=" + animals.( kind )[ i ].name )()
+    foreach ( kind : animals ){
+        for ( i = 0, i < #animals.( kind ), i++ ) {
+            println@Console( "animals." + kind + "[" + i + "].name=" + animals.( kind )[ i ].name )()
+        }
     }
-  }
 }
 ```
 
@@ -196,22 +196,22 @@ In the example above the structure `animals` is completely copied in structure `
 
 For the sake of clarity a representation of the `zoo` structure is provided as it follows:
 
-```jolie
+```xml
 <zoo>
-  <sector_a>
-    <pet>
-      <name>cat</name>
-    </pet>
-    <pet>
-      <name>dog</name>
-    </pet>
-    <wild>
-      <name>tiger</name>
-    </wild>
-    <wild>
-      <name>lion</name>
-    </wild>
-  </sector_a>
+    <sector_a>
+        <pet>
+            <name>cat</name>
+        </pet>
+        <pet>
+            <name>dog</name>
+        </pet>
+        <wild>
+            <name>tiger</name>
+        </wild>
+        <wild>
+            <name>lion</name>
+        </wild>
+    </sector_a>
 </zoo>
 ```
 
@@ -276,17 +276,17 @@ Thus we can exploit aliases to make our code more readable even when handling de
 include "console.iol"
 
 main {
-  with ( a.b.c ){
-    .d[ 0 ] = "zero";
-    .d[ 1 ] = "one";
-    .d[ 2 ] = "two";
-    .d[ 3 ] = "three"
-  };
-  currentElement -> a.b.c.d;
+    with ( a.b.c ){
+        .d[ 0 ] = "zero";
+        .d[ 1 ] = "one";
+        .d[ 2 ] = "two";
+        .d[ 3 ] = "three"
+    };
+    currentElement -> a.b.c.d;
 
-  for ( i = 0, i < #currentElement, i++ ) {
-      println@Console( currentElement[ i ] )()
-  }
+    for ( i = 0, i < #currentElement, i++ ) {
+        println@Console( currentElement[ i ] )()
+    }
 }
 ```
 
@@ -298,4 +298,3 @@ one
 two
 three
 ```
-

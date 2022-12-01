@@ -4,7 +4,7 @@
 
 Redirection allows for the creation of a service, called _proxy_, acting as a single communication endpoint for multiple services, called _resources_. Similarly to an [aggregator](aggregation.md), a proxy receives all the messages meant for the system that it handles, but it transparently exposes the resource names of the redirected services. Redirection is syntactically obtained by binding an input port of the proxy service to multiple output ports, each one identifying a service by means of a _resource name_.
 
-![](../../.gitbook/assets/redirection.png)
+![](../../assets/image/redirection.png)
 
 The main advantages of redirection are:
 
@@ -39,9 +39,9 @@ The resource name must be specified into the location of service to invoke withi
 
 ### Example
 
-In the following example we show a simple redirection scenario where a proxy provides a common endpoint for two services, _Sum_ and _Sub_, which performs addiction and substraction respecitvely. At this [link](https://github.com/jolie/examples/tree/master/04_architectural_composition/07_redirection/01_static_redirection) it is possible to check the complete code.
+In the following example we show a simple redirection scenario where a proxy provides a common endpoint for two services, _Sum_ and _Sub_, which performs addiction and subtraction respectively. At this [link](https://github.com/jolie/examples/tree/master/04_architectural_composition/07_redirection/01_static_redirection) it is possible to check the complete code.
 
-![](../../.gitbook/assets/redirection_example.png)
+![](../../assets/image/redirection_example.png)
 
 The redirection is obtained by simply using the `Redirects` keyword as explained above:
 
@@ -69,15 +69,15 @@ It is worth noting that, differently from an aggregation scenario where the clie
 
 ```jolie
 outputPort Sub {
-  Location: "socket://localhost:9000/!/Sub"
-  Protocol: sodep
-  Interfaces: SubInterface
+    Location: "socket://localhost:9000/!/Sub"
+    Protocol: sodep
+    Interfaces: SubInterface
 }
 
 outputPort Sum {
-  Location: "socket://localhost:9000/!/Sum"
-  Protocol: sodep
-  Interfaces: SumInterface
+    Location: "socket://localhost:9000/!/Sum"
+    Protocol: sodep
+    Interfaces: SumInterface
 }
 ```
 
@@ -87,5 +87,4 @@ From an architectural point of view, redirection and aggregation are different. 
 
 Redirection can be used for transparently transforming messages from a protocol to another. As an example let us consider the scenario discussed in the previous section where the redirector exposes a port using protocol `sodep` and but it internally communicates with the redirected services using protocol `http`. The complete code of the example can be found [here](https://github.com/jolie/examples/tree/master/04_architectural_composition/07_redirection/02_redirection_change_protocol).
 
-![](../../.gitbook/assets/redirection_example_protocol_sodep.png)
-
+![](../../assets/image/redirection_example_protocol_sodep.png)

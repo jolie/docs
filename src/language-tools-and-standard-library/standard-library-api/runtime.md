@@ -1,12 +1,15 @@
+<!-- cSpell:disable -->
+<!-- markdownlint-disable -->
+<!-- editorconfig-checker-disable -->
 # Runtime
 
-Inclusion code: 
+Inclusion code:
 
-| Service Deployment |  |  |  |
-| :--- | :--- | :--- | :--- |
-| Port Name | Location | Protocol | Interfaces |
-| Runtime documentation: |  |  |  |
-| Runtime | - | - | [RuntimeInterface](runtime.md#RuntimeInterface) |
+| Service Deployment     |          |          |                                                 |
+|:-----------------------|:---------|:---------|:------------------------------------------------|
+| Port Name              | Location | Protocol | Interfaces                                      |
+| Runtime documentation: |          |          |                                                 |
+| Runtime                | -        | -        | [RuntimeInterface](runtime.md#RuntimeInterface) |
 
 ### List of Available Interfaces
 
@@ -14,27 +17,27 @@ Inclusion code:
 
 Interface documentation:
 
-| Operation Name | Input Type | Output Type | Faults |
-| :--- | :--- | :--- | :--- |
-| [getVersion](runtime.md#getVersion) | void | string |  |
-| [loadLibrary](runtime.md#loadLibrary) | string | void |  IOException\( [IOExceptionType](runtime.md#IOExceptionType) \) |
-| [removeOutputPort](runtime.md#removeOutputPort) | string | void |  |
-| [setRedirection](runtime.md#setRedirection) | [SetRedirectionRequest](runtime.md#SetRedirectionRequest) | void |  RuntimeException\( [RuntimeExceptionType](runtime.md#RuntimeExceptionType) \) |
-| [getOutputPorts](runtime.md#getOutputPorts) | void | [GetOutputPortsResponse](runtime.md#GetOutputPortsResponse) |  |
-| [loadEmbeddedService](runtime.md#loadEmbeddedService) | [LoadEmbeddedServiceRequest](runtime.md#LoadEmbeddedServiceRequest) | any |  RuntimeException\( [RuntimeExceptionType](runtime.md#RuntimeExceptionType) \) |
-| [getOutputPort](runtime.md#getOutputPort) | [GetOutputPortRequest](runtime.md#GetOutputPortRequest) | [GetOutputPortResponse](runtime.md#GetOutputPortResponse) |  OutputPortDoesNotExist\( undefined \) |
-| [dumpState](runtime.md#dumpState) | void | string |  |
-| [getLocalLocation](runtime.md#getLocalLocation) | void | any |  |
-| [getRedirection](runtime.md#getRedirection) | [GetRedirectionRequest](runtime.md#GetRedirectionRequest) | [MaybeString](runtime.md#MaybeString) |  |
-| [setOutputPort](runtime.md#setOutputPort) | [SetOutputPortRequest](runtime.md#SetOutputPortRequest) | void |  |
-| [halt](runtime.md#halt) | [HaltRequest](runtime.md#HaltRequest) | void |  |
-| [callExit](runtime.md#callExit) | any | void |  |
-| [stats](runtime.md#stats) | void | [Stats](runtime.md#Stats) |  |
-| [removeRedirection](runtime.md#removeRedirection) | [GetRedirectionRequest](runtime.md#GetRedirectionRequest) | void |  RuntimeException\( [RuntimeExceptionType](runtime.md#RuntimeExceptionType) \) |
-| [setMonitor](runtime.md#setMonitor) | [SetMonitorRequest](runtime.md#SetMonitorRequest) | void |  |
-| [getProcessId](runtime.md#getProcessId) | void | string |  |
-| [getIncludePaths](runtime.md#getIncludePaths) | void | [GetIncludePathResponse](runtime.md#GetIncludePathResponse) |  |
-| [getenv](runtime.md#getenv) | string | [MaybeString](runtime.md#MaybeString) |  |
+| Operation Name                                        | Input Type                                                          | Output Type                                                 | Faults                                                                        |
+|:------------------------------------------------------|:--------------------------------------------------------------------|:------------------------------------------------------------|:------------------------------------------------------------------------------|
+| [getVersion](runtime.md#getVersion)                   | void                                                                | string                                                      |                                                                               |
+| [loadLibrary](runtime.md#loadLibrary)                 | string                                                              | void                                                        | IOException\( [IOExceptionType](runtime.md#IOExceptionType) \)                |
+| [removeOutputPort](runtime.md#removeOutputPort)       | string                                                              | void                                                        |                                                                               |
+| [setRedirection](runtime.md#setRedirection)           | [SetRedirectionRequest](runtime.md#SetRedirectionRequest)           | void                                                        | RuntimeException\( [RuntimeExceptionType](runtime.md#RuntimeExceptionType) \) |
+| [getOutputPorts](runtime.md#getOutputPorts)           | void                                                                | [GetOutputPortsResponse](runtime.md#GetOutputPortsResponse) |                                                                               |
+| [loadEmbeddedService](runtime.md#loadEmbeddedService) | [LoadEmbeddedServiceRequest](runtime.md#LoadEmbeddedServiceRequest) | any                                                         | RuntimeException\( [RuntimeExceptionType](runtime.md#RuntimeExceptionType) \) |
+| [getOutputPort](runtime.md#getOutputPort)             | [GetOutputPortRequest](runtime.md#GetOutputPortRequest)             | [GetOutputPortResponse](runtime.md#GetOutputPortResponse)   | OutputPortDoesNotExist\( undefined \)                                         |
+| [dumpState](runtime.md#dumpState)                     | void                                                                | string                                                      |                                                                               |
+| [getLocalLocation](runtime.md#getLocalLocation)       | void                                                                | any                                                         |                                                                               |
+| [getRedirection](runtime.md#getRedirection)           | [GetRedirectionRequest](runtime.md#GetRedirectionRequest)           | [MaybeString](runtime.md#MaybeString)                       |                                                                               |
+| [setOutputPort](runtime.md#setOutputPort)             | [SetOutputPortRequest](runtime.md#SetOutputPortRequest)             | void                                                        |                                                                               |
+| [halt](runtime.md#halt)                               | [HaltRequest](runtime.md#HaltRequest)                               | void                                                        |                                                                               |
+| [callExit](runtime.md#callExit)                       | any                                                                 | void                                                        |                                                                               |
+| [stats](runtime.md#stats)                             | void                                                                | [Stats](runtime.md#Stats)                                   |                                                                               |
+| [removeRedirection](runtime.md#removeRedirection)     | [GetRedirectionRequest](runtime.md#GetRedirectionRequest)           | void                                                        | RuntimeException\( [RuntimeExceptionType](runtime.md#RuntimeExceptionType) \) |
+| [setMonitor](runtime.md#setMonitor)                   | [SetMonitorRequest](runtime.md#SetMonitorRequest)                   | void                                                        |                                                                               |
+| [getProcessId](runtime.md#getProcessId)               | void                                                                | string                                                      |                                                                               |
+| [getIncludePaths](runtime.md#getIncludePaths)         | void                                                                | [GetIncludePathResponse](runtime.md#GetIncludePathResponse) |                                                                               |
+| [getenv](runtime.md#getenv)                           | string                                                              | [MaybeString](runtime.md#MaybeString)                       |                                                                               |
 
 ## Operation Description
 
@@ -199,9 +202,9 @@ type GetOutputPortsResponse: void {
 `GetOutputPortsResponse : void`
 
 * `port : void` : The output ports used by this interpreter
-  * `protocol : string` : The protocol name of the output port
-  * `name : string` : The name of the output port
-  * `location : string` : The location of the output port
+    * `protocol : string` : The protocol name of the output port
+    * `name : string` : The name of the output port
+    * `location : string` : The location of the output port
 
 ### loadEmbeddedService <a id="loadEmbeddedService"></a>
 
@@ -381,8 +384,8 @@ type MaybeString: void | string
 
 `MaybeString :`
 
-*  `: void`
-*  `: string`
+* `: void`
+* `: string`
 
 ### setOutputPort <a id="setOutputPort"></a>
 
@@ -509,14 +512,14 @@ type Stats: void {
 `Stats : void` : Information on the interpreter execution so far
 
 * `os : void` : OS-related information
-  * `availableProcessors : int` : Number of available processors
-  * `systemLoadAverage : double` : System load average
-  * `name : string` : Name of the OS
-  * `arch : string` : Architecture
-  * `version : string` : OS version
+    * `availableProcessors : int` : Number of available processors
+    * `systemLoadAverage : double` : System load average
+    * `name : string` : Name of the OS
+    * `arch : string` : Architecture
+    * `version : string` : OS version
 * `files : void` : Information on file descriptors
-  * `openCount : long` : Number of open files
-  * `maxCount : long` : Maximum number of open files allowed for this VM
+    * `openCount : long` : Number of open files
+    * `maxCount : long` : Maximum number of open files allowed for this VM
 
 ### removeRedirection <a id="removeRedirection"></a>
 
@@ -674,8 +677,8 @@ type MaybeString: void | string
 
 `MaybeString :`
 
-*  `: void`
-*  `: string`
+* `: void`
+* `: string`
 
 ### Subtypes
 
@@ -684,4 +687,3 @@ type MaybeString: void | string
 ```jolie
 type JavaExceptionType: string { .stackTrace: string }
 ```
-

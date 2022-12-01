@@ -142,7 +142,7 @@ main {
 }
 ```
 
-Note that the approach is the same of that we used for string contents with the difference that we specify also the parameter `format="binary"` for the operation `readFile@File`. Such a parameter enables jolie to intepreting the content of the file as a stream fo bytes which are represented as the native type `raw`. It is worth noting that the content of the reading is directly stored into the variable `rq.content`, this is why we just send variable `rq` with operation `setFile`.
+Note that the approach is the same of that we used for string contents with the difference that we specify also the parameter `format="binary"` for the operation `readFile@File`. Such a parameter enables jolie to interpreting the content of the file as a stream fo bytes which are represented as the native type `raw`. It is worth noting that the content of the reading is directly stored into the variable `rq.content`, this is why we just send variable `rq` with operation `setFile`.
 
 On the server side the code is:
 
@@ -175,4 +175,3 @@ main {
 ```
 
 Also in this case we enable the usage of binaries setting the parameter `format="binary"` for operation `writeFile`. Note that in this example the file read is a pdf file.
-

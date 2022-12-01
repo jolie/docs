@@ -1,3 +1,4 @@
+<!-- cSpell: ignore helloservice TESTVAR -->
 # Docker
 
 [Docker](https://www.docker.com/) is a containerization technology. This section is devoted to show how deploy a Jolie microservice inside a Docker container. Basically, the only thing to do is to create a **Dockerfile** which allows for creating a Docker image that can be used for generating containers.
@@ -12,7 +13,7 @@ Let us now consider an example of a very simple jolie service to be deployed int
 interface HelloInterface {
 
 RequestResponse:
-     hello( string )( string )
+    hello( string )( string )
 }
 
 execution{ concurrent }
@@ -25,9 +26,9 @@ Interfaces: HelloInterface
 }
 
 main {
-  hello( request )( response ) {
+    hello( request )( response ) {
         response = request
-  }
+    }
 }
 ```
 
@@ -35,7 +36,7 @@ The complete code of this example can be found [at this link](https://github.com
 
 ## Creating a docker image
 
-In order to create a docker image of this microservice, it is necessary to wrte down a Dockerfile. Thus, just open a text file in the same folder and name it **Dockerfile**. Then, edit it with ascript like the following one:
+In order to create a docker image of this microservice, it is necessary to write down a Dockerfile. Thus, just open a text file in the same folder and name it **Dockerfile**. Then, edit it with a script like the following one:
 
 ```dockerfile
 FROM jolielang/jolie
@@ -45,7 +46,7 @@ COPY helloservice.ol main.ol
 CMD jolie main.ol
 ```
 
-A complete list of all the available command for teh Dockerfile script can be found [at this link](https://docs.docker.com/engine/reference/builder/). Here we briefly describe the list of the commands above:
+A complete list of all the available command for the Dockerfile script can be found [at this link](https://docs.docker.com/engine/reference/builder/). Here we briefly describe the list of the commands above:
 
 1. `FROM jolielang/jolie`: it loads the image `jolielang/jolie`;
 2. `MAINTAINER YOUR NAME <YOUR EMAIL>`: it just specifies the name and email address of the file maintainer;
@@ -75,14 +76,14 @@ docker run -d --name hello-cnt -p 8000:8000 hello
 
 where `-d` runs the container detached from the shell, `hello-cnt` is the name of the container and `-p 8000:8000` maps the internal port of the container to the hosting machine port. In this particular case the port is always `8000`. Finally, `hello` is the name of the image.
 
-Once executed, the container is running and the jolie microservice can be easily invoked by a client. As an example wyou can try to invoke the service `helloservice.ol` using the follwing client:
+Once executed, the container is running and the jolie microservice can be easily invoked by a client. As an example you can try to invoke the service `helloservice.ol` using the following client:
 
 ```text
 include "console.iol"
 
 interface HelloInterface {
 RequestResponse:
-     hello( string )( string )
+    hello( string )( string )
 }
 
 outputPort Hello {
@@ -93,8 +94,8 @@ Interfaces: HelloInterface
 
 
 main {
-  hello@Hello( "hello" )( response );
-  println@Console( response )()
+    hello@Hello( "hello" )( response );
+    println@Console( response )()
 }
 ```
 
@@ -125,7 +126,7 @@ include "runtime.iol"
 interface HelloInterface {
 
 RequestResponse:
-     hello( string )( string )
+    hello( string )( string )
 }
 
 execution{ concurrent }
@@ -138,13 +139,13 @@ Interfaces: HelloInterface
 }
 
 init {
-  getenv@Runtime( "TESTVAR" )( TESTVAR )
+    getenv@Runtime( "TESTVAR" )( TESTVAR )
 }
 
 main {
-  hello( request )( response ) {
+    hello( request )( response ) {
         response = TESTVAR + ":" + request + ":" + args[0]
-  }
+    }
 }
 ```
 
@@ -175,7 +176,7 @@ include "file.iol"
 interface HelloInterface {
 
 RequestResponse:
-     hello( string )( string )
+    hello( string )( string )
 }
 
 execution{ concurrent }
@@ -188,25 +189,25 @@ Interfaces: HelloInterface
 }
 
 init {
-  file.filename = "/var/temp/config.json";
-  file.format = "json";
-  readFile@File( file )( config )
+    file.filename = "/var/temp/config.json";
+    file.format = "json";
+    readFile@File( file )( config )
 }
 
 main {
-  hello( request )( response ) {
+    hello( request )( response ) {
         /*  dummy usage of the parameters for building a response string which depends from them */
         response = config.welcome_message + "\n";
         for ( i = 0, i < config.repeat, i++ ) {
-          response = response + request + " "
+            response = response + request + " "
         }
-  }
+    }
 }
 ```
 
-Note that here we exploit the standar API of [File](https://jolielang.gitbook.io/docs/standard-library-api/file). In particular, we exploit the operation `readFile@File` where we specify to read from file `/var/temp/config.json`. It is worth noting that in this case the path `/var/temp/` must be considered as an internal path of the container. Thus, when the service will be executed inside the container, it will try to read from its internal path `/var/temp/config.json`.
+Note that here we exploit the standard API of [File](https://jolielang.gitbook.io/docs/standard-library-api/file). In particular, we exploit the operation `readFile@File` where we specify to read from file `/var/temp/config.json`. It is worth noting that in this case the path `/var/temp/` must be considered as an internal path of the container. Thus, when the service will be executed inside the container, it will try to read from its internal path `/var/temp/config.json`.
 
-If we build the new image using the same Dockerfile as before, the service won't found the file `cofig.json` for sure because it is not contained inside the image. In order to solve such an issue we need to map the internal path `/var/temp` to a path of the host machine. The command `run` of docker allows to do such a map by using volume definition. Thus the run command will be like the following one:
+If we build the new image using the same Dockerfile as before, the service won't found the file `config.json` for sure because it is not contained inside the image. In order to solve such an issue we need to map the internal path `/var/temp` to a path of the host machine. The command `run` of docker allows to do such a map by using volume definition. Thus the run command will be like the following one:
 
 ```text
 docker run -d --name hello-cnt -p 8000:8000 -v <Host Path>:/var/temp hello
@@ -216,11 +217,11 @@ The parameter `-v` allows for specifying the volume mapping. The `<Host Path>` t
 
 ## Configuring locations of outputPorts
 
-Finally, let us point out the last issue you could encounter when deploying a jolie microservice within a docker container: the configuration of the outputPort locations. outputPorts often represent dependencies of the given microservice from other microservices. Dynamic binding can always be done from a programatic point of view as we it is described [here](https://jolielang.gitbook.io/docs/basics/dynamic_binding), but it could be useful to have a clean way for configuring these outputPorts at the startup of the service.
+Finally, let us point out the last issue you could encounter when deploying a jolie microservice within a docker container: the configuration of the outputPort locations. outputPorts often represent dependencies of the given microservice from other microservices. Dynamic binding can always be done from a programmatic point of view as we it is described [here](https://jolielang.gitbook.io/docs/basics/dynamic_binding), but it could be useful to have a clean way for configuring these outputPorts at the startup of the service.
 
 In order to show how to solve such an issue, we try to dockerize the example described in section [Parallel](https://jolielang.gitbook.io/docs/basics/composing_statements#parallel). In particular, in this example there is an orchestrator which collects information from two microservices: _TrafficService_ and _ForecastService_ as depicted in the picture below.
 
-![](../../../.gitbook/assets/arch_parallel_example.png)
+![](../../../assets/image/arch_parallel_example.png)
 
 The full code of the example can be found [at this link](https://github.com/jolie/examples/tree/master/06_containers/04_configuring_outputports). Here we are in the case where an orchestrator \(`infoService.ol`\) has dependencies with other services: _ForecastService_ and _TrafficService_. Thus, we need to create three different containers, one for each service. In the example there are three different Dockerfiles for each service: [DockerfileForecastService](https://github.com/jolie/examples/blob/master/06_containers/04_configuring_outputports/DockerfileForecastService), [DockerfileTrafficService](https://github.com/jolie/examples/blob/master/06_containers/04_configuring_outputports/DockerfileTrafficService) and [DockerfileInfoService](https://github.com/jolie/examples/blob/master/06_containers/04_configuring_outputports/DockerfileInfoService).
 
@@ -244,21 +245,21 @@ All the containers we are going to create will have to be connected to network `
 * `docker run -it -d --name traffic --network testnet traffic_img`
 * `docker run -it -d --name info -p 8002:8000 -v <PATH TO config.ini>:/var/temp --network testnet info_img`
 
-Note that the parameter `--network testnet` is used for connecting the container to the netwrok `testnet`. Thanks to this parameter the containers can be identified by using their name withint `testnet`.
+Note that the parameter `--network testnet` is used for connecting the container to the network `testnet`. Thanks to this parameter the containers can be identified by using their name within `testnet`.
 
 Now, the last step: passing the correct locations to the outputPorts of the service `infoService`. Here we can exploit the extension [auto](https://jolielang.gitbook.io/docs/locations#automatic-configuration-of-a-location-using-extension-auto) which allows for automatic defining a location of a port getting the value from an external file. In particular, in the example, we use a `ini` file for achieving such a result:
 
 ```jolie
 outputPort Forecast {
-Location: "auto:ini:/Location/Forecast:file:/var/temp/config.ini"
-Protocol: sodep
-Interfaces: ForecastInterface
+    Location: "auto:ini:/Location/Forecast:file:/var/temp/config.ini"
+    Protocol: sodep
+    Interfaces: ForecastInterface
 }
 
 outputPort Traffic {
-Location: "auto:ini:/Location/Traffic:file:/var/temp/config.ini"
-Protocol: sodep
-Interfaces: TrafficInterface
+    Location: "auto:ini:/Location/Traffic:file:/var/temp/config.ini"
+    Protocol: sodep
+    Interfaces: TrafficInterface
 }
 ```
 
@@ -271,4 +272,3 @@ Forecast=socket://forecast:8000
 ```
 
 It is worth noting that here we use the name of the containers \(`traffic` and `forecast`\) for identifying them in the network. Docker will be responsible to resolve them within the context of `testnet`.
-

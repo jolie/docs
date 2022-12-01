@@ -11,7 +11,7 @@ Some useful tools which deals with soap protocol are released together with joli
 * [jolie2wsdl](https://jolielang.gitbook.io/docs/web-services/jolie2wsdl)
 * [wsdl2jolie](https://jolielang.gitbook.io/docs/web-services/wsdl2jolie)
 
-  Check the links for more information.
+Check the links for more information.
 
 ## SOAP Parameters
 
@@ -186,4 +186,3 @@ type SoapConfiguration:void {
     .requestCompression?:string
 }
 ```
-

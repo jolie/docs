@@ -1,3 +1,5 @@
+<!-- cSpell:ignore openapi -->
+
 # openapi2jolie
 
 ## openapi2jolie
@@ -58,4 +60,3 @@ main {
     print@Console( s )(  )
 }
 ```
-

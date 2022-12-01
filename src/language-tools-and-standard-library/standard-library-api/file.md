@@ -1,12 +1,15 @@
+<!-- cSpell:disable -->
+<!-- markdownlint-disable -->
+<!-- editorconfig-checker-disable -->
 # File
 
-Inclusion code: 
+Inclusion code:
 
-| Service Deployment |  |  |  |
-| :--- | :--- | :--- | :--- |
-| Port Name | Location | Protocol | Interfaces |
-| File documentation: |  |  |  |
-| File | - | - | [FileInterface](file.md#FileInterface) |
+| Service Deployment  |          |          |                                        |
+|:--------------------|:---------|:---------|:---------------------------------------|
+| Port Name           | Location | Protocol | Interfaces                             |
+| File documentation: |          |          |                                        |
+| File                | -        | -        | [FileInterface](file.md#FileInterface) |
 
 ### List of Available Interfaces
 
@@ -14,27 +17,27 @@ Inclusion code:
 
 Interface documentation:
 
-| Operation Name | Input Type | Output Type | Faults |
-| :--- | :--- | :--- | :--- |
-| [convertFromBase64ToBinaryValue](file.md#convertFromBase64ToBinaryValue) | string | raw |  IOException\( [IOExceptionType](file.md#IOExceptionType) \) |
-| [getMimeType](file.md#getMimeType) | string | string |  FileNotFound\( [FileNotFoundType](file.md#FileNotFoundType) \) |
-| [convertFromBinaryToBase64Value](file.md#convertFromBinaryToBase64Value) | raw | string |  |
-| [toAbsolutePath](file.md#toAbsolutePath) | string | string |  InvalidPathException\( [JavaExceptionType](file.md#JavaExceptionType) \) |
-| [getParentPath](file.md#getParentPath) | string | string |  InvalidPathException\( [JavaExceptionType](file.md#JavaExceptionType) \) |
-| [list](file.md#list) | [ListRequest](file.md#ListRequest) | [ListResponse](file.md#ListResponse) |  IOException\( [IOExceptionType](file.md#IOExceptionType) \) |
-| [copyDir](file.md#copyDir) | [CopyDirRequest](file.md#CopyDirRequest) | bool |  FileNotFound\( undefined \)  IOException\( undefined \) |
-| [delete](file.md#delete) | [DeleteRequest](file.md#DeleteRequest) | bool |  IOException\( [IOExceptionType](file.md#IOExceptionType) \) |
-| [getSize](file.md#getSize) | any | int |  |
-| [getFileSeparator](file.md#getFileSeparator) | void | string |  |
-| [rename](file.md#rename) | [RenameRequest](file.md#RenameRequest) | void |  IOException\( [IOExceptionType](file.md#IOExceptionType) \) |
-| [readFile](file.md#readFile) | [ReadFileRequest](file.md#ReadFileRequest) | undefined |  FileNotFound\( [FileNotFoundType](file.md#FileNotFoundType) \)  IOException\( [IOExceptionType](file.md#IOExceptionType) \) |
-| [exists](file.md#exists) | string | bool |  |
-| [setMimeTypeFile](file.md#setMimeTypeFile) | string | void |  IOException\( [IOExceptionType](file.md#IOExceptionType) \) |
-| [deleteDir](file.md#deleteDir) | string | bool |  IOException\( [IOExceptionType](file.md#IOExceptionType) \) |
-| [getServiceDirectory](file.md#getServiceDirectory) | void | string |  IOException\( [IOExceptionType](file.md#IOExceptionType) \) |
-| [writeFile](file.md#writeFile) | [WriteFileRequest](file.md#WriteFileRequest) | void |  FileNotFound\( [FileNotFoundType](file.md#FileNotFoundType) \)  IOException\( [IOExceptionType](file.md#IOExceptionType) \) |
-| [mkdir](file.md#mkdir) | string | bool |  |
-| [isDirectory](file.md#isDirectory) | string | bool |  FileNotFound\( [FileNotFoundType](file.md#FileNotFoundType) \)  IOException\( [IOExceptionType](file.md#IOExceptionType) \) |
+| Operation Name                                                           | Input Type                                   | Output Type                          | Faults                                                                                                                      |
+|:-------------------------------------------------------------------------|:---------------------------------------------|:-------------------------------------|:----------------------------------------------------------------------------------------------------------------------------|
+| [convertFromBase64ToBinaryValue](file.md#convertFromBase64ToBinaryValue) | string                                       | raw                                  | IOException\( [IOExceptionType](file.md#IOExceptionType) \)                                                                 |
+| [getMimeType](file.md#getMimeType)                                       | string                                       | string                               | FileNotFound\( [FileNotFoundType](file.md#FileNotFoundType) \)                                                              |
+| [convertFromBinaryToBase64Value](file.md#convertFromBinaryToBase64Value) | raw                                          | string                               |                                                                                                                             |
+| [toAbsolutePath](file.md#toAbsolutePath)                                 | string                                       | string                               | InvalidPathException\( [JavaExceptionType](file.md#JavaExceptionType) \)                                                    |
+| [getParentPath](file.md#getParentPath)                                   | string                                       | string                               | InvalidPathException\( [JavaExceptionType](file.md#JavaExceptionType) \)                                                    |
+| [list](file.md#list)                                                     | [ListRequest](file.md#ListRequest)           | [ListResponse](file.md#ListResponse) | IOException\( [IOExceptionType](file.md#IOExceptionType) \)                                                                 |
+| [copyDir](file.md#copyDir)                                               | [CopyDirRequest](file.md#CopyDirRequest)     | bool                                 | FileNotFound\( undefined \)  IOException\( undefined \)                                                                     |
+| [delete](file.md#delete)                                                 | [DeleteRequest](file.md#DeleteRequest)       | bool                                 | IOException\( [IOExceptionType](file.md#IOExceptionType) \)                                                                 |
+| [getSize](file.md#getSize)                                               | any                                          | int                                  |                                                                                                                             |
+| [getFileSeparator](file.md#getFileSeparator)                             | void                                         | string                               |                                                                                                                             |
+| [rename](file.md#rename)                                                 | [RenameRequest](file.md#RenameRequest)       | void                                 | IOException\( [IOExceptionType](file.md#IOExceptionType) \)                                                                 |
+| [readFile](file.md#readFile)                                             | [ReadFileRequest](file.md#ReadFileRequest)   | undefined                            | FileNotFound\( [FileNotFoundType](file.md#FileNotFoundType) \)  IOException\( [IOExceptionType](file.md#IOExceptionType) \) |
+| [exists](file.md#exists)                                                 | string                                       | bool                                 |                                                                                                                             |
+| [setMimeTypeFile](file.md#setMimeTypeFile)                               | string                                       | void                                 | IOException\( [IOExceptionType](file.md#IOExceptionType) \)                                                                 |
+| [deleteDir](file.md#deleteDir)                                           | string                                       | bool                                 | IOException\( [IOExceptionType](file.md#IOExceptionType) \)                                                                 |
+| [getServiceDirectory](file.md#getServiceDirectory)                       | void                                         | string                               | IOException\( [IOExceptionType](file.md#IOExceptionType) \)                                                                 |
+| [writeFile](file.md#writeFile)                                           | [WriteFileRequest](file.md#WriteFileRequest) | void                                 | FileNotFound\( [FileNotFoundType](file.md#FileNotFoundType) \)  IOException\( [IOExceptionType](file.md#IOExceptionType) \) |
+| [mkdir](file.md#mkdir)                                                   | string                                       | bool                                 |                                                                                                                             |
+| [isDirectory](file.md#isDirectory)                                       | string                                       | bool                                 | FileNotFound\( [FileNotFoundType](file.md#FileNotFoundType) \)  IOException\( [IOExceptionType](file.md#IOExceptionType) \) |
 
 ## Operation Description
 
@@ -251,7 +254,7 @@ type ListRequest: void {
 * `directory : string`
 * `recursive : bool`
 * `order : void`
-  * `byname : bool`
+    * `byname : bool`
 * `info : bool`
 
 #### Response type <a id="ListResponse"></a>
@@ -275,12 +278,12 @@ type ListResponse: void {
 `ListResponse : void`
 
 * `result : string`
-  * `info : void`
-    * `size : long`
-    * `absolutePath : string`
-    * `lastModified : long`
-    * `isDirectory : bool`
-    * `isHidden : bool`
+    * `info : void`
+        * `size : long`
+        * `absolutePath : string`
+        * `lastModified : long`
+        * `isDirectory : bool`
+        * `isHidden : bool`
 
 #### Possible faults thrown
 
@@ -542,8 +545,8 @@ type ReadFileRequest: void {
 
 * `filename : string`
 * `format : string`
-  * `skipMixedText : bool`
-  * `charset : string`
+    * `skipMixedText : bool`
+    * `charset : string`
 
 #### Response type
 
@@ -725,7 +728,7 @@ Operation documentation: Writes a Jolie structure out to an external file
   - json: each child value corresponds to an attribute, the base values are saved as the default values (attribute "$" or singular value), the "_" helper childs disappear (e.g. a._[i]._[j] -> a[i][j]), the rest gets read out recursively
 
      when format is xml and a schema is defined, the resulting xml follows the schema constraints.
-   Use "@NameSpace" in order to enable root element identification in the schema by specifing the namespace of the root.
+   Use "@NameSpace" in order to enable root element identification in the schema by specifying the namespace of the root.
    Use "@Prefix" for forcing a prefix in an element.
    Use "@ForceAttribute" for forcing an attribute in an element even if it is not defined in the corresponding schema
 ```
@@ -758,10 +761,10 @@ type WriteFileRequest: void {
 
 * `filename : string`
 * `format : string`
-  * `schema : string`
-  * `indent : bool`
-  * `doctype_system : string`
-  * `encoding : string`
+    * `schema : string`
+    * `indent : bool`
+    * `doctype_system : string`
+    * `encoding : string`
 * `content : any`
 * `append : int`
 
@@ -885,4 +888,3 @@ type JavaExceptionType: string { .stackTrace: string }
 ```jolie
 type WeakJavaExceptionType: any { .stackTrace?: string }
 ```
-

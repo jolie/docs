@@ -1,12 +1,15 @@
+<!-- cSpell:disable -->
+<!-- markdownlint-disable -->
+<!-- editorconfig-checker-disable -->
 # SwingUI
 
-Inclusion code: 
+Inclusion code:
 
-| Service Deployment |  |  |  |
-| :--- | :--- | :--- | :--- |
-| Port Name | Location | Protocol | Interfaces |
-| SwingUI documentation: |  |  |  |
-| SwingUI | - | - | [UserInterface](swing_ui.md#UserInterface) |
+| Service Deployment     |          |          |                                            |
+|:-----------------------|:---------|:---------|:-------------------------------------------|
+| Port Name              | Location | Protocol | Interfaces                                 |
+| SwingUI documentation: |          |          |                                            |
+| SwingUI                | -        | -        | [UserInterface](swing_ui.md#UserInterface) |
 
 ### List of Available Interfaces
 
@@ -14,11 +17,11 @@ Inclusion code:
 
 Interface documentation:
 
-| Operation Name | Input Type | Output Type | Faults |
-| :--- | :--- | :--- | :--- |
-| [showMessageDialog](swing_ui.md#showMessageDialog) | string | void |  |
-| [showYesNoQuestionDialog](swing_ui.md#showYesNoQuestionDialog) | string | int |  |
-| [showInputDialog](swing_ui.md#showInputDialog) | string | string |  |
+| Operation Name                                                 | Input Type | Output Type | Faults |
+|:---------------------------------------------------------------|:-----------|:------------|:-------|
+| [showMessageDialog](swing_ui.md#showMessageDialog)             | string     | void        |        |
+| [showYesNoQuestionDialog](swing_ui.md#showYesNoQuestionDialog) | string     | int         |        |
+| [showInputDialog](swing_ui.md#showInputDialog)                 | string     | string      |        |
 
 ## Operation Description
 
@@ -87,4 +90,3 @@ Type: string
 Type: string
 
 `string : string`
-

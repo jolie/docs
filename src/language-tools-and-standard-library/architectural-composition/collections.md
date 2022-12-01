@@ -25,7 +25,7 @@ outputPort_n1 and outputPort_n2 share another interface */
 
 Once a message is received on the shared interface, a courier process can be executed for running specific logics for the message delivery. As an example let us consider the case of an aggregator which receives messages for two printers and it delivers the message by following a cyclic approach. In the following picture we report the architecture of the example, whereas the code can be found [here](https://github.com/jolie/examples/tree/master/04_architectural_composition/08_collection/01_simple_collection)
 
-![](../../.gitbook/assets/smart_aggregation.png)
+![](../../assets/image/smart_aggregation.png)
 
 Note that at the input port of the Aggregator and the corresponding output ports of the two aggregated services appear as it follows:
 
@@ -74,7 +74,7 @@ Note that the variable `global.printer_counter` is counting the message received
 
 ### Broadcasting messages
 
-The colection can be easily used for broadcasting messages to output ports with the same interface. In this case it is sufficient to modify the courier process by forwarding the messages to all the target service as it is shown below:
+The collection can be easily used for broadcasting messages to output ports with the same interface. In this case it is sufficient to modify the courier process by forwarding the messages to all the target service as it is shown below:
 
 ```jolie
 courier AggregatorInput {
@@ -84,7 +84,7 @@ courier AggregatorInput {
 }
 ```
 
-Note that here we use the parallel composition of the primitive `forward`. A complete example of message broadcasting thprugh the usage of smart aggregation can be found [here](https://github.com/jolie/examples/tree/master/04_architectural_composition/08_collection/02_broadcasting).
+Note that here we use the parallel composition of the primitive `forward`. A complete example of message broadcasting through the usage of smart aggregation can be found [here](https://github.com/jolie/examples/tree/master/04_architectural_composition/08_collection/02_broadcasting).
 
 ## Collection and Interface extension
 
@@ -92,9 +92,9 @@ When using collections it is also possible to extend the interface of the collec
 
 ### A comprehensive example
 
-Here we present a comprehensive example which includes interface extensionby modifying the example described in the sections above. In this new scenario we have two printer services `Printer1` and `Printer2`, the fax service `Fax` and the service `Logger` which are all part of our trusted intranet. The full code of the example can be found [here](https://github.com/jolie/examples/tree/master/04_architectural_composition/08_collection/03_comprehensive_example).
+Here we present a comprehensive example which includes interface extension by modifying the example described in the sections above. In this new scenario we have two printer services `Printer1` and `Printer2`, the fax service `Fax` and the service `Logger` which are all part of our trusted intranet. The full code of the example can be found [here](https://github.com/jolie/examples/tree/master/04_architectural_composition/08_collection/03_comprehensive_example).
 
-![](../../.gitbook/assets/collection_comprehensive_example.png)
+![](../../assets/image/collection_comprehensive_example.png)
 
 Our aim is to deploy a service that aggregates Printer1, Printer2, and Fax to accept requests from external networks \(e.g., the Internet\), but we want to authenticate the external users that use Printer1's and Printer2's service. In particular, we with the operation `get_key` provided by the aggregator, we allow the user to get the service key to use for accessing the target service. Here, for the sake of brevity, we just simulate the authentication. Once obtained the key, the client can add it to the request directed to the target service. It is worth noting that the key is an extra data added by means of the interface extender, thus when the message is forwarded to the target service, it will be erased. Such a fact implies that the target services are not aware of the authentication logics which is totally in charge to the aggregator.
 
@@ -196,4 +196,3 @@ main
 ```
 
 Above, the aggregator exposes the inputPort `AggregatorInput` that aggregates the `Fax` service \(as is\) and `Printer1` and `Printer2` services. `Printer1`'s and `Printer2`'s operations types are extended by the `AuthInterfaceExtender`.
-

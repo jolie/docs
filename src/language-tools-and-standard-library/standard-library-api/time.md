@@ -1,12 +1,15 @@
+<!-- cSpell:disable -->
+<!-- markdownlint-disable -->
+<!-- editorconfig-checker-disable -->
 # Time
 
-Inclusion code: 
+Inclusion code:
 
-| Service Deployment |  |  |  |
-| :--- | :--- | :--- | :--- |
-| Port Name | Location | Protocol | Interfaces |
-| Time documentation: |  |  |  |
-| Time | - | - | [TimeInterface](time.md#TimeInterface) |
+| Service Deployment  |          |          |                                        |
+|:--------------------|:---------|:---------|:---------------------------------------|
+| Port Name           | Location | Protocol | Interfaces                             |
+| Time documentation: |          |          |                                        |
+| Time                | -        | -        | [TimeInterface](time.md#TimeInterface) |
 
 ### List of Available Interfaces
 
@@ -14,25 +17,25 @@ Inclusion code:
 
 Interface documentation:
 
-| Operation Name | Input Type | Output Type | Faults |
-| :--- | :--- | :--- | :--- |
-| [scheduleTimeout](time.md#scheduleTimeout) | [ScheduleTimeOutRequest](time.md#ScheduleTimeOutRequest) | long |  InvalidTimeUnit\( undefined \) |
-| [getDateValues](time.md#getDateValues) | [DateValuesRequestType](time.md#DateValuesRequestType) | [DateValuesType](time.md#DateValuesType) |  InvalidDate\( undefined \) |
-| [getDateTime](time.md#getDateTime) | [GetDateTimeRequest](time.md#GetDateTimeRequest) | [GetDateTimeResponse](time.md#GetDateTimeResponse) |  |
-| [getCurrentTimeMillis](time.md#getCurrentTimeMillis) | void | long |  |
-| [getDateDiff](time.md#getDateDiff) | [DiffDateRequestType](time.md#DiffDateRequestType) | int |  |
-| [getTimeDiff](time.md#getTimeDiff) | [GetTimeDiffRequest](time.md#GetTimeDiffRequest) | int |  |
-| [getTimestampFromString](time.md#getTimestampFromString) | [GetTimestampFromStringRequest](time.md#GetTimestampFromStringRequest) | long |  InvalidTimestamp\( undefined \) |
-| [cancelTimeout](time.md#cancelTimeout) | long | bool |  |
-| [setNextTimeoutByTime](time.md#setNextTimeoutByTime) | undefined |  - |  |
-| [getCurrentDateTime](time.md#getCurrentDateTime) | [CurrentDateTimeRequestType](time.md#CurrentDateTimeRequestType) | string |  |
-| [sleep](time.md#sleep) | undefined | undefined |  |
-| [setNextTimeout](time.md#setNextTimeout) | [SetNextTimeOutRequest](time.md#SetNextTimeOutRequest) |  - |  |
-| [getTimeFromMilliSeconds](time.md#getTimeFromMilliSeconds) | int | [TimeValuesType](time.md#TimeValuesType) |  |
-| [getDateTimeValues](time.md#getDateTimeValues) | [GetTimestampFromStringRequest](time.md#GetTimestampFromStringRequest) | [DateTimeType](time.md#DateTimeType) |  InvalidDate\( undefined \) |
-| [setNextTimeoutByDateTime](time.md#setNextTimeoutByDateTime) | undefined |  - |  |
-| [getCurrentDateValues](time.md#getCurrentDateValues) | void | [DateValuesType](time.md#DateValuesType) |  |
-| [getTimeValues](time.md#getTimeValues) | string | [TimeValuesType](time.md#TimeValuesType) |  |
+| Operation Name                                               | Input Type                                                             | Output Type                                        | Faults                          |
+|:-------------------------------------------------------------|:-----------------------------------------------------------------------|:---------------------------------------------------|:--------------------------------|
+| [scheduleTimeout](time.md#scheduleTimeout)                   | [ScheduleTimeOutRequest](time.md#ScheduleTimeOutRequest)               | long                                               | InvalidTimeUnit\( undefined \)  |
+| [getDateValues](time.md#getDateValues)                       | [DateValuesRequestType](time.md#DateValuesRequestType)                 | [DateValuesType](time.md#DateValuesType)           | InvalidDate\( undefined \)      |
+| [getDateTime](time.md#getDateTime)                           | [GetDateTimeRequest](time.md#GetDateTimeRequest)                       | [GetDateTimeResponse](time.md#GetDateTimeResponse) |                                 |
+| [getCurrentTimeMillis](time.md#getCurrentTimeMillis)         | void                                                                   | long                                               |                                 |
+| [getDateDiff](time.md#getDateDiff)                           | [DiffDateRequestType](time.md#DiffDateRequestType)                     | int                                                |                                 |
+| [getTimeDiff](time.md#getTimeDiff)                           | [GetTimeDiffRequest](time.md#GetTimeDiffRequest)                       | int                                                |                                 |
+| [getTimestampFromString](time.md#getTimestampFromString)     | [GetTimestampFromStringRequest](time.md#GetTimestampFromStringRequest) | long                                               | InvalidTimestamp\( undefined \) |
+| [cancelTimeout](time.md#cancelTimeout)                       | long                                                                   | bool                                               |                                 |
+| [setNextTimeoutByTime](time.md#setNextTimeoutByTime)         | undefined                                                              | -                                                  |                                 |
+| [getCurrentDateTime](time.md#getCurrentDateTime)             | [CurrentDateTimeRequestType](time.md#CurrentDateTimeRequestType)       | string                                             |                                 |
+| [sleep](time.md#sleep)                                       | undefined                                                              | undefined                                          |                                 |
+| [setNextTimeout](time.md#setNextTimeout)                     | [SetNextTimeOutRequest](time.md#SetNextTimeOutRequest)                 | -                                                  |                                 |
+| [getTimeFromMilliSeconds](time.md#getTimeFromMilliSeconds)   | int                                                                    | [TimeValuesType](time.md#TimeValuesType)           |                                 |
+| [getDateTimeValues](time.md#getDateTimeValues)               | [GetTimestampFromStringRequest](time.md#GetTimestampFromStringRequest) | [DateTimeType](time.md#DateTimeType)               | InvalidDate\( undefined \)      |
+| [setNextTimeoutByDateTime](time.md#setNextTimeoutByDateTime) | undefined                                                              | -                                                  |                                 |
+| [getCurrentDateValues](time.md#getCurrentDateValues)         | void                                                                   | [DateValuesType](time.md#DateValuesType)           |                                 |
+| [getTimeValues](time.md#getTimeValues)                       | string                                                                 | [TimeValuesType](time.md#TimeValuesType)           |                                 |
 
 ## Operation Description
 
@@ -603,4 +606,3 @@ type TimeValuesType: void {
 * `hour : int`
 * `minute : int`
 * `second : int`
-

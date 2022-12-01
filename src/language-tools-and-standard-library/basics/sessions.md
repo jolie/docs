@@ -1,12 +1,14 @@
+<!-- cSpell:ignore Tris -->
+
 # Sessions
 
 ## Stateful sessions
 
-Usually a service provides _loosely coupled_ operations, which means that there is no correlation among the different invocations of different operatons. Each invocation can be considered as independent from the others. Neverthless, it could happen that we need to design sessions which can receive messages more than once from external invokers. In these cases, we need to correctly route the incoming messages to the right session.
+Usually a service provides _loosely coupled_ operations, which means that there is no correlation among the different invocations of different operations. Each invocation can be considered as independent from the others. Nevertheless, it could happen that we need to design sessions which can receive messages more than once from external invokers. In these cases, we need to correctly route the incoming messages to the right session.
 
 Let us clarify with an example. Assume a scenario where there is a service which allows two users for playing tris game. The tris game service will keep each game into a specific session. A user can participate to different games, thus it needs to send its move to the right session for correctly playing the game.
 
-![](../../.gitbook/assets/tris.png)
+![](../../assets/image/tris.png)
 
 If you are curious on seeing how a tris game can be implemented in Jolie, you can find the code at this [link](https://github.com/jolie/examples/tree/master/02_basics/5_sessions/tris)
 
@@ -22,23 +24,23 @@ In the deployment part the cset is defined as it follows:
 
 ```text
 cset {
-   <variable name>: <List of type paths coupled with the correlation variable>
+    <variable name>: <List of type paths coupled with the correlation variable>
 }
 ```
 
-In the behaviural part, the cset is initialized as it follows:
+In the behavioural part, the cset is initialized as it follows:
 
 ```text
-   csets.<variable name> = <variable value>
+csets.<variable name> = <variable value>
 ```
 
 A precise definition of the syntax can be found in the [section below](sessions.md#correlation-sets-syntax)
 
-![](../../.gitbook/assets/cset.png)
+![](../../assets/image/cset.png)
 
-When a message is received, the intepreter looks into the message for finding the node which contains the value to be compared with the correlation values. In the diagram above, the variable _x_ is correlation variable and it can be found in the message of type _MyRequest_ in the subnode _x_.
+When a message is received, the interpreter looks into the message for finding the node which contains the value to be compared with the correlation values. In the diagram above, the variable _x_ is correlation variable and it can be found in the message of type _MyRequest_ in the subnode _x_.
 
-![](../../.gitbook/assets/cset_messages.png)
+![](../../assets/image/cset_messages.png)
 
 In the example of the tris game, the cset is defined in file _tris.ol_ as it follows:
 
@@ -51,7 +53,7 @@ cset {
 where _MoveRequest_ is a message type related to operation _move_ defined in the interface _TrisGameInterface_.
 
 ```jolie
- type MoveRequest: void {
+type MoveRequest: void {
     .game_token: string
     .participant_token: string
     .place: int
@@ -70,7 +72,7 @@ global.games.( token ).cross_participant = new;
 
 All these token are stored into an hashmap at the level of a global variable. The circle and the game token are returned to the caller which starts to wait for a contender. When a second user calls the operation _startGame_ by specifying a game token of an existing pending game \(retrieved thanks to the operation _listOpenGames_\), the game can be initiated and the second user receives the token for playing with the cross and the game token. At this point, the server calls itself on the operation _initiateGame_ sending all the tokens.
 
-The session started by the invocation of operation _iniateGame_ is actually the game session to which the players must send their moves. Indeed, the fist action performed by such a session is the initialization of the correlation variable _token_ with the actual token of the game:
+The session started by the invocation of operation _initiateGame_ is actually the game session to which the players must send their moves. Indeed, the fist action performed by such a session is the initialization of the correlation variable _token_ with the actual token of the game:
 
 ```jolie
 csets.token = request.game_token;
@@ -213,8 +215,8 @@ interface ChatInterface {
 
 cset {
     sid: SubscriptionType.sid
-         MessageType.sid
-         LogType.sid
+        MessageType.sid
+        LogType.sid
 }
 ```
 
@@ -224,11 +226,11 @@ It is worth noting that the correlation variable `sid` is linked to aliases `Sub
 
 Multiple correlation sets can be used in order to manage distributed scenarios. In the [authentication example](https://github.com/jolie/examples/tree/master/02_basics/5_sessions/authentication) we model the case of an application which delegates the authentication phase to an external _identity provider_.
 
-![](../../.gitbook/assets/authentication.png)
+![](../../assets/image/authentication.png)
 
 The sequence chart of the exchanged messages follows:
 
-![](../../.gitbook/assets/auth_sequence_chart.svg)
+![](../../assets/image/auth_sequence_chart.svg)
 
 First of all the _user_ call the _application_ for requesting a login and it is redirected to the _identity provider_. Before replying to the user, the _application_ opens an authentication session on the identity provider \(calling the operation _openAuthentication_\) which returns a correlation identifier called _auth\_token_. The _auth\_token_ is sent also to the user. At this point, the user can sends its credential to the _identity\_provider_ together with the _auth\_token_ in order to be authenticated. If the authentication has success, the _identity\_provider_ sends a success to the _application_, a _failure_ otherwise. Finally, the user can check if it has access to the application calling the operation _getResult_, together with the _session\_id_, on the _application_. The _session\_id_ is generated by the _application_ after receiving the reply from the _identity\_provider_.
 
@@ -236,18 +238,18 @@ It is worth noting that the in the application we define two correlation sets:
 
 ```jolie
 cset {
-  auth_token: OpenAuthenticationResponse.auth_token
-              AuthenticationResult.auth_token
+    auth_token: OpenAuthenticationResponse.auth_token
+                AuthenticationResult.auth_token
 }
 
 cset {
-  session_id: GetResultRequest.session_id
-              PrintMessageRequest.session_id
-              ExitApplicationRequest.session_id
+    session_id: GetResultRequest.session_id
+                PrintMessageRequest.session_id
+                ExitApplicationRequest.session_id
 }
 ```
 
-The former permits to identify the session thanks to _auth\_token_ whereas the latter exploits the _session\_id_. Both of them identify the same session, but the token _auth\_token_ is used for identifying the messages related to the _identity\_provider_ whereas the _session\_id_ it is used for identifying the session initiated by the user into the application. Once logged indeed, the _auth\_token_ is not used anymore, whereas the _session\_id_ can be used by the user for accessing the application. It is worth noting that, after the reception of a success or a failure by the application, the _auth\_token_ is still available as a variable inside the session. But, since there are no more operations correlated with it in the behaviour \(only the operations _getResult_, _printMessage_ and _exitApplication_ can be used\), it is not possible that the _auth\_token_ can be used again for correlating the session.
+The former permits to identify the session thanks to _auth\_token_ whereas the latter exploits the _session\_id_. Both of them identify the same session, but the token _auth\_token_ is used for identifying the messages related to the _identity\_provider_ whereas the _session\_id_ it is used for identifying the session initiated by the user into the application. Once logged indeed, the _auth\_token_ is not used any more, whereas the _session\_id_ can be used by the user for accessing the application. It is worth noting that, after the reception of a success or a failure by the application, the _auth\_token_ is still available as a variable inside the session. But, since there are no more operations correlated with it in the behaviour \(only the operations _getResult_, _printMessage_ and _exitApplication_ can be used\), it is not possible that the _auth\_token_ can be used again for correlating the session.
 
 ## The provide-until statement
 
@@ -257,13 +259,13 @@ The syntax is
 
 ```jolie
 provide
-  [ IS_1 ] { branch_code_1 }
-  [ IS_i ] { branch_code_i }
-  [ IS_n ] { branch_code_n }
+    [ IS_1 ] { branch_code_1 }
+    [ IS_i ] { branch_code_i }
+    [ IS_n ] { branch_code_n }
 until
-  [ IS_m ] { branch_code_m }
-  [ IS_j ] { branch_code_j }
-  [ IS_k ] { branch_code_k }
+    [ IS_m ] { branch_code_m }
+    [ IS_j ] { branch_code_j }
+    [ IS_k ] { branch_code_k }
 ```
 
 The inputs `IS_1, ..., IS_n` will be continuously available until one of the operations under the `until` \(`IS_m, ..., IS_k`\) is called.
@@ -272,30 +274,31 @@ In the authentication example described in the previous section, the application
 
 ```jolie
 provide
-   [ printMessage( print_request ) ] {
-       println@Console("Message to print:" + print_request.message )()
-   }
- until
-   [ exitApplication( request ) ] {
-       println@Console("Exiting from session " + request.session_id )()
-   }
+    [ printMessage( print_request ) ] {
+        println@Console("Message to print:" + print_request.message )()
+    }
+until
+    [ exitApplication( request ) ] {
+        println@Console("Exiting from session " + request.session_id )()
+    }
 ```
 
 ## Sessions and Jolie libraries
 
 Managing session-related calls impacts also on the libraries used by a Jolie program (after all, they are microservices too!).
-Sometimes it is useful to have a library "call back" its client, e.g., if executing some batch work or waiting for the user's input, for which we do not want to use a request-response pattern, but a one-way: the client enables the reception of some inputs from the library, which then will send a notification to the client each time a new input is ready. 
+Sometimes it is useful to have a library "call back" its client, e.g., if executing some batch work or waiting for the user's input, for which we do not want to use a request-response pattern, but a one-way: the client enables the reception of some inputs from the library, which then will send a notification to the client each time a new input is ready.
 
 A concrete example of that is operation `in` of the Console service, which, as seen in the [example section on communication ports](/docs/language-tools-and-standard-library/basics/communication-ports/a_comprehensive_example), receives inputs from the standard input.
 
 While calling that operation on a single-session service does not pose any problem on where to route the incoming request, that is not the case for the `concurrent` and `sequential` execution modalities, where many instances can prompt the insertion of some data to the user.
 
-To correctly route input messages to the appropriate session, the Console service puts in place the operation `subscribeSessionListener` (and its complementary `unsubscribeSessionListener`). That operation is useful to signal to the Console service that it should "tag" with a token given by the user (more on this in the next paragraph) the input received from the standard input, so that incoming input messages can be correctly correlated with their related session. 
+To correctly route input messages to the appropriate session, the Console service puts in place the operation `subscribeSessionListener` (and its complementary `unsubscribeSessionListener`). That operation is useful to signal to the Console service that it should "tag" with a token given by the user (more on this in the next paragraph) the input received from the standard input, so that incoming input messages can be correctly correlated with their related session.
 
 Technically, to support that functionality, we need to define a cset targeting the node `InRequest.token` (visible at the beginning of the code below) and to enable the tagging of input messages by the Console API, calling the operation `registerForInput` with a request containing the `enableSessionListener` node set to `true`. Then, to receive some message from the standard input (e.g., `in( message )`) we:
-- define this session's token (e.g., we define a variable `token` assigning to it a unique value with the `new` primitive);
-- subscribe our listener with this session's token (`subscribeSessionListener@Console( { token = token } )()`);
-- wait for the data from the prompt (e.g., `in( message )`);
+
+* define this session's token (e.g., we define a variable `token` assigning to it a unique value with the `new` primitive);
+* subscribe our listener with this session's token (`subscribeSessionListener@Console( { token = token } )()`);
+* wait for the data from the prompt (e.g., `in( message )`);
 
 Finally, when we terminated this session's inputs, we can unsubscribe our listener for this session (`unsubscribeSessionListener@Console( { token = token } )()`);
 
@@ -304,28 +307,28 @@ For a more comprehensive example, we report the code below.
 ```jolie
 // we define a cset on the InRequest.token node
 cset {
-  sessionToken: InRequest.token
+    sessionToken: InRequest.token
 }
 
 main
 {
-  test()( res ){
-    // we registerForInput, enabling sessionListeners
-    registerForInput@Console( { enableSessionListener = true } )()
-    // we define this session's token
-    token = new
-    // we set the sessionToken for the InRequest
-    csets.sessionToken = token
-    // we subscribe our listener with this session's token
-    subscribeSessionListener@Console( { token = token } )()
-    // we make sure the print out to the user and the request for input are atomic
-    synchronized( inputSession ) {
-      println@Console( "insert response data for session " + token + ":" )()
-      // we wait for the data from the prompt
-      in( res )
+    test()( res ){
+        // we registerForInput, enabling sessionListeners
+        registerForInput@Console( { enableSessionListener = true } )()
+        // we define this session's token
+        token = new
+        // we set the sessionToken for the InRequest
+        csets.sessionToken = token
+        // we subscribe our listener with this session's token
+        subscribeSessionListener@Console( { token = token } )()
+        // we make sure the print out to the user and the request for input are atomic
+        synchronized( inputSession ) {
+            println@Console( "insert response data for session " + token + ":" )()
+            // we wait for the data from the prompt
+            in( res )
+        }
+        // we unsubscribe our listener for this session before closing
+        unsubscribeSessionListener@Console( { token = token } )()
     }
-    // we unsubscribe our listener for this session before closing
-    unsubscribeSessionListener@Console( { token = token } )()
-  }
 }
 ```

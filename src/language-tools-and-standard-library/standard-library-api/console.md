@@ -1,13 +1,16 @@
+<!-- cSpell:disable -->
+<!-- markdownlint-disable -->
+<!-- editorconfig-checker-disable -->
 # Console
 
-Inclusion code: 
+Inclusion code:
 
-| Service Deployment |  |  |  |
-| :--- | :--- | :--- | :--- |
-| Port Name | Location | Protocol | Interfaces |
-| ConsoleInputPort | local | - | [ConsoleInputInterface](console.md#ConsoleInputInterface) |
-| Console documentation: |  |  |  |
-| Console | - | - | [ConsoleInterface](console.md#ConsoleInterface) |
+| Service Deployment     |          |          |                                                           |
+|:-----------------------|:---------|:---------|:----------------------------------------------------------|
+| Port Name              | Location | Protocol | Interfaces                                                |
+| ConsoleInputPort       | local    | -        | [ConsoleInputInterface](console.md#ConsoleInputInterface) |
+| Console documentation: |          |          |                                                           |
+| Console                | -        | -        | [ConsoleInterface](console.md#ConsoleInterface)           |
 
 ### List of Available Interfaces
 
@@ -15,9 +18,9 @@ Inclusion code:
 
 Interface documentation:
 
-| Operation Name | Input Type | Output Type | Faults |
-| :--- | :--- | :--- | :--- |
-| [in](console.md#in) | [InRequest](console.md#InRequest) |  - |  |
+| Operation Name      | Input Type                        | Output Type | Faults |
+|:--------------------|:----------------------------------|:------------|:-------|
+| [in](console.md#in) | [InRequest](console.md#InRequest) | -           |        |
 
 ## Operation Description
 
@@ -49,14 +52,14 @@ type InRequest: string {
 
 Interface documentation:
 
-| Operation Name | Input Type | Output Type | Faults |
-| :--- | :--- | :--- | :--- |
-| [print](console.md#print) | undefined | void |  |
-| [println](console.md#println) | undefined | void |  |
-| [registerForInput](console.md#registerForInput) | [RegisterForInputRequest](console.md#RegisterForInputRequest) | void |  |
-| [unsubscribeSessionListener](console.md#unsubscribeSessionListener) | [UnsubscribeSessionListener](console.md#UnsubscribeSessionListener) | void |  |
-| [subscribeSessionListener](console.md#subscribeSessionListener) | [SubscribeSessionListener](console.md#SubscribeSessionListener) | void |  |
-| [enableTimestamp](console.md#enableTimestamp) | [EnableTimestampRequest](console.md#EnableTimestampRequest) | void |  |
+| Operation Name                                                      | Input Type                                                          | Output Type | Faults |
+|:--------------------------------------------------------------------|:--------------------------------------------------------------------|:------------|:-------|
+| [print](console.md#print)                                           | undefined                                                           | void        |        |
+| [println](console.md#println)                                       | undefined                                                           | void        |        |
+| [registerForInput](console.md#registerForInput)                     | [RegisterForInputRequest](console.md#RegisterForInputRequest)       | void        |        |
+| [unsubscribeSessionListener](console.md#unsubscribeSessionListener) | [UnsubscribeSessionListener](console.md#UnsubscribeSessionListener) | void        |        |
+| [subscribeSessionListener](console.md#subscribeSessionListener)     | [SubscribeSessionListener](console.md#SubscribeSessionListener)     | void        |        |
+| [enableTimestamp](console.md#enableTimestamp)                       | [EnableTimestampRequest](console.md#EnableTimestampRequest)         | void        |        |
 
 ## Operation Description
 
@@ -196,7 +199,7 @@ Type: void
 
 ### enableTimestamp <a id="enableTimestamp"></a>
 
-Operation documentation: It enables timestamp inline printing for each console output operation call: print, println Parameter format allows to specifiy the timestamp output format. Bad Format will be printed out if format value is not allowed.
+Operation documentation: It enables timestamp inline printing for each console output operation call: print, println Parameter format allows to specify the timestamp output format. Bad Format will be printed out if format value is not allowed.
 
 Invocation template:
 
@@ -223,4 +226,3 @@ type EnableTimestampRequest: bool {
 Type: void
 
 `void : void`
-

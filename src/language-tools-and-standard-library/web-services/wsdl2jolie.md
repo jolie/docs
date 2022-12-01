@@ -118,13 +118,13 @@ wdsl2jolie creates a document which contains:
 
 In the following table we show the mapping between WSDL elements and Jolie elements:
 
-| WSDL | Jolie |
-| :--- | :--- |
-| `<types>` | `type` |
-| `<messages>` | `type` |
-| `<portType>` | `interface` |
-| `<binding>` | `outputPort:Protocol` |
-| `<service:port>` | `outputPort` |
+| WSDL             | Jolie                 |
+|:-----------------|:----------------------|
+| `<types>`        | `type`                |
+| `<messages>`     | `type`                |
+| `<portType>`     | `interface`           |
+| `<binding>`      | `outputPort:Protocol` |
+| `<service:port>` | `outputPort`          |
 
 ## SOAP outputPort
 
@@ -152,4 +152,3 @@ So far not all the WSDL and SOAP features are supported, which can raise compati
 * SOAP 1.2, currently NOT supported;
 * XML Schema Extended types, currently NOT supported;
 * HTTP GET and HTTP POST, currently HALF supported as Web Service calls.
-

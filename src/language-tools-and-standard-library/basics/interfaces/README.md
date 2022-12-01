@@ -45,12 +45,11 @@ The operations of type _RequestResponse_ can reply with a fault instead of the r
 
 ```jolie
 interface IfaceName {
- RequestResponse:
-      Op1( ReqType1 )( ResType1 ) throws ErrX( MsgTypeX ) ... ErrY( MsgTypeY ) 
-      //...
-      OpN( ReqTypeN )( ResTypeN ) throws ErrW( MsgTypeW ) ... ErrZ( MsgTypeZ )
+RequestResponse:
+    Op1( ReqType1 )( ResType1 ) throws ErrX( MsgTypeX ) ... ErrY( MsgTypeY ) 
+    //...
+    OpN( ReqTypeN )( ResTypeN ) throws ErrW( MsgTypeW ) ... ErrZ( MsgTypeZ )
 }
 ```
 
 where _ErrX_, _ErrY_, _ErrW_, ..., _ErrZ_ are the fault names and _MsgTypeX_, ..., _MsgTypeZ_ are the types of the messages. Examples of its usage can be found in Section [Fault Handling](../fault-handling/).
-

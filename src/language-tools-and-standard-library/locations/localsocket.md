@@ -1,6 +1,5 @@
+<!-- cSpell: ignore libmatthew, ldconfig, libunix -->
 # LocalSocket
-
-## Localsocket
 
 Localsockets are Unix domain sockets, which are communication endpoints for exchanging data between processes executing within the same host operating system. The feature is limited to Unix-like OSs and not available on Windows.
 
@@ -12,4 +11,3 @@ Localsockets locations can be regular or abstract. Abstract sockets are identica
 
 * Abstract localsockets definition: `localsocket://abs/path/to/socket`
 * Regular localsockets definition: `localsocket:///path/to/socket`
-

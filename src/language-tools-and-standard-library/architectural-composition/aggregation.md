@@ -1,6 +1,7 @@
+<!-- cSpell:ignore Aport, Bport -->
 # Aggregation
 
-The _Aggregation_ is an architectural operator between an inputPort and a set of outpurPorts which allows for composing services in a way that the API of the aggregated services are merged with those of the aggregator. It is a generalisation of network proxies that allow a service to expose operations without implementing them in its behaviour, but delegating them to other services. Aggregation can also be used for programming various architectural patterns, such as load balancers, reverse proxies, and adapters.
+The _Aggregation_ is an architectural operator between an inputPort and a set of outputPorts which allows for composing services in a way that the API of the aggregated services are merged with those of the aggregator. It is a generalisation of network proxies that allow a service to expose operations without implementing them in its behaviour, but delegating them to other services. Aggregation can also be used for programming various architectural patterns, such as load balancers, reverse proxies, and adapters.
 
 The syntax for aggregation extends that given for input ports.
 
@@ -15,7 +16,7 @@ inputPort id {
 
 Where the `Aggregates` primitive expects a list of output port names.
 
-![](../../.gitbook/assets/aggregation.png)
+![](../../assets/image/aggregation.png)
 
 If we observe the list of the operations available at the inputPort of the aggregator, we will see the list of all the aggregated operations together with those of the aggregator.
 
@@ -33,7 +34,7 @@ Remarkably, aggregation handles the request-response pattern seamlessly: when fo
 
 As an example let us consider the case of two services, the printer and fax, aggregated into one service which also add another operation called _faxAndPrint_. The code may be consulted [here](https://github.com/jolie/examples/tree/master/04_architectural_composition/06_aggregation/01_aggregation_and%20orchestration).
 
-![](../../.gitbook/assets/aggregation_example.png)
+![](../../assets/image/aggregation_example.png)
 
 The service _printer_ offers two operations called _print_ and _del_. The former allows for the printing of a document whereas the latter allows for its deletion from the queue. On the other hand the service _fax_ offers just one operation called _fax_. The aggregator, aggregates on its inputPort called _Aggregator_ both the printer and fax services as it is shown below where we report the ports declaration of the aggregator service:
 
@@ -94,11 +95,11 @@ interface C { ... }
 interface D { ... }
 
 outputPort Aport {
-  Interfaces: A
+    Interfaces: A
 }
 
 outputPort Bport {
-  Interfaces: B
+    Interfaces: B
 }
 
 
@@ -113,7 +114,7 @@ In this example there are four interfaces declared: interface _A_, interface _B_
 
 In this case the surface at input port _MyInput_ is the resulting interface of the composition of interfaces _A_, _B_, _C_ and _D_.
 
-A surface is always obtained by listing all the available operations and types of all the interfaces available at a given input port. Thus if we calculate the surface of the port _Aggregator_ dicussed in the previous section we will obtain the following one:
+A surface is always obtained by listing all the available operations and types of all the interfaces available at a given input port. Thus if we calculate the surface of the port _Aggregator_ discussed in the previous section we will obtain the following one:
 
 ```jolie
 type JobID:void{
@@ -195,7 +196,7 @@ The executable code can be found at this [link](https://github.com/jolie/example
 
 Aggregation can be used for system integration, e.g., bridging services that use different communication technologies or protocols. As an example, let us consider the system discussed in the previous section but considering that the aggregated services offers they operation using different protocols like http/json and http/soap as depicted in the following picture:
 
-![](../../.gitbook/assets/protocol_transformation.png)
+![](../../assets/image/protocol_transformation.png)
 
 In this case the aggregator automatically transforms the messages thus enabling a transparent composition of services which exploit different protocols.
 
@@ -236,4 +237,3 @@ Interfaces: AggregatorInterface
 Aggregates: Printer, Fax
 }
 ```
-
