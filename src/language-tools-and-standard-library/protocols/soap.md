@@ -8,8 +8,8 @@ Protocol name in port definition: `soap`.
 
 Some useful tools which deals with soap protocol are released together with jolie:
 
-* [jolie2wsdl](https://jolielang.gitbook.io/docs/web-services/jolie2wsdl)
-* [wsdl2jolie](https://jolielang.gitbook.io/docs/web-services/wsdl2jolie)
+* [jolie2wsdl](../web-services/jolie2wsdl.md)
+* [wsdl2jolie](../web-services/wsdl2jolie.md)
 
 Check the links for more information.
 

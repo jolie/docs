@@ -2,7 +2,7 @@
 
 # Data Types
 
-In Jolie, the messages exchanged through operations are data trees \(see section [Handling Simple Data](https://jolielang.gitbook.io/docs/basics/handling_simple_data).
+In Jolie, the messages exchanged through operations are data trees \(see section [Handling Simple Data](../handling_simple_data.md).
 
 A data type defines:
 
@@ -189,7 +189,7 @@ type TestType: void {
 }
 ```
 
-You can access these nodes with special characters by using dynamic look-up, for example x.\("@node"\). This is explained more in detail in [data structures](https://github.com/jolie/docs/tree/c05a0cef52a6b00c2a807bcadb983fb0ad7840f7/basics/interfaces/basic/data_structures/README.md).
+You can access these nodes with special characters by using dynamic look-up, for example x.\("@node"\). This is explained more in detail in [data structures](../data_structures.md).
 
 _Attention: This feature is available from Jolie 1.6.2._
 
@@ -209,4 +209,4 @@ type CustomType: any | any { .subNode: T } | any { .subNode[2,3]: T }
 
 ## Checking types at runtime: `instanceof`
 
-See section [Handling Simple Data/Runtime type checking of a variable](https://jolielang.gitbook.io/docs/basics/handling_simple_data#runtime-type-checking-of-a-variable-instanceof) for getting details about primitive `instanceof`
+See section [Handling Simple Data/Runtime type checking of a variable](../handling_simple_data.md#runtime-type-checking-of-a-variable-instanceof) for getting details about primitive `instanceof`

@@ -2,7 +2,7 @@
 
 # Kubernetes
 
-[Kubernetes](https://kubernetes.io/) is an open-source system for automating deployment, scaling, and management of containerized applications. Jolie microservices deployed inside a Docker container can be managed by Kubernetes as well. We are going to use what learnt in Docker [section](https://github.com/jolie/docs/tree/454f0b1c62f161eaacc3217f5e7347979b082a13/containerization/containerization/docker.md) to deploy an easily-scalable application, with multiple containers running the same service behind a load balancer. To run the example a Kubernetes environment is needed, the easiest way to get it is to install [Minikube](https://kubernetes.io/docs/tasks/tools/install-minikube/).
+[Kubernetes](https://kubernetes.io/) is an open-source system for automating deployment, scaling, and management of containerized applications. Jolie microservices deployed inside a Docker container can be managed by Kubernetes as well. We are going to use what learnt in Docker [section](../containerization/docker/README.md) to deploy an easily-scalable application, with multiple containers running the same service behind a load balancer. To run the example a Kubernetes environment is needed, the easiest way to get it is to install [Minikube](https://kubernetes.io/docs/tasks/tools/install-minikube/).
 
 ## Deploying "Hello" Jolie service in a container Docker
 

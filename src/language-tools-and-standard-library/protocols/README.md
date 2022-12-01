@@ -19,9 +19,9 @@ In this section we explain what parameters can be set for each protocol.
 
 ## Setting \(static\) parameters
 
-The parameters of the protocol are specified in the input/output [port](https://jolielang.gitbook.io/docs/basics/communication-ports) definition. Unless required, if a parameter is not defined it is set to its default value according to its protocol specification.
+The parameters of the protocol are specified in the input/output [port](../basics/communication-ports/ports.md) definition. Unless required, if a parameter is not defined it is set to its default value according to its protocol specification.
 
-Let us recall the examples given in [HTTP GET/POST Requests](https://jolielang.gitbook.io/docs/web-applications/web_get_post) where we set the parameters `method` and `format`, of protocol `http`, to define what kind of messages the port shall send or receive.
+Let us recall the examples given in [HTTP GET/POST Requests](../web-applications/web_get_post.md) where we set the parameters `method` and `format`, of protocol `http`, to define what kind of messages the port shall send or receive.
 
 ```jolie
 // HTTP GET input port
@@ -61,7 +61,7 @@ Besides defining a parameter as a static value, which remains the same during th
 
 Protocol's parameters can be set dynamically using the alias `->` operator.
 
-To exemplify how to dynamically set the parameters of a protocol, we refer to the [Leonardo](https://github.com/jolie/docs/tree/17849b39db5140ffe17f04d698cd6945df1d999f/protocols/web_applications/leonardo/README.md)'s inputPort definition:
+To exemplify how to dynamically set the parameters of a protocol, we refer to the [Leonardo](../web-applications/leonardo.md)'s inputPort definition:
 
 ```jolie
 inputPort HTTPInput {
@@ -82,4 +82,4 @@ inputPort HTTPInput {
 
 As shown, except `keepAlive`, `debug.showContent`, and `default` parameters that are statically set, all other parameters are aliased to a variable whose value can be changed at runtime, during the execution of Leonardo.
 
-Besides aliasing protocol's parameter, we can access and modify them using the standard Jolie construct for [dynamic port binding](https://jolielang.gitbook.io/docs/basics/dynamic_binding).
+Besides aliasing protocol's parameter, we can access and modify them using the standard Jolie construct for [dynamic port binding](../basics/dynamic_binding.md).

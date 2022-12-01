@@ -1,6 +1,6 @@
 # Adding Interfaces
 
-In [Creating a Service and a Client](https://github.com/jolie/docs/tree/d296c3f38a034f7c3a1e794fa5b31d175c41c936/getting-started/creating-a-service-and-a-client/README.md) we have seen that it is possible to specify the list of the available operations within a port definition. Such a definition is quite coarse since it does not specify the types of the exchanged messages \(more precisely, by omitting information on types, we implicitly set the type of the operation to the `undefined` type\).
+In [Creating a Service and a Client](./creating_service_and_client.md) we have seen that it is possible to specify the list of the available operations within a port definition. Such a definition is quite coarse since it does not specify the types of the exchanged messages \(more precisely, by omitting information on types, we implicitly set the type of the operation to the `undefined` type\).
 
 Using **interfaces** it is possible to specify the type of each exchanged message. In the following we define the interface for the service _twice_.
 
@@ -53,4 +53,4 @@ main
 }
 ```
 
-A more detailed explanation about interfaces can be found at the section [Interfaces](https://github.com/jolie/docs/tree/master/language-tools-and-standard-library/basics/interfaces/README.md).
+A more detailed explanation about interfaces can be found at the section [Interfaces](../language-tools-and-standard-library/basics/interfaces/README.md).

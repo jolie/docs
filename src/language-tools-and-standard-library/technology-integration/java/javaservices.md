@@ -59,7 +59,7 @@ The embedder construct, at Line 10, declares the type keyword as `Java` and defi
 
 ## Using a request-response operation in Java services
 
-To practice on request-response operations between embedded and embedder, let us rewrite the _twice_ service used in the section [Embedding Jolie Services](https://github.com/jolie/docs/tree/96b1c146dc375f754b99b159070d93f80e59581c/technology-integration/architectural-composition/embedding/README.md#embedding-jolie-services).
+To practice on request-response operations between embedded and embedder, let us rewrite the _twice_ service used in the section [Embedding Jolie Services](../../architectural-composition/embedding.md#embedding-jolie-services).
 
 We use the previously written Java Service `MyConsole` to print the result and show how to embed multiple classes.
 
@@ -208,9 +208,9 @@ After `start()` is called by the embedder, our Java Service creates a `Value` ob
 
 After receiving the response, the service prints at console the subnodes of the response exploiting the `ValueVector` object.
 
-The comprehensive code of this example can be downloaded here:
+TODO missing code The comprehensive code of this example can be downloaded here:
 
-[Embedding Java Code Example](https://github.com/jolie/docs/blob/master/files/architectural-composition/code/embedding_java_code.zip)
+[Embedding Java Code Example](./code/embedding_java_code.zip)
 
 ## Creating a JavaService
 
@@ -575,7 +575,7 @@ public class FirstJavaService extends JavaService
 The class `CommMessage` \(package `Jolie.net`\) represents a Jolie communication message which is sent to the embedder by means of the JavaService method `sendMessage`. The method indeed requires a message which is created by exploiting the static methods `createRequest`. In this case, the message has been initialized with the following parameters:
 
 * `reply`: the name of the operation of the embedder to call;
-* `/`: the service path \(see [Redirection](https://jolielang.gitbook.io/docs/architectural-composition/redirection)\);
+* `/`: the service path \(see [Redirection](../../architectural-composition/redirection.md)\);
 * `response` : a Value object that contains the data structure to send.
 
 In this case, the message to send contains the same string of method `HelloWorld`. It is worth noting that in this example the operation _reply_ is a **OneWay** operation but it is possible also to interact by using a _RequestResponse_ operation. The class `CommMessage` provides different static methods for creating a request message and a response message. Now let us comment how the _FirstJavaServiceInterface_ must be modified to be compliant with the new JavaService:

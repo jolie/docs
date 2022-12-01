@@ -8,13 +8,13 @@ The main idea behind the creation of a REST service with Jolie is the introducti
 
 ![](../../assets/image/rest.png)
 
-_jester_ is distributed together with Jolie and it is possible to use it in your projects. Details about _jester_ can be found in the section [Jester](https://github.com/jolie/docs/tree/995bf15f2ee50877e8722867c19c5c8871b48116/rest/jester.md). Here we just point out that _jester_ requires a mapping between the operation of the target services and the http methods to expose together with the resource templates.
+_jester_ is distributed together with Jolie and it is possible to use it in your projects. Details about _jester_ can be found in the section [Jester](../../rest/jester.md). Here we just point out that _jester_ requires a mapping between the operation of the target services and the http methods to expose together with the resource templates.
 
 ```text
 target operation ---> http method, rest resource template
 ```
 
-Such a kind of mapping must be provided to _jester_ in the form of a json file. In the section [jolier](https://github.com/jolie/docs/tree/995bf15f2ee50877e8722867c19c5c8871b48116/rest/jolier.md) we will explain how to correctly define a mapping file for _jester_.
+Such a kind of mapping must be provided to _jester_ in the form of a json file. In the section [jolier](../rest/jolier.md) we will explain how to correctly define a mapping file for _jester_.
 
 ## The tools for enabling the deployment of a Jolie service as a REST service
 

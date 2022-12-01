@@ -118,7 +118,7 @@ It is worth noting that now the file _script.ol_ embeds the service _clean\_div.
 
 ## Dynamic Embedding
 
-Dynamic embedding makes possible to associate a unique embedded instance to a single process of the embedder, thus allowing only that specific process to invoke the operations of the embedded service. Such a feature can be obtained by exploiting the API of the [runtime service](https://github.com/jolie/docs/tree/587adabef2f2169959f76fa242c1696673e54617/standard-library-api/runtime/README.md), in particular we will use operation _loadEmbeddedService_.
+Dynamic embedding makes possible to associate a unique embedded instance to a single process of the embedder, thus allowing only that specific process to invoke the operations of the embedded service. Such a feature can be obtained by exploiting the API of the [runtime service](../standard-library-api/runtime.md), in particular we will use operation _loadEmbeddedService_.
 
 As an example let us consider the case of a calculator which offers the four arithmetic operators but it loads the implementation of them at runtime depending on the request selection. If the client specifies to perform a sum, the calculator will load the service which implements the sum and it will call it on the same operation _run_. The full code of the example can be found [here](https://github.com/jolie/examples/tree/master/04_architectural_composition/05_dynamic_embedding/calculator), in the following we report the code of the calculator:
 

@@ -1,8 +1,6 @@
 # Composing Statements
 
-## Composing Statements
-
-### Defining a Jolie application behaviour
+## Defining a Jolie application behaviour
 
 The behaviour of a Jolie application is defined by conditions, loops, and statement execution rules.
 
@@ -59,7 +57,7 @@ The parallel operator `|` states that both left and right operands are executed 
 statementA | statementB
 ```
 
-It is a good practice to explicitly group statements when mixing sequence and parallel operators. Statements can be grouped by enclosing them within an unlabelled [scope](https://jolielang.gitbook.io/docs/fault-handling/basics) represented by a pair curly brackets `{}`, like in the following example:
+It is a good practice to explicitly group statements when mixing sequence and parallel operators. Statements can be grouped by enclosing them within an unlabelled [scope](../basics/fault-handling/basics.md) represented by a pair curly brackets `{}`, like in the following example:
 
 ```jolie
 { statementA ; statementB ; ... ; statementF }
@@ -102,7 +100,7 @@ main {
 
 [Click here to get the comprehensive code of the example above.](https://github.com/jolie/examples/tree/master/02_basics/3_parallel)
 
-Concurrent access to shared variables can be restricted through [synchronized](https://jolielang.gitbook.io/docs/basics/processes) blocks.
+Concurrent access to shared variables can be restricted through [synchronized](../basics/processes.md) blocks.
 
 ## Statements
 
@@ -212,7 +210,7 @@ main {
 
 #### Iterating over arrays
 
-**Attention.** Arrays and the `#` operator are explained in detail in the [Data Structures](https://jolielang.gitbook.io/docs/basics/data_structures) section.
+**Attention.** Arrays and the `#` operator are explained in detail in the [Data Structures](../basics/data_structures.md) section.
 
 Another form of `for` loops is the following, which iterates over all elements of an array `a`.
 

@@ -173,7 +173,7 @@ Note that the tool _jolie2surface_ also adds the outputPort declaration connecte
 
 ### Extracting surface programmatically
 
-The surface can be extracted in a programmatic way too by exploiting the standard library of Jolie. In particular, we can use the services [MetaJolie](https://jolielang.gitbook.io/docs/standard-library-api/metajolie) and [MetaParser](https://jolielang.gitbook.io/docs/standard-library-api/metaparser) for getting the surface of a an input port of a service.  
+The surface can be extracted in a programmatic way too by exploiting the standard library of Jolie. In particular, we can use the services [MetaJolie](../standard-library-api/metajolie.md) and [MetaParser](../standard-library-api/metaparser.md) for getting the surface of a an input port of a service.  
 The service _MetaJolie_ provides a set of functionalities for getting important meta information about a service whereas the service _MetaParser_ provides for transforming these information into a syntactically correct Jolie definition. If we want to extract the surface of an input port we can use the operation _getInputPortMetaData@MetaJolie_ which returns a complete description of the input port of a service definition. Then, with the operation _getSurface@Parser_ we can extract the surface by passing the definition of the input port obtained from the previous operation.
 
 In the following you can find the example of the programmatic surface extraction of service _aggregator.ol_.

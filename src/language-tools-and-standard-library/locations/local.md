@@ -10,7 +10,7 @@ In the first case, the user can define a static location identified by a name, l
 
 In the second case, the user does not define a static location but only the usage of the `local` medium. At runtime, the Jolie interpreter assigns to inputPorts using that medium a unique name. To bind outputPorts, the user can use the operation as it follows, where MyOutputPort is the name of the outputPort to be bound `getLocalLocation@Runtime()( MyOutputPort.location )`.
 
-An example using this medium can be found in part "Handling structured messages and embedder's operations invocation" of [Embedding Java Services](https://github.com/jolie/docs/tree/d208e9c15f6c4743b104c9389f25b4481639db87/locations/architectural-composition/embedding_java/README.md) subsection.
+An example using this medium can be found in part "Handling structured messages and embedder's operations invocation" of [Embedding Java Services](../technology-integration/java/javaservices.md) subsection.
 
 The `local` medium can be used for service internal self communications, as shown in the example below:
 

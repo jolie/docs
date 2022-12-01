@@ -2,7 +2,7 @@
 
 ## Collections
 
-A collection is a set of output ports that share the same interface. They can be used in combination with [Aggregation](https://github.com/jolie/docs/tree/f7380de3b4b0fc6b938ca43b657f4f0485963fdb/architectural-composition/aggreation.md) and [Couriers](couriers.md#courier-sessions) in order to public their interface into an aggregator and then forward the message to an output port of the collection depending on a specific rule.
+A collection is a set of output ports that share the same interface. They can be used in combination with [Aggregation](../architectural-composition/aggregation.md) and [Couriers](couriers.md#courier-sessions) in order to public their interface into an aggregator and then forward the message to an output port of the collection depending on a specific rule.
 
 ### Collection syntax
 
@@ -88,7 +88,7 @@ Note that here we use the parallel composition of the primitive `forward`. A com
 
 ## Collection and Interface extension
 
-When using collections it is also possible to extend the interface of the collected output ports in order to add some extra data that are managed only by the aggregator. [Interface extension](https://jolielang.gitbook.io/docs/architectural-composition/couriers#interface-extension) can be applied to all the output ports of a collection.
+When using collections it is also possible to extend the interface of the collected output ports in order to add some extra data that are managed only by the aggregator. [Interface extension](./couriers.md#interface-extension) can be applied to all the output ports of a collection.
 
 ### A comprehensive example
 

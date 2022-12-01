@@ -118,7 +118,7 @@ where we added the parameter `-e TESTVAR=spiderman` which initializes the enviro
 
 But how could we read it from a jolie service?
 
-Reading an environment variable from a Jolie service is very simple. It is sufficient to exploit the standard library, in particular the [Runtime service](https://jolielang.gitbook.io/docs/standard-library-api/runtime). In this case we can use the operation `getEnv` which allows for reading the value of an environment variable and we could modify the previous example as it follows:
+Reading an environment variable from a Jolie service is very simple. It is sufficient to exploit the standard library, in particular the [Runtime service](../../standard-library-api/runtime.md). In this case we can use the operation `getEnv` which allows for reading the value of an environment variable and we could modify the previous example as it follows:
 
 ```jolie
 include "runtime.iol"
@@ -149,7 +149,7 @@ main {
 }
 ```
 
-The full code of this example can be consulted [here](https://github.com/jolie/examples/tree/master/06_containers/02_passing_parameters). Note that in the scope [init](https://jolielang.gitbook.io/docs/basics/processes#main-and-init) the service reads the environment variable `TESTVAR` and save it in the jolie variable with the same name `TESTVAR`. The variable `TESTVAR` is then used in the body of the operation `hello` for creating the response message. It is worth noting that at the beginning we need to include the `runtime.iol` service.
+The full code of this example can be consulted [here](https://github.com/jolie/examples/tree/master/06_containers/02_passing_parameters). Note that in the scope [init](../../basics/processes.md#main-and-init) the service reads the environment variable `TESTVAR` and save it in the jolie variable with the same name `TESTVAR`. The variable `TESTVAR` is then used in the body of the operation `hello` for creating the response message. It is worth noting that at the beginning we need to include the `runtime.iol` service.
 
 In order to try this example, just repeat the steps described at the previous section:
 
@@ -205,7 +205,7 @@ main {
 }
 ```
 
-Note that here we exploit the standard API of [File](https://jolielang.gitbook.io/docs/standard-library-api/file). In particular, we exploit the operation `readFile@File` where we specify to read from file `/var/temp/config.json`. It is worth noting that in this case the path `/var/temp/` must be considered as an internal path of the container. Thus, when the service will be executed inside the container, it will try to read from its internal path `/var/temp/config.json`.
+Note that here we exploit the standard API of [File](../../standard-library-api/file.md). In particular, we exploit the operation `readFile@File` where we specify to read from file `/var/temp/config.json`. It is worth noting that in this case the path `/var/temp/` must be considered as an internal path of the container. Thus, when the service will be executed inside the container, it will try to read from its internal path `/var/temp/config.json`.
 
 If we build the new image using the same Dockerfile as before, the service won't found the file `config.json` for sure because it is not contained inside the image. In order to solve such an issue we need to map the internal path `/var/temp` to a path of the host machine. The command `run` of docker allows to do such a map by using volume definition. Thus the run command will be like the following one:
 
@@ -217,9 +217,9 @@ The parameter `-v` allows for specifying the volume mapping. The `<Host Path>` t
 
 ## Configuring locations of outputPorts
 
-Finally, let us point out the last issue you could encounter when deploying a jolie microservice within a docker container: the configuration of the outputPort locations. outputPorts often represent dependencies of the given microservice from other microservices. Dynamic binding can always be done from a programmatic point of view as we it is described [here](https://jolielang.gitbook.io/docs/basics/dynamic_binding), but it could be useful to have a clean way for configuring these outputPorts at the startup of the service.
+Finally, let us point out the last issue you could encounter when deploying a jolie microservice within a docker container: the configuration of the outputPort locations. outputPorts often represent dependencies of the given microservice from other microservices. Dynamic binding can always be done from a programmatic point of view as we it is described [here](../../basics/dynamic_binding.md), but it could be useful to have a clean way for configuring these outputPorts at the startup of the service.
 
-In order to show how to solve such an issue, we try to dockerize the example described in section [Parallel](https://jolielang.gitbook.io/docs/basics/composing_statements#parallel). In particular, in this example there is an orchestrator which collects information from two microservices: _TrafficService_ and _ForecastService_ as depicted in the picture below.
+In order to show how to solve such an issue, we try to dockerize the example described in section [Parallel](../../basics/composing_statements.md#parallel). In particular, in this example there is an orchestrator which collects information from two microservices: _TrafficService_ and _ForecastService_ as depicted in the picture below.
 
 ![](../../../assets/image/arch_parallel_example.png)
 
@@ -247,7 +247,7 @@ All the containers we are going to create will have to be connected to network `
 
 Note that the parameter `--network testnet` is used for connecting the container to the network `testnet`. Thanks to this parameter the containers can be identified by using their name within `testnet`.
 
-Now, the last step: passing the correct locations to the outputPorts of the service `infoService`. Here we can exploit the extension [auto](https://jolielang.gitbook.io/docs/locations#automatic-configuration-of-a-location-using-extension-auto) which allows for automatic defining a location of a port getting the value from an external file. In particular, in the example, we use a `ini` file for achieving such a result:
+Now, the last step: passing the correct locations to the outputPorts of the service `infoService`. Here we can exploit the extension [auto](../../locations/README.md#automatic-configuration-of-a-location-using-extension-auto) which allows for automatic defining a location of a port getting the value from an external file. In particular, in the example, we use a `ini` file for achieving such a result:
 
 ```jolie
 outputPort Forecast {

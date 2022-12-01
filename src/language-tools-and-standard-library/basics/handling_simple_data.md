@@ -69,7 +69,7 @@ A variable type can be checked at runtime by means of the `instanceof` operator,
 expression instanceof (native_type | custom_type)
 ```
 
-`instanceof` operator can be used to check variable typing with both native types and custom ones \(see type subsection in [Data Types](https://jolielang.gitbook.io/docs/basics/interfaces/data_types) section\). Example:
+`instanceof` operator can be used to check variable typing with both native types and custom ones \(see type subsection in [Data Types](../basics/interfaces/data_types.md) section\). Example:
 
 ```jolie
 s = "10";
@@ -170,7 +170,7 @@ println@Console( #a )() // Will print 4
 
 ### Nested arrays
 
-Jolie\'s type system does not permit directly nested arrays as known in other programming languages. This limitation may be compensated by the introduction of children nodes \(explained in [Data Structures](https://jolielang.gitbook.io/docs/basics/data_structures)\).
+Jolie\'s type system does not permit directly nested arrays as known in other programming languages. This limitation may be compensated by the introduction of children nodes \(explained in [Data Structures](../basics/data_structures.md)\).
 
 Example: The two-dimensional array `a` may not be defined nor accessed by `a[i][j]`, but `a[i].b[j]` is possible.
 

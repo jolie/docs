@@ -22,7 +22,7 @@ In the \`sequential\` and \`concurrent\` cases, the behavioural definition insid
 
 A crucial aspect of processes is that each of them has its own private state, determining variable scoping. This lifts programmers from worrying about race conditions in most cases.
 
-For instance, let us recall the server program given at the end of [Communication Ports](https://github.com/jolie/docs/tree/0a77ae520bccd6139e4a296e77e7fa6f30f066db/basics/basics/communication-ports/a_comprehensive_example/README.md) section. The execution modality of the _NewsPaper_ is `concurrent` thus it can support multiple requests from both the script _author.ol_ and _user.ol_.
+For instance, let us recall the server program given at the end of [Communication Ports](../basics/communication-ports/a_comprehensive_example.md) section. The execution modality of the _NewsPaper_ is `concurrent` thus it can support multiple requests from both the script _author.ol_ and _user.ol_.
 
 ```jolie
 include "NewsPaperInterface.iol"

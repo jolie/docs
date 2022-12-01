@@ -63,8 +63,6 @@ A running instance of a behaviour, equipped with its own private state and messa
 
 When a service `A` has an output port that needs to be connected to another service `B` in order for the service `A` to function, we say that service `A` _depends on_ service `B`.
 
-![](/assets/image/definitions.png)
-
 ## Service network
 
 A group of services and their connections.

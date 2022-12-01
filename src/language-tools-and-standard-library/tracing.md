@@ -5,7 +5,7 @@ At the present, a complete step by step debugger is not available. Nevertheless 
 
 ## Tracing
 
-A Jolie program can be easily traced enabling this feature in the command line with the parameter `--trace`. As an example, let us consider the _helloworld_ program explained [here](https://jolielang.gitbook.io/docs/tutorials/getting-started/hello_world). If you need to enable the tracer just run it using the following command line:
+A Jolie program can be easily traced enabling this feature in the command line with the parameter `--trace`. As an example, let us consider the _helloworld_ program explained [here](../getting-started/hello_world.md). If you need to enable the tracer just run it using the following command line:
 
 ```text
 jolie --trace myFirstJolieService.ol

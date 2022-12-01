@@ -2,11 +2,11 @@
 
 _ATTENTION: This page is under construction_/
 
-This page comprises some of the main configuration parameters for the [HTTP protocol](https://jolielang.gitbook.io/docs/protocols/http) useful to create, structure, and interact with REST APIs. For a more comprehensive reference on HTTP protocol, its configuration parameters, and its best practices, please refer to [Process-aware web programming with Jolie](https://arxiv.org/pdf/1410.3712).
+This page comprises some of the main configuration parameters for the [HTTP protocol](../language-tools-and-standard-library/protocols/http.md) useful to create, structure, and interact with REST APIs. For a more comprehensive reference on HTTP protocol, its configuration parameters, and its best practices, please refer to [Process-aware web programming with Jolie](https://arxiv.org/pdf/1410.3712).
 
 ## HTTP Methods
 
-_section under construction, please for the moment refer to page_ [_HTTP GET/POST Requests_](web_get_post.md) _for examples on how to use basic GET/POST HTTP methods_
+_section under construction, please for the moment refer to page_ [_HTTP GET/POST Requests_](../language-tools-and-standard-library/web-applications/web_get_post.md) _for examples on how to use basic GET/POST HTTP methods_
 
 ## From REST Resources to Jolie Operations
 
@@ -76,4 +76,4 @@ _In this section we explain how to use the_ `default` _parameter to capture any 
 
 ## Integrating HTTP Cookies with Jolie Sessions
 
-_In this section we show how to integrate HTTP cookie-based sessions with Jolie_ [_correlation-based sessions_](https://jolielang.gitbook.io/docs/basics/sessions)_._
+_In this section we show how to integrate HTTP cookie-based sessions with Jolie_ [_correlation-based sessions_](../language-tools-and-standard-library/basics/sessions.md)_._

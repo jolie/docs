@@ -1,6 +1,6 @@
 # Using files
 
-Using files in jolie is very simple. There standard library [`file.iol`](https://jolielang.gitbook.io/docs/standard-library-api/file) provides a set of useful operations for managing files. In this tutorial we show:
+Using files in jolie is very simple. There standard library [`file.iol`](../language-tools-and-standard-library/standard-library-api/file.md) provides a set of useful operations for managing files. In this tutorial we show:
 
 * how to read from a file;
 * how to write to a file;
