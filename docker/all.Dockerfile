@@ -36,10 +36,9 @@ COPY book.toml /jolie-docs/book.toml
 RUN apk update && \
     apk add git
 
-RUN git clone https://github.com/kicito/docs.git
+RUN git clone https://github.com/jolie/docs.git
 WORKDIR /docs
 
-ADD http://date.jsontest.com /etc/builddate
 
 RUN for version in $(git for-each-ref --shell --format='%(refname:lstrip=3)' | grep 'v[0-9]*\.[0-9]*\.x' | tr -d "'"); \
     do \
