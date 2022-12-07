@@ -1,7 +1,7 @@
 on:
   push:
     branches:
-      - v1.10.x
+      - v1.9.x
 jobs:
   docker_build_and_push:
     runs-on: ubuntu-latest
@@ -14,4 +14,4 @@ jobs:
       - run: git branch
       - run: git config --global user.email "gitaction@gitaction.com"
       - run: git config --global user.name "GitAction"
-      - run: git commit --allow-empty  -m "Triggered by v1.10.x" | git push
+      - run: git commit --allow-empty  -m "Triggered by v1.9.x" | git push
