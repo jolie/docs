@@ -1,0 +1,26 @@
+[book]
+authors = ["Jolie Team"]
+language = "en"
+multilingual = false
+src = "src"
+title = "Jolie Documentation"
+
+[build]
+create-missing = false
+
+[preprocessor]
+
+[preprocessor.mermaid]
+command = "mdbook-mermaid"
+
+[output]
+
+[output.html]
+additional-js = ["src/assets/js/mermaid.min.js", "src/assets/js/mermaid-init.js"]
+
+[output.html.font]
+enable = true
+woff = true
+
+[output.html.fold]
+enable = true

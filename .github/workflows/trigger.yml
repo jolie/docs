@@ -1,0 +1,17 @@
+on:
+  push:
+    branches:
+      - v1.10.x
+jobs:
+  docker_build_and_push:
+    runs-on: ubuntu-latest
+    name: "Trigger"
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          ref: master
+          token: ${{secrets.PAT}}
+      - run: git branch
+      - run: git config --global user.email "gitaction@gitaction.com"
+      - run: git config --global user.name "GitAction"
+      - run: git commit --allow-empty  -m "Triggered by v1.10.x" | git push
