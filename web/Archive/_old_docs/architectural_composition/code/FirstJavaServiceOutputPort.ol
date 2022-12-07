@@ -1,3 +1,0 @@
-outputPort FirstJavaServiceOutputPort {
-  Interfaces: FirstJavaServiceInterface
-}

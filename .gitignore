@@ -1,6 +1,2 @@
-include/*
-lib/*
-joliedoc/*
-build_jsl/*
-node_modules/*
-_book/*
+book/
+megalinter-reports/

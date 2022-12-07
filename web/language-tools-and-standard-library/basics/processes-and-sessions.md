@@ -1,3 +1,0 @@
-# Processes and Sessions
-
-In Jolie a _process_ is a running instance of a behaviour whereas a _session_ is a process in charge to serve one or more requests. The two concepts are quite similar, thus the two terms could be used for referring the same entity. The only difference is that a process is a term which refers to an executable entity inside a Jolie engine, whereas a session is an entity which represents an open conversation among two or more services. Briefly, the _process_ can be considered as the executable artifact which animates a session. A session always starts when triggered from an external message, whereas a process always starts when a session is trigerred or when a Jolie script is run.
