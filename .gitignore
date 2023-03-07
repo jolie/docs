@@ -4,3 +4,4 @@ joliedoc/*
 build_jsl/*
 node_modules/*
 _book/*
+megalinter-reports/
