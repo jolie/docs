@@ -10,7 +10,7 @@ jobs:
       - uses: actions/checkout@v3
         with:
           ref: master
-          token: ${{secrets.PAT}}
+          token: ${{secrets.GITHUB_TOKEN}}
       - run: git branch
       - run: git config --global user.email "gitaction@gitaction.com"
       - run: git config --global user.name "GitAction"
