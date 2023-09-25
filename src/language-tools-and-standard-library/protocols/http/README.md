@@ -315,6 +315,13 @@ type HttpConfiguration:void {
      * Default: none
      */
     .json_encoding?:string
+
+    /*
+     * Forces a specific charset to be used for decoding a received response. In that case, it overwrites the charset specified by the server in the http header
+     *
+     * Default: none
+     */
+    .forceRecvCharset?: string
 ​
     /*
      * Defines the observed headers of a HTTP message.
