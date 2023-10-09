@@ -372,13 +372,6 @@ type HttpConfiguration:void {
         */
         .cookieName*:void {
 
-            /*
-            * Defines the configuration of a cookie
-            *
-            * Default: none
-            */
-            .cookieConfig?:string{
-
                 /*
                 * Defines the domain of the cookie
                 *
@@ -414,7 +407,7 @@ type HttpConfiguration:void {
                 * Default: string
                 */
                 .type?:string
-            }
+            
         }
 ​
     }
