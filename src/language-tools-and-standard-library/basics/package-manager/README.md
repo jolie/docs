@@ -1,79 +1,84 @@
 # Package Manager for Jolie
 
-The jolie package manager **JPM** is can be installed from [jpm](https://www.npmjs.com/package/@jolie/jpm), being a package npm it is required that on your machine you have installed NodeJs using the following command
+The jolie package manager **jpm** is the tool for managing packages in Jolie. jpm can be installed using npm with following command
 
 ```bash
 npm install -g @jolie/jpm
 ```
 
-the    **-g** option makes sure the installation is global and available for any project
+**Note that jpm requires NodeJS version 18 or newer to operate.**
 
-## Initiate a project Jolie with JPM
+Jolie packages uses the benefit of node ecosystem to provide the developer-friendly experience on building the packages. jpm manages a jolie specific field in the package.json. Which specify Jolie packages that the project is depended on.
 
-It must be stated that you can program a jolie without having to use **jpm** , yet jpm will help you to access to the community packages and to managed then via commands , these packages can be found in [npm](https://www.npmjs.com).
-To initiate a project you need to use the command
+## Create Jolie project with `npm create`
 
-```bash
-jpm init
-```
-
-this command will create the project json descriptor jpm.json
-
-```json
-
-{
-    "name": "testProject",
-    "description": "",
-    "author": "",
-    "version": "1.0.0",
-    "license": "ISC",
-    "keywords": [],
-    "scripts": {
-        "jolive": "npx nodemon --exec jolie ./server.ol",
-        "clean": "rm ./hs_err_pid*"
-    },
-    "dependencies": {}
-}
-
-```
-
-you can alter the node like:
-
-- name
-- description
-- author
-
-the **dependencies** node **must not** modified by hand.
-
-to add dependencies please use the following command
+Jolie provides an easy way to create a jolie project via `npm create` command. In an empty directory, execute the following command and follow the instruction. The command will create a bootstrap Jolie project based on type user choosing and automatically activate jpm on the fly.
 
 ```bash
-jpm add nameOfThePackage
-
+npm create jolie
 ```
 
-for example to add the [tquery](https://www.npmjs.com/package/@jolie/tquery)
+## Activate jpm on a Jolie project
+
+In order to activate jpm on an existing Jolie project, it requires package.json file to be present on the root directory of the project. Which can be done via executing `npm init` command. Following with jpm init command
 
 ```bash
-jpm add @jolie/tquery
+npm init --y # Creates npm project
+
+jpm init # Adds jolie's specific field to package.json
 ```
 
-jpm will take care of of downloading the correct files composing the package and place then under the packages directory that if not present will be created
+## jpm Usage
 
-By default the jolie language interpreter looks for its packages in the local directory packages if it exists so for using the tquery package now installed in your local project directory can be used
+`jpm` capable of fetching packages from both `npm` and `maven`. The latter is useful for the project that only required importing java classes to the classpath e.g. database driver. A dependency can be install using the following command
+
+### Adding dependency
 
 ```bash
-from @jolie.tquery.main import TQuery
+jpm install [TARGET[@version]] [-r mvn|npm]
+
+ARGUMENTS
+    TARGET  Target package to add to dependency
+
+FLAGS
+    -r, --repo=(mvn|npm) the lookup repository (mvn for maven)
+
+EXAMPLES
+    $ jpm install
+    scan entries from package.json and download all dependencies
+
+    $ jpm install @jolie/websocket
+    add @jolie/websocket into the project
+
+    $ jpm install org.xerial:sqlite-jdbc
+    add sqlite's jdbc driver to the project
 ```
 
-that can be red as
+jpm will download and extract the dependency to the proper directory in the project.
 
-```jolie
-from directory.directory.naneOfTheServiceFile    import nameOfTheService
-```
-
-to remove
+### Removing dependency
 
 ```bash
-jpm remove @jolie/tquery
+USAGE
+    $ jpm remove [TARGET]
+
+ARGUMENTS
+    TARGET  Target package
+
+DESCRIPTION
+    Remove Jolie related dependency to the project
+
+    Currently, it removes the corresponding entry on package.json file and perform install command
+
+
+
+EXAMPLES
+    $ jpm remove jolie-jsoup
+        Remove jolie-jsoup from the dependencies
 ```
+
+## Under the hood of jpm's package.json
+
+jpm operate only on `jolie` field in `package.json`. The field itself contains the information of the dependency and which repository to fetch the data from. The rest of the content inside `package.json` is left to be managed by `npm`, so we can fully use the potential of npm on development to publishing the package to `npm` repository. The **jolie** field **should not** be modified manually.
+
+For more information, inquiry, or suggestion, please use jpm's [github](https://github.com/jolie/jpm) or join the [discord](https://discord.gg/M24EbU7ja9).
