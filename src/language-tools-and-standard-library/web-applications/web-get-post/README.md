@@ -146,3 +146,23 @@ main
     println@Console( response )()
 }
 ```
+
+### Checking the message content
+Use `--trace` for checking the http message sent, like in the following example:
+```
+jolie --trace yourclient-filename.ol 
+```
+
+### Formatting the request
+By default, the request is not sent in json format. In order to specify that the payload must be converted into a json, add parameter `format` to the htto protocol as it follows:
+
+```
+outputPort SumService {
+    Location: "socket://localhost:8000/"
+    Protocol: http {
+       .method = "post"
+       .format = "json"
+    }
+    Interfaces: SumInterface
+}
+```
