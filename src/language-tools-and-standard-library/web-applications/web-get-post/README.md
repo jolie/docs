@@ -154,7 +154,7 @@ jolie --trace yourclient-filename.ol
 ```
 
 ### Formatting the request
-By default, the request is not sent in json format. In order to specify that the payload must be converted into a json, add parameter `format` to the htto protocol as it follows:
+By default, the request is not sent in json format. In order to specify that the payload must be a json, add parameter `format` to the http protocol as it follows:
 
 ```
 outputPort SumService {
