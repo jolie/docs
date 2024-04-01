@@ -121,8 +121,9 @@ type HttpConfiguration:void {
 
     /*
      * Defines the request method
-     * Default: "POST"
      * Supported values: "GET", "POST", "PUT", "DELETE", "OPTIONS", "PATCH"
+     *
+     * Default: "POST"
      */
     .method?:string {
          /*
@@ -136,6 +137,7 @@ type HttpConfiguration:void {
     /*
      * Defines a set of operation-specific aliases,
      * multi-part headers, and parameters.
+     *
      * Default: none
      */
     .osc?:void {
@@ -144,6 +146,7 @@ type HttpConfiguration:void {
          * e.g.,. .osc.fetchBib.alias="rec/bib2/%!{dblpKey}.bib" for operation
          * fetchBib()() which listens on "rec/bib2/%!{dblpKey}.bib"
          * e.g.,. .osc.default.alias="" for method default()() which listens on "/"
+         *
          * Default: none
          */
         .operationName*:void {
@@ -153,8 +156,9 @@ type HttpConfiguration:void {
              * "operationName". The alias parameter has the precedence
              * over the template one.
              *
-             * Default: none
              * Supported values: URL address, string raw
+             *
+             * Default: none
              */
             .alias?: string
             .template?: string
@@ -198,6 +202,8 @@ type HttpConfiguration:void {
              * "token" value, which is set to the authentication secret.
              *
              * .outHeaders.("Authorization")= "token"
+             *
+             * Default: none
              */
             .outHeaders?:void {
                 .*:string
@@ -213,6 +219,8 @@ type HttpConfiguration:void {
              * secret to be validated.
              *
              * .inHeaders.("Authorization")= "token"
+             *
+             * Default: none
              */
             .inHeaders?:void {
                 .*:string 
@@ -231,6 +239,8 @@ type HttpConfiguration:void {
              * .statusCodes = 201 // 201 = Created
              * .statusCodes.TypeMismatch = 400
              * .statusCodes.RecordExists = 400
+             *
+             * Default: none
              */
             .statusCodes?:int {
                 .Exception*:int
@@ -244,13 +254,13 @@ type HttpConfiguration:void {
              */
             .multipartHeaders?:void {
                 /*
-                 * Defines the name of the part of
-                 * the multi-part request
-                 * Default: none
+                 * Each item represents a multipart header
                  */
                 .partName*:void {
                     /*
-                     * Name
+                     * Defines the part's name of
+                     * the multi-part request
+                     * Default: none
                      */
                     .part:string
  
@@ -286,43 +296,36 @@ type HttpConfiguration:void {
      */
     .cookies?:void {
         /*
-         * Defines a cookie named
-         * "cookieName"
-         * Default: none
+         * Each item represents a cookie with its cookie name
          */
-        .cookieName*:void {
+        .*:void {
             /*
              * Defines the domain of the cookie
-             *
              * Default: ""
              */
             .domain?:string
 
             /*
              * Defines the expiration time of the cookie
-             *
              * Default: ""
              */
             .expires?:string
 
             /*
              * Defines the "path" value of the cookie
-             *
              * Default: ""
              */
-            .path?:string{}
+            .path?:string
 
             /*
              * Defines whether the cookie shall be encrypted
              * and sent via HTTPS
-             *
-             * Default: 0
+             * Default: none
              */
-            .secure?:int{}
+            .secure?:int
 
             /*
-             * Defines the type of the cookie
-             *
+             * Defines the cookie's type
              * Default: string
              */
             .type?:string  
@@ -453,12 +456,20 @@ type HttpConfiguration:void {
      * without an apposite status code parameter then "303 See Other"
      * is inferred.
      *
+     * e.g.,
+     * .redirect -> redirectLocation
+     *
      * Default: none
      */
     .redirect?:string
 ​
     /*
      * Defines the cache-control header of the HTTP message.
+     *
+     * e.g.,
+     * .cacheControl.maxAge = 3600 // 1h
+     *
+     * Default: none
      */
     .cacheControl?:void {
         /*
