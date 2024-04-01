@@ -64,9 +64,7 @@ type HttpConfiguration:void {
      * Defines whether the requests handled by the service
      * are thread-safe or not.
      *
-     * Default:
-     *    send     -> true
-     *    receive  -> false
+     * Default: false
      */
     .concurrent?: bool
 ​
@@ -241,6 +239,7 @@ type HttpConfiguration:void {
             /*
              * Defines the elements composing a multi-part
              * request for a specific operation.
+             *
              * Default: none
              */
             .multipartHeaders?:void {
@@ -269,6 +268,14 @@ type HttpConfiguration:void {
                     .contentType?:string
                 }
             }
+            
+            /*
+             * Forces the response message format to a string
+             * ("string") or a byte array ("raw")
+             *
+             * Default: none
+             */
+            .forceContentDecoding?:string
         }
     }
     
@@ -486,7 +493,8 @@ type HttpConfiguration:void {
      *    in HTTP. With .dropURIPath = true the path component "s" is dropped
      *    and the result becomes "/sum".
      *
-     */ Default: false
+     * Default: false
+     */
     .dropURIPath?:bool
 ​
     /* Inbound */
