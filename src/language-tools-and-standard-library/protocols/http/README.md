@@ -66,7 +66,7 @@ type HttpConfiguration:void {
      *
      * Default:
      *    send     -> true
-     *    receive -> false
+     *    receive  -> false
      */
     .concurrent?: bool
 ​
@@ -76,7 +76,7 @@ type HttpConfiguration:void {
      * or according to "requestCompression". On the server the compression is
      * enabled using gzip or deflate as the client requested it. gzip is
      * preferred over deflate since it is more common.
-     * If the ne.g.,otiation was successful, the server returns the compressed
+     * If the negotiation was successful, the server returns the compressed
      * data with a "Content-Encoding" header and an updated "Content-Length"
      * field.
      *
@@ -107,9 +107,8 @@ type HttpConfiguration:void {
 ​
     /*
      * Enables the HTTP request compression feature.
-     * HTTP 1.1 per RFC 2616 defines optional compression also on POST
-     * requests, which works unless HTTP errors are returned, for instance 415
-     * Unsupported Media Type.
+     * HTTP defines optional compression also on POST requests, which works unless
+     * HTTP errors are returned, for instance "415 Unsupported Media Type".
      * Jolie allows to set the parameter to "gzip" or "deflate" which
      * overrides also the "Accept-Encoding" header. This invites the server to
      * use the same algorithm for the response compression.
@@ -121,19 +120,234 @@ type HttpConfiguration:void {
      * Default: none/off
      */
     .requestCompression?:string
+
+    /*
+     * Defines the request method
+     * Default: "POST"
+     * Supported values: "GET", "POST", "PUT", "DELETE", "OPTIONS", "PATCH"
+     */
+    .method?:string {
+         /*
+          * "queryFormat" on a GET request may be set to "json" to have the
+          * parameters passed as JSON
+          * Default: none
+          */
+         .queryFormat?:string
+    }
+
+    /*
+     * Defines a set of operation-specific aliases,
+     * multi-part headers, and parameters.
+     * Default: none
+     */
+    .osc?:void {
+        /*
+         * Jolie operation name(s)
+         * e.g.,. .osc.fetchBib.alias="rec/bib2/%!{dblpKey}.bib" for operation
+         * fetchBib()() which listens on "rec/bib2/%!{dblpKey}.bib"
+         * e.g.,. .osc.default.alias="" for method default()() which listens on "/"
+         * Default: none
+         */
+        .operationName*:void {
+            /*
+             * Defines a HTTP alias/template which represents
+             * an alternative name to the location of
+             * "operationName". The alias parameter has the precedence
+             * over the template one.
+             *
+             * Default: none
+             * Supported values: URL address, string raw
+             */
+            .alias?: string
+            .template?: string
+
+            /*
+             * Operation's method (see port parameter "method")
+             */
+            .method?: string
+
+            /*
+             * Outbound character encoding (see port parameter "charset")
+             */
+            .charset?: string
+
+            /*
+             * Cookie handling (see port parameter "cookie")
+             */
+            .cookies?: void ...
+            
+            /*
+             * Response message format (see port parameter "format")
+             */
+            .format?: string
+
+            /*
+             * Request header handling (see port parameter "addHeader")
+             */
+            .addHeader?:void ...
+
+            /*
+             * Response header handling (see port parameter "response")
+             */
+            .response?:void ...
+            
+            /*
+             * Output ports: outbound request values which get mapped to
+             * the respective outgoing headers. This is most useful for
+             * authentication purposes (tokens, credentials).
+             *
+             * E.g. this maps the "Authorization" header to the request's
+             * "token" value, which is set to the authentication secret.
+             *
+             * .outHeaders.("Authorization")= "token"
+             */
+            .outHeaders?:void {
+                .*:string
+            } 
+
+            /*
+             * Input ports: request ingoing headers which get mapped to
+             * the respective inbound request values. This is most useful for
+             * authentication purposes (tokens, credentials).
+             *
+             * E.g. this maps the "Authorization" header to the request's
+             * "token" value, which will contain the client's authentication
+             * secret to be validated.
+             *
+             * .inHeaders.("Authorization")= "token"
+             */
+            .inHeaders?:void {
+                .*:string 
+            }
+
+            /*
+             * Status codes
+             *
+             * The root value corresponds to a custom success status code
+             * and the children contain exception mappings.
+             *
+             * In the example below return "201 Created" on success
+             * and "400 Bad Request" for parsing errors and an already
+             * existing record (custom exception).
+             *
+             * .statusCodes = 201 // 201 = Created
+             * .statusCodes.TypeMismatch = 400
+             * .statusCodes.RecordExists = 400
+             */
+            .statusCodes?:int {
+                .Exception*:int
+            }
+
+            /*
+             * Defines the elements composing a multi-part
+             * request for a specific operation.
+             * Default: none
+             */
+            .multipartHeaders?:void {
+                /*
+                 * Defines the name of the part of
+                 * the multi-part request
+                 * Default: none
+                 */
+                .partName*:void {
+                    /*
+                     * Name
+                     */
+                    .part:string
+ 
+                    /*
+                     * Defines the name of the file
+                     * corresponding to a specific part
+                     * Default: none
+                     */
+                    .filename?:string
+
+                    /*
+                     * Defines a specific part's content type
+                     * Default: none
+                     */
+                    .contentType?:string
+                }
+            }
+        }
+    }
+    
+    /*
+     * Defines a set of cookies used in the http communication
+     *
+     * Default: none
+     */
+    .cookies?:void {
+        /*
+         * Defines a cookie named
+         * "cookieName"
+         * Default: none
+         */
+        .cookieName*:void {
+            /*
+             * Defines the domain of the cookie
+             *
+             * Default: ""
+             */
+            .domain?:string
+
+            /*
+             * Defines the expiration time of the cookie
+             *
+             * Default: ""
+             */
+            .expires?:string
+
+            /*
+             * Defines the "path" value of the cookie
+             *
+             * Default: ""
+             */
+            .path?:string{}
+
+            /*
+             * Defines whether the cookie shall be encrypted
+             * and sent via HTTPS
+             *
+             * Default: 0
+             */
+            .secure?:int{}
+
+            /*
+             * Defines the type of the cookie
+             *
+             * Default: string
+             */
+            .type?:string  
+        }
+    }
 ​
+    /*
+     * If set to "strict", applies a more strict JSON array to Jolie value
+     * mapping schema when the JSON format is used.
+     *
+     * Default: none
+     */
+    .json_encoding?:string
+
     /* Outbound */
 ​
     /*
      * Defines the HTTP response (outbound) message format.
      * Supported values: xml, html, x-www-form-urlencoded, json,
-     * text/x-gwt-rpc, multipart/form-data, binary (data transfer in raw
+     * ndjson, multipart/form-data, binary (data transfer in raw
      * representation - no conversion), raw (data transfer in string
      * representation with character set enforcement).
-     * It might be necessary to override the format with the correct content
-     * type, especially for "binary" and "raw" as shown below.
      *
-     * Default: xml
+     * It might be necessary to override the format with the correct content
+     * type, especially for "binary" and "raw" as shown below. 
+     *
+     * On input ports, HTTP request content negotiation is performed. The
+     * request's "Accept" header gets compared to the list of the supported content
+     * types (see below) and the best representation gets chosen (q weights included).
+     * If no agreement was possible, Jolie falls back to the default format.
+     *
+     * Default: xml   
      */
     .format?:string
 ​
@@ -145,7 +359,7 @@ type HttpConfiguration:void {
      * html                  : text/html
      * x-www-form-urlencoded : application/x-www-form-urlencoded
      * json                  : application/json
-     * text/x-gwt-rpc        : text/x-gwt-rpc
+     * ndjson                : application/x-ndjson
      * multipart/form-data   : multipart/form-data
      * binary                : application/octet-stream
      * raw                   : text/plain
@@ -159,12 +373,17 @@ type HttpConfiguration:void {
      * Supported values: "US-ASCII", "ISO-8859-1",
      * "UTF-8", "UTF-16"... (all possible Java charsets)
      *
+     * On input ports, HTTP request content negotiation is performed. The
+     * request's "Accept-Encoding" header gets compared to the list of the supported
+     * characters sets and the best representation gets chosen (q weights included).
+     * If no agreement was possible, Jolie falls back to the default charset.
+     *
      * Default: "UTF-8"
      */
     .charset?:string
 ​
     /*
-     * Set additional headers on HTTP requests
+     * Set additional headers (on both HTTP requests and responses)
      *
      * Default: none
      */
@@ -173,91 +392,63 @@ type HttpConfiguration:void {
          * "header" contains the actual headers with their values
          * ("value") as children.
          *
-         * e.g.,. for HTTP header "Authorization: TOP_SECRET":
+         * e.g., for HTTP header "Authorization: TOP_SECRET":
          * .addHeader.header[0] << "Authorization" { .value="TOP_SECRET" }
+         *
          * Default: none
          */
-         .header*:string { .value:string } }
-
-         /*
-         * Defines the request method *
-         * Default: "POST"
-         * Supported values: "GET", "POST"
-         */
-         .method?:string {
-
-            /*
-            * "queryFormat" on a GET request may be set to "json" to have the
-            * parameters passed as JSON
-            * Default: none
-            */
-            .queryFormat?:string }
-
-            /*
-            * Defines a set of operation-specific aliases,
-            * multi-part headers, and parameters.
-            * Default: none
-            */
-            .osc?:void {
-
-                /*
-                * Jolie operation name(s)
-                * e.g.,. .osc.fetchBib.alias="rec/bib2/%!{dblpKey}.bib" for operation
-                * fetchBib()() which listens on "rec/bib2/%!{dblpKey}.bib"
-                * e.g.,. .osc.default.alias="" for method default()() which listens on "/"
-                * Default: none
-                */
-                .operationName*:void {
-
-                    /*
-                    * Defines a HTTP alias which represents
-                    * an alternative name to the location of
-                    * "operationName"
-                    * Default: none
-                    * Supported values: URL address, string raw
-                    */
-                    .alias*: string
-
-                    /*
-                    * Defines the elements composing a multi-part
-                    * request for a specific operation.
-                    * Default: none
-                    */
-                    .multipartHeaders?:void {
-
-                        /*
-                        * Defines the name of the part of
-                        * the multi-part request
-                        * Default: none
-                        */
-                        .partName*:void {
-
-                        /*
-                        * Defines the name of the file
-                        * corresponding to a specific part
-                        * Default: none
-                        */
-                        .filename?:string
-
-                    }
-                }
-            }
-        }
-
-     /*
-     * HTTP request paths are usually composed by the medium's URI path
-     * as prefix and the resource name (or eventual aliases) as suffix.
-     * This works perfectly on IP sockets (medium "socket"), but is not
-     * desirable on other media like the UNIX domain sockets ("localsocket").
-     * Examples:
-     *  - location: "socket://localhost:8000/x/", resource "sum" -> "/x/sum"
-     *  - location: "localsocket://abs/s", resource "sum" -> "/ssum". "s"
-     *    is just the file name of the UNIX domain socket and has no meaning
-     *    in HTTP. With .dropURIPath = true the path component "s" is dropped
-     *    and the result becomes "/sum".
+        .header*:string { .value:string }
+    }
+    
+    /*
+     * Set additional headers on HTTP requests
      *
-     */ Default: false
-    .dropURIPath?:bool
+     * Default: none
+     */
+    .requestHeaders?:void {
+        /*
+         * Each child denotes an actual header with its value.
+         *
+         * e.g., for HTTP header "Authorization: TOP_SECRET":
+         * .requestHeaders.("Authorization") = "TOP_SECRET"
+         *
+         * Default: none
+         */
+        .*:string
+    }
+    
+    /*
+     * Set additional headers on HTTP responses
+     *
+     * Default: none
+     */
+    .response?:void {
+        /*
+         * "headers" contain the actual headers with their references
+         * as children.
+         *
+         * e.g., to have a "Location" set (after a HTTP POST with
+         * status code "201 Created"):
+         * .response.headers -> responseHeaders
+         * And in the code set
+         * responseHeaders.Location = "/api/user/" + userId
+         *
+         * Default: none 
+         */
+        .headers?:void {
+            .*:string 
+        }
+    }
+ 
+    /*
+     * Input port: defines the redirecting location subsequent to
+     * a Redirection 3xx status code. If this value is set
+     * without an apposite status code parameter then "303 See Other"
+     * is inferred.
+     *
+     * Default: none
+     */
+    .redirect?:string
 ​
     /*
      * Defines the cache-control header of the HTTP message.
@@ -282,6 +473,21 @@ type HttpConfiguration:void {
      * Default: none
      */
     .contentDisposition?:string
+
+    /*
+     * HTTP request paths are usually composed by the medium's URI path
+     * as prefix and the resource name (or eventual aliases) as suffix.
+     * This works perfectly on IP sockets (medium "socket"), but is not
+     * desirable on other media like the UNIX domain sockets ("localsocket").
+     * Examples:
+     *  - location: "socket://localhost:8000/x/", resource "sum" -> "/x/sum"
+     *  - location: "localsocket://abs/s", resource "sum" -> "/ssum". "s"
+     *    is just the file name of the UNIX domain socket and has no meaning
+     *    in HTTP. With .dropURIPath = true the path component "s" is dropped
+     *    and the result becomes "/sum".
+     *
+     */ Default: false
+    .dropURIPath?:bool
 ​
     /* Inbound */
 ​
@@ -308,16 +514,11 @@ type HttpConfiguration:void {
         .delete?:string
     }
 ​
-    /*
-     * If set to "strict", applies a more strict JSON array to Jolie value
-     * mapping schema when the JSON format is used.
-     *
-     * Default: none
-     */
-    .json_encoding?:string
 
     /*
-     * Forces a specific charset to be used for decoding a received response. In that case, it overwrites the charset specified by the server in the http header
+     * Output port: Forces a specific charset to be used for decoding a received response.
+     * In that case, it overwrites the wrong respectively missing charset specified by the
+     * server in the "Content-Type" http header.
      *
      * Default: none
      */
@@ -329,7 +530,6 @@ type HttpConfiguration:void {
      * Default: none
      */
     .headers?:void {
-
         /*
          *  should be substituted with the actual header
          * names ("_" to decode "-", e.g.,. "content_type" for "content-type")
@@ -349,67 +549,6 @@ type HttpConfiguration:void {
          * Default: none
          */
         .*: string
-    }
-​
-    /*
-    * Defines the redirecting location subsequent to
-    * a Redirection 3xx status code
-    *
-    * Default: none
-    */
-    .redirect?:string
-​
-    /*
-    * Defines a set of cookies used in the http communication
-    *
-    * Default: none
-    */
-    .cookies?:void {
-        /*
-        * Defines a cookie named
-        * "cookieName"
-        * Default: none
-        */
-        .cookieName*:void {
-
-                /*
-                * Defines the domain of the cookie
-                *
-                * Default: ""
-                */
-                .domain?:string
-
-                /*
-                * Defines the expiration time of the cookie
-                *
-                * Default: ""
-                */
-                .expires?:string
-
-                /*
-                * Defines the "path" value of the cookie
-                *
-                * Default: ""
-                */
-                .path?:string{}
-
-                /*
-                * Defines whether the cookie shall be encrypted
-                * and sent via HTTPS
-                *
-                * Default: 0
-                */
-                .secure?:int{}
-
-                /*
-                * Defines the type of the cookie
-                *
-                * Default: string
-                */
-                .type?:string
-            
-        }
-​
     }
 ​
     /*
