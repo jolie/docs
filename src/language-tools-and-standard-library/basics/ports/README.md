@@ -75,6 +75,8 @@ Protocols are referred by name. Examples of valid \(supported\) protocol names a
 * `xmlrpc`
 * `jsonrpc`
 
+_NB: The `local` locations do not require a specific protocol to be set, since they communicate directly in-memory_ 
+
 For a thorough description of the protocols supported by Jolie and their parameters see [Protocols](../../protocols/README.md) section.
 
 Let us consider the following input port declaration:
