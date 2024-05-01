@@ -35,7 +35,7 @@ RequestResponse:
 }
 
 service App {
-    execution: concurrent
+    execution: sequential
 
     inputPort Web {
         location: "socket://localhost:8080"
