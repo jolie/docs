@@ -11,10 +11,13 @@ In jolie a developer can follow two different approaches for programming REST AP
 
 ## Programming a self-contained REST service
 
-We demonstrate how to create a self-contained REST service with a simple example: a REST service that exposes an API for retrieving information about users. Users are identified by username and associated to data that includes name, e-mail address, and an integer representing "karma" that the user has in the system. In particular, two operations are possible:
+We demonstrate how to create a self-contained REST service with a simple example: a REST service that exposes an API for retrieving and changing information about users. Users are identified by username and associated to data that includes name, e-mail address, and an integer representing "karma" that the user has in the system. In particular, these operations are possible:
 
 - Getting information about a specific user (name, e-mail, and karma counter) by passing its username, for example by requesting `/api/users/jane`.
 - Listing the usernames of the users in the system, with the possibility of filtering them by karma. For example, to get the list of usernames associated to minimum karma 5, we could request `/api/users?minKarma=5`.
+- Creating new users by means of a POST request to `/api/users`. The payload needs to match the `UserWithUsername` structure (username, name and karma). The response will provide the new record with an apposite resource location header.
+- Updating a particular user over a PUT request with a username parameter e.g. `/api/users/jane`. The payload needs to contain the attributes of the `User` structure (name and karma). No payload will be returned.
+- Removing a user by performing a DELETE request with its username e.g. `/api/users/jane`. Also here no payload will be returned.
 
 The code for implementing this service follows.
 
