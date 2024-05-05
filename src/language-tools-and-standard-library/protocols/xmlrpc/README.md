@@ -75,7 +75,7 @@ type XmlRpcConfiguration:void {
     /*
      * Defines whether the underlying connection should be kept open.
      *
-     * Default: false
+     * Default: true
      */
     .keepAlive?: bool
 
