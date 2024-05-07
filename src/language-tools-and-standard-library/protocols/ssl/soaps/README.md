@@ -1,4 +1,6 @@
-# SOAPs
+# SOAPs/XML-RPCs/JSON-RPCs
+
+_N.B. The same remarks apply also to XML-RPC and JSON-RPC, in this case subsitute `xmlrpc` by `xmlrpcs` or `jsonrpc` by `jsonrpcs`._
 
 ## SOAPS Protocol
 
