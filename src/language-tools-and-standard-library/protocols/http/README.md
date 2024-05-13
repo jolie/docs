@@ -61,8 +61,10 @@ type HttpConfiguration:void {
     }
 ​
     /*
-     * Defines whether the requests handled by the service
-     * are thread-safe or not.
+     * Defines whether the requests handled by the service are thread-
+     * safe or not.
+     *
+     * N.B. This feature should be enabled only on Jolie >= v1.12.x
      *
      * Default: false
      */
