@@ -61,8 +61,12 @@ type HttpConfiguration:void {
     }
 ​
     /*
-     * Defines whether the requests handled by the service are thread-
-     * safe or not.
+     * Defines whether the requests handled by the service may be interpreted
+     * concurrently.
+     * This extension requires the _custom_ Jolie HTTP headers to be passed
+     * between the client and the server (e.g. "X-Jolie-Operation" which matches
+     * the concrete operation name), so it is working only in Jolie-2-Jolie
+     * communication scenarios.
      *
      * N.B. This feature should be enabled only on Jolie >= v1.12.x
      *
