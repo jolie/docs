@@ -4,7 +4,7 @@
 
 # Console
 
-Inclusion code: 
+Inclusion code:
 
 | Service Deployment     |          |          |                                                           |
 |:-----------------------|:---------|:---------|:----------------------------------------------------------|
@@ -19,9 +19,10 @@ Inclusion code:
 
 Interface documentation:
 
-| Operation Name      | Input Type                        | Output Type | Faults |
-|:--------------------|:----------------------------------|:------------|:-------|
-| [in](console.md#in) | [InRequest](console.md#InRequest) | -           |        |
+| Operation Name                    | Input Type                        | Output Type | Faults |
+|:----------------------------------|:----------------------------------|:------------|:-------|
+| [in](console.md#in)               | [InRequest](console.md#InRequest) | -           |        |
+| [readLine](console.md#readLine)   | -                                 | string      |        |
 
 ## Operation Description
 
@@ -48,6 +49,28 @@ type InRequest: string {
 `InRequest : string`
 
 * `token : string`
+
+### readLine <a id="readLine"></a>
+
+Operation documentation:
+
+Invocation template:
+
+```jolie
+readLine@Console()( input )
+```
+
+#### Request type
+
+Type: -
+
+`void : any`
+
+#### Response type
+
+Type: string
+
+`string : any`
 
 ### ConsoleInterface <a id="ConsoleInterface"></a>
 
