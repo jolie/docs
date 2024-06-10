@@ -4,7 +4,7 @@
 
 # Console
 
-Inclusion code: 
+Inclusion code:
 
 | Service Deployment     |          |          |                                                           |
 |:-----------------------|:---------|:---------|:----------------------------------------------------------|
@@ -19,9 +19,9 @@ Inclusion code:
 
 Interface documentation:
 
-| Operation Name      | Input Type                        | Output Type | Faults |
-|:--------------------|:----------------------------------|:------------|:-------|
-| [in](console.md#in) | [InRequest](console.md#InRequest) | -           |        |
+| Operation Name                    | Input Type                        | Output Type | Faults |
+|:----------------------------------|:----------------------------------|:------------|:-------|
+| [in](console.md#in)               | [InRequest](console.md#InRequest) | -           |        |
 
 ## Operation Description
 
@@ -61,6 +61,7 @@ Interface documentation:
 | [unsubscribeSessionListener](console.md#unsubscribeSessionListener) | [UnsubscribeSessionListener](console.md#UnsubscribeSessionListener) | void        |        |
 | [subscribeSessionListener](console.md#subscribeSessionListener)     | [SubscribeSessionListener](console.md#SubscribeSessionListener)     | void        |        |
 | [enableTimestamp](console.md#enableTimestamp)                       | [EnableTimestampRequest](console.md#EnableTimestampRequest)         | void        |        |
+| [readLine](console.md#readLine)                                     | [ReadLineRequest](console.md#ReadLineRequest)                       | string      |        |
 
 ## Operation Description
 
@@ -228,3 +229,29 @@ Type: void
 
 `void : void`
 
+### readLine <a id="readLine"></a>
+
+Operation documentation: Read a line from the console using a synchronous call
+
+Invocation template:
+
+```jolie
+readLine@Console( request )( response )
+```
+
+#### Request type
+
+Type: ReadLineRequest
+```jolie
+type ReadLineRequest: void {
+	secret?: bool
+}
+```
+
+`ReadLineRequest : void`
+* `secret: bool`
+#### Response type
+
+Type: string
+
+`string : string`
