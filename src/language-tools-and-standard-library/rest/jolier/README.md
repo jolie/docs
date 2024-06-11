@@ -154,7 +154,6 @@ interface HeaderHandlerInterface{
     outgoingHeaderHandler(outgoingHeaderHandlerRequest)(outgoingHeaderHandlerResponse)
 }
 inputPort HeaderPort {
-        Protocol:sodep
         Location:"local"
         Interfaces:HeaderHandlerInterface
 }
