@@ -211,7 +211,7 @@ After receiving the response, the service prints at console the subnodes of the 
 
 The comprehensive code of this example can be downloaded here:
 
-[Embedding Java Code Example](https://github.com/jolie/docs/raw/v1.10.x/web/files/architectural_composition/code/embedding_java_code.zip)
+[Embedding Java Code Example](https://github.com/jolie/examples/tree/master/04_architectural_composition/02_embedding_java/split_example)
 
 ## Creating a JavaService
 
