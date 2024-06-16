@@ -43,7 +43,8 @@ service MyConsole {
     inputPort Input {
         location: "local"
         interfaces: MyConsoleInterface
-    }   foreign java {
+    }
+    foreign java {
         class: "example.MyConsole"
     }
 }
@@ -55,7 +56,8 @@ It is now possible to embed `MyConsole` within a Jolie service, just like you wo
 from .my-console import MyConsole
 
 service Main {
-    embed MyConsole as console   main {
+    embed MyConsole as console
+    main {
         println@console( "Hello World!" )
     }
 }
@@ -76,7 +78,8 @@ public class Twice extends JavaService {
     public Integer twiceInt( Integer request ) {
         Integer result = request + request;
         return result;
-    }   public Double twiceDouble( Double request ) {
+    }
+    public Double twiceDouble( Double request ) {
         Double result = request + request;
         return result;
     }
@@ -98,7 +101,8 @@ service Twice {
     inputPort Input {
         location: "local"
         interfaces: TwiceInterface
-    }   foreign java {
+    }
+    foreign java {
         class: "example.Twice"
     }
 }
@@ -113,6 +117,7 @@ from .twice import Twice
 service {
     embed MyConsole as console
     embed Twice as twice
+
     main {
         intExample = 3;
         doubleExample = 3.14;
@@ -142,7 +147,8 @@ type Split_res{
 }
 
 interface SplitterInterface {
-    RequestResponse:     split( Split_req )( Split_res )
+    RequestResponse:
+        split( Split_req )( Split_res )
 }
 
 interface MyJavaExampleInterface {
@@ -153,7 +159,8 @@ service Splitter {
     inputPort Input {
         location: "local"
         interfaces: SplitterInterface
-    }   foreign java {
+    }
+    foreign java {
         class: "example.Splitter"
     }
 }
@@ -162,23 +169,26 @@ service JavaExample {
     inputPort Input {
         location: "local"
         interfaces: MyJavaExampleInterface
-    }   foreign java {
+    }
+    foreign java {
         class: "example.MyJavaExample"
     }
 }
 
 service Main {
     embed Splitter as splitter
-    embed MyJavaExample as myJavaExample   inputPort Embedder {
+    embed MyJavaExample as myJavaExample
+
+    inputPort Embedder {
         location: "local"
         interfaces: SplitterInterface
     }
 
-main
-{
-    start@myJavaExample();
-    split( split_req )( split_res ) {
-        split@splitter( split_req )( split_res )
+    main {
+        start@myJavaExample();
+        split( split_req )( split_res ) {
+            split@splitter( split_req )( split_res )
+        }
     }
 }
 ```
@@ -193,16 +203,27 @@ import jolie.net.CommMessage;
 import jolie.runtime.Value;
 import jolie.runtime.ValueVector;
 
-public class JavaExample extends JavaService {   public void start(){
+public class JavaExample extends JavaService {
+    public void start(){
         String s_string = "a_steaming_coffee_cup";
-        String s_regExpr = "_";       Value s_req = Value.create();
+        String s_regExpr = "_";
+        Value s_req = Value.create();
         s_req.getNewChild("string").setValue(s_string);
-        s_req.getNewChild("regExpr").setValue(s_regExpr);       try {
+        s_req.getNewChild("regExpr").setValue(s_regExpr);
+        try {
             System.out.println("Sent request");
             Value s_array = getEmbedder().callRequestResponse( "split", s_req );
-            System.out.println("Received response");           Value s_array = response.value();
+            System.out.println("Received response");
+            Value s_array = response.value();
             ValueVector s_children = s_array.getChildren("s_chunk");
-            for( int i = 0; i
+            for( int i = 0; i < s_children.size(); i++ ){
+                System.out.println("\ts_chunk["+ i +"]: " + s_children.get(i).strValue() );
+            }
+        } catch( Exception e ){
+            e.printStackTrace();
+        }
+    }
+}
 ```
 
 After `start()` is called by the embedder, our Java Service creates a `Value` object according to the `Split_req` type definition. In the try block, it then obtained a reference to the `Embedder` object \(representing the embedder Jolie service\) and uses its `callRequestResponse` method to invoke operation `split` at the embedder. The method returns a value \(`s_array`\) containing the response from the service. Notice that the embedder needs to expose this operation in an input port with location `local`.
@@ -283,8 +304,7 @@ package org.jolie.example;
 import Jolie.runtime.JavaService;
 import Jolie.runtime.Value;
 
-public class FirstJavaService extends JavaService
-{
+public class FirstJavaService extends JavaService {
     public Value HelloWorld( Value request ) {
         String message = request.getFirstChild( "message" ).strValue();
         System.out.println( message );
@@ -343,7 +363,8 @@ service FirstJavaService {
     inputPort Input {
         location: "local"
         interfaces: FirstJavaServiceInterface
-    } foreign java {
+    }
+    foreign java {
         class: "org.jolie.example.FirstJavaService"
     }
 }
@@ -368,7 +389,9 @@ from console import Console
 
 service Main {
     embed FirstJavaService as firstJavaService
-    embed Console as console main {
+    embed Console as console
+
+    main {
         request.message = "Hello world!"
         HelloWorld@firstJavaService( request )( response )
         println@console( response.reply )()
@@ -401,12 +424,17 @@ from .first-java-service import FirstJavaService
 from console import Console
 
 service Main {
-    execution: concurrent embed FirstJavaService as firstJavaService
-    embed Console as console inputPort MyInputPort {
+    execution: concurrent
+    embed FirstJavaService as firstJavaService
+    embed Console as console
+
+    inputPort MyInputPort {
         location: "socket://localhost:9090"
         protocol: sodep
         interfaces: FirstJavaServiceInterface
-    } main {
+    }
+
+    main {
         HelloWorld( request )( response ) {
             println@console("I am the embedder")()
             HelloWorld@firstJavaServiceOutputPort( request )( response )
@@ -422,11 +450,16 @@ from .first-java-service import FirstJavaService
 from console import Console
 
 service Main {
-    execution: concurrent embed FirstJavaService as firstJavaService inputPort MyInputPort {
+    execution: concurrent
+    embed FirstJavaService as firstJavaService
+
+    inputPort MyInputPort {
         location: "socket://localhost:9090"
         protocol: sodep
         aggregates: firstJavaService
-    } main {
+    }
+
+    main {
     ...
 ```
 
@@ -540,7 +573,9 @@ service FirstJavaService {
     inputPort Input {
         location: "local"
         interfaces: FirstJavaServiceInterface
-    } foreign java {
+    }
+
+    foreign java {
         class: "org.jolie.example.FirstJavaService"
     }
 }
@@ -554,7 +589,9 @@ from first-java-service import FirstJavaService
 
 service Main {
     embed FirstJavaService as firstJavaService
-    embed Console as console main {
+    embed Console as console
+
+    main {
         install( WrongMessage => println@Console( main.WrongMessage.msg )() ) 
         request.message = "I am Obi"
         HelloWorld@FirstJavaServiceOutputPort( request )( response )
@@ -604,8 +641,7 @@ service DynamicJavaService {
     inputPort Input {
         location: "local"
         interfaces: DynamicJavaServiceInterface
-    } 
-    
+    }    
     foreign java {
         class: "org.jolie.example.FourthJavaService"
     }
@@ -617,8 +653,12 @@ if we run a client that calls the service ten times as in the following code sni
 ```text
 from fourth-java-service import DynamicJavaService
 from console import Console
-service main { embed DynamicJavaService as DynamicJavaService
-    embed Console as Console main {
+
+service main {
+    embed DynamicJavaService as DynamicJavaService
+    embed Console as Console
+
+    main {
         for ( i = 0 , i < 10 , i ++ ){
             println@Console("Received counter " + start@DynamicJavaService() )()
         }
@@ -650,14 +690,16 @@ from fourth-java-service import DynamicJavaServiceInterface
 from console import Console
 from runtime import Runtime
 
-service main { embed Console as Console
+service main {
+    embed Console as Console
     embed Runtime as Runtime
+
     outputPort DynamicJavaService {
         Interfaces: DynamicJavaServiceInterface
     }
     
     main {
-        for ( i = 0 , i < 10 , i ++ ){
+        for ( i = 0 , i < 10 , i++ ){
             with( emb ) {
                 .filepath = "org.jolie.example.DynamicJavaService"
                 .type = "Java"
