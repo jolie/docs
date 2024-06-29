@@ -33,6 +33,8 @@ We can observe that in the second scenario aggregation _merges_ the interfaces o
 
 Remarkably, aggregation handles the request-response pattern seamlessly: when forwarding a request-response invocation to an aggregated service, the aggregator will automatically take care of relaying the response to the original invoker.
 
+Importantly, aggregation respects the execution modalities of the aggregated services, meaning that aggregation can also be used to implement a service where different operations have different execution modalities (based on which of the aggregated services they are implemented by).
+
 As an example let us consider the case of two services, the printer and fax, aggregated into one service which also add another operation called _faxAndPrint_. The code may be consulted [here](https://github.com/jolie/examples/tree/master/v1.10.x/04_architectural_composition/06_aggregation/01_aggregation_and%20orchestration).
 
 ![](../../../assets/image/aggregation_example.png)
