@@ -19,6 +19,7 @@
             - [JSON files](tutorials/standard-library/files/json/README.md)
             - [XML files](tutorials/standard-library/files/xml/README.md)
     - [Integration Scenarios](tutorials/twitter-api/README.md)
+        - [Building a File Uploader Service](tutorials/file-uploader/README.md)
         - [Twitter API](tutorials/twitter-api/README.md)
     - [Advanced Scenarios](tutorials/advanced-scenarios/supporting-new-protocols-in-jolie/README.md)
         - [Implementing new port protocols in Jolie](tutorials/advanced-scenarios/supporting-new-protocols-in-jolie/README.md)
