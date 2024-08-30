@@ -19,8 +19,6 @@
             - [JSON files](tutorials/standard-library/files/json/README.md)
             - [XML files](tutorials/standard-library/files/xml/README.md)
             - [Building a File Uploader Service](tutorials/file-uploader/README.md)
-    - [Integration Scenarios](tutorials/twitter-api/README.md)
-        - [Twitter API](tutorials/twitter-api/README.md)
     - [Advanced Scenarios](tutorials/advanced-scenarios/supporting-new-protocols-in-jolie/README.md)
         - [Implementing new port protocols in Jolie](tutorials/advanced-scenarios/supporting-new-protocols-in-jolie/README.md)
 
@@ -62,8 +60,6 @@
 - [Debugging](language-tools-and-standard-library/debug-and-tracing/README.md)
 - [Integration with other programming languages](language-tools-and-standard-library/technology-integration/README.md)
     - [Java](language-tools-and-standard-library/technology-integration/java/README.md)
-        - [Java Client](language-tools-and-standard-library/technology-integration/java/javaclient/README.md)
-        - [Java Services](language-tools-and-standard-library/technology-integration/java/javaservices/README.md)
     - [Javascript](language-tools-and-standard-library/technology-integration/javascript/README.md)
 - [Containerization](language-tools-and-standard-library/containerization/README.md)
     - [Docker](language-tools-and-standard-library/containerization/docker/README.md)

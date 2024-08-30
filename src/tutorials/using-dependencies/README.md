@@ -6,8 +6,6 @@ In this tutorial we are going to show how to use dependencies.  We will develop 
 that uses the four basic arithmetical operations supplied by the `CalculatorService` described in the tutorial _Getting Started_.
 Before illustrating the code, let us depict what we are going to build in the following picture:
 
-![](https://raw.githubusercontent.com/jolie/docs/v1.10.x/web/.gitbook/assets/using_dependencies_01.png)
-
 The `AdvancedCalculatorService` will be a new service available for a client together with the `CalculatorService`. The `AdvancedCalculatorService` will exploit the operations offered by the `CalculatorService` in order to supply its own operations.
 
 ## the interface of the AdvancedCalculatorService

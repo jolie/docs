@@ -159,5 +159,3 @@ jolie CalcularService.ol
 ```
 
 As we did for protocol soap example, we can use  [SoapUI](https://www.soapui.org/) as a tool for creating a client. It is sufficient to import the wsdl file and then fill the request with the value you prefer. In the following picture we prepared a request for the operation `factorial`.
-
-![](https://raw.githubusercontent.com/jolie/docs/v1.10.x/web/.gitbook/assets/soapsgui.png)

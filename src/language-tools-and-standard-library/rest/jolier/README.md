@@ -14,6 +14,7 @@ The required parameters are:
 * **\[-easyInterface\]**: it specifies if skipping the _rest\_template.json_ file and creating a standard map of the target operations. See the section below for details;
 * **\[-debug\]**: it enables debug messages for _jester_ in order to facilitate error identification.
 * **\[-headerHandler\]**: it enables the external management of headers. See section [Handling the headers](#handling-the-headers)
+
 ## Publishing your REST Service with SSL support
 
 `jolier` is also able to publish your REST service using Https protocol by using the ssl command parameters
@@ -124,16 +125,21 @@ http://localhost:8000/orders/myuser?maxItems=0
 ```
 
 ## Handling the headers
+
 It is possible to handle both request and response headers if necessary. In this case, it is necessary to implement a service, called `RestHadler.ol`. The skeleton of this service can be automatically created by running the following command:
-```
+
+```sh
 jolier createHandler
 ```
+
 **Note:** the command will generate a file named `RestHandler.ol` by overwriting the existing one if present.
 
 Once implemented, it is important to run jolier by using also the parameter `-headerHandler`
 
 ### Implementing the service for managing the handlers
+
 The content of the file `RestHandler.ol` follows:
+
 ```jolie
 type incomingHeaderHandlerRequest:void{
     .operation:string 
@@ -165,13 +171,15 @@ main{
     }]
 
     [outgoingHeaderHandler(request)(response){
-      nullProcess  
+        nullProcess
     }]
 }
 ```
-Here there are two operations, `incomingHeaderHandler` and `outgoingHeaderHandler`, which are called by the router before and after forwarding the message to the target service, respectively. 
-- `incomingHeaderHandler`: this operation receives two fields: `operation` which contains the invoked rest method, and some received http headers (`authorization`, `userAgent`, `requestUri`). It returns the tree portion to be added for creating the request towards the target service. Such an operation could be useful when it is necessary to extract the authorization information from the header and pushing it into the payload of the target service.
-- `outgoingHeaderHandler`: here it is possible to specify the list of the headers which must be returned back to the client.
+
+Here there are two operations, `incomingHeaderHandler` and `outgoingHeaderHandler`, which are called by the router before and after forwarding the message to the target service, respectively.
+
+* `incomingHeaderHandler`: this operation receives two fields: `operation` which contains the invoked rest method, and some received http headers (`authorization`, `userAgent`, `requestUri`). It returns the tree portion to be added for creating the request towards the target service. Such an operation could be useful when it is necessary to extract the authorization information from the header and pushing it into the payload of the target service.
+* `outgoingHeaderHandler`: here it is possible to specify the list of the headers which must be returned back to the client.
 
 As an example, let us consider the following implementation of the two operations:
 
@@ -191,4 +199,4 @@ As an example, let us consider the following implementation of the two operation
 
 In this example, the content of the header `authorization` is used for filling the filed `userId` of the target service in case of call on method `get`, and the headers `Access-Control-Allow-Methods`, `Access-Control-Allow-Origin`, `Access-Control-Allow-Headers` are always inserted in the response.
 
-Note that, as a default, `Access-Control-Allow-Methods="POST,GET,DELETE,PUT,OPTIONS"`, `Access-Control-Allow-Origin="*"`, `Access-Control-Allow-Headers="Content-Type" ` are always added only for methods `get`, `put`, `post` and `delete`. Implementing `outgoingHeaderHandler` it is possible to override such a behaviour or extend it to other methods like `OPTIONS`.
+Note that, as a default, `Access-Control-Allow-Methods="POST,GET,DELETE,PUT,OPTIONS"`, `Access-Control-Allow-Origin="*"`, `Access-Control-Allow-Headers="Content-Type"` are always added only for methods `get`, `put`, `post` and `delete`. Implementing `outgoingHeaderHandler` it is possible to override such a behaviour or extend it to other methods like `OPTIONS`.

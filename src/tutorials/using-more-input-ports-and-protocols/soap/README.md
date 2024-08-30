@@ -2,8 +2,6 @@
 
 Protocol [http/soap](../soap/README.md) is used for exchanging structured information among Web Services. As depicted in the following picture, in Jolie it is possible to add input ports specifically for addressing SOAP messages.
 
-![](../../../assets/image/more_inputports_and_protocols_soap.png)
-
 The behaviour of the service is always the same, but a new soap port is added and a soap client can now invoke the service. In the following we describe the steps to follow in order to add a soap port correctly configured.
 
 ## Adding the port
@@ -140,5 +138,3 @@ jolie CalcularService.ol
 ```
 
 Now the service AdvanceCalculatorService is listening on two ports: `8001` and `8002`. Where the former accepts 'http/json' messages and the latter soap messages. Now let us use an external tool for creating a correct soap request. A tool you could use is [SoapUI](https://www.soapui.org/). It is sufficient to import the wsdl file and then fill the request with the value you prefer. In the following picture we prepared a request for the operation `factorial`.
-
-![](https://raw.githubusercontent.com/jolie/docs/v1.10.x/web/.gitbook/assets/soapgui.png)

@@ -2,11 +2,9 @@
 
 The creation of a Java service allows developers to implement the behaviour of their Jolie services in Java, as a matter of fact, many services of the Jolie standard library \(like `Console`\) are Java Services.
 
-
 ## Quick Start
 
 In this section we will cover how to quickly get started implementing your first Java service.
-
 
 ### Requirements
 
@@ -14,7 +12,6 @@ In this section we will cover how to quickly get started implementing your first
 - Java (version: ^21)
 - npm
 - Maven
-
 
 ### Setting up the project with `create-jolie`
 
@@ -26,7 +23,6 @@ to initiate a guided setup process. For the most part we can just use the defaul
 
 - **Project template**, where you should choose *Service*, and
 - **Implementation language**, where you should choose *Java*.
-
 
 ### Making a Java service with `jolie2java`
 
@@ -78,7 +74,6 @@ public class MyConsole extends JavaService implements MyConsoleInterface {
 
 By implementing the `println` method of `MyConsole.java`, as shown above, we now have our first working Java service!
 
-
 ### Using a Java service with Jolie
 
 Now that we have implemented our Java service we first need it to be accessible to our Jolie service, which, when using `create-jolie`, is done by using the command:
@@ -100,7 +95,6 @@ service Main {
 
 Now that Jolie has access to our Java service, we can embed the `MyConsole` service as we would any other Jolie service, as shown above.
 
-
 #### Standalone Java service
 
 Alternatively, if we want our Java service to be a standalone service that can be deployed by itself, we can achieve this by saying yes (y) to the prompt: **Do you want a launcher service (standalone service)?** during the setup process. Doing this will ensure that a *launcher service* is generated, allowing the Java service to be deployed by simply using the command:
@@ -108,7 +102,6 @@ Alternatively, if we want our Java service to be a standalone service that can b
     npm start
 
 This command will also run `mvn package` before launching the service to ensure it is always using the newest version of the Java service (this behaviour can be changed by manually editing the **prestart** script in the **package.json** file of the project).
-
 
 ## Type Conversion
 
@@ -131,7 +124,6 @@ type Alias: T
 
 the category of `Alias` is exactly that of `T`.
 
-
 ### Undefined
 
 The Undefined category is exclusively used for the `undefined` type, and is translated into the predefined class `JolieValue` *(available from the jolie.jar library)*.
@@ -148,7 +140,6 @@ The most important methods of `JolieValue` are shown in the snippet above, being
 
 Note that all generated classes inherit from `JolieValue`, meaning that every generated class can, in most cases, be used interchangeably with it.
 
-
 ### Native
 
 The Native category consists of all the types native to Jolie, excluding `undefined`, where each is translated into a predefined class as follows:
@@ -163,11 +154,9 @@ The Native category consists of all the types native to Jolie, excluding `undefi
 
 One exception is `void`, which is treated differently depending on the context, either being the primitive `void` when used as the response type in an operation, or being the absence of a parameter when used as the request type or as part of a choice type.
 
-
 ### Basic
 
 The Basic category is used for all types and nodes that are defined as a refinement of a type categorized as Native.
-
 
 #### Examples
 
@@ -198,11 +187,9 @@ Here the node `inline` will be translated to a field of type `Integer`, whereas 
 
 Note that, regardless of how it is translated, the classes will always ensure that the refinement is respected.
 
-
 ### Structure
 
 The Structure category is used for all custom types that have nodes, being subdivided into Untyped Structure for those with untyped nodes, i.e. using the notation `T {?}`, and Typed Structure for those with typed nodes.
-
 
 #### Examples
 
@@ -227,7 +214,6 @@ public final class StructureType extends TypedStructure {
 
 Here `contentValue` is the field that represent the root content of the type, being used whenever the root type isn't `any` or `void` to give an alternative to using the inherited `content` method.
 
-
 #### Instantiation
 
 In order to instantiate structure types two options are available.
@@ -243,7 +229,6 @@ public final class StructureType extends TypedStructure {
 ```
 
 One is a regular constructor with all the fields, the other being a `Builder` class accessible through the static `builder` method.
-
 
 ### Choice
 
@@ -299,7 +284,6 @@ public ChoiceType anotherOperation( ChoiceType request ) {
 
 (Note that, in the example above, we use a special variation of the `of3` method that takes a function from the builder to an instance of `ChoiceType.S1`, rather than just an instance.)
 
-
 ## Faults
 
 Just like with types, faults also result in corresponding classes being generated.
@@ -343,11 +327,9 @@ service Main {
 
 One thing that should be noted is that Jolie currently allows multiple faults to have the same name but different types, however, as this is planned to be phased out, `jolie2java` does not allow this and will refuse to translate jolie files that do this.
 
-
 ## Annotations
 
 The new `jolie2java` tool allows you to use a number of annotations in your Jolie files to customize the result of the generation process. As Jolie does not have an actual annotation system at the moment, this is accomplished by using documentation comments, so it is important to follow the guidelines for each annotation to ensure it can be parsed by the tool. Annotations generally follow the structure **@<name>(<data>)**, with no specific rules for how to delimit multiple annotations, e.g. `///@A1(true) @A2("string")` and `///@A1(true), @A2("string")` are both valid ways of specifying multiple annotations at once.
-
 
 ### `@JavaName`
 
@@ -364,11 +346,10 @@ type myType {
 where `@JavaName` is used because:
 
 - *myType* isn't allowed because we require that class names in Java be capitalized,
-- *char* can't be used because it is a reserved keyword in Java, and 
+- *char* can't be used because it is a reserved keyword in Java, and
 - *@node* can't be used because the character *@* is not allowed to be used in the names of fields or methods in Java.
 
 There are other ways to have illegal names, but these will prompt `jolie2java` to throw an exception, providing information on which name is invalid and why.
-
 
 ### `@InlineLink`
 
@@ -390,7 +371,6 @@ where `@InlineLink` is used because:
 
 Essentially, `@InlineLink` will cause `jolie2java` to treat link definitions as if they were an inline definition.
 
-
 ### `@GenerateBuilder`
 
 The `@GenerateBuilder` annotation is used to specify types where the corresponding class shouldn't have a builder class generated for it. Below is an example of how one might use this annotation:
@@ -410,7 +390,6 @@ where `@GenerateBuilder` is used because:
 
 - *MyRequestType* is only ever used as a request type (meaning its builder class is never used), and
 - *MyResponseType* is so simple that only the constructor is ever used.
-
 
 ## Invoking Embedder Operations
 
@@ -470,31 +449,29 @@ import jolie.runtime.embedding.java.JolieValue;
 
 public final class QueuePrinter extends JavaService implements QueuePrinterInterface {
 
-	private String poll( String queue_name ) throws NoSuchQueue {
-		try {
+    private String poll( String queue_name ) throws NoSuchQueue {
+        try {
             final JolieValue response = getEmbedder()
                 .callRequestResponse( "poll", JolieValue.of( queue_name ) );
-			return switch ( response.content() ) {
+            return switch ( response.content() ) {
                 case JolieString( String value ) -> value;
                 default -> null;
             };
-		} catch( IOException | FaultException e ) {
-			throw new NoSuchQueue( queue_name );
-		}
-	}
-
-	public void printAll( String request ) throws NoSuchQueue {
-		String response;
-		while( (response = poll( request )) != null )
-			System.out.println( response );
-	}
+        } catch( IOException | FaultException e ) {
+            throw new NoSuchQueue( queue_name );
+        }
+    }
+    public void printAll( String request ) throws NoSuchQueue {
+        String response;
+        while( (response = poll( request )) != null )
+            System.out.println( response );
+    }
 }
 ```
 
 Here we use the utility method `poll` to call the embedder and extract the information we need from the response, such that we may use in the `printAll` method to print each element of the queue. For the sake of convenience we assume that every element in the queue is of type `string`, but we could also easily enforce this by just making a custom `Queue` Jolie service that wraps `QueueUtils`.
 
-**Important Note**: calling the embedder should only be done from methods that implement operations declared as a `requestResponse`. The reason for this is that operations declared as a `oneWay` are executed asynchronously, and thus there are no guarantees that the embedder is still available by the time the operation is executed. 
-
+**Important Note**: calling the embedder should only be done from methods that implement operations declared as a `requestResponse`. The reason for this is that operations declared as a `oneWay` are executed asynchronously, and thus there are no guarantees that the embedder is still available by the time the operation is executed.
 
 ## Customizing the generation
 
@@ -505,11 +482,11 @@ The `jolie2java` tool is distributed together with Jolie, so if you have Jolie i
 to get the following message:
 
     Usage: jolie2java
-                      [ --translationTarget <0:services | 1:interfaces | 2:types> (default=0 ) ]
-                      [ --overwriteServices <true|false> (default=false ) ]
-                      [ --outputDirectory <path> (default="./src/main/java")]
-                      [ --sourcesPackage <package> (default=".spec" ) ]
-                      <file>
+        [ --translationTarget <0:services | 1:interfaces | 2:types> (default=0 ) ]
+        [ --overwriteServices <true|false> (default=false ) ]
+        [ --outputDirectory <path> (default="./src/main/java")]
+        [ --sourcesPackage <package> (default=".spec" ) ]
+        <file>
 
 The possible arguments for the tool are:
 
@@ -520,7 +497,6 @@ The possible arguments for the tool are:
 - `--overwriteServices`: specifying whether the Java services should be overwritten if they already exists. The default value is `false`.
 - `--outputDirectory`: specifying where the files should be generated. The default value is `./src/main/java`.
 - `--sourcesPackage`: specifying the package where the generated sources should be located. When generating services this can be made relative to the package of each service by prefixing the package name by `.`. The default value is `.spec`.
-
 
 ### When using `create-jolie`
 
@@ -533,5 +509,5 @@ If you wish to change anything about the generation, e.g. the package of the gen
 Using `create-jolie` will also include a script, accessible through the command:
 
     npm run clean-generate
-    
+
 that will delete ALL the files in the `src/main/java` folder of the project before generating the files. This can be useful to e.g. remove generated files that are no longer used, however this will remove ALL the service files as well. This can be convenient, if you want to have a new service file that already has all the methods for a newly added interface, but if the goal is only to e.g. remove obsolete type files, the targetted folder of the script should be edited manually.

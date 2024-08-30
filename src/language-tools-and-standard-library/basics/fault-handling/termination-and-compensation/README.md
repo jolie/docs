@@ -22,7 +22,7 @@ Let us suppose that _C_ finishes its execution. As a result, its compensation ha
 
 Fault handlers can execute compensations by invoking the compensation handlers loaded within the corresponding scope, e.g., in the previous scenario the fault handler of A invokes the compensation handler of C.
 
-![](https://raw.githubusercontent.com/jolie/docs/v1.10.x/web/.gitbook/assets/termination_and_compensation.jpg)
+![termination_and_compensation](../../../../assets/image/termination_and_compensation.jpg)
 
 **Fig.1** Code _P_ is executed in parallel with scopes _B_ and _C_ within scope _A_. _C_ is supposed to be successfully ended, whereas _B_ is terminated during its execution by the fault _f_ raised by _P_. The fault handler of _A_ can execute the compensation handler loaded by _C_.
 
@@ -204,7 +204,7 @@ When scope `example_scope` ends with success, its current recovery handler is pr
 
 Here we consider a simplified scenario of an electronic purchase where termination and compensation handlers are used. The full code can be checked [here](https://github.com/jolie/examples/tree/master/03_fault_handling/12_transaction_example) whereas the reference architecture of the example follows:
 
-![](https://raw.githubusercontent.com/jolie/docs/v1.10.x/web/.gitbook/assets/transactions.png)
+![transactions](../../../../assets/image/transactions.png)
 
 In this example a user wants to electronically buy ten beers invoking the transaction service which is in charge to contact the product store service, the logistics service and the bank account service. It is clearly an over simplification w.r.t. a real scenario, but it is useful to our end for showing how termination and compensation work. In the following we report the implementation of the operation _buy_ of the transaction service:
 

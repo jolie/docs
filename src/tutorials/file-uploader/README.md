@@ -1,4 +1,5 @@
-# Building a file uplaoder service
+# Building a file uploader service
+
 This documentation describes the functionality of a Jolie service that allows implementing a file upload service via console. The service is configured to receive HTTP requests containing files and their filenames, saving the content as a binary file.
 
 The code of the service follows:
@@ -11,48 +12,42 @@ from file import File
 type TestRequest {
     file: raw
     fname: string
-  
 }
 
 
 interface MyInterface {
-  RequestResponse:
-    test( TestRequest )( void )
+    RequestResponse:
+        test( TestRequest )( void )
 }
 
 service MyService ( ) {
 
-  embed Console as Console
-  embed File as File
+    embed Console as Console
+    embed File as File
 
-  execution: concurrent
+    execution: concurrent
 
-  inputPort TestFileUpload {
-      location: "socket://localhost:9000"
-      protocol: http {
+    inputPort TestFileUpload {
+        location: "socket://localhost:9000"
+        protocol: http {
         osc.test.multipartHeaders.file.filename = "fname"
-      }
-      interfaces: MyInterface
-  } 
-  main {
-    test( request )( response ) {
-      println@Console( "filename " + request.fname )()
-      
+        }
+        interfaces: MyInterface
+    } 
+    main {
+        test( request )( response ) {
+            println@Console( "filename " + request.fname )()
 
-      wr << { 
-        filename = request.fname
-        content << request.file
-        format = "binary"
-      }
-      writeFile@File( wr )()
+            wr << { 
+                filename = request.fname
+                content << request.file
+                format = "binary"
+            }
+            writeFile@File( wr )()
+        }
     }
-  } 
-
 }
-
 ```
-
-
 
 ## The inputPort `TestFileUpload`
 
@@ -65,6 +60,7 @@ inputPort TestFileUpload {
     interfaces: MyInterface
 } 
 ```
+
 The `TestFileUpload` inputPort is configured to listen for HTTP requests on port 9000 of the localhost. The HTTP protocol configuration specifies that the multipart header of the file should use the fname field as the filename. Thus the filename will be saved into node `fname`.
 In `MyInterface` is defined the operation where the file will be received `test`.
 
@@ -76,6 +72,7 @@ type TestRequest {
     fname: string 
 }
 ```
+
 The `TestRequest`` type represents the structure of the upload request. It contains two fields:
 
 - __file__: the raw content of the file.
@@ -105,8 +102,9 @@ The main scope implements the service logic. When a test request is received:
 - Writes the file content to the filesystem using the writeFile function from the File library.
 
 ## curl example
-A culr example invocation is:
 
-```
+A curl example invocation is:
+
+```sh
 curl --trace - -F "file=@./micro.png;filename=micro.png"  http://localhost:9000/test
 ```

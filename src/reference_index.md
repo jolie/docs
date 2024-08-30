@@ -89,7 +89,7 @@ See also [conditions and conditional statement](language-tools-and-standard-libr
 ## Tools and related projects
 
 * `jolie2surface`: surface generation tool. [Go to section: jolie2surface](language-tools-and-standard-library/architectural-composition/aggregation/README.md#jolie2surface)
-* `jolie2java`: java client generation tool. [Go to section: Java Client/jolie2java](language-tools-and-standard-library/technology-integration/java/javaclient/README.md#jolie2java)
+* `jolie2java`: java client generation tool. [Go to section: Java Client/jolie2java](language-tools-and-standard-library/technology-integration/java/README.md)
 * `jocker`: docker integration container. [Go to section: Docker/Jocker](language-tools-and-standard-library/containerization/docker/jocker/README.md)
 * `jolier`: running a jolie service as a REST service. [Go to section: Rest Services/jolier](language-tools-and-standard-library/rest/jolier/README.md)
 * `jolie2openapi`: it generates an openapi 2.0 definition starting from a jolie interface. [Go to section: Rest Services/jolie2openapi](language-tools-and-standard-library/rest/jolie2openapi/README.md)

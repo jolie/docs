@@ -19,9 +19,9 @@ Inclusion code:
 
 Interface documentation:
 
-| Operation Name                    | Input Type                        | Output Type | Faults |
-|:----------------------------------|:----------------------------------|:------------|:-------|
-| [in](console.md#in)               | [InRequest](console.md#InRequest) | -           |        |
+| Operation Name      | Input Type                        | Output Type | Faults |
+|:--------------------|:----------------------------------|:------------|:-------|
+| [in](console.md#in) | [InRequest](console.md#InRequest) | -           |        |
 
 ## Operation Description
 

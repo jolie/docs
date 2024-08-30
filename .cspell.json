@@ -56,7 +56,9 @@
     "tquery",
     "univocally",
     "wdsl",
-    "XMPP"
+    "XMPP",
+    "prestart",
+    "fname"
   ],
   "version": "0.2"
 }

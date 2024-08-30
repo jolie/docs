@@ -121,7 +121,7 @@ Jolie fully supports asynchronous JavaScript and XML \(AJAX\) calls via XMLHttpR
 
 For the sake of brevity, we are not showing the boilerplate for building the HTML interface here, but it can be downloaded entirely from the link below:
 
-[Leonardo and JQuery example](https://github.com/jolie/docs/raw/v1.10.x/web/files/web_applications/code/leonardo_code.zip)
+[Leonardo and JQuery example](../../../assets/zips/leonardo_code.zip)
 
 Once downloaded and unpacked, we can launch Leonardo and navigate to address `http://localhost:8000/`. Inside the `www` directory there are a `index.html` with a form containing three text fields - text1, text2, and text3. Submitting the request, by pressing the submit button, the event is intercepted by the JavaScript code shown below:
 
@@ -178,7 +178,7 @@ Jolie HTTP protocol is able to handle cookies both when processing outbound and 
 
 In a classic client/server application where `Leonardo.ol` is acting as WebServer the programmer is able to define specific binding between inbound cookies and message subnodes. To do so it is sufficient to define in the input Port configuration parameters `.osc.operationName.cookies.cookieName = "subNodeName"`. A working example has been provided to exemplify the handling inbound cookies
 
-[Leonardo and inbound cookie handling](https://github.com/jolie/docs/blob/master/files/web_applications/code/cookie_server_code.zip)
+[Leonardo and inbound cookie handling](#)
 
 In this specific example you will find the code for both the client side \(HTML/JQuery\) and server side \(Jolie\) able to handle two separated cookies. In order to understand the example specific attention should be paid to the following files:
 

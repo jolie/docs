@@ -17,7 +17,7 @@ Attention: if your JAR driver is called differently, you will have to rename it 
 | IBM DB 2     | `db2`                                                                               | `db2jcc.jar`                     |
 | IBM AS 400   | `as400`                                                                             | `jt400.jar`                      |
 
-The Database service officially supports only the listed DB systems, which were tested and are known to work. If your DB system has not been covered, please contact us \(jolie-devel@lists.sourceforge.net\) and we will help you to get it added.
+The Database service officially supports only the listed DB systems, which were tested and are known to work. If your DB system has not been covered, please contact us \(<jolie-devel@lists.sourceforge.net>\) and we will help you to get it added.
 
 ## Using multiple databases
 
