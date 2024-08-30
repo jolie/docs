@@ -1,6 +1,6 @@
 
 # build highlight jolie highlight.js
-FROM node:alpine AS highlight-jolie
+FROM node:20-alpine AS highlight-jolie
 LABEL build_date="2022-12-07" \
 	  author="Brian Alberg <alberg@imada.sdu.dk>" \
 	  description="Jolie Documentation" \
@@ -12,12 +12,12 @@ RUN npm install
 RUN npm run build
 
 # build mdbook
-FROM nginx:alpine
+FROM nginx:1.27.1-alpine
 
 RUN apk update && \
     apk add --no-cache curl git
 # download mdbook and plugins binary
-RUN curl -sSL https://github.com/rust-lang/mdBook/releases/download/v0.4.22/mdbook-v0.4.22-x86_64-unknown-linux-musl.tar.gz | tar -xvz --directory=/usr/bin
+RUN curl -sSL https://github.com/rust-lang/mdBook/releases/download/v0.4.40/mdbook-v0.4.40-x86_64-unknown-linux-musl.tar.gz | tar -xvz --directory=/usr/bin
 RUN curl -sSL https://github.com/badboy/mdbook-mermaid/releases/download/v0.12.3/mdbook-mermaid-v0.12.3-x86_64-unknown-linux-musl.tar.gz | tar -xvz --directory=/usr/bin
 
 # copy shared content
