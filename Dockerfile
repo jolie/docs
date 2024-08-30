@@ -3,15 +3,15 @@
 ###############################################################
 
 # build highlight jolie highlight.js
-FROM node:alpine AS highlight-jolie
+FROM node:20-alpine AS highlight-jolie
 WORKDIR /highlight-jolie
 COPY highlight-jolie .
 RUN npm install
-RUN npm run build
+RUN npm run build --verbose
 
 # install mdbook
-FROM rust:1.65 AS builder
-ENV MDBOOK_VERSION="0.4.21"
+FROM rust:1.80 AS builder
+ENV MDBOOK_VERSION="0.4.40"
 ENV ARC="x86_64-unknown-linux-musl"
 RUN apt-get update && \
     apt-get install --no-install-recommends -y \
@@ -19,7 +19,7 @@ RUN apt-get update && \
 RUN rustup target add "${ARC}"
 RUN cargo --version
 # RUN cargo install mdbook
-RUN cargo install mdbook --version "${MDBOOK_VERSION}" --target "${ARC}"
+RUN cargo install mdbook --version "${MDBOOK_VERSION}" --target "${ARC}" --locked
 # RUN cargo install mdbook-mermaid
 RUN cargo install mdbook-mermaid --target "${ARC}"
 
