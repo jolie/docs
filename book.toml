@@ -19,6 +19,7 @@ command = "mdbook-mermaid"
 
 [output.html]
 additional-js = ["src/assets/js/mermaid.min.js", "src/assets/js/mermaid-init.js"]
+edit-url-template = "https://github.com/jolie/docs/edit/v1.13.x-git/{path}"
 
 [output.html.font]
 enable = true
