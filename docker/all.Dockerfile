@@ -35,7 +35,6 @@ RUN for version in $(git for-each-ref --shell --format='%(refname:lstrip=3)' | g
     do \
         echo "Copying version ${version}"; \
         git checkout -f ${version}; \
-        cp /jolie-docs/book.toml /docs/book.toml; \
         cp -r /jolie-docs/theme /docs/; \
         mdbook build;\
         ## Copy static webserver
