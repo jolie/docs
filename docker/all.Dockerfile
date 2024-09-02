@@ -26,7 +26,6 @@ COPY docker/nginx/conf.d /etc/nginx/conf.d
 
 COPY theme /jolie-docs/theme
 COPY --from=highlight-jolie /highlight-jolie/dist/highlight.js /jolie-docs/theme/highlight.js
-COPY book.toml /jolie-docs/book.toml
 
 RUN git clone https://github.com/jolie/docs.git
 WORKDIR /docs
