@@ -53,8 +53,8 @@ It is worth noting that all the response messages, now contain a new field calle
 In the following we report the definition of the `AdvancedCalculatorService`.
 
 ```jolie
-from AdvancedCalculatorServiceInterfaceModule import AdvancedCalculatorInterface
-from CalculatorInterfaceModule import CalculatorInterface
+from .AdvancedCalculatorServiceInterfaceModule import AdvancedCalculatorInterface
+from .CalculatorInterfaceModule import CalculatorInterface
 
 interface ChuckNorrisIface {
     RequestResponse: random( undefined )( undefined )
