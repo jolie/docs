@@ -144,8 +144,8 @@ As an example let us consider the case of a calculator which offers the four ari
 
 ```jolie
 from runtime import Runtime
-from OperationInterface import OperationInterface
-from CalculatorInterface import CalculatorInterface
+from .OperationInterface import OperationInterface
+from .CalculatorInterface import CalculatorInterface
 
 
 service Calculator {
