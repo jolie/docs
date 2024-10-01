@@ -64,9 +64,9 @@ Some interesting things to note:
 
 * in Jolie there are basic data types as integers, string, double, etc. In the example we exploit `int` (integers) for all the operations with the exception of operations multiplication and division where we use type `double`. You can check the other basic types [here](../../language-tools-and-standard-library/basics/interfaces/data_types/README.md);
 * the keyword `type` allows for the definition of structured data types;
-* an operation message type is just a data type associated with it into the definition of the operation. As an example the request message of operation `sum` is `SumRequest` whereas the reply is just a `double`;
+* an operation message type is just a data type associated with it into the definition of the operation. As an example the request message of operation `sum` is `SumRequest` whereas the reply is just a `int`;
 * a data type structure in Jolie represents a tree of nodes. As an example, type `DivRequest` contains two subnodes named `dividend` and `divisor` respectively. Both of them are `double`;
-* a node in a data structure can be a vector. As an example node `term` of type `SumRequest` is a vector of `double`. `[1,*]` stands for: minimum occurrences 1 and maximum occurrences infinite. We read `term[1,*]:double` as an unbounded vector of double with at least one element;
+* a node in a data structure can be a vector. As an example node `term` of type `SumRequest` is a vector of `int`. `[1,*]` stands for: minimum occurrences 1 and maximum occurrences infinite. We read `term[1,*]:int` as an unbounded vector of int with at least one element;
 
 ## Program and run a service
 
