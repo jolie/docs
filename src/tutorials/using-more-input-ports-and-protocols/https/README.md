@@ -34,8 +34,8 @@ The complete example follows and it may be consulted at this [link]
 (<https://github.com/jolie/examples/tree/master/v1.10.x/tutorials/more_inputports_and_protocols/https>)
 
 ```jolie
-from AdvancedCalculatorServiceInterfaceModule import AdvancedCalculatorInterface
-from CalculatorInterfaceModule import CalculatorInterface
+from .AdvancedCalculatorServiceInterfaceModule import AdvancedCalculatorInterface
+from .CalculatorInterfaceModule import CalculatorInterface
 
 interface ChuckNorrisIface {
     RequestResponse: random( undefined )( undefined )
