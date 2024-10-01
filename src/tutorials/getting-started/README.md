@@ -73,21 +73,21 @@ Some interesting things to note:
 Once we have defined the interface to implement, we are ready to define the service. Let's call the service `CalculatorService`. Edit a new module as follows:
 
 ```jolie
-from CalculatorInterfaceModule import CalculatorInterface
+from .CalculatorInterfaceModule import CalculatorInterface
 
 service CalculatorService {
 
 }
 ```
 
-This code permits to import the definition of the `CalculatorInterface` from module `CalculatorInterfaceModule` stored into file `CalculatorInterfaceModule.ol` and defines a service called `CalculatorService`.
+This code permits to import the definition of the `CalculatorInterface` from module `CalculatorInterfaceModule` stored into file `CalculatorInterfaceModule.ol` and defines a service called `CalculatorService`. The dot prefix tells Jolie that it should find the module in the same directory.
 
 ### Defining the inputPort
 
 Unfortunately, the code above will raise an error if executed, because the service definition does not contain any listening port nor any behaviour too. Let's start by defining a listening endpoint for this service:
 
 ```jolie
-rom CalculatorInterfaceModule import CalculatorInterface
+rom .CalculatorInterfaceModule import CalculatorInterface
 
 service CalculatorService {
 
@@ -110,7 +110,7 @@ Listening endpoints in Jolie are called `inputPort`. In this example we defined 
 Now, the service is ready to receive messages on the operation specified in interface `CalculatorInterface` but we did not tell it what to do once a message is received. It is time to finalize the service by specifying the behaviour:
 
 ```jolie
-from CalculatorInterfaceModule import CalculatorInterface
+from .CalculatorInterfaceModule import CalculatorInterface
 
 service CalculatorService {
 
@@ -205,7 +205,7 @@ In order to enable the service to continuously serve requests we need to specify
 So, let's admire our first service in Jolie!
 
 ```jolie
-from CalculatorInterfaceModule import CalculatorInterface
+from .CalculatorInterfaceModule import CalculatorInterface
 
 service CalculatorService {
 
