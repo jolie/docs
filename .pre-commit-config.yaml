@@ -8,10 +8,4 @@ repos:
       - id: megalinter-incremental # Faster, less thorough
         stages:
           - commit
-        args:
-          - mega-linter-runner
-          - --containername=megalinter-incremental
-          - --flavor=documentation
-          - --remove-container
-          - --fix
 # npx mega-linter-runner -e 'ENABLE=MARKDOWN,YAML' -e 'SHOW_ELAPSED_TIME=true' -e "'APPLY_FIXES=all'" -e "'CLEAR_REPORT_FOLDER=true'" -e "'LOG_LEVEL=warning'" --containername megalinter-incremental --remove-container --fix --filesonly

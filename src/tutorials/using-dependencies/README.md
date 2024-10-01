@@ -50,8 +50,8 @@ The service offers three operations: `factorial`, `average` and `percentage` who
 In the following we report the actual definition of the `AdvancedCalculatorService`:
 
 ```jolie
-from AdvancedCalculatorServiceInterfaceModule import AdvancedCalculatorInterface
-from CalculatorInterfaceModule import CalculatorInterface
+from .AdvancedCalculatorServiceInterfaceModule import AdvancedCalculatorInterface
+from .CalculatorInterfaceModule import CalculatorInterface
 
 service AdvancedCalculatorService {
 
