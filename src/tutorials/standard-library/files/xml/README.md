@@ -25,7 +25,7 @@ service Example {
             filename = "note.xml"
             format = "xml"
         } )( data )
-        // data is now { node << { from = "John" to = "Jane" content = "I made pasta" } }
+        // data is now { note << { from = "John" to = "Jane" content = "I made pasta" } }
     }
 }
 ```
@@ -46,7 +46,7 @@ embed Console as console
             filename = "note.xml"
             format = "xml"
         } )( data )
-        // data is now { node << { from = "John" to = "Jane" content = "I made pasta" } }
+        // data is now { note << { from = "John" to = "Jane" content = "I made pasta" } }
         println@console(data.node.to)()
     }
 }
