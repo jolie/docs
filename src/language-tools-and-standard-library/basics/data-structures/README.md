@@ -256,8 +256,8 @@ The code above will change the structure of `d` from this:
 d
 |_ greeting = "hello"
 |_ first = "to the"
-    |_ first.second = "world"
-    |_ first.third = "!"
+    |_ second = "world"
+    |_ third = "!"
 ```
 
 to this
