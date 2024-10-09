@@ -49,7 +49,7 @@ A location expresses the communication medium and the address a service uses for
 
 A location must indicate the communication medium the port has to use and its related parameters in this form: `medium[:parameters]` where _medium_ is a medium identifier and the optional _parameters_ is a medium-specific string. Usually the medium parameters define the address where the service is actually located.
 
-Jolie currently supports four media:
+Jolie currently supports five media:
 
 * `local` \(Jolie in-memory communication\);
 * `socket` \(TCP/IP sockets\).
