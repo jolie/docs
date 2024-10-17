@@ -1,3 +1,5 @@
+name: "Trigger"
+
 on:
   push:
     branches:
