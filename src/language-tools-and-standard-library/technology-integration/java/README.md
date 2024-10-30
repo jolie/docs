@@ -197,7 +197,7 @@ Structures are always translated into classes, being translated into inner class
 
 ```jolie
 type StructureType: int {
-    .node: string
+    node: string
 }
 ```
 
@@ -338,8 +338,8 @@ The `@JavaName` annotation is used to handle naming conflicts arising from names
 ```jolie
 ///@JavaName("MyType")
 type myType {
-    .char*: string //<@JavaName("chars")
-    ."@node": int //<@JavaName("node")
+    char*: string //<@JavaName("chars")
+    "@node": int //<@JavaName("node")
 }
 ```
 
@@ -360,7 +360,7 @@ type MyRefinedType: int( ranges( [1,10] ) )
 ///@InlineLink(true)
 type MyRefinedLink: MyRefinedType
 type MyType {
-    .refinedNode: MyRefinedLink //<@InlineLink(true)
+    refinedNode: MyRefinedLink //<@InlineLink(true)
 }
 ```
 
@@ -378,11 +378,11 @@ The `@GenerateBuilder` annotation is used to specify types where the correspondi
 ```jolie
 ///@GenerateBuilder(false)
 type MyRequestType {
-    .request: undefined
+    request: undefined
 }
 ///@GenerateBuilder(false)
 type MyResponseType {
-    .response: string
+    response: string
 }
 ```
 
