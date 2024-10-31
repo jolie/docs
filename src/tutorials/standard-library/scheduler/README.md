@@ -15,7 +15,7 @@ jolie test.ol
 
 A job which runs every minute will trigegr the alarm, and a message with the job name and the group name will be printed out.
 
-```
+```jolie
 from scheduler import Scheduler     // imported the Scheduler
 from console import Console
 
