@@ -1,72 +1,51 @@
-<!-- cSpell:disable -->
 <!-- markdownlint-disable -->
 <!-- editorconfig-checker-disable -->
+<!-- cSpell:disable -->
 
-# Exec
+# Service Exec
 
-Inclusion code: 
+> from exec import Exec
 
-| Service Deployment  |          |          |                                        |
-|:--------------------|:---------|:---------|:---------------------------------------|
-| Port Name           | Location | Protocol | Interfaces                             |
-| Exec documentation: |          |          |                                        |
-| Exec                | -        | -        | [ExecInterface](exec.md#ExecInterface) |
+| Port Name | Location | Protocol | Interfaces |
+| --- | --- | --- | --- |
+| ip | local | | <a href='#ExecInterface'>ExecInterface</a> |
 
 ### List of Available Interfaces
 
-### ExecInterface <a id="ExecInterface"></a>
+### ExecInterface
 
-Interface documentation:
+| Operation Name | Input Type | Output Type | Faults | Description |
+| --- | --- | --- | --- | --- |
+| exec | <a href="#CommandExecutionRequest">CommandExecutionRequest</a> | <a href='#CommandExecutionResult'>CommandExecutionResult</a> | - |  |
 
-| Operation Name       | Input Type                                                 | Output Type                                              | Faults |
-|:---------------------|:-----------------------------------------------------------|:---------------------------------------------------------|:-------|
-| [exec](exec.md#exec) | [CommandExecutionRequest](exec.md#CommandExecutionRequest) | [CommandExecutionResult](exec.md#CommandExecutionResult) |        |
 
-## Operation Description
+### Types
 
-### exec <a id="exec"></a>
+<details>
+<summary><span id="CommandExecutionRequest">CommandExecutionRequest: 
+</span>
+</summary>
 
-Operation documentation:
+##### Type Declaration
+<pre>
+string &#123;
+&nbsp;&nbsp;args[0,1]: string // 
+&nbsp;&nbsp;workingDirectory[0,1]: string // 
+&nbsp;&nbsp;stdOutConsoleEnable[0,1]: bool // 
+&nbsp;&nbsp;waitFor[0,1]: int // 
+&#125;
+</pre>
+</details>
+<details>
+<summary><span id="CommandExecutionResult">CommandExecutionResult: 
+</span>
+</summary>
 
-Invocation template:
-
-```jolie
-exec@Exec( request )( response )
-```
-
-#### Request type <a id="CommandExecutionRequest"></a>
-
-Type: CommandExecutionRequest
-
-```jolie
-type CommandExecutionRequest: string {
-    .args*: string
-    .workingDirectory?: string
-    .stdOutConsoleEnable?: bool
-    .waitFor?: int
-}
-```
-
-`CommandExecutionRequest : string`
-
-* `args : string`
-* `workingDirectory : string`
-* `stdOutConsoleEnable : bool`
-* `waitFor : int`
-
-#### Response type <a id="CommandExecutionResult"></a>
-
-Type: CommandExecutionResult
-
-```jolie
-type CommandExecutionResult: any {
-    .exitCode?: int
-    .stderr?: string
-}
-```
-
-`CommandExecutionResult : any`
-
-* `exitCode : int`
-* `stderr : string`
-
+##### Type Declaration
+<pre>
+any &#123;
+&nbsp;&nbsp;exitCode[0,1]: int // 
+&nbsp;&nbsp;stderr[0,1]: string // 
+&#125;
+</pre>
+</details>

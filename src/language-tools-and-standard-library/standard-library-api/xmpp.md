@@ -1,117 +1,53 @@
 <!-- markdownlint-disable -->
-<!-- cSpell:disable -->
 <!-- editorconfig-checker-disable -->
+<!-- cSpell:disable -->
 
-# XMPP
+# Service XMPP
 
-Inclusion code: 
+> from xmpp import XMPP
 
-| Service Deployment  |          |          |                                        |
-|:--------------------|:---------|:---------|:---------------------------------------|
-| Port Name           | Location | Protocol | Interfaces                             |
-| XMPP documentation: |          |          |                                        |
-| XMPP                | -        | -        | [XMPPInterface](xmpp.md#XMPPInterface) |
+| Port Name | Location | Protocol | Interfaces |
+| --- | --- | --- | --- |
+| ip | local | | <a href='#XMPPInterface'>XMPPInterface</a> |
 
 ### List of Available Interfaces
 
-### XMPPInterface <a id="XMPPInterface"></a>
+### XMPPInterface
 
-Interface documentation:
+| Operation Name | Input Type | Output Type | Faults | Description |
+| --- | --- | --- | --- | --- |
+| connect | <a href="#ConnectionRequest">ConnectionRequest</a> | <a href='#void'>void</a> | <details><summary>XMPPException</summary>undefined</details> |  |
+| sendMessage | <a href="#SendMessageRequest">SendMessageRequest</a> | <a href='#void'>void</a> | <details><summary>XMPPException</summary>undefined</details> |  |
 
-| Operation Name                     | Input Type                                       | Output Type | Faults                       |
-|:-----------------------------------|:-------------------------------------------------|:------------|:-----------------------------|
-| [sendMessage](xmpp.md#sendMessage) | [SendMessageRequest](xmpp.md#SendMessageRequest) | void        | XMPPException\( undefined \) |
-| [connect](xmpp.md#connect)         | [ConnectionRequest](xmpp.md#ConnectionRequest)   | void        | XMPPException\( undefined \) |
 
-## Operation Description
+### Types
 
-### sendMessage <a id="sendMessage"></a>
+<details>
+<summary><span id="ConnectionRequest">ConnectionRequest: 
+</span>
+</summary>
 
-Operation documentation:
+##### Type Declaration
+<pre>
+void &#123;
+&nbsp;&nbsp;password[1,1]: string // 
+&nbsp;&nbsp;port[0,1]: int // 
+&nbsp;&nbsp;resource[0,1]: string // 
+&nbsp;&nbsp;host[0,1]: string // 
+&nbsp;&nbsp;serviceName[1,1]: string // 
+&nbsp;&nbsp;username[1,1]: string // 
+&#125;
+</pre>
+</details>
+<details>
+<summary><span id="SendMessageRequest">SendMessageRequest: 
+</span>
+</summary>
 
-Invocation template:
-
-```jolie
-sendMessage@XMPP( request )( response )
-```
-
-#### Request type <a id="SendMessageRequest"></a>
-
-Type: SendMessageRequest
-
-```jolie
-type SendMessageRequest: string {
-    .to: string
-}
-```
-
-`SendMessageRequest : string`
-
-* `to : string`
-
-#### Response type
-
-Type: void
-
-`void : void`
-
-#### Possible faults thrown
-
-Fault `XMPPException` with type `undefined`
-
-Fault-handling install template:
-
-```jolie
-install ( XMPPException => /* error-handling code */ )
-```
-
-### connect <a id="connect"></a>
-
-Operation documentation:
-
-Invocation template:
-
-```jolie
-connect@XMPP( request )( response )
-```
-
-#### Request type <a id="ConnectionRequest"></a>
-
-Type: ConnectionRequest
-
-```jolie
-type ConnectionRequest: void {
-    .password: string
-    .port?: int
-    .resource?: string
-    .host?: string
-    .serviceName: string
-    .username: string
-}
-```
-
-`ConnectionRequest : void`
-
-* `password : string`
-* `port : int`
-* `resource : string`
-* `host : string`
-* `serviceName : string`
-* `username : string`
-
-#### Response type
-
-Type: void
-
-`void : void`
-
-#### Possible faults thrown
-
-Fault `XMPPException` with type `undefined`
-
-Fault-handling install template:
-
-```jolie
-install ( XMPPException => /* error-handling code */ )
-```
-
+##### Type Declaration
+<pre>
+string &#123;
+&nbsp;&nbsp;to[1,1]: string // 
+&#125;
+</pre>
+</details>

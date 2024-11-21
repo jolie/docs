@@ -1,257 +1,89 @@
-<!-- cSpell:disable -->
 <!-- markdownlint-disable -->
 <!-- editorconfig-checker-disable -->
+<!-- cSpell:disable -->
 
-# Console
+# Service Console
 
-Inclusion code:
+> from console import Console
 
-| Service Deployment     |          |          |                                                           |
-|:-----------------------|:---------|:---------|:----------------------------------------------------------|
-| Port Name              | Location | Protocol | Interfaces                                                |
-| ConsoleInputPort       | local    | -        | [ConsoleInputInterface](console.md#ConsoleInputInterface) |
-| Console documentation: |          |          |                                                           |
-| Console                | -        | -        | [ConsoleInterface](console.md#ConsoleInterface)           |
+| Port Name | Location | Protocol | Interfaces |
+| --- | --- | --- | --- |
+| ConsoleInput | local | | <a href='#ConsoleIface'>ConsoleIface</a> |
 
 ### List of Available Interfaces
 
-### ConsoleInputInterface <a id="ConsoleInputInterface"></a>
-
-Interface documentation:
-
-| Operation Name      | Input Type                        | Output Type | Faults |
-|:--------------------|:----------------------------------|:------------|:-------|
-| [in](console.md#in) | [InRequest](console.md#InRequest) | -           |        |
-
-## Operation Description
-
-### in <a id="in"></a>
-
-Operation documentation:
-
-Invocation template:
-
-```jolie
-in( request )
-```
-
-#### Request type <a id="InRequest"></a>
-
-Type: InRequest
-
-```jolie
-type InRequest: string {
-    .token?: string
-}
-```
-
-`InRequest : string`
-
-* `token : string`
-
-### ConsoleInterface <a id="ConsoleInterface"></a>
-
-Interface documentation:
-
-| Operation Name                                                      | Input Type                                                          | Output Type | Faults |
-|:--------------------------------------------------------------------|:--------------------------------------------------------------------|:------------|:-------|
-| [print](console.md#print)                                           | undefined                                                           | void        |        |
-| [println](console.md#println)                                       | undefined                                                           | void        |        |
-| [registerForInput](console.md#registerForInput)                     | [RegisterForInputRequest](console.md#RegisterForInputRequest)       | void        |        |
-| [unsubscribeSessionListener](console.md#unsubscribeSessionListener) | [UnsubscribeSessionListener](console.md#UnsubscribeSessionListener) | void        |        |
-| [subscribeSessionListener](console.md#subscribeSessionListener)     | [SubscribeSessionListener](console.md#SubscribeSessionListener)     | void        |        |
-| [enableTimestamp](console.md#enableTimestamp)                       | [EnableTimestampRequest](console.md#EnableTimestampRequest)         | void        |        |
-| [readLine](console.md#readLine)                                     | [ReadLineRequest](console.md#ReadLineRequest)                       | string      |        |
-
-## Operation Description
-
-### print <a id="print"></a>
-
-Operation documentation:
-
-Invocation template:
-
-```jolie
-print@Console( request )( response )
-```
-
-#### Request type
-
-Type: undefined
-
-`undefined : any`
-
-#### Response type
-
-Type: void
-
-`void : void`
-
-### println <a id="println"></a>
-
-Operation documentation:
-
-Invocation template:
-
-```jolie
-println@Console( request )( response )
-```
-
-#### Request type
-
-Type: undefined
-
-`undefined : any`
-
-#### Response type
-
-Type: void
-
-`void : void`
-
-### registerForInput <a id="registerForInput"></a>
-
-Operation documentation: it enables the console for input listening parameter enableSessionListener enables console input listening for more than one service session \(default=false\)
-
-Invocation template:
-
-```jolie
-registerForInput@Console( request )( response )
-```
-
-#### Request type <a id="RegisterForInputRequest"></a>
-
-Type: RegisterForInputRequest
-
-```jolie
-type RegisterForInputRequest: void {
-    .enableSessionListener?: bool
-}
-```
-
-`RegisterForInputRequest : void`
-
-* `enableSessionListener : bool`
-
-#### Response type
-
-Type: void
-
-`void : void`
-
-### unsubscribeSessionListener <a id="unsubscribeSessionListener"></a>
-
-Operation documentation: it disables a session to receive inputs from the console, previously registered with subscribeSessionListener operation
-
-Invocation template:
-
-```jolie
-unsubscribeSessionListener@Console( request )( response )
-```
-
-#### Request type <a id="UnsubscribeSessionListener"></a>
-
-Type: UnsubscribeSessionListener
-
-```jolie
-type UnsubscribeSessionListener: void {
-    .token: string
-}
-```
-
-`UnsubscribeSessionListener : void`
-
-* `token : string`
-
-#### Response type
-
-Type: void
-
-`void : void`
-
-### subscribeSessionListener <a id="subscribeSessionListener"></a>
-
-Operation documentation: it receives a token string which identifies a service session. it enables the session to receive inputs from the console
-
-Invocation template:
-
-```jolie
-subscribeSessionListener@Console( request )( response )
-```
-
-#### Request type <a id="SubscribeSessionListener"></a>
-
-Type: SubscribeSessionListener
-
-```jolie
-type SubscribeSessionListener: void {
-    .token: string
-}
-```
-
-`SubscribeSessionListener : void`
-
-* `token : string`
-
-#### Response type
-
-Type: void
-
-`void : void`
-
-### enableTimestamp <a id="enableTimestamp"></a>
-
-Operation documentation: It enables timestamp inline printing for each console output operation call: print, println Parameter format allows to specify the timestamp output format. Bad Format will be printed out if format value is not allowed.
-
-Invocation template:
-
-```jolie
-enableTimestamp@Console( request )( response )
-```
-
-#### Request type <a id="EnableTimestampRequest"></a>
-
-Type: EnableTimestampRequest
-
-```jolie
-type EnableTimestampRequest: bool {
-    .format?: string
-}
-```
-
-`EnableTimestampRequest : bool`
-
-* `format : string`
-
-#### Response type
-
-Type: void
-
-`void : void`
-
-### readLine <a id="readLine"></a>
-
-Operation documentation: Read a line from the console using a synchronous call
-
-Invocation template:
-
-```jolie
-readLine@Console( request )( response )
-```
-
-#### Request type
-
-Type: ReadLineRequest
-```jolie
-type ReadLineRequest: void {
-	secret?: bool
-}
-```
-
-`ReadLineRequest : void`
-* `secret: bool`
-#### Response type
-
-Type: string
-
-`string : string`
+### ConsoleIface
+
+| Operation Name | Input Type | Output Type | Faults | Description |
+| --- | --- | --- | --- | --- |
+| enableTimestamp | <a href="#EnableTimestampRequest">EnableTimestampRequest</a> | <a href='#void'>void</a> | - | <br>		It enables timestamp inline printing for each console output operation call: print, println<br>		Parameter format allows to specifiy the timestamp output format. Bad Format will be printed out if format value is not allowed.<br>	 |
+| print | <a href="#undefined">undefined</a> | <a href='#void'>void</a> | - |  |
+| println | <a href="#undefined">undefined</a> | <a href='#void'>void</a> | - |  |
+| readLine | <a href="#ReadLineRequest">ReadLineRequest</a> | <a href='#string'>string</a> | - | <br>	 Read a line from the console using a synchronous call<br>	 |
+| registerForInput | <a href="#RegisterForInputRequest">RegisterForInputRequest</a> | <a href='#void'>void</a> | - | <br>	  it enables the console for input listening<br>	  parameter enableSessionListener enables console input listening for more than one service session (default=false)<br>	 |
+| subscribeSessionListener | <a href="#SubscribeSessionListener">SubscribeSessionListener</a> | <a href='#void'>void</a> | - | <br>	 it receives a token string which identifies a service session.<br>	 it enables the session to receive inputs from the console<br>	 |
+| unsubscribeSessionListener | <a href="#UnsubscribeSessionListener">UnsubscribeSessionListener</a> | <a href='#void'>void</a> | - | <br>	 it disables a session to receive inputs from the console, previously registered with subscribeSessionListener operation<br>	 |
+
+
+### Types
+
+<details>
+<summary><span id="EnableTimestampRequest">EnableTimestampRequest: 
+</span>
+</summary>
+
+##### Type Declaration
+<pre>
+bool &#123;
+&nbsp;&nbsp;format[0,1]: string // 
+&#125;
+</pre>
+</details>
+<details>
+<summary><span id="ReadLineRequest">ReadLineRequest: 
+</span>
+</summary>
+
+##### Type Declaration
+<pre>
+void &#123;
+&nbsp;&nbsp;secret[0,1]: bool // 
+&#125;
+</pre>
+</details>
+<details>
+<summary><span id="RegisterForInputRequest">RegisterForInputRequest: 
+</span>
+</summary>
+
+##### Type Declaration
+<pre>
+void &#123;
+&nbsp;&nbsp;enableSessionListener[0,1]: bool // 
+&#125;
+</pre>
+</details>
+<details>
+<summary><span id="SubscribeSessionListener">SubscribeSessionListener: 
+</span>
+</summary>
+
+##### Type Declaration
+<pre>
+void &#123;
+&nbsp;&nbsp;token[1,1]: string // 
+&#125;
+</pre>
+</details>
+<details>
+<summary><span id="UnsubscribeSessionListener">UnsubscribeSessionListener: 
+</span>
+</summary>
+
+##### Type Declaration
+<pre>
+void &#123;
+&nbsp;&nbsp;token[1,1]: string // 
+&#125;
+</pre>
+</details>

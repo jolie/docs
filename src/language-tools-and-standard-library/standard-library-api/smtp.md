@@ -1,98 +1,52 @@
-<!-- cSpell:disable -->
 <!-- markdownlint-disable -->
 <!-- editorconfig-checker-disable -->
+<!-- cSpell:disable -->
 
-# SMTP
+# Service SMTP
 
-Inclusion code: 
+> from smtp import SMTP
 
-| Service Deployment  |          |          |                                        |
-|:--------------------|:---------|:---------|:---------------------------------------|
-| Port Name           | Location | Protocol | Interfaces                             |
-| SMTP documentation: |          |          |                                        |
-| SMTP                | -        | -        | [SMTPInterface](smtp.md#SMTPInterface) |
+| Port Name | Location | Protocol | Interfaces |
+| --- | --- | --- | --- |
+| ip | local | | <a href='#SMTPInterface'>SMTPInterface</a> |
 
 ### List of Available Interfaces
 
-### SMTPInterface <a id="SMTPInterface"></a>
+### SMTPInterface
 
-Interface documentation:
+| Operation Name | Input Type | Output Type | Faults | Description |
+| --- | --- | --- | --- | --- |
+| sendMail | <a href="#SendMailRequest">SendMailRequest</a> | <a href='#void'>void</a> | <details><summary>SMTPFault</summary>undefined</details> |  |
 
-| Operation Name               | Input Type                                 | Output Type | Faults                   |
-|:-----------------------------|:-------------------------------------------|:------------|:-------------------------|
-| [sendMail](smtp.md#sendMail) | [SendMailRequest](smtp.md#SendMailRequest) | void        | SMTPFault\( undefined \) |
 
-## Operation Description
+### Types
 
-### sendMail <a id="sendMail"></a>
+<details>
+<summary><span id="SendMailRequest">SendMailRequest: 
+</span>
+</summary>
 
-Operation documentation:
-
-Invocation template:
-
-```jolie
-sendMail@SMTP( request )( response )
-```
-
-#### Request type <a id="SendMailRequest"></a>
-
-Type: SendMailRequest
-
-```jolie
-type SendMailRequest: void {
-    .cc*: string
-    .authenticate?: void {
-        .password: string
-        .username: string
-    }
-    .bcc*: string
-    .attachment*: void {
-        .filename: string
-        .contentType: string
-        .content: raw
-    }
-    .subject: string
-    .host: string
-    .replyTo*: string
-    .from: string
-    .to[1,2147483647]: string
-    .contentType?: string
-    .content: string
-}
-```
-
-`SendMailRequest : void`
-
-* `cc : string`
-* `authenticate : void`
-  * `password : string`
-  * `username : string`
-* `bcc : string`
-* `attachment : void`
-  * `filename : string`
-  * `contentType : string`
-  * `content : raw`
-* `subject : string`
-* `host : string`
-* `replyTo : string`
-* `from : string`
-* `to : string`
-* `contentType : string`
-* `content : string`
-
-#### Response type
-
-Type: void
-
-`void : void`
-
-#### Possible faults thrown
-
-Fault `SMTPFault` with type `undefined`
-
-Fault-handling install template:
-
-```jolie
-install ( SMTPFault => /* error-handling code */ )
-```
-
+##### Type Declaration
+<pre>
+void &#123;
+&nbsp;&nbsp;cc[0,1]: string // 
+&nbsp;&nbsp;authenticate[0,1]: void &#123;
+&nbsp;&nbsp;&nbsp;&nbsp;password[1,1]: string // 
+&nbsp;&nbsp;&nbsp;&nbsp;username[1,1]: string // 
+&nbsp;&nbsp;&#125; // 
+&nbsp;&nbsp;bcc[0,1]: string // 
+&nbsp;&nbsp;attachment[0,1]: void &#123;
+&nbsp;&nbsp;&nbsp;&nbsp;filename[1,1]: string // 
+&nbsp;&nbsp;&nbsp;&nbsp;contentType[1,1]: string // 
+&nbsp;&nbsp;&nbsp;&nbsp;content[1,1]: raw // 
+&nbsp;&nbsp;&#125; // 
+&nbsp;&nbsp;subject[1,1]: string // 
+&nbsp;&nbsp;host[1,1]: string // 
+&nbsp;&nbsp;replyTo[0,1]: string // 
+&nbsp;&nbsp;from[1,1]: string // 
+&nbsp;&nbsp;to[1,1]: string // 
+&nbsp;&nbsp;contentType[0,1]: string // 
+&nbsp;&nbsp;content[1,1]: string // 
+&#125;
+</pre>
+</details>
