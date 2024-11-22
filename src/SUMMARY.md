@@ -95,6 +95,7 @@
 - [Databases](language-tools-and-standard-library/databases/README.md)
 - [Mock Services](language-tools-and-standard-library/mock-services/README.md)
     - [joliemock](language-tools-and-standard-library/mock-services/README.md)
+<!-- Standard Library API part is auto generated. -->
 - [Standard Library API](language-tools-and-standard-library/standard-library-api/README.md)
     - [assertions](language-tools-and-standard-library/standard-library-api/assertions.md)
     - [bluetooth](language-tools-and-standard-library/standard-library-api/bluetooth.md)
@@ -130,7 +131,6 @@
     - [xml-utils](language-tools-and-standard-library/standard-library-api/xml-utils.md)
     - [xmpp](language-tools-and-standard-library/standard-library-api/xmpp.md)
     - [zip-utils](language-tools-and-standard-library/standard-library-api/zip-utils.md)
-
 
 # Errors
 
