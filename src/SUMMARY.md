@@ -98,6 +98,7 @@
 <!-- Standard Library API part is auto generated. -->
 - [Standard Library API](language-tools-and-standard-library/standard-library-api/README.md)
     - [assertions](language-tools-and-standard-library/standard-library-api/assertions.md)
+    - [ast](language-tools-and-standard-library/standard-library-api/ast.md)
     - [bluetooth](language-tools-and-standard-library/standard-library-api/bluetooth.md)
     - [console](language-tools-and-standard-library/standard-library-api/console.md)
     - [converter](language-tools-and-standard-library/standard-library-api/converter.md)
@@ -111,7 +112,6 @@
     - [json-utils](language-tools-and-standard-library/standard-library-api/json-utils.md)
     - [math](language-tools-and-standard-library/standard-library-api/math.md)
     - [message-digest](language-tools-and-standard-library/standard-library-api/message-digest.md)
-    - [meta](language-tools-and-standard-library/standard-library-api/meta.md)
     - [metajolie](language-tools-and-standard-library/standard-library-api/metajolie.md)
     - [mustache](language-tools-and-standard-library/standard-library-api/mustache.md)
     - [network-service](language-tools-and-standard-library/standard-library-api/network-service.md)
