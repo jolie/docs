@@ -5,17 +5,10 @@
 
 # Tutorials
 
-- [Tutorials](tutorials/getting-started/README.md)
+- Tutorials
     - [Journeys](tutorials/journeys/README.md):
+        - [Calculator](tutorials/journeys/calculator/README.md)
         - [Roulette](tutorials/journeys/roulette/README.md)
-    - [Using Dependencies](tutorials/using-dependencies/README.md)
-        - [Using more than one dependency](tutorials/using-more-than-one-dependency/README.md)
-    - [Using more input ports and protocols](tutorials/using-more-input-ports-and-protocols/README.md)
-        - [soap](tutorials/using-more-input-ports-and-protocols/soap/README.md)
-        - [sodep](tutorials/using-more-input-ports-and-protocols/sodep/README.md)
-        - [https](tutorials/using-more-input-ports-and-protocols/https/README.md)
-        - [soaps](tutorials/using-more-input-ports-and-protocols/soaps/README.md)
-        - [sodeps](tutorials/using-more-input-ports-and-protocols/sodeps/README.md)
     - [Standard Library](tutorials/standard-library/files/README.md)
         - [Using files](tutorials/standard-library/files/README.md)
             - [JSON files](tutorials/standard-library/files/json/README.md)

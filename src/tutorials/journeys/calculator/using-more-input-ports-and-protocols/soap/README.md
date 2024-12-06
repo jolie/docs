@@ -56,8 +56,7 @@ This new inputPort has been defined for using protocol `soap`, and it is listeni
 
 ## The complete example
 
-The complete example follows and it may be consulted at this [link]
-(<https://github.com/jolie/examples/tree/master/v1.10.x/tutorials/more_inputports_and_protocols/soap>)
+The complete example follows and it may be consulted at this [link](https://github.com/jolie/examples/tree/master/Tutorials/calculator/more_inputports_and_protocols/soap)
 
 ```jolie
 service AdvancedCalculatorService {

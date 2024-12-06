@@ -4,8 +4,6 @@ Protocol [https](../https/README.md) is a very wide used secure protocol which e
 
 In the following picture we show how to add an inputPort which provides a `https` protocol in addition to those with `http/json`, `http/soap`  and `sodep`, already discussed in the previous sections.
 
-![](../../../assets/image/more_inputports_and_protocols_https.png)
-
 As it happened for the addition of the other protocol input ports, also in the case of a https protocol input port, the behaviour of the service is always the same, and you don't need to modify it.
 
 ## Adding the port
@@ -30,8 +28,7 @@ In this example, we previously generated a key store using the tool [`keytool`](
 
 ## The complete example
 
-The complete example follows and it may be consulted at this [link]
-(<https://github.com/jolie/examples/tree/master/v1.10.x/tutorials/more_inputports_and_protocols/https>)
+The complete example follows and it may be consulted at this [link](https://github.com/jolie/examples/tree/master/Tutorials/calculator/more_inputports_and_protocols/https)
 
 ```jolie
 from .AdvancedCalculatorServiceInterfaceModule import AdvancedCalculatorInterface

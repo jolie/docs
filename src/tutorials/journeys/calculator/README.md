@@ -1,14 +1,29 @@
-# Getting started
+# The Calculator: getting started
 
 This an introductory tutorial for getting confidence with the Jolie language. You will learn to:
 
-* define an interface for a service;
-* program and run a service;
-* set the execution modality.
+1. [Define an interface for a service;](#define-an-interface-for-a-service)
+1. [Define message types](#define-message-types)
+1. [Starting to write a service definition](#starting-to-write-a-service-definition)
+1. [Defining an inputPort](#defining-an-inputport)
+1. [Defining the behaviour](#defining-the-behaviour)
+1. [Running a service](#running-the-service)
+1. [Sending a request to a service](#sending-a-request-to-a-service)
+1. [Setting the execution modality](#setting-the-execution-modality)
+1. [Exiting from a service execution](#exiting-from-a-service-execution)
 
 As a reference example, here we are creating a service which implements a simple basic calculator. In particular, the service will provide four basic operations for each of the basic arithmetic ones: sum, subtraction, multiplication and division.
 
-## Define an interface for a service
+## The full code
+
+The full code of this tutorial can be found at this [link](https://github.com/jolie/examples/tree/master/Tutorials/calculator/getting_started)
+
+# Overview
+The architecture is very simple, there is a service which exposes a http endpoint for offering the four basic mathematical operations.
+
+![](overview.png)
+
+### Define an interface for a service
 
 Jolie enables the developer to follow a _contract first_ programming approach. This means that, before starting with the development, it is necessary to define the API of the service. In Jolie, this can be done by defining the **interface**. An interface contains a list of functionalities, called **operations**, which can be implemented by a service. In the following we report a first draft of an interface for a calculator:
 
@@ -24,7 +39,7 @@ interface CalculatorInterface {
 ```
 
 This code can be read as _defines an interface called CalculatorInterface which contains four operations of type RequestResponse called sum, sub, mul and div respectively_. It is worth noting that there are two possible types for the operations: _RequestResponse_ and _OneWay_. The former represents a synchronous exchange which involves a request message and a response message, whereas the latter represents an asynchronous exchange where there is only a request message without any response.
-
+Tutorial
 Save this code into a specific file called `CalculatorInterfaceModule.ol`, we will import it later from the service module.
 
 ### Define message types
@@ -68,7 +83,7 @@ Some interesting things to note:
 * a data type structure in Jolie represents a tree of nodes. As an example, type `DivRequest` contains two subnodes named `dividend` and `divisor` respectively. Both of them are `double`;
 * a node in a data structure can be a vector. As an example node `term` of type `SumRequest` is a vector of `int`. `[1,*]` stands for: minimum occurrences 1 and maximum occurrences infinite. We read `term[1,*]:int` as an unbounded vector of int with at least one element;
 
-## Program and run a service
+### Starting to write a service definition
 
 Once we have defined the interface to implement, we are ready to define the service. Let's call the service `CalculatorService`. Edit a new module as follows:
 
@@ -82,7 +97,7 @@ service CalculatorService {
 
 This code permits to import the definition of the `CalculatorInterface` from module `CalculatorInterfaceModule` stored into file `CalculatorInterfaceModule.ol` and defines a service called `CalculatorService`. The dot prefix tells Jolie that it should find the module in the same directory.
 
-### Defining the inputPort
+### Defining an inputPort
 
 Unfortunately, the code above will raise an error if executed, because the service definition does not contain any listening port nor any behaviour too. Let's start by defining a listening endpoint for this service:
 
@@ -155,7 +170,7 @@ Some interesting things to be noticed:
 * once the body code of a request-response is finished, the content of the variable specified as a response will be actually sent as response message. This means that its data structure must correspond to what is defined into the interface;
 * we read `for( t in request.term )` as: for each element of vector `request.term` do the code within curly brackets. Use token `t` for referring to the current element of the vector.
 
-### Running the service
+### Running a service
 
 Save the previous code into a module called `CalculatorService.ol` within the same folder where you previously saved the interface module `CalculatorInterfaceModule.ol`. Run the service using the following command:
 
@@ -165,7 +180,7 @@ jolie CalculatorService.ol
 
 The service will start immediately waiting for a request.
 
-### Sending a request to the service
+### Sending a request to a service
 
 For the sake of this example, we can use `curl` as a program for sending a message to the service. Other http clients can be used instead. Running the following clients you can check how the different operations reply:
 
@@ -243,11 +258,8 @@ service CalculatorService {
 }
 ```
 
-## The complete example
 
-The complete example of this tutorial can be found at this [link](https://github.com/jolie/examples/tree/master/v1.10.x/tutorials/getting_started)
-
-## Exiting a service
+## Exiting from a service execution
 
 Jolie provides the `exit` instruction to exit the current program by terminating the running Java virtual machine. In the example above, we could extend our service interface and behaviour with the `shutdown` operation, which closes the service using the `exit` instruction — notice that we use the full syntax of [input choices](../../language-tools-and-standard-library/basics/composing-statements/README.md#input-choice) here, which is `[ inputOperation ]{ post-operation code }`.
 

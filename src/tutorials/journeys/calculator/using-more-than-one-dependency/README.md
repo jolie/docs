@@ -1,4 +1,4 @@
-# Using more than one dependency
+# The Calculator: using more than one dependency
 
 In this tutorial we specialize the system of services presented in tutorial [Using Dependencies](../using-dependencies/README.md).
 In particular, here we suppose to add an advertise message to each call of the `AdvancedCalculatorService`. The message is retrieved by invoking an external service not implemented in Jolie but exposed using REST.

@@ -1,4 +1,4 @@
-# Roulette Tutorial
+# The Roulette: getting started
 
 _credits_: __Adelmo Gentilini__
 

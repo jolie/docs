@@ -4,8 +4,6 @@ Protocol [sodeps](../sodep/README.md) uses  binary protocol `sodep` already desc
 
 In the following picture we show how to add an inputPort which provides a sodeps protocol in addition to those with `http/json`, `http/soap`, `sodep`, `https` and `sodeps`  already discussed.
 
-![](../../../assets/image/more_inputports_and_protocols_sodeps.png)
-
 As it happened for the addition of sodep protocol input port, also in the case of a sodep protocol input port the behaviour of the service is always the same, and you don't need to modify it.
 
 ## Adding the port
@@ -27,8 +25,7 @@ It is worth noting that, as we did for protocol `https` also in this case we nee
 
 ## The complete example
 
-The complete example follows and it may be consulted at this [link]
-(<https://github.com/jolie/examples/tree/master/v1.10.x/tutorials/more_inputports_and_protocols/sodeps>)
+The complete example follows and it may be consulted at this [link](https://github.com/jolie/examples/tree/master/Tutorials/calculator/more_inputports_and_protocols/sodeps)
 
 ```jolie
 from .AdvancedCalculatorServiceInterfaceModule import AdvancedCalculatorInterface

@@ -1,9 +1,9 @@
-# Using more input ports and protocols
+# The Calculator: using more input ports and protocols
 
 In this tutorial we will show how to add more input ports in a service. In such a way, it is possible to enable the service to receive messages with different formats and protocols by exploiting the same behaviour.
 In particular, we modify the service `AdvancedCalculatorService` of the tutorial [Using more than one dependency](../using-more-than-one-dependency/README.md) as depicted in the following diagram:
 
-![](../../assets/image/more_inputports_and_protocols.png)
+![](../more-inputs.png)
 
 Besides the existing port for protocol `http`, Input ports will be incrementally added for the following protocols:
 
