@@ -1,0 +1,17 @@
+@startuml
+Player -> Player: the scheduler triggers the player to bet
+activate Table
+Player -> Table: straight up bet on a random number
+Table -> Player: check if the player location is correct
+activate Player
+Player ---> Table: ok
+deactivate Player
+Table -> Table: collects the bet
+deactivate Table
+Croupier -> Croupier: periodically the internal scheduler wakes up the croupier for running a game
+activate Croupier
+Croupier -> Table: rien ne va plus
+Table -> Croupier: game results
+Croupier-> Player: sends results
+deactivate Croupier
+@enduml
