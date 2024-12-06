@@ -12,7 +12,7 @@ In this tutorial we will cover the following arguments:
 1. [Using Math library for generating a random number](#using-math-library-for-generating-a-random-number)
 1. [Using default for catching all the  faults in a scope](#using-default-for-catching-all-the-faults-in-a-scope)
 1. [Using foreach for ranging over the subnodes of a variable](#using-foreach-for-ranging-over-the-subnodes-of-a-variable)
-1. Using valueToPrettyString of StringUtils library for printing out the content of a tree
+1. [Using valueToPrettyString of StringUtils library for printing out the content of a tree](#using-valuetoprettystring-of-stringutils-library-for-printing-out-the-content-of-a-tree)
 
 ## Overview
 The system is composed by three different services: _TableService_, _Croupier_, _Player_ where the last one could be run in more than on instances.
