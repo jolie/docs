@@ -1,12 +1,12 @@
-<!-- markdownlint-disable MD025 MD041 -->
+<!-- markdownlint-disable MD025 MD041 MD012 -->
 # Table of contents
 
 - [Introduction](introduction/README.md)
 
 # Tutorials
 
-- Tutorials
-    - [Journeys](tutorials/journeys/README.md):
+- [Tutorials](tutorials/journeys/README.md)
+    - [Journeys](tutorials/journeys/README.md)
         - [Calculator](tutorials/journeys/calculator/README.md)
         - [Roulette](tutorials/journeys/roulette/README.md)
     - [Standard Library](tutorials/standard-library/files/README.md)
