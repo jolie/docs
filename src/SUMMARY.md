@@ -7,7 +7,11 @@
 
 - [Tutorials](tutorials/journeys/README.md)
     - [Journeys](tutorials/journeys/README.md)
-        - [Calculator](tutorials/journeys/calculator/README.md)
+        - Calculator
+            - [Getting started](tutorials/journeys/calculator/README.md)
+            - [Using Dependencies](tutorials/journeys/calculator/using-dependencies/README.md)
+            - [Using more than one dependency](tutorials/journeys/calculator/using-more-than-one-dependency/README.md)
+            - [Using more input ports and protocols](tutorials/journeys/calculator/using-more-input-ports-and-protocols/README.md)
         - [Roulette](tutorials/journeys/roulette/README.md)
     - [Standard Library](tutorials/standard-library/files/README.md)
         - [Using files](tutorials/standard-library/files/README.md)
