@@ -5,7 +5,7 @@
 
 # Tutorials
 
-- [Tutorials](tutorials/journeys/README.md)
+- [Tutorials](tutorials/README.md)
     - [Journeys](tutorials/journeys/README.md)
         - [Calculator](tutorials/journeys/calculator/README.md)
             - [Getting started](tutorials/journeys/calculator/getting-started/README.md)
