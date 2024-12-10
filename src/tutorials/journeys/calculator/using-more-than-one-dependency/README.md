@@ -3,7 +3,7 @@
 In this tutorial we specialize the system of services presented in tutorial [Using Dependencies](../using-dependencies/README.md).
 In particular, here we suppose to add an advertise message to each call of the `AdvancedCalculatorService`. The message is retrieved by invoking an external service not implemented in Jolie but exposed using REST.
 
-![architecture](../../assets/image/using_dependencies_01.png)
+![architecture](../more-dependencies.png)
 
 In the architecture, the `AdvancedCalculatorService` has one dependency more, from which it can get the advertise messages.
 In order to simulate the advertise message provider, here we exploit a funny service which returns [Chuck Norris jokes](https://api.chucknorris.io/).
