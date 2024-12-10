@@ -18,14 +18,14 @@
               - [soaps](tutorials/journeys/calculator/using-more-input-ports-and-protocols/soaps/README.md)
               - [sodeps](tutorials/journeys/calculator/using-more-input-ports-and-protocols/sodeps/README.md)
         - [Roulette](tutorials/journeys/roulette/README.md)
-    - [Standard Library](tutorials/standard-library/files/README.md)
-        - [Using files](tutorials/standard-library/files/README.md)
+    - [Standard Library](tutorials/standard-library/README.MD)
+        - [File](tutorials/standard-library/file/README.md)
             - [JSON files](tutorials/standard-library/files/json/README.md)
-            - [XML files](tutorials/standard-library/files/xml/README.md)
-            - [Building a File Uploader Service](tutorials/file-uploader/README.md)
+            - [XML files](tutorials/standard-library/files/xml/README.md)      
         - [Scheduler](tutorials/standard-library/scheduler/README.md)
-    - [Advanced Scenarios](tutorials/advanced-scenarios/supporting-new-protocols-in-jolie/README.md)
+    - [Advanced Scenarios](tutorials/advanced-scenarios/README.md)
         - [Implementing new port protocols in Jolie](tutorials/advanced-scenarios/supporting-new-protocols-in-jolie/README.md)
+        - [Building a File Uploader Service](tutorials/advanced-scenarios/file-uploader/README.md)
 
 # Language, tools, and standard library
 
