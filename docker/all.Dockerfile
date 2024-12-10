@@ -14,6 +14,8 @@ RUN npm run build
 # build mdbook
 FROM nginx:1.27.1-alpine
 
+SHELL [ "/bin/sh", "-exc" ]
+
 RUN apk update && \
     apk add --no-cache curl git
 # download mdbook and plugins binary
@@ -29,7 +31,6 @@ COPY --from=highlight-jolie /highlight-jolie/dist/highlight.js /jolie-docs/theme
 
 RUN git clone https://github.com/jolie/docs.git
 WORKDIR /docs
-
 RUN for version in $(git for-each-ref --shell --format='%(refname:lstrip=3)' | grep 'v[0-9]*\.[0-9]*\.x' | tr -d "'"); \
     do \
         echo "Copying version ${version}"; \
