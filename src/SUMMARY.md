@@ -26,6 +26,7 @@
     - [Advanced Scenarios](tutorials/advanced-scenarios/README.md)
         - [Implementing new port protocols in Jolie](tutorials/advanced-scenarios/supporting-new-protocols-in-jolie/README.md)
         - [Building a File Uploader Service](tutorials/advanced-scenarios/file-uploader/README.md)
+        - [Download a zip file from the Internet](tutorials/advanced-scenarios/download-zip-from-internet/README.md)
 
 # Language, tools, and standard library
 
