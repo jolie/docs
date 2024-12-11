@@ -118,6 +118,7 @@
     - [math](language-tools-and-standard-library/standard-library-api/math.md)
     - [message-digest](language-tools-and-standard-library/standard-library-api/message-digest.md)
     - [metajolie](language-tools-and-standard-library/standard-library-api/metajolie.md)
+    - [metarender-code](language-tools-and-standard-library/standard-library-api/metarender-code.md)
     - [mustache](language-tools-and-standard-library/standard-library-api/mustache.md)
     - [network-service](language-tools-and-standard-library/standard-library-api/network-service.md)
     - [queue-utils](language-tools-and-standard-library/standard-library-api/queue-utils.md)
