@@ -4,9 +4,6 @@ In this section we briefly show an example on how to use module Mustache from th
 * The documentation related to mustache can be found at this [link](https://mustache.github.io/).
 * The full code of this tutorial can be found [here](https://github.com/jolie/examples/tree/master/Tutorials/mustache)
 
-[TOC]
-
-
 ## Importing modules
 The module to import is the following one:
 
