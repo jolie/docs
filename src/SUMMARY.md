@@ -22,6 +22,7 @@
         - [File](tutorials/standard-library/file/README.md)
             - [JSON files](tutorials/standard-library/files/json/README.md)
             - [XML files](tutorials/standard-library/files/xml/README.md)      
+        - [Mustache](tutorials/standard-library/mustache/README.md)
         - [Scheduler](tutorials/standard-library/scheduler/README.md)
     - [Advanced Scenarios](tutorials/advanced-scenarios/README.md)
         - [Implementing new port protocols in Jolie](tutorials/advanced-scenarios/supporting-new-protocols-in-jolie/README.md)
