@@ -126,7 +126,7 @@ http://localhost:8000/orders/myuser?maxItems=0
 
 ## Handling the headers
 
-It is possible to handle both request and response headers if necessary. In this case, it is necessary to implement a service, called `RestHadler.ol`. The skeleton of this service can be automatically created by running the following command:
+It is possible to handle both request and response headers if necessary. In this case, it is necessary to implement a service, called `RestHandler.ol`. The skeleton of this service can be automatically created by running the following command:
 
 ```sh
 jolier createHandler
