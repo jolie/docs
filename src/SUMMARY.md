@@ -115,6 +115,7 @@
     - [ini-utils](language-tools-and-standard-library/standard-library-api/ini-utils.md)
     - [inspector](language-tools-and-standard-library/standard-library-api/inspector.md)
     - [joliedoc-lib](language-tools-and-standard-library/standard-library-api/joliedoc-lib.md)
+    - [joliemock](language-tools-and-standard-library/standard-library-api/joliemock.md)
     - [json-utils](language-tools-and-standard-library/standard-library-api/json-utils.md)
     - [math](language-tools-and-standard-library/standard-library-api/math.md)
     - [message-digest](language-tools-and-standard-library/standard-library-api/message-digest.md)

@@ -8,254 +8,564 @@
 
 | Port Name | Location | Protocol | Interfaces |
 | --- | --- | --- | --- |
-| Runtime | undefined | | <a href='#RuntimeInterface'>RuntimeInterface</a> |
+| ip | local | | <a href='#MetaJolieJavaServiceInterface'>MetaJolieJavaServiceInterface</a> |
 
 ### List of Available Interfaces
 
-### RuntimeInterface
+### MetaJolieJavaServiceInterface
 
 | Operation Name | Input Type | Output Type | Faults | Description |
 | --- | --- | --- | --- | --- |
-| callExit | <a href="#any">any</a> | <a href='#void'>void</a> | - |  Stops gracefully the execution of this service.<br>	  Calling this operation is equivalent to invoking the exit statement.<br>	  |
-| dumpState | <a href="#void">void</a> | <a href='#string'>string</a> | - |  Returns a pretty-printed string representation of<br>	  the local state of the invoking Jolie process and<br>	  the global state of this service.<br>	  |
-| getIncludePaths | <a href="#void">void</a> | <a href='#GetIncludePathResponse'>GetIncludePathResponse</a> | - |  Get the include paths used by this interpreter |
-| getLocalLocation | <a href="#void">void</a> | <a href='#any'>any</a> | - |  Get the local in-memory location of this service. |
-| getOutputPort | <a href="#GetOutputPortRequest">GetOutputPortRequest</a> | <a href='#GetOutputPortResponse'>GetOutputPortResponse</a> | <details><summary>OutputPortDoesNotExist</summary>undefined</details> |  Returns the definition of output port definition.<br>	  @throws OutputPortDoesNotExist if the requested output port does not exist.<br>	  |
-| getOutputPorts | <a href="#void">void</a> | <a href='#GetOutputPortsResponse'>GetOutputPortsResponse</a> | - |  Returns all the output ports used by this service. |
-| getProcessId | <a href="#void">void</a> | <a href='#string'>string</a> | - |  Returns the internal identifier of the executing Jolie process. |
-| getRedirection | <a href="#GetRedirectionRequest">GetRedirectionRequest</a> | <a href='#MaybeString'>MaybeString</a> | - |  Get the output port name that a redirection points to. |
-| getVersion | <a href="#void">void</a> | <a href='#string'>string</a> | - |  Returns the version of the Jolie interpreter running this service. |
-| getenv | <a href="#string">string</a> | <a href='#MaybeString'>MaybeString</a> | - |  Returns the value of an environment variable. |
-| halt | <a href="#HaltRequest">HaltRequest</a> | <a href='#void'>void</a> | - |  Halts non-gracefully the execution of this service. |
-| loadEmbeddedService | <a href="#LoadEmbeddedServiceRequest">LoadEmbeddedServiceRequest</a> | <a href='#any'>any</a> | <details><summary>RuntimeException</summary><a href='#RuntimeExceptionType'>RuntimeExceptionType</a></details> |  Load an embedded service. |
-| loadLibrary | <a href="#string">string</a> | <a href='#void'>void</a> | <details><summary>IOException</summary><a href='#4#IOExceptionType'>4#IOExceptionType</a></details> |  Dynamically loads an external (jar) library. |
-| removeOutputPort | <a href="#string">string</a> | <a href='#void'>void</a> | - |  Removes the output port with the requested name. |
-| removeRedirection | <a href="#GetRedirectionRequest">GetRedirectionRequest</a> | <a href='#void'>void</a> | <details><summary>RuntimeException</summary><a href='#RuntimeExceptionType'>RuntimeExceptionType</a></details> |  Remove a redirection at an input port |
-| setMonitor | <a href="#SetMonitorRequest">SetMonitorRequest</a> | <a href='#void'>void</a> | - |  Set the monitor for this service. |
-| setOutputPort | <a href="#SetOutputPortRequest">SetOutputPortRequest</a> | <a href='#void'>void</a> | - |  Set an output port.<br>	  If an output port with this name does not exist already,<br>	  this operation creates it.<br>	  Otherwise, the output port is replaced with this one.<br>	  |
-| setRedirection | <a href="#SetRedirectionRequest">SetRedirectionRequest</a> | <a href='#void'>void</a> | <details><summary>RuntimeException</summary><a href='#RuntimeExceptionType'>RuntimeExceptionType</a></details> |  Set a redirection at an input port.<br>	  If the redirection with this name does not exist already,<br>	  this operation creates it.<br>	  Otherwise, the redirection is replaced with this one.<br>	  |
-| stats | <a href="#void">void</a> | <a href='#Stats'>Stats</a> | - |  Returns information on the runtime state of the VM. |
+| checkNativeType | <a href="#CheckNativeTypeRequest">CheckNativeTypeRequest</a> | <a href='#CheckNativeTypeResponse'>CheckNativeTypeResponse</a> | - |  |
+| getInputPortMetaData | <a href="#GetMetaDataRequest">GetMetaDataRequest</a> | <a href='#GetInputPortMetaDataResponse'>GetInputPortMetaDataResponse</a> | <details><summary>ParserException</summary><a href='#ParserExceptionType'>ParserExceptionType</a></details><details><summary>InputPortMetaDataFault</summary>undefined</details><details><summary>SemanticException</summary><a href='#SemanticExceptionType'>SemanticExceptionType</a></details> |  |
+| getMetaData | <a href="#GetMetaDataRequest">GetMetaDataRequest</a> | <a href='#GetMetaDataResponse'>GetMetaDataResponse</a> | <details><summary>ParserException</summary><a href='#ParserExceptionType'>ParserExceptionType</a></details><details><summary>SemanticException</summary><a href='#SemanticExceptionType'>SemanticExceptionType</a></details> |  |
+| getNativeTypeFromString | <a href="#GetNativeTypeFromStringRequest">GetNativeTypeFromStringRequest</a> | <a href='#NativeType'>NativeType</a> | <details><summary>NativeTypeDoesNotExist</summary>undefined</details> |  |
+| getNativeTypeStringList | <a href="#void">void</a> | <a href='#GetNativeTypeStringListResponse'>GetNativeTypeStringListResponse</a> | - |  |
+| getOutputPortMetaData | <a href="#GetMetaDataRequest">GetMetaDataRequest</a> | <a href='#GetOutputPortMetaDataResponse'>GetOutputPortMetaDataResponse</a> | <details><summary>OutputPortMetaDataFault</summary>undefined</details><details><summary>ParserException</summary><a href='#ParserExceptionType'>ParserExceptionType</a></details><details><summary>SemanticException</summary><a href='#SemanticExceptionType'>SemanticExceptionType</a></details> |  |
+| messageTypeCast | <a href="#MessageTypeCastRequest">MessageTypeCastRequest</a> | <a href='#MessageTypeCastResponse'>MessageTypeCastResponse</a> | <details><summary>TypeMismatch</summary>undefined</details> |  |
 
 
 ### Types
 
 <details>
-<summary><span id="GetIncludePathResponse">GetIncludePathResponse: 
+<summary><span id="Cardinality">Cardinality: 
 </span>
 </summary>
 
 ##### Type Declaration
 <pre>
 void &#123;
-&nbsp;&nbsp;path[0,1]: string //  The include paths of the interpreter
+&nbsp;&nbsp;min[1,1]: int // 
+&nbsp;&nbsp;max[0,1]: int // 
+&nbsp;&nbsp;infinite[0,1]: int // 
 &#125;
 </pre>
 </details>
 <details>
-<summary><span id="GetOutputPortRequest">GetOutputPortRequest: 
+<summary><span id="CheckNativeTypeRequest">CheckNativeTypeRequest: 
 </span>
 </summary>
 
 ##### Type Declaration
 <pre>
 void &#123;
-&nbsp;&nbsp;name[1,1]: string //  The name of the output port
+&nbsp;&nbsp;type_name[1,1]: string //  the type name to check it is native
 &#125;
 </pre>
 </details>
 <details>
-<summary><span id="GetOutputPortResponse">GetOutputPortResponse: 
+<summary><span id="CheckNativeTypeResponse">CheckNativeTypeResponse: 
 </span>
 </summary>
 
 ##### Type Declaration
 <pre>
 void &#123;
-&nbsp;&nbsp;protocol[1,1]: string //  The protocol name of the output port
-&nbsp;&nbsp;name[1,1]: string //  The name of the output port
-&nbsp;&nbsp;location[1,1]: string //  The location of the output port
+&nbsp;&nbsp;result[1,1]: bool // 
 &#125;
 </pre>
 </details>
 <details>
-<summary><span id="GetOutputPortsResponse">GetOutputPortsResponse: 
+<summary><span id="CommunicationDependency">CommunicationDependency: 
 </span>
 </summary>
 
 ##### Type Declaration
 <pre>
 void &#123;
-&nbsp;&nbsp;port[0,1]: void &#123;
-&nbsp;&nbsp;&nbsp;&nbsp;protocol[1,1]: string //  The protocol name of the output port
-&nbsp;&nbsp;&nbsp;&nbsp;name[1,1]: string //  The name of the output port
-&nbsp;&nbsp;&nbsp;&nbsp;location[1,1]: string //  The location of the output port
-&nbsp;&nbsp;&#125; //  The output ports used by this interpreter
+&nbsp;&nbsp;input_operation[1,1]: void &#123;
+&nbsp;&nbsp;&nbsp;&nbsp;name[1,1]: string // name of the operation
+&nbsp;&nbsp;&nbsp;&nbsp;type[1,1]: string // RequestResponse or OneWay
+&nbsp;&nbsp;&#125; // 
+&nbsp;&nbsp;dependencies[0,1]: void &#123;
+&nbsp;&nbsp;&nbsp;&nbsp;port[0,1]: string //  defined only if type is Notification or SolicitResponse
+&nbsp;&nbsp;&nbsp;&nbsp;name[1,1]: string //  name of the operation
+&nbsp;&nbsp;&nbsp;&nbsp;type[1,1]: string // RequestResponse, OneWay, SolicitResponse or Notification
+&nbsp;&nbsp;&#125; // 
 &#125;
 </pre>
 </details>
 <details>
-<summary><span id="GetRedirectionRequest">GetRedirectionRequest: 
+<summary><span id="DoubleRefinedType">DoubleRefinedType: 
 </span>
 </summary>
 
 ##### Type Declaration
 <pre>
 void &#123;
-&nbsp;&nbsp;inputPortName[1,1]: string //  The target input port
-&nbsp;&nbsp;resourceName[1,1]: string //  The resource name of the redirection to get
+&nbsp;&nbsp;ranges[1,1]: <a href='#RangeDouble'>RangeDouble</a> // 
 &#125;
 </pre>
 </details>
 <details>
-<summary><span id="HaltRequest">HaltRequest: 
+<summary><span id="Fault">Fault: 
 </span>
 </summary>
 
 ##### Type Declaration
 <pre>
 void &#123;
-&nbsp;&nbsp;status[0,1]: int //  The status code to return to the execution environment
+&nbsp;&nbsp;name[1,1]: string // 
+&nbsp;&nbsp;type[1,1]: <a href='#NativeType'>NativeType</a>
+|<a href='#TypeUndefined'>TypeUndefined</a>
+|<a href='#TypeLink'>TypeLink</a>
+
+ // 
 &#125;
 </pre>
 </details>
 <details>
-<summary><span id="IOExceptionType">IOExceptionType: 
-</span>
-</summary>
-
-##### Type Declaration
-<pre>
-<a href='#JavaExceptionType'>JavaExceptionType</a>
-</pre>
-</details>
-<details>
-<summary><span id="IOExceptionType">IOExceptionType: 
-</span>
-</summary>
-
-##### Type Declaration
-<pre>
-<a href='#IOExceptionType'>IOExceptionType</a>
-</pre>
-</details>
-<details>
-<summary><span id="JavaExceptionType">JavaExceptionType: 
-</span>
-</summary>
-
-##### Type Declaration
-<pre>
-string &#123;
-&nbsp;&nbsp;stackTrace[1,1]: string // 
-&#125;
-</pre>
-</details>
-<details>
-<summary><span id="LoadEmbeddedServiceRequest">LoadEmbeddedServiceRequest: 
+<summary><span id="GetInputPortMetaDataResponse">GetInputPortMetaDataResponse: 
 </span>
 </summary>
 
 ##### Type Declaration
 <pre>
 void &#123;
-&nbsp;&nbsp;filepath[1,1]: string //  The path to the service to load
-&nbsp;&nbsp;service[0,1]: string //  The name of the service to load, if relevant
-&nbsp;&nbsp;type[0,1]: string //  The type of the service, e.g., Jolie, Java, or JavaScript. Default: Jolie
-&nbsp;&nbsp;params[0,1]: undefined //  The actual parameters (arguments) that should be passed to the service
+&nbsp;&nbsp;input[0,1]: <a href='#Port'>Port</a> //  the full description of each input port of the service definition
+&#125;
+</pre>
+</details>
+<details>
+<summary><span id="GetMetaDataRequest">GetMetaDataRequest: 
+</span>
+</summary>
+
+##### Type Declaration
+<pre>
+void &#123;
+&nbsp;&nbsp;filename[1,1]: string //  the filename where the service definition is
+&#125;
+</pre>
+</details>
+<details>
+<summary><span id="GetMetaDataResponse">GetMetaDataResponse: 
+</span>
+</summary>
+
+##### Type Declaration
+<pre>
+void &#123;
+&nbsp;&nbsp;output[0,1]: <a href='#Port'>Port</a> //  the definitions of all the output ports
+&nbsp;&nbsp;input[0,1]: <a href='#Port'>Port</a> //  the definitions of all the input ports
+&nbsp;&nbsp;interfaces[0,1]: <a href='#Interface'>Interface</a> //  the definitions of all the interfaces
+&nbsp;&nbsp;types[0,1]: <a href='#TypeDefinition'>TypeDefinition</a> //  the definitions of all the types
+&nbsp;&nbsp;service[0,1]: <a href='#Service'>Service</a> //  the definition of the service
+&nbsp;&nbsp;embeddedServices[0,1]: void &#123;
+&nbsp;&nbsp;&nbsp;&nbsp;servicepath[1,1]: string //  path where the service can be found
+&nbsp;&nbsp;&nbsp;&nbsp;type[1,1]: string //  type of the embedded service
+&nbsp;&nbsp;&nbsp;&nbsp;portId[0,1]: string //  target output port where the embedded service is bound
+&nbsp;&nbsp;&#125; //  the definitions of all the embedded services
+&nbsp;&nbsp;communication_dependencies[0,1]: <a href='#CommunicationDependency'>CommunicationDependency</a> // 
+&#125;
+</pre>
+</details>
+<details>
+<summary><span id="GetNativeTypeFromStringRequest">GetNativeTypeFromStringRequest: 
+</span>
+</summary>
+
+##### Type Declaration
+<pre>
+void &#123;
+&nbsp;&nbsp;type_name[1,1]: string // 
+&#125;
+</pre>
+</details>
+<details>
+<summary><span id="GetNativeTypeStringListResponse">GetNativeTypeStringListResponse: 
+</span>
+</summary>
+
+##### Type Declaration
+<pre>
+void &#123;
+&nbsp;&nbsp;native_type[0,1]: string // 
+&#125;
+</pre>
+</details>
+<details>
+<summary><span id="GetOutputPortMetaDataResponse">GetOutputPortMetaDataResponse: 
+</span>
+</summary>
+
+##### Type Declaration
+<pre>
+void &#123;
+&nbsp;&nbsp;output[0,1]: <a href='#Port'>Port</a> //  the full description of each output port of the service definition
+&#125;
+</pre>
+</details>
+<details>
+<summary><span id="IntRefinedType">IntRefinedType: 
+</span>
+</summary>
+
+##### Type Declaration
+<pre>
+void &#123;
+&nbsp;&nbsp;ranges[1,1]: <a href='#RangeInt'>RangeInt</a> // 
+&#125;
+</pre>
+</details>
+<details>
+<summary><span id="Interface">Interface: 
+</span>
+</summary>
+
+##### Type Declaration
+<pre>
+void &#123;
+&nbsp;&nbsp;types[0,1]: <a href='#TypeDefinition'>TypeDefinition</a> // 
+&nbsp;&nbsp;operations[0,1]: <a href='#Operation'>Operation</a> // 
+&nbsp;&nbsp;documentation[0,1]: string // 
+&nbsp;&nbsp;name[1,1]: string // 
+&#125;
+</pre>
+</details>
+<details>
+<summary><span id="LongRefinedType">LongRefinedType: 
+</span>
+</summary>
+
+##### Type Declaration
+<pre>
+void &#123;
+&nbsp;&nbsp;ranges[1,1]: <a href='#RangeLong'>RangeLong</a> // 
+&#125;
+</pre>
+</details>
+<details>
+<summary><span id="MessageTypeCastRequest">MessageTypeCastRequest: 
+</span>
+</summary>
+
+##### Type Declaration
+<pre>
+void &#123;
+&nbsp;&nbsp;types[1,1]: void &#123;
+&nbsp;&nbsp;&nbsp;&nbsp;types[0,1]: <a href='#TypeDefinition'>TypeDefinition</a> //  list of all the required types
+&nbsp;&nbsp;&nbsp;&nbsp;messageTypeName[1,1]: string //  starting type to user for casting
+&nbsp;&nbsp;&#125; //  the types to use for casting the message
+&nbsp;&nbsp;message[1,1]: undefined //  the message to be cast
+&#125;
+</pre>
+</details>
+<details>
+<summary><span id="MessageTypeCastResponse">MessageTypeCastResponse: 
+</span>
+</summary>
+
+##### Type Declaration
+<pre>
+void &#123;
+&nbsp;&nbsp;message[1,1]: undefined //  casted message
+&#125;
+</pre>
+</details>
+<details>
+<summary><span id="NativeType">NativeType: 
+</span>
+</summary>
+
+##### Type Declaration
+<pre>
+void &#123;
+&nbsp;&nbsp;string_type[1,1]: bool &#123;
+&nbsp;&nbsp;&nbsp;&nbsp;refined_type[0,1]: <a href='#StringRefinedType'>StringRefinedType</a> // 
+&nbsp;&nbsp;&#125; // 
 &#125;
 |void &#123;
-&nbsp;&nbsp;code[1,1]: string // 
-&#125;
-
-</pre>
-</details>
-<details>
-<summary><span id="MaybeString">MaybeString: 
-</span>
-</summary>
-
-##### Type Declaration
-<pre>
-void
-|string
-
-</pre>
-</details>
-<details>
-<summary><span id="RuntimeExceptionType">RuntimeExceptionType: 
-</span>
-</summary>
-
-##### Type Declaration
-<pre>
-<a href='#JavaExceptionType'>JavaExceptionType</a>
-</pre>
-</details>
-<details>
-<summary><span id="SetMonitorRequest">SetMonitorRequest: 
-</span>
-</summary>
-
-##### Type Declaration
-<pre>
-void &#123;
-&nbsp;&nbsp;protocol[0,1]: string //  The protocol configuration for the monitor
-&nbsp;&nbsp;location[1,1]: any //  The location of the monitor
-&#125;
-</pre>
-</details>
-<details>
-<summary><span id="SetOutputPortRequest">SetOutputPortRequest: 
-</span>
-</summary>
-
-##### Type Declaration
-<pre>
-void &#123;
-&nbsp;&nbsp;protocol[0,1]: string //  The name of the protocol (e.g., sodep, http)
-&nbsp;&nbsp;name[1,1]: string //  The name of the output port
-&nbsp;&nbsp;location[1,1]: any //  The location of the output port
-&#125;
-</pre>
-</details>
-<details>
-<summary><span id="SetRedirectionRequest">SetRedirectionRequest: 
-</span>
-</summary>
-
-##### Type Declaration
-<pre>
-void &#123;
-&nbsp;&nbsp;inputPortName[1,1]: string //  The target input port
-&nbsp;&nbsp;outputPortName[1,1]: string //  The target output port
-&nbsp;&nbsp;resourceName[1,1]: string //  The target resource name
-&#125;
-</pre>
-</details>
-<details>
-<summary><span id="Stats">Stats:  Information on the interpreter execution so far
-</span>
-</summary>
-
-##### Type Declaration
-<pre>
-void &#123;
-&nbsp;&nbsp;memory[1,1]: void &#123;
-&nbsp;&nbsp;&nbsp;&nbsp;total[1,1]: long // 
-&nbsp;&nbsp;&nbsp;&nbsp;used[1,1]: long // 
-&nbsp;&nbsp;&nbsp;&nbsp;free[1,1]: long // 
+&nbsp;&nbsp;int_type[1,1]: bool &#123;
+&nbsp;&nbsp;&nbsp;&nbsp;refined_type[0,1]: <a href='#IntRefinedType'>IntRefinedType</a> // 
 &nbsp;&nbsp;&#125; // 
-&nbsp;&nbsp;os[1,1]: void &#123;
-&nbsp;&nbsp;&nbsp;&nbsp;availableProcessors[1,1]: int //  Number of available processors
-&nbsp;&nbsp;&nbsp;&nbsp;systemLoadAverage[1,1]: double //  System load average
-&nbsp;&nbsp;&nbsp;&nbsp;name[1,1]: string //  Name of the OS
-&nbsp;&nbsp;&nbsp;&nbsp;arch[1,1]: string //  Architecture
-&nbsp;&nbsp;&nbsp;&nbsp;version[1,1]: string //  OS version
-&nbsp;&nbsp;&#125; //  OS-related information
-&nbsp;&nbsp;files[1,1]: void &#123;
-&nbsp;&nbsp;&nbsp;&nbsp;openCount[0,1]: long //  Number of open files
-&nbsp;&nbsp;&nbsp;&nbsp;maxCount[0,1]: long //  Maximum number of open files allowed for this VM
-&nbsp;&nbsp;&#125; //  Information on file descriptors
+&#125;
+|void &#123;
+&nbsp;&nbsp;double_type[1,1]: bool &#123;
+&nbsp;&nbsp;&nbsp;&nbsp;refined_type[0,1]: <a href='#DoubleRefinedType'>DoubleRefinedType</a> // 
+&nbsp;&nbsp;&#125; // 
+&#125;
+|void &#123;
+&nbsp;&nbsp;any_type[1,1]: bool // 
+&#125;
+|void &#123;
+&nbsp;&nbsp;void_type[1,1]: bool // 
+&#125;
+|void &#123;
+&nbsp;&nbsp;raw_type[1,1]: bool // 
+&#125;
+|void &#123;
+&nbsp;&nbsp;bool_type[1,1]: bool // 
+&#125;
+|void &#123;
+&nbsp;&nbsp;long_type[1,1]: bool &#123;
+&nbsp;&nbsp;&nbsp;&nbsp;refined_type[0,1]: <a href='#LongRefinedType'>LongRefinedType</a> // 
+&nbsp;&nbsp;&#125; // 
+&#125;
+
+
+
+
+
+
+
+</pre>
+</details>
+<details>
+<summary><span id="NativeType">NativeType: 
+</span>
+</summary>
+
+##### Type Declaration
+<pre>
+<a href='#NativeType'>NativeType</a>
+</pre>
+</details>
+<details>
+<summary><span id="Operation">Operation: 
+</span>
+</summary>
+
+##### Type Declaration
+<pre>
+void &#123;
+&nbsp;&nbsp;operation_name[1,1]: string // 
+&nbsp;&nbsp;output[0,1]: string // 
+&nbsp;&nbsp;input[1,1]: string // 
+&nbsp;&nbsp;documentation[0,1]: string // 
+&nbsp;&nbsp;fault[0,1]: <a href='#Fault'>Fault</a> // 
+&#125;
+</pre>
+</details>
+<details>
+<summary><span id="ParserExceptionType">ParserExceptionType: 
+</span>
+</summary>
+
+##### Type Declaration
+<pre>
+void &#123;
+&nbsp;&nbsp;line[1,1]: int // 
+&nbsp;&nbsp;sourceName[1,1]: string // 
+&nbsp;&nbsp;message[1,1]: string // 
+&#125;
+</pre>
+</details>
+<details>
+<summary><span id="Port">Port: 
+</span>
+</summary>
+
+##### Type Declaration
+<pre>
+void &#123;
+&nbsp;&nbsp;protocol[1,1]: string // 
+&nbsp;&nbsp;interfaces[0,1]: <a href='#Interface'>Interface</a> // 
+&nbsp;&nbsp;name[1,1]: string // 
+&nbsp;&nbsp;location[1,1]: any // 
+&#125;
+</pre>
+</details>
+<details>
+<summary><span id="RangeDouble">RangeDouble: 
+</span>
+</summary>
+
+##### Type Declaration
+<pre>
+void &#123;
+&nbsp;&nbsp;min[1,1]: double // 
+&nbsp;&nbsp;max[0,1]: double // 
+&#125;
+|void &#123;
+&nbsp;&nbsp;min[1,1]: double // 
+&nbsp;&nbsp;infinite[1,1]: bool // 
+&#125;
+
+</pre>
+</details>
+<details>
+<summary><span id="RangeInt">RangeInt: 
+</span>
+</summary>
+
+##### Type Declaration
+<pre>
+void &#123;
+&nbsp;&nbsp;min[1,1]: int // 
+&nbsp;&nbsp;max[0,1]: int // 
+&#125;
+|void &#123;
+&nbsp;&nbsp;min[1,1]: int // 
+&nbsp;&nbsp;infinite[1,1]: bool // 
+&#125;
+
+</pre>
+</details>
+<details>
+<summary><span id="RangeLong">RangeLong: 
+</span>
+</summary>
+
+##### Type Declaration
+<pre>
+void &#123;
+&nbsp;&nbsp;min[1,1]: long // 
+&nbsp;&nbsp;max[0,1]: long // 
+&#125;
+|void &#123;
+&nbsp;&nbsp;min[1,1]: long // 
+&nbsp;&nbsp;infinite[1,1]: bool // 
+&#125;
+
+</pre>
+</details>
+<details>
+<summary><span id="SemanticExceptionType">SemanticExceptionType: 
+</span>
+</summary>
+
+##### Type Declaration
+<pre>
+void &#123;
+&nbsp;&nbsp;error[0,1]: void &#123;
+&nbsp;&nbsp;&nbsp;&nbsp;line[1,1]: int // 
+&nbsp;&nbsp;&nbsp;&nbsp;sourceName[1,1]: string // 
+&nbsp;&nbsp;&nbsp;&nbsp;message[1,1]: string // 
+&nbsp;&nbsp;&#125; // 
+&#125;
+</pre>
+</details>
+<details>
+<summary><span id="Service">Service: 
+</span>
+</summary>
+
+##### Type Declaration
+<pre>
+void &#123;
+&nbsp;&nbsp;output[0,1]: string // 
+&nbsp;&nbsp;input[0,1]: string // 
+&nbsp;&nbsp;name[1,1]: string // 
+&#125;
+</pre>
+</details>
+<details>
+<summary><span id="StringRefinedType">StringRefinedType: 
+</span>
+</summary>
+
+##### Type Declaration
+<pre>
+void &#123;
+&nbsp;&nbsp;length[1,1]: <a href='#RangeInt'>RangeInt</a> // 
+&#125;
+|void &#123;
+&nbsp;&nbsp;enum[1,1]: string // 
+&#125;
+|void &#123;
+&nbsp;&nbsp;regex[1,1]: string // 
+&#125;
+
+
+</pre>
+</details>
+<details>
+<summary><span id="SubType">SubType: 
+</span>
+</summary>
+
+##### Type Declaration
+<pre>
+void &#123;
+&nbsp;&nbsp;documentation[0,1]: string // 
+&nbsp;&nbsp;name[1,1]: string // 
+&nbsp;&nbsp;type[1,1]: <a href='#Type'>Type</a> // 
+&nbsp;&nbsp;cardinality[1,1]: <a href='#Cardinality'>Cardinality</a> // 
+&#125;
+</pre>
+</details>
+<details>
+<summary><span id="Type">Type: 
+</span>
+</summary>
+
+##### Type Declaration
+<pre>
+<a href='#TypeInLine'>TypeInLine</a>
+|<a href='#TypeLink'>TypeLink</a>
+|<a href='#TypeChoice'>TypeChoice</a>
+|<a href='#TypeUndefined'>TypeUndefined</a>
+
+
+
+</pre>
+</details>
+<details>
+<summary><span id="TypeChoice">TypeChoice: 
+</span>
+</summary>
+
+##### Type Declaration
+<pre>
+void &#123;
+&nbsp;&nbsp;choice[1,1]: void &#123;
+&nbsp;&nbsp;&nbsp;&nbsp;left_type[1,1]: <a href='#TypeInLine'>TypeInLine</a>
+|<a href='#TypeLink'>TypeLink</a>
+ // 
+&nbsp;&nbsp;&nbsp;&nbsp;right_type[1,1]: <a href='#Type'>Type</a> // 
+&nbsp;&nbsp;&#125; // 
+&#125;
+</pre>
+</details>
+<details>
+<summary><span id="TypeDefinition">TypeDefinition: 
+</span>
+</summary>
+
+##### Type Declaration
+<pre>
+void &#123;
+&nbsp;&nbsp;documentation[0,1]: string // 
+&nbsp;&nbsp;name[1,1]: string // 
+&nbsp;&nbsp;type[1,1]: <a href='#Type'>Type</a> // 
+&#125;
+</pre>
+</details>
+<details>
+<summary><span id="TypeInLine">TypeInLine: 
+</span>
+</summary>
+
+##### Type Declaration
+<pre>
+void &#123;
+&nbsp;&nbsp;root_type[1,1]: <a href='#NativeType'>NativeType</a> // 
+&nbsp;&nbsp;sub_type[0,1]: <a href='#SubType'>SubType</a> // 
+&#125;
+</pre>
+</details>
+<details>
+<summary><span id="TypeLink">TypeLink: 
+</span>
+</summary>
+
+##### Type Declaration
+<pre>
+void &#123;
+&nbsp;&nbsp;link_name[1,1]: string // 
+&#125;
+</pre>
+</details>
+<details>
+<summary><span id="TypeUndefined">TypeUndefined: 
+</span>
+</summary>
+
+##### Type Declaration
+<pre>
+void &#123;
+&nbsp;&nbsp;undefined[1,1]: bool // 
 &#125;
 </pre>
 </details>

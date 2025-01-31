@@ -2,36 +2,25 @@
 <!-- editorconfig-checker-disable -->
 <!-- cSpell:disable -->
 
-# Service MetaRenderCode
+# Service RenderResponseType
 
-> from metarender-code import MetaRenderCode
+> from joliemock import RenderResponseType
 
 | Port Name | Location | Protocol | Interfaces |
 | --- | --- | --- | --- |
-| MySelf | local | | <a href='#NativeCodeRenderInterface'>NativeCodeRenderInterface</a> |
+| RenderResponseType | local | | <a href='#RenderResponseTypeInterface'>RenderResponseTypeInterface</a> |
 
 ### List of Available Interfaces
 
-### NativeCodeRenderInterface
+### RenderResponseTypeInterface
 
 | Operation Name | Input Type | Output Type | Faults | Description |
 | --- | --- | --- | --- | --- |
-| getCardinality | <a href="#Cardinality">Cardinality</a> | <a href='#string'>string</a> | - |  |
-| getInputPort | <a href="#Port">Port</a> | <a href='#string'>string</a> | - |  |
-| getInterface | <a href="#Interface">Interface</a> | <a href='#string'>string</a> | - |  |
-| getInterfaceWIthoutTypeList | <a href="#Interface">Interface</a> | <a href='#string'>string</a> | - |  |
-| getNativeType | <a href="#NativeType">NativeType</a> | <a href='#string'>string</a> | - |  |
-| getOperation | <a href="#Operation">Operation</a> | <a href='#string'>string</a> | - |  |
-| getOutputPort | <a href="#Port">Port</a> | <a href='#string'>string</a> | - |  |
-| getSubType | <a href="#MetaRenderCodeSubType">MetaRenderCodeSubType</a> | <a href='#string'>string</a> | - |  |
-| getSurface | <a href="#Port">Port</a> | <a href='#string'>string</a> | - |  |
-| getSurfaceWithoutOutputPort | <a href="#Port">Port</a> | <a href='#string'>string</a> | - |  |
-| getType | <a href="#MetaRenderCodeType">MetaRenderCodeType</a> | <a href='#string'>string</a> | - |  |
-| getTypeChoice | <a href="#MetaRenderCodeTypeChoice">MetaRenderCodeTypeChoice</a> | <a href='#string'>string</a> | - |  |
-| getTypeDefinition | <a href="#TypeDefinition">TypeDefinition</a> | <a href='#string'>string</a> | - |  |
-| getTypeInLine | <a href="#MetaRenderCodeTypeInLine">MetaRenderCodeTypeInLine</a> | <a href='#string'>string</a> | - |  |
-| getTypeLink | <a href="#TypeLink">TypeLink</a> | <a href='#string'>string</a> | - |  |
-| getTypeUndefined | <a href="#TypeUndefined">TypeUndefined</a> | <a href='#string'>string</a> | - |  |
+| getNativeTypeRender | <a href="#GetNativeTypeRenderRequest">GetNativeTypeRenderRequest</a> | <a href='#string'>string</a> | - |  |
+| getSubTypeRender | <a href="#GetSubTypeRenderRequest">GetSubTypeRenderRequest</a> | <a href='#string'>string</a> | - |  |
+| getTypeDefinitionRender | <a href="#GetTypeDefinitionRenderRequest">GetTypeDefinitionRenderRequest</a> | <a href='#string'>string</a> | - |  |
+| getTypeLinkRender | <a href="#GetTypeLinkRenderRequest">GetTypeLinkRenderRequest</a> | <a href='#string'>string</a> | - |  |
+| getTypeRender | <a href="#GetTypeRenderRequest">GetTypeRenderRequest</a> | <a href='#string'>string</a> | - |  |
 
 
 ### Types
@@ -51,16 +40,6 @@ void &#123;
 </pre>
 </details>
 <details>
-<summary><span id="Cardinality">Cardinality: 
-</span>
-</summary>
-
-##### Type Declaration
-<pre>
-<a href='#Cardinality'>Cardinality</a>
-</pre>
-</details>
-<details>
 <summary><span id="DoubleRefinedType">DoubleRefinedType: 
 </span>
 </summary>
@@ -73,19 +52,75 @@ void &#123;
 </pre>
 </details>
 <details>
-<summary><span id="Fault">Fault: 
+<summary><span id="GetNativeTypeRenderRequest">GetNativeTypeRenderRequest: 
 </span>
 </summary>
 
 ##### Type Declaration
 <pre>
 void &#123;
-&nbsp;&nbsp;name[1,1]: string // 
-&nbsp;&nbsp;type[1,1]: <a href='#NativeType'>NativeType</a>
-|<a href='#TypeUndefined'>TypeUndefined</a>
-|<a href='#TypeLink'>TypeLink</a>
+&nbsp;&nbsp;native_type[1,1]: <a href='#NativeType'>NativeType</a> // 
+&nbsp;&nbsp;text[0,1]: string // 
+&#125;
+</pre>
+</details>
+<details>
+<summary><span id="GetSubTypeRenderRequest">GetSubTypeRenderRequest: 
+</span>
+</summary>
 
- // 
+##### Type Declaration
+<pre>
+void &#123;
+&nbsp;&nbsp;path[1,1]: string // 
+&nbsp;&nbsp;types[0,1]: <a href='#TypeDefinition'>TypeDefinition</a> // 
+&nbsp;&nbsp;sub_type[1,1]: <a href='#SubType'>SubType</a> // 
+&nbsp;&nbsp;vector_depth[1,1]: int // 
+&#125;
+</pre>
+</details>
+<details>
+<summary><span id="GetTypeDefinitionRenderRequest">GetTypeDefinitionRenderRequest: 
+</span>
+</summary>
+
+##### Type Declaration
+<pre>
+void &#123;
+&nbsp;&nbsp;path[1,1]: string // 
+&nbsp;&nbsp;types[0,1]: <a href='#TypeDefinition'>TypeDefinition</a> // 
+&nbsp;&nbsp;type_name[1,1]: string // 
+&nbsp;&nbsp;vector_depth[1,1]: int // 
+&#125;
+</pre>
+</details>
+<details>
+<summary><span id="GetTypeLinkRenderRequest">GetTypeLinkRenderRequest: 
+</span>
+</summary>
+
+##### Type Declaration
+<pre>
+void &#123;
+&nbsp;&nbsp;path[1,1]: string // 
+&nbsp;&nbsp;types[0,1]: <a href='#TypeDefinition'>TypeDefinition</a> // 
+&nbsp;&nbsp;type[1,1]: <a href='#TypeLink'>TypeLink</a> // 
+&nbsp;&nbsp;vector_depth[1,1]: int // 
+&#125;
+</pre>
+</details>
+<details>
+<summary><span id="GetTypeRenderRequest">GetTypeRenderRequest: 
+</span>
+</summary>
+
+##### Type Declaration
+<pre>
+void &#123;
+&nbsp;&nbsp;path[1,1]: string // 
+&nbsp;&nbsp;types[0,1]: <a href='#TypeDefinition'>TypeDefinition</a> // 
+&nbsp;&nbsp;type[1,1]: <a href='#Type'>Type</a> // 
+&nbsp;&nbsp;vector_depth[1,1]: int // 
 &#125;
 </pre>
 </details>
@@ -102,31 +137,6 @@ void &#123;
 </pre>
 </details>
 <details>
-<summary><span id="Interface">Interface: 
-</span>
-</summary>
-
-##### Type Declaration
-<pre>
-void &#123;
-&nbsp;&nbsp;types[0,1]: <a href='#TypeDefinition'>TypeDefinition</a> // 
-&nbsp;&nbsp;operations[0,1]: <a href='#Operation'>Operation</a> // 
-&nbsp;&nbsp;documentation[0,1]: string // 
-&nbsp;&nbsp;name[1,1]: string // 
-&#125;
-</pre>
-</details>
-<details>
-<summary><span id="Interface">Interface: 
-</span>
-</summary>
-
-##### Type Declaration
-<pre>
-<a href='#Interface'>Interface</a>
-</pre>
-</details>
-<details>
 <summary><span id="LongRefinedType">LongRefinedType: 
 </span>
 </summary>
@@ -135,58 +145,6 @@ void &#123;
 <pre>
 void &#123;
 &nbsp;&nbsp;ranges[1,1]: <a href='#RangeLong'>RangeLong</a> // 
-&#125;
-</pre>
-</details>
-<details>
-<summary><span id="MetaRenderCodeSubType">MetaRenderCodeSubType: 
-</span>
-</summary>
-
-##### Type Declaration
-<pre>
-void &#123;
-&nbsp;&nbsp;indentation[1,1]: string // 
-&nbsp;&nbsp;subType[1,1]: <a href='#SubType'>SubType</a> // 
-&#125;
-</pre>
-</details>
-<details>
-<summary><span id="MetaRenderCodeType">MetaRenderCodeType: 
-</span>
-</summary>
-
-##### Type Declaration
-<pre>
-void &#123;
-&nbsp;&nbsp;indentation[1,1]: string // 
-&nbsp;&nbsp;type[1,1]: <a href='#Type'>Type</a> // 
-&#125;
-</pre>
-</details>
-<details>
-<summary><span id="MetaRenderCodeTypeChoice">MetaRenderCodeTypeChoice: 
-</span>
-</summary>
-
-##### Type Declaration
-<pre>
-void &#123;
-&nbsp;&nbsp;typeChoice[1,1]: <a href='#TypeChoice'>TypeChoice</a> // 
-&nbsp;&nbsp;indentation[1,1]: string // 
-&#125;
-</pre>
-</details>
-<details>
-<summary><span id="MetaRenderCodeTypeInLine">MetaRenderCodeTypeInLine: 
-</span>
-</summary>
-
-##### Type Declaration
-<pre>
-void &#123;
-&nbsp;&nbsp;indentation[1,1]: string // 
-&nbsp;&nbsp;typeInLine[1,1]: <a href='#TypeInLine'>TypeInLine</a> // 
 &#125;
 </pre>
 </details>
@@ -236,67 +194,6 @@ void &#123;
 
 
 
-</pre>
-</details>
-<details>
-<summary><span id="NativeType">NativeType: 
-</span>
-</summary>
-
-##### Type Declaration
-<pre>
-<a href='#NativeType'>NativeType</a>
-</pre>
-</details>
-<details>
-<summary><span id="Operation">Operation: 
-</span>
-</summary>
-
-##### Type Declaration
-<pre>
-void &#123;
-&nbsp;&nbsp;operation_name[1,1]: string // 
-&nbsp;&nbsp;output[0,1]: string // 
-&nbsp;&nbsp;input[1,1]: string // 
-&nbsp;&nbsp;documentation[0,1]: string // 
-&nbsp;&nbsp;fault[0,1]: <a href='#Fault'>Fault</a> // 
-&#125;
-</pre>
-</details>
-<details>
-<summary><span id="Operation">Operation: 
-</span>
-</summary>
-
-##### Type Declaration
-<pre>
-<a href='#Operation'>Operation</a>
-</pre>
-</details>
-<details>
-<summary><span id="Port">Port: 
-</span>
-</summary>
-
-##### Type Declaration
-<pre>
-void &#123;
-&nbsp;&nbsp;protocol[1,1]: string // 
-&nbsp;&nbsp;interfaces[0,1]: <a href='#Interface'>Interface</a> // 
-&nbsp;&nbsp;name[1,1]: string // 
-&nbsp;&nbsp;location[1,1]: any // 
-&#125;
-</pre>
-</details>
-<details>
-<summary><span id="Port">Port: 
-</span>
-</summary>
-
-##### Type Declaration
-<pre>
-<a href='#Port'>Port</a>
 </pre>
 </details>
 <details>
@@ -436,16 +333,6 @@ void &#123;
 </pre>
 </details>
 <details>
-<summary><span id="TypeDefinition">TypeDefinition: 
-</span>
-</summary>
-
-##### Type Declaration
-<pre>
-<a href='#TypeDefinition'>TypeDefinition</a>
-</pre>
-</details>
-<details>
 <summary><span id="TypeInLine">TypeInLine: 
 </span>
 </summary>
@@ -471,16 +358,6 @@ void &#123;
 </pre>
 </details>
 <details>
-<summary><span id="TypeLink">TypeLink: 
-</span>
-</summary>
-
-##### Type Declaration
-<pre>
-<a href='#TypeLink'>TypeLink</a>
-</pre>
-</details>
-<details>
 <summary><span id="TypeUndefined">TypeUndefined: 
 </span>
 </summary>
@@ -490,15 +367,5 @@ void &#123;
 void &#123;
 &nbsp;&nbsp;undefined[1,1]: bool // 
 &#125;
-</pre>
-</details>
-<details>
-<summary><span id="TypeUndefined">TypeUndefined: 
-</span>
-</summary>
-
-##### Type Declaration
-<pre>
-<a href='#TypeUndefined'>TypeUndefined</a>
 </pre>
 </details>
