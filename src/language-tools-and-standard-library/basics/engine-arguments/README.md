@@ -11,7 +11,7 @@ Available options:
                                         (under Windows use quotes or double-quotes, e.g., -C "ConstantIdentifier=ConstantValue" )
     --connlimit [number]              Set the maximum number of active connection threads
     --conncache [number]              Set the maximum number of cached persistent output connections
-    --responseTimeout [number]          Set the timeout for request-response invocations (in milliseconds)
+    --responseTimeout [number]          Set the timeout for request-response invocations (in milliseconds, default 1 min = 60*1000)
     --correlationAlgorithm [simple|hash] Set the algorithm to use for message correlation
     --log [severe|warning|info|fine]  Set the logging level (default: info)
     --stackTraces                      Activate the printing of Java stack traces (default: false)
