@@ -116,7 +116,7 @@ service MyService {
 
 ### Solicit-Response timeout
 
-It is possible to set the response timeout of a solicit-response by specifying the engine argument `responseTimeout` when running Jolie. Details can be found at page [Basics/Engine Argument](../engine-arguments/README.md).
+It is possible to increase the response timeout (1 min) of a solicit-response by specifying the engine argument `responseTimeout` when running Jolie. More details can be found at page [Basics/Engine Argument](../engine-arguments/README.md).
 
 ## Example
 
