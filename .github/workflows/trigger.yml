@@ -1,7 +1,9 @@
+name: "Trigger"
+
 on:
   push:
     branches:
-      - v1.11.x
+      - v1.12.x
 jobs:
   docker_build_and_push:
     runs-on: ubuntu-latest
@@ -14,4 +16,4 @@ jobs:
       - run: git branch
       - run: git config --global user.email "gitaction@gitaction.com"
       - run: git config --global user.name "GitAction"
-      - run: git commit --allow-empty  -m "Triggered by v1.11.x" | git push
+      - run: git commit --allow-empty  -m "Triggered by v1.12.x" | git push

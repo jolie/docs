@@ -18,6 +18,8 @@
         - [Using files](tutorials/standard-library/files/README.md)
             - [JSON files](tutorials/standard-library/files/json/README.md)
             - [XML files](tutorials/standard-library/files/xml/README.md)
+            - [Building a File Uploader Service](tutorials/file-uploader/README.md)
+        - [Scheduler](tutorials/standard-library/scheduler/README.md)
     - [Integration Scenarios](tutorials/twitter-api/README.md)
         - [Twitter API](tutorials/twitter-api/README.md)
     - [Advanced Scenarios](tutorials/advanced-scenarios/supporting-new-protocols-in-jolie/README.md)
