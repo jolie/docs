@@ -34,7 +34,8 @@ RequestResponse:
     listUsers( ListUsersRequest )( ListUsersResponse ),
     viewUser( UserRequest )( User ) throws UserNotFound( string ),
     updateUser( UserWithUsername )( void ) throws UserNotFound( string ),
-    deleteUser( UserRequest )( void ) throws UserNotFound( string )
+    deleteUser( UserRequest )( void ) throws UserNotFound( string ),
+    default( undefined )( string )
 }
 
 service App {
@@ -74,6 +75,7 @@ service App {
                     statusCodes.UserNotFound = 404
                 }
             }
+            default = "default"
         }
         interfaces: UsersInterface
     }
@@ -134,6 +136,8 @@ service App {
                 throw( UserNotFound, request.username )
             }
         } ]
+
+        [ default( )( "API listens under /api/user/..." ) ]
     }
 }
 ```
@@ -143,6 +147,8 @@ For example, operation `viewUser` is configured to use:
 
 - `/api/user` as URI template, by `template = "/api/user"`. See the [official RFC on URI templates](https://www.rfc-editor.org/rfc/rfc6570) for more information about them.
 - GET as HTTP method, by `method = "get"`.
+
+The `default` operation (optional) gets called when no operation matches to avoid getting HTTP 500 status codes.
 
 ## Adding a router
 
