@@ -256,7 +256,7 @@ courier Aggregator {
         forward( request )( response )
     }
 
-        [ interface PrinterInterface( request ) ] {
+    [ interface PrinterInterface( request ) ] {
         valueToPrettyString@StringUtils( request )( s );
         log@Logger( { .content = s }    );
             checkKey@Authenticator( { .key = request.key } )();
