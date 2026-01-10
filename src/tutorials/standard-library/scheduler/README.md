@@ -6,7 +6,7 @@ Before showing the example, leu us show the target architecture.
 ![scheduler.png](scheduler.png)
 
 The test service embeds `Scheduler` imported from package `scheduler`.
-THe Scheduler Service can be programmed by setting the OneWay operation wbere receiving the alarms when they are triggered by the jobs. The jobs can be added and deleted easily, by using the API offered by the Scheduler Service.
+THe Scheduler Service can be programmed by setting the OneWay operation where receiving the alarms when they are triggered by the jobs. The jobs can be added and deleted easily, by using the API offered by the Scheduler Service.
 
 In the following example we report the code. Juts run it with the following command:
 ```
