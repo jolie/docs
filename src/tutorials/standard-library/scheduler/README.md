@@ -26,7 +26,7 @@ type SchedulerCallBackRequest: void {
 
 interface SchedulerCallBackInterface {
 OneWay:
-  schedulerCallback( SchedulerCallBackRequest )     // definition of the call-back operation
+    schedulerCallback( SchedulerCallBackRequest )     // definition of the call-back operation
 }
 
 service Test {
