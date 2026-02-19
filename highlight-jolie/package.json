@@ -20,6 +20,6 @@
     "highlightjs-jolie": "^0.1.8"
   },
   "devDependencies": {
-    "parcel": "^2.8.0"
+    "parcel": "^2.8.1"
   }
 }
