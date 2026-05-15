@@ -12,7 +12,7 @@ RUN npm install
 RUN npm run build
 
 # build mdbook
-FROM nginx:1.27.1-alpine
+FROM nginx:1.31.0-alpine
 
 SHELL [ "/bin/sh", "-exc" ]
 
